@@ -1,0 +1,467 @@
+{
+  "case_id": "case_0063",
+  "pmcid": "PMC7482445",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC7482445",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 8,
+    "termination": "final",
+    "known_final_diagnosis": "ACE inhibitor-induced angioedema with concomitant COVID-19 infection",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E003",
+      "E006",
+      "E007"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "physical examination findings focusing on the oral cavity, pharynx, and respiratory status",
+          "current_trajectory_hypothesis": "Patient presenting with acute tongue swelling and shortness of breath, potentially due to ACE inhibitor-induced angioedema, requiring assessment of airway compromise.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "objective assessment of tongue swelling and airway patency",
+            "respiratory distress signs",
+            "other signs of angioedema"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "On examination, the patient was afebrile and normotensive, with an oxygen saturation of 96% on room air. There was pronounced oedema involving the lingual mucosa and subcutaneous tissues of the perioral area without pain or pruritus. Cardiac auscultation revealed tachycardia without any pathological murmurs. Auscultation of the lungs revealed decreased breath sounds bilaterally with inspiratory effort, but no wheezing or crepitations. No jugular venous distention or lower limb swelling was appreciated. No urticarial eruption was noted throughout.",
+          "category": "molecular_test",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "chest X-ray",
+          "current_trajectory_hypothesis": "Patient presents with angioedema, likely ACE inhibitor-induced, given lingual and perioral edema and benazepril use. Respiratory symptoms (shortness of breath, decreased breath sounds) need further investigation, potentially related to the concomitant COVID-19 diagnosis.",
+          "confirmed_evidence": [
+            "pronounced lingual and perioral edema",
+            "shortness of breath",
+            "difficulty speaking",
+            "decreased breath sounds bilaterally with inspiratory effort",
+            "tachycardia",
+            "no urticaria or pruritus",
+            "on benazepril for 4 months"
+          ],
+          "missing_key_evidence": [
+            "objective assessment of respiratory status and lung pathology",
+            "evidence for COVID-19 infection",
+            "confirmation of angioedema etiology"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "Chest X-ray test ordered; no result reported yet in source",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "SARS-CoV-2 PCR test",
+          "current_trajectory_hypothesis": "Patient presents with acute angioedema, likely ACE inhibitor-induced, given lingual and perioral edema and benazepril use. Respiratory symptoms (shortness of breath, decreased breath sounds) could be related to angioedema or a concomitant COVID-19 infection, which needs to be confirmed.",
+          "confirmed_evidence": [
+            "pronounced lingual and perioral edema",
+            "shortness of breath",
+            "difficulty speaking",
+            "decreased breath sounds bilaterally with inspiratory effort",
+            "tachycardia",
+            "no urticaria or pruritus",
+            "on benazepril for 4 months",
+            "afebrile and normotensive with O2 sat 96% on room air"
+          ],
+          "missing_key_evidence": [
+            "objective assessment of lung pathology (CXR result pending)",
+            "evidence for COVID-19 infection",
+            "confirmation of angioedema etiology (e.g., response to ACEi discontinuation)",
+            "airway management/intervention for angioedema"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "Order acknowledged; SARS-CoV-2 PCR test ordered, awaiting documentation of result.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "SARS-CoV-2 PCR test result",
+          "current_trajectory_hypothesis": "Patient presents with acute angioedema, likely ACE inhibitor-induced, given lingual and perioral edema and benazepril use. Respiratory symptoms (shortness of breath, decreased breath sounds) could be related to angioedema or a concomitant COVID-19 infection. Awaiting confirmation of COVID-19.",
+          "confirmed_evidence": [
+            "pronounced lingual and perioral edema",
+            "shortness of breath",
+            "difficulty speaking",
+            "decreased breath sounds bilaterally with inspiratory effort",
+            "tachycardia",
+            "no urticaria or pruritus",
+            "on benazepril for 4 months",
+            "afebrile and normotensive with O2 sat 96% on room air"
+          ],
+          "missing_key_evidence": [
+            "SARS-CoV-2 PCR test result",
+            "chest X-ray result",
+            "confirmation of angioedema etiology (e.g., response to ACEi discontinuation/treatment)",
+            "airway management/intervention for angioedema"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E007",
+          "source_text": "Soon after discharge, the patient’s PCR result for COVID-19 returned positive.",
+          "category": "other",
+          "temporal_cue": "within 24 hours and soon after discharge",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "chest X-ray report",
+          "current_trajectory_hypothesis": "Patient presents with acute angioedema, likely ACE inhibitor-induced, given lingual and perioral edema and benazepril use. Respiratory symptoms (shortness of breath, decreased breath sounds) could be related to angioedema or a concomitant COVID-19 infection. The COVID-19 PCR was positive, but reported after discharge, so it was not part of the initial presentation or workup. The chest X-ray was ordered earlier and its result is still pending.",
+          "confirmed_evidence": [
+            "pronounced lingual and perioral edema",
+            "shortness of breath",
+            "difficulty speaking",
+            "decreased breath sounds bilaterally with inspiratory effort",
+            "tachycardia",
+            "no urticaria or pruritus",
+            "on benazepril for 4 months",
+            "afebrile and normotensive with O2 sat 96% on room air",
+            "SARS-CoV-2 PCR positive (result received after discharge)"
+          ],
+          "missing_key_evidence": [
+            "chest X-ray result",
+            "confirmation of angioedema etiology (e.g., response to ACEi discontinuation/treatment)",
+            "airway management/intervention for angioedema",
+            "clinical course during hospitalization"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "Chest X-ray showed bilateral infiltrates in lung bases (figure 1)",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with acute angioedema, likely ACE inhibitor-induced, given lingual and perioral edema and benazepril use. Respiratory symptoms (shortness of breath, decreased breath sounds, bilateral infiltrates on CXR) and a later positive COVID-19 PCR suggest a concomitant infection. I need to understand the immediate management of the angioedema and the patient's clinical progression.",
+          "confirmed_evidence": [
+            "pronounced lingual and perioral edema",
+            "shortness of breath",
+            "difficulty speaking",
+            "decreased breath sounds bilaterally with inspiratory effort",
+            "tachycardia",
+            "no urticaria or pruritus",
+            "on benazepril for 4 months",
+            "afebrile and normotensive with O2 sat 96% on room air",
+            "SARS-CoV-2 PCR positive (result received after discharge)",
+            "chest X-ray showed bilateral infiltrates in lung bases"
+          ],
+          "missing_key_evidence": [
+            "airway management/intervention for angioedema",
+            "treatment for angioedema and patient's response",
+            "discontinuation of benazepril",
+            "clinical course during hospitalization related to both angioedema and respiratory symptoms"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "In the emergency department, the patient’s clinical presentation improved over 3 hours once tranexamic acid was given. Although the patient was able to talk, his voice was hoarse, and the decision was then made to admit the patient for airway monitoring. Intravenous diphenhydramine and famotidine were given, and benazepril was withheld.",
+          "category": "treatment_response",
+          "temporal_cue": "in the emergency department",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with acute ACE inhibitor-induced angioedema, which improved with tranexamic acid and discontinuation of benazepril. Concomitant COVID-19 infection is suggested by bilateral infiltrates on CXR and a positive PCR. I need to understand the full hospital course, including the resolution of angioedema and the progression/management of the respiratory symptoms related to COVID-19.",
+          "confirmed_evidence": [
+            "pronounced lingual and perioral edema",
+            "shortness of breath",
+            "difficulty speaking",
+            "decreased breath sounds bilaterally with inspiratory effort",
+            "tachycardia",
+            "no urticaria or pruritus",
+            "on benazepril for 4 months",
+            "afebrile and normotensive with O2 sat 96% on room air",
+            "SARS-CoV-2 PCR positive (result received after discharge)",
+            "chest X-ray showed bilateral infiltrates in lung bases",
+            "clinical presentation improved over 3 hours with tranexamic acid",
+            "benazepril was withheld",
+            "intravenous diphenhydramine and famotidine were given",
+            "admitted for airway monitoring"
+          ],
+          "missing_key_evidence": [
+            "detailed clinical course during hospitalization",
+            "specific resolution of angioedema",
+            "management and progression of respiratory symptoms related to COVID-19",
+            "patient's outcome and discharge details"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No pending results and no further undisclosed clinical trajectory updates after current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "ACE inhibitor-induced angioedema with concomitant COVID-19 infection",
+          "trajectory_summary": "A 57-year-old man on benazepril for 4 months presented with worsening tongue swelling, difficulty speaking, and shortness of breath. Physical examination revealed pronounced lingual and perioral edema, tachycardia, and decreased breath sounds bilaterally. There was no urticaria, pain, or pruritus. Initial management included withholding benazepril, and administering tranexamic acid, diphenhydramine, and famotidine, leading to clinical improvement of the angioedema within 3 hours. He was admitted for airway monitoring. A chest X-ray showed bilateral infiltrates in lung bases, and a SARS-CoV-2 PCR test later returned positive, confirming a concomitant COVID-19 infection.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient was taking benazepril, an ACE inhibitor, for approximately 4 months prior to presentation.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Patient presented with worsening swelling of the tongue, difficulty in speaking, and shortness of breath.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Physical examination revealed pronounced oedema involving the lingual mucosa and subcutaneous tissues of the perioral area.",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "No pain, pruritus, or urticarial eruption was noted, consistent with bradykinin-mediated angioedema.",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Benazepril was withheld, and the patient's clinical presentation improved over 3 hours after administration of tranexamic acid.",
+              "evidence_ids": [
+                "E006"
+              ]
+            },
+            {
+              "claim": "A SARS-CoV-2 PCR test returned positive.",
+              "evidence_ids": [
+                "E007"
+              ]
+            },
+            {
+              "claim": "Chest X-ray showed bilateral infiltrates in lung bases.",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Auscultation of the lungs revealed decreased breath sounds bilaterally with inspiratory effort.",
+              "evidence_ids": [
+                "E001"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Histamine-mediated angioedema (e.g., allergic reaction)",
+              "basis": "Absence of pain, pruritus, or urticarial eruption (E001). Patient denied allergies or eating anything outside his regular diet (initial_presentation)."
+            },
+            {
+              "alternative": "Hereditary or acquired C1-inhibitor deficiency angioedema",
+              "basis": "Patient had no personal or family history of facial or tongue swelling (initial_presentation), suggesting an acquired cause related to medication."
+            }
+          ],
+          "remaining_uncertainties": [
+            "Detailed clinical course during hospitalization beyond initial improvement",
+            "Specific resolution of angioedema beyond initial improvement",
+            "Progression and management of respiratory symptoms related to COVID-19 during hospitalization",
+            "Patient's full outcome and discharge details"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "ACE inhibitor-induced angioedema with concomitant COVID-19 infection",
+      "trajectory_summary": "A 57-year-old man on benazepril for 4 months presented with worsening tongue swelling, difficulty speaking, and shortness of breath. Physical examination revealed pronounced lingual and perioral edema, tachycardia, and decreased breath sounds bilaterally. There was no urticaria, pain, or pruritus. Initial management included withholding benazepril, and administering tranexamic acid, diphenhydramine, and famotidine, leading to clinical improvement of the angioedema within 3 hours. He was admitted for airway monitoring. A chest X-ray showed bilateral infiltrates in lung bases, and a SARS-CoV-2 PCR test later returned positive, confirming a concomitant COVID-19 infection.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient was taking benazepril, an ACE inhibitor, for approximately 4 months prior to presentation.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Patient presented with worsening swelling of the tongue, difficulty in speaking, and shortness of breath.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Physical examination revealed pronounced oedema involving the lingual mucosa and subcutaneous tissues of the perioral area.",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "No pain, pruritus, or urticarial eruption was noted, consistent with bradykinin-mediated angioedema.",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Benazepril was withheld, and the patient's clinical presentation improved over 3 hours after administration of tranexamic acid.",
+          "evidence_ids": [
+            "E006"
+          ]
+        },
+        {
+          "claim": "A SARS-CoV-2 PCR test returned positive.",
+          "evidence_ids": [
+            "E007"
+          ]
+        },
+        {
+          "claim": "Chest X-ray showed bilateral infiltrates in lung bases.",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Auscultation of the lungs revealed decreased breath sounds bilaterally with inspiratory effort.",
+          "evidence_ids": [
+            "E001"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Histamine-mediated angioedema (e.g., allergic reaction)",
+          "basis": "Absence of pain, pruritus, or urticarial eruption (E001). Patient denied allergies or eating anything outside his regular diet (initial_presentation)."
+        },
+        {
+          "alternative": "Hereditary or acquired C1-inhibitor deficiency angioedema",
+          "basis": "Patient had no personal or family history of facial or tongue swelling (initial_presentation), suggesting an acquired cause related to medication."
+        }
+      ],
+      "remaining_uncertainties": [
+        "Detailed clinical course during hospitalization beyond initial improvement",
+        "Specific resolution of angioedema beyond initial improvement",
+        "Progression and management of respiratory symptoms related to COVID-19 during hospitalization",
+        "Patient's full outcome and discharge details"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.9
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T20:51:09.711195+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC7482445",
+    "known_final_diagnosis": "ACE inhibitor-induced angioedema with concomitant COVID-19 infection",
+    "turns_used": 8,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 8,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 2,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 2,
+      "REQUEST_EXAM": 1,
+      "REQUEST_RESULT": 2,
+      "WAIT_REASSESS": 2
+    },
+    "report_status_counts": {
+      "found": 4,
+      "no_new_update": 1,
+      "ordered_but_not_documented": 2
+    },
+    "report_repair_attempted_count": 0,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {},
+    "answer_yield": 0.5714285714285714,
+    "unavailable_turn_rate": 0.42857142857142855,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T20:51:09.713796+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC7482445",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/emergencymed/episodes/PMC7482445.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/emergencymed/cases/PMC7482445.json",
+    "num_gold_steps": "4",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.5",
+    "weighted_tversky_distance": "0.5",
+    "matched_weight": "2.5",
+    "missed_weight": "1.5",
+    "extra_weight": "0.5",
+    "weighted_lcs_recall": "0.375",
+    "weighted_lcs_weight": "1.5",
+    "weighted_pairwise_order_accuracy": "0.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "1",
+    "gold_sequence": "lab_tests > imaging > admission_or_clinical_course > medication_or_treatment",
+    "prediction_sequence": "physical_examination > imaging > lab_tests",
+    "error": ""
+  }
+}

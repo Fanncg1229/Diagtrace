@@ -1,0 +1,613 @@
+{
+  "case_id": "case_0114",
+  "pmcid": "PMC5994130",
+  "model": "claude_haiku_4_5",
+  "episode": {
+    "case_id": "PMC5994130",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 9,
+    "termination": "final",
+    "known_final_diagnosis": "Because of thrombosis of vasculature in more than three organs within a short period of time, the diagnosis of catastrophic antiphospholipid syndrome was made.",
+    "disclosed_evidence_ids": [
+      "E002",
+      "E003",
+      "E006",
+      "E007",
+      "E009",
+      "E012"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the complete laboratory results from the initial presentation, specifically: serum creatinine and urea values, platelet count, hemoglobin/hematocrit, white blood cell count, APTT, D-dimer level, and any coagulation studies confirming the thrombotic state.",
+          "current_trajectory_hypothesis": "35-year-old woman with known APS presenting with rapidly progressive renal insufficiency, dyspnea, and peripheral edema. Prior history of autoimmune hemolytic anemia, recurrent miscarriages, and documented APS with positive lupus anticoagulant and anti-β2 glycoprotein-1 antibodies. Recent fetal death followed by acute multi-organ thrombotic complications (venous thrombosis, arterial thrombosis, stroke, pleural effusion) suggesting catastrophic APS (CAPS).",
+          "confirmed_evidence": [
+            "Known APS diagnosis with positive lupus anticoagulant, anti-β2 glycoprotein-1 antibodies (IgG), and anticardiolipin antibodies (IgM and IgG)",
+            "Recent fetal death and subsequent clinical deterioration",
+            "Multi-organ involvement: venous thrombosis, arterial thrombosis, stroke, pleural effusion, renal insufficiency",
+            "Presenting symptoms consistent with acute thrombotic microangiopathy: dyspnea, edema, oliguria, blurred vision"
+          ],
+          "missing_key_evidence": [
+            "Specific organ thrombosis documentation (imaging or clinical confirmation of at least 3 organs)",
+            "Temporal sequence of thrombotic events",
+            "Renal pathology or imaging findings (acute kidney injury mechanism)",
+            "Hemolytic anemia markers (LDH, bilirubin, reticulocyte count, schistocytes)",
+            "Treatment initiated and response to anticoagulation/immunosuppression"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan.",
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "Please provide the temporal sequence of thrombotic events: When did the fetal death occur? When did the patient first develop symptoms of thrombosis (dyspnea, edema, oliguria, blurred vision)? What was the timeline of diagnosis for venous thrombosis, arterial thrombosis, stroke, and pleural effusion relative to the fetal death?",
+          "current_trajectory_hypothesis": "35-year-old woman with known APS (positive lupus anticoagulant, anti-β2 glycoprotein-1 IgG, anticardiolipin IgM/IgG) presenting with rapidly progressive renal insufficiency and multi-organ thrombosis. Recent fetal death appears to be a triggering event for acute thrombotic cascade affecting at least 4 organ systems (renal, venous, arterial/CNS, pulmonary), consistent with catastrophic APS (CAPS) diagnosis.",
+          "confirmed_evidence": [
+            "Known APS diagnosis with documented positive serology (lupus anticoagulant, anti-β2 glycoprotein-1 IgG, anticardiolipin IgM/IgG)",
+            "History of autoimmune hemolytic anemia and recurrent miscarriages (2 prior)",
+            "Recent fetal death",
+            "Multi-organ thrombotic involvement documented: venous thrombosis, arterial thrombosis, stroke, pleural effusion, acute renal insufficiency",
+            "Presenting symptoms: dyspnea, peripheral edema, oliguria, blurred vision"
+          ],
+          "missing_key_evidence": [
+            "Temporal sequence of thrombotic events relative to fetal death",
+            "Specific anatomic documentation of each thrombosis (imaging reports)",
+            "Laboratory confirmation of acute kidney injury (creatinine, urea values)",
+            "Evidence of microangiopathic hemolytic anemia (schistocytes, LDH, bilirubin)",
+            "Platelet count trend and degree of thrombocytopenia",
+            "Treatment initiated (anticoagulation, plasma exchange, immunosuppression) and response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "Despite this treatment, in 22 hbd ultrasound no heart function of the morphological normal fetus was revealed. After the dead fetus was delivered, there appeared edema of the legs, a reduction in the amount of urine and blurred vision. Ultrasounds with power Doppler of the lower limbs revealed deep vein thrombosis. The ophthalmic examination revealed the right central retinal artery thrombosis. The computer tomography (CT) scan of the head presented an ischemic stroke in the right temporal lobe. The CT scan of the chest only revealed a high amount of fluid in both pleural cavities without any abnormalities in the pulmonary veins or arteries.",
+          "category": "imaging_report",
+          "temporal_cue": "before admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the laboratory results from the initial presentation including: serum creatinine and urea values, platelet count, hemoglobin/hematocrit, white blood cell count, APTT, D-dimer level, LDH, bilirubin, reticulocyte count, and peripheral blood smear findings (presence of schistocytes).",
+          "current_trajectory_hypothesis": "35-year-old woman with known APS (positive lupus anticoagulant, anti-β2 glycoprotein-1 IgG, anticardiolipin IgM/IgG) who experienced fetal death at 22 weeks. Within days of fetal delivery, she developed acute multi-organ thrombosis: deep vein thrombosis (lower limbs), right central retinal artery thrombosis, ischemic stroke (right temporal lobe), and bilateral pleural effusions. This rapid sequential thrombosis of ≥3 organ systems in the setting of known APS is consistent with catastrophic APS (CAPS). Laboratory confirmation of acute kidney injury, thrombocytopenia, and microangiopathic hemolytic anemia would support the diagnosis.",
+          "confirmed_evidence": [
+            "Known APS diagnosis with documented positive serology (lupus anticoagulant, anti-β2 glycoprotein-1 IgG, anticardiolipin IgM/IgG)",
+            "History of autoimmune hemolytic anemia and recurrent miscarriages (2 prior)",
+            "Fetal death at 22 weeks gestation despite APS treatment",
+            "Post-fetal delivery: acute onset edema of legs, oliguria, blurred vision",
+            "Deep vein thrombosis of lower limbs (confirmed by ultrasound with power Doppler)",
+            "Right central retinal artery thrombosis (confirmed by ophthalmic examination)",
+            "Ischemic stroke in right temporal lobe (confirmed by CT head)",
+            "Bilateral pleural effusions (confirmed by CT chest)",
+            "Rapidly progressive renal insufficiency (clinical presentation)"
+          ],
+          "missing_key_evidence": [
+            "Specific serum creatinine and urea values documenting degree of renal insufficiency",
+            "Platelet count and trend (thrombocytopenia is part of CAPS criteria)",
+            "Hemoglobin/hematocrit and evidence of microangiopathic hemolytic anemia (schistocytes, elevated LDH, elevated bilirubin)",
+            "Coagulation studies confirming prolonged APTT and elevated D-dimer",
+            "Treatment initiated (anticoagulation intensity, plasma exchange, corticosteroids) and clinical response",
+            "Confirmation that thrombosis occurred in ≥3 organ systems within short timeframe (meets CAPS definition)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan.",
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the laboratory results from admission or initial presentation: serum creatinine, serum urea, platelet count, hemoglobin, white blood cell count, APTT, and D-dimer level.",
+          "current_trajectory_hypothesis": "35-year-old woman with known APS (positive lupus anticoagulant, anti-β2 glycoprotein-1 IgG, anticardiolipin IgM/IgG) who experienced fetal death at 22 weeks gestation. Within days of fetal delivery, she developed acute multi-organ thrombosis: deep vein thrombosis (lower limbs), right central retinal artery thrombosis, ischemic stroke (right temporal lobe), and bilateral pleural effusions. This rapid sequential thrombosis of ≥3 organ systems in the setting of known APS meets criteria for catastrophic APS (CAPS). Laboratory abnormalities including anemia, thrombocytopenia, leukocytosis, prolonged APTT, elevated D-dimer, and elevated creatinine/urea are documented in the initial summary and need to be retrieved to complete the trajectory.",
+          "confirmed_evidence": [
+            "Known APS diagnosis with documented positive serology (lupus anticoagulant, anti-β2 glycoprotein-1 IgG, anticardiolipin IgM/IgG)",
+            "History of autoimmune hemolytic anemia and recurrent miscarriages (2 prior)",
+            "Fetal death at 22 weeks gestation despite APS treatment with heparin and acetylsalicylic acid",
+            "Post-fetal delivery: acute onset edema of legs, oliguria, blurred vision",
+            "Deep vein thrombosis of lower limbs (confirmed by ultrasound with power Doppler)",
+            "Right central retinal artery thrombosis (confirmed by ophthalmic examination)",
+            "Ischemic stroke in right temporal lobe (confirmed by CT head)",
+            "Bilateral pleural effusions (confirmed by CT chest)",
+            "Rapidly progressive renal insufficiency (clinical presentation at admission)"
+          ],
+          "missing_key_evidence": [
+            "Specific serum creatinine and urea values documenting degree of acute kidney injury",
+            "Platelet count confirming thrombocytopenia",
+            "Hemoglobin/hematocrit values confirming anemia",
+            "White blood cell count confirming leukocytosis",
+            "APTT and D-dimer values confirming coagulopathy and thrombotic state",
+            "Treatment initiated (anticoagulation, plasma exchange, immunosuppression) and clinical response",
+            "Renal imaging or biopsy findings (if available) documenting thrombotic microangiopathy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.78
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "The clinical symptoms were accompanied by the following laboratory abnormalities: anaemia (Hgb - 7 g/dl), thrombocytopenia 134 G/l, leucocytosis (WBC) 14.36 G/l, elongate activated partial thromboplastin time (APTT) 69.7 s (reference range 23–35 s), elevated D-dimer level (4.33 μg/ml, reference range 0–0.5), elevated serum creatinine (4.8 mg/dl) and urea (79 mg/dl) levels.",
+          "category": "routine_lab",
+          "temporal_cue": "before admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide renal imaging findings (ultrasound, CT, or MRI of kidneys) or renal biopsy pathology report if available, documenting the mechanism of acute kidney injury and confirming thrombotic microangiopathy consistent with catastrophic APS.",
+          "current_trajectory_hypothesis": "35-year-old woman with known APS (positive lupus anticoagulant, anti-β2 glycoprotein-1 IgG, anticardiolipin IgM/IgG) who experienced fetal death at 22 weeks gestation. Within days of fetal delivery, she developed acute multi-organ thrombosis affecting ≥4 organ systems: (1) venous system (deep vein thrombosis lower limbs), (2) arterial system (right central retinal artery thrombosis), (3) CNS (ischemic stroke right temporal lobe), (4) pulmonary (bilateral pleural effusions), and (5) renal (acute kidney injury with creatinine 4.8 mg/dl, urea 79 mg/dl). Laboratory findings show anemia (Hgb 7 g/dl), thrombocytopenia (134 G/l), leukocytosis (WBC 14.36 G/l), prolonged APTT (69.7 s), and elevated D-dimer (4.33 μg/ml). This rapid sequential thrombosis of multiple organ systems in the setting of known APS meets criteria for catastrophic APS (CAPS).",
+          "confirmed_evidence": [
+            "Known APS diagnosis with documented positive serology (lupus anticoagulant, anti-β2 glycoprotein-1 IgG, anticardiolipin IgM/IgG)",
+            "History of autoimmune hemolytic anemia and recurrent miscarriages (2 prior)",
+            "Fetal death at 22 weeks gestation despite APS treatment with heparin and acetylsalicylic acid",
+            "Post-fetal delivery: acute onset edema of legs, oliguria, blurred vision",
+            "Deep vein thrombosis of lower limbs (confirmed by ultrasound with power Doppler)",
+            "Right central retinal artery thrombosis (confirmed by ophthalmic examination)",
+            "Ischemic stroke in right temporal lobe (confirmed by CT head)",
+            "Bilateral pleural effusions (confirmed by CT chest)",
+            "Laboratory abnormalities: anemia (Hgb 7 g/dl), thrombocytopenia (134 G/l), leukocytosis (WBC 14.36 G/l), prolonged APTT (69.7 s), elevated D-dimer (4.33 μg/ml), elevated creatinine (4.8 mg/dl), elevated urea (79 mg/dl)"
+          ],
+          "missing_key_evidence": [
+            "Renal imaging or biopsy findings documenting thrombotic microangiopathy as mechanism of acute kidney injury",
+            "Evidence of microangiopathic hemolytic anemia (schistocytes on blood smear, LDH, bilirubin, reticulocyte count)",
+            "Treatment initiated (anticoagulation intensity, plasma exchange, corticosteroids, immunosuppression) and clinical response",
+            "Temporal documentation that all thrombotic events occurred within days/weeks (meeting CAPS definition of <1 week typically)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.82
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "Abdominal ultrasound revealed the enlargement of both kidneys (left kidney 139 mm, right kidney 124 mm) with interstitial edema and left renal vein thrombosis.",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the renal biopsy pathology report if performed, specifically documenting the histopathological findings (thrombotic microangiopathy, fibrin deposition, endothelial injury, or other findings consistent with catastrophic APS).",
+          "current_trajectory_hypothesis": "35-year-old woman with known APS (positive lupus anticoagulant, anti-β2 glycoprotein-1 IgG, anticardiolipin IgM/IgG) who experienced fetal death at 22 weeks gestation. Within days of fetal delivery, she developed acute multi-organ thrombosis affecting ≥5 organ systems: (1) venous system (deep vein thrombosis lower limbs, left renal vein thrombosis), (2) arterial system (right central retinal artery thrombosis), (3) CNS (ischemic stroke right temporal lobe), (4) pulmonary (bilateral pleural effusions), and (5) renal (acute kidney injury with creatinine 4.8 mg/dl, urea 79 mg/dl, bilateral kidney enlargement with interstitial edema). Laboratory findings show anemia (Hgb 7 g/dl), thrombocytopenia (134 G/l), leukocytosis (WBC 14.36 G/l), prolonged APTT (69.7 s), and elevated D-dimer (4.33 μg/ml). This rapid sequential thrombosis of multiple organ systems in the setting of known APS meets criteria for catastrophic APS (CAPS).",
+          "confirmed_evidence": [
+            "Known APS diagnosis with documented positive serology (lupus anticoagulant, anti-β2 glycoprotein-1 IgG, anticardiolipin IgM/IgG)",
+            "History of autoimmune hemolytic anemia and recurrent miscarriages (2 prior)",
+            "Fetal death at 22 weeks gestation despite APS treatment with heparin and acetylsalicylic acid",
+            "Post-fetal delivery: acute onset edema of legs, oliguria, blurred vision",
+            "Deep vein thrombosis of lower limbs (confirmed by ultrasound with power Doppler)",
+            "Left renal vein thrombosis (confirmed by abdominal ultrasound)",
+            "Right central retinal artery thrombosis (confirmed by ophthalmic examination)",
+            "Ischemic stroke in right temporal lobe (confirmed by CT head)",
+            "Bilateral pleural effusions (confirmed by CT chest)",
+            "Bilateral kidney enlargement with interstitial edema (confirmed by abdominal ultrasound)",
+            "Laboratory abnormalities: anemia (Hgb 7 g/dl), thrombocytopenia (134 G/l), leukocytosis (WBC 14.36 G/l), prolonged APTT (69.7 s), elevated D-dimer (4.33 μg/ml), elevated creatinine (4.8 mg/dl), elevated urea (79 mg/dl)"
+          ],
+          "missing_key_evidence": [
+            "Renal biopsy pathology confirming thrombotic microangiopathy as mechanism of acute kidney injury",
+            "Evidence of microangiopathic hemolytic anemia (schistocytes on blood smear, LDH, bilirubin, reticulocyte count)",
+            "Treatment initiated (anticoagulation intensity, plasma exchange, corticosteroids, immunosuppression) and clinical response/outcome",
+            "Explicit temporal documentation that all thrombotic events occurred within days/weeks (meeting CAPS definition)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E007",
+          "source_text": "Histopathological examination showed thrombotic microangiopathy (TMA) secondary to APS",
+          "category": "pathology_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the treatment initiated during hospitalization, including: anticoagulation regimen (type, intensity, duration), plasma exchange details (frequency, volume, duration), corticosteroid therapy, immunosuppressive agents used, and the clinical response/outcome (improvement in renal function, resolution of thrombosis, patient status at discharge or follow-up).",
+          "current_trajectory_hypothesis": "35-year-old woman with known APS (positive lupus anticoagulant, anti-β2 glycoprotein-1 IgG, anticardiolipin IgM/IgG) who experienced fetal death at 22 weeks gestation. Within days of fetal delivery, she developed acute multi-organ thrombosis affecting ≥5 organ systems: (1) venous system (deep vein thrombosis lower limbs, left renal vein thrombosis), (2) arterial system (right central retinal artery thrombosis), (3) CNS (ischemic stroke right temporal lobe), (4) pulmonary (bilateral pleural effusions), and (5) renal (acute kidney injury with creatinine 4.8 mg/dl, urea 79 mg/dl, bilateral kidney enlargement with interstitial edema, confirmed thrombotic microangiopathy on renal biopsy). Laboratory findings show anemia (Hgb 7 g/dl), thrombocytopenia (134 G/l), leukocytosis (WBC 14.36 G/l), prolonged APTT (69.7 s), and elevated D-dimer (4.33 μg/ml). Renal biopsy confirmed thrombotic microangiopathy secondary to APS. This rapid sequential thrombosis of multiple organ systems in the setting of known APS meets criteria for catastrophic APS (CAPS). Treatment response and clinical course would complete the trajectory.",
+          "confirmed_evidence": [
+            "Known APS diagnosis with documented positive serology (lupus anticoagulant, anti-β2 glycoprotein-1 IgG, anticardiolipin IgM/IgG)",
+            "History of autoimmune hemolytic anemia and recurrent miscarriages (2 prior)",
+            "Fetal death at 22 weeks gestation despite APS treatment with heparin and acetylsalicylic acid",
+            "Post-fetal delivery: acute onset edema of legs, oliguria, blurred vision",
+            "Deep vein thrombosis of lower limbs (confirmed by ultrasound with power Doppler)",
+            "Left renal vein thrombosis (confirmed by abdominal ultrasound)",
+            "Right central retinal artery thrombosis (confirmed by ophthalmic examination)",
+            "Ischemic stroke in right temporal lobe (confirmed by CT head)",
+            "Bilateral pleural effusions (confirmed by CT chest)",
+            "Bilateral kidney enlargement with interstitial edema (confirmed by abdominal ultrasound)",
+            "Renal biopsy showing thrombotic microangiopathy secondary to APS",
+            "Laboratory abnormalities: anemia (Hgb 7 g/dl), thrombocytopenia (134 G/l), leukocytosis (WBC 14.36 G/l), prolonged APTT (69.7 s), elevated D-dimer (4.33 μg/ml), elevated creatinine (4.8 mg/dl), elevated urea (79 mg/dl)"
+          ],
+          "missing_key_evidence": [
+            "Treatment regimen details (anticoagulation type/intensity, plasma exchange protocol, corticosteroids, immunosuppression)",
+            "Clinical response to treatment and patient outcome",
+            "Evidence of microangiopathic hemolytic anemia (schistocytes, LDH, bilirubin, reticulocyte count) - optional but would strengthen CAPS diagnosis",
+            "Explicit temporal documentation that all thrombotic events occurred within days/weeks (CAPS definition typically <1 week)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.88
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E009",
+          "source_text": "Anticoagulation treatment with infusion of high molecular weight heparin was introduced. The dosage was modified according to APPT with a target level of 70–85 s. Glucocorticoids: methyprednisolon 1 g i.v. for three consecutive days, followed by prednisone 1 mg/kg/day (60 mg/day) were also used. Therapeutic plasma exchanges were added to remove antiphospholipid antibodies. Because of severe renal insufficiency with anuria, fluid overload with respiratory failure, daily hemodialysis treatment was introduced. Systemic antibiotic therapy with piperacyllin/tazobactam was also added.",
+          "category": "treatment_response",
+          "temporal_cue": "after diagnosis",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the clinical outcome and follow-up course: patient status at discharge or end of hospitalization, renal function recovery (final creatinine and urea values), resolution or persistence of thrombotic complications, and any documented long-term follow-up or mortality outcome.",
+          "current_trajectory_hypothesis": "35-year-old woman with known APS (positive lupus anticoagulant, anti-β2 glycoprotein-1 IgG, anticardiolipin IgM/IgG) who experienced fetal death at 22 weeks gestation. Within days of fetal delivery, she developed acute multi-organ thrombosis affecting ≥5 organ systems: (1) venous system (deep vein thrombosis lower limbs, left renal vein thrombosis), (2) arterial system (right central retinal artery thrombosis), (3) CNS (ischemic stroke right temporal lobe), (4) pulmonary (bilateral pleural effusions), and (5) renal (acute kidney injury with creatinine 4.8 mg/dl, urea 79 mg/dl, bilateral kidney enlargement with interstitial edema, confirmed thrombotic microangiopathy on renal biopsy). Laboratory findings show anemia (Hgb 7 g/dl), thrombocytopenia (134 G/l), leukocytosis (WBC 14.36 G/l), prolonged APTT (69.7 s), and elevated D-dimer (4.33 μg/ml). Renal biopsy confirmed thrombotic microangiopathy secondary to APS. Treatment included high-dose anticoagulation (heparin with APPT target 70-85 s), high-dose corticosteroids (methylprednisolone 1 g IV × 3 days, then prednisone 60 mg/day), therapeutic plasma exchange, and hemodialysis for anuria and fluid overload. Clinical outcome and response to treatment would complete the trajectory reconstruction.",
+          "confirmed_evidence": [
+            "Known APS diagnosis with documented positive serology (lupus anticoagulant, anti-β2 glycoprotein-1 IgG, anticardiolipin IgM/IgG)",
+            "History of autoimmune hemolytic anemia and recurrent miscarriages (2 prior)",
+            "Fetal death at 22 weeks gestation despite APS treatment with heparin and acetylsalicylic acid",
+            "Post-fetal delivery: acute onset edema of legs, oliguria, blurred vision",
+            "Deep vein thrombosis of lower limbs (confirmed by ultrasound with power Doppler)",
+            "Left renal vein thrombosis (confirmed by abdominal ultrasound)",
+            "Right central retinal artery thrombosis (confirmed by ophthalmic examination)",
+            "Ischemic stroke in right temporal lobe (confirmed by CT head)",
+            "Bilateral pleural effusions (confirmed by CT chest)",
+            "Bilateral kidney enlargement with interstitial edema (confirmed by abdominal ultrasound)",
+            "Renal biopsy showing thrombotic microangiopathy secondary to APS",
+            "Laboratory abnormalities: anemia (Hgb 7 g/dl), thrombocytopenia (134 G/l), leukocytosis (WBC 14.36 G/l), prolonged APTT (69.7 s), elevated D-dimer (4.33 μg/ml), elevated creatinine (4.8 mg/dl), elevated urea (79 mg/dl)",
+            "Treatment: high-dose anticoagulation (heparin, APPT target 70-85 s), high-dose corticosteroids (methylprednisolone 1 g IV × 3 days, prednisone 60 mg/day), therapeutic plasma exchange, hemodialysis for anuria and fluid overload, antibiotic therapy"
+          ],
+          "missing_key_evidence": [
+            "Clinical outcome at discharge or end of hospitalization (patient status, survival)",
+            "Renal function recovery (final creatinine and urea values, dialysis dependence)",
+            "Resolution or persistence of thrombotic complications",
+            "Long-term follow-up or mortality outcome",
+            "Evidence of microangiopathic hemolytic anemia (schistocytes, LDH, bilirubin, reticulocyte count) - optional but would strengthen CAPS diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E012",
+          "source_text": "Three weeks after immunoglobulin treatment, a gradual increase in the amount of urine and a decrease in serum creatinine and urea levels were observed. Renal replacement therapy could be discontinued after 5 weeks of treatment. The patient was discharged from the hospital with the creatinine level 3.2 mg/dl, urea level 157 mg/dl, concomitant erytrocyturia 250 cells/μl, daily proteinuria 0.5 g. All antiphospholipid antibodies were negative. The treatment at the discharge from the hospital was: oral anticoagulant (warfarin), prednisolon (20 mg/day), ASA and antihypertensive drugs.",
+          "category": "treatment_response",
+          "temporal_cue": "discharge",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Catastrophic antiphospholipid syndrome (CAPS)",
+          "trajectory_summary": "A 35-year-old woman with known antiphospholipid syndrome (positive lupus anticoagulant, anti-β2 glycoprotein-1 IgG, and anticardiolipin IgM/IgG antibodies), history of autoimmune hemolytic anemia, and two prior miscarriages experienced fetal death at 22 weeks gestation despite treatment with heparin and acetylsalicylic acid. Within days of fetal delivery, she developed acute multi-organ thrombosis affecting at least 5 organ systems: (1) venous thrombosis (deep vein thrombosis of lower limbs, left renal vein thrombosis), (2) arterial thrombosis (right central retinal artery thrombosis), (3) CNS (ischemic stroke in right temporal lobe), (4) pulmonary (bilateral pleural effusions), and (5) renal (acute kidney injury with creatinine 4.8 mg/dl, urea 79 mg/dl, bilateral kidney enlargement with interstitial edema). Laboratory findings documented anemia (Hgb 7 g/dl), thrombocytopenia (134 G/l), leukocytosis (WBC 14.36 G/l), prolonged APTT (69.7 s), and elevated D-dimer (4.33 μg/ml). Renal biopsy confirmed thrombotic microangiopathy secondary to APS. She was treated with high-dose anticoagulation (heparin with APPT target 70-85 s), high-dose corticosteroids (methylprednisolone 1 g IV × 3 days, then prednisone 60 mg/day), therapeutic plasma exchange, and hemodialysis for anuria and fluid overload. After 3 weeks of immunoglobulin treatment, gradual improvement in renal function was observed. Renal replacement therapy was discontinued after 5 weeks. At discharge, creatinine was 3.2 mg/dl, urea 157 mg/dl, with erythrocyturia and proteinuria. All antiphospholipid antibodies became negative. She was discharged on warfarin, prednisone 20 mg/day, aspirin, and antihypertensive drugs.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Known APS diagnosis with documented positive serology",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Fetal death at 22 weeks gestation despite APS treatment",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Acute multi-organ thrombosis within days of fetal delivery",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Deep vein thrombosis of lower limbs",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Right central retinal artery thrombosis",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Ischemic stroke in right temporal lobe",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Bilateral pleural effusions",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Left renal vein thrombosis with bilateral kidney enlargement and interstitial edema",
+              "evidence_ids": [
+                "E006"
+              ]
+            },
+            {
+              "claim": "Laboratory abnormalities consistent with thrombotic microangiopathy and coagulopathy",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Renal biopsy confirming thrombotic microangiopathy secondary to APS",
+              "evidence_ids": [
+                "E007"
+              ]
+            },
+            {
+              "claim": "Treatment with high-dose anticoagulation, corticosteroids, and plasma exchange",
+              "evidence_ids": [
+                "E009"
+              ]
+            },
+            {
+              "claim": "Clinical improvement with gradual renal function recovery and clearance of antiphospholipid antibodies",
+              "evidence_ids": [
+                "E012"
+              ]
+            },
+            {
+              "claim": "Discharge with improved but persistent renal dysfunction",
+              "evidence_ids": [
+                "E012"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Thrombotic thrombocytopenic purpura (TTP)",
+              "basis": "While TTP can present with thrombocytopenia and microangiopathic hemolytic anemia, the documented positive antiphospholipid antibodies, prior APS diagnosis, and renal biopsy showing thrombotic microangiopathy secondary to APS (not primary TTP) support CAPS diagnosis"
+            },
+            {
+              "alternative": "Hemolytic uremic syndrome (HUS)",
+              "basis": "HUS typically follows diarrheal illness and presents with different clinical context; this patient has documented APS with positive serology and thrombotic microangiopathy secondary to APS on biopsy"
+            },
+            {
+              "alternative": "Acute kidney injury from other causes",
+              "basis": "The multi-organ thrombosis (≥5 organ systems), positive APS serology, and renal biopsy confirming thrombotic microangiopathy secondary to APS exclude other causes of acute kidney injury"
+            }
+          ],
+          "remaining_uncertainties": [
+            "Specific timing of each thrombotic event relative to fetal death (documented as 'within days' but exact sequence not explicitly stated)",
+            "Detailed microangiopathic hemolytic anemia markers (schistocytes on blood smear, LDH, bilirubin, reticulocyte count) not explicitly documented, though anemia and thrombocytopenia were present",
+            "Long-term follow-up outcome beyond discharge (patient status, renal function trajectory, thrombotic recurrence)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Catastrophic antiphospholipid syndrome (CAPS)",
+      "trajectory_summary": "A 35-year-old woman with known antiphospholipid syndrome (positive lupus anticoagulant, anti-β2 glycoprotein-1 IgG, and anticardiolipin IgM/IgG antibodies), history of autoimmune hemolytic anemia, and two prior miscarriages experienced fetal death at 22 weeks gestation despite treatment with heparin and acetylsalicylic acid. Within days of fetal delivery, she developed acute multi-organ thrombosis affecting at least 5 organ systems: (1) venous thrombosis (deep vein thrombosis of lower limbs, left renal vein thrombosis), (2) arterial thrombosis (right central retinal artery thrombosis), (3) CNS (ischemic stroke in right temporal lobe), (4) pulmonary (bilateral pleural effusions), and (5) renal (acute kidney injury with creatinine 4.8 mg/dl, urea 79 mg/dl, bilateral kidney enlargement with interstitial edema). Laboratory findings documented anemia (Hgb 7 g/dl), thrombocytopenia (134 G/l), leukocytosis (WBC 14.36 G/l), prolonged APTT (69.7 s), and elevated D-dimer (4.33 μg/ml). Renal biopsy confirmed thrombotic microangiopathy secondary to APS. She was treated with high-dose anticoagulation (heparin with APPT target 70-85 s), high-dose corticosteroids (methylprednisolone 1 g IV × 3 days, then prednisone 60 mg/day), therapeutic plasma exchange, and hemodialysis for anuria and fluid overload. After 3 weeks of immunoglobulin treatment, gradual improvement in renal function was observed. Renal replacement therapy was discontinued after 5 weeks. At discharge, creatinine was 3.2 mg/dl, urea 157 mg/dl, with erythrocyturia and proteinuria. All antiphospholipid antibodies became negative. She was discharged on warfarin, prednisone 20 mg/day, aspirin, and antihypertensive drugs.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Known APS diagnosis with documented positive serology",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Fetal death at 22 weeks gestation despite APS treatment",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Acute multi-organ thrombosis within days of fetal delivery",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Deep vein thrombosis of lower limbs",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Right central retinal artery thrombosis",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Ischemic stroke in right temporal lobe",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Bilateral pleural effusions",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Left renal vein thrombosis with bilateral kidney enlargement and interstitial edema",
+          "evidence_ids": [
+            "E006"
+          ]
+        },
+        {
+          "claim": "Laboratory abnormalities consistent with thrombotic microangiopathy and coagulopathy",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Renal biopsy confirming thrombotic microangiopathy secondary to APS",
+          "evidence_ids": [
+            "E007"
+          ]
+        },
+        {
+          "claim": "Treatment with high-dose anticoagulation, corticosteroids, and plasma exchange",
+          "evidence_ids": [
+            "E009"
+          ]
+        },
+        {
+          "claim": "Clinical improvement with gradual renal function recovery and clearance of antiphospholipid antibodies",
+          "evidence_ids": [
+            "E012"
+          ]
+        },
+        {
+          "claim": "Discharge with improved but persistent renal dysfunction",
+          "evidence_ids": [
+            "E012"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Thrombotic thrombocytopenic purpura (TTP)",
+          "basis": "While TTP can present with thrombocytopenia and microangiopathic hemolytic anemia, the documented positive antiphospholipid antibodies, prior APS diagnosis, and renal biopsy showing thrombotic microangiopathy secondary to APS (not primary TTP) support CAPS diagnosis"
+        },
+        {
+          "alternative": "Hemolytic uremic syndrome (HUS)",
+          "basis": "HUS typically follows diarrheal illness and presents with different clinical context; this patient has documented APS with positive serology and thrombotic microangiopathy secondary to APS on biopsy"
+        },
+        {
+          "alternative": "Acute kidney injury from other causes",
+          "basis": "The multi-organ thrombosis (≥5 organ systems), positive APS serology, and renal biopsy confirming thrombotic microangiopathy secondary to APS exclude other causes of acute kidney injury"
+        }
+      ],
+      "remaining_uncertainties": [
+        "Specific timing of each thrombotic event relative to fetal death (documented as 'within days' but exact sequence not explicitly stated)",
+        "Detailed microangiopathic hemolytic anemia markers (schistocytes on blood smear, LDH, bilirubin, reticulocyte count) not explicitly documented, though anemia and thrombocytopenia were present",
+        "Long-term follow-up outcome beyond discharge (patient status, renal function trajectory, thrombotic recurrence)"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T06:55:13.395389+00:00",
+    "clinician_model": "claude-haiku-4-5",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC5994130",
+    "known_final_diagnosis": "Because of thrombosis of vasculature in more than three organs within a short period of time, the diagnosis of catastrophic antiphospholipid syndrome was made.",
+    "turns_used": 9,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 13,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 6,
+    "gold_reasoning_span_count": 6,
+    "action_counts": {
+      "ASK_HISTORY": 1,
+      "FINAL_TRAJECTORY": 1,
+      "REQUEST_RESULT": 7
+    },
+    "report_status_counts": {
+      "found": 6,
+      "invalid_report_selection": 2
+    },
+    "report_repair_attempted_count": 2,
+    "report_repair_failed_count": 2,
+    "report_repair_validation_error_counts": {
+      "verbatim_excerpt is not a contiguous source subspan.": 4
+    },
+    "answer_yield": 0.75,
+    "unavailable_turn_rate": 0.0,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T06:55:13.398933+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC5994130",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "5",
+    "num_pred_steps": "6",
+    "weighted_tversky_alignment": "0.28888888888888886",
+    "weighted_tversky_distance": "0.7111111111111111",
+    "matched_weight": "3.25",
+    "missed_weight": "1.0",
+    "extra_weight": "3.5",
+    "weighted_lcs_recall": "0.5882352941176471",
+    "weighted_lcs_weight": "2.5",
+    "weighted_pairwise_order_accuracy": "0.6634353225836304",
+    "pairwise_comparable_pairs": "3",
+    "pairwise_correct_pairs": "2",
+    "pairwise_inversions": "1",
+    "gold_sequence": "lab_tests > imaging > admission_or_clinical_course > other_or_off_protocol > medication_or_treatment",
+    "prediction_sequence": "lab_tests > clinical_history > pathology > admission_or_clinical_course > imaging > procedure_or_intervention",
+    "error": ""
+  }
+}

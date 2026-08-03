@@ -1,0 +1,475 @@
+{
+  "case_id": "case_0253",
+  "pmcid": "PMC11880429",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC11880429",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 10,
+    "termination": "final",
+    "known_final_diagnosis": "Subsequent histology results revealed an oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side (R1). The mass fulfilled the Lin-Weiss-Bisceglia criteria for malignant ACONs (figures2 3).",
+    "disclosed_evidence_ids": [
+      "E005",
+      "E006",
+      "E007"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "serum cortisol levels, including diurnal variation or dexamethasone suppression test results",
+          "current_trajectory_hypothesis": "Patient presents with symptoms suggestive of hypercortisolism (Cushing's syndrome) or other adrenal dysfunction, which could be caused by an adrenocortical tumor.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Confirmation of adrenal hormone excess",
+            "Imaging findings of adrenal mass",
+            "Biopsy/histology results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order acknowledged, but source contains no direct result for serum cortisol levels or related suppression test.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "abdominal CT scan or MRI to visualize adrenal glands",
+          "current_trajectory_hypothesis": "Given symptoms suggestive of hypercortisolism and the known final diagnosis of adrenocortical carcinoma, imaging of the adrenal glands is crucial to identify a mass.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Imaging findings of an adrenal mass",
+            "Confirmation of adrenal hormone excess (if not found via cortisol, other hormones might be relevant)",
+            "Biopsy/histology results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order for abdominal CT scan is acknowledged; no direct source evidence yet of order result.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presents with symptoms suggestive of hypercortisolism. We are awaiting imaging to identify an adrenal mass and hormonal studies to confirm adrenal hyperfunction, which would support the known diagnosis of adrenocortical carcinoma.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Imaging findings of an adrenal mass",
+            "Confirmation of adrenal hormone excess",
+            "Biopsy/histology results",
+            "Details of surgical intervention and pathology"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan.",
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "report of abdominal imaging (CT or MRI) focusing on adrenal gland findings",
+          "current_trajectory_hypothesis": "Patient presents with symptoms suggestive of hypercortisolism. We are seeking imaging evidence of an adrenal mass, which is a key step towards confirming the known diagnosis of adrenocortical carcinoma.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Imaging findings of an adrenal mass",
+            "Confirmation of adrenal hormone excess",
+            "Biopsy/histology results",
+            "Details of surgical intervention and pathology"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "an ultrasound was performed, revealing a large bilobed retropancreatic mass facing the left kidney and para-aortic region. Subsequent abdominal CT imaging (figure 1) confirmed the bilobed left adrenal mass, measuring 8×5 cm and 1.8×2.2 cm, which was vascularised without calcifications. The CT scan ruled out the presence of any locoregional or distant spreading of the disease.",
+          "category": "imaging_report",
+          "temporal_cue": "after admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "results of hormonal workup, specifically adrenal hormones (e.g., cortisol, aldosterone, androgens)",
+          "current_trajectory_hypothesis": "An adrenal mass has been identified. The next step is to determine if it is functionally active, which would support the initial symptoms suggestive of hypercortisolism and the known diagnosis of adrenocortical carcinoma.",
+          "confirmed_evidence": [
+            "Patient presented with symptoms suggestive of hypercortisolism (refractory hypertension, weight gain, psychiatric symptoms, hypokalemia, hypernatremia).",
+            "Abdominal CT confirmed a bilobed left adrenal mass measuring 8x5 cm and 1.8x2.2 cm, vascularized without calcifications, and no signs of locoregional or distant spread (E006)."
+          ],
+          "missing_key_evidence": [
+            "Confirmation of adrenal hormone excess",
+            "Biopsy/histology results (surgical pathology)",
+            "Details of surgical intervention and pathology"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "Further functional assessments including estradiol (333 pmol/L), progesterone (0.39 nmol/L), 17-OH-progesterone (14.1 nmol/L), androstenedione (11.5 nmol/L), DHEAS (9.17 (0.26–6.68 µmol/L) and cortisoluria (53 nmol/24 hours) were normal. Only DHEAS (9.17 µmol/L) and urinary catecholamines, including metanephrine (1283 nmol/24 hours), normetanephrine (4218 nmol/24 hours), methoxytyramine (2107 nmol/24 hours), were marginally increased.",
+          "category": "routine_lab",
+          "temporal_cue": "after admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "pathology report of the adrenal mass, including histology and staging information",
+          "current_trajectory_hypothesis": "An adrenal mass has been identified, and some hormonal abnormalities noted. The definitive diagnosis of adrenocortical carcinoma relies on histological examination of the resected mass.",
+          "confirmed_evidence": [
+            "Patient presented with symptoms suggestive of hypercortisolism (refractory hypertension, weight gain, psychiatric symptoms, hypokalemia, hypernatremia).",
+            "Abdominal CT confirmed a bilobed left adrenal mass measuring 8x5 cm and 1.8x2.2 cm, vascularized without calcifications, and no signs of locoregional or distant spread (E006).",
+            "Hormonal workup showed normal estradiol, progesterone, 17-OH-progesterone, androstenedione, and cortisoluria. Marginally increased DHEAS and urinary catecholamines (metanephrine, normetanephrine, methoxytyramine) were noted (E005)."
+          ],
+          "missing_key_evidence": [
+            "Details of surgical intervention",
+            "Histology results and staging of the tumor",
+            "Treatment response/outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E007",
+          "source_text": "Subsequent histology results revealed an oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side (R1).",
+          "category": "image_finding",
+          "temporal_cue": "after surgery",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "details of the surgical intervention for the adrenal mass",
+          "current_trajectory_hypothesis": "An adrenal mass was identified and hormonal workup performed. Histology confirmed oncocytic adrenocortical carcinoma after surgical resection. I need to verify the details of the surgery.",
+          "confirmed_evidence": [
+            "Patient presented with symptoms suggestive of hypercortisolism (refractory hypertension, weight gain, psychiatric symptoms, hypokalemia, hypernatremia).",
+            "Abdominal CT confirmed a bilobed left adrenal mass measuring 8x5 cm and 1.8x2.2 cm, vascularized without calcifications, and no signs of locoregional or distant spread (E006).",
+            "Hormonal workup showed normal estradiol, progesterone, 17-OH-progesterone, androstenedione, and cortisoluria. Marginally increased DHEAS and urinary catecholamines (metanephrine, normetanephrine, methoxytyramine) were noted (E005).",
+            "Histology results revealed an oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side (R1) (E007)."
+          ],
+          "missing_key_evidence": [
+            "Details of surgical intervention",
+            "Confirmation of Lin-Weiss-Bisceglia criteria fulfillment",
+            "Treatment response/outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E007",
+          "source_text": "Subsequent histology results revealed an oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side (R1).",
+          "category": "image_finding",
+          "temporal_cue": "after surgery",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "pathology report details confirming the fulfillment of Lin-Weiss-Bisceglia criteria for malignant ACONs",
+          "current_trajectory_hypothesis": "An adrenal mass was identified and resected. Histology confirmed oncocytic adrenocortical carcinoma with R1 resection. I need to verify the specific pathological criteria used for diagnosis, as mentioned in the known final diagnosis.",
+          "confirmed_evidence": [
+            "Patient presented with symptoms suggestive of hypercortisolism (refractory hypertension, weight gain, psychiatric symptoms, hypokalemia, hypernatremia).",
+            "Abdominal CT confirmed a bilobed left adrenal mass measuring 8x5 cm and 1.8x2.2 cm, vascularized without calcifications, and no signs of locoregional or distant spread (E006).",
+            "Hormonal workup showed normal estradiol, progesterone, 17-OH-progesterone, androstenedione, and cortisoluria. Marginally increased DHEAS and urinary catecholamines (metanephrine, normetanephrine, methoxytyramine) were noted (E005).",
+            "Histology results revealed an oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side (R1) (E007)."
+          ],
+          "missing_key_evidence": [
+            "Confirmation of Lin-Weiss-Bisceglia criteria fulfillment",
+            "Details of surgical intervention (beyond R1 status)",
+            "Treatment response/outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E007",
+          "source_text": "Subsequent histology results revealed an oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side (R1). The mass fulfilled the Lin-Weiss-Bisceglia criteria for malignant ACONs",
+          "category": "image_finding",
+          "temporal_cue": "after surgery",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "An adrenal mass was identified and resected, with histology confirming oncocytic adrenocortical carcinoma (pT2 pN0 R1) fulfilling Lin-Weiss-Bisceglia criteria. I need to understand the patient's post-operative course and any subsequent treatment or outcomes.",
+          "confirmed_evidence": [
+            "Patient presented with symptoms suggestive of hypercortisolism (refractory hypertension, weight gain, psychiatric symptoms, hypokalemia, hypernatremia).",
+            "Abdominal CT confirmed a bilobed left adrenal mass measuring 8x5 cm and 1.8x2.2 cm, vascularized without calcifications, and no signs of locoregional or distant spread (E006).",
+            "Hormonal workup showed normal estradiol, progesterone, 17-OH-progesterone, androstenedione, and cortisoluria. Marginally increased DHEAS and urinary catecholamines (metanephrine, normetanephrine, methoxytyramine) were noted (E005).",
+            "Histology results revealed an oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side (R1) (E007).",
+            "The mass fulfilled the Lin-Weiss-Bisceglia criteria for malignant ACONs (E007)."
+          ],
+          "missing_key_evidence": [
+            "Details of surgical intervention (beyond R1 status)",
+            "Treatment response/outcome or clinical course after diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "No pending orders or new undisclosed clinical trajectory updates after the current phase index 5.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side (R1), fulfilling the Lin-Weiss-Bisceglia criteria for malignant ACONs.",
+          "trajectory_summary": "A woman in her 60s presented with decompensated metabolic syndrome, refractory arterial hypertension, significant weight gain, and psychiatric symptoms. Initial workup included abdominal imaging, which revealed a large bilobed left adrenal mass. Hormonal studies showed marginally increased DHEAS and urinary catecholamines, while other adrenal hormones were normal. The mass was surgically resected, and subsequent histology confirmed an oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection (R1), and fulfilling the Lin-Weiss-Bisceglia criteria for malignant ACONs.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with symptoms including refractory arterial hypertension, weight gain, dizziness, headache, asthenia, psychotic breakdown, anxiety, hypokalemia, and hypernatremia, suggestive of adrenal dysfunction.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Abdominal CT imaging confirmed a bilobed left adrenal mass, measuring 8x5 cm and 1.8x2.2 cm, which was vascularized without calcifications, and ruled out locoregional or distant spreading.",
+              "evidence_ids": [
+                "E006"
+              ]
+            },
+            {
+              "claim": "Hormonal assessment showed normal estradiol, progesterone, 17-OH-progesterone, androstenedione, and cortisoluria, but marginally increased DHEAS (9.17 µmol/L) and urinary catecholamines (metanephrine 1283 nmol/24 hours, normetanephrine 4218 nmol/24 hours, methoxytyramine 2107 nmol/24 hours).",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "Subsequent histology results revealed an oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side (R1).",
+              "evidence_ids": [
+                "E007"
+              ]
+            },
+            {
+              "claim": "The mass fulfilled the Lin-Weiss-Bisceglia criteria for malignant ACONs.",
+              "evidence_ids": [
+                "E007"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Classic Cushing's Syndrome due to cortisol-producing adenoma",
+              "basis": "Cortisoluria was normal, and other classic markers of hypercortisolism were not elevated (E005)."
+            },
+            {
+              "alternative": "Pheochromocytoma",
+              "basis": "While urinary catecholamines were marginally increased, the primary diagnosis was adrenocortical carcinoma based on histology, and the clinical picture was more consistent with hypercortisolism/androgen excess rather than a classic pheochromocytoma crisis."
+            }
+          ],
+          "remaining_uncertainties": [
+            "Specific details of the surgical intervention beyond the R1 status",
+            "Post-operative clinical course, treatment response, or long-term outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 1.0
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side (R1), fulfilling the Lin-Weiss-Bisceglia criteria for malignant ACONs.",
+      "trajectory_summary": "A woman in her 60s presented with decompensated metabolic syndrome, refractory arterial hypertension, significant weight gain, and psychiatric symptoms. Initial workup included abdominal imaging, which revealed a large bilobed left adrenal mass. Hormonal studies showed marginally increased DHEAS and urinary catecholamines, while other adrenal hormones were normal. The mass was surgically resected, and subsequent histology confirmed an oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection (R1), and fulfilling the Lin-Weiss-Bisceglia criteria for malignant ACONs.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with symptoms including refractory arterial hypertension, weight gain, dizziness, headache, asthenia, psychotic breakdown, anxiety, hypokalemia, and hypernatremia, suggestive of adrenal dysfunction.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Abdominal CT imaging confirmed a bilobed left adrenal mass, measuring 8x5 cm and 1.8x2.2 cm, which was vascularized without calcifications, and ruled out locoregional or distant spreading.",
+          "evidence_ids": [
+            "E006"
+          ]
+        },
+        {
+          "claim": "Hormonal assessment showed normal estradiol, progesterone, 17-OH-progesterone, androstenedione, and cortisoluria, but marginally increased DHEAS (9.17 µmol/L) and urinary catecholamines (metanephrine 1283 nmol/24 hours, normetanephrine 4218 nmol/24 hours, methoxytyramine 2107 nmol/24 hours).",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "Subsequent histology results revealed an oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side (R1).",
+          "evidence_ids": [
+            "E007"
+          ]
+        },
+        {
+          "claim": "The mass fulfilled the Lin-Weiss-Bisceglia criteria for malignant ACONs.",
+          "evidence_ids": [
+            "E007"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Classic Cushing's Syndrome due to cortisol-producing adenoma",
+          "basis": "Cortisoluria was normal, and other classic markers of hypercortisolism were not elevated (E005)."
+        },
+        {
+          "alternative": "Pheochromocytoma",
+          "basis": "While urinary catecholamines were marginally increased, the primary diagnosis was adrenocortical carcinoma based on histology, and the clinical picture was more consistent with hypercortisolism/androgen excess rather than a classic pheochromocytoma crisis."
+        }
+      ],
+      "remaining_uncertainties": [
+        "Specific details of the surgical intervention beyond the R1 status",
+        "Post-operative clinical course, treatment response, or long-term outcome"
+      ],
+      "confidence_that_diagnosis_is_supported": 1.0
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T22:52:52.937877+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC11880429",
+    "known_final_diagnosis": "Subsequent histology results revealed an oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side (R1). The mass fulfilled the Lin-Weiss-Bisceglia criteria for malignant ACONs (figures2 3).",
+    "turns_used": 10,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 5,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 3,
+    "gold_reasoning_span_count": 2,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 2,
+      "REQUEST_RESULT": 5,
+      "WAIT_REASSESS": 2
+    },
+    "report_status_counts": {
+      "already_disclosed": 2,
+      "found": 3,
+      "invalid_report_selection": 1,
+      "no_new_update": 1,
+      "ordered_but_not_documented": 2
+    },
+    "report_repair_attempted_count": 4,
+    "report_repair_failed_count": 1,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 3,
+      "verbatim_excerpt is not a contiguous source subspan.": 2
+    },
+    "answer_yield": 0.5555555555555556,
+    "unavailable_turn_rate": 0.3333333333333333,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T22:52:52.939357+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC11880429",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/oncology/episodes/PMC11880429.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/oncology/cases/PMC11880429.json",
+    "num_gold_steps": "2",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.5555555555555556",
+    "weighted_tversky_distance": "0.4444444444444444",
+    "matched_weight": "2.5",
+    "missed_weight": "0.0",
+    "extra_weight": "1.0",
+    "weighted_lcs_recall": "1.0",
+    "weighted_lcs_weight": "2.5",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "1",
+    "pairwise_inversions": "0",
+    "gold_sequence": "lab_tests > imaging",
+    "prediction_sequence": "lab_tests > imaging > procedure_or_intervention",
+    "error": ""
+  }
+}

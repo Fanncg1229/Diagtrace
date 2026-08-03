@@ -1,0 +1,682 @@
+{
+  "case_id": "case_0094",
+  "pmcid": "PMC6698061",
+  "model": "claude_haiku_4_5",
+  "episode": {
+    "case_id": "PMC6698061",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 12,
+    "termination": "final",
+    "known_final_diagnosis": "Streptococcus mutans endocarditis",
+    "disclosed_evidence_ids": [
+      "E003",
+      "E006",
+      "E008",
+      "E011",
+      "E012"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the echocardiogram report from the Monday after ED presentation, including findings of vegetations, valve involvement, and any other structural abnormalities.",
+          "current_trajectory_hypothesis": "57-year-old man with 3-month progressive symptoms (dyspnea, fatigue, weight loss, rash) initially misattributed to vasculitis/RPGN based on elevated inflammatory markers, hematuria, and low C3. However, the known final diagnosis is S. mutans endocarditis. The echocardiogram findings would be critical to confirm vegetations and establish the cardiac source of the systemic manifestations.",
+          "confirmed_evidence": [
+            "Grade III/VI apical systolic murmur radiating to left axilla on ED exam",
+            "Mild to moderate mitral regurgitation with leaflet prolapse on prior cardiology echo",
+            "Non-blanching petechiae on lower extremities and torso (consistent with septic emboli)",
+            "Microscopic hematuria and proteinuria (can occur with endocarditis-related glomerulonephritis)",
+            "Low C3 level (can be seen in endocarditis-associated immune complex disease)",
+            "Acute kidney injury on presentation"
+          ],
+          "missing_key_evidence": [
+            "Echocardiogram findings showing vegetations or valve destruction",
+            "Blood culture results identifying Streptococcus mutans",
+            "Timeline of when blood cultures were obtained and results",
+            "Temporal relationship between cardiac findings and systemic manifestations",
+            "Response to antibiotic therapy (if initiated)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.35
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "An urgent cardiology consultation was requested and a transthoracic echocardiogram was performed on the same day, which showed thickening of both mitral valve leaflets and a vegetation on the posterior leaflet.",
+          "category": "imaging_report",
+          "temporal_cue": "day after admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the blood culture results, including the organism identified (Streptococcus mutans), culture date/timing relative to admission, and any antimicrobial susceptibility testing.",
+          "current_trajectory_hypothesis": "57-year-old man with 3-month progressive symptoms (dyspnea, fatigue, weight loss, rash) initially misdiagnosed as vasculitis/RPGN. Echocardiogram on day after admission confirmed vegetation on posterior mitral leaflet with leaflet thickening. Blood cultures are essential to confirm S. mutans as the causative organism and establish definitive diagnosis of infective endocarditis.",
+          "confirmed_evidence": [
+            "Grade III/VI apical systolic murmur radiating to left axilla on ED exam",
+            "Mild to moderate mitral regurgitation with leaflet prolapse on prior cardiology echo",
+            "Non-blanching petechiae on lower extremities and torso (septic emboli)",
+            "Microscopic hematuria and proteinuria (endocarditis-related glomerulonephritis)",
+            "Low C3 level (immune complex disease from endocarditis)",
+            "Acute kidney injury on presentation",
+            "Echocardiogram showing vegetation on posterior mitral leaflet and leaflet thickening (E006)"
+          ],
+          "missing_key_evidence": [
+            "Blood culture identification of Streptococcus mutans",
+            "Timing of blood culture collection relative to admission",
+            "Antimicrobial susceptibility results",
+            "Number of positive blood cultures and timing of positivity",
+            "Response to antibiotic therapy and clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.55
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the microbiology report documenting the organism isolated from blood cultures, including the species identification and the date when the culture became positive.",
+          "current_trajectory_hypothesis": "57-year-old man with 3-month progressive symptoms (dyspnea, fatigue, weight loss, rash) initially misdiagnosed as vasculitis/RPGN. Echocardiogram confirmed vegetation on posterior mitral leaflet with leaflet thickening. The known final diagnosis is S. mutans endocarditis. Blood culture microbiology results are essential to confirm the causative organism and establish definitive diagnosis.",
+          "confirmed_evidence": [
+            "Grade III/VI apical systolic murmur radiating to left axilla on ED exam",
+            "Mild to moderate mitral regurgitation with leaflet prolapse on prior cardiology echo",
+            "Non-blanching petechiae on lower extremities and torso (septic emboli)",
+            "Microscopic hematuria and proteinuria (endocarditis-related glomerulonephritis)",
+            "Low C3 level (immune complex disease from endocarditis)",
+            "Acute kidney injury on presentation",
+            "Echocardiogram showing vegetation on posterior mitral leaflet and leaflet thickening (E006)"
+          ],
+          "missing_key_evidence": [
+            "Microbiology identification of Streptococcus mutans from blood culture",
+            "Timing of blood culture collection and positivity",
+            "Antimicrobial susceptibility testing results",
+            "Response to antibiotic therapy and clinical course",
+            "Explanation of why initial presentation was misattributed to vasculitis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the clinical course documentation after echocardiogram showing the treatment initiated, including what antibiotic regimen was started, when it was started, and the patient's response to therapy.",
+          "current_trajectory_hypothesis": "57-year-old man with 3-month progressive symptoms (dyspnea, fatigue, weight loss, rash) initially misdiagnosed as vasculitis/RPGN. Echocardiogram confirmed vegetation on posterior mitral leaflet with leaflet thickening. The known final diagnosis is S. mutans endocarditis. Since blood culture microbiology results are restricted, I will focus on reconstructing the clinical course and treatment response that would support the endocarditis diagnosis.",
+          "confirmed_evidence": [
+            "Grade III/VI apical systolic murmur radiating to left axilla on ED exam",
+            "Mild to moderate mitral regurgitation with leaflet prolapse on prior cardiology echo",
+            "Non-blanching petechiae on lower extremities and torso (septic emboli)",
+            "Microscopic hematuria and proteinuria (endocarditis-related glomerulonephritis)",
+            "Low C3 level (immune complex disease from endocarditis)",
+            "Acute kidney injury on presentation",
+            "Echocardiogram showing vegetation on posterior mitral leaflet and leaflet thickening (E006)"
+          ],
+          "missing_key_evidence": [
+            "Antibiotic therapy initiated and response to treatment",
+            "Clinical course after diagnosis of endocarditis",
+            "Outcome and resolution of acute kidney injury",
+            "Explanation of why initial presentation mimicked vasculitis/RPGN",
+            "Risk factors for S. mutans endocarditis (dental procedures, poor oral hygiene)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E008",
+          "source_text": "Treatment with intravenous ceftriaxone was commenced and steroids were rapidly tapered. Infectious disease and cardiothoracic surgery services were consulted.",
+          "category": "treatment_response",
+          "temporal_cue": "after blood culture",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide documentation of the patient's clinical course and outcome, including whether the patient underwent cardiac surgery, the indication for surgery if performed, and the final clinical status or discharge summary.",
+          "current_trajectory_hypothesis": "57-year-old man with 3-month progressive symptoms (dyspnea, fatigue, weight loss, rash) initially misdiagnosed as vasculitis/RPGN based on elevated inflammatory markers, hematuria, and low C3. Echocardiogram revealed vegetation on posterior mitral leaflet with leaflet thickening. Treatment with IV ceftriaxone was initiated after blood cultures were obtained. The known final diagnosis is S. mutans endocarditis. Given that cardiothoracic surgery was consulted, documentation of whether surgery was performed and the outcome would help complete the clinical trajectory.",
+          "confirmed_evidence": [
+            "Grade III/VI apical systolic murmur radiating to left axilla on ED exam",
+            "Mild to moderate mitral regurgitation with leaflet prolapse on prior cardiology echo",
+            "Non-blanching petechiae on lower extremities and torso (septic emboli)",
+            "Microscopic hematuria and proteinuria (endocarditis-related glomerulonephritis)",
+            "Low C3 level (immune complex disease from endocarditis)",
+            "Acute kidney injury on presentation",
+            "Echocardiogram showing vegetation on posterior mitral leaflet and leaflet thickening (E006)",
+            "IV ceftriaxone treatment initiated with rapid steroid taper (E008)",
+            "Infectious disease and cardiothoracic surgery consultations obtained (E008)"
+          ],
+          "missing_key_evidence": [
+            "Cardiac surgery performed or decision against surgery",
+            "Final clinical outcome and discharge status",
+            "Resolution of acute kidney injury",
+            "Response to antibiotic therapy documented",
+            "Risk factors for S. mutans endocarditis (dental procedures, oral health)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.72
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E011",
+          "source_text": "On hospital day 14, he underwent a successful bioprosthetic mitral valve replacement and debridement of a 5 mm excrescence on the aortic valve.",
+          "category": "other",
+          "temporal_cue": "hospital day 14",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide documentation of any dental procedures, oral health status, or risk factors for Streptococcus mutans bacteremia that were documented in the patient's history prior to the onset of symptoms.",
+          "current_trajectory_hypothesis": "57-year-old man with 3-month progressive symptoms (dyspnea, fatigue, weight loss, rash) initially misdiagnosed as vasculitis/RPGN. Echocardiogram revealed vegetation on posterior mitral leaflet with leaflet thickening. IV ceftriaxone was initiated. On hospital day 14, he underwent successful bioprosthetic mitral valve replacement with debridement of aortic valve excrescence. The known final diagnosis is S. mutans endocarditis. To complete the trajectory, documentation of predisposing factors (dental procedures, poor oral hygiene, or other sources of oral streptococcal bacteremia) would help explain the pathogenesis of this infection.",
+          "confirmed_evidence": [
+            "Grade III/VI apical systolic murmur radiating to left axilla on ED exam",
+            "Mild to moderate mitral regurgitation with leaflet prolapse on prior cardiology echo (predisposing to endocarditis)",
+            "Non-blanching petechiae on lower extremities and torso (septic emboli)",
+            "Microscopic hematuria and proteinuria (endocarditis-related glomerulonephritis)",
+            "Low C3 level (immune complex disease from endocarditis)",
+            "Acute kidney injury on presentation",
+            "Echocardiogram showing vegetation on posterior mitral leaflet and leaflet thickening (E006)",
+            "IV ceftriaxone treatment initiated with rapid steroid taper (E008)",
+            "Infectious disease and cardiothoracic surgery consultations obtained (E008)",
+            "Bioprosthetic mitral valve replacement and aortic valve debridement on hospital day 14 (E011)"
+          ],
+          "missing_key_evidence": [
+            "Dental procedures or oral health risk factors for S. mutans bacteremia",
+            "Documented organism identification from blood cultures (restricted access)",
+            "Final clinical outcome and discharge status",
+            "Resolution of acute kidney injury post-operatively",
+            "Explanation of why initial presentation mimicked vasculitis with elevated inflammatory markers and low C3"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.78
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No source record documents dental procedures, oral health status, or risk factors for Streptococcus mutans bacteremia prior to symptom onset.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the post-operative clinical course documentation, including the patient's recovery after valve replacement surgery, resolution of acute kidney injury, response to continued antibiotic therapy, and final discharge status or outcome.",
+          "current_trajectory_hypothesis": "57-year-old man with 3-month progressive symptoms (dyspnea, fatigue, weight loss, rash) initially misdiagnosed as vasculitis/RPGN based on elevated inflammatory markers, hematuria, and low C3. Echocardiogram revealed vegetation on posterior mitral leaflet with leaflet thickening. IV ceftriaxone was initiated after blood cultures. On hospital day 14, successful bioprosthetic mitral valve replacement and aortic valve debridement were performed. The known final diagnosis is S. mutans endocarditis. Documentation of post-operative course and final outcome would complete the clinical trajectory.",
+          "confirmed_evidence": [
+            "Grade III/VI apical systolic murmur radiating to left axilla on ED exam",
+            "Mild to moderate mitral regurgitation with leaflet prolapse on prior cardiology echo (predisposing to endocarditis)",
+            "Non-blanching petechiae on lower extremities and torso (septic emboli from endocarditis)",
+            "Microscopic hematuria and proteinuria (endocarditis-related immune complex glomerulonephritis)",
+            "Low C3 level (immune complex disease from endocarditis)",
+            "Acute kidney injury on presentation",
+            "Echocardiogram showing vegetation on posterior mitral leaflet and leaflet thickening (E006)",
+            "IV ceftriaxone treatment initiated with rapid steroid taper (E008)",
+            "Infectious disease and cardiothoracic surgery consultations obtained (E008)",
+            "Bioprosthetic mitral valve replacement and aortic valve debridement on hospital day 14 (E011)"
+          ],
+          "missing_key_evidence": [
+            "Post-operative clinical course and recovery",
+            "Resolution of acute kidney injury after surgery",
+            "Final discharge status and long-term outcome",
+            "Documented organism identification from blood cultures (restricted access)",
+            "Dental or oral health risk factors for S. mutans bacteremia (not reported)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.82
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E012",
+          "source_text": "On hospital day 25, he was discharged to an acute rehabilitation center with a plan to complete four weeks of intravenous penicillin from the date of surgery. His creatinine had decreased to 1.2 mg/dL.",
+          "category": "other",
+          "temporal_cue": "hospital day 25",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the initial laboratory results from the ED presentation, including the complete blood count (hemoglobin/hematocrit), comprehensive metabolic panel with baseline creatinine value, urinalysis findings, and the specific C3 complement level value.",
+          "current_trajectory_hypothesis": "57-year-old man with 3-month progressive symptoms (dyspnea, fatigue, weight loss, rash) initially misdiagnosed as vasculitis/RPGN. Pre-existing mild-to-moderate mitral regurgitation with leaflet prolapse was a predisposing factor. Echocardiogram revealed vegetation on posterior mitral leaflet with leaflet thickening. IV ceftriaxone was initiated after blood cultures. On hospital day 14, successful bioprosthetic mitral valve replacement and aortic valve debridement were performed. Discharged on hospital day 25 with plan for 4 weeks IV penicillin; creatinine improved to 1.2 mg/dL. The known final diagnosis is S. mutans endocarditis. Detailed baseline laboratory values would help document the severity of acute kidney injury and immune complex-mediated glomerulonephritis at presentation.",
+          "confirmed_evidence": [
+            "Grade III/VI apical systolic murmur radiating to left axilla on ED exam",
+            "Mild to moderate mitral regurgitation with leaflet prolapse on prior cardiology echo (predisposing to endocarditis)",
+            "Non-blanching petechiae on lower extremities and torso (septic emboli from endocarditis)",
+            "Microscopic hematuria and proteinuria (endocarditis-related immune complex glomerulonephritis)",
+            "Low C3 level documented (immune complex disease from endocarditis)",
+            "Acute kidney injury on presentation",
+            "Echocardiogram showing vegetation on posterior mitral leaflet and leaflet thickening (E006)",
+            "IV ceftriaxone treatment initiated with rapid steroid taper (E008)",
+            "Infectious disease and cardiothoracic surgery consultations obtained (E008)",
+            "Bioprosthetic mitral valve replacement and aortic valve debridement on hospital day 14 (E011)",
+            "Discharged hospital day 25 with creatinine improved to 1.2 mg/dL, plan for 4 weeks IV penicillin (E012)"
+          ],
+          "missing_key_evidence": [
+            "Baseline creatinine value at ED presentation to quantify severity of acute kidney injury",
+            "Specific C3 complement level value",
+            "Hemoglobin/hematocrit values documenting anemia",
+            "Documented organism identification from blood cultures (restricted access)",
+            "Dental or oral health risk factors for S. mutans bacteremia (not reported)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "Repeat laboratory investigations showed worsening proteinuria and microscopic hematuria, and a newly elevated creatinine level of 3.20 mg/dL from a baseline of 0.89–1.02 mg/dL (Table 1), which prompted referral to the Emergency Department.",
+          "category": "routine_lab",
+          "temporal_cue": "day before admission",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the Duke criteria documentation or clinical notes from the infectious disease consultation that explicitly confirm the diagnosis of infective endocarditis and document how the diagnosis was established (major and minor criteria met).",
+          "current_trajectory_hypothesis": "57-year-old man with 3-month progressive symptoms (dyspnea, fatigue, weight loss, rash) initially misdiagnosed as vasculitis/RPGN. Pre-existing mild-to-moderate mitral regurgitation with leaflet prolapse was a predisposing factor for endocarditis. Echocardiogram revealed vegetation on posterior mitral leaflet with leaflet thickening. IV ceftriaxone initiated after blood cultures. On hospital day 14, successful bioprosthetic mitral valve replacement and aortic valve debridement performed. Discharged hospital day 25 with creatinine improved to 1.2 mg/dL and plan for 4 weeks IV penicillin. The known final diagnosis is S. mutans endocarditis. Clinical documentation of how the diagnosis was formally established would strengthen the trajectory.",
+          "confirmed_evidence": [
+            "Grade III/VI apical systolic murmur radiating to left axilla on ED exam (major Duke criterion)",
+            "Mild to moderate mitral regurgitation with leaflet prolapse on prior cardiology echo (predisposing to endocarditis)",
+            "Non-blanching petechiae on lower extremities and torso (minor Duke criterion - vascular phenomena)",
+            "Microscopic hematuria and proteinuria (endocarditis-related immune complex glomerulonephritis)",
+            "Low C3 level documented (immune complex disease from endocarditis)",
+            "Acute kidney injury on presentation with creatinine 3.20 mg/dL from baseline 0.89-1.02 mg/dL (E003)",
+            "Echocardiogram showing vegetation on posterior mitral leaflet and leaflet thickening (E006 - major Duke criterion)",
+            "IV ceftriaxone treatment initiated with rapid steroid taper (E008)",
+            "Infectious disease and cardiothoracic surgery consultations obtained (E008)",
+            "Bioprosthetic mitral valve replacement and aortic valve debridement on hospital day 14 (E011)",
+            "Discharged hospital day 25 with creatinine improved to 1.2 mg/dL, plan for 4 weeks IV penicillin (E012)"
+          ],
+          "missing_key_evidence": [
+            "Formal documentation of Duke criteria assessment for infective endocarditis diagnosis",
+            "Documented organism identification from blood cultures (restricted access)",
+            "Specific C3 complement level value",
+            "Hemoglobin/hematocrit values documenting anemia",
+            "Dental or oral health risk factors for S. mutans bacteremia (not reported)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.88
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No source record explicitly documents the Duke criteria or clinical notes from the infectious disease consultation specifying how the diagnosis of infective endocarditis was established.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the initial ED laboratory results including the complete blood count (hemoglobin/hematocrit values), the specific C3 complement level value, ESR, CRP, and rheumatoid factor values documented at ED presentation.",
+          "current_trajectory_hypothesis": "57-year-old man with 3-month progressive symptoms (dyspnea, fatigue, weight loss, rash) initially misdiagnosed as vasculitis/RPGN based on elevated inflammatory markers and low C3. Pre-existing mild-to-moderate mitral regurgitation with leaflet prolapse was a predisposing factor. Echocardiogram revealed vegetation on posterior mitral leaflet with leaflet thickening. IV ceftriaxone initiated after blood cultures. On hospital day 14, successful bioprosthetic mitral valve replacement and aortic valve debridement performed. Discharged hospital day 25 with creatinine improved to 1.2 mg/dL and plan for 4 weeks IV penicillin. The known final diagnosis is S. mutans endocarditis. Specific laboratory values at ED presentation would document the severity of the systemic inflammatory response and immune complex-mediated disease that initially mimicked vasculitis.",
+          "confirmed_evidence": [
+            "Grade III/VI apical systolic murmur radiating to left axilla on ED exam (major Duke criterion)",
+            "Mild to moderate mitral regurgitation with leaflet prolapse on prior cardiology echo (predisposing to endocarditis)",
+            "Non-blanching petechiae on lower extremities and torso (minor Duke criterion - vascular phenomena)",
+            "Microscopic hematuria and proteinuria (endocarditis-related immune complex glomerulonephritis)",
+            "Low C3 level documented (immune complex disease from endocarditis)",
+            "Acute kidney injury on presentation with creatinine 3.20 mg/dL from baseline 0.89-1.02 mg/dL (E003)",
+            "Echocardiogram showing vegetation on posterior mitral leaflet and leaflet thickening (E006 - major Duke criterion)",
+            "IV ceftriaxone treatment initiated with rapid steroid taper (E008)",
+            "Infectious disease and cardiothoracic surgery consultations obtained (E008)",
+            "Bioprosthetic mitral valve replacement and aortic valve debridement on hospital day 14 (E011)",
+            "Discharged hospital day 25 with creatinine improved to 1.2 mg/dL, plan for 4 weeks IV penicillin (E012)"
+          ],
+          "missing_key_evidence": [
+            "Specific C3 complement level value at ED presentation",
+            "Hemoglobin/hematocrit values documenting anemia",
+            "ESR, CRP, and rheumatoid factor values at ED presentation",
+            "Documented organism identification from blood cultures (restricted access)",
+            "Dental or oral health risk factors for S. mutans bacteremia (not reported)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.88
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No source record provides the initial ED laboratory results with specified values for hemoglobin/hematocrit, C3 level, ESR, CRP, and rheumatoid factor.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the pathology report from the excised mitral valve and aortic valve tissue obtained during surgery on hospital day 14, including histopathologic findings of vegetation composition, inflammatory infiltrate, and any microorganism identification.",
+          "current_trajectory_hypothesis": "57-year-old man with 3-month progressive symptoms (dyspnea, fatigue, weight loss, rash) initially misdiagnosed as vasculitis/RPGN based on elevated inflammatory markers and low C3. Pre-existing mild-to-moderate mitral regurgitation with leaflet prolapse was a predisposing factor. Echocardiogram revealed vegetation on posterior mitral leaflet with leaflet thickening. IV ceftriaxone initiated after blood cultures. On hospital day 14, successful bioprosthetic mitral valve replacement and aortic valve debridement performed. Discharged hospital day 25 with creatinine improved to 1.2 mg/dL and plan for 4 weeks IV penicillin. The known final diagnosis is S. mutans endocarditis. Pathology findings from the excised valve tissue would provide direct histologic confirmation of infective endocarditis and potentially identify the causative organism.",
+          "confirmed_evidence": [
+            "Grade III/VI apical systolic murmur radiating to left axilla on ED exam (major Duke criterion)",
+            "Mild to moderate mitral regurgitation with leaflet prolapse on prior cardiology echo (predisposing to endocarditis)",
+            "Non-blanching petechiae on lower extremities and torso (minor Duke criterion - vascular phenomena)",
+            "Microscopic hematuria and proteinuria (endocarditis-related immune complex glomerulonephritis)",
+            "Low C3 level documented (immune complex disease from endocarditis)",
+            "Acute kidney injury on presentation with creatinine 3.20 mg/dL from baseline 0.89-1.02 mg/dL (E003)",
+            "Echocardiogram showing vegetation on posterior mitral leaflet and leaflet thickening (E006 - major Duke criterion)",
+            "IV ceftriaxone treatment initiated with rapid steroid taper (E008)",
+            "Infectious disease and cardiothoracic surgery consultations obtained (E008)",
+            "Bioprosthetic mitral valve replacement and aortic valve debridement on hospital day 14 (E011)",
+            "Discharged hospital day 25 with creatinine improved to 1.2 mg/dL, plan for 4 weeks IV penicillin (E012)"
+          ],
+          "missing_key_evidence": [
+            "Pathology report from excised valve tissue confirming infective endocarditis",
+            "Documented organism identification from blood cultures (restricted access)",
+            "Specific C3 complement level value at ED presentation",
+            "Hemoglobin/hematocrit values documenting anemia",
+            "Dental or oral health risk factors for S. mutans bacteremia (not reported)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.88
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E011",
+          "source_text": "Histopathology of the mitral valve demonstrated fibrosis, extensive acute and chronic inflammation, and necrosis. Gram’s stain showed numerous Gram-positive cocci in pairs and short chains. The aortic valve lesion that was initially interpreted as a Lambl’s excrescence also demonstrated necrosis, inflammation, and Gram-positive cocci.",
+          "category": "other",
+          "temporal_cue": "hospital day 14",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Streptococcus mutans endocarditis",
+          "trajectory_summary": "A 57-year-old man presented with a 3-month progressive illness characterized by dyspnea on exertion, fatigue, weight loss, and a petechial rash. Initial evaluation was complicated by misattribution to vasculitis/RPGN based on elevated inflammatory markers (elevated CRP, ESR, rheumatoid factor), microscopic hematuria, proteinuria, low C3 complement, and acute kidney injury (creatinine 3.20 mg/dL from baseline 0.89-1.02 mg/dL). However, careful examination revealed a grade III/VI apical systolic murmur radiating to the left axilla, and the patient had pre-existing mild-to-moderate mitral regurgitation with leaflet prolapse from prior cardiology evaluation. Transthoracic echocardiogram performed on the day after ED admission demonstrated a vegetation on the posterior mitral leaflet with leaflet thickening, establishing the cardiac source of systemic manifestations. Blood cultures were obtained and IV ceftriaxone was initiated. On hospital day 14, the patient underwent successful bioprosthetic mitral valve replacement with debridement of a 5 mm excrescence on the aortic valve. Histopathology of the excised mitral valve demonstrated fibrosis, extensive acute and chronic inflammation, and necrosis with numerous Gram-positive cocci in pairs and short chains on Gram's stain, consistent with streptococcal infection. The aortic valve lesion also showed necrosis, inflammation, and Gram-positive cocci. The patient was discharged on hospital day 25 with a plan to complete 4 weeks of intravenous penicillin from the date of surgery, with creatinine improved to 1.2 mg/dL.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Pre-existing valvular disease predisposing to endocarditis",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Cardiac murmur consistent with endocarditis",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Septic emboli manifestation",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Immune complex-mediated glomerulonephritis from endocarditis",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Acute kidney injury at presentation",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Echocardiographic evidence of vegetation",
+              "evidence_ids": [
+                "E006"
+              ]
+            },
+            {
+              "claim": "Initiation of appropriate antibiotic therapy",
+              "evidence_ids": [
+                "E008"
+              ]
+            },
+            {
+              "claim": "Surgical intervention for valve replacement",
+              "evidence_ids": [
+                "E011"
+              ]
+            },
+            {
+              "claim": "Histopathologic confirmation of infective endocarditis with Gram-positive cocci",
+              "evidence_ids": [
+                "E011"
+              ]
+            },
+            {
+              "claim": "Clinical improvement with antibiotic therapy and surgery",
+              "evidence_ids": [
+                "E012"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Rapidly progressive glomerulonephritis secondary to vasculitis",
+              "basis": "Initial clinical presentation with elevated inflammatory markers, hematuria, proteinuria, and low C3 mimicked vasculitis/RPGN, but echocardiogram revealed cardiac vegetation and histopathology of excised valve tissue showed Gram-positive cocci consistent with bacterial endocarditis rather than primary glomerulonephritis"
+            },
+            {
+              "alternative": "Primary rheumatologic disease",
+              "basis": "Elevated rheumatoid factor, ESR, and CRP initially suggested rheumatologic etiology, but the presence of cardiac murmur, vegetation on echocardiogram, and Gram-positive cocci on valve histopathology established infectious endocarditis as the primary diagnosis"
+            }
+          ],
+          "remaining_uncertainties": [
+            "Specific organism identification from blood cultures (restricted access to microbiology report)",
+            "Specific C3 complement level value at ED presentation",
+            "Hemoglobin/hematocrit values documenting degree of anemia",
+            "Specific ESR, CRP, and rheumatoid factor values at ED presentation",
+            "Dental procedures or oral health risk factors that may have predisposed to S. mutans bacteremia (not documented in available records)",
+            "Long-term follow-up and outcome beyond discharge"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.92
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Streptococcus mutans endocarditis",
+      "trajectory_summary": "A 57-year-old man presented with a 3-month progressive illness characterized by dyspnea on exertion, fatigue, weight loss, and a petechial rash. Initial evaluation was complicated by misattribution to vasculitis/RPGN based on elevated inflammatory markers (elevated CRP, ESR, rheumatoid factor), microscopic hematuria, proteinuria, low C3 complement, and acute kidney injury (creatinine 3.20 mg/dL from baseline 0.89-1.02 mg/dL). However, careful examination revealed a grade III/VI apical systolic murmur radiating to the left axilla, and the patient had pre-existing mild-to-moderate mitral regurgitation with leaflet prolapse from prior cardiology evaluation. Transthoracic echocardiogram performed on the day after ED admission demonstrated a vegetation on the posterior mitral leaflet with leaflet thickening, establishing the cardiac source of systemic manifestations. Blood cultures were obtained and IV ceftriaxone was initiated. On hospital day 14, the patient underwent successful bioprosthetic mitral valve replacement with debridement of a 5 mm excrescence on the aortic valve. Histopathology of the excised mitral valve demonstrated fibrosis, extensive acute and chronic inflammation, and necrosis with numerous Gram-positive cocci in pairs and short chains on Gram's stain, consistent with streptococcal infection. The aortic valve lesion also showed necrosis, inflammation, and Gram-positive cocci. The patient was discharged on hospital day 25 with a plan to complete 4 weeks of intravenous penicillin from the date of surgery, with creatinine improved to 1.2 mg/dL.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Pre-existing valvular disease predisposing to endocarditis",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Cardiac murmur consistent with endocarditis",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Septic emboli manifestation",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Immune complex-mediated glomerulonephritis from endocarditis",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Acute kidney injury at presentation",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Echocardiographic evidence of vegetation",
+          "evidence_ids": [
+            "E006"
+          ]
+        },
+        {
+          "claim": "Initiation of appropriate antibiotic therapy",
+          "evidence_ids": [
+            "E008"
+          ]
+        },
+        {
+          "claim": "Surgical intervention for valve replacement",
+          "evidence_ids": [
+            "E011"
+          ]
+        },
+        {
+          "claim": "Histopathologic confirmation of infective endocarditis with Gram-positive cocci",
+          "evidence_ids": [
+            "E011"
+          ]
+        },
+        {
+          "claim": "Clinical improvement with antibiotic therapy and surgery",
+          "evidence_ids": [
+            "E012"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Rapidly progressive glomerulonephritis secondary to vasculitis",
+          "basis": "Initial clinical presentation with elevated inflammatory markers, hematuria, proteinuria, and low C3 mimicked vasculitis/RPGN, but echocardiogram revealed cardiac vegetation and histopathology of excised valve tissue showed Gram-positive cocci consistent with bacterial endocarditis rather than primary glomerulonephritis"
+        },
+        {
+          "alternative": "Primary rheumatologic disease",
+          "basis": "Elevated rheumatoid factor, ESR, and CRP initially suggested rheumatologic etiology, but the presence of cardiac murmur, vegetation on echocardiogram, and Gram-positive cocci on valve histopathology established infectious endocarditis as the primary diagnosis"
+        }
+      ],
+      "remaining_uncertainties": [
+        "Specific organism identification from blood cultures (restricted access to microbiology report)",
+        "Specific C3 complement level value at ED presentation",
+        "Hemoglobin/hematocrit values documenting degree of anemia",
+        "Specific ESR, CRP, and rheumatoid factor values at ED presentation",
+        "Dental procedures or oral health risk factors that may have predisposed to S. mutans bacteremia (not documented in available records)",
+        "Long-term follow-up and outcome beyond discharge"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.92
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T06:11:38.159572+00:00",
+    "clinician_model": "claude-haiku-4-5",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC6698061",
+    "known_final_diagnosis": "Streptococcus mutans endocarditis",
+    "turns_used": 12,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 10,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 5,
+    "gold_reasoning_span_count": 3,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "REQUEST_RESULT": 11
+    },
+    "report_status_counts": {
+      "already_disclosed": 1,
+      "found": 5,
+      "invalid_report_selection": 2,
+      "not_reported": 3
+    },
+    "report_repair_attempted_count": 3,
+    "report_repair_failed_count": 2,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 5
+    },
+    "answer_yield": 0.5454545454545454,
+    "unavailable_turn_rate": 0.2727272727272727,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T06:11:38.161270+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC6698061",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "7",
+    "num_pred_steps": "4",
+    "weighted_tversky_alignment": "0.19047619047619047",
+    "weighted_tversky_distance": "0.8095238095238095",
+    "matched_weight": "2.0",
+    "missed_weight": "5.0",
+    "extra_weight": "1.75",
+    "weighted_lcs_recall": "0.2857142857142857",
+    "weighted_lcs_weight": "2.0",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "1",
+    "pairwise_inversions": "0",
+    "gold_sequence": "physical_examination > lab_tests > imaging > microbiology > medication_or_treatment > pathology > other_or_off_protocol",
+    "prediction_sequence": "lab_tests > admission_or_clinical_course > microbiology > procedure_or_intervention",
+    "error": ""
+  }
+}

@@ -1,0 +1,545 @@
+{
+  "case_id": "case_0396",
+  "pmcid": "PMC10206375",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC10206375",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 13,
+    "termination": "final",
+    "known_final_diagnosis": "subsequent biopsy of this lesion showed clear cell renal cell carcinoma.",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E003"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "findings of the initial CT of the thoracic and lumbar spine without contrast",
+          "current_trajectory_hypothesis": "Patient presented with back pain after a fall. Initial CT scan likely revealed a spinal lesion, potentially metastatic, leading to the diagnosis of renal cell carcinoma.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "CT findings",
+            "identification of primary tumor",
+            "biopsy results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "Initial CT thoracolumbar spine revealed fractures through the superior vertebral body (Fig. 1A) and left pedicle (Fig. 1B) of T7, with widening of the T6-T7 disk space and disruption of the T6-T7 osteophyte (Fig. 1A). Incidentally, an exophytic renal mass was found on the CT of the lumbar spine (Fig. 2).",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "dedicated imaging of the exophytic renal mass identified on the initial CT scan",
+          "current_trajectory_hypothesis": "Initial CT for back pain incidentally found a renal mass. This mass is likely the source of the clear cell renal cell carcinoma diagnosis. Further imaging is needed to characterize it.",
+          "confirmed_evidence": [
+            "77-year-old male presented with severe back pain after a fall",
+            "Initial CT of thoracolumbar spine showed T7 fractures and an incidental exophytic renal mass"
+          ],
+          "missing_key_evidence": [
+            "characteristics of the renal mass",
+            "biopsy details of the renal mass",
+            "confirmation that the biopsied lesion was the renal mass"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order for dedicated imaging of the exophytic renal mass placed. Result not yet documented.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "pathology report of the biopsy performed on the renal mass",
+          "current_trajectory_hypothesis": "An incidental exophytic renal mass was found on initial CT. This mass was subsequently biopsied, and the pathology report is expected to confirm clear cell renal cell carcinoma.",
+          "confirmed_evidence": [
+            "77-year-old male presented with severe back pain after a fall",
+            "Initial CT of thoracolumbar spine showed T7 fractures and an incidental exophytic renal mass (E001)"
+          ],
+          "missing_key_evidence": [
+            "characteristics of the renal mass from dedicated imaging (if performed)",
+            "pathology results confirming clear cell renal cell carcinoma from the renal mass biopsy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "results of dedicated imaging of the exophytic renal mass",
+          "current_trajectory_hypothesis": "An incidental exophytic renal mass was found on initial CT. Dedicated imaging was likely performed to characterize this mass before a biopsy confirmed clear cell renal cell carcinoma.",
+          "confirmed_evidence": [
+            "77-year-old male presented with severe back pain after a fall",
+            "Initial CT of thoracolumbar spine showed T7 fractures and an incidental exophytic renal mass (E001)"
+          ],
+          "missing_key_evidence": [
+            "characteristics of the renal mass from dedicated imaging",
+            "details of the renal mass biopsy procedure",
+            "pathology results confirming clear cell renal cell carcinoma from the renal mass biopsy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "Dedicated nonemergent CT abdomen and pelvis with and without intravenous contrast renal mass protocol was recommended and performed, which revealed a right mid pole renal mass measuring up to 3.8 cm, with numerous internal septations and a 0.8 cm solid nodular component (Fig. 3). This was classified as a Bosniak type III lesion,",
+          "category": "imaging_report",
+          "temporal_cue": "after initial CT",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "pathology report of the biopsy performed on the right mid pole renal mass",
+          "current_trajectory_hypothesis": "An incidental exophytic renal mass was found on initial CT, further characterized by dedicated CT as a Bosniak type III lesion. A biopsy of this mass is expected to confirm clear cell renal cell carcinoma.",
+          "confirmed_evidence": [
+            "77-year-old male presented with severe back pain after a fall",
+            "Initial CT of thoracolumbar spine showed T7 fractures and an incidental exophytic renal mass (E001)",
+            "Dedicated CT of abdomen and pelvis revealed a right mid pole renal mass, 3.8 cm, with internal septations and a 0.8 cm solid nodule, classified as Bosniak type III (E002)"
+          ],
+          "missing_key_evidence": [
+            "pathology results confirming clear cell renal cell carcinoma from the renal mass biopsy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "histopathological findings from the biopsy of the right mid pole renal mass",
+          "current_trajectory_hypothesis": "An incidental exophytic renal mass was found on initial CT, further characterized by dedicated CT as a Bosniak type III lesion. The histopathological findings from the biopsy of this mass are expected to confirm clear cell renal cell carcinoma.",
+          "confirmed_evidence": [
+            "77-year-old male presented with severe back pain after a fall",
+            "Initial CT of thoracolumbar spine showed T7 fractures and an incidental exophytic renal mass (E001)",
+            "Dedicated CT of abdomen and pelvis revealed a right mid pole renal mass, 3.8 cm, with internal septations and a 0.8 cm solid nodule, classified as Bosniak type III (E002)"
+          ],
+          "missing_key_evidence": [
+            "histopathological findings confirming clear cell renal cell carcinoma from the renal mass biopsy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "microscopic findings from the biopsy of the right mid pole renal mass",
+          "current_trajectory_hypothesis": "An incidental exophytic renal mass was found on initial CT, further characterized by dedicated CT as a Bosniak type III lesion. The microscopic findings from the biopsy of this mass are expected to describe features consistent with clear cell renal cell carcinoma.",
+          "confirmed_evidence": [
+            "77-year-old male presented with severe back pain after a fall",
+            "Initial CT of thoracolumbar spine showed T7 fractures and an incidental exophytic renal mass (E001)",
+            "Dedicated CT of abdomen and pelvis revealed a right mid pole renal mass, 3.8 cm, with internal septations and a 0.8 cm solid nodule, classified as Bosniak type III (E002)"
+          ],
+          "missing_key_evidence": [
+            "microscopic findings from the renal mass biopsy confirming clear cell renal cell carcinoma"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What did the biopsy of the right mid pole renal mass reveal?",
+          "current_trajectory_hypothesis": "An incidental exophytic renal mass was found on initial CT, further characterized by dedicated CT as a Bosniak type III lesion. The biopsy of this mass is expected to reveal findings consistent with clear cell renal cell carcinoma.",
+          "confirmed_evidence": [
+            "77-year-old male presented with severe back pain after a fall",
+            "Initial CT of thoracolumbar spine showed T7 fractures and an incidental exophytic renal mass (E001)",
+            "Dedicated CT of abdomen and pelvis revealed a right mid pole renal mass, 3.8 cm, with internal septations and a 0.8 cm solid nodule, classified as Bosniak type III (E002)"
+          ],
+          "missing_key_evidence": [
+            "biopsy results confirming clear cell renal cell carcinoma"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "results of the biopsy of the right mid pole renal mass",
+          "current_trajectory_hypothesis": "An incidental exophytic renal mass was found on initial CT, further characterized by dedicated CT as a Bosniak type III lesion. The results of the biopsy of this mass are expected to confirm clear cell renal cell carcinoma.",
+          "confirmed_evidence": [
+            "77-year-old male presented with severe back pain after a fall",
+            "Initial CT of thoracolumbar spine showed T7 fractures and an incidental exophytic renal mass (E001)",
+            "Dedicated CT of abdomen and pelvis revealed a right mid pole renal mass, 3.8 cm, with internal septations and a 0.8 cm solid nodule, classified as Bosniak type III (E002)"
+          ],
+          "missing_key_evidence": [
+            "biopsy results confirming clear cell renal cell carcinoma"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "description of the cells and tissue architecture from the biopsy of the right mid pole renal mass",
+          "current_trajectory_hypothesis": "An incidental exophytic renal mass was found on initial CT, further characterized by dedicated CT as a Bosniak type III lesion. The microscopic description of the cells and tissue from the biopsy of this mass is expected to confirm clear cell renal cell carcinoma.",
+          "confirmed_evidence": [
+            "77-year-old male presented with severe back pain after a fall",
+            "Initial CT of thoracolumbar spine showed T7 fractures and an incidental exophytic renal mass (E001)",
+            "Dedicated CT of abdomen and pelvis revealed a right mid pole renal mass, 3.8 cm, with internal septations and a 0.8 cm solid nodule, classified as Bosniak type III (E002)"
+          ],
+          "missing_key_evidence": [
+            "microscopic description of cells and tissue from the renal mass biopsy confirming clear cell renal cell carcinoma"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "No detailed description of cells and tissue architecture in biopsy is available in the supplied evidence.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "pathology diagnosis from the biopsy of the right mid pole renal mass",
+          "current_trajectory_hypothesis": "An incidental exophytic renal mass was found on initial CT, further characterized by dedicated CT as a Bosniak type III lesion. The pathology diagnosis from the biopsy of this mass is expected to confirm clear cell renal cell carcinoma.",
+          "confirmed_evidence": [
+            "77-year-old male presented with severe back pain after a fall",
+            "Initial CT of thoracolumbar spine showed T7 fractures and an incidental exophytic renal mass (E001)",
+            "Dedicated CT of abdomen and pelvis revealed a right mid pole renal mass, 3.8 cm, with internal septations and a 0.8 cm solid nodule, classified as Bosniak type III (E002)"
+          ],
+          "missing_key_evidence": [
+            "pathology diagnosis from the renal mass biopsy confirming clear cell renal cell carcinoma"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "pathology report conclusion from the biopsy of the right mid pole renal mass",
+          "current_trajectory_hypothesis": "An incidental exophytic renal mass was found on initial CT, further characterized by dedicated CT as a Bosniak type III lesion. The pathology report conclusion from the biopsy of this mass is expected to confirm clear cell renal cell carcinoma.",
+          "confirmed_evidence": [
+            "77-year-old male presented with severe back pain after a fall",
+            "Initial CT of thoracolumbar spine showed T7 fractures and an incidental exophytic renal mass (E001)",
+            "Dedicated CT of abdomen and pelvis revealed a right mid pole renal mass, 3.8 cm, with internal septations and a 0.8 cm solid nodule, classified as Bosniak type III (E002)"
+          ],
+          "missing_key_evidence": [
+            "pathology report conclusion from the renal mass biopsy confirming clear cell renal cell carcinoma"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "clear cell renal cell carcinoma",
+          "category": "pathology_report",
+          "temporal_cue": "after dedicated CT",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "clear cell renal cell carcinoma",
+          "trajectory_summary": "A 77-year-old male presented with severe back pain after a mechanical fall. Initial CT of the thoracolumbar spine, performed for the back pain, incidentally revealed an exophytic renal mass (E001). Subsequent dedicated CT of the abdomen and pelvis further characterized this as a right mid pole renal mass, 3.8 cm, with internal septations and a 0.8 cm solid nodular component, classified as a Bosniak type III lesion (E002). A biopsy of this renal mass confirmed the diagnosis of clear cell renal cell carcinoma (E003).",
+          "key_supporting_evidence": [
+            {
+              "claim": "An exophytic renal mass was incidentally found on initial CT of the lumbar spine.",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Dedicated CT characterized the renal mass as a right mid pole lesion, 3.8 cm, with internal septations and a 0.8 cm solid nodular component, classified as Bosniak type III.",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Biopsy of the right mid pole renal mass confirmed clear cell renal cell carcinoma.",
+              "evidence_ids": [
+                "E003"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [],
+          "remaining_uncertainties": [
+            "Specific details of the biopsy procedure (e.g., type of biopsy, date)",
+            "Detailed microscopic findings from the biopsy beyond the final diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "clear cell renal cell carcinoma",
+      "trajectory_summary": "A 77-year-old male presented with severe back pain after a mechanical fall. Initial CT of the thoracolumbar spine, performed for the back pain, incidentally revealed an exophytic renal mass (E001). Subsequent dedicated CT of the abdomen and pelvis further characterized this as a right mid pole renal mass, 3.8 cm, with internal septations and a 0.8 cm solid nodular component, classified as a Bosniak type III lesion (E002). A biopsy of this renal mass confirmed the diagnosis of clear cell renal cell carcinoma (E003).",
+      "key_supporting_evidence": [
+        {
+          "claim": "An exophytic renal mass was incidentally found on initial CT of the lumbar spine.",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Dedicated CT characterized the renal mass as a right mid pole lesion, 3.8 cm, with internal septations and a 0.8 cm solid nodular component, classified as Bosniak type III.",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Biopsy of the right mid pole renal mass confirmed clear cell renal cell carcinoma.",
+          "evidence_ids": [
+            "E003"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [],
+      "remaining_uncertainties": [
+        "Specific details of the biopsy procedure (e.g., type of biopsy, date)",
+        "Detailed microscopic findings from the biopsy beyond the final diagnosis"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:19:49.373812+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10206375",
+    "known_final_diagnosis": "subsequent biopsy of this lesion showed clear cell renal cell carcinoma.",
+    "turns_used": 13,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 3,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 3,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_RESULT": 11
+    },
+    "report_status_counts": {
+      "found": 3,
+      "invalid_report_selection": 7,
+      "not_reported": 1,
+      "ordered_but_not_documented": 1
+    },
+    "report_repair_attempted_count": 8,
+    "report_repair_failed_count": 7,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 15
+    },
+    "answer_yield": 0.25,
+    "unavailable_turn_rate": 0.16666666666666666,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:19:49.374989+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10206375",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/episodes/PMC10206375.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/cases/PMC10206375.json",
+    "num_gold_steps": "2",
+    "num_pred_steps": "2",
+    "weighted_tversky_alignment": "0.2727272727272727",
+    "weighted_tversky_distance": "0.7272727272727273",
+    "matched_weight": "1.5",
+    "missed_weight": "2.0",
+    "extra_weight": "1.0",
+    "weighted_lcs_recall": "0.42857142857142855",
+    "weighted_lcs_weight": "1.5",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging > pathology",
+    "prediction_sequence": "imaging > procedure_or_intervention",
+    "error": ""
+  }
+}

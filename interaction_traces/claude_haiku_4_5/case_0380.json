@@ -1,0 +1,552 @@
+{
+  "case_id": "case_0380",
+  "pmcid": "PMC10032552",
+  "model": "claude_haiku_4_5",
+  "episode": {
+    "case_id": "PMC10032552",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 9,
+    "termination": "final",
+    "known_final_diagnosis": "The patient’s presentation was consistent with spontaneous ureter rupture.",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E004",
+      "E005"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Obtain a non-contrast CT scan of the abdomen and pelvis (CT KUB) to evaluate for ureter rupture, looking for findings such as urinoma, perinephric fluid collection, or contrast extravasation",
+          "current_trajectory_hypothesis": "67-year-old female with hypertension presenting with acute severe left flank pain radiating to left thoracic paravertebral region, associated with nausea and vomiting, and physical exam findings of left lower quadrant tenderness and left costovertebral angle tenderness. Clinical presentation is consistent with spontaneous ureter rupture, which would be confirmed by imaging evidence of urine extravasation or fluid collection.",
+          "confirmed_evidence": [
+            "Acute onset severe left flank pain with radiation to left thoracic paravertebral musculature",
+            "Associated nausea and multiple episodes of non-bloody, non-bilious emesis",
+            "Left lower quadrant abdominal tenderness on exam",
+            "Left costovertebral angle tenderness on exam",
+            "Normal vital signs at presentation",
+            "No clear inciting trauma or activity change"
+          ],
+          "missing_key_evidence": [
+            "Imaging confirmation of ureter rupture (urinoma, perinephric fluid, contrast extravasation)",
+            "Laboratory findings (urinalysis, hematuria status, renal function)",
+            "Temporal progression and clinical course",
+            "Treatment approach and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.35
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order placed for CT scan of abdomen and pelvis; no source record explicitly documents the ordered non-contrast CT KUB result yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the CT scan of the abdomen and pelvis (CT KUB) findings, specifically looking for evidence of urine extravasation, urinoma, perinephric fluid collection, or other findings related to ureter rupture",
+          "current_trajectory_hypothesis": "67-year-old female with hypertension presenting with acute severe left flank pain radiating to left thoracic paravertebral region, nausea, vomiting, and left lower quadrant and costovertebral angle tenderness. Clinical presentation is highly suspicious for spontaneous ureter rupture. CT imaging should demonstrate urine extravasation or fluid collection to confirm the diagnosis.",
+          "confirmed_evidence": [
+            "Acute onset severe left flank pain with radiation to left thoracic paravertebral musculature",
+            "Associated nausea and multiple episodes of non-bloody, non-bilious emesis",
+            "Left lower quadrant abdominal tenderness on exam",
+            "Left costovertebral angle tenderness on exam",
+            "Normal vital signs at presentation",
+            "No clear inciting trauma or activity change"
+          ],
+          "missing_key_evidence": [
+            "CT imaging confirmation of ureter rupture (urinoma, perinephric fluid, contrast extravasation)",
+            "Laboratory findings (urinalysis, hematuria, renal function)",
+            "Temporal progression and clinical course after imaging",
+            "Treatment approach (conservative vs. surgical intervention) and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.35
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "Imaging revealed an edematous left kidney with dilation of the left collecting system as well as a moderate amount of perinephric and periureteric fluid without the presence of an obstructing calculus (Figure 1).",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "Did the patient have any recent urological procedures, instrumentation, or interventions (such as ureteroscopy, stent placement, or catheterization) in the days or weeks prior to this presentation? Also, were there any prior episodes of kidney stones or urological disease?",
+          "current_trajectory_hypothesis": "67-year-old female with hypertension presenting with acute severe left flank pain, nausea, and vomiting. Physical exam shows left lower quadrant and costovertebral angle tenderness. CT imaging demonstrates edematous left kidney with dilated collecting system and moderate perinephric/periureteric fluid without obstructing calculus. This imaging pattern is consistent with ureter rupture, but the etiology (spontaneous vs. procedure-related vs. stone-related) remains to be clarified.",
+          "confirmed_evidence": [
+            "Acute onset severe left flank pain with radiation to left thoracic paravertebral musculature",
+            "Associated nausea and multiple episodes of non-bloody, non-bilious emesis",
+            "Left lower quadrant abdominal tenderness on exam",
+            "Left costovertebral angle tenderness on exam",
+            "Normal vital signs at presentation",
+            "CT imaging: edematous left kidney with dilated left collecting system",
+            "CT imaging: moderate perinephric and periureteric fluid without obstructing calculus"
+          ],
+          "missing_key_evidence": [
+            "Etiology of ureter rupture (spontaneous vs. procedure-related vs. stone-related)",
+            "Laboratory findings (urinalysis, hematuria status, renal function)",
+            "Confirmation of actual ureter rupture vs. other causes of perinephric fluid",
+            "Clinical course, treatment approach, and outcome",
+            "Any imaging evidence of contrast extravasation or urinoma"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "The patient then underwent placement of a double-J stent with Foley catheter placement. The patient was discharged with oral antibiotics and outpatient follow-up for repeat cystoscopy and evaluation for possible stent removal in one month.",
+          "category": "imaging_report",
+          "temporal_cue": "postoperative and follow-up",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the urinalysis findings from the initial presentation, including presence or absence of hematuria, pyuria, and any other relevant urinary findings",
+          "current_trajectory_hypothesis": "67-year-old female with hypertension presenting with acute severe left flank pain, nausea, and vomiting. Physical exam shows left lower quadrant and costovertebral angle tenderness. CT imaging demonstrates edematous left kidney with dilated collecting system and moderate perinephric/periureteric fluid without obstructing calculus, consistent with ureter rupture. The patient subsequently underwent double-J stent placement with Foley catheter and was discharged on antibiotics. The trajectory supports spontaneous ureter rupture, though the specific mechanism (whether truly spontaneous or related to an underlying condition) remains to be clarified.",
+          "confirmed_evidence": [
+            "Acute onset severe left flank pain with radiation to left thoracic paravertebral musculature",
+            "Associated nausea and multiple episodes of non-bloody, non-bilious emesis",
+            "Left lower quadrant abdominal tenderness on exam",
+            "Left costovertebral angle tenderness on exam",
+            "Normal vital signs at presentation",
+            "CT imaging: edematous left kidney with dilated left collecting system",
+            "CT imaging: moderate perinephric and periureteric fluid without obstructing calculus",
+            "Treatment: double-J stent placement with Foley catheter",
+            "Discharge on oral antibiotics with planned follow-up cystoscopy"
+          ],
+          "missing_key_evidence": [
+            "Urinalysis findings (hematuria, pyuria, specific gravity)",
+            "Laboratory findings (serum creatinine, BUN, electrolytes)",
+            "Explicit documentation of ureter rupture diagnosis or confirmation method",
+            "Details of any diagnostic procedure that confirmed rupture (cystoscopy findings, retrograde pyelography, or intraoperative findings)",
+            "Clinical course during hospitalization prior to stent placement",
+            "Outcome of follow-up cystoscopy and stent removal"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "Urinalysis demonstrated moderate leukocyte esterase with microscopy showing 12 white blood cells and three red blood cells per high-power field.",
+          "category": "routine_lab",
+          "temporal_cue": "on admission",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide documentation of the diagnostic confirmation of ureter rupture, including findings from cystoscopy, retrograde pyelography, intraoperative findings, or any imaging showing contrast extravasation that definitively confirmed the ureter rupture diagnosis",
+          "current_trajectory_hypothesis": "67-year-old female with hypertension presenting with acute severe left flank pain radiating to left thoracic paravertebral region, associated with nausea and vomiting. Physical exam revealed left lower quadrant and costovertebral angle tenderness. CT imaging on admission showed edematous left kidney with dilated collecting system and moderate perinephric/periureteric fluid without obstructing calculus. Urinalysis showed moderate leukocyte esterase with 12 WBC and 3 RBC per high-power field. The patient underwent double-J stent placement with Foley catheter and was discharged on oral antibiotics with planned follow-up cystoscopy. The clinical and imaging findings are consistent with spontaneous ureter rupture, but explicit diagnostic confirmation (such as cystoscopy findings or contrast extravasation on imaging) has not yet been documented.",
+          "confirmed_evidence": [
+            "Acute onset severe left flank pain with radiation to left thoracic paravertebral musculature",
+            "Associated nausea and multiple episodes of non-bloody, non-bilious emesis",
+            "Left lower quadrant abdominal tenderness on exam",
+            "Left costovertebral angle tenderness on exam",
+            "Normal vital signs at presentation",
+            "CT imaging: edematous left kidney with dilated left collecting system",
+            "CT imaging: moderate perinephric and periureteric fluid without obstructing calculus",
+            "Urinalysis: moderate leukocyte esterase with 12 WBC and 3 RBC per high-power field",
+            "Treatment: double-J stent placement with Foley catheter",
+            "Discharge on oral antibiotics with planned follow-up cystoscopy"
+          ],
+          "missing_key_evidence": [
+            "Explicit diagnostic confirmation of ureter rupture (cystoscopy findings, retrograde pyelography, contrast extravasation on imaging, or intraoperative findings)",
+            "Serum creatinine and renal function at presentation",
+            "Clinical course during hospitalization prior to stent placement",
+            "Documentation of whether rupture was truly spontaneous or related to underlying pathology",
+            "Outcome of follow-up cystoscopy and stent removal"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "The patient received intravenous antibiotics as well as intravenous fluids and underwent cystoscopy and left-sided retrograde pyelogram. This confirmed extravasation of contrast 2 cm distal to the left ureteropelvic junction without the presence of any stones, filling defects, or other etiologies of the ureter rupture.",
+          "category": "other",
+          "temporal_cue": "after delayed CT confirmation",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the serum creatinine, BUN, and electrolyte levels from the initial presentation to document baseline renal function at the time of admission",
+          "current_trajectory_hypothesis": "67-year-old female with hypertension presenting with acute severe left flank pain radiating to left thoracic paravertebral region, associated with nausea and vomiting. Physical exam revealed left lower quadrant and costovertebral angle tenderness. CT imaging on admission showed edematous left kidney with dilated collecting system and moderate perinephric/periureteric fluid without obstructing calculus. Urinalysis showed moderate leukocyte esterase with 12 WBC and 3 RBC per high-power field. Cystoscopy with retrograde pyelogram confirmed contrast extravasation 2 cm distal to left ureteropelvic junction without stones or other etiologies, confirming spontaneous ureter rupture. Patient underwent double-J stent placement with Foley catheter and was discharged on oral antibiotics.",
+          "confirmed_evidence": [
+            "Acute onset severe left flank pain with radiation to left thoracic paravertebral musculature",
+            "Associated nausea and multiple episodes of non-bloody, non-bilious emesis",
+            "Left lower quadrant abdominal tenderness on exam",
+            "Left costovertebral angle tenderness on exam",
+            "Normal vital signs at presentation",
+            "CT imaging: edematous left kidney with dilated left collecting system",
+            "CT imaging: moderate perinephric and periureteric fluid without obstructing calculus",
+            "Urinalysis: moderate leukocyte esterase with 12 WBC and 3 RBC per high-power field",
+            "Cystoscopy with retrograde pyelogram: contrast extravasation 2 cm distal to left ureteropelvic junction",
+            "No stones, filling defects, or other etiologies identified on retrograde pyelogram",
+            "Treatment: double-J stent placement with Foley catheter",
+            "Discharge on oral antibiotics with planned follow-up cystoscopy"
+          ],
+          "missing_key_evidence": [
+            "Serum creatinine and BUN at presentation to document baseline renal function",
+            "Electrolyte levels at presentation",
+            "Clinical course during hospitalization between imaging and stent placement",
+            "Outcome of follow-up cystoscopy and stent removal"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E001",
+          "source_text": "Laboratory workup included a complete blood count, compressive metabolic panel, coagulation profile, urinalysis, and serum lactic acid testing, which were found to be unexceptional except for an elevated lactate of 9.2 mmol/L as well as an elevated serum creatinine of 1.14 mg/dL, with an estimated glomerular filtration rate of 53 mL/minute/1.73m2. Urinalysis demonstrated moderate leukocyte esterase with microscopy showing 12 white blood cells and three red blood cells per high-power field.",
+          "category": "routine_lab",
+          "temporal_cue": "on admission",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "67-year-old female with hypertension presenting with acute severe left flank pain radiating to left thoracic paravertebral region, associated with nausea and vomiting. Physical exam revealed left lower quadrant and costovertebral angle tenderness. CT imaging on admission showed edematous left kidney with dilated collecting system and moderate perinephric/periureteric fluid without obstructing calculus. Laboratory workup showed elevated lactate (9.2 mmol/L), elevated serum creatinine (1.14 mg/dL), and eGFR of 53 mL/min/1.73m². Urinalysis showed moderate leukocyte esterase with 12 WBC and 3 RBC per high-power field. Cystoscopy with retrograde pyelogram confirmed contrast extravasation 2 cm distal to left ureteropelvic junction without stones or other etiologies, confirming spontaneous ureter rupture. Patient underwent double-J stent placement with Foley catheter and was discharged on oral antibiotics with planned follow-up cystoscopy.",
+          "confirmed_evidence": [
+            "Acute onset severe left flank pain with radiation to left thoracic paravertebral musculature",
+            "Associated nausea and multiple episodes of non-bloody, non-bilious emesis",
+            "Left lower quadrant abdominal tenderness on exam",
+            "Left costovertebral angle tenderness on exam",
+            "Normal vital signs at presentation",
+            "CT imaging: edematous left kidney with dilated left collecting system",
+            "CT imaging: moderate perinephric and periureteric fluid without obstructing calculus",
+            "Laboratory: elevated lactate 9.2 mmol/L, elevated serum creatinine 1.14 mg/dL, eGFR 53 mL/min/1.73m²",
+            "Urinalysis: moderate leukocyte esterase with 12 WBC and 3 RBC per high-power field",
+            "Cystoscopy with retrograde pyelogram: contrast extravasation 2 cm distal to left ureteropelvic junction",
+            "No stones, filling defects, or other etiologies identified on retrograde pyelogram",
+            "Treatment: double-J stent placement with Foley catheter",
+            "Discharge on oral antibiotics with planned follow-up cystoscopy"
+          ],
+          "missing_key_evidence": [
+            "Timing and sequence of diagnostic procedures (when cystoscopy/retrograde pyelogram was performed relative to CT)",
+            "Details of stent placement procedure and any intraoperative findings",
+            "Hospital course between admission and discharge",
+            "Outcome of follow-up cystoscopy and stent removal"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.88
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No pending orders and no undisclosed source-grounded clinical course update after current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the clinical course documentation during hospitalization, including the timing of the cystoscopy/retrograde pyelogram procedure relative to CT imaging, any intraoperative findings during stent placement, and the hospital course between admission and discharge",
+          "current_trajectory_hypothesis": "67-year-old female with hypertension presenting with acute severe left flank pain radiating to left thoracic paravertebral region, associated with nausea and vomiting. Physical exam revealed left lower quadrant and costovertebral angle tenderness. CT imaging on admission showed edematous left kidney with dilated collecting system and moderate perinephric/periureteric fluid without obstructing calculus. Laboratory workup showed elevated lactate (9.2 mmol/L), elevated serum creatinine (1.14 mg/dL), and eGFR of 53 mL/min/1.73m². Urinalysis showed moderate leukocyte esterase with 12 WBC and 3 RBC per high-power field. Cystoscopy with retrograde pyelogram confirmed contrast extravasation 2 cm distal to left ureteropelvic junction without stones or other etiologies, confirming spontaneous ureter rupture. Patient underwent double-J stent placement with Foley catheter and was discharged on oral antibiotics with planned follow-up cystoscopy.",
+          "confirmed_evidence": [
+            "Acute onset severe left flank pain with radiation to left thoracic paravertebral musculature",
+            "Associated nausea and multiple episodes of non-bloody, non-bilious emesis",
+            "Left lower quadrant abdominal tenderness on exam",
+            "Left costovertebral angle tenderness on exam",
+            "Normal vital signs at presentation",
+            "CT imaging: edematous left kidney with dilated left collecting system",
+            "CT imaging: moderate perinephric and periureteric fluid without obstructing calculus",
+            "Laboratory: elevated lactate 9.2 mmol/L, elevated serum creatinine 1.14 mg/dL, eGFR 53 mL/min/1.73m²",
+            "Urinalysis: moderate leukocyte esterase with 12 WBC and 3 RBC per high-power field",
+            "Cystoscopy with retrograde pyelogram: contrast extravasation 2 cm distal to left ureteropelvic junction",
+            "No stones, filling defects, or other etiologies identified on retrograde pyelogram",
+            "Treatment: double-J stent placement with Foley catheter",
+            "Discharge on oral antibiotics with planned follow-up cystoscopy"
+          ],
+          "missing_key_evidence": [
+            "Temporal sequence of diagnostic procedures (timing of cystoscopy/retrograde pyelogram relative to CT)",
+            "Intraoperative findings during stent placement procedure",
+            "Hospital course details between admission and discharge",
+            "Outcome of follow-up cystoscopy and stent removal"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.88
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E005",
+          "source_text": "The patient then underwent placement of a double-J stent with Foley catheter placement. The patient was discharged with oral antibiotics and outpatient follow-up for repeat cystoscopy and evaluation for possible stent removal in one month. The patient’s postoperative course was complicated by transient hematuria with outpatient CT urogram showing satisfactory positioning of the left ureteral stent without hydronephrosis, no contrast extravasation, and symmetric excretion of contrast material bilaterally. The patient ultimately underwent a repeat cystoscopy with left ureteroscopy and double-JJ stent removal with no noted stones, tumors within the ureter or within the renal pelvis, and no evidence of extravasation of the ureter.",
+          "category": "imaging_report",
+          "temporal_cue": "postoperative and follow-up",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Spontaneous ureter rupture",
+          "trajectory_summary": "A 67-year-old female with hypertension presented to the emergency department with acute onset severe left flank pain radiating to the left thoracic paravertebral region, associated with nausea and multiple episodes of non-bloody, non-bilious vomiting. Physical examination revealed left lower quadrant abdominal tenderness and left costovertebral angle tenderness, with normal vital signs. CT imaging of the abdomen and pelvis demonstrated an edematous left kidney with dilation of the left collecting system and moderate perinephric and periureteric fluid without an obstructing calculus. Laboratory workup showed elevated lactate (9.2 mmol/L), elevated serum creatinine (1.14 mg/dL with eGFR 53 mL/min/1.73m²), and urinalysis with moderate leukocyte esterase, 12 WBC, and 3 RBC per high-power field. Cystoscopy with retrograde pyelogram definitively confirmed the diagnosis by demonstrating contrast extravasation 2 cm distal to the left ureteropelvic junction, with no stones, filling defects, or other identifiable etiologies. The patient was treated with intravenous antibiotics and fluids, followed by double-J ureteral stent placement with Foley catheter. Postoperative course was complicated by transient hematuria. Follow-up CT urogram showed satisfactory stent positioning without hydronephrosis, no contrast extravasation, and symmetric bilateral contrast excretion. Repeat cystoscopy with left ureteroscopy and stent removal was performed without evidence of stones, tumors, or extravasation.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Acute onset severe left flank pain with radiation to left thoracic paravertebral region, associated with nausea and vomiting",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Physical examination findings of left lower quadrant tenderness and left costovertebral angle tenderness",
+              "evidence_ids": []
+            },
+            {
+              "claim": "CT imaging showing edematous left kidney with dilated collecting system and moderate perinephric/periureteric fluid without obstructing calculus",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Laboratory findings of elevated lactate (9.2 mmol/L), elevated serum creatinine (1.14 mg/dL), and eGFR 53 mL/min/1.73m²",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Urinalysis with moderate leukocyte esterase, 12 WBC, and 3 RBC per high-power field",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Cystoscopy with retrograde pyelogram confirming contrast extravasation 2 cm distal to left ureteropelvic junction without stones or other etiologies",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Treatment with double-J ureteral stent placement and Foley catheter",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "Follow-up CT urogram showing satisfactory stent positioning without hydronephrosis, no contrast extravasation, and symmetric bilateral contrast excretion",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "Repeat cystoscopy with ureteroscopy and stent removal without evidence of stones, tumors, or extravasation",
+              "evidence_ids": [
+                "E005"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Obstructing kidney stone",
+              "basis": "CT imaging and retrograde pyelogram both explicitly documented absence of obstructing calculus"
+            },
+            {
+              "alternative": "Ureteral tumor or filling defect",
+              "basis": "Retrograde pyelogram showed no filling defects; repeat ureteroscopy showed no tumors within ureter or renal pelvis"
+            },
+            {
+              "alternative": "Pyelonephritis alone",
+              "basis": "Imaging findings of perinephric/periureteric fluid and confirmed contrast extravasation on retrograde pyelogram indicate structural rupture rather than infection alone"
+            }
+          ],
+          "remaining_uncertainties": [
+            "Specific etiology or predisposing factors for the spontaneous rupture (no underlying pathology identified on imaging or endoscopy)",
+            "Exact timing of cystoscopy/retrograde pyelogram relative to initial CT imaging",
+            "Long-term follow-up outcome after stent removal"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Spontaneous ureter rupture",
+      "trajectory_summary": "A 67-year-old female with hypertension presented to the emergency department with acute onset severe left flank pain radiating to the left thoracic paravertebral region, associated with nausea and multiple episodes of non-bloody, non-bilious vomiting. Physical examination revealed left lower quadrant abdominal tenderness and left costovertebral angle tenderness, with normal vital signs. CT imaging of the abdomen and pelvis demonstrated an edematous left kidney with dilation of the left collecting system and moderate perinephric and periureteric fluid without an obstructing calculus. Laboratory workup showed elevated lactate (9.2 mmol/L), elevated serum creatinine (1.14 mg/dL with eGFR 53 mL/min/1.73m²), and urinalysis with moderate leukocyte esterase, 12 WBC, and 3 RBC per high-power field. Cystoscopy with retrograde pyelogram definitively confirmed the diagnosis by demonstrating contrast extravasation 2 cm distal to the left ureteropelvic junction, with no stones, filling defects, or other identifiable etiologies. The patient was treated with intravenous antibiotics and fluids, followed by double-J ureteral stent placement with Foley catheter. Postoperative course was complicated by transient hematuria. Follow-up CT urogram showed satisfactory stent positioning without hydronephrosis, no contrast extravasation, and symmetric bilateral contrast excretion. Repeat cystoscopy with left ureteroscopy and stent removal was performed without evidence of stones, tumors, or extravasation.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Acute onset severe left flank pain with radiation to left thoracic paravertebral region, associated with nausea and vomiting",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Physical examination findings of left lower quadrant tenderness and left costovertebral angle tenderness",
+          "evidence_ids": []
+        },
+        {
+          "claim": "CT imaging showing edematous left kidney with dilated collecting system and moderate perinephric/periureteric fluid without obstructing calculus",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Laboratory findings of elevated lactate (9.2 mmol/L), elevated serum creatinine (1.14 mg/dL), and eGFR 53 mL/min/1.73m²",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Urinalysis with moderate leukocyte esterase, 12 WBC, and 3 RBC per high-power field",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Cystoscopy with retrograde pyelogram confirming contrast extravasation 2 cm distal to left ureteropelvic junction without stones or other etiologies",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Treatment with double-J ureteral stent placement and Foley catheter",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "Follow-up CT urogram showing satisfactory stent positioning without hydronephrosis, no contrast extravasation, and symmetric bilateral contrast excretion",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "Repeat cystoscopy with ureteroscopy and stent removal without evidence of stones, tumors, or extravasation",
+          "evidence_ids": [
+            "E005"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Obstructing kidney stone",
+          "basis": "CT imaging and retrograde pyelogram both explicitly documented absence of obstructing calculus"
+        },
+        {
+          "alternative": "Ureteral tumor or filling defect",
+          "basis": "Retrograde pyelogram showed no filling defects; repeat ureteroscopy showed no tumors within ureter or renal pelvis"
+        },
+        {
+          "alternative": "Pyelonephritis alone",
+          "basis": "Imaging findings of perinephric/periureteric fluid and confirmed contrast extravasation on retrograde pyelogram indicate structural rupture rather than infection alone"
+        }
+      ],
+      "remaining_uncertainties": [
+        "Specific etiology or predisposing factors for the spontaneous rupture (no underlying pathology identified on imaging or endoscopy)",
+        "Exact timing of cystoscopy/retrograde pyelogram relative to initial CT imaging",
+        "Long-term follow-up outcome after stent removal"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T10:16:20.070933+00:00",
+    "clinician_model": "claude-haiku-4-5",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10032552",
+    "known_final_diagnosis": "The patient’s presentation was consistent with spontaneous ureter rupture.",
+    "turns_used": 9,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 9,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 2,
+    "action_counts": {
+      "ASK_HISTORY": 1,
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_RESULT": 5,
+      "WAIT_REASSESS": 1
+    },
+    "report_status_counts": {
+      "already_disclosed": 2,
+      "found": 4,
+      "no_new_update": 1,
+      "ordered_but_not_documented": 1
+    },
+    "report_repair_attempted_count": 1,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 1
+    },
+    "answer_yield": 0.75,
+    "unavailable_turn_rate": 0.25,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T10:16:20.072061+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10032552",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "3",
+    "num_pred_steps": "4",
+    "weighted_tversky_alignment": "0.47619047619047616",
+    "weighted_tversky_distance": "0.5238095238095238",
+    "matched_weight": "2.5",
+    "missed_weight": "0.25",
+    "extra_weight": "1.25",
+    "weighted_lcs_recall": "0.5454545454545454",
+    "weighted_lcs_weight": "1.5",
+    "weighted_pairwise_order_accuracy": "0.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "1",
+    "gold_sequence": "lab_tests > imaging > other_or_off_protocol",
+    "prediction_sequence": "imaging > clinical_history > lab_tests > admission_or_clinical_course",
+    "error": ""
+  }
+}

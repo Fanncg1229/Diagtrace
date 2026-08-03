@@ -1,0 +1,426 @@
+{
+  "case_id": "case_0242",
+  "pmcid": "PMC11484462",
+  "model": "gpt_4_1_mini",
+  "episode": {
+    "case_id": "PMC11484462",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 9,
+    "termination": "final",
+    "known_final_diagnosis": "A subsequent bone marrow biopsy demonstrated slightly hypercellular marrow (70%) with evidence of trilineage hematopoiesis, mild myeloid hyperplasia, mild megakaryocytic hyperplasia, and molecular evidence of BCR/ABL + fusion, consistent with CML, chronic phase.",
+    "disclosed_evidence_ids": [
+      "E006",
+      "E007",
+      "E009",
+      "E010"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Order a complete blood count with differential and peripheral blood smear to further characterize leukocytosis and detect any blasts or abnormal cells",
+          "current_trajectory_hypothesis": "Patient presented with abdominal pain, peritonitis, and marked leukocytosis and thrombocytosis, suggesting possible hematologic disorder underlying or contributing to presentation",
+          "confirmed_evidence": [
+            "Initial WBC was 38.4 × 10^9/L and platelet count was 691 × 10^9/L at presentation"
+          ],
+          "missing_key_evidence": [
+            "Peripheral blood smear morphology to identify immature cells or blasts",
+            "Differential count to characterize leukocytosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order acknowledged; no immediate source evidence corresponds to this order yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Order bone marrow biopsy and molecular testing for BCR/ABL fusion to confirm the diagnosis of chronic myeloid leukemia in chronic phase",
+          "current_trajectory_hypothesis": "Patient has leukocytosis, thrombocytosis, and symptoms compatible with hematologic malignancy; bone marrow biopsy and BCR/ABL testing will provide definitive diagnosis",
+          "confirmed_evidence": [
+            "Initial WBC was 38.4 × 10^9/L and platelet count was 691 × 10^9/L at presentation"
+          ],
+          "missing_key_evidence": [
+            "Results of peripheral blood smear and differential",
+            "Bone marrow biopsy morphology and cellularity",
+            "Molecular evidence of BCR/ABL fusion"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order for bone marrow biopsy and BCR/ABL fusion molecular testing has been registered without documented results yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request results of peripheral blood smear and complete blood count differential",
+          "current_trajectory_hypothesis": "Leukocytosis and thrombocytosis present; peripheral smear and diff results essential to characterize chronic myeloid leukemia suspicion before marrow biopsy confirmation",
+          "confirmed_evidence": [
+            "Initial WBC was 38.4 × 10^9/L and platelet count was 691 × 10^9/L at presentation"
+          ],
+          "missing_key_evidence": [
+            "Peripheral blood smear morphology and differential count results",
+            "Bone marrow biopsy and BCR/ABL molecular test results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "Peripheral blood smear demonstrated severe leukocytosis and thrombocytosis, but no circulating blasts.",
+          "category": "other",
+          "temporal_cue": "targeted hematology workup",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request bone marrow biopsy morphology and cellularity report",
+          "current_trajectory_hypothesis": "Peripheral smear showed severe leukocytosis and thrombocytosis without blasts; need bone marrow biopsy morphology and cellularity to confirm CML chronic phase histology",
+          "confirmed_evidence": [
+            "Initial WBC was 38.4 × 10^9/L and platelet count was 691 × 10^9/L at presentation",
+            "Peripheral blood smear demonstrated severe leukocytosis and thrombocytosis but no circulating blasts (E006)"
+          ],
+          "missing_key_evidence": [
+            "Bone marrow biopsy morphology and cellularity",
+            "Molecular evidence of BCR/ABL fusion"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request molecular testing result for BCR/ABL fusion gene",
+          "current_trajectory_hypothesis": "Peripheral smear shows leukocytosis and thrombocytosis without blasts; bone marrow biopsy morphology and cellularity plus BCR/ABL molecular evidence needed for confirmation of CML chronic phase",
+          "confirmed_evidence": [
+            "Initial WBC was 38.4 × 10^9/L and platelet count was 691 × 10^9/L at presentation",
+            "Peripheral blood smear demonstrated severe leukocytosis and thrombocytosis but no circulating blasts (E006)"
+          ],
+          "missing_key_evidence": [
+            "Bone marrow biopsy morphology and cellularity",
+            "Molecular evidence of BCR/ABL fusion"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Leukocytosis and thrombocytosis with no blasts on peripheral smear support suspicion of CML; bone marrow biopsy and molecular results not yet documented; need subsequent documented clinical update or treatment response to confirm trajectory",
+          "confirmed_evidence": [
+            "Initial WBC was 38.4 × 10^9/L and platelet count was 691 × 10^9/L at presentation",
+            "Peripheral blood smear demonstrated severe leukocytosis and thrombocytosis but no circulating blasts (E006)"
+          ],
+          "missing_key_evidence": [
+            "Bone marrow biopsy morphology and cellularity report",
+            "Molecular evidence of BCR/ABL fusion"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E007",
+          "source_text": "Subsequent workup included molecular testing for Janus kinase 2 (JAK2), calreticulin (CALR), and myeloproliferative leukemia virus oncogene (MPL), which were negative.",
+          "category": "other",
+          "temporal_cue": "targeted hematology workup",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request documented report of bone marrow biopsy morphology, including cellularity and hematopoiesis features",
+          "current_trajectory_hypothesis": "Peripheral smear showed leukocytosis and thrombocytosis without blasts; need bone marrow biopsy morphology report to confirm hypercellularity and trilineage hematopoiesis consistent with CML chronic phase",
+          "confirmed_evidence": [
+            "Initial WBC was 38.4 × 10^9/L and platelet count was 691 × 10^9/L at presentation",
+            "Peripheral blood smear demonstrated severe leukocytosis and thrombocytosis but no circulating blasts (E006)",
+            "Molecular testing for JAK2, CALR, and MPL were negative (E007)"
+          ],
+          "missing_key_evidence": [
+            "Bone marrow biopsy morphology and cellularity",
+            "Molecular evidence of BCR/ABL fusion gene"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E009",
+          "source_text": "A subsequent bone marrow biopsy demonstrated slightly hypercellular marrow (70%) with evidence of trilineage hematopoiesis, mild myeloid hyperplasia, mild megakaryocytic hyperplasia",
+          "category": "pathology_report",
+          "temporal_cue": "after PCR positive",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request molecular testing result specifically confirming BCR/ABL fusion gene presence",
+          "current_trajectory_hypothesis": "Bone marrow biopsy shows hypercellular marrow with trilineage hematopoiesis and mild myeloid and megakaryocytic hyperplasia, consistent with CML chronic phase; confirmation requires documented BCR/ABL fusion molecular test result",
+          "confirmed_evidence": [
+            "Initial WBC was 38.4 × 10^9/L and platelet count was 691 × 10^9/L at presentation",
+            "Peripheral blood smear demonstrated severe leukocytosis and thrombocytosis but no circulating blasts (E006)",
+            "Molecular testing for JAK2, CALR, and MPL were negative (E007)",
+            "Bone marrow biopsy showed slightly hypercellular marrow (70%) with trilineage hematopoiesis, mild myeloid and megakaryocytic hyperplasia (E009)"
+          ],
+          "missing_key_evidence": [
+            "Molecular evidence specifically of BCR/ABL fusion gene"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E010",
+          "source_text": "The fluorescence in situ hybridization (FISH) analysis detected BCR–ABL1 fusions in 91.5% of the nuclei examined",
+          "category": "other",
+          "temporal_cue": "confirmatory phase",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Chronic myeloid leukemia (CML), chronic phase",
+          "trajectory_summary": "A 53-year-old man presented with abdominal pain, leukocytosis (WBC 38.4 × 10^9/L), thrombocytosis (platelets 691 × 10^9/L), and no circulating blasts on peripheral smear. Molecular testing excluded JAK2, CALR, and MPL mutations. Bone marrow biopsy revealed a slightly hypercellular marrow (70%) with trilineage hematopoiesis, mild myeloid and megakaryocytic hyperplasia. FISH detected BCR/ABL1 fusion in 91.5% of nuclei, confirming CML chronic phase.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Initial WBC was 38.4 × 10^9/L and platelet count was 691 × 10^9/L at presentation with severe leukocytosis and thrombocytosis but no circulating blasts on peripheral smear",
+              "evidence_ids": [
+                "E006"
+              ]
+            },
+            {
+              "claim": "Molecular testing for JAK2, CALR, and MPL mutations were negative",
+              "evidence_ids": [
+                "E007"
+              ]
+            },
+            {
+              "claim": "Bone marrow biopsy showed slightly hypercellular marrow (70%) with trilineage hematopoiesis, mild myeloid hyperplasia, and mild megakaryocytic hyperplasia",
+              "evidence_ids": [
+                "E009"
+              ]
+            },
+            {
+              "claim": "FISH analysis detected BCR/ABL1 fusion in 91.5% of nuclei, confirming diagnosis of CML",
+              "evidence_ids": [
+                "E010"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Other myeloproliferative neoplasms (e.g., polycythemia vera, essential thrombocythemia, primary myelofibrosis)",
+              "basis": "Negative molecular testing for JAK2, CALR, MPL mutations (E007)"
+            },
+            {
+              "alternative": "Acute leukemia",
+              "basis": "No circulating blasts on peripheral smear (E006) and chronic phase marrow morphology (E009)"
+            }
+          ],
+          "remaining_uncertainties": [],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Chronic myeloid leukemia (CML), chronic phase",
+      "trajectory_summary": "A 53-year-old man presented with abdominal pain, leukocytosis (WBC 38.4 × 10^9/L), thrombocytosis (platelets 691 × 10^9/L), and no circulating blasts on peripheral smear. Molecular testing excluded JAK2, CALR, and MPL mutations. Bone marrow biopsy revealed a slightly hypercellular marrow (70%) with trilineage hematopoiesis, mild myeloid and megakaryocytic hyperplasia. FISH detected BCR/ABL1 fusion in 91.5% of nuclei, confirming CML chronic phase.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Initial WBC was 38.4 × 10^9/L and platelet count was 691 × 10^9/L at presentation with severe leukocytosis and thrombocytosis but no circulating blasts on peripheral smear",
+          "evidence_ids": [
+            "E006"
+          ]
+        },
+        {
+          "claim": "Molecular testing for JAK2, CALR, and MPL mutations were negative",
+          "evidence_ids": [
+            "E007"
+          ]
+        },
+        {
+          "claim": "Bone marrow biopsy showed slightly hypercellular marrow (70%) with trilineage hematopoiesis, mild myeloid hyperplasia, and mild megakaryocytic hyperplasia",
+          "evidence_ids": [
+            "E009"
+          ]
+        },
+        {
+          "claim": "FISH analysis detected BCR/ABL1 fusion in 91.5% of nuclei, confirming diagnosis of CML",
+          "evidence_ids": [
+            "E010"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Other myeloproliferative neoplasms (e.g., polycythemia vera, essential thrombocythemia, primary myelofibrosis)",
+          "basis": "Negative molecular testing for JAK2, CALR, MPL mutations (E007)"
+        },
+        {
+          "alternative": "Acute leukemia",
+          "basis": "No circulating blasts on peripheral smear (E006) and chronic phase marrow morphology (E009)"
+        }
+      ],
+      "remaining_uncertainties": [],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-26T05:41:45.556143+00:00",
+    "clinician_model": "gpt-4.1-mini-test",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC11484462",
+    "known_final_diagnosis": "A subsequent bone marrow biopsy demonstrated slightly hypercellular marrow (70%) with evidence of trilineage hematopoiesis, mild myeloid hyperplasia, mild megakaryocytic hyperplasia, and molecular evidence of BCR/ABL + fusion, consistent with CML, chronic phase.",
+    "turns_used": 9,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 4,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 3,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 2,
+      "REQUEST_RESULT": 5,
+      "WAIT_REASSESS": 1
+    },
+    "report_status_counts": {
+      "found": 4,
+      "invalid_report_selection": 2,
+      "ordered_but_not_documented": 2
+    },
+    "report_repair_attempted_count": 4,
+    "report_repair_failed_count": 2,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 6
+    },
+    "answer_yield": 0.5,
+    "unavailable_turn_rate": 0.25,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-26T05:41:45.558170+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC11484462",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "7",
+    "num_pred_steps": "2",
+    "weighted_tversky_alignment": "0.41379310344827586",
+    "weighted_tversky_distance": "0.5862068965517242",
+    "matched_weight": "3.0",
+    "missed_weight": "4.25",
+    "extra_weight": "0.0",
+    "weighted_lcs_recall": "0.27586206896551724",
+    "weighted_lcs_weight": "2.0",
+    "weighted_pairwise_order_accuracy": "0.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "1",
+    "gold_sequence": "lab_tests > imaging > procedure_or_intervention > other_or_off_protocol > pathology > medication_or_treatment > admission_or_clinical_course",
+    "prediction_sequence": "pathology > lab_tests",
+    "error": ""
+  }
+}

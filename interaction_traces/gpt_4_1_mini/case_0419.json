@@ -1,0 +1,467 @@
+{
+  "case_id": "case_0419",
+  "pmcid": "PMC10445368",
+  "model": "gpt_4_1_mini",
+  "episode": {
+    "case_id": "PMC10445368",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 10,
+    "termination": "final",
+    "known_final_diagnosis": "Metastatic methicillin-resistant Staphylococcus aureus infection with infective endocarditis, pulmonary septic emboli, axillary abscess with a subacute presentation in a patient with chronic end-stage kidney disease on maintenance haemodialysis",
+    "disclosed_evidence_ids": [
+      "E005",
+      "E006",
+      "E007"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "Any history of intravenous drug use, recent dental work, or other invasive procedures aside from the left brachiocephalic arteriovenous fistula surgery?",
+          "current_trajectory_hypothesis": "Patient with ESKD on dialysis, intermittent fever, weakness, cough, and localized axillary pain, possibly from an infectious source related to dialysis access or other invasive procedure.",
+          "confirmed_evidence": [
+            "Intermittent low to moderate-grade fever for 3 weeks",
+            "Generalized weakness, night sweats",
+            "Exertional breathlessness and mild intermittent cough",
+            "Left axillary pain for 2 days",
+            "ESKD on maintenance haemodialysis with right internal jugular tunnelled catheter",
+            "Recent left brachiocephalic AV fistula surgery 1 month ago"
+          ],
+          "missing_key_evidence": [
+            "Detailed history of exposures or additional invasive procedures to identify infection source",
+            "Physical examination findings",
+            "Microbiological or imaging findings",
+            "Evidence confirming presence of MRSA infection and metastatic foci"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "No source evidence documents history of intravenous drug use, recent dental work, or other invasive procedures besides the left brachiocephalic arteriovenous fistula surgery.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "Any recent history of skin infections, abscesses, or infections at the catheter site or fistula site?",
+          "current_trajectory_hypothesis": "Patient with ESKD on dialysis and intermittent fever, weakness, cough, and axillary pain likely due to infection possibly related to dialysis access or other focal infection.",
+          "confirmed_evidence": [
+            "Intermittent low to moderate-grade fever for 3 weeks",
+            "Generalized weakness, night sweats",
+            "Exertional breathlessness, mild intermittent cough",
+            "Left axillary pain for 2 days",
+            "ESKD on maintenance haemodialysis with right internal jugular tunnelled catheter",
+            "Recent left brachiocephalic AV fistula surgery 1 month ago"
+          ],
+          "missing_key_evidence": [
+            "Physical examination findings including catheter and fistula site",
+            "Microbiological culture results confirming MRSA",
+            "Imaging findings documenting infective endocarditis, septic emboli, abscess",
+            "Treatment response and clinical course documentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "On ultrasonography on the fourth day of admission, a small, irregularly shaped collection of approximate volume of 5 cc was noted in the left axilla, which was aspirated percutaneously under ultrasound guidance. No enlarged axillary lymph nodes or lymph nodes with abnormal morphology were detected in the bilateral axilla.",
+          "category": "microbiology",
+          "temporal_cue": "fourth day of admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Order blood cultures and culture of the aspirated axillary abscess material to identify the causative organism and antibiotic sensitivities.",
+          "current_trajectory_hypothesis": "Patient with ESKD on dialysis presents with fever, axillary pain, and imaging-confirmed left axillary abscess, requiring microbiological confirmation of infection with suspected MRSA bacteremia.",
+          "confirmed_evidence": [
+            "Ultrasonography showed a small irregular collection in left axilla on fourth day of admission, aspirated under ultrasound guidance"
+          ],
+          "missing_key_evidence": [
+            "Blood culture and abscess culture results confirming MRSA infection",
+            "Physical examination findings especially cardiac exam for endocarditis",
+            "Cardiac imaging to evaluate for infective endocarditis",
+            "Chest imaging to assess for pulmonary septic emboli"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Order placed for blood cultures and culture of the aspirated axillary abscess material; result pending.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Results of blood cultures and culture of the aspirated left axillary abscess material including organism identification and antibiotic sensitivities.",
+          "current_trajectory_hypothesis": "Patient with ESKD on dialysis with fever, left axillary abscess confirmed by ultrasound, cultures pending to identify MRSA and source of metastatic infection.",
+          "confirmed_evidence": [
+            "Ultrasonography demonstrated left axillary abscess aspirated under ultrasound guidance on fourth day of admission"
+          ],
+          "missing_key_evidence": [
+            "Blood and abscess culture results confirming MRSA infection",
+            "Physical examination data including cardiac exam",
+            "Cardiac imaging for infective endocarditis",
+            "Chest imaging for pulmonary septic emboli",
+            "Clinical course and treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E007",
+          "source_text": "Subsequent culture results showed methicillin-resistant Staphylococcus aureus (MRSA) sensitive to clindamycin, vancomycin, linezolid and ciprofloxacin",
+          "category": "microbiology",
+          "temporal_cue": "after axillary aspirate culture",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "Request physical examination findings including cardiac auscultation for murmurs or signs of infective endocarditis, and pulmonary examination.",
+          "current_trajectory_hypothesis": "Patient with ESKD on dialysis, fever, axillary abscess with MRSA cultured, suspected metastatic infection including infective endocarditis and septic emboli needs supporting physical signs to corroborate diagnosis.",
+          "confirmed_evidence": [
+            "Ultrasonography demonstrated left axillary abscess aspirated under ultrasound guidance on fourth day of admission",
+            "Culture results showed methicillin-resistant Staphylococcus aureus (MRSA) sensitive to clindamycin, vancomycin, linezolid and ciprofloxacin"
+          ],
+          "missing_key_evidence": [
+            "Physical examination data including cardiac exam for infective endocarditis",
+            "Blood culture results",
+            "Cardiac imaging for infective endocarditis confirmation",
+            "Chest imaging for pulmonary septic emboli",
+            "Clinical course and treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "No source record reports physical examination findings including cardiac auscultation or pulmonary examination.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Order echocardiography to evaluate for vegetations or other evidence of infective endocarditis.",
+          "current_trajectory_hypothesis": "Patient with ESKD on dialysis, fever, left axillary abscess with MRSA cultured, suspected infective endocarditis requires diagnostic cardiac imaging to confirm endocardial involvement.",
+          "confirmed_evidence": [
+            "Ultrasonography demonstrated left axillary abscess aspirated under ultrasound guidance on fourth day of admission",
+            "Culture results showed methicillin-resistant Staphylococcus aureus (MRSA) sensitive to clindamycin, vancomycin, linezolid and ciprofloxacin"
+          ],
+          "missing_key_evidence": [
+            "Echocardiographic evidence of infective endocarditis",
+            "Blood cultures confirming MRSA bacteremia",
+            "Chest imaging demonstrating pulmonary septic emboli",
+            "Physical examination findings including cardiac and pulmonary exams",
+            "Clinical course and treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "Order for echocardiography to evaluate for vegetations is recognized; source result not yet disclosed.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Results of echocardiography performed to assess for vegetations or other signs of infective endocarditis.",
+          "current_trajectory_hypothesis": "Patient with ESKD on dialysis, fever, left axillary abscess with MRSA isolated, awaiting echocardiographic evidence of infective endocarditis to confirm diagnosis of metastatic MRSA infection with IE.",
+          "confirmed_evidence": [
+            "Ultrasonography demonstrated left axillary abscess aspirated under ultrasound guidance on fourth day of admission",
+            "Culture results showed methicillin-resistant Staphylococcus aureus (MRSA) sensitive to clindamycin, vancomycin, linezolid and ciprofloxacin"
+          ],
+          "missing_key_evidence": [
+            "Echocardiography findings confirming infective endocarditis",
+            "Blood culture results confirming MRSA bacteremia",
+            "Chest imaging results showing pulmonary septic emboli",
+            "Physical examination findings including cardiac and respiratory exam",
+            "Clinical course and treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "Transthoracic and transoesophageal echocardiography revealed multiple tiny vegetations at the septal leaflet of the tricuspid valve on the atrial side (figure 3) with near moderate tricuspid regurgitation with a peak gradient of 15 mm Hg across the tricuspid valve.",
+          "category": "imaging_report",
+          "temporal_cue": "after admission before targeted treatment",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Results of blood cultures performed to confirm MRSA bacteremia in this dialysis patient with metastatic infection.",
+          "current_trajectory_hypothesis": "Patient with ESKD on dialysis presenting with fever and left axillary abscess positive for MRSA, echocardiography confirming tricuspid valve vegetations consistent with infective endocarditis, pending blood culture results for bacteremia confirmation.",
+          "confirmed_evidence": [
+            "Ultrasonography demonstrated left axillary abscess aspirated under ultrasound guidance on fourth day of admission",
+            "Culture of abscess showed methicillin-resistant Staphylococcus aureus (MRSA) sensitive to clindamycin, vancomycin, linezolid and ciprofloxacin",
+            "Transthoracic and transoesophageal echocardiography revealed multiple tiny vegetations on septal leaflet of tricuspid valve consistent with infective endocarditis"
+          ],
+          "missing_key_evidence": [
+            "Blood culture results confirming MRSA bacteremia",
+            "Chest imaging results showing pulmonary septic emboli",
+            "Physical examination findings including cardiac and respiratory exam",
+            "Clinical course and treatment response documentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient with ESKD on dialysis, fever, and left axillary abscess with MRSA cultured; echocardiography confirms tricuspid valve vegetations consistent with infective endocarditis; pending blood culture and chest imaging results, physical exam, and clinical outcome data.",
+          "confirmed_evidence": [
+            "Ultrasonography demonstrated left axillary abscess aspirated under ultrasound guidance on fourth day of admission",
+            "Culture of abscess showed methicillin-resistant Staphylococcus aureus (MRSA) sensitive to multiple antibiotics",
+            "Transthoracic and transoesophageal echocardiography revealed multiple tiny vegetations on septal leaflet of tricuspid valve consistent with infective endocarditis"
+          ],
+          "missing_key_evidence": [
+            "Blood culture results confirming MRSA bacteremia",
+            "Chest imaging showing pulmonary septic emboli",
+            "Physical examination findings including cardiac and respiratory exams",
+            "Clinical course documentation including treatment response and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "No pending orders and no undisclosed clinical updates after confirmatory_testing phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Metastatic methicillin-resistant Staphylococcus aureus infection with infective endocarditis, pulmonary septic emboli, axillary abscess with a subacute presentation in a patient with chronic end-stage kidney disease on maintenance haemodialysis",
+          "trajectory_summary": "A male patient in his 40s with end-stage diabetic nephropathy on maintenance haemodialysis presented with intermittent low to moderate-grade fever, generalized weakness, night sweats, exertional breathlessness, mild cough, and recent left axillary pain. Ultrasound demonstrated a left axillary abscess that was aspirated. Cultures from the abscess grew methicillin-resistant Staphylococcus aureus (MRSA). Echocardiography revealed multiple vegetations on the septal leaflet of the tricuspid valve consistent with infective endocarditis. Although blood culture results and chest imaging for pulmonary septic emboli were not disclosed, the documented metastatic infection sites in a hemodialysis patient with typical tricuspid valve involvement strongly support the final diagnosis.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Ultrasound showed left axillary abscess aspirated under ultrasound guidance",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "Culture from abscess grew MRSA sensitive to multiple antibiotics",
+              "evidence_ids": [
+                "E007"
+              ]
+            },
+            {
+              "claim": "Transthoracic and transoesophageal echocardiography revealed multiple vegetations on the septal leaflet of the tricuspid valve consistent with infective endocarditis",
+              "evidence_ids": [
+                "E006"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Non-infective causes of fever and axillary pain",
+              "basis": "Presence of abscess culture positive for MRSA and echocardiographic evidence of endocarditis"
+            },
+            {
+              "alternative": "Non-MRSA infections",
+              "basis": "Confirmed culture from abscess with MRSA"
+            }
+          ],
+          "remaining_uncertainties": [
+            "Blood culture results confirming MRSA bacteremia are not documented in the disclosed evidence",
+            "Chest imaging findings demonstrating pulmonary septic emboli are not reported",
+            "Physical examination findings including auscultation and pulmonary exams are not available",
+            "Clinical course, treatment response, and outcome documentation are not available"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Metastatic methicillin-resistant Staphylococcus aureus infection with infective endocarditis, pulmonary septic emboli, axillary abscess with a subacute presentation in a patient with chronic end-stage kidney disease on maintenance haemodialysis",
+      "trajectory_summary": "A male patient in his 40s with end-stage diabetic nephropathy on maintenance haemodialysis presented with intermittent low to moderate-grade fever, generalized weakness, night sweats, exertional breathlessness, mild cough, and recent left axillary pain. Ultrasound demonstrated a left axillary abscess that was aspirated. Cultures from the abscess grew methicillin-resistant Staphylococcus aureus (MRSA). Echocardiography revealed multiple vegetations on the septal leaflet of the tricuspid valve consistent with infective endocarditis. Although blood culture results and chest imaging for pulmonary septic emboli were not disclosed, the documented metastatic infection sites in a hemodialysis patient with typical tricuspid valve involvement strongly support the final diagnosis.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Ultrasound showed left axillary abscess aspirated under ultrasound guidance",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "Culture from abscess grew MRSA sensitive to multiple antibiotics",
+          "evidence_ids": [
+            "E007"
+          ]
+        },
+        {
+          "claim": "Transthoracic and transoesophageal echocardiography revealed multiple vegetations on the septal leaflet of the tricuspid valve consistent with infective endocarditis",
+          "evidence_ids": [
+            "E006"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Non-infective causes of fever and axillary pain",
+          "basis": "Presence of abscess culture positive for MRSA and echocardiographic evidence of endocarditis"
+        },
+        {
+          "alternative": "Non-MRSA infections",
+          "basis": "Confirmed culture from abscess with MRSA"
+        }
+      ],
+      "remaining_uncertainties": [
+        "Blood culture results confirming MRSA bacteremia are not documented in the disclosed evidence",
+        "Chest imaging findings demonstrating pulmonary septic emboli are not reported",
+        "Physical examination findings including auscultation and pulmonary exams are not available",
+        "Clinical course, treatment response, and outcome documentation are not available"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.8
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-26T08:02:43.572238+00:00",
+    "clinician_model": "gpt-4.1-mini-test",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10445368",
+    "known_final_diagnosis": "Metastatic methicillin-resistant Staphylococcus aureus infection with infective endocarditis, pulmonary septic emboli, axillary abscess with a subacute presentation in a patient with chronic end-stage kidney disease on maintenance haemodialysis",
+    "turns_used": 10,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 3,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 3,
+    "gold_reasoning_span_count": 3,
+    "action_counts": {
+      "ASK_HISTORY": 2,
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 2,
+      "REQUEST_EXAM": 1,
+      "REQUEST_RESULT": 3,
+      "WAIT_REASSESS": 1
+    },
+    "report_status_counts": {
+      "found": 3,
+      "invalid_report_selection": 1,
+      "no_new_update": 1,
+      "not_reported": 2,
+      "ordered_but_not_documented": 2
+    },
+    "report_repair_attempted_count": 2,
+    "report_repair_failed_count": 1,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 2,
+      "verbatim_excerpt is not a contiguous source subspan.": 1
+    },
+    "answer_yield": 0.3333333333333333,
+    "unavailable_turn_rate": 0.5555555555555556,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-26T08:02:43.573983+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10445368",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "3",
+    "num_pred_steps": "4",
+    "weighted_tversky_alignment": "0.14285714285714285",
+    "weighted_tversky_distance": "0.8571428571428572",
+    "matched_weight": "1.0",
+    "missed_weight": "2.5",
+    "extra_weight": "1.75",
+    "weighted_lcs_recall": "0.2857142857142857",
+    "weighted_lcs_weight": "1.0",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging > lab_tests > microbiology",
+    "prediction_sequence": "clinical_history > medication_or_treatment > physical_examination > lab_tests",
+    "error": ""
+  }
+}

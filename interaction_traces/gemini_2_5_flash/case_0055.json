@@ -1,0 +1,582 @@
+{
+  "case_id": "case_0055",
+  "pmcid": "PMC5623198",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC5623198",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 12,
+    "termination": "final",
+    "known_final_diagnosis": "On hospital day 2, cardiac MRI was obtained that revealed right ventricular contusion (correlating with origin of ventricular ectopy) and oedema with regional wall motion abnormalities involving the right ventricular outflow tract and free wall. The MRI also showed a subacute precordial haematoma extending from the level of the great vessels across the left and anterior border of the heart, anterior to the pulmonary artery and right ventricular outflow tract and a small pericardial effusion with possible pericardial haematoma.",
+    "disclosed_evidence_ids": [
+      "E003",
+      "E004",
+      "E005",
+      "E006",
+      "E007",
+      "E009",
+      "E010",
+      "E014",
+      "E015"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "Was there any history of trauma, specifically chest trauma, reported by the patient or guardians?",
+          "current_trajectory_hypothesis": "The patient presented with VT, lightheadedness, and presyncope. The final diagnosis suggests a traumatic injury to the heart (contusion, hematoma). I need to establish if there was a history of trauma to explain these findings.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "History of trauma",
+            "Details of the VT episodes",
+            "Initial cardiac workup findings"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "Approximately 1 hour into her hospital course her mother arrived and provided further history. She stated that 24 hours prior to arrival in the ED, the patient was riding a non-motorised scooter around her front yard. The front wheel caught on a lip of the cement and she ran into the garage door, with handle bars turned such that one end of the handle bar contacted the garage door while the other end struck her chest wall. She continued playing and experienced no symptoms other than some mild localised chest wall pain. There was no overlying chest wall deformity, bruising, ecchymosis or haematoma aside from a small left parasternal abrasion noted on physical exam.",
+          "category": "other",
+          "temporal_cue": "24 hours prior to ED arrival",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the findings of the initial electrocardiogram (ECG) performed in the emergency department or on EMS arrival?",
+          "current_trajectory_hypothesis": "The patient presented with VT, lightheadedness, and presyncope, following a chest trauma. The initial ECG should provide more details about the nature of the arrhythmia and help link it to the traumatic event.",
+          "confirmed_evidence": [
+            "8-year-old girl presented with lightheadedness, presyncope, and intermittent faint/rapid pulse, culminating in ventricular tachycardia (VT) on EMS scene.",
+            "History of chest trauma 24 hours prior to ED arrival, involving a scooter accident where a handlebar struck the chest wall, causing mild localized chest wall pain and a small left parasternal abrasion."
+          ],
+          "missing_key_evidence": [
+            "Detailed initial cardiac workup findings (e.g., ECG, echocardiogram)",
+            "Initial physical exam findings beyond the abrasion",
+            "Clinical course in the ED"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E014",
+          "source_text": "ECG. Monomorphic accelerated ventricular rhythm of LBBB morphology.",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "What were the findings of the initial echocardiogram performed in the emergency department or soon after admission?",
+          "current_trajectory_hypothesis": "An 8-year-old girl presented with VT after chest trauma. ECG showed monomorphic accelerated ventricular rhythm. An echocardiogram would be crucial to assess cardiac structure and function, and to look for signs of contusion or hematoma, which are part of the final diagnosis.",
+          "confirmed_evidence": [
+            "8-year-old girl presented with lightheadedness, presyncope, and intermittent faint/rapid pulse, culminating in ventricular tachycardia (VT) on EMS scene.",
+            "History of chest trauma 24 hours prior to ED arrival, involving a scooter accident where a handlebar struck the chest wall, causing mild localized chest wall pain and a small left parasternal abrasion.",
+            "Initial ECG showed monomorphic accelerated ventricular rhythm of LBBB morphology."
+          ],
+          "missing_key_evidence": [
+            "Initial cardiac imaging findings (e.g., echocardiogram)",
+            "Further details on the physical exam",
+            "Initial lab results",
+            "Clinical course in the ED beyond initial presentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "Order for initial echocardiogram placed; no immediate source result disclosed yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the findings of the echocardiogram performed early in the hospital course?",
+          "current_trajectory_hypothesis": "An 8-year-old girl presented with VT after chest trauma. ECG showed monomorphic accelerated ventricular rhythm. An echocardiogram was likely performed to assess cardiac structure and function, and to look for signs of contusion or hematoma, which are part of the final diagnosis. I need to obtain these findings to verify the trajectory.",
+          "confirmed_evidence": [
+            "8-year-old girl presented with lightheadedness, presyncope, and intermittent faint/rapid pulse, culminating in ventricular tachycardia (VT) on EMS scene.",
+            "History of chest trauma 24 hours prior to ED arrival, involving a scooter accident where a handlebar struck the chest wall, causing mild localized chest pain and a small left parasternal abrasion.",
+            "Initial ECG showed monomorphic accelerated ventricular rhythm of LBBB morphology."
+          ],
+          "missing_key_evidence": [
+            "Initial cardiac imaging findings (e.g., echocardiogram results)",
+            "Further details on the physical exam",
+            "Initial lab results",
+            "Clinical course in the ED beyond initial presentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "She was admitted to the paediatric intensive care unit (PICU), echocardiogram was obtained and was unremarkable.",
+          "category": "imaging_report",
+          "temporal_cue": "on hospital day 1",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "What were the initial cardiac enzyme levels (e.g., troponin, CK-MB) upon admission?",
+          "current_trajectory_hypothesis": "An 8-year-old girl presented with VT after chest trauma. ECG showed monomorphic accelerated ventricular rhythm, but an early echocardiogram was unremarkable. The final diagnosis includes cardiac contusion and hematoma, which might be reflected in elevated cardiac enzymes, potentially prompting further investigation like the cardiac MRI.",
+          "confirmed_evidence": [
+            "8-year-old girl presented with lightheadedness, presyncope, and intermittent faint/rapid pulse, culminating in ventricular tachycardia (VT) on EMS scene.",
+            "History of chest trauma 24 hours prior to ED arrival, involving a scooter accident where a handlebar struck the chest wall, causing mild localized chest pain and a small left parasternal abrasion.",
+            "Initial ECG showed monomorphic accelerated ventricular rhythm of LBBB morphology.",
+            "Early echocardiogram performed on hospital day 1 was unremarkable."
+          ],
+          "missing_key_evidence": [
+            "Initial lab results, especially cardiac enzymes",
+            "Further details on the physical exam",
+            "Clinical course in the ED beyond initial presentation and PICU admission",
+            "Rationale for ordering cardiac MRI despite unremarkable echo"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "Order acknowledged for initial cardiac enzyme levels; no direct result documented in the source.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "Status found is not valid for clinician action ORDER_TEST.",
+          "validation_errors": [
+            "Status found is not valid for clinician action ORDER_TEST."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the results of the initial cardiac enzyme levels (e.g., troponin, CK-MB) upon admission?",
+          "current_trajectory_hypothesis": "An 8-year-old girl presented with VT after chest trauma. ECG showed monomorphic accelerated ventricular rhythm, but an early echocardiogram was unremarkable. The final diagnosis includes cardiac contusion and hematoma. Elevated cardiac enzymes would indicate myocardial injury and could explain the VT and prompt further investigation, such as the cardiac MRI.",
+          "confirmed_evidence": [
+            "8-year-old girl presented with lightheadedness, presyncope, and intermittent faint/rapid pulse, culminating in ventricular tachycardia (VT) on EMS scene.",
+            "History of chest trauma 24 hours prior to ED arrival, involving a scooter accident where a handlebar struck the chest wall, causing mild localized chest pain and a small left parasternal abrasion.",
+            "Initial ECG showed monomorphic accelerated ventricular rhythm of LBBB morphology.",
+            "Early echocardiogram performed on hospital day 1 was unremarkable."
+          ],
+          "missing_key_evidence": [
+            "Initial lab results, specifically cardiac enzymes",
+            "Further details on the physical exam",
+            "Clinical course in the ED beyond initial presentation and PICU admission",
+            "Rationale for ordering cardiac MRI despite unremarkable echo"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "Her laboratory tests including complete blood count, comprehensive metabolic panel, troponin I and chest radiograph were unremarkable.",
+          "category": "routine_lab",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "An 8-year-old girl presented with VT after chest trauma. Initial ECG showed monomorphic accelerated ventricular rhythm, but early echocardiogram and cardiac enzymes were unremarkable. Despite this, a cardiac MRI on hospital day 2 revealed significant cardiac injury. I need to understand the clinical progression or management decisions that led to the MRI, especially given the initial unremarkable findings.",
+          "confirmed_evidence": [
+            "8-year-old girl presented with lightheadedness, presyncope, and intermittent faint/rapid pulse, culminating in ventricular tachycardia (VT) on EMS scene.",
+            "History of chest trauma 24 hours prior to ED arrival, involving a scooter accident where a handlebar struck the chest wall, causing mild localized chest pain and a small left parasternal abrasion.",
+            "Initial ECG showed monomorphic accelerated ventricular rhythm of LBBB morphology.",
+            "Early echocardiogram performed on hospital day 1 was unremarkable.",
+            "Initial cardiac enzyme (Troponin I), CBC, CMP, and chest radiograph were unremarkable."
+          ],
+          "missing_key_evidence": [
+            "Clinical course and management of VT after admission",
+            "Rationale for ordering cardiac MRI despite unremarkable initial workup",
+            "Further details on the physical exam"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "On hospital day 2, her chest MRI showed a right ventricular cardiac contusion, subacute precordial haematoma and a small pericardial effusion with possible pericardial haematoma.",
+          "category": "imaging_report",
+          "temporal_cue": "hospital day 2",
+          "phase_index": 4,
+          "phase_label": "advanced_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "An 8-year-old girl presented with VT after chest trauma. Initial ECG showed monomorphic accelerated ventricular rhythm, but early echocardiogram and cardiac enzymes were unremarkable. Despite this, a cardiac MRI on hospital day 2 revealed significant cardiac injury. I need to understand the clinical progression, management of the VT, or any other factors that led to the decision to perform the MRI, especially given the initial unremarkable findings.",
+          "confirmed_evidence": [
+            "8-year-old girl presented with lightheadedness, presyncope, and intermittent faint/rapid pulse, culminating in ventricular tachycardia (VT) on EMS scene.",
+            "History of chest trauma 24 hours prior to ED arrival, involving a scooter accident where a handlebar struck the chest wall, causing mild localized chest pain and a small left parasternal abrasion.",
+            "Initial ECG showed monomorphic accelerated ventricular rhythm of LBBB morphology.",
+            "Early echocardiogram performed on hospital day 1 was unremarkable.",
+            "Initial cardiac enzyme (Troponin I), CBC, CMP, and chest radiograph were unremarkable.",
+            "Cardiac MRI on hospital day 2 revealed right ventricular contusion, subacute precordial haematoma, and small pericardial effusion with possible pericardial haematoma."
+          ],
+          "missing_key_evidence": [
+            "Clinical course and management of VT after admission",
+            "Rationale for ordering cardiac MRI despite unremarkable initial workup",
+            "Further details on the physical exam"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E007",
+          "source_text": "She remained in the hospital for 3 days for continued monitoring due to recurrent runs of preventricular contractions.",
+          "category": "other",
+          "temporal_cue": "hospital days 1-3",
+          "phase_index": 4,
+          "phase_label": "advanced_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "How was the initial ventricular tachycardia managed or what was its clinical course after presentation?",
+          "current_trajectory_hypothesis": "An 8-year-old girl presented with VT after chest trauma. Initial ECG showed monomorphic accelerated ventricular rhythm, but early echocardiogram and cardiac enzymes were unremarkable. Despite this, a cardiac MRI on hospital day 2 revealed significant cardiac injury. The patient remained hospitalized due to recurrent PVCs. I need to understand the management of the initial VT to complete the clinical picture.",
+          "confirmed_evidence": [
+            "8-year-old girl presented with lightheadedness, presyncope, and intermittent faint/rapid pulse, culminating in ventricular tachycardia (VT) on EMS scene.",
+            "History of chest trauma 24 hours prior to ED arrival, involving a scooter accident where a handlebar struck the chest wall, causing mild localized chest pain and a small left parasternal abrasion.",
+            "Initial ECG showed monomorphic accelerated ventricular rhythm of LBBB morphology.",
+            "Early echocardiogram performed on hospital day 1 was unremarkable.",
+            "Initial cardiac enzyme (Troponin I), CBC, CMP, and chest radiograph were unremarkable.",
+            "Cardiac MRI on hospital day 2 revealed right ventricular contusion, subacute precordial haematoma, and small pericardial effusion with possible pericardial haematoma.",
+            "Patient remained in the hospital for 3 days due to recurrent runs of preventricular contractions."
+          ],
+          "missing_key_evidence": [
+            "Management or clinical course of the initial VT episode",
+            "Rationale for ordering cardiac MRI despite unremarkable initial workup (beyond recurrent PVCs)",
+            "Further details on the physical exam"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E010",
+          "source_text": "She was started on verapamil 40 mg every 8 hours on arrival; on hospital day 3 her dose was increased to 60 mg every 8 hours due to sustained frequent ectopic beats. On day 4, she continued to have premature ventricular contractions (PVCs) but with a decrease in frequency. The paediatric cardiology electrophysiologist evaluated the patient at bedside and cleared her for discharge. She was instructed to continue verapamil at home, to follow-up with paediatric cardiology in 2 weeks and a Holter monitor was ordered. Additionally, she was advised to avoid vigorous physical activity for 4 weeks.",
+          "category": "treatment_response",
+          "temporal_cue": "hospital days 0-4",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the full findings of the cardiac MRI performed on hospital day 2, including details on oedema, regional wall motion abnormalities, and correlation with ventricular ectopy?",
+          "current_trajectory_hypothesis": "An 8-year-old girl presented with VT after chest trauma. Initial workup (ECG, echo, labs) was largely unremarkable, but she had recurrent PVCs. A cardiac MRI on hospital day 2 revealed significant cardiac injury. I need the full MRI report to confirm all aspects of the final diagnosis, specifically oedema, regional wall motion abnormalities, and the correlation with ventricular ectopy.",
+          "confirmed_evidence": [
+            "8-year-old girl presented with lightheadedness, presyncope, and intermittent faint/rapid pulse, culminating in ventricular tachycardia (VT) on EMS scene.",
+            "History of chest trauma 24 hours prior to ED arrival, involving a scooter accident where a handlebar struck the chest wall, causing mild localized chest pain and a small left parasternal abrasion.",
+            "Initial ECG showed monomorphic accelerated ventricular rhythm of LBBB morphology.",
+            "Early echocardiogram performed on hospital day 1 was unremarkable.",
+            "Initial cardiac enzyme (Troponin I), CBC, CMP, and chest radiograph were unremarkable.",
+            "Cardiac MRI on hospital day 2 revealed right ventricular contusion, subacute precordial haematoma, and small pericardial effusion with possible pericardial haematoma.",
+            "Patient remained in the hospital for 3 days due to recurrent runs of preventricular contractions.",
+            "Initial VT was managed with verapamil, with dose adjustment due to sustained frequent ectopic beats; patient was discharged on verapamil with follow-up and activity restrictions."
+          ],
+          "missing_key_evidence": [
+            "Full details of the cardiac MRI report, specifically oedema, regional wall motion abnormalities, and correlation with ventricular ectopy as mentioned in the final diagnosis.",
+            "Further details on the initial physical exam."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E015",
+          "source_text": "Cardiac MRI. Evidence of myocardial contusion involving the right ventricular free wall with focal areas of delayed enhancement, evidence of oedema (figure 3C), significant regional wall motion abnormalities involving the right ventricular outflow tract and right ventricular free wall (figure 3B). Normal left ventricular size and function, LVEF of 69%; small pericardial effusion with possible pericardial stranding/haematoma (figure 3A); normal right ventricular size with mildly depressed global function and regional wall motion abnormalities as described above. RVEF is 41%.",
+          "category": "imaging_report",
+          "temporal_cue": "hospital day 2",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Was there any further interpretation or clinical correlation of the cardiac MRI findings, specifically the right ventricular contusion and regional wall motion abnormalities, with the origin of the ventricular ectopy?",
+          "current_trajectory_hypothesis": "An 8-year-old girl presented with VT after chest trauma. Initial workup (ECG, echo, labs) was largely unremarkable, but she had recurrent PVCs. A cardiac MRI on hospital day 2 revealed significant cardiac injury, including right ventricular contusion, oedema, and regional wall motion abnormalities. The final diagnosis explicitly states a correlation between these findings and the origin of ventricular ectopy. I need to verify this specific correlation.",
+          "confirmed_evidence": [
+            "8-year-old girl presented with lightheadedness, presyncope, and intermittent faint/rapid pulse, culminating in ventricular tachycardia (VT) on EMS scene.",
+            "History of chest trauma 24 hours prior to ED arrival, involving a scooter accident where a handlebar struck the chest wall, causing mild localized chest pain and a small left parasternal abrasion.",
+            "Initial ECG showed monomorphic accelerated ventricular rhythm of LBBB morphology.",
+            "Early echocardiogram performed on hospital day 1 was unremarkable.",
+            "Initial cardiac enzyme (Troponin I), CBC, CMP, and chest radiograph were unremarkable.",
+            "Cardiac MRI on hospital day 2 revealed right ventricular contusion, subacute precordial haematoma, and small pericardial effusion with possible pericardial haematoma, oedema, and regional wall motion abnormalities involving the RVOT and free wall.",
+            "Patient remained in the hospital for 3 days due to recurrent runs of preventricular contractions.",
+            "Initial VT was managed with verapamil, with dose adjustment due to sustained frequent ectopic beats; patient was discharged on verapamil with follow-up and activity restrictions."
+          ],
+          "missing_key_evidence": [
+            "Explicit clinical correlation of MRI findings with the origin of ventricular ectopy.",
+            "Further details on the initial physical exam."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E009",
+          "source_text": "On hospital day 2, cardiac MRI was obtained that revealed right ventricular contusion (correlating with origin of ventricular ectopy) and oedema with regional wall motion abnormalities involving the right ventricular outflow tract and free wall. The MRI also showed a subacute precordial haematoma extending from the level of the great vessels across the left and anterior border of the heart, anterior to the pulmonary artery and right ventricular outflow tract and a small pericardial effusion with possible pericardial haematoma.",
+          "category": "imaging_report",
+          "temporal_cue": "hospital day 2",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Right ventricular contusion (correlating with origin of ventricular ectopy) and oedema with regional wall motion abnormalities involving the right ventricular outflow tract and free wall, subacute precordial haematoma extending from the level of the great vessels across the left and anterior border of the heart, anterior to the pulmonary artery and right ventricular outflow tract and a small pericardial effusion with possible pericardial haematoma.",
+          "trajectory_summary": "An 8-year-old girl presented to the ED with lightheadedness, presyncope, and ventricular tachycardia (VT) following a scooter accident 24 hours prior, where a handlebar struck her chest. Initial ECG showed monomorphic accelerated ventricular rhythm of LBBB morphology. Early echocardiogram, cardiac enzymes (troponin I), CBC, CMP, and chest radiograph were unremarkable. She was admitted to the PICU and started on verapamil for VT. She remained hospitalized for 3 days due to recurrent runs of preventricular contractions (PVCs). On hospital day 2, a cardiac MRI revealed right ventricular contusion (correlating with the origin of ventricular ectopy), oedema, significant regional wall motion abnormalities involving the right ventricular outflow tract and free wall, a subacute precordial haematoma, and a small pericardial effusion with possible pericardial haematoma. Her verapamil dose was increased due to sustained frequent ectopic beats. She was discharged on verapamil with follow-up and advised to avoid vigorous physical activity.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with lightheadedness, presyncope, and ventricular tachycardia (VT).",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Patient had a history of chest trauma 24 hours prior to presentation, involving a scooter accident where a handlebar struck her chest wall.",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Initial ECG showed monomorphic accelerated ventricular rhythm of LBBB morphology.",
+              "evidence_ids": [
+                "E014"
+              ]
+            },
+            {
+              "claim": "Early echocardiogram, cardiac enzymes (troponin I), CBC, CMP, and chest radiograph were unremarkable.",
+              "evidence_ids": [
+                "E005",
+                "E003"
+              ]
+            },
+            {
+              "claim": "Patient remained hospitalized due to recurrent runs of preventricular contractions (PVCs).",
+              "evidence_ids": [
+                "E007"
+              ]
+            },
+            {
+              "claim": "Cardiac MRI on hospital day 2 revealed right ventricular contusion (correlating with origin of ventricular ectopy), oedema, regional wall motion abnormalities involving the right ventricular outflow tract and free wall, a subacute precordial haematoma, and a small pericardial effusion with possible pericardial haematoma.",
+              "evidence_ids": [
+                "E006",
+                "E015",
+                "E009"
+              ]
+            },
+            {
+              "claim": "VT/ectopy was managed with verapamil, with dose adjustment due to sustained frequent ectopic beats.",
+              "evidence_ids": [
+                "E010"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Ischemic heart disease (given age and trauma history)",
+              "basis": ""
+            },
+            {
+              "alternative": "Primary electrical disorder without structural heart disease (initially considered due to unremarkable echo/labs)",
+              "basis": "Cardiac MRI revealed significant structural abnormalities (contusion, hematoma, edema, wall motion abnormalities) directly correlating with ventricular ectopy."
+            }
+          ],
+          "remaining_uncertainties": [
+            "Detailed initial physical exam findings beyond the left parasternal abrasion."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Right ventricular contusion (correlating with origin of ventricular ectopy) and oedema with regional wall motion abnormalities involving the right ventricular outflow tract and free wall, subacute precordial haematoma extending from the level of the great vessels across the left and anterior border of the heart, anterior to the pulmonary artery and right ventricular outflow tract and a small pericardial effusion with possible pericardial haematoma.",
+      "trajectory_summary": "An 8-year-old girl presented to the ED with lightheadedness, presyncope, and ventricular tachycardia (VT) following a scooter accident 24 hours prior, where a handlebar struck her chest. Initial ECG showed monomorphic accelerated ventricular rhythm of LBBB morphology. Early echocardiogram, cardiac enzymes (troponin I), CBC, CMP, and chest radiograph were unremarkable. She was admitted to the PICU and started on verapamil for VT. She remained hospitalized for 3 days due to recurrent runs of preventricular contractions (PVCs). On hospital day 2, a cardiac MRI revealed right ventricular contusion (correlating with the origin of ventricular ectopy), oedema, significant regional wall motion abnormalities involving the right ventricular outflow tract and free wall, a subacute precordial haematoma, and a small pericardial effusion with possible pericardial haematoma. Her verapamil dose was increased due to sustained frequent ectopic beats. She was discharged on verapamil with follow-up and advised to avoid vigorous physical activity.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with lightheadedness, presyncope, and ventricular tachycardia (VT).",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Patient had a history of chest trauma 24 hours prior to presentation, involving a scooter accident where a handlebar struck her chest wall.",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Initial ECG showed monomorphic accelerated ventricular rhythm of LBBB morphology.",
+          "evidence_ids": [
+            "E014"
+          ]
+        },
+        {
+          "claim": "Early echocardiogram, cardiac enzymes (troponin I), CBC, CMP, and chest radiograph were unremarkable.",
+          "evidence_ids": [
+            "E005",
+            "E003"
+          ]
+        },
+        {
+          "claim": "Patient remained hospitalized due to recurrent runs of preventricular contractions (PVCs).",
+          "evidence_ids": [
+            "E007"
+          ]
+        },
+        {
+          "claim": "Cardiac MRI on hospital day 2 revealed right ventricular contusion (correlating with origin of ventricular ectopy), oedema, regional wall motion abnormalities involving the right ventricular outflow tract and free wall, a subacute precordial haematoma, and a small pericardial effusion with possible pericardial haematoma.",
+          "evidence_ids": [
+            "E006",
+            "E015",
+            "E009"
+          ]
+        },
+        {
+          "claim": "VT/ectopy was managed with verapamil, with dose adjustment due to sustained frequent ectopic beats.",
+          "evidence_ids": [
+            "E010"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Ischemic heart disease (given age and trauma history)",
+          "basis": ""
+        },
+        {
+          "alternative": "Primary electrical disorder without structural heart disease (initially considered due to unremarkable echo/labs)",
+          "basis": "Cardiac MRI revealed significant structural abnormalities (contusion, hematoma, edema, wall motion abnormalities) directly correlating with ventricular ectopy."
+        }
+      ],
+      "remaining_uncertainties": [
+        "Detailed initial physical exam findings beyond the left parasternal abrasion."
+      ],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T20:46:31.278053+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC5623198",
+    "known_final_diagnosis": "On hospital day 2, cardiac MRI was obtained that revealed right ventricular contusion (correlating with origin of ventricular ectopy) and oedema with regional wall motion abnormalities involving the right ventricular outflow tract and free wall. The MRI also showed a subacute precordial haematoma extending from the level of the great vessels across the left and anterior border of the heart, anterior to the pulmonary artery and right ventricular outflow tract and a small pericardial effusion with possible pericardial haematoma.",
+    "turns_used": 12,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 7,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 9,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "ASK_HISTORY": 2,
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 2,
+      "REQUEST_RESULT": 5,
+      "WAIT_REASSESS": 2
+    },
+    "report_status_counts": {
+      "found": 9,
+      "ordered_but_not_documented": 2
+    },
+    "report_repair_attempted_count": 2,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 1,
+      "Status found is not valid for clinician action ORDER_TEST.": 1
+    },
+    "answer_yield": 0.8181818181818182,
+    "unavailable_turn_rate": 0.18181818181818182,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T20:46:31.279772+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC5623198",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/emergencymed/episodes/PMC5623198.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/emergencymed/cases/PMC5623198.json",
+    "num_gold_steps": "5",
+    "num_pred_steps": "4",
+    "weighted_tversky_alignment": "0.6190476190476191",
+    "weighted_tversky_distance": "0.38095238095238093",
+    "matched_weight": "3.25",
+    "missed_weight": "1.0",
+    "extra_weight": "0.5",
+    "weighted_lcs_recall": "0.7647058823529411",
+    "weighted_lcs_weight": "3.25",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "3",
+    "pairwise_correct_pairs": "3",
+    "pairwise_inversions": "0",
+    "gold_sequence": "other_or_off_protocol > lab_tests > admission_or_clinical_course > imaging > medication_or_treatment",
+    "prediction_sequence": "clinical_history > lab_tests > admission_or_clinical_course > imaging",
+    "error": ""
+  }
+}

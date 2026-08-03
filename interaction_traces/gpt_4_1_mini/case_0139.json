@@ -1,0 +1,578 @@
+{
+  "case_id": "case_0139",
+  "pmcid": "PMC11296406",
+  "model": "gpt_4_1_mini",
+  "episode": {
+    "case_id": "PMC11296406",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 15,
+    "termination": "final",
+    "known_final_diagnosis": "LM meningoencephalitis",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E003",
+      "E004",
+      "E005"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "Please provide the findings of the neurological examination and any other relevant physical examination findings at admission.",
+          "current_trajectory_hypothesis": "Initial presentation of a middle-aged man with subacute onset of dizziness, nausea, vomiting, and later fever, suggestive of a CNS infection or inflammatory process.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Neurological exam findings to assess focal deficits or meningeal signs",
+            "Other physical exam findings to support CNS infection or exclude other causes"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "During the physical examination in our hospital, there was also sluggish light reflex and a stiff neck.",
+          "category": "other",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Order cerebrospinal fluid (CSF) analysis including cell count, glucose, protein, and Gram stain and culture to evaluate for meningoencephalitis.",
+          "current_trajectory_hypothesis": "Middle-aged man with subacute dizziness, nausea, vomiting, fever, stiff neck, and sluggish light reflex at admission, suggestive of meningoencephalitis; CSF analysis needed to support diagnosis.",
+          "confirmed_evidence": [
+            "Physical examination showed stiff neck and sluggish light reflex on admission (E004)"
+          ],
+          "missing_key_evidence": [
+            "CSF analysis results for infection or inflammation",
+            "Microbiological evidence to identify causative pathogen in CSF"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order for CSF analysis including cell count, glucose, protein, and Gram stain and culture is registered; no matching source result yet",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the cerebrospinal fluid (CSF) analysis results including cell count, glucose, protein, Gram stain, and culture findings.",
+          "current_trajectory_hypothesis": "A 48-year-old man with subacute onset of dizziness, nausea, vomiting, fever, and stiff neck, with suspected meningoencephalitis; CSF analysis results are pivotal to confirm infection and support the diagnosis of LM meningoencephalitis.",
+          "confirmed_evidence": [
+            "Physical examination showed stiff neck and sluggish light reflex on admission (E004)"
+          ],
+          "missing_key_evidence": [
+            "CSF analysis results for infection or inflammation",
+            "Microbiological evidence to identify causative pathogen in CSF"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "We then performed lumbar puncture, and the cells were 210 × 10^9/L, protein 1371.5 mg/dL, glucose 1.1 mmol/L",
+          "category": "imaging_report",
+          "temporal_cue": "shortly after blood culture confirmation",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide microbiological test results from CSF and blood cultures, including any Gram stain or other pathogen identification.",
+          "current_trajectory_hypothesis": "Initial presentation with stiff neck and neurological signs, CSF pleocytosis, increased protein, low glucose supportive of meningoencephalitis; microbiological confirmation pending to support LM meningoencephalitis diagnosis.",
+          "confirmed_evidence": [
+            "Physical examination showed stiff neck and sluggish light reflex on admission (E004)",
+            "CSF analysis showed pleocytosis (210 × 10^9/L cells), very high protein (1371.5 mg/dL), and low glucose (1.1 mmol/L), indicative of CNS infection or inflammation (E002)"
+          ],
+          "missing_key_evidence": [
+            "Microbiological results from CSF and blood to identify Listeria monocytogenes or other causative pathogen",
+            "Additional neurological examination or imaging to evaluate CNS involvement extent"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "48-year-old man with subacute neurological symptoms, neck stiffness, CSF findings supportive of CNS infection; pending microbiological confirmation to support LM meningoencephalitis.",
+          "confirmed_evidence": [
+            "Physical examination showed stiff neck and sluggish light reflex on admission (E004)",
+            "CSF analysis showed pleocytosis (210 × 10^9/L cells), very high protein (1371.5 mg/dL), and low glucose (1.1 mmol/L), indicative of CNS infection or inflammation (E002)"
+          ],
+          "missing_key_evidence": [
+            "Microbiological results from CSF and blood cultures identifying Listeria monocytogenes",
+            "Additional neurological examination or imaging to assess CNS involvement extent and exclude other diagnoses",
+            "Clinical course or treatment response confirming diagnostic impression"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "Two days after the fever, he went to another hospital for a blood routine examination. White blood cells were 19.52 × 10^9/L, neutrophils were 18.01 × 10^9/L, and blood culture showed Listeria infection.",
+          "category": "other",
+          "temporal_cue": "two days after the fever",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the results of cerebrospinal fluid (CSF) culture and any pathogen-specific molecular or antigen tests for Listeria monocytogenes.",
+          "current_trajectory_hypothesis": "48-year-old man with subacute neurological symptoms, stiff neck, CSF pleocytosis, high protein, low glucose indicative of CNS infection, blood culture confirming Listeria infection; CSF microbiological evidence needed to firmly confirm LM meningoencephalitis diagnosis.",
+          "confirmed_evidence": [
+            "Physical examination showed stiff neck and sluggish light reflex on admission (E004)",
+            "CSF analysis showed pleocytosis (210 × 10^9/L cells), very high protein (1371.5 mg/dL), and low glucose (1.1 mmol/L), indicative of CNS infection or inflammation (E002)",
+            "Blood culture showed Listeria infection two days after onset of fever with leukocytosis and neutrophilia (E001)"
+          ],
+          "missing_key_evidence": [
+            "CSF microbiological tests (culture, molecular) confirming Listeria monocytogenes infection",
+            "Neuroimaging or further neurological examination findings",
+            "Clinical course and treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Order brain MRI to assess for meningoencephalitis and rule out alternative intracranial pathologies.",
+          "current_trajectory_hypothesis": "48-year-old man with subacute neurological symptoms, stiff neck, CSF pleocytosis, high protein, low glucose, and blood culture positive for Listeria infection indicating meningoencephalitis; neuroimaging is needed to assess CNS involvement and exclude other causes.",
+          "confirmed_evidence": [
+            "Physical examination showed stiff neck and sluggish light reflex on admission (E004)",
+            "CSF analysis showed pleocytosis (210 × 10^9/L cells), high protein (1371.5 mg/dL), and low glucose (1.1 mmol/L) (E002)",
+            "Blood culture showed Listeria infection two days after onset of fever (E001)"
+          ],
+          "missing_key_evidence": [
+            "CSF culture or molecular confirmation of Listeria monocytogenes",
+            "Brain imaging findings supporting meningoencephalitis",
+            "Clinical course and treatment response data"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "Brain MRI ordered to assess meningoencephalitis and rule out intracranial pathologies, no direct source result yet",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the brain MRI findings to assess evidence of meningoencephalitis or other intracranial pathology.",
+          "current_trajectory_hypothesis": "The patient has neurological symptoms with stiff neck, CSF pleocytosis and abnormal glucose and protein, and blood culture positive for Listeria infection. Brain MRI findings are needed to support meningoencephalitis and exclude other causes.",
+          "confirmed_evidence": [
+            "Physical examination showed stiff neck and sluggish light reflex on admission (E004)",
+            "CSF analysis showed pleocytosis (210 × 10^9/L cells), very high protein (1371.5 mg/dL), and low glucose (1.1 mmol/L) indicative of CNS infection or inflammation (E002)",
+            "Blood culture showed Listeria infection two days after onset of fever with leukocytosis and neutrophilia (E001)"
+          ],
+          "missing_key_evidence": [
+            "Brain MRI findings supporting meningoencephalitis or ruling out other intracranial pathology",
+            "CSF culture or molecular confirmation of Listeria monocytogenes",
+            "Clinical course and treatment response data"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "cranial magnetic resonance imaging (MRI) examination showed lesions in the right pontine and brachium pontis.",
+          "category": "image_finding",
+          "temporal_cue": "prior to initial admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the cerebrospinal fluid (CSF) culture results or any molecular test results specifically identifying Listeria monocytogenes.",
+          "current_trajectory_hypothesis": "48-year-old man with subacute neurological symptoms, stiff neck, CSF pleocytosis, high protein, low glucose indicative of CNS infection; blood culture confirmed Listeria infection; brain MRI showed lesions in the right pontine and brachium pontis; CSF microbiological confirmation of Listeria is pending.",
+          "confirmed_evidence": [
+            "Physical examination showed stiff neck and sluggish light reflex on admission (E004)",
+            "CSF analysis showed pleocytosis (210 × 10^9/L cells), very high protein (1371.5 mg/dL), and low glucose (1.1 mmol/L) indicative of CNS infection or inflammation (E002)",
+            "Blood culture showed Listeria infection two days after onset of fever (E001)",
+            "Brain MRI showed lesions in the right pontine and brachium pontis (E003)"
+          ],
+          "missing_key_evidence": [
+            "CSF culture or molecular test confirming Listeria monocytogenes",
+            "Clinical course and treatment response data"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "48-year-old man with subacute neurological symptoms, stiff neck, CSF pleocytosis, high protein, low glucose indicating CNS infection; blood culture confirmed Listeria infection; brain MRI revealed lesions in brainstem region; clinical course and treatment response needed to finalize diagnosis.",
+          "confirmed_evidence": [
+            "Physical exam: stiff neck and sluggish light reflex (E004)",
+            "CSF: pleocytosis (210 × 10^9/L), high protein (1371.5 mg/dL), low glucose (1.1 mmol/L) indicating infection (E002)",
+            "Blood culture positive for Listeria infection with leukocytosis and neutrophilia (E001)",
+            "Brain MRI showed lesions in the right pontine and brachium pontis (E003)"
+          ],
+          "missing_key_evidence": [
+            "CSF culture or molecular confirmation of Listeria monocytogenes",
+            "Clinical course and treatment response data"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "48-year-old man with neurological symptoms, signs of meningeal irritation, CSF pleocytosis with high protein and low glucose, blood culture positive for Listeria, and brain MRI showing pontine lesions consistent with meningoencephalitis; awaiting clinical course and treatment response to consolidate diagnosis.",
+          "confirmed_evidence": [
+            "Physical exam: stiff neck and sluggish light reflex (E004)",
+            "CSF: pleocytosis (210 × 10^9/L cells), high protein (1371.5 mg/dL), low glucose (1.1 mmol/L) indicating CNS infection or inflammation (E002)",
+            "Blood culture positive for Listeria infection with leukocytosis and neutrophilia (E001)",
+            "Brain MRI showed lesions in the right pontine and brachium pontis (E003)"
+          ],
+          "missing_key_evidence": [
+            "CSF culture or molecular confirmation of Listeria monocytogenes",
+            "Clinical course details and treatment response supporting diagnosis of LM meningoencephalitis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "48-year-old man with neurological symptoms, stiff neck, CSF pleocytosis with high protein and low glucose, blood culture positive for Listeria, brain MRI showing pontine lesions consistent with meningoencephalitis; awaiting clinical course and treatment response to consolidate diagnosis.",
+          "confirmed_evidence": [
+            "Physical exam: stiff neck and sluggish light reflex (E004)",
+            "CSF: pleocytosis (210 × 10^9/L cells), high protein (1371.5 mg/dL), low glucose (1.1 mmol/L) indicating CNS infection or inflammation (E002)",
+            "Blood culture positive for Listeria infection with leukocytosis and neutrophilia (E001)",
+            "Brain MRI showed lesions in the right pontine and brachium pontis (E003)"
+          ],
+          "missing_key_evidence": [
+            "CSF culture or molecular confirmation of Listeria monocytogenes",
+            "Clinical course details and treatment response supporting diagnosis of LM meningoencephalitis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "48-year-old man with neurological symptoms, stiff neck, CSF pleocytosis, high protein, low glucose indicative of CNS infection, blood culture positive for Listeria, brain MRI showing pontine lesions consistent with meningoencephalitis; clinical course and treatment response data are needed to fully support LM meningoencephalitis diagnosis.",
+          "confirmed_evidence": [
+            "Physical exam: stiff neck and sluggish light reflex (E004)",
+            "CSF: pleocytosis (210 × 10^9/L cells), high protein (1371.5 mg/dL), low glucose (1.1 mmol/L) indicating CNS infection or inflammation (E002)",
+            "Blood culture positive for Listeria infection with leukocytosis and neutrophilia (E001)",
+            "Brain MRI showed lesions in the right pontine and brachium pontis (E003)"
+          ],
+          "missing_key_evidence": [
+            "CSF culture or molecular confirmation of Listeria monocytogenes",
+            "Clinical course details and treatment response supporting diagnosis of LM meningoencephalitis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 14,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "48-year-old patient with subacute neurological symptoms, meningeal signs, CSF findings showing infection, blood culture confirming Listeria infection, and brain MRI showing brainstem lesions consistent with meningoencephalitis; clinical course and treatment response data are needed to fully establish the diagnosis trajectory.",
+          "confirmed_evidence": [
+            "Physical exam: stiff neck and sluggish light reflex (E004)",
+            "CSF analysis: pleocytosis (210 × 10^9/L cells), very high protein (1371.5 mg/dL), low glucose (1.1 mmol/L) indicating CNS infection (E002)",
+            "Blood culture positive for Listeria infection with leukocytosis and neutrophilia (E001)",
+            "Brain MRI revealed lesions in the right pontine and brachium pontis (E003)"
+          ],
+          "missing_key_evidence": [
+            "CSF culture or molecular test confirming Listeria monocytogenes",
+            "Clinical course details and treatment response supporting diagnosis of LM meningoencephalitis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "lumbar puncture was performed, along with CSF pathology and NGS examination, which indicated Listeria infection. CSF pathology (severe central nervous system inflammation, predominantly lymphocytes; no Cryptococcus or atypical cells detected. Leukocyte: 394/µL, Neutrophils: 16%, Lymphocytes: 72%, Monocytes: 11%, Plasma cells: 1%). NGS: (G + Listeria: Sequence Number: 3412, Relative Abundance: 95.63%; LM: Sequence Number: 2619; Q30:92.14).",
+          "category": "molecular_test",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 15,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "LM meningoencephalitis",
+          "trajectory_summary": "A 48-year-old man presented subacutely with dizziness, nausea, vomiting, followed by fever. Physical examination revealed stiff neck and sluggish light reflex. CSF analysis showed pleocytosis (210 × 10^9/L cells), high protein (1371.5 mg/dL), and low glucose (1.1 mmol/L) indicating CNS infection. Blood culture confirmed Listeria infection two days after fever onset. Brain MRI revealed lesions in the right pontine and brachium pontis consistent with meningoencephalitis. CSF pathology showed severe CNS inflammation predominantly lymphocytes, and next-generation sequencing (NGS) identified Listeria monocytogenes with high sequence numbers and relative abundance, confirming CNS infection by Listeria.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Physical examination showed stiff neck and sluggish light reflex at admission",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "CSF analysis revealed pleocytosis of 210 × 10^9/L cells, elevated protein 1371.5 mg/dL, and low glucose 1.1 mmol/L indicative of CNS infection",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Blood culture was positive for Listeria infection two days after onset of fever with leukocytosis and neutrophilia",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Brain MRI showed lesions in right pontine and brachium pontis consistent with meningoencephalitis",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "CSF pathology showed severe CNS inflammation with lymphocyte predominance; NGS identified Listeria monocytogenes with high sequence number and relative abundance confirming CNS infection",
+              "evidence_ids": [
+                "E005"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Cryptococcal meningitis",
+              "basis": "CSF pathology showed no Cryptococcus detected (E005)"
+            },
+            {
+              "alternative": "Other bacterial CNS infections",
+              "basis": "Blood culture and CSF NGS specifically identified Listeria monocytogenes with high abundance; no other bacterial pathogens identified"
+            }
+          ],
+          "remaining_uncertainties": [],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "LM meningoencephalitis",
+      "trajectory_summary": "A 48-year-old man presented subacutely with dizziness, nausea, vomiting, followed by fever. Physical examination revealed stiff neck and sluggish light reflex. CSF analysis showed pleocytosis (210 × 10^9/L cells), high protein (1371.5 mg/dL), and low glucose (1.1 mmol/L) indicating CNS infection. Blood culture confirmed Listeria infection two days after fever onset. Brain MRI revealed lesions in the right pontine and brachium pontis consistent with meningoencephalitis. CSF pathology showed severe CNS inflammation predominantly lymphocytes, and next-generation sequencing (NGS) identified Listeria monocytogenes with high sequence numbers and relative abundance, confirming CNS infection by Listeria.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Physical examination showed stiff neck and sluggish light reflex at admission",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "CSF analysis revealed pleocytosis of 210 × 10^9/L cells, elevated protein 1371.5 mg/dL, and low glucose 1.1 mmol/L indicative of CNS infection",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Blood culture was positive for Listeria infection two days after onset of fever with leukocytosis and neutrophilia",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Brain MRI showed lesions in right pontine and brachium pontis consistent with meningoencephalitis",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "CSF pathology showed severe CNS inflammation with lymphocyte predominance; NGS identified Listeria monocytogenes with high sequence number and relative abundance confirming CNS infection",
+          "evidence_ids": [
+            "E005"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Cryptococcal meningitis",
+          "basis": "CSF pathology showed no Cryptococcus detected (E005)"
+        },
+        {
+          "alternative": "Other bacterial CNS infections",
+          "basis": "Blood culture and CSF NGS specifically identified Listeria monocytogenes with high abundance; no other bacterial pathogens identified"
+        }
+      ],
+      "remaining_uncertainties": [],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-23T23:45:39.476676+00:00",
+    "clinician_model": "gpt-4.1-mini-test",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC11296406",
+    "known_final_diagnosis": "LM meningoencephalitis",
+    "turns_used": 15,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 5,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 5,
+    "gold_reasoning_span_count": 2,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 2,
+      "REQUEST_EXAM": 1,
+      "REQUEST_RESULT": 5,
+      "WAIT_REASSESS": 6
+    },
+    "report_status_counts": {
+      "found": 5,
+      "invalid_report_selection": 7,
+      "ordered_but_not_documented": 2
+    },
+    "answer_yield": 0.35714285714285715,
+    "unavailable_turn_rate": 0.14285714285714285,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-23T23:45:39.478317+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC11296406",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "6",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.4",
+    "weighted_tversky_distance": "0.6",
+    "matched_weight": "2.5",
+    "missed_weight": "2.75",
+    "extra_weight": "0.5",
+    "weighted_lcs_recall": "0.47619047619047616",
+    "weighted_lcs_weight": "2.5",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "1",
+    "pairwise_inversions": "0",
+    "gold_sequence": "microbiology > imaging > other_or_off_protocol > lab_tests > medication_or_treatment > admission_or_clinical_course",
+    "prediction_sequence": "physical_examination > microbiology > imaging",
+    "error": ""
+  }
+}

@@ -1,0 +1,664 @@
+{
+  "case_id": "case_0381",
+  "pmcid": "PMC10043603",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC10043603",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 15,
+    "termination": "final",
+    "known_final_diagnosis": "the inflammatory nature of the axillary lymphadenopathies was confirmed",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E003",
+      "E004"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "detailed mammography report findings from the current screening",
+          "current_trajectory_hypothesis": "Initial finding is bilateral enlarged axillary lymph nodes on screening mammography. Need to characterize these nodes further to understand if they are inflammatory or malignant.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Detailed characteristics of the enlarged axillary lymph nodes",
+            "Further imaging or biopsy results to confirm inflammatory nature",
+            "Clinical course or treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "Mammography demonstrated many enlarged axillary lymph nodes bilaterally (at least 16 on the left side, the largest one of 18 mm; at least 11 on the right side, the largest one of 33 mm), while not showing any breast finding suspicious for cancer on both sides (Figure 1). Of note, the patient reported neither breast or axillary symptoms, nor recent vaccinations. Importantly, the patient did not present any axillary adenopathy in the previous mammographic screening round, in 2017 (Figure 2).",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "ultrasound of the axillary lymph nodes",
+          "current_trajectory_hypothesis": "Initial mammography showed bilateral enlarged axillary lymph nodes. To confirm the inflammatory nature, further characterization of these nodes, likely via ultrasound, is needed to assess morphology and guide potential biopsy.",
+          "confirmed_evidence": [
+            "Bilateral enlarged axillary lymph nodes on mammography (E001)",
+            "No suspicious breast findings on mammography (E001)",
+            "No breast or axillary symptoms reported (E001)",
+            "No recent vaccinations reported (E001)",
+            "No axillary adenopathy in previous mammographic screening in 2017 (E001)"
+          ],
+          "missing_key_evidence": [
+            "Detailed characteristics of the enlarged axillary lymph nodes on further imaging (e.g., ultrasound)",
+            "Biopsy results or other definitive evidence confirming inflammatory nature",
+            "Clinical course or treatment response related to the inflammatory process"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Test ultrasound of the axillary lymph nodes ordered at initial presentation phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "ultrasound report of the axillary lymph nodes",
+          "current_trajectory_hypothesis": "Mammography showed bilateral enlarged axillary lymph nodes. Ultrasound findings are needed to further characterize these nodes and guide the diagnostic workup towards confirming their inflammatory nature.",
+          "confirmed_evidence": [
+            "Bilateral enlarged axillary lymph nodes on mammography (E001)",
+            "No suspicious breast findings on mammography (E001)",
+            "No breast or axillary symptoms reported (E001)",
+            "No recent vaccinations reported (E001)",
+            "No axillary adenopathy in previous mammographic screening in 2017 (E001)"
+          ],
+          "missing_key_evidence": [
+            "Detailed characteristics of the enlarged axillary lymph nodes on ultrasound",
+            "Biopsy results or other definitive evidence confirming inflammatory nature",
+            "Clinical course or treatment response related to the inflammatory process"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "Additional bilateral breast and axillary ultrasound was performed (Figure 3), confirming the presence of numerous enlarged lymph nodes, the largest one measuring 30 × 5 mm, with Doppler signal showing intra- and extranodal vascularization, playing in favour of an active inflammatory process (Figure 4).",
+          "category": "image_finding",
+          "temporal_cue": "after recall for further assessment",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "fine-needle aspiration (FNA) or core needle biopsy of the enlarged axillary lymph nodes",
+          "current_trajectory_hypothesis": "Mammography and ultrasound suggest enlarged axillary lymph nodes with features favoring an inflammatory process. A biopsy is needed for definitive histological confirmation of the inflammatory nature and to rule out malignancy.",
+          "confirmed_evidence": [
+            "Bilateral enlarged axillary lymph nodes on mammography (E001)",
+            "No suspicious breast findings on mammography (E001)",
+            "No breast or axillary symptoms or recent vaccinations (E001)",
+            "No axillary adenopathy in previous screening (E001)",
+            "Ultrasound confirmed numerous enlarged lymph nodes with Doppler signal showing intra- and extranodal vascularization, favoring an active inflammatory process (E003)"
+          ],
+          "missing_key_evidence": [
+            "Histological confirmation of inflammatory nature",
+            "Exclusion of malignancy",
+            "Clinical course or treatment response related to the inflammatory process"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Order for procedure noted; no source record documents results.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "pathology report from the axillary lymph node biopsy",
+          "current_trajectory_hypothesis": "Mammography and ultrasound findings suggest enlarged axillary lymph nodes with features favoring an inflammatory process. A biopsy was ordered to obtain histological confirmation of the inflammatory nature and to rule out malignancy. The pathology report is needed to confirm the diagnosis.",
+          "confirmed_evidence": [
+            "Bilateral enlarged axillary lymph nodes on mammography (E001)",
+            "No suspicious breast findings on mammography (E001)",
+            "No breast or axillary symptoms or recent vaccinations (E001)",
+            "No axillary adenopathy in previous screening (E001)",
+            "Ultrasound confirmed numerous enlarged lymph nodes with Doppler signal showing intra- and extranodal vascularization, favoring an active inflammatory process (E003)"
+          ],
+          "missing_key_evidence": [
+            "Histological confirmation of inflammatory nature",
+            "Exclusion of malignancy",
+            "Clinical course or treatment response related to the inflammatory process"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "No pathology report from the axillary lymph node biopsy is documented in the supplied evidence records.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Mammography and ultrasound findings suggest enlarged axillary lymph nodes with features favoring an inflammatory process. A biopsy report was not available. I need to find out how the inflammatory nature was confirmed, which might involve clinical course, response to treatment, or further diagnostic steps.",
+          "confirmed_evidence": [
+            "Bilateral enlarged axillary lymph nodes on mammography (E001)",
+            "No suspicious breast findings on mammography (E001)",
+            "No breast or axillary symptoms or recent vaccinations (E001)",
+            "No axillary adenopathy in previous screening (E001)",
+            "Ultrasound confirmed numerous enlarged lymph nodes with Doppler signal showing intra- and extranodal vascularization, favoring an active inflammatory process (E003)"
+          ],
+          "missing_key_evidence": [
+            "Definitive confirmation of inflammatory nature (e.g., histology, clinical resolution, specific lab markers)",
+            "Exclusion of malignancy (if not covered by inflammatory confirmation)",
+            "Treatment or management of the lymphadenopathy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "More importantly, she reported that she had been diagnosed with mixed connective tissue disease in 2018 overlapping with psoriatic arthropathy since 2020.",
+          "category": "other",
+          "temporal_cue": "after recall for further assessment",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "blood tests for inflammatory markers or autoimmune activity",
+          "current_trajectory_hypothesis": "Mammography and ultrasound findings suggest enlarged axillary lymph nodes with features favoring an inflammatory process. Given the patient's history of mixed connective tissue disease and psoriatic arthropathy, blood tests for inflammatory markers or autoimmune activity could provide further evidence for the inflammatory nature of the lymphadenopathy.",
+          "confirmed_evidence": [
+            "Bilateral enlarged axillary lymph nodes on mammography (E001)",
+            "No suspicious breast findings on mammography (E001)",
+            "No breast or axillary symptoms or recent vaccinations (E001)",
+            "No axillary adenopathy in previous screening (E001)",
+            "Ultrasound confirmed numerous enlarged lymph nodes with Doppler signal showing intra- and extranodal vascularization, favoring an active inflammatory process (E003)",
+            "Patient diagnosed with mixed connective tissue disease in 2018 and psoriatic arthropathy in 2020 (E004)"
+          ],
+          "missing_key_evidence": [
+            "Specific lab results confirming inflammatory nature",
+            "Exclusion of malignancy (if not covered by inflammatory confirmation)",
+            "Clinical course or treatment response related to the inflammatory process"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "The blood tests for inflammatory markers or autoimmune activity have been ordered but results are not yet documented in the source.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "results of blood tests for inflammatory markers or autoimmune activity",
+          "current_trajectory_hypothesis": "Mammography and ultrasound findings suggest enlarged axillary lymph nodes with features favoring an inflammatory process. Given the patient's history of mixed connective tissue disease and psoriatic arthropathy, blood tests for inflammatory markers or autoimmune activity were ordered. I need these results to further support the inflammatory nature of the lymphadenopathy.",
+          "confirmed_evidence": [
+            "Bilateral enlarged axillary lymph nodes on mammography (E001)",
+            "No suspicious breast findings on mammography (E001)",
+            "No breast or axillary symptoms or recent vaccinations (E001)",
+            "No axillary adenopathy in previous screening (E001)",
+            "Ultrasound confirmed numerous enlarged lymph nodes with Doppler signal showing intra- and extranodal vascularization, favoring an active inflammatory process (E003)",
+            "Patient diagnosed with mixed connective tissue disease in 2018 and psoriatic arthropathy in 2020 (E004)"
+          ],
+          "missing_key_evidence": [
+            "Specific lab results confirming inflammatory nature",
+            "Exclusion of malignancy (if not covered by inflammatory confirmation)",
+            "Clinical course or treatment response related to the inflammatory process"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "No source record contains blood test results for inflammatory markers or autoimmune activity.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Mammography and ultrasound findings suggest enlarged axillary lymph nodes with features favoring an inflammatory process, possibly related to the patient's autoimmune conditions. Biopsy and specific blood test results were not reported. I need to find out how the inflammatory nature was ultimately confirmed, which might involve clinical course, response to treatment, or further diagnostic steps.",
+          "confirmed_evidence": [
+            "Bilateral enlarged axillary lymph nodes on mammography (E001)",
+            "No suspicious breast findings on mammography (E001)",
+            "No breast or axillary symptoms or recent vaccinations (E001)",
+            "No axillary adenopathy in previous screening (E001)",
+            "Ultrasound confirmed numerous enlarged lymph nodes with Doppler signal showing intra- and extranodal vascularization, favoring an active inflammatory process (E003)",
+            "Patient diagnosed with mixed connective tissue disease in 2018 and psoriatic arthropathy in 2020 (E004)"
+          ],
+          "missing_key_evidence": [
+            "Definitive confirmation of inflammatory nature (e.g., histology, clinical resolution, specific lab markers, follow-up imaging)",
+            "Exclusion of malignancy (if not covered by inflammatory confirmation)",
+            "Treatment or management of the lymphadenopathy and its outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "follow-up imaging report of the axillary lymph nodes (e.g., ultrasound or mammography)",
+          "current_trajectory_hypothesis": "Mammography and ultrasound findings suggest enlarged axillary lymph nodes with features favoring an inflammatory process, possibly related to the patient's autoimmune conditions. Biopsy and specific blood test results were not reported. I need to find out how the inflammatory nature was ultimately confirmed, which could involve follow-up imaging showing resolution or stability, or a documented clinical course.",
+          "confirmed_evidence": [
+            "Bilateral enlarged axillary lymph nodes on mammography (E001)",
+            "No suspicious breast findings on mammography (E001)",
+            "No breast or axillary symptoms or recent vaccinations (E001)",
+            "No axillary adenopathy in previous screening (E001)",
+            "Ultrasound confirmed numerous enlarged lymph nodes with Doppler signal showing intra- and extranodal vascularization, favoring an active inflammatory process (E003)",
+            "Patient diagnosed with mixed connective tissue disease in 2018 and psoriatic arthropathy in 2020 (E004)"
+          ],
+          "missing_key_evidence": [
+            "Definitive confirmation of inflammatory nature (e.g., histology, clinical resolution, specific lab markers, follow-up imaging)",
+            "Exclusion of malignancy (if not covered by inflammatory confirmation)",
+            "Treatment or management of the lymphadenopathy and its outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E003",
+          "source_text": "Additional bilateral breast and axillary ultrasound was performed (Figure 3), confirming the presence of numerous enlarged lymph nodes, the largest one measuring 30 × 5 mm, with Doppler signal showing intra- and extranodal vascularization, playing in favour of an active inflammatory process (Figure 4).",
+          "category": "image_finding",
+          "temporal_cue": "after recall for further assessment",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Mammography and ultrasound findings suggest enlarged axillary lymph nodes with features favoring an inflammatory process, possibly related to the patient's autoimmune conditions. Biopsy, specific blood test results, and new follow-up imaging were not reported. I need to find out how the inflammatory nature was ultimately confirmed, which might involve clinical course, response to treatment, or a specific diagnostic statement.",
+          "confirmed_evidence": [
+            "Bilateral enlarged axillary lymph nodes on mammography (E001)",
+            "No suspicious breast findings on mammography (E001)",
+            "No breast or axillary symptoms or recent vaccinations (E001)",
+            "No axillary adenopathy in previous screening (E001)",
+            "Ultrasound confirmed numerous enlarged lymph nodes with Doppler signal showing intra- and extranodal vascularization, favoring an active inflammatory process (E003)",
+            "Patient diagnosed with mixed connective tissue disease in 2018 and psoriatic arthropathy in 2020 (E004)"
+          ],
+          "missing_key_evidence": [
+            "Definitive confirmation of inflammatory nature (e.g., specific diagnostic statement, clinical resolution, treatment response)",
+            "Exclusion of malignancy (if not covered by inflammatory confirmation)",
+            "Treatment or management of the lymphadenopathy and its outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Mammography and ultrasound findings suggest enlarged axillary lymph nodes with features favoring an inflammatory process, possibly related to the patient's autoimmune conditions. Biopsy, specific blood test results, and new follow-up imaging were not reported. I need to find out how the inflammatory nature was ultimately confirmed, which might involve a specific diagnostic statement, clinical course, or response to treatment.",
+          "confirmed_evidence": [
+            "Bilateral enlarged axillary lymph nodes on mammography (E001)",
+            "No suspicious breast findings on mammography (E001)",
+            "No breast or axillary symptoms or recent vaccinations (E001)",
+            "No axillary adenopathy in previous screening (E001)",
+            "Ultrasound confirmed numerous enlarged lymph nodes with Doppler signal showing intra- and extranodal vascularization, favoring an active inflammatory process (E003)",
+            "Patient diagnosed with mixed connective tissue disease in 2018 and psoriatic arthropathy in 2020 (E004)"
+          ],
+          "missing_key_evidence": [
+            "Definitive confirmation of inflammatory nature (e.g., specific diagnostic statement, clinical resolution, treatment response)",
+            "Exclusion of malignancy (if not covered by inflammatory confirmation)",
+            "Treatment or management of the lymphadenopathy and its outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Mammography and ultrasound findings suggest enlarged axillary lymph nodes with features favoring an inflammatory process, possibly related to the patient's autoimmune conditions. Biopsy and specific blood test results were not reported. I need to find out how the inflammatory nature was ultimately confirmed, which might involve a specific diagnostic statement, clinical course, or response to treatment.",
+          "confirmed_evidence": [
+            "Bilateral enlarged axillary lymph nodes on mammography (E001)",
+            "No suspicious breast findings on mammography (E001)",
+            "No breast or axillary symptoms or recent vaccinations (E001)",
+            "No axillary adenopathy in previous screening (E001)",
+            "Ultrasound confirmed numerous enlarged lymph nodes with Doppler signal showing intra- and extranodal vascularization, favoring an active inflammatory process (E003)",
+            "Patient diagnosed with mixed connective tissue disease in 2018 and psoriatic arthropathy in 2020 (E004)"
+          ],
+          "missing_key_evidence": [
+            "Definitive confirmation of inflammatory nature (e.g., specific diagnostic statement, clinical resolution, treatment response)",
+            "Exclusion of malignancy (if not covered by inflammatory confirmation)",
+            "Treatment or management of the lymphadenopathy and its outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 14,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Mammography and ultrasound findings suggest enlarged axillary lymph nodes with features favoring an inflammatory process, possibly related to the patient's autoimmune conditions. Biopsy and specific blood test results were not reported. I need to find out how the inflammatory nature was ultimately confirmed, which might involve a specific diagnostic statement, clinical course, or response to treatment.",
+          "confirmed_evidence": [
+            "Bilateral enlarged axillary lymph nodes on mammography (E001)",
+            "No suspicious breast findings on mammography (E001)",
+            "No breast or axillary symptoms or recent vaccinations (E001)",
+            "No axillary adenopathy in previous screening (E001)",
+            "Ultrasound confirmed numerous enlarged lymph nodes with Doppler signal showing intra- and extranodal vascularization, favoring an active inflammatory process (E003)",
+            "Patient diagnosed with mixed connective tissue disease in 2018 and psoriatic arthropathy in 2020 (E004)"
+          ],
+          "missing_key_evidence": [
+            "Definitive confirmation of inflammatory nature (e.g., specific diagnostic statement, clinical resolution, treatment response)",
+            "Exclusion of malignancy (if not covered by inflammatory confirmation)",
+            "Treatment or management of the lymphadenopathy and its outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 15,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "the inflammatory nature of the axillary lymphadenopathies was confirmed",
+          "trajectory_summary": "A 47-year-old female presented for annual mammographic screening, which revealed many enlarged bilateral axillary lymph nodes without suspicious breast findings. She reported no breast/axillary symptoms or recent vaccinations, and had no prior axillary adenopathy in 2017. Subsequent ultrasound confirmed numerous enlarged lymph nodes with Doppler signal showing intra- and extranodal vascularization, favoring an active inflammatory process. The patient's medical history included mixed connective tissue disease and psoriatic arthropathy.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Mammography demonstrated many enlarged axillary lymph nodes bilaterally, with no suspicious breast findings.",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Ultrasound confirmed numerous enlarged lymph nodes with Doppler signal showing intra- and extranodal vascularization, playing in favour of an active inflammatory process.",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Patient has a history of mixed connective tissue disease and psoriatic arthropathy.",
+              "evidence_ids": [
+                "E004"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Malignancy (breast cancer metastasis)",
+              "basis": "No suspicious breast findings on mammography (E001) and ultrasound findings favoring an inflammatory process (E003)."
+            }
+          ],
+          "remaining_uncertainties": [
+            "Lack of histological confirmation via biopsy.",
+            "Absence of specific blood test results for inflammatory markers or autoimmune activity.",
+            "No documented clinical course or treatment response to further confirm the inflammatory nature."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "the inflammatory nature of the axillary lymphadenopathies was confirmed",
+      "trajectory_summary": "A 47-year-old female presented for annual mammographic screening, which revealed many enlarged bilateral axillary lymph nodes without suspicious breast findings. She reported no breast/axillary symptoms or recent vaccinations, and had no prior axillary adenopathy in 2017. Subsequent ultrasound confirmed numerous enlarged lymph nodes with Doppler signal showing intra- and extranodal vascularization, favoring an active inflammatory process. The patient's medical history included mixed connective tissue disease and psoriatic arthropathy.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Mammography demonstrated many enlarged axillary lymph nodes bilaterally, with no suspicious breast findings.",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Ultrasound confirmed numerous enlarged lymph nodes with Doppler signal showing intra- and extranodal vascularization, playing in favour of an active inflammatory process.",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Patient has a history of mixed connective tissue disease and psoriatic arthropathy.",
+          "evidence_ids": [
+            "E004"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Malignancy (breast cancer metastasis)",
+          "basis": "No suspicious breast findings on mammography (E001) and ultrasound findings favoring an inflammatory process (E003)."
+        }
+      ],
+      "remaining_uncertainties": [
+        "Lack of histological confirmation via biopsy.",
+        "Absence of specific blood test results for inflammatory markers or autoimmune activity.",
+        "No documented clinical course or treatment response to further confirm the inflammatory nature."
+      ],
+      "confidence_that_diagnosis_is_supported": 0.8
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:05:51.010592+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10043603",
+    "known_final_diagnosis": "the inflammatory nature of the axillary lymphadenopathies was confirmed",
+    "turns_used": 15,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 3,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 3,
+    "gold_reasoning_span_count": 4,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 1,
+      "ORDER_TEST": 2,
+      "REQUEST_RESULT": 5,
+      "WAIT_REASSESS": 6
+    },
+    "report_status_counts": {
+      "already_disclosed": 1,
+      "found": 3,
+      "invalid_report_selection": 5,
+      "not_reported": 2,
+      "ordered_but_not_documented": 3
+    },
+    "report_repair_attempted_count": 7,
+    "report_repair_failed_count": 5,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 11,
+      "verbatim_excerpt is not a contiguous source subspan.": 1
+    },
+    "answer_yield": 0.2857142857142857,
+    "unavailable_turn_rate": 0.35714285714285715,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:05:51.012732+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10043603",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/episodes/PMC10043603.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/cases/PMC10043603.json",
+    "num_gold_steps": "2",
+    "num_pred_steps": "4",
+    "weighted_tversky_alignment": "0.20689655172413793",
+    "weighted_tversky_distance": "0.7931034482758621",
+    "matched_weight": "1.5",
+    "missed_weight": "0.25",
+    "extra_weight": "2.75",
+    "weighted_lcs_recall": "0.8571428571428571",
+    "weighted_lcs_weight": "1.5",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging > other_or_off_protocol",
+    "prediction_sequence": "lab_tests > imaging > procedure_or_intervention > admission_or_clinical_course",
+    "error": ""
+  }
+}

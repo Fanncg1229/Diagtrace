@@ -1,0 +1,251 @@
+{
+  "case_id": "case_0051",
+  "pmcid": "PMC11299886",
+  "model": "gpt_4_1_mini",
+  "episode": {
+    "case_id": "PMC11299886",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 5,
+    "termination": "final",
+    "known_final_diagnosis": "The imaging study revealed a Stanford Type A aortic dissection extending from the aortic root to the aortic bifurcation (Figures 1, 2).",
+    "disclosed_evidence_ids": [
+      "E002",
+      "E003",
+      "E004"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "Request cardiovascular and abdominal physical examination findings including vital signs, pulses, abdominal exam, and any signs of vascular compromise.",
+          "current_trajectory_hypothesis": "69-year-old woman with abdominal and back pain with history including risk factors and family history suggestive of possible aortic pathology. Need exam findings that could indicate aortic dissection such as pulse deficits, abdominal tenderness, or hypotension.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "physical exam signs supporting acute aortic pathology or ruling out other causes of abdominal and back pain"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "Physical exam revealed only diffuse abdominal tenderness with no pulse discrepancies.",
+          "category": "physical_exam",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Order a contrast-enhanced computed tomography (CT) angiography of the chest, abdomen, and pelvis to evaluate for possible aortic dissection given clinical suspicion and abdominal/back pain presentation.",
+          "current_trajectory_hypothesis": "69-year-old woman with abdominal pain radiating to back and history worrisome for aortic pathology; physical exam showed diffuse abdominal tenderness but no pulse deficits; CT angiography is needed to confirm or exclude aortic dissection.",
+          "confirmed_evidence": [
+            "diffuse abdominal tenderness with no pulse deficits"
+          ],
+          "missing_key_evidence": [
+            "imaging evidence of aortic dissection or alternative diagnosis explaining symptoms"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order placed for CT angiography as requested; no direct source record matches order result yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request the official report and findings of the contrast-enhanced CT angiography of the chest, abdomen, and pelvis.",
+          "current_trajectory_hypothesis": "Patient with abdominal and back pain underwent CT angiography to evaluate for aortic dissection; imaging results needed to confirm diagnosis.",
+          "confirmed_evidence": [
+            "diffuse abdominal tenderness with no pulse deficits",
+            "CT angiography ordered for evaluation"
+          ],
+          "missing_key_evidence": [
+            "imaging evidence confirming Stanford Type A aortic dissection extending from the aortic root to aortic bifurcation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "The imaging study revealed a Stanford Type A aortic dissection extending from the aortic root to the aortic bifurcation (Figures 1, 2).",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Stanford Type A aortic dissection diagnosed by CT angiography in a 69-year-old woman presenting with abdominal and back pain; next steps involve treatment and clinical progression.",
+          "confirmed_evidence": [
+            "diffuse abdominal tenderness with no pulse deficits on exam",
+            "CT angiography shows Stanford Type A aortic dissection from aortic root to bifurcation"
+          ],
+          "missing_key_evidence": [
+            "documented treatment steps such as surgical repair",
+            "clinical outcome or response to treatment",
+            "other rule-out diagnostics if performed"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "She was started on a nicardipine infusion with a systolic pressure goal of less than 120 and an esmolol infusion with a heart rate goal of less than 60. Cardiothoracic Surgery was consulted and she was taken to the operating room for emergent intervention. She spent 8 days in the hospital, during which she made a complete recovery and then was discharged.",
+          "category": "treatment_response",
+          "temporal_cue": "after diagnosis",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Stanford Type A aortic dissection extending from aortic root to aortic bifurcation",
+          "trajectory_summary": "A 69-year-old woman presented with abdominal and back pain along with rectal tenesmus and abdominal distention. Physical exam revealed diffuse abdominal tenderness but no pulse discrepancies. Contrast-enhanced CT angiography was performed and revealed a Stanford Type A aortic dissection extending from the aortic root to the aortic bifurcation. She was treated emergently with antihypertensives (nicardipine and esmolol) and underwent cardiothoracic surgical intervention, resulting in a complete recovery after 8 days of hospitalization.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Diffuse abdominal tenderness present on physical exam with no pulse discrepancies",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "CT angiography revealed Stanford Type A aortic dissection extending from aortic root to aortic bifurcation",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Treatment with nicardipine and esmolol infusions followed by emergent cardiothoracic surgery resulted in complete recovery after 8 days",
+              "evidence_ids": [
+                "E004"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "pure gastrointestinal cause related to irritable bowel syndrome",
+              "basis": "negative for typical IBS response and no relief after enema, imaging confirmed dissection"
+            }
+          ],
+          "remaining_uncertainties": [],
+          "confidence_that_diagnosis_is_supported": 1.0
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Stanford Type A aortic dissection extending from aortic root to aortic bifurcation",
+      "trajectory_summary": "A 69-year-old woman presented with abdominal and back pain along with rectal tenesmus and abdominal distention. Physical exam revealed diffuse abdominal tenderness but no pulse discrepancies. Contrast-enhanced CT angiography was performed and revealed a Stanford Type A aortic dissection extending from the aortic root to the aortic bifurcation. She was treated emergently with antihypertensives (nicardipine and esmolol) and underwent cardiothoracic surgical intervention, resulting in a complete recovery after 8 days of hospitalization.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Diffuse abdominal tenderness present on physical exam with no pulse discrepancies",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "CT angiography revealed Stanford Type A aortic dissection extending from aortic root to aortic bifurcation",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Treatment with nicardipine and esmolol infusions followed by emergent cardiothoracic surgery resulted in complete recovery after 8 days",
+          "evidence_ids": [
+            "E004"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "pure gastrointestinal cause related to irritable bowel syndrome",
+          "basis": "negative for typical IBS response and no relief after enema, imaging confirmed dissection"
+        }
+      ],
+      "remaining_uncertainties": [],
+      "confidence_that_diagnosis_is_supported": 1.0
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-23T19:50:19.503634+00:00",
+    "clinician_model": "gpt-4.1-mini-test",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC11299886",
+    "known_final_diagnosis": "The imaging study revealed a Stanford Type A aortic dissection extending from the aortic root to the aortic bifurcation (Figures 1, 2).",
+    "turns_used": 5,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 3,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 3,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_EXAM": 1,
+      "REQUEST_RESULT": 1,
+      "WAIT_REASSESS": 1
+    },
+    "report_status_counts": {
+      "found": 3,
+      "ordered_but_not_documented": 1
+    },
+    "answer_yield": 0.75,
+    "unavailable_turn_rate": 0.25,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-23T19:50:19.505065+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC11299886",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "4",
+    "num_pred_steps": "2",
+    "weighted_tversky_alignment": "0.5333333333333333",
+    "weighted_tversky_distance": "0.4666666666666667",
+    "matched_weight": "2.0",
+    "missed_weight": "1.75",
+    "extra_weight": "0.0",
+    "weighted_lcs_recall": "0.5333333333333333",
+    "weighted_lcs_weight": "2.0",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "1",
+    "pairwise_inversions": "0",
+    "gold_sequence": "lab_tests > physical_examination > imaging > medication_or_treatment",
+    "prediction_sequence": "physical_examination > imaging",
+    "error": ""
+  }
+}

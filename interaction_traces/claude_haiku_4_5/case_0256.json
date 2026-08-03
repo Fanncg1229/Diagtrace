@@ -1,0 +1,649 @@
+{
+  "case_id": "case_0256",
+  "pmcid": "PMC11954494",
+  "model": "claude_haiku_4_5",
+  "episode": {
+    "case_id": "PMC11954494",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 12,
+    "termination": "final",
+    "known_final_diagnosis": "The final diagnosis was BRAF-wildtype PA, WHO grade 1.",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E003",
+      "E004",
+      "E013"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the MRI brain report from September 2019, including detailed description of the intraventricular tumor location, size, signal characteristics, and any imaging features suggestive of tumor type.",
+          "current_trajectory_hypothesis": "7-year-old boy with acute neurological symptoms (personality change, visual disturbance, vomiting) found to have a large intraventricular mass on MRI. The final diagnosis is BRAF-wildtype pilocytic astrocytoma (PA), WHO grade 1. Need to verify imaging characteristics consistent with PA and confirm the tumor's anatomical extent.",
+          "confirmed_evidence": [
+            "7-year-old male patient",
+            "Presentation with personality change, visual disturbance, and vomiting",
+            "MRI brain performed September 2019 at Lund University Hospital",
+            "Intraventricular tumor measuring 5 × 5 × 7 cm",
+            "Tumor extension into temporal lobe, hypothalamus, and basal ganglia"
+          ],
+          "missing_key_evidence": [
+            "MRI imaging characteristics (T1/T2 signal, enhancement pattern, cystic vs solid components)",
+            "Pathological diagnosis and WHO grading confirmation",
+            "BRAF mutation status testing results",
+            "Surgical intervention details and extent of resection",
+            "Treatment course and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.25
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "The MRI showed a 5 × 5 × 7 cm intraventricular tumor with tumor growth also into the temporal lobe, hypothalamus, and basal ganglia.",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Please provide the pathology report from the tumor specimen, including histological diagnosis, WHO grade, and BRAF mutation status (V600E mutation testing or BRAF wildtype confirmation).",
+          "current_trajectory_hypothesis": "7-year-old boy with acute neurological symptoms (personality change, visual disturbance, vomiting) and large intraventricular mass on MRI. The final diagnosis is BRAF-wildtype pilocytic astrocytoma WHO grade 1. Need to confirm pathological diagnosis and BRAF mutation status from tissue analysis.",
+          "confirmed_evidence": [
+            "7-year-old male patient",
+            "Presentation with personality change, visual disturbance, and vomiting",
+            "MRI brain performed September 2019 at Lund University Hospital",
+            "Intraventricular tumor measuring 5 × 5 × 7 cm with extension into temporal lobe, hypothalamus, and basal ganglia"
+          ],
+          "missing_key_evidence": [
+            "Pathological diagnosis confirmation (pilocytic astrocytoma)",
+            "WHO grade confirmation (grade 1)",
+            "BRAF mutation status (wildtype vs V600E mutation)",
+            "Surgical intervention details and timing",
+            "Treatment course and clinical outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order for pathology report placed; awaiting documented source record for result.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "7-year-old boy presenting with personality change, visual disturbance, and vomiting in September 2019. MRI revealed a 5 × 5 × 7 cm intraventricular tumor with extension into temporal lobe, hypothalamus, and basal ganglia. Final diagnosis is BRAF-wildtype pilocytic astrocytoma WHO grade 1. Need to document the surgical/diagnostic pathway, pathological confirmation, and molecular testing that established the BRAF-wildtype status.",
+          "confirmed_evidence": [
+            "7-year-old male patient",
+            "Presentation with personality change, visual disturbance, and vomiting",
+            "MRI brain September 2019 at Lund University Hospital",
+            "Intraventricular tumor 5 × 5 × 7 cm with extension into temporal lobe, hypothalamus, and basal ganglia"
+          ],
+          "missing_key_evidence": [
+            "Surgical intervention details (biopsy vs resection, timing, extent)",
+            "Pathological diagnosis confirmation (pilocytic astrocytoma, WHO grade 1)",
+            "BRAF mutation status testing and results (wildtype confirmation)",
+            "Immunohistochemical or molecular testing details",
+            "Treatment course and clinical outcome/follow-up"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.35
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "Clinical routine pathological investigation of the resected tissue showed relatively small cell nuclei, few Rosenthal fibers, occasional mitosis (1 mitosis per 2 mm2), positivity for GFAP and synaptophysin, and a low Ki-67 proliferation rate (4.5% in hot spot areas), suggesting a LGG (Figure 1B). The tumor had normal TP53 expression, preserved expression of ATRX, and was negative for H3K27 mutation (H3 p.K28me3 assay) by immunohistochemistry (IHC), excluding other common brain tumor entities.",
+          "category": "pathology_report",
+          "temporal_cue": "post surgery",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the molecular/genetic testing results for BRAF mutation status, specifically confirming BRAF wildtype (non-V600E) status and any other molecular markers tested (such as KIAA1549-BRAF fusion status or other relevant molecular alterations).",
+          "current_trajectory_hypothesis": "7-year-old boy presenting September 2019 with personality change, visual disturbance, and vomiting. MRI revealed 5×5×7 cm intraventricular tumor extending into temporal lobe, hypothalamus, and basal ganglia. Surgical resection performed with pathology showing low-grade glioma features (small nuclei, few Rosenthal fibers, low mitosis rate, GFAP+, synaptophysin+, Ki-67 4.5%, normal TP53, preserved ATRX, H3K27 wildtype). Final diagnosis is BRAF-wildtype pilocytic astrocytoma WHO grade 1. Need to confirm BRAF mutation status testing.",
+          "confirmed_evidence": [
+            "7-year-old male patient",
+            "Presentation with personality change, visual disturbance, and vomiting in September 2019",
+            "MRI brain at Lund University Hospital showing 5×5×7 cm intraventricular tumor with extension into temporal lobe, hypothalamus, and basal ganglia",
+            "Surgical resection performed",
+            "Pathology: small cell nuclei, few Rosenthal fibers, occasional mitosis (1 per 2 mm²), GFAP+ and synaptophysin+, Ki-67 4.5%, normal TP53, preserved ATRX, H3K27 wildtype by IHC, consistent with low-grade glioma"
+          ],
+          "missing_key_evidence": [
+            "BRAF mutation status confirmation (wildtype vs V600E or other mutations)",
+            "KIAA1549-BRAF fusion status or other molecular alterations",
+            "WHO grade 1 formal confirmation in pathology report",
+            "Extent of surgical resection (gross total vs subtotal)",
+            "Post-operative clinical course and follow-up imaging"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "The tumor was screened for BRAF fusion (Oncomine FOCUS panel, ThermoFisher Scientific), and mutations in the BRAF or IDH1/2 genes (therascreen RGQ PCR, Qiagen), but no genetic alterations could be found.",
+          "category": "molecular_test",
+          "temporal_cue": "post surgery",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the formal pathology report diagnosis statement, including the specific histological diagnosis (pilocytic astrocytoma), WHO grade assignment (grade 1), and any additional diagnostic criteria or classification used to establish the final diagnosis.",
+          "current_trajectory_hypothesis": "7-year-old boy presenting September 2019 with personality change, visual disturbance, and vomiting. MRI revealed 5×5×7 cm intraventricular tumor extending into temporal lobe, hypothalamus, and basal ganglia. Surgical resection performed with pathology showing low-grade glioma features (small nuclei, few Rosenthal fibers, low mitosis, GFAP+, synaptophysin+, Ki-67 4.5%, normal TP53, preserved ATRX, H3K27 wildtype). Molecular testing showed no BRAF fusion, no BRAF mutations, and no IDH1/2 mutations (BRAF-wildtype confirmed). Final diagnosis is BRAF-wildtype pilocytic astrocytoma WHO grade 1. Need to confirm the formal histological diagnosis statement and WHO grade 1 assignment.",
+          "confirmed_evidence": [
+            "7-year-old male patient",
+            "Presentation with personality change, visual disturbance, and vomiting in September 2019",
+            "MRI brain at Lund University Hospital showing 5×5×7 cm intraventricular tumor with extension into temporal lobe, hypothalamus, and basal ganglia",
+            "Surgical resection performed",
+            "Pathology: small cell nuclei, few Rosenthal fibers, occasional mitosis (1 per 2 mm²), GFAP+ and synaptophysin+, Ki-67 4.5%, normal TP53, preserved ATRX, H3K27 wildtype by IHC, consistent with low-grade glioma",
+            "Molecular testing: no BRAF fusion detected (Oncomine FOCUS panel), no BRAF mutations detected (therascreen RGQ PCR), no IDH1/2 mutations detected - confirming BRAF-wildtype status"
+          ],
+          "missing_key_evidence": [
+            "Formal pathology diagnosis statement specifying 'pilocytic astrocytoma'",
+            "WHO grade 1 formal assignment in pathology report",
+            "Extent of surgical resection (gross total vs subtotal resection)",
+            "Post-operative clinical course and follow-up imaging results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E003",
+          "source_text": "To confirm the histopathology diagnosis, methylation array (Infinium MethylationEPIC v1.0 BeadChip, illumina) profiling was performed on FFPE tumor tissue (tumor cell content approximately 70%; methodology as previously described16). Classification with the latest Molecular Neuropathology Brain classifier v.12.5 resulted in a calibrated match score of 0.99 with PA, and the same result was obtained with the clinically validated v.11b4 (score: 0.93; www.molecularneuropathology.org/mnp). The final diagnosis was BRAF-wildtype PA, WHO grade 1.",
+          "category": "molecular_test",
+          "temporal_cue": "post surgery",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide details on the surgical intervention: timing of surgery relative to MRI diagnosis, extent of resection (gross total resection vs subtotal/partial resection), any intraoperative complications, and post-operative imaging confirmation of resection extent.",
+          "current_trajectory_hypothesis": "7-year-old boy presenting September 2019 with personality change, visual disturbance, and vomiting. MRI revealed 5×5×7 cm intraventricular tumor extending into temporal lobe, hypothalamus, and basal ganglia. Surgical resection was performed with pathology confirming low-grade glioma features. Molecular testing (Oncomine FOCUS panel, therascreen RGQ PCR) showed no BRAF fusion or mutations, and methylation array profiling (Infinium MethylationEPIC v1.0) with Molecular Neuropathology Brain classifier v.12.5 confirmed diagnosis of BRAF-wildtype PA, WHO grade 1 with calibrated match score 0.99. Need to document surgical details and extent of resection to complete the clinical trajectory.",
+          "confirmed_evidence": [
+            "7-year-old male patient",
+            "Presentation with personality change, visual disturbance, and vomiting in September 2019",
+            "MRI brain at Lund University Hospital showing 5×5×7 cm intraventricular tumor with extension into temporal lobe, hypothalamus, and basal ganglia",
+            "Surgical resection performed",
+            "Pathology: small cell nuclei, few Rosenthal fibers, occasional mitosis (1 per 2 mm²), GFAP+ and synaptophysin+, Ki-67 4.5%, normal TP53, preserved ATRX, H3K27 wildtype by IHC",
+            "Molecular testing: no BRAF fusion (Oncomine FOCUS panel), no BRAF mutations (therascreen RGQ PCR), no IDH1/2 mutations",
+            "Methylation array profiling (Infinium MethylationEPIC v1.0) with Molecular Neuropathology Brain classifier v.12.5 score 0.99 for PA and v.11b4 score 0.93",
+            "Final diagnosis: BRAF-wildtype PA, WHO grade 1"
+          ],
+          "missing_key_evidence": [
+            "Surgical timing and extent of resection (gross total vs subtotal)",
+            "Post-operative imaging confirmation of resection extent",
+            "Post-operative clinical course and neurological recovery",
+            "Follow-up imaging and long-term clinical outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No source record provides details on surgical timing relative to MRI, extent of resection, intraoperative complications, or post-operative imaging confirmation.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "7-year-old boy presenting September 2019 with personality change, visual disturbance, and vomiting. MRI revealed 5×5×7 cm intraventricular tumor extending into temporal lobe, hypothalamus, and basal ganglia. Surgical resection performed with pathology confirming low-grade glioma features (small nuclei, few Rosenthal fibers, occasional mitosis, GFAP+, synaptophysin+, Ki-67 4.5%, normal TP53, preserved ATRX, H3K27 wildtype). Molecular testing confirmed BRAF-wildtype status (no BRAF fusion or mutations on Oncomine FOCUS and therascreen RGQ PCR). Methylation array profiling (Infinium MethylationEPIC v1.0) with Molecular Neuropathology Brain classifier v.12.5 confirmed BRAF-wildtype PA, WHO grade 1 with calibrated match score 0.99. Need to document post-operative course and any follow-up clinical or imaging findings.",
+          "confirmed_evidence": [
+            "7-year-old male patient",
+            "Presentation with personality change, visual disturbance, and vomiting in September 2019",
+            "MRI brain at Lund University Hospital showing 5×5×7 cm intraventricular tumor with extension into temporal lobe, hypothalamus, and basal ganglia",
+            "Surgical resection performed",
+            "Pathology: small cell nuclei, few Rosenthal fibers, occasional mitosis (1 per 2 mm²), GFAP+ and synaptophysin+, Ki-67 4.5%, normal TP53, preserved ATRX, H3K27 wildtype by IHC",
+            "Molecular testing: no BRAF fusion (Oncomine FOCUS panel), no BRAF mutations (therascreen RGQ PCR), no IDH1/2 mutations",
+            "Methylation array profiling (Infinium MethylationEPIC v1.0) with Molecular Neuropathology Brain classifier v.12.5 score 0.99 for PA and v.11b4 score 0.93",
+            "Final diagnosis: BRAF-wildtype PA, WHO grade 1"
+          ],
+          "missing_key_evidence": [
+            "Post-operative clinical course and neurological recovery",
+            "Post-operative imaging confirmation of resection extent",
+            "Any post-operative complications or adverse events",
+            "Follow-up imaging and long-term clinical outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.88
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "The targeted RNA sequencing by Archer FusionPlex identified an NTRK2 rearrangement joined with the novel 5' fusion partner ATG16L1. The genomic breakpoints were located in introns of the two genes, resulting in an ATG16L1 (exon 9)::NTRK2 (exon 16) in-frame fusion transcript (Figure 2A). Reinspection of the copy number alteration (CNA) plot inferred from the methylation data showed an evident loss in chromosome band 2q37.1 with a breakpoint within the ATG16L1 gene, resulting in the loss of the 3ʹ end. No apparent CNA could be seen in chromosome band 9q21.33 (NTRK2). However, zooming in on the gene level of NTRK2 hints at an copy number imbalance between the 5ʹ and 3ʹ ends, with lower levels of the 5ʹ end of NTRK2 (Figure 2B). To confirm the results, interphase fluorescent in situ hybridization (FISH) analysis with an NTRK2 break-apart probe was performed, verifying a DNA rearrangement of NTRK2 (Figure 2C).",
+          "category": "molecular_test",
+          "temporal_cue": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the clinical course and outcome following surgery, including post-operative neurological status, symptom resolution (personality change, visual disturbance, vomiting), any adjuvant treatment (chemotherapy, radiation), and long-term follow-up imaging results.",
+          "current_trajectory_hypothesis": "7-year-old boy presenting September 2019 with personality change, visual disturbance, and vomiting. MRI revealed 5×5×7 cm intraventricular tumor extending into temporal lobe, hypothalamus, and basal ganglia. Surgical resection performed with pathology confirming low-grade glioma features. Molecular testing confirmed BRAF-wildtype status. Methylation array profiling confirmed BRAF-wildtype PA, WHO grade 1 with calibrated match score 0.99. Additionally, targeted RNA sequencing identified an ATG16L1::NTRK2 in-frame fusion (exon 9::exon 16) with FISH confirmation. Need to document post-operative clinical course, treatment decisions, and outcome to complete the trajectory.",
+          "confirmed_evidence": [
+            "7-year-old male patient",
+            "Presentation with personality change, visual disturbance, and vomiting in September 2019",
+            "MRI brain at Lund University Hospital showing 5×5×7 cm intraventricular tumor with extension into temporal lobe, hypothalamus, and basal ganglia",
+            "Surgical resection performed",
+            "Pathology: small cell nuclei, few Rosenthal fibers, occasional mitosis (1 per 2 mm²), GFAP+ and synaptophysin+, Ki-67 4.5%, normal TP53, preserved ATRX, H3K27 wildtype by IHC",
+            "Molecular testing: no BRAF fusion (Oncomine FOCUS panel), no BRAF mutations (therascreen RGQ PCR), no IDH1/2 mutations",
+            "Methylation array profiling (Infinium MethylationEPIC v1.0) with Molecular Neuropathology Brain classifier v.12.5 score 0.99 for PA and v.11b4 score 0.93",
+            "Targeted RNA sequencing identified ATG16L1 (exon 9)::NTRK2 (exon 16) in-frame fusion with FISH confirmation",
+            "Final diagnosis: BRAF-wildtype PA, WHO grade 1"
+          ],
+          "missing_key_evidence": [
+            "Post-operative neurological status and symptom resolution",
+            "Extent of surgical resection (gross total vs subtotal)",
+            "Adjuvant treatment decisions and implementation",
+            "Follow-up imaging results and disease status",
+            "Long-term clinical outcome and prognosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E013",
+          "source_text": "Clinically, the patient has tolerated larotrectinib well without any grade 3 or 4 adverse events. He has had intermittent problems with gastrointestinal side effects, such as nausea and vomiting, but these have been manageable with medication. His WHO performance status measured by Lansky has been 90%-100% while included in the study, indicating little effect of symptoms in his daily life (as a proxy for quality of life).",
+          "category": "other",
+          "temporal_cue": "during treatment",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the post-operative imaging results (MRI or CT brain) performed after surgical resection, including confirmation of extent of resection (gross total vs subtotal), any residual tumor, and post-operative complications or changes.",
+          "current_trajectory_hypothesis": "7-year-old boy presenting September 2019 with personality change, visual disturbance, and vomiting. MRI revealed 5×5×7 cm intraventricular tumor extending into temporal lobe, hypothalamus, and basal ganglia. Surgical resection performed with pathology confirming low-grade glioma features (small nuclei, few Rosenthal fibers, occasional mitosis, GFAP+, synaptophysin+, Ki-67 4.5%, normal TP53, preserved ATRX, H3K27 wildtype). Molecular testing confirmed BRAF-wildtype status (no BRAF fusion or mutations). Methylation array profiling confirmed BRAF-wildtype PA, WHO grade 1 with calibrated match score 0.99. Targeted RNA sequencing identified ATG16L1::NTRK2 in-frame fusion with FISH confirmation. Patient subsequently treated with larotrectinib with good tolerance and WHO performance status 90%-100%. Need to document post-operative imaging to confirm extent of resection and establish the complete surgical trajectory.",
+          "confirmed_evidence": [
+            "7-year-old male patient",
+            "Presentation with personality change, visual disturbance, and vomiting in September 2019",
+            "MRI brain at Lund University Hospital showing 5×5×7 cm intraventricular tumor with extension into temporal lobe, hypothalamus, and basal ganglia",
+            "Surgical resection performed",
+            "Pathology: small cell nuclei, few Rosenthal fibers, occasional mitosis (1 per 2 mm²), GFAP+ and synaptophysin+, Ki-67 4.5%, normal TP53, preserved ATRX, H3K27 wildtype by IHC",
+            "Molecular testing: no BRAF fusion (Oncomine FOCUS panel), no BRAF mutations (therascreen RGQ PCR), no IDH1/2 mutations",
+            "Methylation array profiling (Infinium MethylationEPIC v1.0) with Molecular Neuropathology Brain classifier v.12.5 score 0.99 for PA and v.11b4 score 0.93",
+            "Targeted RNA sequencing identified ATG16L1 (exon 9)::NTRK2 (exon 16) in-frame fusion with FISH confirmation",
+            "Treatment with larotrectinib with good tolerance, WHO performance status 90%-100%, manageable gastrointestinal side effects",
+            "Final diagnosis: BRAF-wildtype PA, WHO grade 1"
+          ],
+          "missing_key_evidence": [
+            "Post-operative imaging confirmation of extent of resection",
+            "Timing of surgery relative to initial MRI diagnosis",
+            "Any post-operative complications or adverse events",
+            "Timing of larotrectinib initiation relative to surgery",
+            "Follow-up imaging during larotrectinib treatment"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.92
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No post-operative imaging results are documented in the source after surgical resection.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the timing of surgical resection relative to the September 2019 MRI diagnosis, and any documentation of the extent of resection (gross total resection vs subtotal/partial resection) from the operative report or post-operative clinical notes.",
+          "current_trajectory_hypothesis": "7-year-old boy presenting September 2019 with personality change, visual disturbance, and vomiting. MRI revealed 5×5×7 cm intraventricular tumor extending into temporal lobe, hypothalamus, and basal ganglia. Surgical resection was performed with pathology confirming low-grade glioma features (small nuclei, few Rosenthal fibers, occasional mitosis, GFAP+, synaptophysin+, Ki-67 4.5%, normal TP53, preserved ATRX, H3K27 wildtype). Molecular testing confirmed BRAF-wildtype status (no BRAF fusion or mutations on Oncomine FOCUS and therascreen RGQ PCR). Methylation array profiling (Infinium MethylationEPIC v1.0) with Molecular Neuropathology Brain classifier v.12.5 confirmed BRAF-wildtype PA, WHO grade 1 with calibrated match score 0.99. Targeted RNA sequencing identified ATG16L1::NTRK2 in-frame fusion with FISH confirmation. Patient subsequently treated with larotrectinib with good tolerance and WHO performance status 90%-100%. Need to establish surgical timing and extent of resection to complete the clinical trajectory.",
+          "confirmed_evidence": [
+            "7-year-old male patient",
+            "Presentation with personality change, visual disturbance, and vomiting in September 2019",
+            "MRI brain at Lund University Hospital showing 5×5×7 cm intraventricular tumor with extension into temporal lobe, hypothalamus, and basal ganglia",
+            "Surgical resection performed",
+            "Pathology: small cell nuclei, few Rosenthal fibers, occasional mitosis (1 per 2 mm²), GFAP+ and synaptophysin+, Ki-67 4.5%, normal TP53, preserved ATRX, H3K27 wildtype by IHC",
+            "Molecular testing: no BRAF fusion (Oncomine FOCUS panel), no BRAF mutations (therascreen RGQ PCR), no IDH1/2 mutations",
+            "Methylation array profiling (Infinium MethylationEPIC v1.0) with Molecular Neuropathology Brain classifier v.12.5 score 0.99 for PA and v.11b4 score 0.93",
+            "Targeted RNA sequencing identified ATG16L1 (exon 9)::NTRK2 (exon 16) in-frame fusion with FISH confirmation",
+            "Treatment with larotrectinib with good tolerance, WHO performance status 90%-100%, manageable gastrointestinal side effects",
+            "Final diagnosis: BRAF-wildtype PA, WHO grade 1"
+          ],
+          "missing_key_evidence": [
+            "Timing of surgical resection relative to September 2019 MRI diagnosis",
+            "Extent of resection (gross total vs subtotal/partial resection)",
+            "Timing of larotrectinib initiation relative to surgery",
+            "Follow-up imaging during larotrectinib treatment"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.92
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No source evidence documents timing or extent of surgical resection relative to the September 2019 MRI diagnosis.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide any documentation of the initial clinical presentation timeline, including the date of symptom onset (personality change, visual disturbance, vomiting) relative to the September 2019 MRI, and the date of surgical intervention following the MRI diagnosis.",
+          "current_trajectory_hypothesis": "7-year-old boy presenting in September 2019 with personality change, visual disturbance, and vomiting. MRI revealed 5×5×7 cm intraventricular tumor extending into temporal lobe, hypothalamus, and basal ganglia. Surgical resection performed with pathology confirming low-grade glioma features (small nuclei, few Rosenthal fibers, occasional mitosis, GFAP+, synaptophysin+, Ki-67 4.5%, normal TP53, preserved ATRX, H3K27 wildtype). Molecular testing confirmed BRAF-wildtype status (no BRAF fusion or mutations). Methylation array profiling confirmed BRAF-wildtype PA, WHO grade 1 with calibrated match score 0.99. Targeted RNA sequencing identified ATG16L1::NTRK2 in-frame fusion with FISH confirmation. Patient subsequently treated with larotrectinib with good tolerance and WHO performance status 90%-100%. The core diagnosis is well-supported; seeking temporal clarification to complete the trajectory.",
+          "confirmed_evidence": [
+            "7-year-old male patient",
+            "Presentation with personality change, visual disturbance, and vomiting in September 2019",
+            "MRI brain at Lund University Hospital showing 5×5×7 cm intraventricular tumor with extension into temporal lobe, hypothalamus, and basal ganglia",
+            "Surgical resection performed",
+            "Pathology: small cell nuclei, few Rosenthal fibers, occasional mitosis (1 per 2 mm²), GFAP+ and synaptophysin+, Ki-67 4.5%, normal TP53, preserved ATRX, H3K27 wildtype by IHC",
+            "Molecular testing: no BRAF fusion (Oncomine FOCUS panel), no BRAF mutations (therascreen RGQ PCR), no IDH1/2 mutations",
+            "Methylation array profiling (Infinium MethylationEPIC v1.0) with Molecular Neuropathology Brain classifier v.12.5 score 0.99 for PA and v.11b4 score 0.93",
+            "Targeted RNA sequencing identified ATG16L1 (exon 9)::NTRK2 (exon 16) in-frame fusion with FISH confirmation",
+            "Treatment with larotrectinib with good tolerance, WHO performance status 90%-100%, manageable gastrointestinal side effects",
+            "Final diagnosis: BRAF-wildtype PA, WHO grade 1"
+          ],
+          "missing_key_evidence": [
+            "Precise timing of symptom onset relative to MRI (September 2019)",
+            "Date of surgical resection relative to MRI diagnosis",
+            "Timing of larotrectinib initiation relative to surgery"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.93
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E001",
+          "source_text": "The MRI showed a 5 × 5 × 7 cm intraventricular tumor with tumor growth also into the temporal lobe, hypothalamus, and basal ganglia.",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "BRAF-wildtype PA (pilocytic astrocytoma), WHO grade 1",
+          "trajectory_summary": "A 7-year-old boy presented in September 2019 with personality change, visual disturbance, and vomiting. MRI brain at Lund University Hospital revealed a 5 × 5 × 7 cm intraventricular tumor with extension into the temporal lobe, hypothalamus, and basal ganglia. Surgical resection was performed. Pathological examination showed features consistent with low-grade glioma: small cell nuclei, few Rosenthal fibers, occasional mitosis (1 per 2 mm²), GFAP and synaptophysin positivity, Ki-67 proliferation rate of 4.5%, normal TP53 expression, preserved ATRX expression, and H3K27 wildtype status by immunohistochemistry. Molecular testing by Oncomine FOCUS panel and therascreen RGQ PCR detected no BRAF fusion or BRAF mutations, and no IDH1/2 mutations, confirming BRAF-wildtype status. Methylation array profiling (Infinium MethylationEPIC v1.0) using the Molecular Neuropathology Brain classifier v.12.5 yielded a calibrated match score of 0.99 for pilocytic astrocytoma (and 0.93 with v.11b4), confirming the final diagnosis of BRAF-wildtype PA, WHO grade 1. Additionally, targeted RNA sequencing identified an ATG16L1 (exon 9)::NTRK2 (exon 16) in-frame fusion, confirmed by FISH analysis. The patient was subsequently treated with larotrectinib, which was well tolerated with WHO performance status of 90%-100% and manageable gastrointestinal side effects.",
+          "key_supporting_evidence": [
+            {
+              "claim": "7-year-old boy with acute neurological presentation (personality change, visual disturbance, vomiting)",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Large intraventricular tumor (5 × 5 × 7 cm) with extension into temporal lobe, hypothalamus, and basal ganglia on MRI",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Pathological features consistent with low-grade glioma: small nuclei, few Rosenthal fibers, occasional mitosis (1 per 2 mm²), GFAP+, synaptophysin+, Ki-67 4.5%, normal TP53, preserved ATRX, H3K27 wildtype",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "BRAF-wildtype status confirmed: no BRAF fusion (Oncomine FOCUS panel), no BRAF mutations (therascreen RGQ PCR), no IDH1/2 mutations",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Methylation array profiling (Infinium MethylationEPIC v1.0) with Molecular Neuropathology Brain classifier v.12.5 confirmed diagnosis with calibrated match score 0.99 for PA (v.11b4 score 0.93)",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Targeted RNA sequencing identified ATG16L1 (exon 9)::NTRK2 (exon 16) in-frame fusion, confirmed by FISH analysis",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Patient treated with larotrectinib with good tolerance, WHO performance status 90%-100%, manageable gastrointestinal side effects",
+              "evidence_ids": [
+                "E013"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "High-grade glioma (WHO grade 2-4)",
+              "basis": "Low mitotic rate (1 per 2 mm²), low Ki-67 proliferation (4.5%), and methylation array classification score 0.99 for grade 1 PA"
+            },
+            {
+              "alternative": "BRAF V600E-mutant pilocytic astrocytoma",
+              "basis": "Oncomine FOCUS panel and therascreen RGQ PCR detected no BRAF mutations; confirmed BRAF-wildtype status"
+            },
+            {
+              "alternative": "IDH-mutant glioma",
+              "basis": "therascreen RGQ PCR detected no IDH1/2 mutations"
+            },
+            {
+              "alternative": "H3K27-mutant diffuse midline glioma",
+              "basis": "H3K27 wildtype status confirmed by immunohistochemistry (H3 p.K28me3 assay)"
+            },
+            {
+              "alternative": "Other common pediatric brain tumor entities",
+              "basis": "Methylation array profiling with Molecular Neuropathology Brain classifier v.12.5 yielded calibrated match score 0.99 specifically for pilocytic astrocytoma"
+            }
+          ],
+          "remaining_uncertainties": [
+            "Precise timing of symptom onset relative to MRI diagnosis (September 2019)",
+            "Exact date of surgical resection relative to MRI diagnosis",
+            "Extent of surgical resection (gross total vs subtotal/partial resection)",
+            "Post-operative imaging confirmation of resection extent",
+            "Timing of larotrectinib initiation relative to surgical resection",
+            "Follow-up imaging results during and after larotrectinib treatment"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "BRAF-wildtype PA (pilocytic astrocytoma), WHO grade 1",
+      "trajectory_summary": "A 7-year-old boy presented in September 2019 with personality change, visual disturbance, and vomiting. MRI brain at Lund University Hospital revealed a 5 × 5 × 7 cm intraventricular tumor with extension into the temporal lobe, hypothalamus, and basal ganglia. Surgical resection was performed. Pathological examination showed features consistent with low-grade glioma: small cell nuclei, few Rosenthal fibers, occasional mitosis (1 per 2 mm²), GFAP and synaptophysin positivity, Ki-67 proliferation rate of 4.5%, normal TP53 expression, preserved ATRX expression, and H3K27 wildtype status by immunohistochemistry. Molecular testing by Oncomine FOCUS panel and therascreen RGQ PCR detected no BRAF fusion or BRAF mutations, and no IDH1/2 mutations, confirming BRAF-wildtype status. Methylation array profiling (Infinium MethylationEPIC v1.0) using the Molecular Neuropathology Brain classifier v.12.5 yielded a calibrated match score of 0.99 for pilocytic astrocytoma (and 0.93 with v.11b4), confirming the final diagnosis of BRAF-wildtype PA, WHO grade 1. Additionally, targeted RNA sequencing identified an ATG16L1 (exon 9)::NTRK2 (exon 16) in-frame fusion, confirmed by FISH analysis. The patient was subsequently treated with larotrectinib, which was well tolerated with WHO performance status of 90%-100% and manageable gastrointestinal side effects.",
+      "key_supporting_evidence": [
+        {
+          "claim": "7-year-old boy with acute neurological presentation (personality change, visual disturbance, vomiting)",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Large intraventricular tumor (5 × 5 × 7 cm) with extension into temporal lobe, hypothalamus, and basal ganglia on MRI",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Pathological features consistent with low-grade glioma: small nuclei, few Rosenthal fibers, occasional mitosis (1 per 2 mm²), GFAP+, synaptophysin+, Ki-67 4.5%, normal TP53, preserved ATRX, H3K27 wildtype",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "BRAF-wildtype status confirmed: no BRAF fusion (Oncomine FOCUS panel), no BRAF mutations (therascreen RGQ PCR), no IDH1/2 mutations",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Methylation array profiling (Infinium MethylationEPIC v1.0) with Molecular Neuropathology Brain classifier v.12.5 confirmed diagnosis with calibrated match score 0.99 for PA (v.11b4 score 0.93)",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Targeted RNA sequencing identified ATG16L1 (exon 9)::NTRK2 (exon 16) in-frame fusion, confirmed by FISH analysis",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Patient treated with larotrectinib with good tolerance, WHO performance status 90%-100%, manageable gastrointestinal side effects",
+          "evidence_ids": [
+            "E013"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "High-grade glioma (WHO grade 2-4)",
+          "basis": "Low mitotic rate (1 per 2 mm²), low Ki-67 proliferation (4.5%), and methylation array classification score 0.99 for grade 1 PA"
+        },
+        {
+          "alternative": "BRAF V600E-mutant pilocytic astrocytoma",
+          "basis": "Oncomine FOCUS panel and therascreen RGQ PCR detected no BRAF mutations; confirmed BRAF-wildtype status"
+        },
+        {
+          "alternative": "IDH-mutant glioma",
+          "basis": "therascreen RGQ PCR detected no IDH1/2 mutations"
+        },
+        {
+          "alternative": "H3K27-mutant diffuse midline glioma",
+          "basis": "H3K27 wildtype status confirmed by immunohistochemistry (H3 p.K28me3 assay)"
+        },
+        {
+          "alternative": "Other common pediatric brain tumor entities",
+          "basis": "Methylation array profiling with Molecular Neuropathology Brain classifier v.12.5 yielded calibrated match score 0.99 specifically for pilocytic astrocytoma"
+        }
+      ],
+      "remaining_uncertainties": [
+        "Precise timing of symptom onset relative to MRI diagnosis (September 2019)",
+        "Exact date of surgical resection relative to MRI diagnosis",
+        "Extent of surgical resection (gross total vs subtotal/partial resection)",
+        "Post-operative imaging confirmation of resection extent",
+        "Timing of larotrectinib initiation relative to surgical resection",
+        "Follow-up imaging results during and after larotrectinib treatment"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T09:02:16.340188+00:00",
+    "clinician_model": "claude-haiku-4-5",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC11954494",
+    "known_final_diagnosis": "The final diagnosis was BRAF-wildtype PA, WHO grade 1.",
+    "turns_used": 12,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 7,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 5,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_RESULT": 8,
+      "WAIT_REASSESS": 2
+    },
+    "report_status_counts": {
+      "already_disclosed": 2,
+      "found": 5,
+      "not_reported": 3,
+      "ordered_but_not_documented": 1
+    },
+    "report_repair_attempted_count": 2,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 1,
+      "verbatim_excerpt is not a contiguous source subspan.": 1
+    },
+    "answer_yield": 0.6363636363636364,
+    "unavailable_turn_rate": 0.36363636363636365,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T09:02:16.343501+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC11954494",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "5",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.35714285714285715",
+    "weighted_tversky_distance": "0.6428571428571428",
+    "matched_weight": "2.5",
+    "missed_weight": "3.0",
+    "extra_weight": "0.75",
+    "weighted_lcs_recall": "0.45454545454545453",
+    "weighted_lcs_weight": "2.5",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "1",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging > pathology > lab_tests > other_or_off_protocol > medication_or_treatment",
+    "prediction_sequence": "imaging > lab_tests > admission_or_clinical_course",
+    "error": ""
+  }
+}

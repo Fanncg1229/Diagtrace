@@ -1,0 +1,591 @@
+{
+  "case_id": "case_0141",
+  "pmcid": "PMC11509380",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC11509380",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 15,
+    "termination": "final",
+    "known_final_diagnosis": "an 86-year-old patient, who exhibited all the hallmark symptoms of Gerstmann syndrome, and additionally, an atypical presentation of Gerstmann syndrome in the context of a chronic subdural hematoma",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E003",
+      "E004"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Brain imaging (e.g., CT or MRI) to investigate the cause of hemiparesis and Gerstmann syndrome symptoms.",
+          "current_trajectory_hypothesis": "The patient presents with neurological deficits (hemiparesis, Gerstmann syndrome symptoms). Brain imaging is needed to identify a structural lesion, such as a subdural hematoma, which is the known final diagnosis.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Presence and characteristics of a subdural hematoma",
+            "Location and extent of any brain lesions"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Brain imaging test ordered but imaging result not yet disclosed",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Report of the brain imaging (CT or MRI) performed.",
+          "current_trajectory_hypothesis": "The patient's neurological symptoms (hemiparesis, Gerstmann syndrome) suggest a structural brain lesion. Brain imaging was ordered to identify this lesion, specifically looking for a subdural hematoma as per the known final diagnosis.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Specific findings from brain imaging, especially regarding subdural hematoma characteristics (location, size, chronicity)",
+            "Correlation of imaging findings with neurological symptoms"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "A non-contrast brain CT scan revealed a chronic subdural hematoma, Markwalder grade 2, located on the left hemisphere, at the level of frontal and parietal lobes, depicting a hypodense aspect measuring about 1.5 cm, without mass effect or subfalcine herniation. Moderate age-related cerebral abiotrophy was also observed (Figure 1).",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "A chronic subdural hematoma was identified on CT scan, correlating with the patient's neurological symptoms. The next step is to understand the management of this hematoma and the patient's subsequent clinical course, which is crucial for reconstructing the full trajectory and understanding the 'atypical presentation' aspect.",
+          "confirmed_evidence": [
+            "Patient presented with right-sided hemiparesis and Gerstmann syndrome symptoms (finger agnosia, agraphia, acalculia, right–left disorientation).",
+            "Brain CT scan revealed a chronic subdural hematoma (Markwalder grade 2, 1.5 cm, hypodense) on the left hemisphere (frontal and parietal lobes) without mass effect or subfalcine herniation."
+          ],
+          "missing_key_evidence": [
+            "Treatment or management of the chronic subdural hematoma",
+            "Patient's clinical response or evolution after diagnosis/treatment",
+            "Further details on why the presentation is considered 'atypical'"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "Computer tomography examination on the next day revealed signs of resorption and a decrease in the hematoma’s thickness (Figure 2).",
+          "category": "image_finding",
+          "temporal_cue": "next day",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "A chronic subdural hematoma was identified and subsequently showed signs of spontaneous resorption. It is crucial to understand the patient's clinical response to this finding and any treatment decisions made, especially concerning the resolution of neurological symptoms and the 'atypical presentation' aspect of Gerstmann syndrome.",
+          "confirmed_evidence": [
+            "Patient presented with right-sided hemiparesis and Gerstmann syndrome symptoms (finger agnosia, agraphia, acalculia, right–left disorientation).",
+            "Brain CT scan revealed a chronic subdural hematoma (Markwalder grade 2, 1.5 cm, hypodense) on the left hemisphere (frontal and parietal lobes) without mass effect or subfalcine herniation (E001).",
+            "A follow-up CT scan on the next day showed signs of resorption and a decrease in the hematoma’s thickness (E002)."
+          ],
+          "missing_key_evidence": [
+            "Patient's neurological status or symptom resolution after hematoma resorption",
+            "Treatment decisions or interventions for the CSDH",
+            "Further details explaining the 'atypical presentation' of Gerstmann syndrome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "At discharge, the patient showed slightly remitted right hemiparesis MRC 4/5; regarding Gerstmann syndrome presentation, no improvements or worsening of the symptoms was observed, and she was prescribed Fludrocortisone for the intracranial hematoma.",
+          "category": "other",
+          "temporal_cue": "at discharge",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "What was the clinical rationale or indication for prescribing Fludrocortisone for the intracranial hematoma?",
+          "current_trajectory_hypothesis": "A chronic subdural hematoma was identified and showed signs of resorption, but Gerstmann syndrome symptoms persisted at discharge, while hemiparesis improved. Fludrocortisone was prescribed for the hematoma, which is an unusual treatment. Understanding the rationale for this treatment might explain the 'atypical presentation' or further aspects of the clinical course.",
+          "confirmed_evidence": [
+            "Patient presented with right-sided hemiparesis and Gerstmann syndrome symptoms (finger agnosia, agraphia, acalculia, right–left disorientation).",
+            "Brain CT scan revealed a chronic subdural hematoma (Markwalder grade 2, 1.5 cm, hypodense) on the left hemisphere (frontal and parietal lobes) without mass effect or subfalcine herniation (E001).",
+            "A follow-up CT scan on the next day showed signs of resorption and a decrease in the hematoma’s thickness (E002).",
+            "At discharge, right hemiparesis had slightly remitted (MRC 4/5), Gerstmann syndrome symptoms showed no improvement or worsening, and Fludrocortisone was prescribed for the intracranial hematoma (E003)."
+          ],
+          "missing_key_evidence": [
+            "Rationale for Fludrocortisone prescription",
+            "Further details explaining the 'atypical presentation' of Gerstmann syndrome in this context",
+            "Any other interventions or clinical course details between the follow-up CT and discharge",
+            "Long-term outcome or follow-up regarding the hematoma or neurological symptoms"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.55
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No source record provides the clinical rationale or indication for prescribing Fludrocortisone for the intracranial hematoma.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "A chronic subdural hematoma was identified and showed signs of resorption, but Gerstmann syndrome symptoms persisted at discharge, while hemiparesis improved. Fludrocortisone was prescribed, but the rationale is unknown. Understanding the subsequent clinical course, including any further interventions or follow-up on the hematoma and neurological symptoms, is crucial to fully reconstruct the trajectory and understand the 'atypical presentation' aspect.",
+          "confirmed_evidence": [
+            "Patient presented with right-sided hemiparesis and Gerstmann syndrome symptoms (finger agnosia, agraphia, acalculia, right–left disorientation).",
+            "Brain CT scan revealed a chronic subdural hematoma (Markwalder grade 2, 1.5 cm, hypodense) on the left hemisphere (frontal and parietal lobes) without mass effect or subfalcine herniation (E001).",
+            "A follow-up CT scan on the next day showed signs of resorption and a decrease in the hematoma’s thickness (E002).",
+            "At discharge, right hemiparesis had slightly remitted (MRC 4/5), Gerstmann syndrome symptoms showed no improvement or worsening, and Fludrocortisone was prescribed for the intracranial hematoma (E003)."
+          ],
+          "missing_key_evidence": [
+            "Any further management or intervention for the CSDH (e.g., surgery)",
+            "Long-term outcome or follow-up regarding the hematoma or neurological symptoms",
+            "Further details explaining the 'atypical presentation' of Gerstmann syndrome in this context"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.55
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No pending orders and no new undisclosed clinical update available at or after the current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "A chronic subdural hematoma was identified, showed signs of resorption, and the patient was discharged with improved hemiparesis but persistent Gerstmann syndrome symptoms. Fludrocortisone was prescribed, but its rationale is unknown. I am seeking any further information on the patient's long-term neurological outcome or the hematoma's resolution, which might shed light on the 'atypical presentation' of Gerstmann syndrome.",
+          "confirmed_evidence": [
+            "Patient presented with right-sided hemiparesis and Gerstmann syndrome symptoms (finger agnosia, agraphia, acalculia, right–left disorientation).",
+            "Brain CT scan revealed a chronic subdural hematoma (Markwalder grade 2, 1.5 cm, hypodense) on the left hemisphere (frontal and parietal lobes) without mass effect or subfalcine herniation (E001).",
+            "A follow-up CT scan on the next day showed signs of resorption and a decrease in the hematoma’s thickness (E002).",
+            "At discharge, right hemiparesis had slightly remitted (MRC 4/5), Gerstmann syndrome symptoms showed no improvement or worsening, and Fludrocortisone was prescribed for the intracranial hematoma (E003)."
+          ],
+          "missing_key_evidence": [
+            "Long-term outcome or follow-up regarding the hematoma or neurological symptoms after discharge",
+            "Explicit explanation from the source regarding why the presentation is considered 'atypical'"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No pending orders and no undisclosed clinical course updates after the current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "What specific clinical findings or course led to the characterization of this Gerstmann syndrome presentation as 'atypical'?",
+          "current_trajectory_hypothesis": "A chronic subdural hematoma was identified and showed signs of resorption, with improved hemiparesis but persistent Gerstmann syndrome symptoms at discharge. The final diagnosis explicitly mentions an 'atypical presentation' of Gerstmann syndrome in this context. I need to understand what makes this presentation atypical according to the source.",
+          "confirmed_evidence": [
+            "Patient presented with right-sided hemiparesis and Gerstmann syndrome symptoms (finger agnosia, agraphia, acalculia, right–left disorientation).",
+            "Brain CT scan revealed a chronic subdural hematoma (Markwalder grade 2, 1.5 cm, hypodense) on the left hemisphere (frontal and parietal lobes) without mass effect or subfalcine herniation (E001).",
+            "A follow-up CT scan on the next day showed signs of resorption and a decrease in the hematoma’s thickness (E002).",
+            "At discharge, right hemiparesis had slightly remitted (MRC 4/5), Gerstmann syndrome symptoms showed no improvement or worsening, and Fludrocortisone was prescribed for the intracranial hematoma (E003)."
+          ],
+          "missing_key_evidence": [
+            "Explicit explanation from the source regarding why the presentation is considered 'atypical'",
+            "Long-term outcome or follow-up regarding the hematoma or neurological symptoms after discharge",
+            "Rationale for Fludrocortisone prescription"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "Neurological examination presented right-sided hemiparesis MRC 3/5 and cognitive impairments. Specifically, the patient presented finger agnosia, agraphia, acalculia, and right–left disorientation, suggestive manifestations of Gerstmann syndrome.",
+          "category": "other",
+          "temporal_cue": "on admission",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "Were there any clinical observations or discussions regarding the persistence of Gerstmann syndrome symptoms despite the observed resorption of the chronic subdural hematoma?",
+          "current_trajectory_hypothesis": "A chronic subdural hematoma was identified and showed signs of resorption, with improved hemiparesis but persistent Gerstmann syndrome symptoms at discharge. The final diagnosis mentions an 'atypical presentation' of Gerstmann syndrome in the context of the CSDH. The persistence of symptoms despite hematoma resorption could be the 'atypical' aspect. I am seeking evidence to confirm this interpretation or provide an alternative explanation.",
+          "confirmed_evidence": [
+            "Patient presented with right-sided hemiparesis and Gerstmann syndrome symptoms (finger agnosia, agraphia, acalculia, right–left disorientation).",
+            "Brain CT scan revealed a chronic subdural hematoma (Markwalder grade 2, 1.5 cm, hypodense) on the left hemisphere (frontal and parietal lobes) without mass effect or subfalcine herniation (E001).",
+            "A follow-up CT scan on the next day showed signs of resorption and a decrease in the hematoma’s thickness (E002).",
+            "At discharge, right hemiparesis had slightly remitted (MRC 4/5), Gerstmann syndrome symptoms showed no improvement or worsening, and Fludrocortisone was prescribed for the intracranial hematoma (E003)."
+          ],
+          "missing_key_evidence": [
+            "Explicit explanation from the source regarding why the presentation is considered 'atypical' in the context of CSDH",
+            "Rationale for Fludrocortisone prescription",
+            "Long-term outcome or follow-up regarding the hematoma or neurological symptoms after discharge"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E003",
+          "source_text": "At discharge, the patient showed slightly remitted right hemiparesis MRC 4/5; regarding Gerstmann syndrome presentation, no improvements or worsening of the symptoms was observed, and she was prescribed Fludrocortisone for the intracranial hematoma.",
+          "category": "other",
+          "temporal_cue": "at discharge",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "Was there any discussion or clinical observation linking the chronic subdural hematoma directly to the etiology of the Gerstmann syndrome symptoms, or explaining the mechanism?",
+          "current_trajectory_hypothesis": "A chronic subdural hematoma was identified on the left hemisphere, which is consistent with the location for Gerstmann syndrome. The final diagnosis specifies an 'atypical presentation' of Gerstmann syndrome in the context of this CSDH. I am seeking explicit evidence from the source that connects the CSDH to the Gerstmann syndrome symptoms and potentially explains why this presentation is considered 'atypical'.",
+          "confirmed_evidence": [
+            "Patient presented with right-sided hemiparesis and Gerstmann syndrome symptoms (finger agnosia, agraphia, acalculia, right–left disorientation).",
+            "Brain CT scan revealed a chronic subdural hematoma (Markwalder grade 2, 1.5 cm, hypodense) on the left hemisphere (frontal and parietal lobes) without mass effect or subfalcine herniation (E001).",
+            "A follow-up CT scan on the next day showed signs of resorption and a decrease in the hematoma’s thickness (E002).",
+            "At discharge, right hemiparesis had slightly remitted (MRC 4/5), Gerstmann syndrome symptoms showed no improvement or worsening, and Fludrocortisone was prescribed for the intracranial hematoma (E003)."
+          ],
+          "missing_key_evidence": [
+            "Explicit explanation from the source regarding the direct causal link or mechanism between the CSDH and Gerstmann syndrome symptoms",
+            "Explicit explanation from the source regarding why the presentation is considered 'atypical'",
+            "Rationale for Fludrocortisone prescription",
+            "Long-term outcome or follow-up regarding the hematoma or neurological symptoms after discharge"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No source evidence discusses or links the chronic subdural hematoma directly to the Gerstmann syndrome symptoms or explains the mechanism.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "What were the clinical implications or interpretations of the persistent Gerstmann syndrome symptoms at discharge, given the observed resorption of the chronic subdural hematoma and improvement in hemiparesis?",
+          "current_trajectory_hypothesis": "A chronic subdural hematoma was identified and showed signs of resorption, with improved hemiparesis but persistent Gerstmann syndrome symptoms at discharge. The final diagnosis mentions an 'atypical presentation' of Gerstmann syndrome in the context of the CSDH. The persistence of Gerstmann symptoms despite CSDH resorption and hemiparesis improvement is a key finding that likely contributes to the 'atypical' characterization. I am seeking explicit clinical interpretation of this discrepancy.",
+          "confirmed_evidence": [
+            "Patient presented with right-sided hemiparesis and Gerstmann syndrome symptoms (finger agnosia, agraphia, acalculia, right–left disorientation).",
+            "Brain CT scan revealed a chronic subdural hematoma (Markwalder grade 2, 1.5 cm, hypodense) on the left hemisphere (frontal and parietal lobes) without mass effect or subfalcine herniation (E001).",
+            "A follow-up CT scan on the next day showed signs of resorption and a decrease in the hematoma’s thickness (E002).",
+            "At discharge, right hemiparesis had slightly remitted (MRC 4/5), Gerstmann syndrome symptoms showed no improvement or worsening, and Fludrocortisone was prescribed for the intracranial hematoma (E003)."
+          ],
+          "missing_key_evidence": [
+            "Explicit explanation from the source regarding why the presentation is considered 'atypical' in the context of CSDH, particularly concerning the persistent Gerstmann symptoms.",
+            "Rationale for Fludrocortisone prescription.",
+            "Long-term outcome or follow-up regarding the hematoma or neurological symptoms after discharge."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E003",
+          "source_text": "At discharge, the patient showed slightly remitted right hemiparesis MRC 4/5; regarding Gerstmann syndrome presentation, no improvements or worsening of the symptoms was observed, and she was prescribed Fludrocortisone for the intracranial hematoma.",
+          "category": "other",
+          "temporal_cue": "at discharge",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "Was the persistence of Gerstmann syndrome symptoms, despite the observed resorption of the chronic subdural hematoma and improvement in hemiparesis, explicitly considered an 'atypical' feature of this case by the clinicians?",
+          "current_trajectory_hypothesis": "A chronic subdural hematoma was identified and showed signs of resorption, with improved hemiparesis but persistent Gerstmann syndrome symptoms at discharge. The final diagnosis explicitly mentions an 'atypical presentation' of Gerstmann syndrome in this context. I am trying to confirm if the lack of resolution of Gerstmann symptoms, despite CSDH improvement, is the specific reason for this 'atypical' characterization.",
+          "confirmed_evidence": [
+            "Patient presented with right-sided hemiparesis and Gerstmann syndrome symptoms (finger agnosia, agraphia, acalculia, right–left disorientation).",
+            "Brain CT scan revealed a chronic subdural hematoma (Markwalder grade 2, 1.5 cm, hypodense) on the left hemisphere (frontal and parietal lobes) without mass effect or subfalcine herniation (E001).",
+            "A follow-up CT scan on the next day showed signs of resorption and a decrease in the hematoma’s thickness (E002).",
+            "At discharge, right hemiparesis had slightly remitted (MRC 4/5), Gerstmann syndrome symptoms showed no improvement or worsening, and Fludrocortisone was prescribed for the intracranial hematoma (E003)."
+          ],
+          "missing_key_evidence": [
+            "Explicit explanation from the source regarding why the presentation is considered 'atypical' in the context of CSDH, particularly concerning the persistent Gerstmann symptoms.",
+            "Rationale for Fludrocortisone prescription.",
+            "Long-term outcome or follow-up regarding the hematoma or neurological symptoms after discharge."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No explicit consideration of persistence of Gerstmann syndrome symptoms as 'atypical' is documented in the supplied sources.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "A chronic subdural hematoma was identified, showed signs of resorption, with improved hemiparesis but persistent Gerstmann syndrome symptoms at discharge. Fludrocortisone was prescribed, but its rationale is unknown. I am seeking any long-term follow-up or outcome information that might further clarify the trajectory, especially regarding the persistence of Gerstmann syndrome symptoms and the 'atypical presentation' aspect.",
+          "confirmed_evidence": [
+            "Patient presented with right-sided hemiparesis and Gerstmann syndrome symptoms (finger agnosia, agraphia, acalculia, right–left disorientation).",
+            "Brain CT scan revealed a chronic subdural hematoma (Markwalder grade 2, 1.5 cm, hypodense) on the left hemisphere (frontal and parietal lobes) without mass effect or subfalcine herniation (E001).",
+            "A follow-up CT scan on the next day showed signs of resorption and a decrease in the hematoma’s thickness (E002).",
+            "At discharge, right hemiparesis had slightly remitted (MRC 4/5), Gerstmann syndrome symptoms showed no improvement or worsening, and Fludrocortisone was prescribed for the intracranial hematoma (E003)."
+          ],
+          "missing_key_evidence": [
+            "Long-term outcome or follow-up regarding the hematoma or neurological symptoms after discharge.",
+            "Explicit explanation from the source regarding why the presentation is considered 'atypical' in the context of CSDH.",
+            "Rationale for Fludrocortisone prescription."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No pending results or further clinical trajectory updates available after the current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 14,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "Was there any clinical discussion or interpretation regarding the significance of the chronic subdural hematoma being without mass effect or subfalcine herniation, despite the patient's significant neurological symptoms?",
+          "current_trajectory_hypothesis": "A chronic subdural hematoma was identified on the left hemisphere, consistent with Gerstmann syndrome symptoms, but without mass effect. The hematoma showed signs of resorption, with improved hemiparesis but persistent Gerstmann syndrome symptoms at discharge. The final diagnosis mentions an 'atypical presentation' of Gerstmann syndrome in the context of the CSDH. The lack of mass effect despite significant symptoms could be a contributing factor to this 'atypical' characterization.",
+          "confirmed_evidence": [
+            "Patient presented with right-sided hemiparesis and Gerstmann syndrome symptoms (finger agnosia, agraphia, acalculia, right–left disorientation).",
+            "Brain CT scan revealed a chronic subdural hematoma (Markwalder grade 2, 1.5 cm, hypodense) on the left hemisphere (frontal and parietal lobes) without mass effect or subfalcine herniation (E001).",
+            "A follow-up CT scan on the next day showed signs of resorption and a decrease in the hematoma’s thickness (E002).",
+            "At discharge, right hemiparesis had slightly remitted (MRC 4/5), Gerstmann syndrome symptoms showed no improvement or worsening, and Fludrocortisone was prescribed for the intracranial hematoma (E003)."
+          ],
+          "missing_key_evidence": [
+            "Explicit explanation from the source regarding why the presentation is considered 'atypical' in the context of CSDH, particularly concerning the persistent Gerstmann symptoms and/or the lack of mass effect.",
+            "Rationale for Fludrocortisone prescription.",
+            "Long-term outcome or follow-up regarding the hematoma or neurological symptoms after discharge."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No source evidence contains clinical discussion or interpretation of the significance of the hematoma's lack of mass effect or herniation in relation to symptoms.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 15,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "an 86-year-old patient, who exhibited all the hallmark symptoms of Gerstmann syndrome, and additionally, an atypical presentation of Gerstmann syndrome in the context of a chronic subdural hematoma",
+          "trajectory_summary": "An 86-year-old female with type 2 diabetes presented with right-sided hemiparesis and Gerstmann syndrome symptoms (finger agnosia, agraphia, acalculia, right–left disorientation). A brain CT scan on admission revealed a chronic subdural hematoma (Markwalder grade 2, 1.5 cm, hypodense) on the left frontal and parietal lobes, without mass effect or subfalcine herniation. A follow-up CT scan the next day showed signs of hematoma resorption and decreased thickness. At discharge, the right hemiparesis had slightly remitted (MRC 4/5), but Gerstmann syndrome symptoms showed no improvement or worsening. Fludrocortisone was prescribed for the intracranial hematoma.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with right-sided hemiparesis and hallmark symptoms of Gerstmann syndrome (finger agnosia, agraphia, acalculia, right–left disorientation).",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Brain CT scan revealed a chronic subdural hematoma (Markwalder grade 2, 1.5 cm, hypodense) on the left hemisphere (frontal and parietal lobes) without mass effect or subfalcine herniation.",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "A follow-up CT scan showed signs of resorption and a decrease in the hematoma’s thickness.",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "At discharge, right hemiparesis improved, but Gerstmann syndrome symptoms showed no improvement or worsening.",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Fludrocortisone was prescribed for the intracranial hematoma at discharge.",
+              "evidence_ids": [
+                "E003"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [],
+          "remaining_uncertainties": [
+            "Explicit explanation from the source regarding why the Gerstmann syndrome presentation was considered 'atypical' in this context.",
+            "Rationale for prescribing Fludrocortisone for the chronic subdural hematoma.",
+            "Long-term outcome or follow-up regarding the hematoma or neurological symptoms after discharge.",
+            "Explicit discussion or mechanism linking the chronic subdural hematoma directly to the Gerstmann syndrome symptoms.",
+            "Clinical interpretation of the significance of the hematoma being without mass effect or subfalcine herniation despite significant neurological symptoms."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "an 86-year-old patient, who exhibited all the hallmark symptoms of Gerstmann syndrome, and additionally, an atypical presentation of Gerstmann syndrome in the context of a chronic subdural hematoma",
+      "trajectory_summary": "An 86-year-old female with type 2 diabetes presented with right-sided hemiparesis and Gerstmann syndrome symptoms (finger agnosia, agraphia, acalculia, right–left disorientation). A brain CT scan on admission revealed a chronic subdural hematoma (Markwalder grade 2, 1.5 cm, hypodense) on the left frontal and parietal lobes, without mass effect or subfalcine herniation. A follow-up CT scan the next day showed signs of hematoma resorption and decreased thickness. At discharge, the right hemiparesis had slightly remitted (MRC 4/5), but Gerstmann syndrome symptoms showed no improvement or worsening. Fludrocortisone was prescribed for the intracranial hematoma.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with right-sided hemiparesis and hallmark symptoms of Gerstmann syndrome (finger agnosia, agraphia, acalculia, right–left disorientation).",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Brain CT scan revealed a chronic subdural hematoma (Markwalder grade 2, 1.5 cm, hypodense) on the left hemisphere (frontal and parietal lobes) without mass effect or subfalcine herniation.",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "A follow-up CT scan showed signs of resorption and a decrease in the hematoma’s thickness.",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "At discharge, right hemiparesis improved, but Gerstmann syndrome symptoms showed no improvement or worsening.",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Fludrocortisone was prescribed for the intracranial hematoma at discharge.",
+          "evidence_ids": [
+            "E003"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [],
+      "remaining_uncertainties": [
+        "Explicit explanation from the source regarding why the Gerstmann syndrome presentation was considered 'atypical' in this context.",
+        "Rationale for prescribing Fludrocortisone for the chronic subdural hematoma.",
+        "Long-term outcome or follow-up regarding the hematoma or neurological symptoms after discharge.",
+        "Explicit discussion or mechanism linking the chronic subdural hematoma directly to the Gerstmann syndrome symptoms.",
+        "Clinical interpretation of the significance of the hematoma being without mass effect or subfalcine herniation despite significant neurological symptoms."
+      ],
+      "confidence_that_diagnosis_is_supported": 0.8
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T22:02:14.835514+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC11509380",
+    "known_final_diagnosis": "an 86-year-old patient, who exhibited all the hallmark symptoms of Gerstmann syndrome, and additionally, an atypical presentation of Gerstmann syndrome in the context of a chronic subdural hematoma",
+    "turns_used": 15,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 5,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 4,
+    "action_counts": {
+      "ASK_HISTORY": 7,
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_RESULT": 1,
+      "WAIT_REASSESS": 5
+    },
+    "report_status_counts": {
+      "already_disclosed": 2,
+      "found": 4,
+      "no_new_update": 3,
+      "not_reported": 4,
+      "ordered_but_not_documented": 1
+    },
+    "report_repair_attempted_count": 0,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {},
+    "answer_yield": 0.42857142857142855,
+    "unavailable_turn_rate": 0.5714285714285714,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T22:02:14.838261+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC11509380",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/neurology/episodes/PMC11509380.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/neurology/cases/PMC11509380.json",
+    "num_gold_steps": "2",
+    "num_pred_steps": "2",
+    "weighted_tversky_alignment": "0.5454545454545454",
+    "weighted_tversky_distance": "0.4545454545454546",
+    "matched_weight": "1.5",
+    "missed_weight": "0.25",
+    "extra_weight": "0.5",
+    "weighted_lcs_recall": "0.8571428571428571",
+    "weighted_lcs_weight": "1.5",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging > other_or_off_protocol",
+    "prediction_sequence": "imaging > clinical_history",
+    "error": ""
+  }
+}

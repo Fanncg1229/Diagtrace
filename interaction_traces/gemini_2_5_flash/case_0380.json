@@ -1,0 +1,368 @@
+{
+  "case_id": "case_0380",
+  "pmcid": "PMC10032552",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC10032552",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 7,
+    "termination": "final",
+    "known_final_diagnosis": "The patient’s presentation was consistent with spontaneous ureter rupture.",
+    "disclosed_evidence_ids": [
+      "E002",
+      "E003",
+      "E004",
+      "E005"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "What were the findings of the initial abdominal and pelvic CT scan?",
+          "current_trajectory_hypothesis": "Patient presented with acute left flank pain, nausea, and emesis. Initial workup likely included imaging to investigate potential renal/ureteral pathology.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Imaging findings",
+            "Laboratory results",
+            "Further clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "The CT scan order is recorded; result not yet disclosed.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the findings of the initial abdominal and pelvic CT scan?",
+          "current_trajectory_hypothesis": "Patient presented with acute left flank pain, nausea, and emesis. Initial workup likely included imaging to investigate potential renal/ureteral pathology, specifically a CT scan.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "CT scan findings",
+            "Laboratory results",
+            "Further clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "Imaging revealed an edematous left kidney with dilation of the left collecting system as well as a moderate amount of perinephric and periureteric fluid without the presence of an obstructing calculus (Figure 1).",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "What were the findings of the CT urogram or other imaging performed to confirm ureteral rupture?",
+          "current_trajectory_hypothesis": "Initial CT scan showed findings suggestive of ureteral pathology (edematous kidney, dilated collecting system, perinephric/periureteric fluid) but no obstructing calculus. Further imaging is needed to confirm a ureteral rupture.",
+          "confirmed_evidence": [
+            "Patient presented with acute severe left flank pain, nausea, and emesis.",
+            "Initial CT scan revealed an edematous left kidney with dilation of the left collecting system and moderate perinephric and periureteric fluid, without an obstructing calculus (E002)."
+          ],
+          "missing_key_evidence": [
+            "Definitive imaging evidence of ureteral rupture/leak",
+            "Laboratory results",
+            "Further clinical course/management"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "The test is ordered but imaging findings are not yet disclosed.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the findings of the CT urogram or other imaging performed to confirm ureteral rupture?",
+          "current_trajectory_hypothesis": "Initial CT scan showed findings suggestive of ureteral pathology (edematous kidney, dilated collecting system, perinephric/periureteric fluid) but no obstructing calculus. A CT urogram was ordered to confirm a ureteral rupture.",
+          "confirmed_evidence": [
+            "Patient presented with acute severe left flank pain, nausea, and emesis.",
+            "Initial CT scan revealed an edematous left kidney with dilation of the left collecting system and moderate perinephric and periureteric fluid, without an obstructing calculus (E002)."
+          ],
+          "missing_key_evidence": [
+            "Definitive imaging evidence of ureteral rupture/leak from CT urogram",
+            "Laboratory results",
+            "Further clinical course/management"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "CT with delayed images obtained after contrast injection revealed extravasation of contrast from the left proximal as well as mid-ureter (Figure 2).",
+          "category": "image_finding",
+          "temporal_cue": "after initial CT on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with acute left flank pain, nausea, and emesis. Initial CT showed findings suggestive of ureteral pathology without obstruction. A CT urogram confirmed extravasation of contrast from the left ureter, consistent with spontaneous ureter rupture. Now seeking information on management and outcome.",
+          "confirmed_evidence": [
+            "Patient presented with acute severe left flank pain, nausea, and emesis.",
+            "Initial CT scan revealed an edematous left kidney with dilation of the left collecting system and moderate perinephric and periureteric fluid, without an obstructing calculus (E002).",
+            "CT with delayed images (CT urogram) revealed extravasation of contrast from the left proximal and mid-ureter (E003)."
+          ],
+          "missing_key_evidence": [
+            "Management/intervention for ureteral rupture",
+            "Clinical course and outcome",
+            "Laboratory results (if relevant to management/diagnosis)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "The patient received intravenous antibiotics as well as intravenous fluids and underwent cystoscopy and left-sided retrograde pyelogram. This confirmed extravasation of contrast 2 cm distal to the left ureteropelvic junction without the presence of any stones, filling defects, or other etiologies of the ureter rupture.",
+          "category": "other",
+          "temporal_cue": "after delayed CT confirmation",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with acute left flank pain, nausea, and emesis. Initial CT showed findings suggestive of ureteral pathology without obstruction. A CT urogram confirmed extravasation of contrast from the left ureter. Cystoscopy and retrograde pyelogram further confirmed the extravasation and ruled out other etiologies, supporting spontaneous ureter rupture. Now seeking information on the definitive management.",
+          "confirmed_evidence": [
+            "Patient presented with acute severe left flank pain, nausea, and emesis.",
+            "Initial CT scan revealed an edematous left kidney with dilation of the left collecting system and moderate perinephric and periureteric fluid, without an obstructing calculus (E002).",
+            "CT with delayed images (CT urogram) revealed extravasation of contrast from the left proximal and mid-ureter (E003).",
+            "Cystoscopy and left-sided retrograde pyelogram confirmed extravasation of contrast 2 cm distal to the left ureteropelvic junction without stones, filling defects, or other etiologies of ureter rupture (E004)."
+          ],
+          "missing_key_evidence": [
+            "Definitive management/intervention for the ureteral rupture",
+            "Clinical course and outcome post-intervention",
+            "Relevant laboratory results (if any)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "The patient then underwent placement of a double-J stent with Foley catheter placement. The patient was discharged with oral antibiotics and outpatient follow-up for repeat cystoscopy and evaluation for possible stent removal in one month. The patient’s postoperative course was complicated by transient hematuria with outpatient CT urogram showing satisfactory positioning of the left ureteral stent without hydronephrosis, no contrast extravasation, and symmetric excretion of contrast material bilaterally. The patient ultimately underwent a repeat cystoscopy with left ureteroscopy and double-JJ stent removal with no noted stones, tumors within the ureter or within the renal pelvis, and no evidence of extravasation of the ureter.",
+          "category": "imaging_report",
+          "temporal_cue": "postoperative and follow-up",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "spontaneous ureter rupture",
+          "trajectory_summary": "A 67-year-old female presented with acute severe left flank pain, nausea, and emesis. Initial CT revealed an edematous left kidney, dilated left collecting system, and moderate perinephric and periureteric fluid, notably without an obstructing calculus. A subsequent CT with delayed images (CT urogram) confirmed extravasation of contrast from the left proximal and mid-ureter. Cystoscopy and left-sided retrograde pyelogram further confirmed extravasation 2 cm distal to the left ureteropelvic junction and ruled out stones, filling defects, or other etiologies for the rupture. The patient was treated with intravenous antibiotics, fluids, and underwent placement of a double-J stent. Her postoperative course included transient hematuria, and a follow-up CT urogram showed satisfactory stent positioning with no hydronephrosis or contrast extravasation. Ultimately, the patient underwent repeat cystoscopy with left ureteroscopy and double-JJ stent removal, with no evidence of stones, tumors, or extravasation.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with acute onset of severe left flank pain, nausea, and multiple episodes of non-bloody, non-bilious emesis.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Initial CT scan revealed an edematous left kidney with dilation of the left collecting system and moderate perinephric and periureteric fluid, without the presence of an obstructing calculus.",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "CT with delayed images (CT urogram) showed extravasation of contrast from the left proximal as well as mid-ureter.",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Cystoscopy and left-sided retrograde pyelogram confirmed extravasation of contrast 2 cm distal to the left ureteropelvic junction and ruled out stones, filling defects, or other etiologies of the ureter rupture.",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "The patient underwent placement of a double-J stent, and follow-up imaging confirmed satisfactory stent positioning with no contrast extravasation, leading to successful stent removal.",
+              "evidence_ids": [
+                "E005"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Obstructing calculus causing hydronephrosis and rupture",
+              "basis": "Initial CT scan and retrograde pyelogram explicitly stated no obstructing calculus (E002, E004)."
+            },
+            {
+              "alternative": "Stones or tumors as the etiology of ureter rupture",
+              "basis": "Retrograde pyelogram and subsequent ureteroscopy explicitly ruled out stones or tumors within the ureter or renal pelvis (E004, E005)."
+            },
+            {
+              "alternative": "Traumatic injury",
+              "basis": "Patient history noted no acute inciting factors or traumatic injuries."
+            }
+          ],
+          "remaining_uncertainties": [
+            "Specific laboratory results (e.g., urinalysis, renal function, inflammatory markers) were not provided, though imaging and procedural findings were definitive for diagnosis and management."
+          ],
+          "confidence_that_diagnosis_is_supported": 1.0
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "spontaneous ureter rupture",
+      "trajectory_summary": "A 67-year-old female presented with acute severe left flank pain, nausea, and emesis. Initial CT revealed an edematous left kidney, dilated left collecting system, and moderate perinephric and periureteric fluid, notably without an obstructing calculus. A subsequent CT with delayed images (CT urogram) confirmed extravasation of contrast from the left proximal and mid-ureter. Cystoscopy and left-sided retrograde pyelogram further confirmed extravasation 2 cm distal to the left ureteropelvic junction and ruled out stones, filling defects, or other etiologies for the rupture. The patient was treated with intravenous antibiotics, fluids, and underwent placement of a double-J stent. Her postoperative course included transient hematuria, and a follow-up CT urogram showed satisfactory stent positioning with no hydronephrosis or contrast extravasation. Ultimately, the patient underwent repeat cystoscopy with left ureteroscopy and double-JJ stent removal, with no evidence of stones, tumors, or extravasation.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with acute onset of severe left flank pain, nausea, and multiple episodes of non-bloody, non-bilious emesis.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Initial CT scan revealed an edematous left kidney with dilation of the left collecting system and moderate perinephric and periureteric fluid, without the presence of an obstructing calculus.",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "CT with delayed images (CT urogram) showed extravasation of contrast from the left proximal as well as mid-ureter.",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Cystoscopy and left-sided retrograde pyelogram confirmed extravasation of contrast 2 cm distal to the left ureteropelvic junction and ruled out stones, filling defects, or other etiologies of the ureter rupture.",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "The patient underwent placement of a double-J stent, and follow-up imaging confirmed satisfactory stent positioning with no contrast extravasation, leading to successful stent removal.",
+          "evidence_ids": [
+            "E005"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Obstructing calculus causing hydronephrosis and rupture",
+          "basis": "Initial CT scan and retrograde pyelogram explicitly stated no obstructing calculus (E002, E004)."
+        },
+        {
+          "alternative": "Stones or tumors as the etiology of ureter rupture",
+          "basis": "Retrograde pyelogram and subsequent ureteroscopy explicitly ruled out stones or tumors within the ureter or renal pelvis (E004, E005)."
+        },
+        {
+          "alternative": "Traumatic injury",
+          "basis": "Patient history noted no acute inciting factors or traumatic injuries."
+        }
+      ],
+      "remaining_uncertainties": [
+        "Specific laboratory results (e.g., urinalysis, renal function, inflammatory markers) were not provided, though imaging and procedural findings were definitive for diagnosis and management."
+      ],
+      "confidence_that_diagnosis_is_supported": 1.0
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:04:21.513843+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10032552",
+    "known_final_diagnosis": "The patient’s presentation was consistent with spontaneous ureter rupture.",
+    "turns_used": 7,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 5,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 2,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 2,
+      "REQUEST_RESULT": 2,
+      "WAIT_REASSESS": 2
+    },
+    "report_status_counts": {
+      "found": 4,
+      "ordered_but_not_documented": 2
+    },
+    "report_repair_attempted_count": 1,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 1
+    },
+    "answer_yield": 0.6666666666666666,
+    "unavailable_turn_rate": 0.3333333333333333,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:04:21.516413+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10032552",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/episodes/PMC10032552.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/cases/PMC10032552.json",
+    "num_gold_steps": "3",
+    "num_pred_steps": "1",
+    "weighted_tversky_alignment": "0.5454545454545454",
+    "weighted_tversky_distance": "0.4545454545454546",
+    "matched_weight": "1.5",
+    "missed_weight": "1.25",
+    "extra_weight": "0.0",
+    "weighted_lcs_recall": "0.5454545454545454",
+    "weighted_lcs_weight": "1.5",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "lab_tests > imaging > other_or_off_protocol",
+    "prediction_sequence": "imaging",
+    "error": ""
+  }
+}

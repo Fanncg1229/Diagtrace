@@ -1,0 +1,663 @@
+{
+  "case_id": "case_0412",
+  "pmcid": "PMC10382718",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC10382718",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 15,
+    "termination": "final",
+    "known_final_diagnosis": "The final diagnosis was therefore a caecal volvulus associated with an incomplete common mesentery.",
+    "disclosed_evidence_ids": [
+      "E002",
+      "E003",
+      "E004",
+      "E005"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "abdominal and pelvic CT scan",
+          "current_trajectory_hypothesis": "Patient presents with acute abdominal pain, distension, nausea, and vomiting, with a large irreducible inguinal hernia. Suspecting bowel pathology, likely caecal volvulus given the final diagnosis, an abdominal CT scan is needed to visualize the bowel and assess for obstruction or malrotation.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Imaging findings of the abdomen and pelvis",
+            "Confirmation of caecal volvulus",
+            "Evidence of incomplete common mesentery"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Abdominal and pelvic CT scan was ordered, awaiting documentation of results.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "abdominal and pelvic CT scan report",
+          "current_trajectory_hypothesis": "Patient presents with acute abdominal pain, distension, nausea, and vomiting, with a large irreducible inguinal hernia. An abdominal CT scan was ordered to investigate for bowel pathology, specifically caecal volvulus, given the final diagnosis.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Imaging findings of the abdomen and pelvis",
+            "Confirmation of caecal volvulus",
+            "Evidence of incomplete common mesentery"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "Abdominal CT scan revealed an abnormal position of the duodenojejunal (D-J) flexure which was located to the right of the midline, the third portion of the duodenum was not included in the arterial clamp. The caecum was in the midline in a transverse position, in contact with the anterior abdominal wall with an important distention of small bowel and a transitional zone next to the deep inguinal ring (Fig. 1).",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "surgical exploration findings",
+          "current_trajectory_hypothesis": "The patient presented with acute abdominal pain and CT scan findings are highly suggestive of caecal volvulus with features of incomplete common mesentery. Surgical exploration would be the next logical step to confirm the diagnosis and address the volvulus.",
+          "confirmed_evidence": [
+            "Acute abdominal pain, nausea, vomiting, abdominal distension, and irreducible inguinal hernia at presentation (initial presentation)",
+            "Elevated C-Reactive Protein (170 mg/L) (initial presentation)",
+            "Abnormal position of D-J flexure to the right of midline, third portion of duodenum not included in arterial clamp, caecum in midline transverse position, small bowel distention, and transitional zone next to deep inguinal ring on CT scan (E004)"
+          ],
+          "missing_key_evidence": [
+            "Intraoperative confirmation of caecal volvulus and incomplete common mesentery",
+            "Details of surgical intervention",
+            "Post-operative course or outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "Procedure ordered; source result exists but phase index is earlier, will return result at confirmatory_testing phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with acute abdominal pain and CT scan findings are highly suggestive of caecal volvulus with features of incomplete common mesentery. Surgical exploration was ordered to confirm the diagnosis and address the volvulus. I am awaiting the findings from this procedure.",
+          "confirmed_evidence": [
+            "Acute abdominal pain, nausea, vomiting, abdominal distension, and irreducible inguinal hernia at presentation (initial presentation)",
+            "Elevated C-Reactive Protein (170 mg/L) (initial presentation)",
+            "Abnormal position of D-J flexure to the right of midline, third portion of duodenum not included in arterial clamp, caecum in midline transverse position, small bowel distention, and transitional zone next to deep inguinal ring on CT scan (E004)"
+          ],
+          "missing_key_evidence": [
+            "Intraoperative confirmation of caecal volvulus and incomplete common mesentery",
+            "Details of surgical intervention",
+            "Post-operative course or outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "Biology assessment showed a normal white blood cell count but an elevated level of C-Reactive Protein (170 mg/L).",
+          "category": "routine_lab",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with acute abdominal pain and CT scan findings are highly suggestive of caecal volvulus with features of incomplete common mesentery. Surgical exploration was ordered to confirm the diagnosis and address the volvulus. I am awaiting the findings from this procedure.",
+          "confirmed_evidence": [
+            "Acute abdominal pain, nausea, vomiting, abdominal distension, and irreducible inguinal hernia at presentation (initial presentation)",
+            "Elevated C-Reactive Protein (170 mg/L) (initial presentation, E002)",
+            "Abnormal position of D-J flexure to the right of midline, third portion of duodenum not included in arterial clamp, caecum in midline transverse position, small bowel distention, and transitional zone next to deep inguinal ring on CT scan (E004)"
+          ],
+          "missing_key_evidence": [
+            "Intraoperative confirmation of caecal volvulus and incomplete common mesentery",
+            "Details of surgical intervention",
+            "Post-operative course or outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "Abdominal x-ray showed air-fluid levels.",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with acute abdominal pain and CT scan findings are highly suggestive of caecal volvulus with features of incomplete common mesentery. Surgical exploration was ordered to confirm the diagnosis and address the volvulus. I am awaiting the findings from this procedure.",
+          "confirmed_evidence": [
+            "Acute abdominal pain, nausea, vomiting, abdominal distension, and irreducible inguinal hernia at presentation (initial presentation)",
+            "Elevated C-Reactive Protein (170 mg/L) (initial presentation, E002)",
+            "Abnormal position of D-J flexure to the right of midline, third portion of duodenum not included in arterial clamp, caecum in midline transverse position, small bowel distention, and transitional zone next to deep inguinal ring on CT scan (E004)",
+            "Abdominal x-ray showed air-fluid levels (E003)"
+          ],
+          "missing_key_evidence": [
+            "Intraoperative confirmation of caecal volvulus and incomplete common mesentery",
+            "Details of surgical intervention",
+            "Post-operative course or outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with acute abdominal pain and CT scan findings are highly suggestive of caecal volvulus with features of incomplete common mesentery. Surgical exploration was ordered to confirm the diagnosis and address the volvulus. I am awaiting the findings from this procedure.",
+          "confirmed_evidence": [
+            "Acute abdominal pain, nausea, vomiting, abdominal distension, and irreducible inguinal hernia at presentation (initial presentation)",
+            "Elevated C-Reactive Protein (170 mg/L) (initial presentation, E002)",
+            "Abnormal position of D-J flexure to the right of midline, third portion of duodenum not included in arterial clamp, caecum in midline transverse position, small bowel distention, and transitional zone next to deep inguinal ring on CT scan (E004)",
+            "Abdominal x-ray showed air-fluid levels (E003)"
+          ],
+          "missing_key_evidence": [
+            "Intraoperative confirmation of caecal volvulus and incomplete common mesentery",
+            "Details of surgical intervention",
+            "Post-operative course or outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with acute abdominal pain and CT scan findings are highly suggestive of caecal volvulus with features of incomplete common mesentery. Surgical exploration was ordered to confirm the diagnosis and address the volvulus. I am awaiting the findings from this procedure, which should be available in a later phase.",
+          "confirmed_evidence": [
+            "Acute abdominal pain, nausea, vomiting, abdominal distension, and irreducible inguinal hernia at presentation (initial presentation)",
+            "Elevated C-Reactive Protein (170 mg/L) (initial presentation, E002)",
+            "Abnormal position of D-J flexure to the right of midline, third portion of duodenum not included in arterial clamp, caecum in midline transverse position, small bowel distention, and transitional zone next to deep inguinal ring on CT scan (E004)",
+            "Abdominal x-ray showed air-fluid levels (E003)"
+          ],
+          "missing_key_evidence": [
+            "Intraoperative confirmation of caecal volvulus and incomplete common mesentery",
+            "Details of surgical intervention",
+            "Post-operative course or outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "surgical exploration findings",
+          "current_trajectory_hypothesis": "The patient presented with acute abdominal pain and CT scan findings are highly suggestive of caecal volvulus with features of incomplete common mesentery. Surgical exploration was ordered to confirm the diagnosis and address the volvulus. I am now explicitly requesting the findings from this procedure, which should confirm the diagnosis.",
+          "confirmed_evidence": [
+            "Acute abdominal pain, nausea, vomiting, abdominal distension, and irreducible inguinal hernia at presentation (initial presentation)",
+            "Elevated C-Reactive Protein (170 mg/L) (initial presentation, E002)",
+            "Abnormal position of D-J flexure to the right of midline, third portion of duodenum not included in arterial clamp, caecum in midline transverse position, small bowel distention, and transitional zone next to deep inguinal ring on CT scan (E004)",
+            "Abdominal x-ray showed air-fluid levels (E003)"
+          ],
+          "missing_key_evidence": [
+            "Intraoperative confirmation of caecal volvulus and incomplete common mesentery",
+            "Details of surgical intervention",
+            "Post-operative course or outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "surgical exploration findings",
+          "current_trajectory_hypothesis": "The patient presented with acute abdominal pain and CT scan findings are highly suggestive of caecal volvulus with features of incomplete common mesentery. Surgical exploration was ordered to confirm the diagnosis and address the volvulus. I am now explicitly requesting the findings from this procedure, which should confirm the diagnosis and be available in a later phase.",
+          "confirmed_evidence": [
+            "Acute abdominal pain, nausea, vomiting, abdominal distension, and irreducible inguinal hernia at presentation (initial presentation)",
+            "Elevated C-Reactive Protein (170 mg/L) (initial presentation, E002)",
+            "Abnormal position of D-J flexure to the right of midline, third portion of duodenum not included in arterial clamp, caecum in midline transverse position, small bowel distention, and transitional zone next to deep inguinal ring on CT scan (E004)",
+            "Abdominal x-ray showed air-fluid levels (E003)"
+          ],
+          "missing_key_evidence": [
+            "Intraoperative confirmation of caecal volvulus and incomplete common mesentery",
+            "Details of surgical intervention",
+            "Post-operative course or outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "Exploration showed distended small bowel with no restriction signs at the deep inguinal ring.",
+          "category": "image_finding",
+          "temporal_cue": "intraoperative",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "intraoperative findings regarding the caecum and mesentery",
+          "current_trajectory_hypothesis": "The patient presented with acute abdominal pain and CT scan findings are highly suggestive of caecal volvulus with features of incomplete common mesentery. Surgical exploration was performed, and I need specific intraoperative findings to confirm the caecal volvulus and the incomplete common mesentery.",
+          "confirmed_evidence": [
+            "Acute abdominal pain, nausea, vomiting, abdominal distension, and irreducible inguinal hernia at presentation (initial presentation)",
+            "Elevated C-Reactive Protein (170 mg/L) (initial presentation, E002)",
+            "Abnormal position of D-J flexure to the right of midline, third portion of duodenum not included in arterial clamp, caecum in midline transverse position, small bowel distention, and transitional zone next to deep inguinal ring on CT scan (E004)",
+            "Abdominal x-ray showed air-fluid levels (E003)",
+            "Intraoperative finding of distended small bowel with no restriction signs at the deep inguinal ring (E005)"
+          ],
+          "missing_key_evidence": [
+            "Explicit intraoperative confirmation of caecal volvulus",
+            "Explicit intraoperative confirmation of incomplete common mesentery",
+            "Details of surgical intervention (beyond just findings)",
+            "Post-operative course or outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E005",
+          "source_text": "Exploration showed distended small bowel with no restriction signs at the deep inguinal ring. We then decided to proceed to a midline laparotomy. We found caecal volvulus with a coecum located in the midline and an important distention of small bowel which were located at the right side of the abdomen (Fig. 2).",
+          "category": "image_finding",
+          "temporal_cue": "intraoperative",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "intraoperative findings regarding the mesentery or any malrotation",
+          "current_trajectory_hypothesis": "The patient presented with acute abdominal pain, and CT scan findings suggested malrotation and caecal volvulus. Surgical exploration confirmed caecal volvulus and the midline position of the caecum. I need further intraoperative details to confirm the 'incomplete common mesentery' aspect of the final diagnosis.",
+          "confirmed_evidence": [
+            "Acute abdominal pain, nausea, vomiting, abdominal distension, and irreducible inguinal hernia at presentation (initial presentation)",
+            "Elevated C-Reactive Protein (170 mg/L) (initial presentation, E002)",
+            "Abnormal position of D-J flexure to the right of midline, third portion of duodenum not included in arterial clamp, caecum in midline transverse position, small bowel distention, and transitional zone next to deep inguinal ring on CT scan (E004)",
+            "Abdominal x-ray showed air-fluid levels (E003)",
+            "Intraoperative finding of distended small bowel with no restriction signs at the deep inguinal ring, caecal volvulus with caecum located in the midline, and important distention of small bowel located at the right side of the abdomen (E005)"
+          ],
+          "missing_key_evidence": [
+            "Explicit intraoperative confirmation of incomplete common mesentery",
+            "Details of surgical intervention (beyond just findings)",
+            "Post-operative course or outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E005",
+          "source_text": "Exploration showed distended small bowel with no restriction signs at the deep inguinal ring. We then decided to proceed to a midline laparotomy. We found caecal volvulus with a coecum located in the midline and an important distention of small bowel which were located at the right side of the abdomen (Fig. 2). There was also an abnormal position of the duodenojejunal (D-J) flexure which is located to the right of the midline (normally to the left).",
+          "category": "image_finding",
+          "temporal_cue": "intraoperative",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "details of surgical intervention performed",
+          "current_trajectory_hypothesis": "The patient presented with acute abdominal pain, and imaging and intraoperative findings confirmed caecal volvulus and features consistent with incomplete common mesentery (malrotation). I need to understand the surgical intervention performed to complete the clinical trajectory.",
+          "confirmed_evidence": [
+            "Acute abdominal pain, nausea, vomiting, abdominal distension, and irreducible inguinal hernia at presentation (initial presentation)",
+            "Elevated C-Reactive Protein (170 mg/L) (initial presentation, E002)",
+            "Abnormal position of D-J flexure to the right of midline, third portion of duodenum not included in arterial clamp, caecum in midline transverse position, small bowel distention, and transitional zone next to deep inguinal ring on CT scan (E004)",
+            "Abdominal x-ray showed air-fluid levels (E003)",
+            "Intraoperative finding of distended small bowel with no restriction signs at the deep inguinal ring, caecal volvulus with caecum located in the midline, important distention of small bowel located at the right side of the abdomen, and abnormal position of the duodenojejunal (D-J) flexure to the right of the midline (E005)"
+          ],
+          "missing_key_evidence": [
+            "Details of surgical intervention (treatment for volvulus and malrotation)",
+            "Post-operative course or outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E005",
+          "source_text": "We then decided to proceed to a midline laparotomy. We found caecal volvulus with a coecum located in the midline and an important distention of small bowel which were located at the right side of the abdomen (Fig. 2). There was also an abnormal position of the duodenojejunal (D-J) flexure which is located to the right of the midline (normally to the left). The final diagnosis was therefore a caecal volvulus associated with an incomplete common mesentery. Ischemic lesions were noticed in the caecum (Fig.3).",
+          "category": "image_finding",
+          "temporal_cue": "intraoperative",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 14,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "details of the surgical treatment performed for the caecal volvulus and malrotation",
+          "current_trajectory_hypothesis": "The patient presented with acute abdominal pain, and imaging and intraoperative findings confirmed caecal volvulus and features consistent with incomplete common mesentery (malrotation). I need to understand the specific surgical intervention performed to complete the clinical trajectory.",
+          "confirmed_evidence": [
+            "Acute abdominal pain, nausea, vomiting, abdominal distension, and irreducible inguinal hernia at presentation (initial presentation)",
+            "Elevated C-Reactive Protein (170 mg/L) (initial presentation, E002)",
+            "Abnormal position of D-J flexure to the right of midline, third portion of duodenum not included in arterial clamp, caecum in midline transverse position, small bowel distention, and transitional zone next to deep inguinal ring on CT scan (E004)",
+            "Abdominal x-ray showed air-fluid levels (E003)",
+            "Intraoperative finding of distended small bowel with no restriction signs at the deep inguinal ring, caecal volvulus with caecum located in the midline, important distention of small bowel located at the right side of the abdomen, abnormal position of the duodenojejunal (D-J) flexure to the right of the midline, and ischemic lesions in the caecum (E005)"
+          ],
+          "missing_key_evidence": [
+            "Specific surgical treatment performed (e.g., detorsion, resection, fixation)",
+            "Post-operative course or outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E005",
+          "source_text": "We then decided to proceed to a midline laparotomy. We found caecal volvulus with a coecum located in the midline and an important distention of small bowel which were located at the right side of the abdomen (Fig. 2). There was also an abnormal position of the duodenojejunal (D-J) flexure which is located to the right of the midline (normally to the left). The final diagnosis was therefore a caecal volvulus associated with an incomplete common mesentery. Ischemic lesions were noticed in the caecum (Fig.3).",
+          "category": "image_finding",
+          "temporal_cue": "intraoperative",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 15,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "caecal volvulus associated with an incomplete common mesentery",
+          "trajectory_summary": "A 50-year-old male with chronic kidney disease presented with acute abdominal pain, nausea, vomiting, and abdominal distension for 24 hours, along with a large irreducible painless right inguinal hernia. Initial workup showed elevated C-Reactive Protein (170 mg/L) and abdominal x-ray revealed air-fluid levels. An abdominal CT scan indicated an abnormal position of the duodenojejunal (D-J) flexure to the right of the midline, a midline transverse caecum, small bowel distention, and a transitional zone near the deep inguinal ring. Surgical exploration via midline laparotomy confirmed caecal volvulus with the caecum located in the midline, significant small bowel distention, and an abnormal D-J flexure position to the right of the midline, consistent with an incomplete common mesentery. Ischemic lesions were noted in the caecum. The deep inguinal ring showed no restriction signs.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with acute abdominal pain, nausea, vomiting, abdominal distension, and a large irreducible painless right inguinal hernia.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Biology assessment showed an elevated C-Reactive Protein (170 mg/L).",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Abdominal x-ray showed air-fluid levels.",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Abdominal CT scan revealed an abnormal position of the duodenojejunal (D-J) flexure to the right of the midline, a midline transverse caecum, important distention of small bowel, and a transitional zone next to the deep inguinal ring.",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Intraoperative exploration showed caecal volvulus with the caecum located in the midline, important distention of small bowel, and an abnormal position of the duodenojejunal (D-J) flexure to the right of the midline, confirming an incomplete common mesentery.",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "Ischemic lesions were noticed in the caecum during surgery.",
+              "evidence_ids": [
+                "E005"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Incarcerated inguinal hernia as the primary cause of obstruction",
+              "basis": "Intraoperative exploration showed 'distended small bowel with no restriction signs at the deep inguinal ring' (E005), suggesting the hernia was not the primary cause of the bowel obstruction."
+            }
+          ],
+          "remaining_uncertainties": [
+            "Specific details of the surgical intervention performed (e.g., detorsion, resection, fixation of the caecum).",
+            "Post-operative course or outcome of the patient."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "caecal volvulus associated with an incomplete common mesentery",
+      "trajectory_summary": "A 50-year-old male with chronic kidney disease presented with acute abdominal pain, nausea, vomiting, and abdominal distension for 24 hours, along with a large irreducible painless right inguinal hernia. Initial workup showed elevated C-Reactive Protein (170 mg/L) and abdominal x-ray revealed air-fluid levels. An abdominal CT scan indicated an abnormal position of the duodenojejunal (D-J) flexure to the right of the midline, a midline transverse caecum, small bowel distention, and a transitional zone near the deep inguinal ring. Surgical exploration via midline laparotomy confirmed caecal volvulus with the caecum located in the midline, significant small bowel distention, and an abnormal D-J flexure position to the right of the midline, consistent with an incomplete common mesentery. Ischemic lesions were noted in the caecum. The deep inguinal ring showed no restriction signs.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with acute abdominal pain, nausea, vomiting, abdominal distension, and a large irreducible painless right inguinal hernia.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Biology assessment showed an elevated C-Reactive Protein (170 mg/L).",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Abdominal x-ray showed air-fluid levels.",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Abdominal CT scan revealed an abnormal position of the duodenojejunal (D-J) flexure to the right of the midline, a midline transverse caecum, important distention of small bowel, and a transitional zone next to the deep inguinal ring.",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Intraoperative exploration showed caecal volvulus with the caecum located in the midline, important distention of small bowel, and an abnormal position of the duodenojejunal (D-J) flexure to the right of the midline, confirming an incomplete common mesentery.",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "Ischemic lesions were noticed in the caecum during surgery.",
+          "evidence_ids": [
+            "E005"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Incarcerated inguinal hernia as the primary cause of obstruction",
+          "basis": "Intraoperative exploration showed 'distended small bowel with no restriction signs at the deep inguinal ring' (E005), suggesting the hernia was not the primary cause of the bowel obstruction."
+        }
+      ],
+      "remaining_uncertainties": [
+        "Specific details of the surgical intervention performed (e.g., detorsion, resection, fixation of the caecum).",
+        "Post-operative course or outcome of the patient."
+      ],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:29:37.667745+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10382718",
+    "known_final_diagnosis": "The final diagnosis was therefore a caecal volvulus associated with an incomplete common mesentery.",
+    "turns_used": 15,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 6,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_RESULT": 7,
+      "WAIT_REASSESS": 5
+    },
+    "report_status_counts": {
+      "already_disclosed": 4,
+      "found": 4,
+      "invalid_report_selection": 4,
+      "ordered_but_not_documented": 2
+    },
+    "report_repair_attempted_count": 6,
+    "report_repair_failed_count": 4,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 5,
+      "verbatim_excerpt is not a contiguous source subspan.": 5
+    },
+    "answer_yield": 0.5714285714285714,
+    "unavailable_turn_rate": 0.14285714285714285,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:29:37.668971+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10382718",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/episodes/PMC10382718.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/cases/PMC10382718.json",
+    "num_gold_steps": "4",
+    "num_pred_steps": "4",
+    "weighted_tversky_alignment": "0.30303030303030304",
+    "weighted_tversky_distance": "0.696969696969697",
+    "matched_weight": "2.5",
+    "missed_weight": "2.25",
+    "extra_weight": "1.75",
+    "weighted_lcs_recall": "0.3157894736842105",
+    "weighted_lcs_weight": "1.5",
+    "weighted_pairwise_order_accuracy": "0.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "1",
+    "gold_sequence": "other_or_off_protocol > lab_tests > imaging > pathology",
+    "prediction_sequence": "imaging > procedure_or_intervention > lab_tests > medication_or_treatment",
+    "error": ""
+  }
+}

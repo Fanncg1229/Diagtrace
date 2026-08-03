@@ -1,0 +1,440 @@
+{
+  "case_id": "case_0405",
+  "pmcid": "PMC10334316",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC10334316",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 8,
+    "termination": "final",
+    "known_final_diagnosis": "Her post-operative diagnosis was reported as small bowel obstruction and endometriosis of the right round ligament.",
+    "disclosed_evidence_ids": [
+      "E003",
+      "E004"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "What surgical intervention was performed to address the small bowel obstruction and investigate the terminal ileum abnormality?",
+          "current_trajectory_hypothesis": "The patient presented with symptoms and imaging consistent with small bowel obstruction, possibly related to a soft-tissue nodule near the terminal ileum. Surgical exploration is likely the next step to confirm the cause and address the obstruction.",
+          "confirmed_evidence": [
+            "37-year-old woman presented with upper abdominal pain, nausea, vomiting",
+            "Physical exam showed upper abdominal tenderness",
+            "Abdominal series showed prominent small bowel loop with air-fluid levels in RLQ",
+            "CT scan showed partial small bowel obstruction with transition point at terminal ileum and a 1 cm adjacent soft-tissue nodule",
+            "History of endometriosis and two laparoscopic ablations"
+          ],
+          "missing_key_evidence": [
+            "Details of surgical findings",
+            "Pathological confirmation of the soft-tissue nodule",
+            "Confirmation of endometriosis location"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "The surgical intervention order is acknowledged; specific result not yet documented.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the intraoperative findings and surgical procedure performed to address the small bowel obstruction and the terminal ileum abnormality?",
+          "current_trajectory_hypothesis": "The patient presented with symptoms and imaging consistent with a partial small bowel obstruction and a soft-tissue nodule near the terminal ileum. Surgical exploration was likely performed to identify the cause of obstruction and address the nodule, which may be related to her history of endometriosis.",
+          "confirmed_evidence": [
+            "37-year-old woman presented with upper abdominal pain, nausea, vomiting",
+            "Physical exam showed upper abdominal tenderness",
+            "Abdominal series showed prominent small bowel loop with air-fluid levels in RLQ",
+            "CT scan showed partial small bowel obstruction with transition point at terminal ileum and a 1 cm adjacent soft-tissue nodule",
+            "History of endometriosis and two laparoscopic ablations"
+          ],
+          "missing_key_evidence": [
+            "Details of surgical findings and procedure",
+            "Pathological confirmation of the soft-tissue nodule or other findings",
+            "Confirmation of endometriosis location and its role in the obstruction"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "She subsequently underwent a diagnostic laparoscopy for SBO, 3 days after her initial admission. A 2 cm lesion was present in the ileum, located 4.8 cm from the ileocecal valve and 1.0 cm from the appendix. There were scattered adhesions involving the terminal ileum and right colon. A right hemicolectomy was performed.",
+          "category": "other",
+          "temporal_cue": "3 days after initial admission",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the pathology findings from the resected ileal lesion and any other specimens obtained during the right hemicolectomy?",
+          "current_trajectory_hypothesis": "The patient presented with SBO and a terminal ileum abnormality. Surgical exploration revealed a 2 cm ileal lesion and adhesions, leading to a right hemicolectomy. Pathological examination of the resected tissue is needed to determine the nature of the lesion and adhesions, and to confirm the presence of endometriosis, especially given the final diagnosis.",
+          "confirmed_evidence": [
+            "37-year-old woman presented with upper abdominal pain, nausea, vomiting",
+            "Physical exam showed upper abdominal tenderness",
+            "Abdominal series showed prominent small bowel loop with air-fluid levels in RLQ",
+            "CT scan showed partial small bowel obstruction with transition point at terminal ileum and a 1 cm adjacent soft-tissue nodule",
+            "History of endometriosis and two laparoscopic ablations",
+            "Diagnostic laparoscopy performed 3 days after admission for SBO",
+            "Intraoperative findings included a 2 cm lesion in the ileum (4.8 cm from ileocecal valve, 1.0 cm from appendix)",
+            "Scattered adhesions involving the terminal ileum and right colon were noted",
+            "A right hemicolectomy was performed"
+          ],
+          "missing_key_evidence": [
+            "Pathological diagnosis of the ileal lesion and adhesions",
+            "Confirmation of endometriosis, especially in the right round ligament",
+            "Specific cause of the small bowel obstruction"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "Pathology was negative for malignancy and described endometriosis involving the muscularis propria and serosa of the terminal ileum, ascending colon, and appendix.",
+          "category": "pathology_report",
+          "temporal_cue": "post-operative",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Was endometriosis found in the right round ligament during surgery or pathology, as stated in the final diagnosis?",
+          "current_trajectory_hypothesis": "The patient presented with SBO symptoms and imaging. Surgical exploration revealed an ileal lesion and adhesions, which pathology confirmed as endometriosis involving the terminal ileum, ascending colon, and appendix. However, the final diagnosis also specifies endometriosis of the right round ligament, which has not yet been confirmed by evidence.",
+          "confirmed_evidence": [
+            "37-year-old woman presented with upper abdominal pain, nausea, vomiting",
+            "Physical exam showed upper abdominal tenderness",
+            "Abdominal series showed prominent small bowel loop with air-fluid levels in RLQ",
+            "CT scan showed partial small bowel obstruction with transition point at terminal ileum and a 1 cm adjacent soft-tissue nodule",
+            "History of endometriosis and two laparoscopic ablations",
+            "Diagnostic laparoscopy performed 3 days after admission for SBO",
+            "Intraoperative findings included a 2 cm lesion in the ileum (4.8 cm from ileocecal valve, 1.0 cm from appendix)",
+            "Scattered adhesions involving the terminal ileum and right colon were noted",
+            "A right hemicolectomy was performed",
+            "Pathology was negative for malignancy and described endometriosis involving the muscularis propria and serosa of the terminal ileum, ascending colon, and appendix"
+          ],
+          "missing_key_evidence": [
+            "Confirmation of endometriosis in the right round ligament",
+            "Explicit statement linking endometriosis to the cause of the small bowel obstruction"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E004",
+          "source_text": "Her post-operative diagnosis was reported as small bowel obstruction and endometriosis of the right round ligament.",
+          "category": "pathology_report",
+          "temporal_cue": "post-operative",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the intraoperative findings or pathology results specifically related to the right round ligament?",
+          "current_trajectory_hypothesis": "The patient presented with SBO symptoms and imaging. Surgical exploration revealed an ileal lesion and adhesions, which pathology confirmed as endometriosis involving the terminal ileum, ascending colon, and appendix. The final diagnosis also includes endometriosis of the right round ligament, but the specific evidence for this finding is still missing.",
+          "confirmed_evidence": [
+            "37-year-old woman presented with upper abdominal pain, nausea, vomiting",
+            "Physical exam showed upper abdominal tenderness",
+            "Abdominal series showed prominent small bowel loop with air-fluid levels in RLQ",
+            "CT scan showed partial small bowel obstruction with transition point at terminal ileum and a 1 cm adjacent soft-tissue nodule",
+            "History of endometriosis and two laparoscopic ablations",
+            "Diagnostic laparoscopy performed 3 days after admission for SBO",
+            "Intraoperative findings included a 2 cm lesion in the ileum (4.8 cm from ileocecal valve, 1.0 cm from appendix)",
+            "Scattered adhesions involving the terminal ileum and right colon were noted",
+            "A right hemicolectomy was performed",
+            "Pathology was negative for malignancy and described endometriosis involving the muscularis propria and serosa of the terminal ileum, ascending colon, and appendix"
+          ],
+          "missing_key_evidence": [
+            "Specific surgical or pathological evidence for endometriosis in the right round ligament",
+            "Explicit statement linking endometriosis to the cause of the small bowel obstruction"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E004",
+          "source_text": "Her post-operative diagnosis was reported as small bowel obstruction and endometriosis of the right round ligament.",
+          "category": "pathology_report",
+          "temporal_cue": "post-operative",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Was the small bowel obstruction explicitly attributed to the endometriosis and/or adhesions found during surgery or pathology?",
+          "current_trajectory_hypothesis": "The patient presented with SBO symptoms and imaging. Surgical exploration revealed an ileal lesion and adhesions, which pathology confirmed as endometriosis involving the terminal ileum, ascending colon, and appendix. While the link is strongly implied, an explicit statement attributing the SBO to the endometriosis or adhesions would further solidify the trajectory.",
+          "confirmed_evidence": [
+            "37-year-old woman presented with upper abdominal pain, nausea, vomiting",
+            "Physical exam showed upper abdominal tenderness",
+            "Abdominal series showed prominent small bowel loop with air-fluid levels in RLQ",
+            "CT scan showed partial small bowel obstruction with transition point at terminal ileum and a 1 cm adjacent soft-tissue nodule",
+            "History of endometriosis and two laparoscopic ablations",
+            "Diagnostic laparoscopy performed 3 days after admission for SBO",
+            "Intraoperative findings included a 2 cm lesion in the ileum (4.8 cm from ileocecal valve, 1.0 cm from appendix)",
+            "Scattered adhesions involving the terminal ileum and right colon were noted",
+            "A right hemicolectomy was performed",
+            "Pathology was negative for malignancy and described endometriosis involving the muscularis propria and serosa of the terminal ileum, ascending colon, and appendix"
+          ],
+          "missing_key_evidence": [
+            "Explicit statement linking endometriosis/adhesions to the cause of the small bowel obstruction",
+            "Specific surgical or pathological evidence for endometriosis in the right round ligament (beyond its mention in the final diagnosis)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E004",
+          "source_text": "SBO was found to be caused by a 1.8 × 1.5 × 1.1 endometrial mass",
+          "category": "pathology_report",
+          "temporal_cue": "post-operative",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Was there any specific intraoperative observation or pathology finding documented for the right round ligament?",
+          "current_trajectory_hypothesis": "The patient presented with SBO symptoms and imaging. Surgical exploration revealed an ileal lesion and adhesions, which pathology confirmed as endometriosis involving the terminal ileum, ascending colon, and appendix, and identified an endometrial mass as the cause of SBO. The final diagnosis also includes endometriosis of the right round ligament, but specific evidence for this finding is still needed.",
+          "confirmed_evidence": [
+            "37-year-old woman presented with upper abdominal pain, nausea, vomiting",
+            "Physical exam showed upper abdominal tenderness",
+            "Abdominal series showed prominent small bowel loop with air-fluid levels in RLQ",
+            "CT scan showed partial small bowel obstruction with transition point at terminal ileum and a 1 cm adjacent soft-tissue nodule",
+            "History of endometriosis and two laparoscopic ablations",
+            "Diagnostic laparoscopy performed 3 days after admission for SBO",
+            "Intraoperative findings included a 2 cm lesion in the ileum (4.8 cm from ileocecal valve, 1.0 cm from appendix)",
+            "Scattered adhesions involving the terminal ileum and right colon were noted",
+            "A right hemicolectomy was performed",
+            "Pathology was negative for malignancy and described endometriosis involving the muscularis propria and serosa of the terminal ileum, ascending colon, and appendix",
+            "SBO was found to be caused by a 1.8 × 1.5 × 1.1 endometrial mass"
+          ],
+          "missing_key_evidence": [
+            "Specific surgical or pathological evidence for endometriosis in the right round ligament"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "No specific intraoperative observation or pathology finding for the right round ligament is documented in the supplied evidence.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Her post-operative diagnosis was reported as small bowel obstruction and endometriosis of the right round ligament.",
+          "trajectory_summary": "A 37-year-old woman presented with upper abdominal pain, nausea, and vomiting, consistent with small bowel obstruction (SBO). Imaging, including an abdominal series and CT scan, confirmed a partial SBO with a transition point at the terminal ileum and an adjacent soft-tissue nodule. Given her history of endometriosis, a diagnostic laparoscopy was performed, followed by a right hemicolectomy. Intraoperatively, a 2 cm ileal lesion and scattered adhesions involving the terminal ileum and right colon were noted. Pathology confirmed endometriosis involving the muscularis propria and serosa of the terminal ileum, ascending colon, and appendix, and explicitly identified a 1.8 × 1.5 × 1.1 endometrial mass as the cause of the SBO. Malignancy was ruled out. Specific evidence for endometriosis of the right round ligament was not explicitly documented beyond its mention in the final diagnosis.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with symptoms of small bowel obstruction (SBO)",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Imaging confirmed partial SBO with a terminal ileum abnormality",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Diagnostic laparoscopy and right hemicolectomy were performed for SBO",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Intraoperative findings included an ileal lesion and adhesions",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Pathology confirmed endometriosis involving the terminal ileum, ascending colon, and appendix",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "An endometrial mass was identified as the cause of the SBO",
+              "evidence_ids": [
+                "E004"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Malignancy",
+              "basis": "Pathology was negative for malignancy"
+            }
+          ],
+          "remaining_uncertainties": [
+            "Specific intraoperative observation or pathology finding for endometriosis in the right round ligament."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Her post-operative diagnosis was reported as small bowel obstruction and endometriosis of the right round ligament.",
+      "trajectory_summary": "A 37-year-old woman presented with upper abdominal pain, nausea, and vomiting, consistent with small bowel obstruction (SBO). Imaging, including an abdominal series and CT scan, confirmed a partial SBO with a transition point at the terminal ileum and an adjacent soft-tissue nodule. Given her history of endometriosis, a diagnostic laparoscopy was performed, followed by a right hemicolectomy. Intraoperatively, a 2 cm ileal lesion and scattered adhesions involving the terminal ileum and right colon were noted. Pathology confirmed endometriosis involving the muscularis propria and serosa of the terminal ileum, ascending colon, and appendix, and explicitly identified a 1.8 × 1.5 × 1.1 endometrial mass as the cause of the SBO. Malignancy was ruled out. Specific evidence for endometriosis of the right round ligament was not explicitly documented beyond its mention in the final diagnosis.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with symptoms of small bowel obstruction (SBO)",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Imaging confirmed partial SBO with a terminal ileum abnormality",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Diagnostic laparoscopy and right hemicolectomy were performed for SBO",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Intraoperative findings included an ileal lesion and adhesions",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Pathology confirmed endometriosis involving the terminal ileum, ascending colon, and appendix",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "An endometrial mass was identified as the cause of the SBO",
+          "evidence_ids": [
+            "E004"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Malignancy",
+          "basis": "Pathology was negative for malignancy"
+        }
+      ],
+      "remaining_uncertainties": [
+        "Specific intraoperative observation or pathology finding for endometriosis in the right round ligament."
+      ],
+      "confidence_that_diagnosis_is_supported": 0.9
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:24:26.574581+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10334316",
+    "known_final_diagnosis": "Her post-operative diagnosis was reported as small bowel obstruction and endometriosis of the right round ligament.",
+    "turns_used": 8,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 6,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 2,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 1,
+      "REQUEST_RESULT": 6
+    },
+    "report_status_counts": {
+      "already_disclosed": 3,
+      "found": 2,
+      "not_reported": 1,
+      "ordered_but_not_documented": 1
+    },
+    "report_repair_attempted_count": 2,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {
+      "verbatim_excerpt is not a contiguous source subspan.": 2
+    },
+    "answer_yield": 0.7142857142857143,
+    "unavailable_turn_rate": 0.2857142857142857,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:24:26.575712+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10334316",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/episodes/PMC10334316.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/cases/PMC10334316.json",
+    "num_gold_steps": "2",
+    "num_pred_steps": "2",
+    "weighted_tversky_alignment": "0.0",
+    "weighted_tversky_distance": "1.0",
+    "matched_weight": "0.0",
+    "missed_weight": "2.25",
+    "extra_weight": "2.0",
+    "weighted_lcs_recall": "0.0",
+    "weighted_lcs_weight": "0.0",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging > admission_or_clinical_course",
+    "prediction_sequence": "procedure_or_intervention > lab_tests",
+    "error": ""
+  }
+}

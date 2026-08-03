@@ -1,0 +1,583 @@
+{
+  "case_id": "case_0059",
+  "pmcid": "PMC7165082",
+  "model": "gpt_4_1_mini",
+  "episode": {
+    "case_id": "PMC7165082",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 15,
+    "termination": "final",
+    "known_final_diagnosis": "COVID-19 positive patient",
+    "disclosed_evidence_ids": [
+      "E005"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "order SARS-CoV-2 PCR test for COVID-19",
+          "current_trajectory_hypothesis": "Patient presenting with weight loss and persistent hiccups, need to verify COVID-19 status given final diagnosis",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "COVID-19 diagnostic test result"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order for SARS-CoV-2 PCR test acknowledged; awaiting source documentation for results.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request SARS-CoV-2 PCR test result",
+          "current_trajectory_hypothesis": "Awaiting COVID-19 PCR test result to confirm the diagnosis in a patient presenting with weight loss and persistent hiccups",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "COVID-19 diagnostic test result"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "Ask if the patient has experienced any recent fever, cough, or other respiratory symptoms consistent with COVID-19",
+          "current_trajectory_hypothesis": "Patient with weight loss and hiccups may have COVID-19; need to seek COVID-19 related symptom history to support suspicion",
+          "confirmed_evidence": [
+            "Patient presenting with weight loss and persistent hiccups",
+            "Past medical history includes diabetes, hypertension, and coronary artery disease"
+          ],
+          "missing_key_evidence": [
+            "COVID-19 diagnostic test result",
+            "Relevant COVID-19 associated symptoms or exposures"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "On arrival to the medical unit he was febrile to 38.4 °C and mildly tachycardic with a heart rate of 104 beats per minute.",
+          "category": "other",
+          "temporal_cue": "ICU day 0 (arrival to medical unit)",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "Request physical examination findings focusing on respiratory system and general signs including fever and tachycardia",
+          "current_trajectory_hypothesis": "Patient has weight loss, hiccups, and was documented febrile and tachycardic on arrival, suspicion of COVID-19 remains high needing respiratory exam to support diagnosis",
+          "confirmed_evidence": [
+            "Patient presenting with weight loss and persistent hiccups",
+            "Past medical history includes diabetes, hypertension, and coronary artery disease",
+            "On arrival, patient was febrile to 38.4 °C and mildly tachycardic with heart rate 104 bpm"
+          ],
+          "missing_key_evidence": [
+            "COVID-19 diagnostic test result",
+            "Respiratory system physical examination findings",
+            "Documentation of other constitutional or respiratory symptoms relevant to COVID-19"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E005",
+          "source_text": "On arrival to the medical unit he was febrile to 38.4 °C and mildly tachycardic with a heart rate of 104 beats per minute.",
+          "category": "other",
+          "temporal_cue": "ICU day 0 (arrival to medical unit)",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "Ask if the patient reported any cough, shortness of breath, or anosmia during the illness",
+          "current_trajectory_hypothesis": "Patient has systemic signs (fever, tachycardia) and risk factors; checking for typical COVID-19 respiratory symptoms to support clinical suspicion",
+          "confirmed_evidence": [
+            "Patient presenting with weight loss and persistent hiccups",
+            "Past medical history includes diabetes, hypertension, and coronary artery disease",
+            "On arrival, patient was febrile to 38.4 °C and mildly tachycardic with heart rate 104 bpm"
+          ],
+          "missing_key_evidence": [
+            "COVID-19 diagnostic test result",
+            "Respiratory symptoms consistent with COVID-19"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "No source evidence documents patient history of cough, shortness of breath, or anosmia.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Order chest imaging (chest X-ray or CT) to assess for COVID-19 related pulmonary findings",
+          "current_trajectory_hypothesis": "Patient with fever and tachycardia and suspicion of COVID-19; imaging can provide key diagnostic evidence for COVID-19 pneumonia or abnormalities",
+          "confirmed_evidence": [
+            "Patient presenting with weight loss and persistent hiccups",
+            "Past medical history includes diabetes, hypertension, and coronary artery disease",
+            "On arrival, patient was febrile to 38.4 °C and mildly tachycardic with heart rate 104 bpm"
+          ],
+          "missing_key_evidence": [
+            "COVID-19 diagnostic test result",
+            "Chest imaging findings relevant to COVID-19"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Chest imaging ordered based on clinician action; source contains chest imaging reports but none at targeted_workup phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request SARS-CoV-2 PCR test result or any COVID-19 related laboratory confirmation",
+          "current_trajectory_hypothesis": "Awaiting COVID-19 confirmation test result to confirm final diagnosis in patient with systemic signs and suspicion of COVID-19",
+          "confirmed_evidence": [
+            "Patient presenting with weight loss and persistent hiccups",
+            "Past medical history includes diabetes, hypertension, and coronary artery disease",
+            "On arrival, patient was febrile to 38.4 °C and mildly tachycardic with heart rate 104 bpm",
+            "Chest imaging ordered but results not documented"
+          ],
+          "missing_key_evidence": [
+            "COVID-19 diagnostic test result",
+            "Chest imaging findings relevant to COVID-19"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient with weight loss, hiccups, fever, and tachycardia suspected to have COVID-19 infection but COVID-19 test result and imaging findings not yet documented",
+          "confirmed_evidence": [
+            "Patient presenting with weight loss and persistent hiccups",
+            "Past medical history includes diabetes, hypertension, and coronary artery disease",
+            "On arrival, patient was febrile to 38.4 °C and mildly tachycardic with heart rate 104 bpm",
+            "Chest imaging was ordered"
+          ],
+          "missing_key_evidence": [
+            "COVID-19 diagnostic PCR test result",
+            "Chest imaging report findings relevant to COVID-19",
+            "Clinical course updates including any COVID-19 related symptoms or treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient with weight loss, hiccups, and systemic signs including fever and tachycardia suspected of COVID-19; critical COVID-19 PCR result and chest imaging findings still pending patient trajectory confirmation",
+          "confirmed_evidence": [
+            "Patient presenting with weight loss and persistent hiccups",
+            "Past medical history includes diabetes, hypertension, and coronary artery disease",
+            "On arrival, patient was febrile to 38.4 °C and mildly tachycardic with heart rate 104 bpm",
+            "Chest imaging was ordered"
+          ],
+          "missing_key_evidence": [
+            "COVID-19 diagnostic PCR test result",
+            "Chest imaging report findings relevant to COVID-19",
+            "Documentation of any clinical course, treatments, or response related to COVID-19"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "Ask if the patient had any known exposure to COVID-19 cases or recent outbreaks",
+          "current_trajectory_hypothesis": "Patient with weight loss, hiccups, and systemic signs consistent with infection; COVID-19 diagnosis needs epidemiologic context such as exposure history",
+          "confirmed_evidence": [
+            "Patient presenting with weight loss and persistent hiccups",
+            "Past medical history includes diabetes, hypertension, and coronary artery disease",
+            "On arrival, patient was febrile to 38.4 °C and mildly tachycardic with heart rate 104 bpm",
+            "Chest imaging was ordered but report pending"
+          ],
+          "missing_key_evidence": [
+            "COVID-19 diagnostic PCR test result",
+            "Chest imaging findings relevant to COVID-19",
+            "Exposure history to COVID-19"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "The source records do not report any information on known exposure to COVID-19 cases or recent outbreaks.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request any documented SARS-CoV-2 PCR test result or other COVID-19 laboratory confirmation in later clinical course or hospital records",
+          "current_trajectory_hypothesis": "Initial presentation with weight loss and hiccups, febrile and tachycardic on arrival without reported respiratory symptoms or exposures, no documented COVID-19 test result yet; need to locate microbiological confirmation in subsequent clinical course",
+          "confirmed_evidence": [
+            "Patient presenting with weight loss and persistent hiccups",
+            "Past medical history includes diabetes, hypertension, and coronary artery disease",
+            "On arrival, patient was febrile to 38.4 °C and mildly tachycardic with heart rate 104 bpm",
+            "Chest imaging was ordered but report pending",
+            "No reported respiratory symptoms or known COVID-19 exposures"
+          ],
+          "missing_key_evidence": [
+            "Documented positive SARS-CoV-2 PCR or antigen test",
+            "Chest imaging report findings relevant to COVID-19",
+            "Clinical course or treatment related to COVID-19"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Initial presentation with weight loss, hiccups, fever, and tachycardia without reported respiratory symptoms or exposure history; diagnostic SARS-CoV-2 PCR test ordered but results not documented; chest imaging also ordered; waiting for further clinical course or microbiology test result documentation to confirm COVID-19 diagnosis",
+          "confirmed_evidence": [
+            "Patient presented with weight loss and persistent hiccups",
+            "Past medical history includes diabetes, hypertension, and coronary artery disease",
+            "On arrival, patient was febrile to 38.4 °C and mildly tachycardic with heart rate 104 bpm",
+            "Chest imaging was ordered but no documented results",
+            "No respiratory symptoms or known COVID-19 exposures reported"
+          ],
+          "missing_key_evidence": [
+            "Documented SARS-CoV-2 PCR or antigen test result confirming COVID-19",
+            "Chest imaging report findings relevant to COVID-19",
+            "Subsequent clinical course, treatments, or outcomes documenting COVID-19 diagnosis/support"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient with systemic inflammatory signs and suspicion for COVID-19; awaiting direct microbiological confirmation or imaging evidence to confirm diagnosis",
+          "confirmed_evidence": [
+            "Patient presented with weight loss and persistent hiccups",
+            "Past medical history includes diabetes, hypertension, and coronary artery disease",
+            "On arrival, patient was febrile to 38.4 °C and mildly tachycardic with heart rate 104 bpm",
+            "Chest imaging was ordered but no documented results",
+            "No respiratory symptoms or known COVID-19 exposures reported"
+          ],
+          "missing_key_evidence": [
+            "Documented positive SARS-CoV-2 PCR or antigen test results",
+            "Chest imaging report findings relevant to COVID-19",
+            "Clinical course, treatments, or outcome data documenting COVID-19 diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 14,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with weight loss, hiccups, fever, and tachycardia; COVID-19 confirmed by pending tests or clinical course updates expected but not yet documented",
+          "confirmed_evidence": [
+            "Patient presenting with weight loss and persistent hiccups",
+            "Past medical history includes diabetes, hypertension, and coronary artery disease",
+            "On arrival, patient was febrile to 38.4 °C and mildly tachycardic with heart rate 104 bpm",
+            "Chest imaging was ordered",
+            "No respiratory symptoms or known COVID-19 exposures reported"
+          ],
+          "missing_key_evidence": [
+            "Documented SARS-CoV-2 PCR test result confirming COVID-19",
+            "Chest imaging findings consistent with COVID-19",
+            "Clinical course or treatment details supporting COVID-19 diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 15,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "COVID-19 positive patient",
+          "trajectory_summary": "A 62-year-old male with diabetes, hypertension, and coronary artery disease presented with unintentional weight loss over four months and persistent hiccups for four days. On arrival to the medical unit, he was febrile (38.4 °C) and mildly tachycardic (heart rate 104 bpm). No respiratory symptoms or COVID-19 exposure history were reported. SARS-CoV-2 PCR testing and chest imaging were ordered but no documented results or further clinical course updates were provided in the available source materials.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presenting with weight loss and persistent hiccups",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Past medical history includes diabetes, hypertension, and coronary artery disease",
+              "evidence_ids": []
+            },
+            {
+              "claim": "On arrival, patient was febrile to 38.4 °C and mildly tachycardic with heart rate 104 bpm",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "SARS-CoV-2 PCR test ordered but result not documented in source",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Chest imaging ordered but no documented findings in source",
+              "evidence_ids": []
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Cancer or malignancy",
+              "basis": "Patient denied history of cancer; no source records document cancer diagnosis or findings."
+            },
+            {
+              "alternative": "COVID-19 exposure history",
+              "basis": "No reported known exposures to COVID-19 or recent outbreaks."
+            },
+            {
+              "alternative": "Other respiratory infections",
+              "basis": "No documented respiratory symptoms such as cough, shortness of breath, or sore throat."
+            }
+          ],
+          "remaining_uncertainties": [
+            "No documented SARS-CoV-2 PCR or antigen test result confirming COVID-19 positivity in source materials",
+            "No chest imaging findings reported to support COVID-19 infection",
+            "No clinical course, treatment details, or outcomes documented in sources to support definitive COVID-19 diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "COVID-19 positive patient",
+      "trajectory_summary": "A 62-year-old male with diabetes, hypertension, and coronary artery disease presented with unintentional weight loss over four months and persistent hiccups for four days. On arrival to the medical unit, he was febrile (38.4 °C) and mildly tachycardic (heart rate 104 bpm). No respiratory symptoms or COVID-19 exposure history were reported. SARS-CoV-2 PCR testing and chest imaging were ordered but no documented results or further clinical course updates were provided in the available source materials.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presenting with weight loss and persistent hiccups",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Past medical history includes diabetes, hypertension, and coronary artery disease",
+          "evidence_ids": []
+        },
+        {
+          "claim": "On arrival, patient was febrile to 38.4 °C and mildly tachycardic with heart rate 104 bpm",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "SARS-CoV-2 PCR test ordered but result not documented in source",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Chest imaging ordered but no documented findings in source",
+          "evidence_ids": []
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Cancer or malignancy",
+          "basis": "Patient denied history of cancer; no source records document cancer diagnosis or findings."
+        },
+        {
+          "alternative": "COVID-19 exposure history",
+          "basis": "No reported known exposures to COVID-19 or recent outbreaks."
+        },
+        {
+          "alternative": "Other respiratory infections",
+          "basis": "No documented respiratory symptoms such as cough, shortness of breath, or sore throat."
+        }
+      ],
+      "remaining_uncertainties": [
+        "No documented SARS-CoV-2 PCR or antigen test result confirming COVID-19 positivity in source materials",
+        "No chest imaging findings reported to support COVID-19 infection",
+        "No clinical course, treatment details, or outcomes documented in sources to support definitive COVID-19 diagnosis"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.3
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-23T19:59:01.592399+00:00",
+    "clinician_model": "gpt-4.1-mini-test",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC7165082",
+    "known_final_diagnosis": "COVID-19 positive patient",
+    "turns_used": 15,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 5,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 1,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "ASK_HISTORY": 3,
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 2,
+      "REQUEST_EXAM": 1,
+      "REQUEST_RESULT": 3,
+      "WAIT_REASSESS": 5
+    },
+    "report_status_counts": {
+      "already_disclosed": 1,
+      "found": 1,
+      "invalid_report_selection": 8,
+      "not_reported": 2,
+      "ordered_but_not_documented": 2
+    },
+    "answer_yield": 0.14285714285714285,
+    "unavailable_turn_rate": 0.2857142857142857,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-23T19:59:01.595318+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC7165082",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "5",
+    "num_pred_steps": "5",
+    "weighted_tversky_alignment": "0.52",
+    "weighted_tversky_distance": "0.48",
+    "matched_weight": "3.25",
+    "missed_weight": "1.0",
+    "extra_weight": "1.0",
+    "weighted_lcs_recall": "0.5294117647058824",
+    "weighted_lcs_weight": "2.25",
+    "weighted_pairwise_order_accuracy": "0.6113685857878787",
+    "pairwise_comparable_pairs": "3",
+    "pairwise_correct_pairs": "2",
+    "pairwise_inversions": "1",
+    "gold_sequence": "imaging > lab_tests > medication_or_treatment > other_or_off_protocol > admission_or_clinical_course",
+    "prediction_sequence": "lab_tests > clinical_history > physical_examination > imaging > admission_or_clinical_course",
+    "error": ""
+  }
+}

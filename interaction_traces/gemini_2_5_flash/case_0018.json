@@ -1,0 +1,483 @@
+{
+  "case_id": "case_0018",
+  "pmcid": "PMC4105234",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC4105234",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 10,
+    "termination": "final",
+    "known_final_diagnosis": "Pathology confirmed a pancreatic neuroendocrine carcinoma with evidence of vascular and perineural invasion, consistent with a diagnosis of a glucagonoma.",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E003",
+      "E004",
+      "E005"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "Can you describe the specific characteristics of the pruritic rash, including its appearance, distribution, and any associated symptoms?",
+          "current_trajectory_hypothesis": "The patient presents with a pruritic rash. Given the final diagnosis of glucagonoma, I am investigating if the rash has features consistent with necrolytic migratory erythema (NME).",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Detailed description of the rash (morphology, color, borders, blistering, scaling, etc.)",
+            "Any other systemic symptoms associated with glucagonoma (e.g., weight loss, diabetes, diarrhea)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "She was found to have well demarcated, erythematous plaques in these regions. Tiny fragile vesicles were observed at the margins of several plaques (Figure 1).",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "Did the patient report any other systemic symptoms such as weight loss, abdominal pain, diarrhea, or symptoms suggestive of diabetes (e.g., polyuria, polydipsia)?",
+          "current_trajectory_hypothesis": "The patient presents with a pruritic rash with erythematous plaques and fragile vesicles, which could be consistent with necrolytic migratory erythema (NME). I am now looking for other systemic symptoms commonly associated with glucagonoma to further support this link.",
+          "confirmed_evidence": [
+            "Pruritic rash of extremities and oral cavity, progressing to groin, abdomen, axillae, and gluteal region (initial presentation)",
+            "Rash characterized by well-demarcated, erythematous plaques with tiny fragile vesicles at the margins (E001)"
+          ],
+          "missing_key_evidence": [
+            "Presence or absence of other systemic symptoms associated with glucagonoma (e.g., weight loss, diabetes, diarrhea)",
+            "Laboratory findings related to glucose metabolism or glucagon levels",
+            "Imaging findings of a pancreatic mass",
+            "Pathology report confirming pancreatic neuroendocrine carcinoma and glucagonoma"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "On admission, she had stable vital signs. Admission laboratory measurements demonstrated hyperglycemia (132 mg/dL, normal values 60 to 99 mg/dL) and anemia (hemoglobin 11.4, normal values 12 to 16 g/dL). Serum levels of chromogranin A, a tumor marker for neuroendocrine tumors, were elevated (243 ng/mL, normal value <96 ng/mL), as were levels of glycosylated hemoglobin (6.3%, normal value <5.7%) and the patient was diagnosed with diabetes mellitus.",
+          "category": "routine_lab",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Was any abdominal imaging performed to investigate for a pancreatic mass or neuroendocrine tumor, given the elevated chromogranin A and new diagnosis of diabetes?",
+          "current_trajectory_hypothesis": "The patient presents with a pruritic rash (possibly NME) and has laboratory findings consistent with a neuroendocrine tumor (elevated chromogranin A, hyperglycemia, diabetes). I am now seeking evidence of a pancreatic mass, which is characteristic of glucagonoma.",
+          "confirmed_evidence": [
+            "Pruritic rash of extremities and oral cavity, progressing to groin, abdomen, axillae, and gluteal region (initial presentation)",
+            "Rash characterized by well-demarcated, erythematous plaques with tiny fragile vesicles at the margins (E001)",
+            "Hyperglycemia (132 mg/dL) and anemia (Hb 11.4 g/dL) on admission (E004)",
+            "Elevated serum chromogranin A (243 ng/mL) (E004)",
+            "Elevated glycosylated hemoglobin (6.3%) and diagnosis of diabetes mellitus (E004)"
+          ],
+          "missing_key_evidence": [
+            "Presence or absence of a pancreatic mass or other neuroendocrine tumor on imaging",
+            "Glucagon levels",
+            "Pathology report confirming pancreatic neuroendocrine carcinoma and glucagonoma",
+            "Other systemic symptoms (e.g., weight loss, diarrhea)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "The test was ordered; no source imaging record yet at this phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the findings of the abdominal imaging (e.g., CT or MRI) that was performed?",
+          "current_trajectory_hypothesis": "The patient presents with a pruritic rash (possibly NME), hyperglycemia, diabetes, and elevated chromogranin A, strongly suggesting a neuroendocrine tumor. I am now seeking imaging evidence of a pancreatic mass to further support the diagnosis of glucagonoma.",
+          "confirmed_evidence": [
+            "Pruritic rash of extremities and oral cavity, progressing to groin, abdomen, axillae, and gluteal region (initial presentation)",
+            "Rash characterized by well-demarcated, erythematous plaques with tiny fragile vesicles at the margins (E001)",
+            "Hyperglycemia (132 mg/dL) and anemia (Hb 11.4 g/dL) on admission (E004)",
+            "Elevated serum chromogranin A (243 ng/mL) (E004)",
+            "Elevated glycosylated hemoglobin (6.3%) and diagnosis of diabetes mellitus (E004)"
+          ],
+          "missing_key_evidence": [
+            "Presence or absence of a pancreatic mass or other neuroendocrine tumor on imaging",
+            "Glucagon levels",
+            "Pathology report confirming pancreatic neuroendocrine carcinoma and glucagonoma",
+            "Other systemic symptoms (e.g., weight loss, diarrhea)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "the scan revealed a 3-cm enhancing pancreatic head mass",
+          "category": "image_finding",
+          "temporal_cue": "after skin biopsy results",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "Was a biopsy or surgical resection performed on the pancreatic head mass, and if so, what were the pathological findings?",
+          "current_trajectory_hypothesis": "The patient presents with a rash consistent with NME, hyperglycemia, diabetes, elevated chromogranin A, and a pancreatic head mass. This strongly suggests a pancreatic neuroendocrine tumor, likely a glucagonoma. I am now seeking pathological confirmation of the tumor type and characteristics.",
+          "confirmed_evidence": [
+            "Pruritic rash of extremities and oral cavity, progressing to groin, abdomen, axillae, and gluteal region (initial presentation)",
+            "Rash characterized by well-demarcated, erythematous plaques with tiny fragile vesicles at the margins (E001)",
+            "Hyperglycemia (132 mg/dL) and anemia (Hb 11.4 g/dL) on admission (E004)",
+            "Elevated serum chromogranin A (243 ng/mL) (E004)",
+            "Elevated glycosylated hemoglobin (6.3%) and diagnosis of diabetes mellitus (E004)",
+            "A 3-cm enhancing pancreatic head mass was found on imaging (E003)"
+          ],
+          "missing_key_evidence": [
+            "Pathology report confirming pancreatic neuroendocrine carcinoma and glucagonoma, including details like vascular/perineural invasion",
+            "Glucagon levels",
+            "Other systemic symptoms (e.g., weight loss, diarrhea)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Procedure order placed; no matching source evidence result reported yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the pathological findings from the biopsy or surgical resection of the pancreatic head mass?",
+          "current_trajectory_hypothesis": "The patient presents with a rash consistent with NME, hyperglycemia, diabetes, elevated chromogranin A, and a pancreatic head mass. This strongly suggests a pancreatic neuroendocrine tumor. I am now seeking the definitive pathology report to confirm pancreatic neuroendocrine carcinoma and features consistent with glucagonoma.",
+          "confirmed_evidence": [
+            "Pruritic rash of extremities and oral cavity, progressing to groin, abdomen, axillae, and gluteal region (initial presentation)",
+            "Rash characterized by well-demarcated, erythematous plaques with tiny fragile vesicles at the margins (E001)",
+            "Hyperglycemia (132 mg/dL) and anemia (Hb 11.4 g/dL) on admission (E004)",
+            "Elevated serum chromogranin A (243 ng/mL) (E004)",
+            "Elevated glycosylated hemoglobin (6.3%) and diagnosis of diabetes mellitus (E004)",
+            "A 3-cm enhancing pancreatic head mass was found on imaging (E003)"
+          ],
+          "missing_key_evidence": [
+            "Pathology report confirming pancreatic neuroendocrine carcinoma and glucagonoma, including details like vascular/perineural invasion",
+            "Glucagon levels",
+            "Other systemic symptoms (e.g., weight loss, diarrhea)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the specific pathological findings from the pancreatic mass, including tumor type, differentiation, and presence of vascular or perineural invasion?",
+          "current_trajectory_hypothesis": "The patient presents with a rash consistent with NME, hyperglycemia, diabetes, elevated chromogranin A, and a pancreatic head mass. This strongly suggests a pancreatic neuroendocrine tumor. I am now seeking the definitive pathology report to confirm pancreatic neuroendocrine carcinoma, its characteristics, and features consistent with glucagonoma.",
+          "confirmed_evidence": [
+            "Pruritic rash of extremities and oral cavity, progressing to groin, abdomen, axillae, and gluteal region (initial presentation)",
+            "Rash characterized by well-demarcated, erythematous plaques with tiny fragile vesicles at the margins (E001)",
+            "Hyperglycemia (132 mg/dL) and anemia (Hb 11.4 g/dL) on admission (E004)",
+            "Elevated serum chromogranin A (243 ng/mL) (E004)",
+            "Elevated glycosylated hemoglobin (6.3%) and diagnosis of diabetes mellitus (E004)",
+            "A 3-cm enhancing pancreatic head mass was found on imaging (E003)"
+          ],
+          "missing_key_evidence": [
+            "Pathology report confirming pancreatic neuroendocrine carcinoma and glucagonoma, including details like vascular/perineural invasion",
+            "Glucagon levels",
+            "Other systemic symptoms (e.g., weight loss, diarrhea)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "Pathology confirmed a pancreatic neuroendocrine carcinoma with evidence of vascular and perineural invasion",
+          "category": "other",
+          "temporal_cue": "hospital day 7",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Were serum glucagon levels measured, and if so, what were the results?",
+          "current_trajectory_hypothesis": "The patient presents with a rash consistent with NME, hyperglycemia, diabetes, elevated chromogranin A, and a pancreatic neuroendocrine carcinoma with vascular and perineural invasion. To confirm the diagnosis of glucagonoma, I need to verify elevated glucagon levels.",
+          "confirmed_evidence": [
+            "Pruritic rash of extremities and oral cavity, progressing to groin, abdomen, axillae, and gluteal region (initial presentation)",
+            "Rash characterized by well-demarcated, erythematous plaques with tiny fragile vesicles at the margins (E001)",
+            "Hyperglycemia (132 mg/dL) and anemia (Hb 11.4 g/dL) on admission (E004)",
+            "Elevated serum chromogranin A (243 ng/mL) (E004)",
+            "Elevated glycosylated hemoglobin (6.3%) and diagnosis of diabetes mellitus (E004)",
+            "A 3-cm enhancing pancreatic head mass was found on imaging (E003)",
+            "Pathology confirmed a pancreatic neuroendocrine carcinoma with evidence of vascular and perineural invasion (E005)"
+          ],
+          "missing_key_evidence": [
+            "Glucagon levels to confirm glucagonoma",
+            "Other systemic symptoms (e.g., weight loss, diarrhea)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "Serum glucagon level measurement was ordered; no result documented yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the results of the serum glucagon level measurement?",
+          "current_trajectory_hypothesis": "The patient presents with a rash consistent with NME, hyperglycemia, diabetes, elevated chromogranin A, and a pancreatic neuroendocrine carcinoma with vascular and perineural invasion. I am now seeking the serum glucagon levels to definitively confirm the diagnosis of glucagonoma.",
+          "confirmed_evidence": [
+            "Pruritic rash of extremities and oral cavity, progressing to groin, abdomen, axillae, and gluteal region (initial presentation)",
+            "Rash characterized by well-demarcated, erythematous plaques with tiny fragile vesicles at the margins (E001)",
+            "Hyperglycemia (132 mg/dL) and anemia (Hb 11.4 g/dL) on admission (E004)",
+            "Elevated serum chromogranin A (243 ng/mL) (E004)",
+            "Elevated glycosylated hemoglobin (6.3%) and diagnosis of diabetes mellitus (E004)",
+            "A 3-cm enhancing pancreatic head mass was found on imaging (E003)",
+            "Pathology confirmed a pancreatic neuroendocrine carcinoma with evidence of vascular and perineural invasion (E005)"
+          ],
+          "missing_key_evidence": [
+            "Glucagon levels to confirm glucagonoma",
+            "Other systemic symptoms (e.g., weight loss, diarrhea)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E003",
+          "source_text": "Her level of serum glucagon was elevated at 720 ng/L (normal values 40 to 130 ng/L)",
+          "category": "image_finding",
+          "temporal_cue": "after skin biopsy results",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Pathology confirmed a pancreatic neuroendocrine carcinoma with evidence of vascular and perineural invasion, consistent with a diagnosis of a glucagonoma.",
+          "trajectory_summary": "A 44-year-old woman presented with a 3-month history of pruritic rash of the extremities and oral cavity, progressing to other body regions, characterized by well-demarcated, erythematous plaques with fragile vesicles. Initial labs showed hyperglycemia, anemia, elevated HbA1c leading to a diabetes diagnosis, and elevated chromogranin A. Imaging revealed a 3-cm enhancing pancreatic head mass. Pathology confirmed a pancreatic neuroendocrine carcinoma with vascular and perineural invasion. Serum glucagon levels were significantly elevated, consistent with a glucagonoma.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with a pruritic rash characterized by well-demarcated, erythematous plaques with tiny fragile vesicles at the margins, consistent with necrolytic migratory erythema.",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Initial laboratory findings included hyperglycemia, anemia, elevated glycosylated hemoglobin (HbA1c), and a diagnosis of diabetes mellitus.",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Serum chromogranin A, a tumor marker for neuroendocrine tumors, was elevated.",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Abdominal imaging revealed a 3-cm enhancing pancreatic head mass.",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Pathology confirmed a pancreatic neuroendocrine carcinoma with evidence of vascular and perineural invasion.",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "Serum glucagon levels were elevated.",
+              "evidence_ids": [
+                "E003"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [],
+          "remaining_uncertainties": [
+            "Specific details regarding other systemic symptoms (e.g., weight loss, diarrhea) were not explicitly documented, though not critical for diagnosis confirmation."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Pathology confirmed a pancreatic neuroendocrine carcinoma with evidence of vascular and perineural invasion, consistent with a diagnosis of a glucagonoma.",
+      "trajectory_summary": "A 44-year-old woman presented with a 3-month history of pruritic rash of the extremities and oral cavity, progressing to other body regions, characterized by well-demarcated, erythematous plaques with fragile vesicles. Initial labs showed hyperglycemia, anemia, elevated HbA1c leading to a diabetes diagnosis, and elevated chromogranin A. Imaging revealed a 3-cm enhancing pancreatic head mass. Pathology confirmed a pancreatic neuroendocrine carcinoma with vascular and perineural invasion. Serum glucagon levels were significantly elevated, consistent with a glucagonoma.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with a pruritic rash characterized by well-demarcated, erythematous plaques with tiny fragile vesicles at the margins, consistent with necrolytic migratory erythema.",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Initial laboratory findings included hyperglycemia, anemia, elevated glycosylated hemoglobin (HbA1c), and a diagnosis of diabetes mellitus.",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Serum chromogranin A, a tumor marker for neuroendocrine tumors, was elevated.",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Abdominal imaging revealed a 3-cm enhancing pancreatic head mass.",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Pathology confirmed a pancreatic neuroendocrine carcinoma with evidence of vascular and perineural invasion.",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "Serum glucagon levels were elevated.",
+          "evidence_ids": [
+            "E003"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [],
+      "remaining_uncertainties": [
+        "Specific details regarding other systemic symptoms (e.g., weight loss, diarrhea) were not explicitly documented, though not critical for diagnosis confirmation."
+      ],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T20:08:22.827380+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC4105234",
+    "known_final_diagnosis": "Pathology confirmed a pancreatic neuroendocrine carcinoma with evidence of vascular and perineural invasion, consistent with a diagnosis of a glucagonoma.",
+    "turns_used": 10,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 6,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 3,
+    "action_counts": {
+      "ASK_HISTORY": 2,
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 1,
+      "ORDER_TEST": 2,
+      "REQUEST_RESULT": 4
+    },
+    "report_status_counts": {
+      "already_disclosed": 1,
+      "found": 4,
+      "invalid_report_selection": 1,
+      "ordered_but_not_documented": 3
+    },
+    "report_repair_attempted_count": 2,
+    "report_repair_failed_count": 1,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 3
+    },
+    "answer_yield": 0.5555555555555556,
+    "unavailable_turn_rate": 0.3333333333333333,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T20:08:22.828747+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC4105234",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/dermatology/episodes/PMC4105234.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/dermatology/cases/PMC4105234.json",
+    "num_gold_steps": "4",
+    "num_pred_steps": "4",
+    "weighted_tversky_alignment": "0.3225806451612903",
+    "weighted_tversky_distance": "0.6774193548387097",
+    "matched_weight": "2.5",
+    "missed_weight": "2.25",
+    "extra_weight": "1.5",
+    "weighted_lcs_recall": "0.5263157894736842",
+    "weighted_lcs_weight": "2.5",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "1",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging > pathology > lab_tests > other_or_off_protocol",
+    "prediction_sequence": "clinical_history > imaging > procedure_or_intervention > lab_tests",
+    "error": ""
+  }
+}

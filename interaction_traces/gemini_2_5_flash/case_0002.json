@@ -1,0 +1,739 @@
+{
+  "case_id": "case_0002",
+  "pmcid": "PMC10254956",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC10254956",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 14,
+    "termination": "final",
+    "known_final_diagnosis": "At that time, we diagnosed him as neuro-Behçet’s disease.",
+    "disclosed_evidence_ids": [
+      "E002",
+      "E003",
+      "E004",
+      "E005",
+      "E006",
+      "E007",
+      "E009",
+      "E010"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "detailed report of the initial brain MRI findings",
+          "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms and MRI showed brain lesions, initially raising suspicion of a brain tumor. The trajectory should clarify the nature of these lesions and how neuro-Behçet's disease was diagnosed.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "detailed characteristics of brain lesions",
+            "evidence for inflammatory/vascular pathology",
+            "systemic manifestations of Behçet's disease",
+            "CSF findings",
+            "response to treatment"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E007",
+          "source_text": "MRI of the brain showed hyperintense lesions in the brainstem and left caudate nucleus. These lesions were hyperintense in diffusion-weighted and apparent diffusion coefficient images. Gadolinium enhancement was absent, and MR spectroscopy showed an elevation of the choline peak and preserved N-acetyl aspartate (NAA) peak, suggesting neuroinflammation (figure 1).",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "detailed physical examination findings, specifically looking for mucocutaneous lesions, ocular findings, or other systemic signs of Behçet's disease",
+          "current_trajectory_hypothesis": "Initial MRI suggests neuroinflammation rather than tumor. To support the diagnosis of neuro-Behçet's, evidence of systemic manifestations of Behçet's disease is crucial.",
+          "confirmed_evidence": [
+            "Patient presented with gait disturbance, left hemiparaesthesia, dysarthria, dysphagia.",
+            "Initial brain MRI showed hyperintense lesions in brainstem and left caudate nucleus, suggestive of neuroinflammation (hyperintense on DWI/ADC, no gadolinium enhancement, elevated choline, preserved NAA)."
+          ],
+          "missing_key_evidence": [
+            "Systemic manifestations of Behçet's disease (e.g., oral/genital ulcers, skin lesions, ocular inflammation, arthritis)",
+            "CSF findings",
+            "Other diagnostic tests for Behçet's (e.g., pathergy test, HLA-B51)",
+            "Clinical course and treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "On physical examination, he had a mild fever of 37.2°C, without headache or consciousness disturbance. He showed no skin rash on the extremities or body trunk. No vulvar ulcers or stomatitis were noted. The pathergy test was negative. Vulvar ulcers were absent. On neurological examination, he showed dysarthria and dysphagia. He displayed mild paraesthesia and hypoesthesia on the left half of the body, including the face. The deep tendon reflexes in the extremities showed hyper-reflexia, and his gait was spastic. Areflexia was detected for the plantar reflexes.",
+          "category": "other",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "cerebrospinal fluid (CSF) analysis results, including cell count, protein, glucose, and oligoclonal bands",
+          "current_trajectory_hypothesis": "Initial MRI showed neuroinflammation, but physical exam and pathergy test were negative for typical Behçet's manifestations. CSF analysis is critical to further characterize the inflammatory process in the CNS and support the diagnosis of neuro-Behçet's disease.",
+          "confirmed_evidence": [
+            "Patient presented with gait disturbance, left hemiparaesthesia, dysarthria, dysphagia.",
+            "Initial brain MRI showed hyperintense lesions in brainstem and left caudate nucleus, suggestive of neuroinflammation (hyperintense on DWI/ADC, no gadolinium enhancement, elevated choline, preserved NAA).",
+            "Physical examination revealed mild fever, dysarthria, dysphagia, left-sided paraesthesia/hypoesthesia, hyper-reflexia, spastic gait, and areflexia for plantar reflexes.",
+            "No skin rash, oral ulcers, or vulvar ulcers were noted on physical examination.",
+            "Pathergy test was negative."
+          ],
+          "missing_key_evidence": [
+            "CSF findings (cell count, protein, glucose, oligoclonal bands)",
+            "Other diagnostic tests for Behçet's (e.g., HLA-B51, specific autoantibodies if relevant)",
+            "Clinical course and treatment response",
+            "Long-term follow-up or recurrence information"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "Order acknowledged; CSF analysis test ordered but results not yet disclosed.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "details regarding the patient's past history of uveitis and retinitis pigmentosa, specifically if it was diagnosed as Behçet's-related or had features suggestive of Behçet's disease",
+          "current_trajectory_hypothesis": "Initial MRI suggests neuroinflammation, but systemic Behçet's manifestations are absent on current exam. The patient's past history of uveitis and retinitis pigmentosa is a crucial piece of information that could link to Behçet's disease, especially given the known final diagnosis.",
+          "confirmed_evidence": [
+            "Patient presented with gait disturbance, left hemiparaesthesia, dysarthria, dysphagia.",
+            "Initial brain MRI showed hyperintense lesions in brainstem and left caudate nucleus, suggestive of neuroinflammation (hyperintense on DWI/ADC, no gadolinium enhancement, elevated choline, preserved NAA).",
+            "Physical examination revealed mild fever, dysarthria, dysphagia, left-sided paraesthesia/hypoesthesia, hyper-reflexia, spastic gait, and areflexia for plantar reflexes.",
+            "No skin rash, oral ulcers, or vulvar ulcers were noted on physical examination.",
+            "Pathergy test was negative.",
+            "CSF analysis was ordered but results are pending."
+          ],
+          "missing_key_evidence": [
+            "Details of past ocular history (uveitis/retinitis pigmentosa) in relation to Behçet's disease",
+            "CSF findings (cell count, protein, glucose, oligoclonal bands)",
+            "Other diagnostic tests for Behçet's (e.g., HLA-B51, if relevant)",
+            "Clinical course and treatment response",
+            "Long-term follow-up or recurrence information"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.25
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "He had a history of uveitis and retinitis pigmentosa in his 30s and was blind.",
+          "category": "other",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "results of the cerebrospinal fluid (CSF) analysis",
+          "current_trajectory_hypothesis": "The patient presents with neurological symptoms and MRI findings suggestive of neuroinflammation. While systemic Behçet's manifestations are absent on current exam and pathergy test is negative, a history of uveitis is noted. CSF analysis is critical to further characterize the CNS inflammation and support the diagnosis of neuro-Behçet's disease.",
+          "confirmed_evidence": [
+            "Patient presented with gait disturbance, left hemiparaesthesia, dysarthria, dysphagia.",
+            "Initial brain MRI showed hyperintense lesions in brainstem and left caudate nucleus, suggestive of neuroinflammation (hyperintense on DWI/ADC, no gadolinium enhancement, elevated choline, preserved NAA).",
+            "Physical examination revealed mild fever, dysarthria, dysphagia, left-sided paraesthesia/hypoesthesia, hyper-reflexia, spastic gait, and areflexia for plantar reflexes.",
+            "No skin rash, oral ulcers, or vulvar ulcers were noted on physical examination.",
+            "Pathergy test was negative.",
+            "Patient has a history of uveitis and retinitis pigmentosa in his 30s, leading to blindness."
+          ],
+          "missing_key_evidence": [
+            "CSF findings (cell count, protein, glucose, oligoclonal bands)",
+            "Other diagnostic tests for Behçet's (e.g., HLA-B51, if relevant)",
+            "Clinical course and treatment response",
+            "Long-term follow-up or recurrence information"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "Cerebrospinal fluid (CSF) analysis showed normal results without elevation of IL-6 (11.0 pg/mL; normal <17 pg/mL); CSF oligoclonal IgG bands and CSF cytopathology were negative.",
+          "category": "other",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The initial workup, including physical examination, pathergy test, and CSF analysis, did not provide definitive evidence for Behçet's disease, despite MRI findings suggestive of neuroinflammation and a history of uveitis. The clinical course, including any treatment initiated and the patient's response, is crucial to understand how the diagnosis of neuro-Behçet's was established.",
+          "confirmed_evidence": [
+            "Patient presented with gait disturbance, left hemiparaesthesia, dysarthria, dysphagia.",
+            "Initial brain MRI showed hyperintense lesions in brainstem and left caudate nucleus, suggestive of neuroinflammation (hyperintense on DWI/ADC, no gadolinium enhancement, elevated choline, preserved NAA).",
+            "Physical examination revealed mild fever, dysarthria, dysphagia, left-sided paraesthesia/hypoesthesia, hyper-reflexia, spastic gait, and areflexia for plantar reflexes.",
+            "No skin rash, oral ulcers, or vulvar ulcers were noted on physical examination.",
+            "Pathergy test was negative.",
+            "Patient has a history of uveitis and retinitis pigmentosa in his 30s, leading to blindness.",
+            "Cerebrospinal fluid (CSF) analysis showed normal results, with no elevation of IL-6, negative oligoclonal IgG bands, and negative cytopathology."
+          ],
+          "missing_key_evidence": [
+            "Details of treatment initiated and patient's response",
+            "Further diagnostic tests for Behçet's (e.g., HLA-B51, if relevant)",
+            "Long-term follow-up or recurrence information",
+            "Exclusion of alternative diagnoses"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "HLA analysis revealed homozygosity for the B51 alleles.",
+          "category": "other",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with neurological symptoms and MRI findings suggestive of neuroinflammation. While typical systemic Behçet's manifestations were absent and CSF was normal, a history of uveitis and positive HLA-B51 homozygosity were noted. The next crucial step is to understand how the diagnosis of neuro-Behçet's was confirmed, which often involves observing the response to specific treatment or further clinical course.",
+          "confirmed_evidence": [
+            "Patient presented with gait disturbance, left hemiparaesthesia, dysarthria, dysphagia.",
+            "Initial brain MRI showed hyperintense lesions in brainstem and left caudate nucleus, suggestive of neuroinflammation (hyperintense on DWI/ADC, no gadolinium enhancement, elevated choline, preserved NAA).",
+            "Physical examination revealed mild fever, dysarthria, dysphagia, left-sided paraesthesia/hypoesthesia, hyper-reflexia, spastic gait, and areflexia for plantar reflexes.",
+            "No skin rash, oral ulcers, or vulvar ulcers were noted on physical examination.",
+            "Pathergy test was negative.",
+            "Patient has a history of uveitis and retinitis pigmentosa in his 30s, leading to blindness.",
+            "Cerebrospinal fluid (CSF) analysis showed normal results, with no elevation of IL-6, negative oligoclonal IgG bands, and negative cytopathology.",
+            "HLA analysis revealed homozygosity for the B51 alleles."
+          ],
+          "missing_key_evidence": [
+            "Details of treatment initiated and patient's response",
+            "Long-term follow-up or recurrence information",
+            "Exclusion of alternative diagnoses (e.g., tumor, infection, other inflammatory conditions)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "Blood examination revealed no elevation of white cell count (5.4 x 102/µL; normal 3000–8900/µL), liver enzymes, normal kidney function and no increased levels of cancer markers (carcinoembryonic antigen, carbohydrate antigen 19–9 and soluble interleukin (IL)−2 receptor). Autoimmune antibodies (rheumatoid factor, antinuclear antibody, antineutrophil cytoplasmic antibody, antiaquaporin-4 antibody and antimyelin oligodendrocyte glycoprotein antibody) were negative. Antiaquaporin-4 antibody and antimyelin oligodendroglial antibody were negative.",
+          "category": "serology",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with neurological symptoms and MRI findings suggestive of neuroinflammation. While typical systemic Behçet's manifestations were absent and CSF was normal, a history of uveitis and positive HLA-B51 homozygosity were noted, and other common autoimmune/infectious/malignant causes were ruled out. The next crucial step is to understand the clinical course, including any treatment initiated and the patient's response, which is often key to confirming the diagnosis of neuro-Behçet's disease in such atypical presentations.",
+          "confirmed_evidence": [
+            "Patient presented with gait disturbance, left hemiparaesthesia, dysarthria, dysphagia.",
+            "Initial brain MRI showed hyperintense lesions in brainstem and left caudate nucleus, suggestive of neuroinflammation (hyperintense on DWI/ADC, no gadolinium enhancement, elevated choline, preserved NAA).",
+            "Physical examination revealed mild fever, dysarthria, dysphagia, left-sided paraesthesia/hypoesthesia, hyper-reflexia, spastic gait, and areflexia for plantar reflexes.",
+            "No skin rash, oral ulcers, or vulvar ulcers were noted on physical examination.",
+            "Pathergy test was negative.",
+            "Patient has a history of uveitis and retinitis pigmentosa in his 30s, leading to blindness.",
+            "Cerebrospinal fluid (CSF) analysis showed normal results, with no elevation of IL-6, negative oligoclonal IgG bands, and negative cytopathology.",
+            "HLA analysis revealed homozygosity for the B51 alleles.",
+            "Blood examination showed no elevation of white cell count, normal liver/kidney function, no increased cancer markers, and negative autoimmune antibodies (rheumatoid factor, antinuclear antibody, antineutrophil cytoplasmic antibody, antiaquaporin-4 antibody, antimyelin oligodendrocyte glycoprotein antibody)."
+          ],
+          "missing_key_evidence": [
+            "Details of treatment initiated and patient's response",
+            "Long-term follow-up or recurrence information",
+            "Further clarification on how the diagnosis was definitively established given the atypical presentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.45
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E009",
+          "source_text": "According to the acute onset of a brainstem lesion, MRI findings and HLA-B51 positivity, we started oral corticosteroid and colchicine therapy after intravenous methylprednisolone administration (1000 mg/day for 3 days) on suspicion of neuro-Behçet’s disease.",
+          "category": "treatment_response",
+          "temporal_cue": "after admission",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "patient's clinical course and response to the initiated corticosteroid and colchicine therapy",
+          "current_trajectory_hypothesis": "The patient presented with neurological symptoms and MRI findings suggestive of neuroinflammation. Despite atypical systemic findings and normal CSF, a history of uveitis and positive HLA-B51 homozygosity, along with the exclusion of other conditions, led to a presumptive diagnosis of neuro-Behçet's and initiation of specific treatment. The response to this treatment is crucial for confirming the diagnosis.",
+          "confirmed_evidence": [
+            "Patient presented with gait disturbance, left hemiparaesthesia, dysarthria, dysphagia.",
+            "Initial brain MRI showed hyperintense lesions in brainstem and left caudate nucleus, suggestive of neuroinflammation (hyperintense on DWI/ADC, no gadolinium enhancement, elevated choline, preserved NAA).",
+            "Physical examination revealed mild fever, dysarthria, dysphagia, left-sided paraesthesia/hypoesthesia, hyper-reflexia, spastic gait, and areflexia for plantar reflexes.",
+            "No skin rash, oral ulcers, or vulvar ulcers were noted on physical examination.",
+            "Pathergy test was negative.",
+            "Patient has a history of uveitis and retinitis pigmentosa in his 30s, leading to blindness.",
+            "Cerebrospinal fluid (CSF) analysis showed normal results, with no elevation of IL-6, negative oligoclonal IgG bands, and negative cytopathology.",
+            "HLA analysis revealed homozygosity for the B51 alleles.",
+            "Blood examination showed no elevation of white cell count, normal liver/kidney function, no increased cancer markers, and negative autoimmune antibodies (rheumatoid factor, antinuclear antibody, antineutrophil cytoplasmic antibody, antiaquaporin-4 antibody, antimyelin oligodendrocyte glycoprotein antibody).",
+            "Treatment with intravenous methylprednisolone (1000 mg/day for 3 days) followed by oral corticosteroid and colchicine was initiated on suspicion of neuro-Behçet's disease."
+          ],
+          "missing_key_evidence": [
+            "Details of patient's response to treatment",
+            "Long-term follow-up or recurrence information",
+            "Further clarification on how the diagnosis was definitively established given the atypical presentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "patient's clinical outcome and response to the initiated corticosteroid and colchicine therapy, specifically improvement in neurological symptoms or MRI findings",
+          "current_trajectory_hypothesis": "The patient presented with neurological symptoms and MRI findings suggestive of neuroinflammation. Despite atypical systemic findings and normal CSF, a history of uveitis and positive HLA-B51 homozygosity, along with the exclusion of other conditions, led to a presumptive diagnosis of neuro-Behçet's and initiation of specific treatment. The response to this treatment is crucial for confirming the diagnosis.",
+          "confirmed_evidence": [
+            "Patient presented with gait disturbance, left hemiparaesthesia, dysarthria, dysphagia.",
+            "Initial brain MRI showed hyperintense lesions in brainstem and left caudate nucleus, suggestive of neuroinflammation (hyperintense on DWI/ADC, no gadolinium enhancement, elevated choline, preserved NAA).",
+            "Physical examination revealed mild fever, dysarthria, dysphagia, left-sided paraesthesia/hypoesthesia, hyper-reflexia, spastic gait, and areflexia for plantar reflexes.",
+            "No skin rash, oral ulcers, or vulvar ulcers were noted on physical examination.",
+            "Pathergy test was negative.",
+            "Patient has a history of uveitis and retinitis pigmentosa in his 30s, leading to blindness.",
+            "Cerebrospinal fluid (CSF) analysis showed normal results, with no elevation of IL-6, negative oligoclonal IgG bands, and negative cytopathology.",
+            "HLA analysis revealed homozygosity for the B51 alleles.",
+            "Blood examination showed no elevation of white cell count, normal liver/kidney function, no increased cancer markers, and negative autoimmune antibodies (rheumatoid factor, antinuclear antibody, antineutrophil cytoplasmic antibody, antiaquaporin-4 antibody, antimyelin oligodendrocyte glycoprotein antibody).",
+            "Treatment with intravenous methylprednisolone (1000 mg/day for 3 days) followed by oral corticosteroid and colchicine was initiated on suspicion of neuro-Behçet's disease."
+          ],
+          "missing_key_evidence": [
+            "Details of patient's response to treatment (improvement in symptoms or MRI)",
+            "Long-term follow-up or recurrence information",
+            "Further clarification on how the diagnosis was definitively established given the atypical presentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with neurological symptoms and MRI findings suggestive of neuroinflammation. Despite atypical systemic findings and normal CSF, a history of uveitis and positive HLA-B51 homozygosity, along with the exclusion of other conditions, led to a presumptive diagnosis of neuro-Behçet's and initiation of specific treatment. The response to this treatment is crucial for confirming the diagnosis and understanding the clinical trajectory.",
+          "confirmed_evidence": [
+            "Patient presented with gait disturbance, left hemiparaesthesia, dysarthria, dysphagia.",
+            "Initial brain MRI showed hyperintense lesions in brainstem and left caudate nucleus, suggestive of neuroinflammation (hyperintense on DWI/ADC, no gadolinium enhancement, elevated choline, preserved NAA).",
+            "Physical examination revealed mild fever, dysarthria, dysphagia, left-sided paraesthesia/hypoesthesia, hyper-reflexia, spastic gait, and areflexia for plantar reflexes.",
+            "No skin rash, oral ulcers, or vulvar ulcers were noted on physical examination.",
+            "Pathergy test was negative.",
+            "Patient has a history of uveitis and retinitis pigmentosa in his 30s, leading to blindness.",
+            "Cerebrospinal fluid (CSF) analysis showed normal results, with no elevation of IL-6, negative oligoclonal IgG bands, and negative cytopathology.",
+            "HLA analysis revealed homozygosity for the B51 alleles.",
+            "Blood examination showed no elevation of white cell count, normal liver/kidney function, no increased cancer markers, and negative autoimmune antibodies (rheumatoid factor, antinuclear antibody, antineutrophil cytoplasmic antibody, antiaquaporin-4 antibody, antimyelin oligodendrocyte glycoprotein antibody).",
+            "Treatment with intravenous methylprednisolone (1000 mg/day for 3 days) followed by oral corticosteroid and colchicine was initiated on suspicion of neuro-Behçet's disease."
+          ],
+          "missing_key_evidence": [
+            "Details of patient's response to treatment (improvement in symptoms or MRI)",
+            "Long-term follow-up or recurrence information",
+            "Further clarification on how the diagnosis was definitively established given the atypical presentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with neurological symptoms and MRI findings suggestive of neuroinflammation. Despite atypical systemic findings and normal CSF, a history of uveitis and positive HLA-B51 homozygosity, along with the exclusion of other conditions, led to a presumptive diagnosis of neuro-Behçet's and initiation of specific treatment. The response to this treatment is crucial for confirming the diagnosis and understanding the clinical trajectory.",
+          "confirmed_evidence": [
+            "Patient presented with gait disturbance, left hemiparaesthesia, dysarthria, dysphagia.",
+            "Initial brain MRI showed hyperintense lesions in brainstem and left caudate nucleus, suggestive of neuroinflammation (hyperintense on DWI/ADC, no gadolinium enhancement, elevated choline, preserved NAA).",
+            "Physical examination revealed mild fever, dysarthria, dysphagia, left-sided paraesthesia/hypoesthesia, hyper-reflexia, spastic gait, and areflexia for plantar reflexes.",
+            "No skin rash, oral ulcers, or vulvar ulcers were noted on physical examination.",
+            "Pathergy test was negative.",
+            "Patient has a history of uveitis and retinitis pigmentosa in his 30s, leading to blindness.",
+            "Cerebrospinal fluid (CSF) analysis showed normal results, with no elevation of IL-6, negative oligoclonal IgG bands, and negative cytopathology.",
+            "HLA analysis revealed homozygosity for the B51 alleles.",
+            "Blood examination showed no elevation of white cell count, normal liver/kidney function, no increased cancer markers, and negative autoimmune antibodies (rheumatoid factor, antinuclear antibody, antineutrophil cytoplasmic antibody, antiaquaporin-4 antibody, antimyelin oligodendrocyte glycoprotein antibody).",
+            "Treatment with intravenous methylprednisolone (1000 mg/day for 3 days) followed by oral corticosteroid and colchicine was initiated on suspicion of neuro-Behçet's disease."
+          ],
+          "missing_key_evidence": [
+            "Details of patient's response to treatment (improvement in symptoms or MRI)",
+            "Long-term follow-up or recurrence information",
+            "Further clarification on how the diagnosis was definitively established given the atypical presentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E010",
+          "source_text": "Follow-up MRI showed a reduction of the brain lesions.",
+          "category": "image_finding",
+          "temporal_cue": "2 months after treatment",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "patient's clinical improvement or resolution of neurological symptoms after initiation of corticosteroid and colchicine therapy",
+          "current_trajectory_hypothesis": "The patient presented with neurological symptoms and MRI findings suggestive of neuroinflammation. Despite atypical systemic findings and normal CSF, a history of uveitis and positive HLA-B51 homozygosity, along with the exclusion of other conditions, led to a presumptive diagnosis of neuro-Behçet's and initiation of specific treatment. The reduction of brain lesions on follow-up MRI supports the diagnosis, but the clinical response to treatment is crucial for a complete understanding of the trajectory and confirmation.",
+          "confirmed_evidence": [
+            "Patient presented with gait disturbance, left hemiparaesthesia, dysarthria, dysphagia.",
+            "Initial brain MRI showed hyperintense lesions in brainstem and left caudate nucleus, suggestive of neuroinflammation (hyperintense on DWI/ADC, no gadolinium enhancement, elevated choline, preserved NAA).",
+            "Physical examination revealed mild fever, dysarthria, dysphagia, left-sided paraesthesia/hypoesthesia, hyper-reflexia, spastic gait, and areflexia for plantar reflexes.",
+            "No skin rash, oral ulcers, or vulvar ulcers were noted on physical examination.",
+            "Pathergy test was negative.",
+            "Patient has a history of uveitis and retinitis pigmentosa in his 30s, leading to blindness.",
+            "Cerebrospinal fluid (CSF) analysis showed normal results, with no elevation of IL-6, negative oligoclonal IgG bands, and negative cytopathology.",
+            "HLA analysis revealed homozygosity for the B51 alleles.",
+            "Blood examination showed no elevation of white cell count, normal liver/kidney function, no increased cancer markers, and negative autoimmune antibodies (rheumatoid factor, antinuclear antibody, antineutrophil cytoplasmic antibody, antiaquaporin-4 antibody, antimyelin oligodendrocyte glycoprotein antibody).",
+            "Treatment with intravenous methylprednisolone (1000 mg/day for 3 days) followed by oral corticosteroid and colchicine was initiated on suspicion of neuro-Behçet's disease.",
+            "Follow-up MRI showed a reduction of the brain lesions 2 months after treatment."
+          ],
+          "missing_key_evidence": [
+            "Details of patient's clinical response to treatment (improvement in neurological symptoms)",
+            "Long-term follow-up or recurrence information",
+            "Further clarification on how the diagnosis was definitively established given the atypical presentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E010",
+          "source_text": "After administration, his symptoms gradually ameliorated, and 2 months later, he returned home with minor sequelae of mild left hemiparesis and gait disturbance.",
+          "category": "image_finding",
+          "temporal_cue": "2 months after treatment",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 14,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Neuro-Behçet’s disease",
+          "trajectory_summary": "A man in his 70s presented with acute neurological symptoms including gait disturbance, left hemiparaesthesia, dysarthria, and dysphagia. Initial brain MRI showed hyperintense lesions in the brainstem and left caudate nucleus, suggestive of neuroinflammation. Physical examination did not reveal typical mucocutaneous manifestations of Behçet's disease, and a pathergy test was negative. CSF analysis was normal. However, the patient had a history of uveitis and retinitis pigmentosa in his 30s, and HLA analysis revealed homozygosity for the B51 alleles. Other autoimmune conditions, infections, and malignancies were ruled out by blood tests. Based on the acute brainstem lesion, MRI findings, and HLA-B51 positivity, neuro-Behçet's disease was suspected, and treatment with intravenous methylprednisolone followed by oral corticosteroids and colchicine was initiated. The patient's symptoms gradually ameliorated, and follow-up MRI showed a reduction of the brain lesions, supporting the diagnosis.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with acute neurological symptoms: gait disturbance, left hemiparaesthesia, dysarthria, and dysphagia.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Initial brain MRI showed hyperintense lesions in the brainstem and left caudate nucleus, suggestive of neuroinflammation (hyperintense on DWI/ADC, no gadolinium enhancement, elevated choline, preserved NAA).",
+              "evidence_ids": [
+                "E007"
+              ]
+            },
+            {
+              "claim": "Patient had a history of uveitis and retinitis pigmentosa in his 30s, leading to blindness.",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "HLA analysis revealed homozygosity for the B51 alleles.",
+              "evidence_ids": [
+                "E006"
+              ]
+            },
+            {
+              "claim": "Other autoimmune antibodies (rheumatoid factor, antinuclear antibody, antineutrophil cytoplasmic antibody, antiaquaporin-4 antibody, antimyelin oligodendrocyte glycoprotein antibody) and cancer markers were negative, ruling out alternative diagnoses.",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Treatment with intravenous methylprednisolone followed by oral corticosteroid and colchicine was initiated on suspicion of neuro-Behçet’s disease.",
+              "evidence_ids": [
+                "E009"
+              ]
+            },
+            {
+              "claim": "Patient's neurological symptoms gradually ameliorated after treatment.",
+              "evidence_ids": [
+                "E010"
+              ]
+            },
+            {
+              "claim": "Follow-up MRI showed a reduction of the brain lesions after treatment.",
+              "evidence_ids": [
+                "E010"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Brain tumor",
+              "basis": "MRI findings (hyperintense on DWI/ADC, no gadolinium enhancement, elevated choline, preserved NAA) suggested neuroinflammation rather than tumor (E007). Cancer markers were also negative (E004)."
+            },
+            {
+              "alternative": "Other autoimmune/inflammatory CNS diseases (e.g., MS, NMOSD, MOGAD)",
+              "basis": "Negative autoimmune antibodies including antiaquaporin-4 antibody and antimyelin oligodendrocyte glycoprotein antibody (E004). Normal CSF analysis (E005)."
+            },
+            {
+              "alternative": "Infectious causes",
+              "basis": "Normal white cell count and CSF analysis (E004, E005)."
+            }
+          ],
+          "remaining_uncertainties": [],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Neuro-Behçet’s disease",
+      "trajectory_summary": "A man in his 70s presented with acute neurological symptoms including gait disturbance, left hemiparaesthesia, dysarthria, and dysphagia. Initial brain MRI showed hyperintense lesions in the brainstem and left caudate nucleus, suggestive of neuroinflammation. Physical examination did not reveal typical mucocutaneous manifestations of Behçet's disease, and a pathergy test was negative. CSF analysis was normal. However, the patient had a history of uveitis and retinitis pigmentosa in his 30s, and HLA analysis revealed homozygosity for the B51 alleles. Other autoimmune conditions, infections, and malignancies were ruled out by blood tests. Based on the acute brainstem lesion, MRI findings, and HLA-B51 positivity, neuro-Behçet's disease was suspected, and treatment with intravenous methylprednisolone followed by oral corticosteroids and colchicine was initiated. The patient's symptoms gradually ameliorated, and follow-up MRI showed a reduction of the brain lesions, supporting the diagnosis.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with acute neurological symptoms: gait disturbance, left hemiparaesthesia, dysarthria, and dysphagia.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Initial brain MRI showed hyperintense lesions in the brainstem and left caudate nucleus, suggestive of neuroinflammation (hyperintense on DWI/ADC, no gadolinium enhancement, elevated choline, preserved NAA).",
+          "evidence_ids": [
+            "E007"
+          ]
+        },
+        {
+          "claim": "Patient had a history of uveitis and retinitis pigmentosa in his 30s, leading to blindness.",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "HLA analysis revealed homozygosity for the B51 alleles.",
+          "evidence_ids": [
+            "E006"
+          ]
+        },
+        {
+          "claim": "Other autoimmune antibodies (rheumatoid factor, antinuclear antibody, antineutrophil cytoplasmic antibody, antiaquaporin-4 antibody, antimyelin oligodendrocyte glycoprotein antibody) and cancer markers were negative, ruling out alternative diagnoses.",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Treatment with intravenous methylprednisolone followed by oral corticosteroid and colchicine was initiated on suspicion of neuro-Behçet’s disease.",
+          "evidence_ids": [
+            "E009"
+          ]
+        },
+        {
+          "claim": "Patient's neurological symptoms gradually ameliorated after treatment.",
+          "evidence_ids": [
+            "E010"
+          ]
+        },
+        {
+          "claim": "Follow-up MRI showed a reduction of the brain lesions after treatment.",
+          "evidence_ids": [
+            "E010"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Brain tumor",
+          "basis": "MRI findings (hyperintense on DWI/ADC, no gadolinium enhancement, elevated choline, preserved NAA) suggested neuroinflammation rather than tumor (E007). Cancer markers were also negative (E004)."
+        },
+        {
+          "alternative": "Other autoimmune/inflammatory CNS diseases (e.g., MS, NMOSD, MOGAD)",
+          "basis": "Negative autoimmune antibodies including antiaquaporin-4 antibody and antimyelin oligodendrocyte glycoprotein antibody (E004). Normal CSF analysis (E005)."
+        },
+        {
+          "alternative": "Infectious causes",
+          "basis": "Normal white cell count and CSF analysis (E004, E005)."
+        }
+      ],
+      "remaining_uncertainties": [],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T21:53:42.037941+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10254956",
+    "known_final_diagnosis": "At that time, we diagnosed him as neuro-Behçet’s disease.",
+    "turns_used": 14,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 8,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 8,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "ASK_HISTORY": 1,
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_EXAM": 1,
+      "REQUEST_RESULT": 5,
+      "WAIT_REASSESS": 5
+    },
+    "report_status_counts": {
+      "already_disclosed": 1,
+      "found": 8,
+      "invalid_report_selection": 3,
+      "ordered_but_not_documented": 1
+    },
+    "report_repair_attempted_count": 7,
+    "report_repair_failed_count": 3,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 6,
+      "verbatim_excerpt is not a contiguous source subspan.": 4
+    },
+    "answer_yield": 0.6923076923076923,
+    "unavailable_turn_rate": 0.07692307692307693,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T21:53:42.039229+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10254956",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/neurology/episodes/PMC10254956.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/neurology/cases/PMC10254956.json",
+    "num_gold_steps": "4",
+    "num_pred_steps": "6",
+    "weighted_tversky_alignment": "0.4642857142857143",
+    "weighted_tversky_distance": "0.5357142857142857",
+    "matched_weight": "3.25",
+    "missed_weight": "0.25",
+    "extra_weight": "1.75",
+    "weighted_lcs_recall": "0.9285714285714286",
+    "weighted_lcs_weight": "3.25",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "3",
+    "pairwise_correct_pairs": "3",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging > other_or_off_protocol > lab_tests > medication_or_treatment",
+    "prediction_sequence": "imaging > physical_examination > lab_tests > clinical_history > admission_or_clinical_course > medication_or_treatment",
+    "error": ""
+  }
+}

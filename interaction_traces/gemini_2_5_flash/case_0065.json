@@ -1,0 +1,627 @@
+{
+  "case_id": "case_0065",
+  "pmcid": "PMC7737021",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC7737021",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 12,
+    "termination": "final",
+    "known_final_diagnosis": "idiopathic primary hypoparathyroidism",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E003",
+      "E004",
+      "E005",
+      "E006"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "serum calcium level",
+          "current_trajectory_hypothesis": "Patient presents with symptoms suggestive of hypocalcemia (positive Chvostek's and Trousseau's signs, tetany-like symptoms, hoarseness, speechlessness). The known diagnosis is hypoparathyroidism, which causes hypocalcemia. Confirming hypocalcemia is the immediate next step.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "serum calcium level",
+            "parathyroid hormone (PTH) level",
+            "other electrolyte levels (magnesium, phosphate)",
+            "renal function",
+            "vitamin D levels"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order for serum calcium level test recorded; no source result for this test yet disclosed.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "serum calcium level result",
+          "current_trajectory_hypothesis": "Patient presents with symptoms suggestive of hypocalcemia. The known diagnosis is hypoparathyroidism. Confirming hypocalcemia is the immediate next step.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "serum calcium level",
+            "parathyroid hormone (PTH) level",
+            "other electrolyte levels (magnesium, phosphate)",
+            "renal function",
+            "vitamin D levels"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "Blood tests at presentation showed a severe low total calcium (1.03 mmol/L; reference range 2.2–2.6)",
+          "category": "routine_lab",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "parathyroid hormone (PTH) level",
+          "current_trajectory_hypothesis": "Patient presents with symptoms suggestive of hypocalcemia, which has now been confirmed. The known diagnosis is hypoparathyroidism. Low PTH in the presence of hypocalcemia would strongly support primary hypoparathyroidism.",
+          "confirmed_evidence": [
+            "Patient presented with speechlessness, hoarseness, dyspnoea, vomiting, hand spasms, and positive Chvostek's and Trousseau's signs.",
+            "Severe hypocalcemia (total calcium 1.03 mmol/L) was found on blood tests at presentation."
+          ],
+          "missing_key_evidence": [
+            "parathyroid hormone (PTH) level",
+            "serum phosphate level",
+            "serum magnesium level",
+            "vitamin D levels",
+            "renal function"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "Order for PTH level test has been acknowledged without documented result yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "parathyroid hormone (PTH) level result",
+          "current_trajectory_hypothesis": "Patient presents with symptoms suggestive of hypocalcemia, which has now been confirmed. The known diagnosis is hypoparathyroidism. Low PTH in the presence of hypocalcemia would strongly support primary hypoparathyroidism.",
+          "confirmed_evidence": [
+            "Patient presented with speechlessness, hoarseness, dyspnoea, vomiting, hand spasms, and positive Chvostek's and Trousseau's signs.",
+            "Severe hypocalcemia (total calcium 1.03 mmol/L) was found on blood tests at presentation."
+          ],
+          "missing_key_evidence": [
+            "parathyroid hormone (PTH) level",
+            "serum phosphate level",
+            "serum magnesium level",
+            "vitamin D levels",
+            "renal function"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "Later blood tests showed hypoparathyroidism (0.7 pmol/L; reference range 2–7) and low 25-hydroxy(OH)-vitamin D3 concentrations (11 nmol; reference range 50–100). ECG showed a prolonged QTc interval of 501 ms.",
+          "category": "routine_lab",
+          "temporal_cue": "after admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "serum phosphate and magnesium levels",
+          "current_trajectory_hypothesis": "Patient presents with symptoms and confirmed severe hypocalcemia and low PTH, consistent with hypoparathyroidism. Low vitamin D and prolonged QTc are also noted. To further characterize the electrolyte imbalance and support primary hypoparathyroidism, serum phosphate and magnesium levels are needed.",
+          "confirmed_evidence": [
+            "Patient presented with speechlessness, hoarseness, dyspnoea, vomiting, hand spasms, and positive Chvostek's and Trousseau's signs.",
+            "Severe hypocalcemia (total calcium 1.03 mmol/L) was found on blood tests at presentation.",
+            "Low parathyroid hormone (PTH) level (0.7 pmol/L) was found.",
+            "Low 25-hydroxy(OH)-vitamin D3 concentrations (11 nmol) were found.",
+            "ECG showed a prolonged QTc interval of 501 ms."
+          ],
+          "missing_key_evidence": [
+            "serum phosphate level",
+            "serum magnesium level",
+            "renal function",
+            "evidence ruling out other causes of hypoparathyroidism (e.g., autoimmune, genetic, surgical history)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Order for serum phosphate and magnesium levels registered; no new source record documents this order result yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "serum phosphate and magnesium levels result",
+          "current_trajectory_hypothesis": "Patient presents with symptoms and confirmed severe hypocalcemia and low PTH, consistent with hypoparathyroidism. Low vitamin D and prolonged QTc are also noted. To further characterize the electrolyte imbalance and support primary hypoparathyroidism, serum phosphate and magnesium levels are needed.",
+          "confirmed_evidence": [
+            "Patient presented with speechlessness, hoarseness, dyspnoea, vomiting, hand spasms, and positive Chvostek's and Trousseau's signs.",
+            "Severe hypocalcemia (total calcium 1.03 mmol/L) was found on blood tests at presentation.",
+            "Low parathyroid hormone (PTH) level (0.7 pmol/L) was found.",
+            "Low 25-hydroxy(OH)-vitamin D3 concentrations (11 nmol) were found.",
+            "ECG showed a prolonged QTc interval of 501 ms."
+          ],
+          "missing_key_evidence": [
+            "serum phosphate level",
+            "serum magnesium level",
+            "renal function",
+            "evidence ruling out other causes of hypoparathyroidism (e.g., autoimmune, genetic, surgical history)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E003",
+          "source_text": "Blood tests at presentation showed a severe low total calcium (1.03 mmol/L; reference range 2.2–2.6), normal albumin (40 g/L; reference range 35–55), raised phosphate (2.21 mmol/L; reference range 0.70–1.40), raised CK (2962 IU/L; reference range <170) and low magnesium (0.58 mmol/L; reference range 0.7–1.0) with normal kidney and liver function tests.",
+          "category": "routine_lab",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "history of neck surgery or thyroidectomy",
+          "current_trajectory_hypothesis": "Patient presents with symptoms and confirmed severe hypocalcemia, low PTH, raised phosphate, and low magnesium, consistent with hypoparathyroidism. Low vitamin D, prolonged QTc, and normal kidney/liver function are also noted. To support the 'idiopathic' nature of the diagnosis, it's important to rule out common secondary causes, such as prior neck surgery.",
+          "confirmed_evidence": [
+            "Patient presented with speechlessness, hoarseness, dyspnoea, vomiting, hand spasms, and positive Chvostek's and Trousseau's signs.",
+            "Severe hypocalcemia (total calcium 1.03 mmol/L) was found on blood tests at presentation.",
+            "Low parathyroid hormone (PTH) level (0.7 pmol/L) was found.",
+            "Low 25-hydroxy(OH)-vitamin D3 concentrations (11 nmol) were found.",
+            "ECG showed a prolonged QTc interval of 501 ms.",
+            "Raised phosphate (2.21 mmol/L) and low magnesium (0.58 mmol/L) were found on blood tests at presentation.",
+            "Normal kidney and liver function tests were found."
+          ],
+          "missing_key_evidence": [
+            "history of neck surgery or thyroidectomy",
+            "evidence ruling out other causes of hypoparathyroidism (e.g., autoimmune, genetic, infiltrative diseases, radiation)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "Since 3 months, he noticed a progressively hoarse voice when talking to his passengers or became even speechless for several seconds. During these episodes, he also experienced dyspnoea. Additionally, he reported problem of vomiting, particularly after swallowing cold water. Further questioning revealed progressive spasms of his hands, often during driving, of such severity that his hands were cramped around his steering wheel without the ability to loosen them.",
+          "category": "other",
+          "temporal_cue": "3 months before admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "history of prior neck surgery or thyroidectomy",
+          "current_trajectory_hypothesis": "Patient presents with symptoms and confirmed severe hypocalcemia, low PTH, raised phosphate, and low magnesium, consistent with hypoparathyroidism. Low vitamin D, prolonged QTc, and normal kidney/liver function are also noted. To support the 'idiopathic' nature of the diagnosis, it's important to rule out common secondary causes, such as prior neck surgery. The previous request for this information did not yield a direct answer.",
+          "confirmed_evidence": [
+            "Patient presented with speechlessness, hoarseness, dyspnoea, vomiting, hand spasms, and positive Chvostek's and Trousseau's signs.",
+            "Severe hypocalcemia (total calcium 1.03 mmol/L) was found on blood tests at presentation.",
+            "Low parathyroid hormone (PTH) level (0.7 pmol/L) was found.",
+            "Low 25-hydroxy(OH)-vitamin D3 concentrations (11 nmol) were found.",
+            "ECG showed a prolonged QTc interval of 501 ms.",
+            "Raised phosphate (2.21 mmol/L) and low magnesium (0.58 mmol/L) were found on blood tests at presentation.",
+            "Normal kidney and liver function tests were found."
+          ],
+          "missing_key_evidence": [
+            "history of neck surgery or thyroidectomy",
+            "evidence ruling out other causes of hypoparathyroidism (e.g., autoimmune, genetic, infiltrative diseases, radiation)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "No source record reports history of prior neck surgery or thyroidectomy.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "autoimmune markers for hypoparathyroidism (e.g., anti-calcium sensing receptor antibodies)",
+          "current_trajectory_hypothesis": "Patient presents with symptoms and confirmed severe hypocalcemia, low PTH, raised phosphate, and low magnesium, consistent with hypoparathyroidism. Low vitamin D, prolonged QTc, and normal kidney/liver function are also noted. To support the 'idiopathic' nature of the diagnosis, it's important to rule out common secondary causes, such as autoimmune conditions, as prior attempts to obtain surgical history were unsuccessful.",
+          "confirmed_evidence": [
+            "Patient presented with speechlessness, hoarseness, dyspnoea, vomiting, hand spasms, and positive Chvostek's and Trousseau's signs.",
+            "Severe hypocalcemia (total calcium 1.03 mmol/L) was found on blood tests at presentation.",
+            "Low parathyroid hormone (PTH) level (0.7 pmol/L) was found.",
+            "Low 25-hydroxy(OH)-vitamin D3 concentrations (11 nmol) were found.",
+            "ECG showed a prolonged QTc interval of 501 ms.",
+            "Raised phosphate (2.21 mmol/L) and low magnesium (0.58 mmol/L) were found on blood tests at presentation.",
+            "Normal kidney and liver function tests were found.",
+            "No developmental abnormality, no other relevant medical history, no family history, no history of substance abuse were reported in the initial presentation."
+          ],
+          "missing_key_evidence": [
+            "evidence ruling out other causes of hypoparathyroidism (e.g., autoimmune, genetic, infiltrative diseases, radiation)",
+            "clinical course and treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Order for autoimmune markers related to hypoparathyroidism placed; no direct source record documents the order result yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "autoimmune markers for hypoparathyroidism (e.g., anti-calcium sensing receptor antibodies) result",
+          "current_trajectory_hypothesis": "Patient presents with symptoms and confirmed severe hypocalcemia, low PTH, raised phosphate, and low magnesium, consistent with hypoparathyroidism. Low vitamin D, prolonged QTc, and normal kidney/liver function are also noted. To support the 'idiopathic' nature of the diagnosis, it's important to rule out common secondary causes, such as autoimmune conditions. I previously ordered these tests.",
+          "confirmed_evidence": [
+            "Patient presented with speechlessness, hoarseness, dyspnoea, vomiting, hand spasms, and positive Chvostek's and Trousseau's signs.",
+            "Severe hypocalcemia (total calcium 1.03 mmol/L) was found on blood tests at presentation.",
+            "Low parathyroid hormone (PTH) level (0.7 pmol/L) was found.",
+            "Low 25-hydroxy(OH)-vitamin D3 concentrations (11 nmol) were found.",
+            "ECG showed a prolonged QTc interval of 501 ms.",
+            "Raised phosphate (2.21 mmol/L) and low magnesium (0.58 mmol/L) were found on blood tests at presentation.",
+            "Normal kidney and liver function tests were found.",
+            "No developmental abnormality, no other relevant medical history, no family history, no history of substance abuse were reported in the initial presentation."
+          ],
+          "missing_key_evidence": [
+            "autoimmune markers result",
+            "evidence ruling out other causes of hypoparathyroidism (e.g., genetic, infiltrative diseases, radiation)",
+            "clinical course and treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "Further investigations of his hypoparathyroidism showed no mutations of the calcium-sensing receptor (CaSR) and no parathyroid antibodies.",
+          "category": "molecular_test",
+          "temporal_cue": "after admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presents with symptoms and confirmed severe hypocalcemia, low PTH, raised phosphate, and low magnesium, consistent with hypoparathyroidism. Low vitamin D, prolonged QTc, and normal kidney/liver function are also noted. Autoimmune and CaSR genetic causes have been ruled out. The next step is to understand the clinical course, treatment, and patient's response to further complete the trajectory for idiopathic primary hypoparathyroidism.",
+          "confirmed_evidence": [
+            "Patient presented with speechlessness, hoarseness, dyspnoea, vomiting, hand spasms, and positive Chvostek's and Trousseau's signs.",
+            "Severe hypocalcemia (total calcium 1.03 mmol/L) was found on blood tests at presentation.",
+            "Low parathyroid hormone (PTH) level (0.7 pmol/L) was found.",
+            "Low 25-hydroxy(OH)-vitamin D3 concentrations (11 nmol) were found.",
+            "ECG showed a prolonged QTc interval of 501 ms.",
+            "Raised phosphate (2.21 mmol/L) and low magnesium (0.58 mmol/L) were found on blood tests at presentation.",
+            "Normal kidney and liver function tests were found.",
+            "No developmental abnormality, no other relevant medical history, no family history, no history of substance abuse were reported in the initial presentation.",
+            "No mutations of the calcium-sensing receptor (CaSR) were found.",
+            "No parathyroid antibodies were found."
+          ],
+          "missing_key_evidence": [
+            "clinical course and treatment response",
+            "long-term outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "Immediate treatment with calcium gluconate and magnesium sulphate intravenously was given in the emergency department while monitoring the patient’s heart. Quickly after administration of calcium, his voice improved.\nWe admitted the patient to the acute care unit where he continued to receive calcium intravenously together with alphacalcidol (1 μg) since his blood test showed hypoparathyroidism and cholecalciferol orally to restore his vitamin D concentration. After 24 hours, he received 20 mmol calcium in total, which resulted in plasma calcium of 1.57 mmol/L (reference range: 2.20–2.65 mmol/L) and a normal QTc interval. He was transferred to the hospital ward where he continued to receive calcium (10 mmol/24 hours) intravenously and alphacalcidol (1 ug) orally. After 5 days, his plasma calcium normalised (2.15 mmol/L) together with normalisation of his creatine kinase level, and he was discharged.",
+          "category": "other",
+          "temporal_cue": "during hospitalisation",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "idiopathic primary hypoparathyroidism",
+          "trajectory_summary": "A 29-year-old man presented with 3 months of progressively worsening speechlessness, hoarseness, dyspnoea, vomiting after cold water, and hand spasms/cramps, along with positive Chvostek's and Trousseau's signs. Initial blood tests revealed severe hypocalcemia (1.03 mmol/L), raised phosphate (2.21 mmol/L), and low magnesium (0.58 mmol/L), with normal kidney and liver function. Subsequent tests showed low parathyroid hormone (0.7 pmol/L) and low 25-hydroxy(OH)-vitamin D3 (11 nmol). An ECG showed a prolonged QTc interval (501 ms). Further investigations ruled out mutations of the calcium-sensing receptor and parathyroid antibodies. No history of neck surgery or other relevant medical/family history was reported. The patient was treated with intravenous calcium gluconate and magnesium sulphate, followed by intravenous calcium and oral alphacalcidol and cholecalciferol. His symptoms improved, calcium levels normalized, and QTc interval normalized, leading to discharge after 5 days.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with symptoms suggestive of hypocalcemia, including speechlessness, hoarseness, dyspnoea, vomiting, hand spasms, and positive Chvostek's and Trousseau's signs.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Blood tests at presentation showed severe hypocalcemia (total calcium 1.03 mmol/L).",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Blood tests showed low parathyroid hormone (PTH) level (0.7 pmol/L), consistent with primary hypoparathyroidism.",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Blood tests showed raised phosphate (2.21 mmol/L) and low magnesium (0.58 mmol/L).",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Normal kidney and liver function tests were found, ruling out renal causes of electrolyte imbalance.",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Low 25-hydroxy(OH)-vitamin D3 concentrations (11 nmol) were found.",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "ECG showed a prolonged QTc interval of 501 ms, a known complication of severe hypocalcemia.",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Investigations showed no mutations of the calcium-sensing receptor (CaSR) and no parathyroid antibodies, ruling out specific genetic and autoimmune causes.",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "No developmental abnormality, no other relevant medical history, no family history, and no history of substance abuse were reported, supporting the 'idiopathic' nature.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Patient showed clinical improvement and normalization of calcium levels and QTc interval with calcium and vitamin D supplementation.",
+              "evidence_ids": [
+                "E006"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Secondary hypoparathyroidism due to neck surgery",
+              "basis": "No history of prior neck surgery or thyroidectomy was reported."
+            },
+            {
+              "alternative": "Autoimmune hypoparathyroidism",
+              "basis": "No parathyroid antibodies were found."
+            },
+            {
+              "alternative": "Genetic hypoparathyroidism (CaSR mutation)",
+              "basis": "No mutations of the calcium-sensing receptor were found."
+            },
+            {
+              "alternative": "Hypocalcemia due to renal failure",
+              "basis": "Normal kidney function tests were found."
+            }
+          ],
+          "remaining_uncertainties": [
+            "Specific details regarding the absence of other rare genetic causes of hypoparathyroidism beyond CaSR mutations were not explicitly documented.",
+            "The exact cause of the low magnesium was not further investigated or documented."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "idiopathic primary hypoparathyroidism",
+      "trajectory_summary": "A 29-year-old man presented with 3 months of progressively worsening speechlessness, hoarseness, dyspnoea, vomiting after cold water, and hand spasms/cramps, along with positive Chvostek's and Trousseau's signs. Initial blood tests revealed severe hypocalcemia (1.03 mmol/L), raised phosphate (2.21 mmol/L), and low magnesium (0.58 mmol/L), with normal kidney and liver function. Subsequent tests showed low parathyroid hormone (0.7 pmol/L) and low 25-hydroxy(OH)-vitamin D3 (11 nmol). An ECG showed a prolonged QTc interval (501 ms). Further investigations ruled out mutations of the calcium-sensing receptor and parathyroid antibodies. No history of neck surgery or other relevant medical/family history was reported. The patient was treated with intravenous calcium gluconate and magnesium sulphate, followed by intravenous calcium and oral alphacalcidol and cholecalciferol. His symptoms improved, calcium levels normalized, and QTc interval normalized, leading to discharge after 5 days.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with symptoms suggestive of hypocalcemia, including speechlessness, hoarseness, dyspnoea, vomiting, hand spasms, and positive Chvostek's and Trousseau's signs.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Blood tests at presentation showed severe hypocalcemia (total calcium 1.03 mmol/L).",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Blood tests showed low parathyroid hormone (PTH) level (0.7 pmol/L), consistent with primary hypoparathyroidism.",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Blood tests showed raised phosphate (2.21 mmol/L) and low magnesium (0.58 mmol/L).",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Normal kidney and liver function tests were found, ruling out renal causes of electrolyte imbalance.",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Low 25-hydroxy(OH)-vitamin D3 concentrations (11 nmol) were found.",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "ECG showed a prolonged QTc interval of 501 ms, a known complication of severe hypocalcemia.",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Investigations showed no mutations of the calcium-sensing receptor (CaSR) and no parathyroid antibodies, ruling out specific genetic and autoimmune causes.",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "No developmental abnormality, no other relevant medical history, no family history, and no history of substance abuse were reported, supporting the 'idiopathic' nature.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Patient showed clinical improvement and normalization of calcium levels and QTc interval with calcium and vitamin D supplementation.",
+          "evidence_ids": [
+            "E006"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Secondary hypoparathyroidism due to neck surgery",
+          "basis": "No history of prior neck surgery or thyroidectomy was reported."
+        },
+        {
+          "alternative": "Autoimmune hypoparathyroidism",
+          "basis": "No parathyroid antibodies were found."
+        },
+        {
+          "alternative": "Genetic hypoparathyroidism (CaSR mutation)",
+          "basis": "No mutations of the calcium-sensing receptor were found."
+        },
+        {
+          "alternative": "Hypocalcemia due to renal failure",
+          "basis": "Normal kidney function tests were found."
+        }
+      ],
+      "remaining_uncertainties": [
+        "Specific details regarding the absence of other rare genetic causes of hypoparathyroidism beyond CaSR mutations were not explicitly documented.",
+        "The exact cause of the low magnesium was not further investigated or documented."
+      ],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T20:52:35.176812+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC7737021",
+    "known_final_diagnosis": "idiopathic primary hypoparathyroidism",
+    "turns_used": 12,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 10,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 5,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "ASK_HISTORY": 2,
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 4,
+      "REQUEST_RESULT": 4,
+      "WAIT_REASSESS": 1
+    },
+    "report_status_counts": {
+      "already_disclosed": 1,
+      "found": 5,
+      "not_reported": 1,
+      "ordered_but_not_documented": 4
+    },
+    "report_repair_attempted_count": 2,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {
+      "verbatim_excerpt is not a contiguous source subspan.": 2
+    },
+    "answer_yield": 0.5454545454545454,
+    "unavailable_turn_rate": 0.45454545454545453,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T20:52:35.179155+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC7737021",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/emergencymed/episodes/PMC7737021.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/emergencymed/cases/PMC7737021.json",
+    "num_gold_steps": "4",
+    "num_pred_steps": "2",
+    "weighted_tversky_alignment": "0.2857142857142857",
+    "weighted_tversky_distance": "0.7142857142857143",
+    "matched_weight": "1.0",
+    "missed_weight": "1.5",
+    "extra_weight": "0.5",
+    "weighted_lcs_recall": "0.4",
+    "weighted_lcs_weight": "1.0",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "other_or_off_protocol > physical_examination > lab_tests > admission_or_clinical_course",
+    "prediction_sequence": "lab_tests > clinical_history",
+    "error": ""
+  }
+}

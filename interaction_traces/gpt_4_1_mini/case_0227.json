@@ -1,0 +1,508 @@
+{
+  "case_id": "case_0227",
+  "pmcid": "PMC10469472",
+  "model": "gpt_4_1_mini",
+  "episode": {
+    "case_id": "PMC10469472",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 12,
+    "termination": "final",
+    "known_final_diagnosis": "The history of widespread disease and the characteristics of the lesion were compatible with choroidal OS metastasis.",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E003",
+      "E004",
+      "E005",
+      "E006"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "detailed fundus examination findings of the right eye including size, shape, and characteristics of the subretinal mass and presence of retinal detachment or hemorrhage",
+          "current_trajectory_hypothesis": "initial presentation with decreased vision and fundus exam showing a large, pink, nodular, subretinal mass suggests metastasis to choroid from known osteosarcoma with widespread disease",
+          "confirmed_evidence": [
+            "decreased vision OD with large posterior pole pink nodular subretinal mass and associated fluid",
+            "history of osteosarcoma with metastases to brain and lung"
+          ],
+          "missing_key_evidence": [
+            "details of the choroidal lesion appearance",
+            "documentation of retinal detachment or hemorrhage",
+            "imaging or biopsy to confirm diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "fundus examination detailed report describing size, shape, pigmentation, border definition, any retinal detachment, subretinal hemorrhage, and associated fluid of the right eye lesion",
+          "current_trajectory_hypothesis": "the pink nodular subretinal mass at posterior pole with fluid in a patient with osteosarcoma and known metastases is consistent with choroidal metastasis, but detailed lesion characteristics and associated retinal findings will further support diagnosis",
+          "confirmed_evidence": [
+            "decreased vision in right eye with a large posterior pole pink nodular subretinal mass",
+            "history of right tibial osteosarcoma and metastatic disease to brain and lung"
+          ],
+          "missing_key_evidence": [
+            "fundus findings in detail including lesion size, shape, pigmentation, borders, retinal detachment, hemorrhage",
+            "imaging (such as ocular ultrasound or OCT) and biopsy results if any"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "the posterior segment of OD had a large, posterior pole, pink, nodular, subretinal mass, with associated fluid",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "ocular ultrasound of the right eye to evaluate lesion internal reflectivity, dimensions, and presence of retinal detachment",
+          "current_trajectory_hypothesis": "A large pink nodular choroidal subretinal mass with associated fluid in a patient with metastatic osteosarcoma suggests choroidal metastasis, ocular ultrasound will provide key imaging evidence supporting lesion characterization and secondary retinal effects",
+          "confirmed_evidence": [
+            "large posterior pole pink nodular subretinal mass with associated fluid in right eye",
+            "history of osteosarcoma with brain and lung metastases"
+          ],
+          "missing_key_evidence": [
+            "ocular ultrasound findings for lesion characterization",
+            "histopathological or molecular confirmation of metastasis",
+            "course or treatment response if any"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order for ocular ultrasound placed; result not yet reported",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "ocular ultrasound report including lesion size, shape, internal reflectivity, and retinal detachment status",
+          "current_trajectory_hypothesis": "ocular ultrasound findings will provide detailed characterization of the choroidal mass, supporting the diagnosis of metastatic osteosarcoma to the choroid",
+          "confirmed_evidence": [
+            "large posterior pole pink nodular subretinal mass with associated fluid in right eye",
+            "history of osteosarcoma with brain and lung metastases"
+          ],
+          "missing_key_evidence": [
+            "ocular ultrasound findings for lesion characterization",
+            "histopathological or molecular confirmation of metastasis",
+            "clinical course, treatment, or follow-up"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "An A and B-scan ultrasonography confirmed that the mass was subretinal, heterogeneous, with medium/high reflectivity, areas of localized increased and decreased (probably necrosis-related air) reflectivity, and a height-to-base ratio (HBR) of 1-1.2, approximately (Figure 1B).",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "histopathological examination of the choroidal lesion via fine needle aspiration biopsy to confirm metastatic osteosarcoma",
+          "current_trajectory_hypothesis": "clinical presentation and imaging suggest choroidal metastasis from osteosarcoma, but histopathology is needed for confirmation",
+          "confirmed_evidence": [
+            "large posterior pole pink nodular subretinal mass with associated fluid in right eye (E001)",
+            "ocular ultrasound shows heterogeneous subretinal mass with medium/high reflectivity and necrosis-related air reflectivity, typical of metastasis (E002)",
+            "history of right tibial osteosarcoma with brain and lung metastases"
+          ],
+          "missing_key_evidence": [
+            "histopathological confirmation of metastatic osteosarcoma in choroid",
+            "documentation of clinical course or treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order placed for histopathological examination; no documented source result found",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "suspected choroidal metastasis from osteosarcoma based on clinical presentation and imaging; confirmation awaited from histopathology or additional clinical course data",
+          "confirmed_evidence": [
+            "right eye decreased vision with large pink nodular subretinal mass with associated fluid (E001)",
+            "ocular ultrasound shows heterogeneous subretinal mass with medium/high reflectivity and necrosis-related air reflectivity (E002)",
+            "history of right tibial osteosarcoma with brain and lung metastases"
+          ],
+          "missing_key_evidence": [
+            "histopathological confirmation of metastatic osteosarcoma in choroid",
+            "clinical course, treatment, or follow-up documentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "A subsequent computerized tomography (CT) revealed a heterogeneous, well-defined mass within the uveal layer, hyperdense, with areas of decreased density, significant intraocular involvement, and contrast-enhancement (Figure 1C and D).",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "CT scan report details of the right eye mass including size, margins, contrast enhancement pattern, and intraocular structures involved",
+          "current_trajectory_hypothesis": "CT findings of a well-defined heterogeneous hyperdense choroidal mass with contrast enhancement and intraocular involvement support metastatic choroidal osteosarcoma lesion in a patient with known systemic osteosarcoma metastases",
+          "confirmed_evidence": [
+            "large pink nodular subretinal mass with associated fluid on fundus exam (E001)",
+            "ocular ultrasound showing heterogeneous subretinal mass with medium/high reflectivity and necrosis-related air reflectivity (E002)",
+            "history of right tibial osteosarcoma with brain and lung metastases",
+            "CT demonstrating heterogeneous well-defined hyperdense uveal mass with contrast enhancement and intraocular involvement (E003)"
+          ],
+          "missing_key_evidence": [
+            "histopathological confirmation of metastatic osteosarcoma in choroid",
+            "clinical course, treatment, or follow-up documentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E003",
+          "source_text": "A subsequent computerized tomography (CT) revealed a heterogeneous, well-defined mass within the uveal layer, hyperdense, with areas of decreased density, significant intraocular involvement, and contrast-enhancement (Figure 1C and D).",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "clinical and multimodal imaging evidence strongly supports choroidal metastasis from osteosarcoma; histopathology and clinical course data are still pending",
+          "confirmed_evidence": [
+            "decreased vision and fundus exam showing a large posterior pole pink nodular subretinal mass with associated fluid (E001)",
+            "ocular ultrasound showing heterogeneous subretinal mass with medium/high reflectivity and necrosis-related air reflectivity (E002)",
+            "CT showing heterogeneous well-defined hyperdense uveal mass with contrast enhancement and intraocular involvement (E003)",
+            "history of right tibial osteosarcoma with brain and lung metastases"
+          ],
+          "missing_key_evidence": [
+            "histopathological confirmation of metastatic osteosarcoma in choroid",
+            "clinical course, treatment, or follow-up documentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "In addition, magnetic resonance imaging (MRI) showed a well-defined, irregular choroidal mass, T1-isointense (Figure 1E) and T2-hypointense.",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "MRI report details including enhancement pattern, involvement of adjacent ocular structures, and diffusion characteristics of the choroidal mass",
+          "current_trajectory_hypothesis": "MRI findings of a well-defined, irregular choroidal mass that is T1-isointense and T2-hypointense are consistent with a metastatic tumor; detailed MRI characterization may further support diagnosis of choroidal osteosarcoma metastasis",
+          "confirmed_evidence": [
+            "decreased vision with large posterior pole pink nodular subretinal mass and associated fluid (E001)",
+            "ocular ultrasound showing heterogeneous subretinal mass with medium/high reflectivity and necrosis-related air reflectivity (E002)",
+            "CT showing heterogeneous well-defined hyperdense uveal mass with contrast enhancement and intraocular involvement (E003)",
+            "MRI showing well-defined irregular choroidal mass T1-isointense and T2-hypointense (E004)",
+            "history of right tibial osteosarcoma with brain and lung metastases"
+          ],
+          "missing_key_evidence": [
+            "MRI enhancement and diffusion characteristics for further lesion characterization",
+            "histopathological confirmation of metastatic osteosarcoma in choroid",
+            "clinical course, treatment, or follow-up documentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E004",
+          "source_text": "magnetic resonance imaging (MRI) showed a well-defined, irregular choroidal mass, T1-isointense (Figure 1E) and T2-hypointense.",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Clinical presentation and multimodal imaging (fundus exam, ocular ultrasound, CT, MRI) strongly support choroidal metastasis from osteosarcoma; histopathological confirmation and clinical course details are awaited to finalize diagnosis support.",
+          "confirmed_evidence": [
+            "Large posterior pole pink nodular subretinal mass with associated fluid on fundus exam (E001)",
+            "Ocular ultrasound showing heterogeneous subretinal mass with medium/high reflectivity and necrosis-related air reflectivity (E002)",
+            "CT scan showing heterogeneous well-defined hyperdense uveal mass with contrast enhancement and intraocular involvement (E003)",
+            "MRI showing a well-defined, irregular choroidal mass, T1-isointense and T2-hypointense (E004)",
+            "Known history of right tibial osteosarcoma with brain and lung metastases"
+          ],
+          "missing_key_evidence": [
+            "Histopathological confirmation of metastatic osteosarcoma in choroidal lesion",
+            "Details of clinical course, treatments administered, and follow-up outcomes"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "At a one-month follow up assessment, OD was painful, had a fully detached retina, anterior segment neovascularization, and an intraocular pressure of 38 mmHg (Figure 1F). The patient only agreed to topical cycloplegic treatment, with mild symptom improvement.",
+          "category": "image_finding",
+          "temporal_cue": "one-month follow up",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "additional clinical course updates including any biopsy or histopathological confirmation of the choroidal lesion and treatment responses or management decisions after the one-month follow-up",
+          "current_trajectory_hypothesis": "The clinical, multimodal imaging, and disease history strongly support choroidal metastasis from osteosarcoma. The one-month follow-up shows clinical progression with complications, but pathologic confirmation of metastasis and detailed management information are still missing.",
+          "confirmed_evidence": [
+            "Large posterior pole pink nodular subretinal mass with associated fluid on fundus exam (E001)",
+            "Ocular ultrasound showing heterogeneous subretinal mass with medium/high reflectivity and necrosis-related air reflectivity (E002)",
+            "CT scan showing heterogeneous well-defined hyperdense uveal mass with contrast enhancement and intraocular involvement (E003)",
+            "MRI showing a well-defined, irregular choroidal mass, T1-isointense and T2-hypointense (E004)",
+            "Patient with known osteosarcoma and metastatic disease to brain and lung",
+            "One-month follow-up showing painful right eye, fully detached retina, anterior segment neovascularization, and elevated intraocular pressure treated with topical cycloplegics with mild improvement (E005)"
+          ],
+          "missing_key_evidence": [
+            "histopathological confirmation of metastatic osteosarcoma in choroidal lesion",
+            "detailed treatment course and response following clinical progression"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "During follow up, the ocular lesion responded to the systemic treatment and decreased in volume, according to CT and MRI scans.",
+          "category": "imaging_report",
+          "temporal_cue": "during follow up",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "choroidal osteosarcoma metastasis",
+          "trajectory_summary": "A 20-year-old man with a history of right tibial osteosarcoma with brain and lung metastases presented with decreased vision in the right eye. Examination revealed a large pink, nodular, subretinal mass with associated fluid. Ocular ultrasound showed a heterogeneous subretinal mass with medium/high reflectivity and probable necrosis-related air reflectivity. CT scan revealed a heterogeneous well-defined hyperdense uveal mass with contrast enhancement and significant intraocular involvement. MRI showed a well-defined, irregular choroidal mass that was T1-isointense and T2-hypointense. At one-month follow-up, clinical progression included painful eye, retinal detachment, neovascularization, and elevated intraocular pressure treated with topical cycloplegics. Systemic treatment led to a decrease in lesion volume on CT and MRI. The clinical and multimodal imaging findings, along with the systemic osteosarcoma history and tumor response to systemic therapy, support the diagnosis of choroidal metastasis from osteosarcoma.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Large posterior pole pink nodular subretinal mass with associated fluid on fundus examination",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Ocular ultrasound confirmed heterogeneous subretinal mass with medium/high reflectivity and areas suggesting necrosis",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "CT demonstrated heterogeneous well-defined hyperdense uveal mass with contrast enhancement and intraocular involvement",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "MRI showed a well-defined, irregular choroidal mass that was T1-isointense and T2-hypointense",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "One-month clinical progression with painful eye, retinal detachment, neovascularization, and elevated intraocular pressure treated topically",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "Lesion volume decreased during systemic treatment as documented by CT and MRI scans",
+              "evidence_ids": [
+                "E006"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [],
+          "remaining_uncertainties": [
+            "No histopathological confirmation of metastatic osteosarcoma in the choroidal lesion documented",
+            "Detailed treatment regimens and long term outcomes not reported"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "choroidal osteosarcoma metastasis",
+      "trajectory_summary": "A 20-year-old man with a history of right tibial osteosarcoma with brain and lung metastases presented with decreased vision in the right eye. Examination revealed a large pink, nodular, subretinal mass with associated fluid. Ocular ultrasound showed a heterogeneous subretinal mass with medium/high reflectivity and probable necrosis-related air reflectivity. CT scan revealed a heterogeneous well-defined hyperdense uveal mass with contrast enhancement and significant intraocular involvement. MRI showed a well-defined, irregular choroidal mass that was T1-isointense and T2-hypointense. At one-month follow-up, clinical progression included painful eye, retinal detachment, neovascularization, and elevated intraocular pressure treated with topical cycloplegics. Systemic treatment led to a decrease in lesion volume on CT and MRI. The clinical and multimodal imaging findings, along with the systemic osteosarcoma history and tumor response to systemic therapy, support the diagnosis of choroidal metastasis from osteosarcoma.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Large posterior pole pink nodular subretinal mass with associated fluid on fundus examination",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Ocular ultrasound confirmed heterogeneous subretinal mass with medium/high reflectivity and areas suggesting necrosis",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "CT demonstrated heterogeneous well-defined hyperdense uveal mass with contrast enhancement and intraocular involvement",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "MRI showed a well-defined, irregular choroidal mass that was T1-isointense and T2-hypointense",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "One-month clinical progression with painful eye, retinal detachment, neovascularization, and elevated intraocular pressure treated topically",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "Lesion volume decreased during systemic treatment as documented by CT and MRI scans",
+          "evidence_ids": [
+            "E006"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [],
+      "remaining_uncertainties": [
+        "No histopathological confirmation of metastatic osteosarcoma in the choroidal lesion documented",
+        "Detailed treatment regimens and long term outcomes not reported"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.8
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-24T00:33:38.954339+00:00",
+    "clinician_model": "gpt-4.1-mini-test",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10469472",
+    "known_final_diagnosis": "The history of widespread disease and the characteristics of the lesion were compatible with choroidal OS metastasis.",
+    "turns_used": 12,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 6,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 6,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 2,
+      "REQUEST_EXAM": 1,
+      "REQUEST_RESULT": 5,
+      "WAIT_REASSESS": 3
+    },
+    "report_status_counts": {
+      "already_disclosed": 2,
+      "found": 6,
+      "invalid_report_selection": 1,
+      "ordered_but_not_documented": 2
+    },
+    "answer_yield": 0.7272727272727273,
+    "unavailable_turn_rate": 0.18181818181818182,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-24T00:33:38.955822+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10469472",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "1",
+    "num_pred_steps": "5",
+    "weighted_tversky_alignment": "0.1875",
+    "weighted_tversky_distance": "0.8125",
+    "matched_weight": "1.5",
+    "missed_weight": "0.0",
+    "extra_weight": "3.25",
+    "weighted_lcs_recall": "1.0",
+    "weighted_lcs_weight": "1.5",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging",
+    "prediction_sequence": "physical_examination > lab_tests > imaging > procedure_or_intervention > admission_or_clinical_course",
+    "error": ""
+  }
+}

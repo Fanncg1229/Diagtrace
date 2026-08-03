@@ -1,0 +1,716 @@
+{
+  "case_id": "case_0391",
+  "pmcid": "PMC10130694",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC10130694",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 15,
+    "termination": "final",
+    "known_final_diagnosis": "Primary synovial sarcoma of lung",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E003",
+      "E004",
+      "E005"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Chest radiography report findings",
+          "current_trajectory_hypothesis": "Patient presented with respiratory symptoms and a lung mass was identified on chest radiography. The nature of this mass needs to be further characterized.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Detailed characteristics of the lung mass",
+            "Further imaging findings",
+            "Biopsy results for definitive diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "Computed tomography of thorax showed few well defined heterogeneously enhancing masses nearly occupying whole of bilateral hemithorax. The masses were showing heterogeneously enhancing soft tissue component with intermixed areas of necrosis. No evidence of calcification were seen within the masses. The masses were displacing the heart and great vessels anteriorly with stretching of left pulmonary vein. Right pulmonary vein was not visualized. Trachea was displaced towards right side with severe compression over esophagus. The largest mass on the right side was measuring ∼ 110 × 100 × 170 mm predominantly involving the right middle and lower lobes with partial collapse of right upper lobe. The mass was indenting on the right hemi diaphragm, displacing the liver inferiorly. A similar mass measuring ∼ 44 × 40 × 35 mm was seen in apical segment of right upper lobe. The largest mass on the left measures 110 × 90 × 140 mm and was predominantly involving anteromedial and lateral segment of left lower lobe. Two similar other masses were seen measuring ∼ 65 × 53 × 45 mm (in the left upper lobe) and 30 × 31 × 32 mm (in the lateral basal segment of left lower lobe). Pleural effusion or mediastinal lymphadenopathy were not evident.",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "Biopsy of the lung mass for histopathological examination",
+          "current_trajectory_hypothesis": "Patient presented with respiratory symptoms and multiple large, heterogeneously enhancing lung masses were identified on CT thorax. A biopsy is needed to determine the histopathological nature of these masses.",
+          "confirmed_evidence": [
+            "Patient presented with dry cough, chest tightness, and difficulty breathing.",
+            "CT thorax revealed multiple large, heterogeneously enhancing masses in both hemithoraces with areas of necrosis, displacing surrounding structures, and no calcification, pleural effusion, or mediastinal lymphadenopathy."
+          ],
+          "missing_key_evidence": [
+            "Histopathological diagnosis of the lung masses",
+            "Immunohistochemistry or molecular findings for specific diagnosis",
+            "Treatment and clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "Procedure order acknowledged without direct source result.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Histopathological examination report of the lung mass biopsy",
+          "current_trajectory_hypothesis": "Patient presented with respiratory symptoms and multiple large lung masses on CT. A biopsy was ordered to determine the nature of these masses. The histopathological report is crucial for diagnosis.",
+          "confirmed_evidence": [
+            "Patient presented with dry cough, chest tightness, and difficulty breathing.",
+            "CT thorax revealed multiple large, heterogeneously enhancing masses in both hemithoraces with areas of necrosis, displacing surrounding structures, and no calcification, pleural effusion, or mediastinal lymphadenopathy.",
+            "A biopsy of the lung mass was ordered."
+          ],
+          "missing_key_evidence": [
+            "Histopathological diagnosis of the lung masses",
+            "Immunohistochemistry or molecular findings for specific diagnosis",
+            "Treatment and clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "Microscopically, tumor showed sheets and fascicles of fairly uniform spindle shaped cells. These cell had vesicular plump to ovoid nuclei with dispersed chromatin, inconspicuous nucleoli and moderate amount of pale cytoplasm set in delicate edematous stroma. Few mitoses were also evident. On Immunohistochemistry TLE-1, CD56, CD99 and Bcl2 were positive. Pan CK, NKX-2.2 and EMA were negative. Ki-67 proliferation index was 10 %",
+          "category": "pathology_report",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Molecular testing for SYT-SSX translocation on the biopsy specimen",
+          "current_trajectory_hypothesis": "Patient presented with respiratory symptoms and multiple lung masses. Histopathology and immunohistochemistry are highly suggestive of synovial sarcoma. Molecular testing for SYT-SSX translocation is needed for definitive confirmation.",
+          "confirmed_evidence": [
+            "Patient presented with dry cough, chest tightness, and difficulty breathing.",
+            "CT thorax revealed multiple large, heterogeneously enhancing masses in both hemithoraces with areas of necrosis, displacing surrounding structures, and no calcification, pleural effusion, or mediastinal lymphadenopathy.",
+            "Biopsy showed sheets and fascicles of spindle-shaped cells with vesicular nuclei, dispersed chromatin, inconspicuous nucleoli, and moderate pale cytoplasm, with few mitoses.",
+            "Immunohistochemistry was positive for TLE-1, CD56, CD99, and Bcl2, and negative for Pan CK, NKX-2.2, and EMA, with a Ki-67 proliferation index of 10%."
+          ],
+          "missing_key_evidence": [
+            "Molecular confirmation of SYT-SSX translocation",
+            "Treatment and clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Order recorded but no source result yet",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Molecular testing report for SYT-SSX translocation",
+          "current_trajectory_hypothesis": "Patient presented with respiratory symptoms and multiple lung masses. Histopathology and immunohistochemistry are highly suggestive of synovial sarcoma. Molecular testing for SYT-SSX translocation was ordered for definitive confirmation.",
+          "confirmed_evidence": [
+            "Patient presented with dry cough, chest tightness, and difficulty breathing.",
+            "CT thorax revealed multiple large, heterogeneously enhancing masses in both hemithoraces with areas of necrosis, displacing surrounding structures, and no calcification, pleural effusion, or mediastinal lymphadenopathy.",
+            "Biopsy showed sheets and fascicles of spindle-shaped cells with vesicular nuclei, dispersed chromatin, inconspicuous nucleoli, and moderate pale cytoplasm, with few mitoses.",
+            "Immunohistochemistry was positive for TLE-1, CD56, CD99, and Bcl2, and negative for Pan CK, NKX-2.2, and EMA, with a Ki-67 proliferation index of 10%.",
+            "Molecular testing for SYT-SSX translocation was ordered."
+          ],
+          "missing_key_evidence": [
+            "Molecular confirmation of SYT-SSX translocation",
+            "Treatment and clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "No source record contains molecular testing report for SYT-SSX translocation.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with respiratory symptoms and multiple lung masses. Histopathology and immunohistochemistry are highly suggestive of synovial sarcoma, but molecular confirmation for SYT-SSX translocation was not documented. I need to understand the subsequent clinical course and treatment to further reconstruct the trajectory.",
+          "confirmed_evidence": [
+            "Patient presented with dry cough, chest tightness, and difficulty breathing.",
+            "CT thorax revealed multiple large, heterogeneously enhancing masses in both hemithoraces with areas of necrosis, displacing surrounding structures, and no calcification, pleural effusion, or mediastinal lymphadenopathy (E001).",
+            "Biopsy showed sheets and fascicles of spindle-shaped cells with vesicular nuclei, dispersed chromatin, inconspicuous nucleoli, and moderate pale cytoplasm, with few mitoses (E002).",
+            "Immunohistochemistry was positive for TLE-1, CD56, CD99, and Bcl2, and negative for Pan CK, NKX-2.2, and EMA, with a Ki-67 proliferation index of 10% (E002)."
+          ],
+          "missing_key_evidence": [
+            "Molecular confirmation of SYT-SSX translocation (not reported)",
+            "Details of treatment initiated",
+            "Patient's response to treatment or clinical outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "Microscopically, tumor showed sheets and fascicles of fairly uniform spindle shaped cells with dispersed chromatin, inconspicuous nucleoli and moderate amount of pale cytoplasm. No necrosis were seen. On Immunohistochemistry TLE-1, and Bcl2 were positive. EMA was negative. Ki-67 proliferation index was 12 %",
+          "category": "pathology_report",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with respiratory symptoms and multiple lung masses. Histopathology and immunohistochemistry are highly suggestive of synovial sarcoma, but molecular confirmation for SYT-SSX translocation was not documented. I need to understand the subsequent clinical course, treatment, or any further definitive diagnostic steps taken.",
+          "confirmed_evidence": [
+            "Patient presented with dry cough, chest tightness, and difficulty breathing.",
+            "CT thorax revealed multiple large, heterogeneously enhancing masses in both hemithoraces with areas of necrosis, displacing surrounding structures, and no calcification, pleural effusion, or mediastinal lymphadenopathy (E001).",
+            "Biopsy showed sheets and fascicles of spindle-shaped cells with vesicular nuclei, dispersed chromatin, inconspicuous nucleoli, and moderate pale cytoplasm, with few mitoses (E002).",
+            "Immunohistochemistry was positive for TLE-1, CD56, CD99, and Bcl2, and negative for Pan CK, NKX-2.2, and EMA, with a Ki-67 proliferation index of 10% (E002).",
+            "A subsequent pathology report also noted sheets and fascicles of spindle-shaped cells, no necrosis, positive TLE-1 and Bcl2, negative EMA, and a Ki-67 of 12% (E005)."
+          ],
+          "missing_key_evidence": [
+            "Molecular confirmation of SYT-SSX translocation (not reported)",
+            "Details of treatment initiated",
+            "Patient's response to treatment or clinical outcome",
+            "Final diagnostic confirmation if molecular testing was not performed or reported."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "No pending orders and no new clinical trajectory updates to disclose at or after the current phase.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with respiratory symptoms and multiple lung masses. Histopathology and immunohistochemistry are highly suggestive of synovial sarcoma. Molecular confirmation for SYT-SSX translocation was not documented. I need to understand the subsequent clinical course, treatment, or any further definitive diagnostic steps taken to complete the trajectory.",
+          "confirmed_evidence": [
+            "Patient presented with dry cough, chest tightness, and difficulty breathing.",
+            "CT thorax revealed multiple large, heterogeneously enhancing masses in both hemithoraces with areas of necrosis, displacing surrounding structures, and no calcification, pleural effusion, or mediastinal lymphadenopathy (E001).",
+            "Biopsy showed sheets and fascicles of spindle-shaped cells with vesicular nuclei, dispersed chromatin, inconspicuous nucleoli, and moderate pale cytoplasm, with few mitoses (E002).",
+            "Immunohistochemistry was positive for TLE-1, CD56, CD99, and Bcl2, and negative for Pan CK, NKX-2.2, and EMA, with a Ki-67 proliferation index of 10% (E002).",
+            "A subsequent pathology report also noted sheets and fascicles of spindle-shaped cells, no necrosis, positive TLE-1 and Bcl2, negative EMA, and a Ki-67 of 12% (E005)."
+          ],
+          "missing_key_evidence": [
+            "Molecular confirmation of SYT-SSX translocation (not reported)",
+            "Details of treatment initiated",
+            "Patient's response to treatment or clinical outcome",
+            "Final diagnostic confirmation if molecular testing was not performed or reported."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "Contrast enhanced computed tomography showed an enhancing mass measuring ∼51 × 52 × 25mm in middle lobe of right lung with cut off of bronchus and surrounding ground glass opacity. It was abutting adjacent costal pleura with no evidence of bony erosion.",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with respiratory symptoms and multiple lung masses. Histopathology and immunohistochemistry are highly suggestive of synovial sarcoma. Molecular confirmation for SYT-SSX translocation was not documented. I need to understand the subsequent clinical course and treatment to confirm the diagnosis was acted upon.",
+          "confirmed_evidence": [
+            "Patient presented with dry cough, chest tightness, and difficulty breathing.",
+            "CT thorax revealed multiple large, heterogeneously enhancing masses in both hemithoraces with areas of necrosis, displacing surrounding structures, and no calcification, pleural effusion, or mediastinal lymphadenopathy (E001).",
+            "Biopsy showed sheets and fascicles of spindle-shaped cells with vesicular nuclei, dispersed chromatin, inconspicuous nucleoli, and moderate pale cytoplasm, with few mitoses (E002).",
+            "Immunohistochemistry was positive for TLE-1, CD56, CD99, and Bcl2, and negative for Pan CK, NKX-2.2, and EMA, with a Ki-67 proliferation index of 10% (E002).",
+            "A subsequent pathology report also noted sheets and fascicles of spindle-shaped cells, no necrosis, positive TLE-1 and Bcl2, negative EMA, and a Ki-67 of 12% (E005).",
+            "Another CT report described an enhancing mass in the middle lobe of the right lung (E003)."
+          ],
+          "missing_key_evidence": [
+            "Molecular confirmation of SYT-SSX translocation (not reported)",
+            "Details of treatment initiated",
+            "Patient's response to treatment or clinical outcome",
+            "Reconciliation of the two CT reports (E001 and E003) if they describe different findings or are from different time points."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan.",
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with respiratory symptoms and multiple lung masses. Histopathology and immunohistochemistry are highly suggestive of synovial sarcoma. Molecular confirmation for SYT-SSX translocation was not documented. I need to understand the subsequent clinical course, treatment, or any further definitive diagnostic steps taken to complete the trajectory.",
+          "confirmed_evidence": [
+            "Patient presented with dry cough, chest tightness, and difficulty breathing.",
+            "CT thorax revealed multiple large, heterogeneously enhancing masses in both hemithoraces with areas of necrosis, displacing surrounding structures, and no calcification, pleural effusion, or mediastinal lymphadenopathy (E001).",
+            "Biopsy showed sheets and fascicles of spindle-shaped cells with vesicular nuclei, dispersed chromatin, inconspicuous nucleoli, and moderate pale cytoplasm, with few mitoses (E002).",
+            "Immunohistochemistry was positive for TLE-1, CD56, CD99, and Bcl2, and negative for Pan CK, NKX-2.2, and EMA, with a Ki-67 proliferation index of 10% (E002).",
+            "A subsequent pathology report also noted sheets and fascicles of spindle-shaped cells, no necrosis, positive TLE-1 and Bcl2, negative EMA, and a Ki-67 of 12% (E005).",
+            "Another CT report described an enhancing mass in the middle lobe of the right lung (E003)."
+          ],
+          "missing_key_evidence": [
+            "Molecular confirmation of SYT-SSX translocation (not reported)",
+            "Details of treatment initiated",
+            "Patient's response to treatment or clinical outcome",
+            "Reconciliation of the two CT reports (E001 and E003) if they describe different findings or are from different time points."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "PET-CT showed heterogeneously increased FDG uptake [SUV max 8.09] in the mass measuring ∼ 39 × 36 × 20 mm.",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with respiratory symptoms and multiple lung masses. Initial CT (E001) showed multiple large masses. Histopathology and immunohistochemistry (E002, E005) were highly suggestive of synovial sarcoma. Further imaging (E003, E004) provided more details on specific masses. Molecular confirmation for SYT-SSX translocation was not documented. I need to understand the subsequent clinical course, treatment, and outcome to complete the trajectory.",
+          "confirmed_evidence": [
+            "Patient presented with dry cough, chest tightness, and difficulty breathing.",
+            "CT thorax revealed multiple large, heterogeneously enhancing masses in both hemithoraces with areas of necrosis, displacing surrounding structures, and no calcification, pleural effusion, or mediastinal lymphadenopathy (E001).",
+            "Biopsy showed sheets and fascicles of spindle-shaped cells with vesicular nuclei, dispersed chromatin, inconspicuous nucleoli, and moderate pale cytoplasm, with few mitoses (E002).",
+            "Immunohistochemistry was positive for TLE-1, CD56, CD99, and Bcl2, and negative for Pan CK, NKX-2.2, and EMA, with a Ki-67 proliferation index of 10% (E002).",
+            "A subsequent pathology report also noted sheets and fascicles of spindle-shaped cells, no necrosis, positive TLE-1 and Bcl2, negative EMA, and a Ki-67 of 12% (E005).",
+            "Another CT report described an enhancing mass in the middle lobe of the right lung (E003).",
+            "PET-CT showed heterogeneously increased FDG uptake in a mass measuring ~39 × 36 × 20 mm (SUV max 8.09) (E004)."
+          ],
+          "missing_key_evidence": [
+            "Molecular confirmation of SYT-SSX translocation (not reported)",
+            "Details of treatment initiated",
+            "Patient's response to treatment or clinical outcome",
+            "Reconciliation of the different imaging reports (E001, E003, E004) if they describe different time points or distinct findings."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with respiratory symptoms and multiple lung masses. Initial CT (E001) showed multiple large masses. Histopathology and immunohistochemistry (E002, E005) were highly suggestive of synovial sarcoma. Further imaging (E003, E004) provided more details on specific masses. Molecular confirmation for SYT-SSX translocation was not documented. I need to understand the subsequent clinical course, treatment, and outcome to complete the trajectory and confirm how the diagnosis was acted upon.",
+          "confirmed_evidence": [
+            "Patient presented with dry cough, chest tightness, and difficulty breathing.",
+            "CT thorax revealed multiple large, heterogeneously enhancing masses in both hemithoraces with areas of necrosis, displacing surrounding structures, and no calcification, pleural effusion, or mediastinal lymphadenopathy (E001).",
+            "Biopsy showed sheets and fascicles of spindle-shaped cells with vesicular nuclei, dispersed chromatin, inconspicuous nucleoli, and moderate pale cytoplasm, with few mitoses (E002).",
+            "Immunohistochemistry was positive for TLE-1, CD56, CD99, and Bcl2, and negative for Pan CK, NKX-2.2, and EMA, with a Ki-67 proliferation index of 10% (E002).",
+            "A subsequent pathology report also noted sheets and fascicles of spindle-shaped cells, no necrosis, positive TLE-1 and Bcl2, negative EMA, and a Ki-67 of 12% (E005).",
+            "Another CT report described an enhancing mass in the middle lobe of the right lung (E003).",
+            "PET-CT showed heterogeneously increased FDG uptake in a mass measuring ~39 × 36 × 20 mm (SUV max 8.09) (E004)."
+          ],
+          "missing_key_evidence": [
+            "Molecular confirmation of SYT-SSX translocation (not reported)",
+            "Details of treatment initiated",
+            "Patient's response to treatment or clinical outcome",
+            "Reconciliation of the different imaging reports (E001, E003, E004) if they describe different time points or distinct findings."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with respiratory symptoms and multiple lung masses. Initial CT (E001) showed multiple large masses. Histopathology and immunohistochemistry (E002, E005) were highly suggestive of synovial sarcoma. Further imaging (E003, E004) provided more details on specific masses. Molecular confirmation for SYT-SSX translocation was not documented. I need to understand the subsequent clinical course, treatment, and outcome to complete the trajectory and confirm how the diagnosis was acted upon.",
+          "confirmed_evidence": [
+            "Patient presented with dry cough, chest tightness, and difficulty breathing.",
+            "CT thorax revealed multiple large, heterogeneously enhancing masses in both hemithoraces with areas of necrosis, displacing surrounding structures, and no calcification, pleural effusion, or mediastinal lymphadenopathy (E001).",
+            "Biopsy showed sheets and fascicles of spindle-shaped cells with vesicular nuclei, dispersed chromatin, inconspicuous nucleoli, and moderate pale cytoplasm, with few mitoses (E002).",
+            "Immunohistochemistry was positive for TLE-1, CD56, CD99, and Bcl2, and negative for Pan CK, NKX-2.2, and EMA, with a Ki-67 proliferation index of 10% (E002).",
+            "A subsequent pathology report also noted sheets and fascicles of spindle-shaped cells, no necrosis, positive TLE-1 and Bcl2, negative EMA, and a Ki-67 of 12% (E005).",
+            "Another CT report described an enhancing mass in the middle lobe of the right lung (E003).",
+            "PET-CT showed heterogeneously increased FDG uptake in a mass measuring ~39 × 36 × 20 mm (SUV max 8.09) (E004)."
+          ],
+          "missing_key_evidence": [
+            "Molecular confirmation of SYT-SSX translocation (not reported)",
+            "Details of treatment initiated",
+            "Patient's response to treatment or clinical outcome",
+            "Reconciliation of the different imaging reports (E001, E003, E004) if they describe different time points or distinct findings.",
+            "Final diagnostic statement or confirmation if molecular testing was not performed or reported."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 14,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with respiratory symptoms and multiple lung masses. Initial CT (E001) showed multiple large masses. Histopathology and immunohistochemistry (E002, E005) were highly suggestive of synovial sarcoma. Further imaging (E003, E004) provided more details on specific masses. Molecular confirmation for SYT-SSX translocation was not documented. I need to understand the subsequent clinical course, treatment, and outcome to complete the trajectory and confirm how the diagnosis was acted upon.",
+          "confirmed_evidence": [
+            "Patient presented with dry cough, chest tightness, and difficulty breathing.",
+            "CT thorax revealed multiple large, heterogeneously enhancing masses in both hemithoraces with areas of necrosis, displacing surrounding structures, and no calcification, pleural effusion, or mediastinal lymphadenopathy (E001).",
+            "Biopsy showed sheets and fascicles of spindle-shaped cells with vesicular nuclei, dispersed chromatin, inconspicuous nucleoli, and moderate pale cytoplasm, with few mitoses (E002).",
+            "Immunohistochemistry was positive for TLE-1, CD56, CD99, and Bcl2, and negative for Pan CK, NKX-2.2, and EMA, with a Ki-67 proliferation index of 10% (E002).",
+            "A subsequent pathology report also noted sheets and fascicles of spindle-shaped cells, no necrosis, positive TLE-1 and Bcl2, negative EMA, and a Ki-67 of 12% (E005).",
+            "Another CT report described an enhancing mass in the middle lobe of the right lung (E003).",
+            "PET-CT showed heterogeneously increased FDG uptake in a mass measuring ~39 × 36 × 20 mm (SUV max 8.09) (E004)."
+          ],
+          "missing_key_evidence": [
+            "Molecular confirmation of SYT-SSX translocation (not reported)",
+            "Details of treatment initiated",
+            "Patient's response to treatment or clinical outcome",
+            "Reconciliation of the different imaging reports (E001, E003, E004) if they describe different time points or distinct findings.",
+            "Final diagnostic statement or confirmation if molecular testing was not performed or reported."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 15,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Primary synovial sarcoma of lung",
+          "trajectory_summary": "A 27-year-old male presented with dry cough, chest tightness, and difficulty breathing. Initial CT thorax revealed multiple large, heterogeneously enhancing masses in both lungs with areas of necrosis, displacing surrounding structures. Biopsy showed sheets and fascicles of spindle-shaped cells. Immunohistochemistry was positive for TLE-1, CD56, CD99, and Bcl2, and negative for Pan CK, NKX-2.2, and EMA, strongly suggesting synovial sarcoma. PET-CT confirmed metabolic activity in one of the masses. Molecular testing for SYT-SSX translocation was not documented.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with respiratory symptoms including dry cough, chest tightness, and difficulty breathing.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "CT thorax revealed multiple large, heterogeneously enhancing masses in both hemithoraces with areas of necrosis, displacing surrounding structures, and no calcification, pleural effusion, or mediastinal lymphadenopathy.",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Biopsy showed sheets and fascicles of spindle-shaped cells with vesicular nuclei, dispersed chromatin, inconspicuous nucleoli, and moderate pale cytoplasm, with few mitoses.",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Immunohistochemistry was positive for TLE-1, CD56, CD99, and Bcl2, and negative for Pan CK, NKX-2.2, and EMA, with a Ki-67 proliferation index of 10-12%.",
+              "evidence_ids": [
+                "E002",
+                "E005"
+              ]
+            },
+            {
+              "claim": "PET-CT showed heterogeneously increased FDG uptake (SUV max 8.09) in a mass.",
+              "evidence_ids": [
+                "E004"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Tuberculosis",
+              "basis": "Sputum examination for tuberculosis was negative."
+            },
+            {
+              "alternative": "Sarcomatoid carcinoma",
+              "basis": "Immunohistochemistry was negative for Pan CK."
+            },
+            {
+              "alternative": "Ewing sarcoma/PNET",
+              "basis": "Immunohistochemistry was negative for NKX-2.2."
+            }
+          ],
+          "remaining_uncertainties": [
+            "Molecular confirmation of SYT-SSX translocation was not documented.",
+            "Details of treatment initiated and patient's response or clinical outcome are not documented.",
+            "The exact temporal relationship and distinctness of findings across the different imaging reports (E001, E003, E004) are not fully clarified, though all point to multiple lung masses."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Primary synovial sarcoma of lung",
+      "trajectory_summary": "A 27-year-old male presented with dry cough, chest tightness, and difficulty breathing. Initial CT thorax revealed multiple large, heterogeneously enhancing masses in both lungs with areas of necrosis, displacing surrounding structures. Biopsy showed sheets and fascicles of spindle-shaped cells. Immunohistochemistry was positive for TLE-1, CD56, CD99, and Bcl2, and negative for Pan CK, NKX-2.2, and EMA, strongly suggesting synovial sarcoma. PET-CT confirmed metabolic activity in one of the masses. Molecular testing for SYT-SSX translocation was not documented.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with respiratory symptoms including dry cough, chest tightness, and difficulty breathing.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "CT thorax revealed multiple large, heterogeneously enhancing masses in both hemithoraces with areas of necrosis, displacing surrounding structures, and no calcification, pleural effusion, or mediastinal lymphadenopathy.",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Biopsy showed sheets and fascicles of spindle-shaped cells with vesicular nuclei, dispersed chromatin, inconspicuous nucleoli, and moderate pale cytoplasm, with few mitoses.",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Immunohistochemistry was positive for TLE-1, CD56, CD99, and Bcl2, and negative for Pan CK, NKX-2.2, and EMA, with a Ki-67 proliferation index of 10-12%.",
+          "evidence_ids": [
+            "E002",
+            "E005"
+          ]
+        },
+        {
+          "claim": "PET-CT showed heterogeneously increased FDG uptake (SUV max 8.09) in a mass.",
+          "evidence_ids": [
+            "E004"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Tuberculosis",
+          "basis": "Sputum examination for tuberculosis was negative."
+        },
+        {
+          "alternative": "Sarcomatoid carcinoma",
+          "basis": "Immunohistochemistry was negative for Pan CK."
+        },
+        {
+          "alternative": "Ewing sarcoma/PNET",
+          "basis": "Immunohistochemistry was negative for NKX-2.2."
+        }
+      ],
+      "remaining_uncertainties": [
+        "Molecular confirmation of SYT-SSX translocation was not documented.",
+        "Details of treatment initiated and patient's response or clinical outcome are not documented.",
+        "The exact temporal relationship and distinctness of findings across the different imaging reports (E001, E003, E004) are not fully clarified, though all point to multiple lung masses."
+      ],
+      "confidence_that_diagnosis_is_supported": 0.9
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:16:30.937597+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10130694",
+    "known_final_diagnosis": "Primary synovial sarcoma of lung",
+    "turns_used": 15,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 5,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 5,
+    "gold_reasoning_span_count": 2,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_RESULT": 3,
+      "WAIT_REASSESS": 9
+    },
+    "report_status_counts": {
+      "found": 5,
+      "invalid_report_selection": 5,
+      "no_new_update": 1,
+      "not_reported": 1,
+      "ordered_but_not_documented": 2
+    },
+    "report_repair_attempted_count": 8,
+    "report_repair_failed_count": 5,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 8,
+      "verbatim_excerpt is not a contiguous source subspan.": 5
+    },
+    "answer_yield": 0.35714285714285715,
+    "unavailable_turn_rate": 0.2857142857142857,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:16:30.939597+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10130694",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/episodes/PMC10130694.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/cases/PMC10130694.json",
+    "num_gold_steps": "4",
+    "num_pred_steps": "2",
+    "weighted_tversky_alignment": "0.14814814814814814",
+    "weighted_tversky_distance": "0.8518518518518519",
+    "matched_weight": "1.0",
+    "missed_weight": "3.75",
+    "extra_weight": "1.0",
+    "weighted_lcs_recall": "0.21052631578947367",
+    "weighted_lcs_weight": "1.0",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging > pathology > other_or_off_protocol > lab_tests",
+    "prediction_sequence": "lab_tests > procedure_or_intervention",
+    "error": ""
+  }
+}

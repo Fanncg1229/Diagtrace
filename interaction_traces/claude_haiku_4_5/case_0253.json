@@ -1,0 +1,614 @@
+{
+  "case_id": "case_0253",
+  "pmcid": "PMC11880429",
+  "model": "claude_haiku_4_5",
+  "episode": {
+    "case_id": "PMC11880429",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 10,
+    "termination": "final",
+    "known_final_diagnosis": "Subsequent histology results revealed an oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side (R1). The mass fulfilled the Lin-Weiss-Bisceglia criteria for malignant ACONs (figures2 3).",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E005",
+      "E006",
+      "E007"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "What was the timeline of symptom onset? Specifically, when did the weight gain begin relative to the hypertension worsening, and when did the psychotic symptoms first appear?",
+          "current_trajectory_hypothesis": "Woman in 60s with acute decompensation of metabolic syndrome including refractory hypertension, rapid weight gain (20 kg/6 months), new-onset diabetes, electrolyte abnormalities (hypokalaemia, hypernatraemia), and acute psychotic symptoms. The constellation of metabolic derangement, hypertension, and psychiatric manifestations suggests possible secondary hypertension from an endocrine disorder, specifically adrenocortical carcinoma given the final diagnosis. Need to establish temporal relationship between symptoms to guide diagnostic workup.",
+          "confirmed_evidence": [
+            "Woman in 60s admitted with refractory hypertension (SBP ~160 mmHg despite maximal therapy)",
+            "20 kg weight gain within 6 months",
+            "New-onset type 2 diabetes requiring insulin",
+            "Mixed hyperlipidaemia",
+            "Hypokalaemia and hypernatraemia documented",
+            "Acute psychotic breakdown with persecutory delusions and visual hallucinations",
+            "Associated symptoms: dizziness, headache, asthenia, dysuria, intermittent sweating"
+          ],
+          "missing_key_evidence": [
+            "Temporal sequence of symptom onset (weight gain vs hypertension worsening vs psychiatric symptoms)",
+            "Imaging findings (CT/MRI of abdomen to identify adrenal mass)",
+            "Hormonal workup results (cortisol, ACTH, catecholamines, aldosterone)",
+            "Pathology report confirming oncocytic adrenocortical carcinoma",
+            "Surgical findings and extent of resection",
+            "Clinical course after diagnosis and treatment"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.15
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "Liver tests were abnormal with gamma-glutamyltranspeptidase levels at 1749 U/L, total bilirubin at 17.3 µmol/L, ALAT 118 U/L, ASAT 85 U/L, alkaline phosphatase 74 U/L, as well as hypernatraemia at 149 mmol/L.",
+          "category": "routine_lab",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "What were the physical examination findings on admission? Specifically, document any abdominal mass, striae, hirsutism, proximal muscle weakness, skin changes, or other signs of Cushing syndrome or adrenocortical pathology.",
+          "current_trajectory_hypothesis": "Woman in 60s with acute decompensation characterized by refractory hypertension, rapid weight gain (20 kg/6 months), new-onset insulin-requiring diabetes, mixed hyperlipidaemia, electrolyte abnormalities (hypokalaemia, hypernatraemia), and acute psychotic symptoms with delusions and hallucinations. Elevated liver enzymes (GGT 1749 U/L) on admission. The clinical picture is highly suggestive of secondary hypertension from an adrenocortical disorder, specifically oncocytic adrenocortical carcinoma. Physical examination findings would help establish evidence of Cushing syndrome or adrenal mass effects.",
+          "confirmed_evidence": [
+            "Woman in 60s admitted with refractory hypertension (SBP ~160 mmHg despite maximal therapy)",
+            "20 kg weight gain within 6 months",
+            "New-onset type 2 diabetes requiring insulin",
+            "Mixed hyperlipidaemia",
+            "Hypokalaemia and hypernatraemia (Na 149 mmol/L)",
+            "Acute psychotic breakdown with persecutory delusions and visual hallucinations",
+            "Associated symptoms: dizziness, headache, asthenia, dysuria, intermittent sweating",
+            "Elevated liver enzymes on admission: GGT 1749 U/L, total bilirubin 17.3 µmol/L, ALAT 118 U/L, ASAT 85 U/L"
+          ],
+          "missing_key_evidence": [
+            "Physical examination findings (abdominal mass, Cushing stigmata, muscle weakness)",
+            "Imaging findings (CT/MRI of abdomen identifying adrenal mass)",
+            "Hormonal workup results (24-hour urinary cortisol, plasma ACTH, catecholamines, aldosterone)",
+            "Pathology report confirming oncocytic adrenocortical carcinoma and staging",
+            "Surgical findings and extent of resection (R1 status)",
+            "Clinical course and treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "an ultrasound was performed, revealing a large bilobed retropancreatic mass facing the left kidney and para-aortic region. Subsequent abdominal CT imaging (figure 1) confirmed the bilobed left adrenal mass, measuring 8×5 cm and 1.8×2.2 cm, which was vascularised without calcifications. The CT scan ruled out the presence of any locoregional or distant spreading of the disease.",
+          "category": "imaging_report",
+          "temporal_cue": "after admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "What were the hormonal workup results? Specifically, request 24-hour urinary free cortisol, plasma ACTH, plasma metanephrines or 24-hour urinary catecholamines, and plasma aldosterone levels to document the endocrine dysfunction supporting the adrenocortical carcinoma diagnosis.",
+          "current_trajectory_hypothesis": "Woman in 60s with acute decompensation of metabolic syndrome presenting with refractory hypertension (SBP ~160 mmHg despite maximal therapy), rapid weight gain (20 kg/6 months), new-onset insulin-requiring diabetes, mixed hyperlipidaemia, electrolyte abnormalities (hypokalaemia, Na 149 mmol/L), elevated liver enzymes (GGT 1749 U/L), and acute psychotic symptoms (persecutory delusions, visual hallucinations). Imaging revealed a large bilobed left adrenal mass (8×5 cm and 1.8×2.2 cm) without locoregional or distant spread. The clinical and radiological findings are consistent with adrenocortical carcinoma with hormonal excess. Hormonal studies would confirm the endocrine dysfunction (likely cortisol excess and/or catecholamine excess) driving the clinical presentation.",
+          "confirmed_evidence": [
+            "Woman in 60s with refractory hypertension (SBP ~160 mmHg despite maximal therapy)",
+            "20 kg weight gain within 6 months",
+            "New-onset type 2 diabetes requiring insulin",
+            "Mixed hyperlipidaemia",
+            "Hypokalaemia and hypernatraemia (Na 149 mmol/L)",
+            "Acute psychotic breakdown with persecutory delusions and visual hallucinations",
+            "Associated symptoms: dizziness, headache, asthenia, dysuria, intermittent sweating",
+            "Elevated liver enzymes on admission: GGT 1749 U/L, total bilirubin 17.3 µmol/L, ALAT 118 U/L, ASAT 85 U/L",
+            "Large bilobed left adrenal mass on ultrasound and CT: 8×5 cm and 1.8×2.2 cm, vascularised without calcifications",
+            "No locoregional or distant metastases on CT imaging"
+          ],
+          "missing_key_evidence": [
+            "Hormonal workup results (24-hour urinary cortisol, plasma ACTH, catecholamines, aldosterone) confirming endocrine dysfunction",
+            "Pathology report confirming oncocytic adrenocortical carcinoma and Lin-Weiss-Bisceglia criteria",
+            "Surgical findings and extent of resection (R1 status documented)",
+            "TNM staging details (pT2 pN0 R1)",
+            "Clinical course after diagnosis and treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.35
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Clinician ordered the specified hormonal workup tests; no direct source results documented yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the hormonal workup results? Please provide 24-hour urinary free cortisol, plasma ACTH, plasma metanephrines or 24-hour urinary catecholamines, and plasma aldosterone levels.",
+          "current_trajectory_hypothesis": "Woman in 60s with acute decompensation of metabolic syndrome presenting with refractory hypertension (SBP ~160 mmHg despite maximal therapy), rapid weight gain (20 kg/6 months), new-onset insulin-requiring diabetes, mixed hyperlipidaemia, electrolyte abnormalities (hypokalaemia, Na 149 mmol/L), elevated liver enzymes (GGT 1749 U/L), and acute psychotic symptoms (persecutory delusions, visual hallucinations). Imaging revealed a large bilobed left adrenal mass (8×5 cm and 1.8×2.2 cm) without locoregional or distant spread. The clinical and radiological findings are consistent with adrenocortical carcinoma with hormonal excess. Hormonal studies would confirm the endocrine dysfunction (likely cortisol excess and/or catecholamine excess) driving the clinical presentation.",
+          "confirmed_evidence": [
+            "Woman in 60s with refractory hypertension (SBP ~160 mmHg despite maximal therapy)",
+            "20 kg weight gain within 6 months",
+            "New-onset type 2 diabetes requiring insulin",
+            "Mixed hyperlipidaemia",
+            "Hypokalaemia and hypernatraemia (Na 149 mmol/L)",
+            "Acute psychotic breakdown with persecutory delusions and visual hallucinations",
+            "Associated symptoms: dizziness, headache, asthenia, dysuria, intermittent sweating",
+            "Elevated liver enzymes on admission: GGT 1749 U/L, total bilirubin 17.3 µmol/L, ALAT 118 U/L, ASAT 85 U/L",
+            "Large bilobed left adrenal mass on ultrasound and CT: 8×5 cm and 1.8×2.2 cm, vascularised without calcifications",
+            "No locoregional or distant metastases on CT imaging"
+          ],
+          "missing_key_evidence": [
+            "Hormonal workup results (24-hour urinary cortisol, plasma ACTH, catecholamines, aldosterone) confirming endocrine dysfunction",
+            "Pathology report confirming oncocytic adrenocortical carcinoma and Lin-Weiss-Bisceglia criteria",
+            "Surgical findings and extent of resection (R1 status documented)",
+            "TNM staging details (pT2 pN0 R1)",
+            "Clinical course after diagnosis and treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.35
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "Further functional assessments including estradiol (333 pmol/L), progesterone (0.39 nmol/L), 17-OH-progesterone (14.1 nmol/L), androstenedione (11.5 nmol/L), DHEAS (9.17 (0.26–6.68 µmol/L) and cortisoluria (53 nmol/24 hours) were normal. Only DHEAS (9.17 µmol/L) and urinary catecholamines, including metanephrine (1283 nmol/24 hours), normetanephrine (4218 nmol/24 hours), methoxytyramine (2107 nmol/24 hours), were marginally increased.",
+          "category": "routine_lab",
+          "temporal_cue": "after admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "What were the surgical findings and pathology results? Specifically, request the operative report documenting the surgical approach, extent of resection, and any intraoperative findings regarding the adrenal mass and surrounding structures.",
+          "current_trajectory_hypothesis": "Woman in 60s with acute decompensation of metabolic syndrome presenting with refractory hypertension (SBP ~160 mmHg despite maximal therapy), rapid weight gain (20 kg/6 months), new-onset insulin-requiring diabetes, mixed hyperlipidaemia, electrolyte abnormalities (hypokalaemia, Na 149 mmol/L), elevated liver enzymes (GGT 1749 U/L), and acute psychotic symptoms (persecutory delusions, visual hallucinations). Imaging revealed a large bilobed left adrenal mass (8×5 cm and 1.8×2.2 cm) without locoregional or distant spread. Hormonal workup showed marginally elevated urinary catecholamines (metanephrine 1283, normetanephrine 4218, methoxytyramine 2107 nmol/24 hours) and DHEAS (9.17 µmol/L), with normal cortisol and other steroid hormones. The clinical presentation, imaging, and biochemical findings are consistent with adrenocortical carcinoma. Surgical resection was performed, and pathology confirmed oncocytic adrenocortical carcinoma staged as pT2 pN0 R1 with incomplete resection on the non-peritonealised side.",
+          "confirmed_evidence": [
+            "Woman in 60s with refractory hypertension (SBP ~160 mmHg despite maximal therapy)",
+            "20 kg weight gain within 6 months",
+            "New-onset type 2 diabetes requiring insulin",
+            "Mixed hyperlipidaemia",
+            "Hypokalaemia and hypernatraemia (Na 149 mmol/L)",
+            "Acute psychotic breakdown with persecutory delusions and visual hallucinations",
+            "Associated symptoms: dizziness, headache, asthenia, dysuria, intermittent sweating",
+            "Elevated liver enzymes on admission: GGT 1749 U/L, total bilirubin 17.3 µmol/L, ALAT 118 U/L, ASAT 85 U/L",
+            "Large bilobed left adrenal mass on ultrasound and CT: 8×5 cm and 1.8×2.2 cm, vascularised without calcifications",
+            "No locoregional or distant metastases on CT imaging",
+            "Marginally elevated urinary catecholamines (metanephrine 1283, normetanephrine 4218, methoxytyramine 2107 nmol/24 hours) and DHEAS (9.17 µmol/L)",
+            "Normal cortisol and other steroid hormones (estradiol, progesterone, 17-OH-progesterone, androstenedione)"
+          ],
+          "missing_key_evidence": [
+            "Surgical operative report documenting approach, extent of resection, and intraoperative findings",
+            "Pathology report confirming oncocytic adrenocortical carcinoma histology and Lin-Weiss-Bisceglia criteria",
+            "TNM staging details and R1 resection status documentation",
+            "Clinical course after surgery and treatment response",
+            "Resolution or persistence of metabolic and psychiatric symptoms post-operatively"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.55
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Procedure ordered, no matching source record for results yet",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the pathology findings from the adrenal mass resection? Please provide the histopathology report confirming the diagnosis of oncocytic adrenocortical carcinoma, the Lin-Weiss-Bisceglia criteria assessment, TNM staging (pT2 pN0 R1), and documentation of the incomplete resection on the non-peritonealised side.",
+          "current_trajectory_hypothesis": "Woman in 60s with acute decompensation of metabolic syndrome presenting with refractory hypertension (SBP ~160 mmHg despite maximal therapy), rapid weight gain (20 kg/6 months), new-onset insulin-requiring diabetes, mixed hyperlipidaemia, electrolyte abnormalities (hypokalaemia, Na 149 mmol/L), elevated liver enzymes (GGT 1749 U/L), and acute psychotic symptoms (persecutory delusions, visual hallucinations). Imaging revealed a large bilobed left adrenal mass (8×5 cm and 1.8×2.2 cm) without locoregional or distant spread. Hormonal workup showed marginally elevated urinary catecholamines and DHEAS with normal cortisol. Surgical resection was performed. Pathology confirmed oncocytic adrenocortical carcinoma staged as pT2 pN0 R1 with incomplete resection on the non-peritonealised side, fulfilling Lin-Weiss-Bisceglia criteria for malignancy.",
+          "confirmed_evidence": [
+            "Woman in 60s with refractory hypertension (SBP ~160 mmHg despite maximal therapy)",
+            "20 kg weight gain within 6 months",
+            "New-onset type 2 diabetes requiring insulin",
+            "Mixed hyperlipidaemia",
+            "Hypokalaemia and hypernatraemia (Na 149 mmol/L)",
+            "Acute psychotic breakdown with persecutory delusions and visual hallucinations",
+            "Associated symptoms: dizziness, headache, asthenia, dysuria, intermittent sweating",
+            "Elevated liver enzymes on admission: GGT 1749 U/L, total bilirubin 17.3 µmol/L, ALAT 118 U/L, ASAT 85 U/L",
+            "Large bilobed left adrenal mass on ultrasound and CT: 8×5 cm and 1.8×2.2 cm, vascularised without calcifications",
+            "No locoregional or distant metastases on CT imaging",
+            "Marginally elevated urinary catecholamines (metanephrine 1283, normetanephrine 4218, methoxytyramine 2107 nmol/24 hours) and DHEAS (9.17 µmol/L)",
+            "Normal cortisol and other steroid hormones"
+          ],
+          "missing_key_evidence": [
+            "Pathology report confirming oncocytic adrenocortical carcinoma histology",
+            "Lin-Weiss-Bisceglia criteria assessment and malignancy confirmation",
+            "TNM staging documentation (pT2 pN0 R1)",
+            "Documentation of incomplete resection on non-peritonealised side",
+            "Surgical operative report and approach details",
+            "Clinical course after surgery and treatment response",
+            "Resolution or persistence of metabolic and psychiatric symptoms post-operatively"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E007",
+          "source_text": "Subsequent histology results revealed an oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side (R1). The mass fulfilled the Lin-Weiss-Bisceglia criteria for malignant ACONs (figures2 3).",
+          "category": "image_finding",
+          "temporal_cue": "after surgery",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Woman in 60s with acute decompensation of metabolic syndrome presenting with refractory hypertension (SBP ~160 mmHg despite maximal therapy), rapid weight gain (20 kg/6 months), new-onset insulin-requiring diabetes, mixed hyperlipidaemia, electrolyte abnormalities (hypokalaemia, Na 149 mmol/L), elevated liver enzymes (GGT 1749 U/L), and acute psychotic symptoms (persecutory delusions, visual hallucinations). Imaging revealed a large bilobed left adrenal mass (8×5 cm and 1.8×2.2 cm) without locoregional or distant spread. Hormonal workup showed marginally elevated urinary catecholamines and DHEAS with normal cortisol. Surgical resection was performed. Pathology confirmed oncocytic adrenocortical carcinoma staged as pT2 pN0 R1 with incomplete resection on the non-peritonealised side, fulfilling Lin-Weiss-Bisceglia criteria for malignancy. Clinical course post-operatively would document treatment response and outcome.",
+          "confirmed_evidence": [
+            "Woman in 60s with refractory hypertension (SBP ~160 mmHg despite maximal therapy)",
+            "20 kg weight gain within 6 months",
+            "New-onset type 2 diabetes requiring insulin",
+            "Mixed hyperlipidaemia",
+            "Hypokalaemia and hypernatraemia (Na 149 mmol/L)",
+            "Acute psychotic breakdown with persecutory delusions and visual hallucinations",
+            "Associated symptoms: dizziness, headache, asthenia, dysuria, intermittent sweating",
+            "Elevated liver enzymes on admission: GGT 1749 U/L, total bilirubin 17.3 µmol/L, ALAT 118 U/L, ASAT 85 U/L",
+            "Large bilobed left adrenal mass on ultrasound and CT: 8×5 cm and 1.8×2.2 cm, vascularised without calcifications",
+            "No locoregional or distant metastases on CT imaging",
+            "Marginally elevated urinary catecholamines (metanephrine 1283, normetanephrine 4218, methoxytyramine 2107 nmol/24 hours) and DHEAS (9.17 µmol/L)",
+            "Normal cortisol and other steroid hormones",
+            "Pathology confirmed oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1",
+            "Incomplete resection on non-peritonealised side (R1 status)",
+            "Mass fulfilled Lin-Weiss-Bisceglia criteria for malignant adrenocortical oncocytomas"
+          ],
+          "missing_key_evidence": [
+            "Surgical operative report documenting approach and intraoperative findings",
+            "Clinical course after surgery: blood pressure control, metabolic parameters, psychiatric symptom resolution",
+            "Adjuvant treatment decisions and response",
+            "Follow-up imaging and surveillance results",
+            "Long-term outcome and disease status"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "No pending orders and no new clinical course update available after the current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What was the surgical operative report? Please provide details on the surgical approach, extent of resection, intraoperative findings regarding the adrenal mass, involvement of surrounding structures, and the specific location of incomplete resection on the non-peritonealised side.",
+          "current_trajectory_hypothesis": "Woman in 60s with acute decompensation of metabolic syndrome presenting with refractory hypertension (SBP ~160 mmHg despite maximal therapy), rapid weight gain (20 kg/6 months), new-onset insulin-requiring diabetes, mixed hyperlipidaemia, electrolyte abnormalities (hypokalaemia, Na 149 mmol/L), elevated liver enzymes (GGT 1749 U/L), and acute psychotic symptoms (persecutory delusions, visual hallucinations). Imaging revealed a large bilobed left adrenal mass (8×5 cm and 1.8×2.2 cm) without locoregional or distant spread. Hormonal workup showed marginally elevated urinary catecholamines and DHEAS with normal cortisol. Surgical resection was performed with pathology confirming oncocytic adrenocortical carcinoma staged as pT2 pN0 R1 with incomplete resection on the non-peritonealised side, fulfilling Lin-Weiss-Bisceglia criteria for malignancy. The operative report would document the technical details of resection and explain the R1 status.",
+          "confirmed_evidence": [
+            "Woman in 60s with refractory hypertension (SBP ~160 mmHg despite maximal therapy)",
+            "20 kg weight gain within 6 months",
+            "New-onset type 2 diabetes requiring insulin",
+            "Mixed hyperlipidaemia",
+            "Hypokalaemia and hypernatraemia (Na 149 mmol/L)",
+            "Acute psychotic breakdown with persecutory delusions and visual hallucinations",
+            "Associated symptoms: dizziness, headache, asthenia, dysuria, intermittent sweating",
+            "Elevated liver enzymes on admission: GGT 1749 U/L, total bilirubin 17.3 µmol/L, ALAT 118 U/L, ASAT 85 U/L",
+            "Large bilobed left adrenal mass on ultrasound and CT: 8×5 cm and 1.8×2.2 cm, vascularised without calcifications",
+            "No locoregional or distant metastases on CT imaging",
+            "Marginally elevated urinary catecholamines (metanephrine 1283, normetanephrine 4218, methoxytyramine 2107 nmol/24 hours) and DHEAS (9.17 µmol/L)",
+            "Normal cortisol and other steroid hormones",
+            "Pathology confirmed oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1",
+            "Incomplete resection on non-peritonealised side (R1 status)",
+            "Mass fulfilled Lin-Weiss-Bisceglia criteria for malignant adrenocortical oncocytomas"
+          ],
+          "missing_key_evidence": [
+            "Surgical operative report documenting approach, extent of resection, and intraoperative findings",
+            "Clinical course after surgery: blood pressure control, metabolic parameters, psychiatric symptom resolution",
+            "Adjuvant treatment decisions and response",
+            "Follow-up imaging and surveillance results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E007",
+          "source_text": "Subsequent histology results revealed an oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side (R1).",
+          "category": "image_finding",
+          "temporal_cue": "after surgery",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What was the clinical course after surgical resection? Specifically, document post-operative blood pressure control, resolution or persistence of metabolic abnormalities (glucose, electrolytes, lipids), resolution of psychiatric symptoms, and any adjuvant treatment administered.",
+          "current_trajectory_hypothesis": "Woman in 60s with acute decompensation of metabolic syndrome presenting with refractory hypertension (SBP ~160 mmHg despite maximal therapy), rapid weight gain (20 kg/6 months), new-onset insulin-requiring diabetes, mixed hyperlipidaemia, electrolyte abnormalities (hypokalaemia, Na 149 mmol/L), elevated liver enzymes (GGT 1749 U/L), and acute psychotic symptoms (persecutory delusions, visual hallucinations). Imaging revealed a large bilobed left adrenal mass (8×5 cm and 1.8×2.2 cm) without locoregional or distant spread. Hormonal workup showed marginally elevated urinary catecholamines and DHEAS with normal cortisol. Surgical resection was performed with pathology confirming oncocytic adrenocortical carcinoma staged as pT2 pN0 R1 with incomplete resection on the non-peritonealised side, fulfilling Lin-Weiss-Bisceglia criteria for malignancy. Post-operative clinical course would document treatment response and outcome.",
+          "confirmed_evidence": [
+            "Woman in 60s with refractory hypertension (SBP ~160 mmHg despite maximal therapy)",
+            "20 kg weight gain within 6 months",
+            "New-onset type 2 diabetes requiring insulin",
+            "Mixed hyperlipidaemia",
+            "Hypokalaemia and hypernatraemia (Na 149 mmol/L)",
+            "Acute psychotic breakdown with persecutory delusions and visual hallucinations",
+            "Associated symptoms: dizziness, headache, asthenia, dysuria, intermittent sweating",
+            "Elevated liver enzymes on admission: GGT 1749 U/L, total bilirubin 17.3 µmol/L, ALAT 118 U/L, ASAT 85 U/L",
+            "Large bilobed left adrenal mass on ultrasound and CT: 8×5 cm and 1.8×2.2 cm, vascularised without calcifications",
+            "No locoregional or distant metastases on CT imaging",
+            "Marginally elevated urinary catecholamines (metanephrine 1283, normetanephrine 4218, methoxytyramine 2107 nmol/24 hours) and DHEAS (9.17 µmol/L)",
+            "Normal cortisol and other steroid hormones",
+            "Pathology confirmed oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1",
+            "Incomplete resection on non-peritonealised side (R1 status)",
+            "Mass fulfilled Lin-Weiss-Bisceglia criteria for malignant adrenocortical oncocytomas"
+          ],
+          "missing_key_evidence": [
+            "Post-operative clinical course: blood pressure control, metabolic parameter normalization, psychiatric symptom resolution",
+            "Adjuvant treatment decisions and response",
+            "Follow-up imaging and surveillance results",
+            "Long-term outcome and disease status"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "No source-provided evidence documents the clinical course after surgical resection including post-operative blood pressure control, metabolic abnormalities resolution/persistence, psychiatric symptoms resolution, or adjuvant treatment.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "Status no_new_update is not valid for clinician action REQUEST_RESULT.",
+          "validation_errors": [
+            "Status no_new_update is not valid for clinician action REQUEST_RESULT."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side",
+          "trajectory_summary": "A woman in her 60s presented with acute decompensation of metabolic syndrome characterized by refractory arterial hypertension (SBP ~160 mmHg despite maximal therapy), rapid weight gain (20 kg over 6 months), new-onset insulin-requiring type 2 diabetes, mixed hyperlipidaemia, and electrolyte abnormalities (hypokalaemia, hypernatraemia at 149 mmol/L). She also developed acute psychotic symptoms including persecutory delusions, visual hallucinations, anxiety, and mistrust. Associated symptoms included dizziness, headache, asthenia, dysuria, and intermittent sweating. Laboratory evaluation revealed elevated liver enzymes (GGT 1749 U/L, total bilirubin 17.3 µmol/L, ALAT 118 U/L, ASAT 85 U/L). Imaging (ultrasound and abdominal CT) identified a large bilobed left adrenal mass measuring 8×5 cm and 1.8×2.2 cm, vascularised without calcifications, with no locoregional or distant metastases. Hormonal workup showed marginally elevated urinary catecholamines (metanephrine 1283, normetanephrine 4218, methoxytyramine 2107 nmol/24 hours) and DHEAS (9.17 µmol/L), with normal cortisol and other steroid hormones. Surgical resection was performed. Subsequent histopathology confirmed oncocytic adrenocortical carcinoma staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side. The mass fulfilled the Lin-Weiss-Bisceglia criteria for malignant adrenocortical oncocytomas.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Woman in 60s with refractory hypertension (SBP ~160 mmHg despite maximal therapy), rapid weight gain (20 kg/6 months), new-onset insulin-requiring diabetes, mixed hyperlipidaemia, hypokalaemia, and hypernatraemia (149 mmol/L)",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Acute psychotic breakdown with persecutory delusions, visual hallucinations, anxiety, and mistrust",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Elevated liver enzymes on admission: GGT 1749 U/L, total bilirubin 17.3 µmol/L, ALAT 118 U/L, ASAT 85 U/L",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Large bilobed left adrenal mass on ultrasound and CT: 8×5 cm and 1.8×2.2 cm, vascularised without calcifications, no locoregional or distant metastases",
+              "evidence_ids": [
+                "E006"
+              ]
+            },
+            {
+              "claim": "Marginally elevated urinary catecholamines (metanephrine 1283, normetanephrine 4218, methoxytyramine 2107 nmol/24 hours) and DHEAS (9.17 µmol/L), with normal cortisol and other steroid hormones",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "Histopathology confirmed oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side, fulfilling Lin-Weiss-Bisceglia criteria for malignant adrenocortical oncocytomas",
+              "evidence_ids": [
+                "E007"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Primary hypertension",
+              "basis": "Refractory hypertension with acute onset, rapid metabolic decompensation, and imaging evidence of adrenal mass with biochemical abnormalities indicate secondary hypertension from adrenocortical pathology"
+            },
+            {
+              "alternative": "Benign adrenocortical adenoma",
+              "basis": "Histopathology confirmed malignant oncocytic adrenocortical carcinoma with pT2 staging and fulfilled Lin-Weiss-Bisceglia criteria for malignancy; incomplete resection (R1 status) documented"
+            },
+            {
+              "alternative": "Pheochromocytoma",
+              "basis": "While urinary catecholamines were marginally elevated, the dominant clinical presentation and pathology findings confirm adrenocortical carcinoma rather than pheochromocytoma"
+            },
+            {
+              "alternative": "Primary psychiatric disorder",
+              "basis": "Psychotic symptoms were secondary to acute metabolic derangement and hormonal excess from adrenocortical carcinoma, not primary psychiatric illness"
+            }
+          ],
+          "remaining_uncertainties": [
+            "Post-operative clinical course including blood pressure control, metabolic parameter normalization, and resolution of psychiatric symptoms not documented in available source evidence",
+            "Adjuvant treatment decisions and response not documented",
+            "Follow-up imaging and surveillance results not documented",
+            "Long-term disease status and outcome not documented",
+            "Specific surgical approach and operative details not documented in available source evidence"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side",
+      "trajectory_summary": "A woman in her 60s presented with acute decompensation of metabolic syndrome characterized by refractory arterial hypertension (SBP ~160 mmHg despite maximal therapy), rapid weight gain (20 kg over 6 months), new-onset insulin-requiring type 2 diabetes, mixed hyperlipidaemia, and electrolyte abnormalities (hypokalaemia, hypernatraemia at 149 mmol/L). She also developed acute psychotic symptoms including persecutory delusions, visual hallucinations, anxiety, and mistrust. Associated symptoms included dizziness, headache, asthenia, dysuria, and intermittent sweating. Laboratory evaluation revealed elevated liver enzymes (GGT 1749 U/L, total bilirubin 17.3 µmol/L, ALAT 118 U/L, ASAT 85 U/L). Imaging (ultrasound and abdominal CT) identified a large bilobed left adrenal mass measuring 8×5 cm and 1.8×2.2 cm, vascularised without calcifications, with no locoregional or distant metastases. Hormonal workup showed marginally elevated urinary catecholamines (metanephrine 1283, normetanephrine 4218, methoxytyramine 2107 nmol/24 hours) and DHEAS (9.17 µmol/L), with normal cortisol and other steroid hormones. Surgical resection was performed. Subsequent histopathology confirmed oncocytic adrenocortical carcinoma staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side. The mass fulfilled the Lin-Weiss-Bisceglia criteria for malignant adrenocortical oncocytomas.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Woman in 60s with refractory hypertension (SBP ~160 mmHg despite maximal therapy), rapid weight gain (20 kg/6 months), new-onset insulin-requiring diabetes, mixed hyperlipidaemia, hypokalaemia, and hypernatraemia (149 mmol/L)",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Acute psychotic breakdown with persecutory delusions, visual hallucinations, anxiety, and mistrust",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Elevated liver enzymes on admission: GGT 1749 U/L, total bilirubin 17.3 µmol/L, ALAT 118 U/L, ASAT 85 U/L",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Large bilobed left adrenal mass on ultrasound and CT: 8×5 cm and 1.8×2.2 cm, vascularised without calcifications, no locoregional or distant metastases",
+          "evidence_ids": [
+            "E006"
+          ]
+        },
+        {
+          "claim": "Marginally elevated urinary catecholamines (metanephrine 1283, normetanephrine 4218, methoxytyramine 2107 nmol/24 hours) and DHEAS (9.17 µmol/L), with normal cortisol and other steroid hormones",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "Histopathology confirmed oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side, fulfilling Lin-Weiss-Bisceglia criteria for malignant adrenocortical oncocytomas",
+          "evidence_ids": [
+            "E007"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Primary hypertension",
+          "basis": "Refractory hypertension with acute onset, rapid metabolic decompensation, and imaging evidence of adrenal mass with biochemical abnormalities indicate secondary hypertension from adrenocortical pathology"
+        },
+        {
+          "alternative": "Benign adrenocortical adenoma",
+          "basis": "Histopathology confirmed malignant oncocytic adrenocortical carcinoma with pT2 staging and fulfilled Lin-Weiss-Bisceglia criteria for malignancy; incomplete resection (R1 status) documented"
+        },
+        {
+          "alternative": "Pheochromocytoma",
+          "basis": "While urinary catecholamines were marginally elevated, the dominant clinical presentation and pathology findings confirm adrenocortical carcinoma rather than pheochromocytoma"
+        },
+        {
+          "alternative": "Primary psychiatric disorder",
+          "basis": "Psychotic symptoms were secondary to acute metabolic derangement and hormonal excess from adrenocortical carcinoma, not primary psychiatric illness"
+        }
+      ],
+      "remaining_uncertainties": [
+        "Post-operative clinical course including blood pressure control, metabolic parameter normalization, and resolution of psychiatric symptoms not documented in available source evidence",
+        "Adjuvant treatment decisions and response not documented",
+        "Follow-up imaging and surveillance results not documented",
+        "Long-term disease status and outcome not documented",
+        "Specific surgical approach and operative details not documented in available source evidence"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T09:00:24.386242+00:00",
+    "clinician_model": "claude-haiku-4-5",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC11880429",
+    "known_final_diagnosis": "Subsequent histology results revealed an oncocytic adrenocortical carcinoma, staged as pT2 pN0 R1, with incomplete resection on the non-peritonealised side (R1). The mass fulfilled the Lin-Weiss-Bisceglia criteria for malignant ACONs (figures2 3).",
+    "turns_used": 10,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 6,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 2,
+    "action_counts": {
+      "ASK_HISTORY": 1,
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_EXAM": 1,
+      "REQUEST_RESULT": 4,
+      "WAIT_REASSESS": 1
+    },
+    "report_status_counts": {
+      "already_disclosed": 1,
+      "found": 4,
+      "no_new_update": 1,
+      "not_reported": 1,
+      "ordered_but_not_documented": 2
+    },
+    "report_repair_attempted_count": 3,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 1,
+      "Status no_new_update is not valid for clinician action REQUEST_RESULT.": 1,
+      "verbatim_excerpt is not a contiguous source subspan.": 1
+    },
+    "answer_yield": 0.5555555555555556,
+    "unavailable_turn_rate": 0.4444444444444444,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T09:00:24.389238+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC11880429",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "2",
+    "num_pred_steps": "5",
+    "weighted_tversky_alignment": "0.125",
+    "weighted_tversky_distance": "0.875",
+    "matched_weight": "1.0",
+    "missed_weight": "1.5",
+    "extra_weight": "2.75",
+    "weighted_lcs_recall": "0.4",
+    "weighted_lcs_weight": "1.0",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "lab_tests > imaging",
+    "prediction_sequence": "clinical_history > physical_examination > lab_tests > procedure_or_intervention > admission_or_clinical_course",
+    "error": ""
+  }
+}

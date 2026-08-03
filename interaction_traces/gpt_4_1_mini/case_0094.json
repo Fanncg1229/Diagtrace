@@ -1,0 +1,482 @@
+{
+  "case_id": "case_0094",
+  "pmcid": "PMC6698061",
+  "model": "gpt_4_1_mini",
+  "episode": {
+    "case_id": "PMC6698061",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 11,
+    "termination": "final",
+    "known_final_diagnosis": "Streptococcus mutans endocarditis",
+    "disclosed_evidence_ids": [
+      "E006"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Order blood cultures to identify possible bacteremia or infective endocarditis",
+          "current_trajectory_hypothesis": "Patient with progressive dyspnea, rash, acute kidney injury, and systolic murmur raises suspicion of infective endocarditis or vasculitis; blood cultures may identify causative organism",
+          "confirmed_evidence": [
+            "Patient has acute kidney injury, rash with petechiae, systolic murmur with leaflet prolapse, and suspicion of rapidly progressive glomerulonephritis possibly secondary to vasculitis"
+          ],
+          "missing_key_evidence": [
+            "Microbiological evidence of infection such as positive blood cultures",
+            "Echocardiogram findings to support endocarditis diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order for blood cultures registered; no corresponding result disclosed yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request blood culture results for identification of causative organism",
+          "current_trajectory_hypothesis": "Blood cultures may provide microbiological evidence supporting infective endocarditis diagnosis in a patient with acute kidney injury, petechial rash, and systolic murmur",
+          "confirmed_evidence": [
+            "Patient has acute kidney injury, rash with petechiae, systolic murmur with leaflet prolapse, and suspicion of rapidly progressive glomerulonephritis possibly secondary to vasculitis",
+            "Blood cultures were ordered"
+          ],
+          "missing_key_evidence": [
+            "Blood culture results to confirm Streptococcus mutans bacteremia",
+            "Echocardiogram findings to assess vegetations or valve involvement"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request echocardiogram report to evaluate for valve vegetations, leaflet prolapse severity, and evidence of endocarditis",
+          "current_trajectory_hypothesis": "Echocardiogram findings are needed to support the diagnosis of Streptococcus mutans endocarditis in this patient with a systolic murmur and suspected rapidly progressive glomerulonephritis",
+          "confirmed_evidence": [
+            "Patient has acute kidney injury, rash with petechiae, systolic murmur with leaflet prolapse, and suspicion of rapidly progressive glomerulonephritis possibly secondary to vasculitis",
+            "Blood cultures were ordered"
+          ],
+          "missing_key_evidence": [
+            "Blood culture results to confirm Streptococcus mutans bacteremia",
+            "Echocardiogram findings to assess vegetations or valve involvement"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "An urgent cardiology consultation was requested and a transthoracic echocardiogram was performed on the same day, which showed thickening of both mitral valve leaflets and a vegetation on the posterior leaflet.",
+          "category": "imaging_report",
+          "temporal_cue": "day after admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request blood culture results specifically to confirm Streptococcus mutans bacteremia",
+          "current_trajectory_hypothesis": "Echocardiogram shows mitral valve leaflet thickening and vegetation supporting endocarditis; positive blood culture for Streptococcus mutans would confirm causative organism",
+          "confirmed_evidence": [
+            "Patient has acute kidney injury, petechial rash, systolic murmur with leaflet prolapse, and suspicion of rapidly progressive glomerulonephritis",
+            "Blood cultures were ordered",
+            "Transthoracic echocardiogram showed thickening of both mitral valve leaflets and a vegetation on the posterior leaflet"
+          ],
+          "missing_key_evidence": [
+            "Blood culture results confirming Streptococcus mutans bacteremia"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Echocardiogram demonstrates vegetation of mitral valve consistent with endocarditis; microbiological confirmation via blood culture remains undocumented so far.",
+          "confirmed_evidence": [
+            "Acute kidney injury, petechial rash, systolic murmur with leaflet prolapse noted",
+            "Blood cultures were ordered",
+            "Transthoracic echocardiogram showed thickening of both mitral valve leaflets and vegetation on posterior leaflet"
+          ],
+          "missing_key_evidence": [
+            "Blood culture results confirming Streptococcus mutans bacteremia"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Mitral valve vegetation shown on echocardiogram strongly supports endocarditis; confirmation requires positive blood cultures for Streptococcus mutans which remain pending",
+          "confirmed_evidence": [
+            "Patient presented with progressive dyspnea, fatigue, rash, weight loss, and acute kidney injury",
+            "Physical exam showed petechiae and grade III/VI apical systolic murmur with leaflet prolapse",
+            "Transthoracic echocardiogram revealed thickening and vegetation on mitral valve posterior leaflet"
+          ],
+          "missing_key_evidence": [
+            "Blood culture results confirming Streptococcus mutans bacteremia to definitively establish endocarditis etiology"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Echocardiogram confirmed mitral valve vegetation consistent with endocarditis; blood culture results confirming Streptococcus mutans bacteremia remain unavailable; awaiting further microbiology and clinical course updates to complete trajectory.",
+          "confirmed_evidence": [
+            "Presentation with progressive dyspnea, fatigue, rash, weight loss, acute kidney injury, petechiae, and systolic murmur",
+            "Blood cultures were ordered but results are not disclosed",
+            "Echocardiogram showed thickened mitral valve leaflets with vegetation on posterior leaflet"
+          ],
+          "missing_key_evidence": [
+            "Blood culture results confirming Streptococcus mutans bacteremia",
+            "Documentation of antimicrobial treatment response or clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Mitral valve vegetation on echocardiogram supports diagnosis of endocarditis; need microbiological confirmation and documentation of clinical course or treatment response to fully support Streptococcus mutans endocarditis diagnosis",
+          "confirmed_evidence": [
+            "Patient presented with dyspnea, fatigue, rash, weight loss, acute kidney injury, petechiae, and systolic murmur",
+            "Transthoracic echocardiogram revealed thickened mitral valve leaflets with vegetation on posterior leaflet"
+          ],
+          "missing_key_evidence": [
+            "Blood culture results confirming Streptococcus mutans bacteremia",
+            "Documentation of antimicrobial treatment and clinical response or progression"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Mitral valve vegetation on echocardiogram indicates endocarditis; awaiting microbiological confirmation of Streptococcus mutans and clinical course documentation for definitive diagnosis support.",
+          "confirmed_evidence": [
+            "Patient presented with progressive dyspnea, fatigue, rash, weight loss, acute kidney injury, petechiae, and systolic murmur",
+            "Transthoracic echocardiogram showed thickened mitral valve leaflets and vegetation on posterior leaflet"
+          ],
+          "missing_key_evidence": [
+            "Blood culture results confirming Streptococcus mutans bacteremia",
+            "Documentation of antimicrobial treatment and clinical response or progression"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Echocardiogram shows mitral valve vegetation consistent with endocarditis; microbiological confirmation and clinical course details remain undisclosed but are critical for definitive diagnosis support.",
+          "confirmed_evidence": [
+            "Patient presented with progressive dyspnea, fatigue, rash, weight loss, acute kidney injury, petechiae, and systolic murmur",
+            "Transthoracic echocardiogram demonstrated thickening and vegetation on mitral valve posterior leaflet"
+          ],
+          "missing_key_evidence": [
+            "Blood culture results confirming Streptococcus mutans bacteremia",
+            "Documentation of antimicrobial treatment and clinical response or progression"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Streptococcus mutans endocarditis",
+          "trajectory_summary": "A 57-year-old man presented with progressive dyspnea, fatigue, rash with petechiae, weight loss, and acute kidney injury. Physical exam revealed a grade III/VI apical systolic murmur with leaflet prolapse. Echocardiogram showed thickening of mitral valve leaflets and vegetation on the posterior leaflet, consistent with endocarditis. Blood cultures were ordered but results were not disclosed in the available case evidence. The clinical presentation and echocardiographic findings strongly support the diagnosis of Streptococcus mutans endocarditis, although direct microbiological confirmation was not available in the disclosed evidence.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with progressive dyspnea, fatigue, rash with petechiae, weight loss, acute kidney injury, and systolic murmur with leaflet prolapse",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Transthoracic echocardiogram showed thickening of mitral valve leaflets and vegetation on posterior leaflet consistent with endocarditis",
+              "evidence_ids": [
+                "E006"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "vasculitis as primary cause of glomerulonephritis and rash",
+              "basis": "Initial suspicion of vasculitis was reassessed after echocardiogram revealed mitral valve vegetation supporting endocarditis"
+            }
+          ],
+          "remaining_uncertainties": [
+            "Blood culture results confirming Streptococcus mutans bacteremia were not disclosed",
+            "Details of antimicrobial treatment and clinical response or progression were unavailable"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Streptococcus mutans endocarditis",
+      "trajectory_summary": "A 57-year-old man presented with progressive dyspnea, fatigue, rash with petechiae, weight loss, and acute kidney injury. Physical exam revealed a grade III/VI apical systolic murmur with leaflet prolapse. Echocardiogram showed thickening of mitral valve leaflets and vegetation on the posterior leaflet, consistent with endocarditis. Blood cultures were ordered but results were not disclosed in the available case evidence. The clinical presentation and echocardiographic findings strongly support the diagnosis of Streptococcus mutans endocarditis, although direct microbiological confirmation was not available in the disclosed evidence.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with progressive dyspnea, fatigue, rash with petechiae, weight loss, acute kidney injury, and systolic murmur with leaflet prolapse",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Transthoracic echocardiogram showed thickening of mitral valve leaflets and vegetation on posterior leaflet consistent with endocarditis",
+          "evidence_ids": [
+            "E006"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "vasculitis as primary cause of glomerulonephritis and rash",
+          "basis": "Initial suspicion of vasculitis was reassessed after echocardiogram revealed mitral valve vegetation supporting endocarditis"
+        }
+      ],
+      "remaining_uncertainties": [
+        "Blood culture results confirming Streptococcus mutans bacteremia were not disclosed",
+        "Details of antimicrobial treatment and clinical response or progression were unavailable"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.7
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-25T17:43:38.425856+00:00",
+    "clinician_model": "gpt-4.1-mini-test",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC6698061",
+    "known_final_diagnosis": "Streptococcus mutans endocarditis",
+    "turns_used": 11,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 2,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 1,
+    "gold_reasoning_span_count": 3,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_RESULT": 3,
+      "WAIT_REASSESS": 6
+    },
+    "report_status_counts": {
+      "found": 1,
+      "invalid_report_selection": 8,
+      "ordered_but_not_documented": 1
+    },
+    "report_repair_attempted_count": 8,
+    "report_repair_failed_count": 8,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 16
+    },
+    "answer_yield": 0.1,
+    "unavailable_turn_rate": 0.1,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-25T17:43:38.427443+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC6698061",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "7",
+    "num_pred_steps": "2",
+    "weighted_tversky_alignment": "0.2857142857142857",
+    "weighted_tversky_distance": "0.7142857142857143",
+    "matched_weight": "2.0",
+    "missed_weight": "5.0",
+    "extra_weight": "0.0",
+    "weighted_lcs_recall": "0.2857142857142857",
+    "weighted_lcs_weight": "2.0",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "1",
+    "pairwise_inversions": "0",
+    "gold_sequence": "physical_examination > lab_tests > imaging > microbiology > medication_or_treatment > pathology > other_or_off_protocol",
+    "prediction_sequence": "lab_tests > microbiology",
+    "error": ""
+  }
+}

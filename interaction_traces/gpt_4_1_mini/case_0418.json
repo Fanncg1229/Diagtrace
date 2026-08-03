@@ -1,0 +1,390 @@
+{
+  "case_id": "case_0418",
+  "pmcid": "PMC10432262",
+  "model": "gpt_4_1_mini",
+  "episode": {
+    "case_id": "PMC10432262",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 8,
+    "termination": "final",
+    "known_final_diagnosis": "M tuberculosis was identified by PCR in lymph node biopsies from the mesentery sent for microbiological analysis, indicating TB.",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E005",
+      "E006"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Order abdominal CT scan to evaluate bowel loops, lymph nodes, and detect possible mesenteric abnormalities",
+          "current_trajectory_hypothesis": "The patient presents with chronic abdominal pain, diarrhea, weight loss and signs of bowel involvement; CT abdomen may reveal mesenteric lymphadenopathy or bowel abnormalities suggesting infectious or inflammatory etiology.",
+          "confirmed_evidence": [
+            "Patient has subacute abdominal pain with bowel symptoms, weight loss, and palpable bowel loops"
+          ],
+          "missing_key_evidence": [
+            "Imaging findings to detect mesenteric lymphadenopathy or bowel wall changes",
+            "Microbiological or histological evidence of tuberculosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order of abdominal CT scan acknowledged; awaiting corresponding source evidence",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Awaiting abdominal CT results to verify mesenteric lymphadenopathy or bowel abnormalities supporting suspicion of TB or other causes",
+          "confirmed_evidence": [
+            "Patient has subacute abdominal pain with bowel symptoms, weight loss, and palpable bowel loops",
+            "Abdominal CT ordered to investigate mesenteric lymphadenopathy or bowel pathology"
+          ],
+          "missing_key_evidence": [
+            "Imaging findings to detect mesenteric lymphadenopathy or bowel wall changes",
+            "Microbiological or histological evidence of tuberculosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "The laboratory tests of blood and stools confirmed positive Helicobacter pylori [H pylori] infection and anemia with leukocytosis [WBC:14.35×10^9/L; reference range 4.0-11.0×10^9/L), mean corpuscular hemoglobin concentration (MCHC):30.8 g/dL; reference range 32.0-36.0 g/dL, Hemoglobin: 10.30 g/dL; reference range 12.0-16.0 g/dL], as well erythrocyte-sedimentation-rate (ESR) was elevated.",
+          "category": "routine_lab",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Order abdominal CT scan result report to evaluate mesenteric lymphadenopathy and bowel abnormalities",
+          "current_trajectory_hypothesis": "Patient presents with abdominal pain, bowel symptoms, anemia, leukocytosis, and H. pylori infection; abdominal CT may reveal mesenteric lymphadenopathy or bowel abnormalities supporting TB or other diagnosis.",
+          "confirmed_evidence": [
+            "Patient has subacute abdominal pain with bowel symptoms, weight loss, and palpable bowel loops",
+            "H. pylori positive infection confirmed on labs",
+            "Anemia and leukocytosis detected",
+            "Elevated ESR indicating inflammation"
+          ],
+          "missing_key_evidence": [
+            "Imaging findings on abdominal CT to detect mesenteric lymphadenopathy or bowel wall changes",
+            "Microbiological or histological evidence of tuberculosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "Abdominal CT scan test ordered; no result yet documented in the source.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request abdominal CT scan imaging report",
+          "current_trajectory_hypothesis": "CT abdomen results will show whether mesenteric lymphadenopathy or bowel abnormalities are present to support possible tuberculosis diagnosis.",
+          "confirmed_evidence": [
+            "Patient has subacute abdominal pain with bowel symptoms, weight loss, and palpable bowel loops",
+            "H. pylori infection, anemia, leukocytosis and elevated ESR confirmed on labs"
+          ],
+          "missing_key_evidence": [
+            "Imaging findings on abdominal CT to detect mesenteric lymphadenopathy or bowel wall changes",
+            "Microbiological or histological evidence of tuberculosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "Chest X-ray and upper ultrasound abdomen were normal; contrast-enhanced computed tomography (CT) showed distended ileum with fecal matter and dilated jejunal and ileal loops. Minimal free fluid was adjacent to the terminal ileum. The reduced caliber of caecum with prominent submucosal fat and diffuse postcontrast mucosal enhancement in the caecum and ascending colon increases suspicion of inflammatory bowel disease (Fig. 1).",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request further imaging or biopsy results related to mesenteric lymph nodes, especially any sampling or biopsy reports if available",
+          "current_trajectory_hypothesis": "Imaging shows bowel loop distention and inflammatory signs in ileum and colon; next evidence needed is biopsy or sampling of mesenteric lymph nodes to identify M tuberculosis by PCR as stated in final diagnosis.",
+          "confirmed_evidence": [
+            "Patient has subacute abdominal pain with bowel symptoms, weight loss, and palpable bowel loops",
+            "H. pylori infection, anemia, leukocytosis and elevated ESR confirmed on labs",
+            "Abdominal CT shows distended ileum with fecal matter, dilated jejunal and ileal loops, minimal free fluid adjacent to terminal ileum, and inflammatory changes in caecum and ascending colon suggesting inflammatory bowel disease"
+          ],
+          "missing_key_evidence": [
+            "Microbiological or histological evidence of tuberculosis from mesenteric lymph node biopsies",
+            "Documentation of lymph node biopsy with M tuberculosis PCR positivity"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request pathology or microbiology report for mesenteric lymph node biopsies including PCR results for M tuberculosis",
+          "current_trajectory_hypothesis": "Biopsy and PCR on mesenteric lymph nodes are expected to confirm tuberculosis diagnosis after imaging showed inflammatory bowel changes.",
+          "confirmed_evidence": [
+            "Abdominal CT shows distended ileum with dilated loops and inflammatory changes in caecum and ascending colon",
+            "Laboratory results show anemia, leukocytosis, elevated ESR, and H. pylori infection"
+          ],
+          "missing_key_evidence": [
+            "Microbiological or histological evidence of tuberculosis from mesenteric lymph node biopsies including PCR results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "M tuberculosis was identified by PCR in lymph node biopsies from the mesentery sent for microbiological analysis",
+          "category": "pathology_report",
+          "temporal_cue": "on admission",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The diagnosis of tuberculosis was confirmed by PCR in mesenteric lymph node biopsies following imaging and blood tests indicating inflammatory bowel changes and systemic inflammation; next, clinical course or treatment response should be documented.",
+          "confirmed_evidence": [
+            "Abdominal CT showing distended ileum and inflammatory changes in caecum and ascending colon",
+            "Anemia, leukocytosis, elevated ESR, and positive H. pylori infection",
+            "PCR identification of M tuberculosis in mesenteric lymph node biopsies"
+          ],
+          "missing_key_evidence": [
+            "Details on clinical course, treatment initiation, and response",
+            "Additional procedures or imaging follow-up if available"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "The woman was given antituberculous medicine and was followed in an outpatient clinic. Her symptoms and indications improved noticeably over time. Her symptoms began to improve significantly; she began to gain weight and feel stronger.",
+          "category": "other",
+          "temporal_cue": "after diagnosis",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Tuberculosis of mesenteric lymph nodes confirmed by PCR",
+          "trajectory_summary": "A 37-year-old woman presented with 2 months of abdominal pain, postprandial worsening, diarrhea, weight loss, and bloating. Labs showed anemia, leukocytosis, elevated ESR, and H. pylori infection. Abdominal CT revealed distended ileum, dilated small bowel loops, minimal free fluid near terminal ileum and inflammatory changes in cecum and ascending colon suggestive of inflammatory bowel disease. Mesenteric lymph node biopsies PCR confirmed M tuberculosis infection. She was treated with antituberculous medication with subsequent clinical improvement and weight gain.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Abdominal CT demonstrated distended ileum with dilated jejunal and ileal loops and inflammatory bowel changes in the cecum and ascending colon",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Blood tests revealed anemia, leukocytosis, elevated ESR and H. pylori infection",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "M tuberculosis was identified by PCR in lymph node biopsies from the mesentery",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "The patient improved clinically after antituberculous therapy with symptom resolution and weight gain",
+              "evidence_ids": [
+                "E006"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Inflammatory bowel disease",
+              "basis": "Imaging suggested inflammatory bowel disease but confirmation of tuberculosis from biopsy ruled it in as the primary cause"
+            },
+            {
+              "alternative": "Other infectious or neoplastic causes",
+              "basis": "Negative until proven by biopsy and PCR for M tuberculosis"
+            }
+          ],
+          "remaining_uncertainties": [
+            "Details on H. pylori treatment and its contribution to symptoms",
+            "Complete exclusion of other causes via culture or other microbiological tests not documented"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Tuberculosis of mesenteric lymph nodes confirmed by PCR",
+      "trajectory_summary": "A 37-year-old woman presented with 2 months of abdominal pain, postprandial worsening, diarrhea, weight loss, and bloating. Labs showed anemia, leukocytosis, elevated ESR, and H. pylori infection. Abdominal CT revealed distended ileum, dilated small bowel loops, minimal free fluid near terminal ileum and inflammatory changes in cecum and ascending colon suggestive of inflammatory bowel disease. Mesenteric lymph node biopsies PCR confirmed M tuberculosis infection. She was treated with antituberculous medication with subsequent clinical improvement and weight gain.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Abdominal CT demonstrated distended ileum with dilated jejunal and ileal loops and inflammatory bowel changes in the cecum and ascending colon",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Blood tests revealed anemia, leukocytosis, elevated ESR and H. pylori infection",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "M tuberculosis was identified by PCR in lymph node biopsies from the mesentery",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "The patient improved clinically after antituberculous therapy with symptom resolution and weight gain",
+          "evidence_ids": [
+            "E006"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Inflammatory bowel disease",
+          "basis": "Imaging suggested inflammatory bowel disease but confirmation of tuberculosis from biopsy ruled it in as the primary cause"
+        },
+        {
+          "alternative": "Other infectious or neoplastic causes",
+          "basis": "Negative until proven by biopsy and PCR for M tuberculosis"
+        }
+      ],
+      "remaining_uncertainties": [
+        "Details on H. pylori treatment and its contribution to symptoms",
+        "Complete exclusion of other causes via culture or other microbiological tests not documented"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-26T08:02:06.027037+00:00",
+    "clinician_model": "gpt-4.1-mini-test",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10432262",
+    "known_final_diagnosis": "M tuberculosis was identified by PCR in lymph node biopsies from the mesentery sent for microbiological analysis, indicating TB.",
+    "turns_used": 8,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 4,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 2,
+      "REQUEST_RESULT": 3,
+      "WAIT_REASSESS": 2
+    },
+    "report_status_counts": {
+      "found": 4,
+      "invalid_report_selection": 1,
+      "ordered_but_not_documented": 2
+    },
+    "report_repair_attempted_count": 2,
+    "report_repair_failed_count": 1,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 3
+    },
+    "answer_yield": 0.5714285714285714,
+    "unavailable_turn_rate": 0.2857142857142857,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-26T08:02:06.029178+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10432262",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "5",
+    "num_pred_steps": "2",
+    "weighted_tversky_alignment": "0.2",
+    "weighted_tversky_distance": "0.8",
+    "matched_weight": "1.5",
+    "missed_weight": "4.0",
+    "extra_weight": "1.0",
+    "weighted_lcs_recall": "0.2727272727272727",
+    "weighted_lcs_weight": "1.5",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "lab_tests > imaging > pathology > other_or_off_protocol > admission_or_clinical_course",
+    "prediction_sequence": "imaging > microbiology",
+    "error": ""
+  }
+}

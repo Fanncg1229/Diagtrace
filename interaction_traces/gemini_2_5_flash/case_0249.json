@@ -1,0 +1,606 @@
+{
+  "case_id": "case_0249",
+  "pmcid": "PMC11806458",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC11806458",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 15,
+    "termination": "final",
+    "known_final_diagnosis": "she died of her illness 7 months after the diagnosis of CM originating from primary breast carcinoma.",
+    "disclosed_evidence_ids": [
+      "E003",
+      "E004",
+      "E005",
+      "E008"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "biopsy of the skin nodules",
+          "current_trajectory_hypothesis": "Patient presented with skin nodules and systemic symptoms. The skin nodules are likely metastatic, and a biopsy is needed to confirm this and identify the origin.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Histopathological findings of skin nodules",
+            "Identification of primary tumor site",
+            "Imaging findings of breasts"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Procedural order placed for skin nodule biopsy; no source evidence of order date.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "histopathology report of the skin nodule biopsy",
+          "current_trajectory_hypothesis": "Patient presented with skin nodules and systemic symptoms. A biopsy was ordered to determine the nature of the nodules and identify potential primary tumor characteristics.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Histopathological findings of skin nodules",
+            "Immunohistochemistry results",
+            "Identification of primary tumor site",
+            "Imaging findings of breasts"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "A punch biopsy was performed in collaboration with the surgical department, and histopathological analysis revealed diffuse infiltration of atypical cells with large nuclei, prominent nucleoli, and atypical mitoses, consistent with metastatic undifferentiated carcinoma.",
+          "category": "pathology_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "immunohistochemistry (IHC) on the skin nodule biopsy specimen",
+          "current_trajectory_hypothesis": "The skin nodules are confirmed to be metastatic undifferentiated carcinoma. IHC is needed to identify the primary tumor origin, especially considering the known final diagnosis of breast carcinoma.",
+          "confirmed_evidence": [
+            "Patient presented with bilateral skin nodules and systemic symptoms (asthenia, anorexia, weight loss).",
+            "Skin nodule biopsy revealed diffuse infiltration of atypical cells consistent with metastatic undifferentiated carcinoma."
+          ],
+          "missing_key_evidence": [
+            "Immunohistochemistry results to determine primary tumor origin",
+            "Imaging findings of breasts",
+            "Confirmation of primary breast carcinoma"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "Order for immunohistochemistry on the biopsy specimen recorded, no test result reported yet",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "immunohistochemistry (IHC) results from the skin nodule biopsy",
+          "current_trajectory_hypothesis": "The skin nodules are confirmed metastatic undifferentiated carcinoma. IHC results are crucial to identify the primary tumor origin, which is hypothesized to be breast carcinoma based on the known final diagnosis.",
+          "confirmed_evidence": [
+            "Patient presented with bilateral skin nodules and systemic symptoms (asthenia, anorexia, weight loss).",
+            "Skin nodule biopsy revealed diffuse infiltration of atypical cells consistent with metastatic undifferentiated carcinoma (E003)."
+          ],
+          "missing_key_evidence": [
+            "Specific IHC markers and their expression",
+            "Imaging findings of breasts",
+            "Confirmation of primary breast carcinoma"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "Immunohistochemical staining showed positive nuclear staining for estrogen receptor (ER) in 50% of tumor cells with ++/+++ intensity, negative progesterone receptor (PR) staining, and faint cytoplasmic and negative membranous staining for HER2-neu (c-erbB-2) (Figure 2). Controls confirmed the mammary origin of the metastases, consistent with lobular-type metastatic adenocarcinoma involving the skin.",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "bilateral mammography and breast ultrasound",
+          "current_trajectory_hypothesis": "Skin nodule biopsy confirmed metastatic undifferentiated carcinoma, and IHC results strongly indicate a mammary origin (ER+, PR-, HER2-). The next step is to identify the primary breast carcinoma.",
+          "confirmed_evidence": [
+            "Patient presented with bilateral skin nodules and systemic symptoms (asthenia, anorexia, weight loss).",
+            "Skin nodule biopsy revealed diffuse infiltration of atypical cells consistent with metastatic undifferentiated carcinoma (E003).",
+            "Immunohistochemistry on the skin nodule biopsy showed positive nuclear staining for ER, negative PR, and faint cytoplasmic/negative membranous HER2-neu, confirming mammary origin consistent with lobular-type metastatic adenocarcinoma (E004)."
+          ],
+          "missing_key_evidence": [
+            "Imaging findings of breasts to locate the primary tumor",
+            "Confirmation of primary breast carcinoma"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "Order placed for bilateral mammography and breast ultrasound without documented results in the source.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "results of bilateral mammography and breast ultrasound",
+          "current_trajectory_hypothesis": "Skin nodule biopsy confirmed metastatic undifferentiated carcinoma, and IHC results strongly indicate a mammary origin (ER+, PR-, HER2-). Imaging of the breasts (mammography and ultrasound) was ordered to locate the primary breast carcinoma.",
+          "confirmed_evidence": [
+            "Patient presented with bilateral skin nodules and systemic symptoms (asthenia, anorexia, weight loss).",
+            "Skin nodule biopsy revealed diffuse infiltration of atypical cells consistent with metastatic undifferentiated carcinoma (E003).",
+            "Immunohistochemistry on the skin nodule biopsy showed positive nuclear staining for ER, negative PR, and faint cytoplasmic/negative membranous HER2-neu, confirming mammary origin consistent with lobular-type metastatic adenocarcinoma (E004)."
+          ],
+          "missing_key_evidence": [
+            "Specific imaging findings of breasts to locate the primary tumor",
+            "Confirmation of primary breast carcinoma"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No source evidence documents results of bilateral mammography and breast ultrasound.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "results of any further diagnostic procedures or imaging performed to identify the primary breast carcinoma",
+          "current_trajectory_hypothesis": "Skin nodule biopsy confirmed metastatic undifferentiated carcinoma, and IHC results strongly indicate a mammary origin (ER+, PR-, HER2-). Despite previous attempts to obtain mammography and ultrasound results, the primary breast carcinoma has not yet been identified. Further diagnostic steps are needed to locate and confirm the primary tumor.",
+          "confirmed_evidence": [
+            "Patient presented with bilateral skin nodules and systemic symptoms (asthenia, anorexia, weight loss).",
+            "Skin nodule biopsy revealed diffuse infiltration of atypical cells consistent with metastatic undifferentiated carcinoma (E003).",
+            "Immunohistochemistry on the skin nodule biopsy showed positive nuclear staining for ER, negative PR, and faint cytoplasmic/negative membranous HER2-neu, confirming mammary origin consistent with lobular-type metastatic adenocarcinoma (E004)."
+          ],
+          "missing_key_evidence": [
+            "Specific imaging findings of breasts to locate the primary tumor",
+            "Confirmation of primary breast carcinoma (e.g., biopsy results)",
+            "Clinical course after diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E004",
+          "source_text": "Immunohistochemical staining showed positive nuclear staining for estrogen receptor (ER) in 50% of tumor cells with ++/+++ intensity, negative progesterone receptor (PR) staining, and faint cytoplasmic and negative membranous staining for HER2-neu (c-erbB-2) (Figure 2). Controls confirmed the mammary origin of the metastases, consistent with lobular-type metastatic adenocarcinoma involving the skin.",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "specific findings or procedures that confirmed the primary breast carcinoma",
+          "current_trajectory_hypothesis": "Skin nodule biopsy confirmed metastatic undifferentiated carcinoma, and IHC results strongly indicate a mammary origin (ER+, PR-, HER2-). The primary breast carcinoma has not yet been explicitly identified or confirmed in the provided evidence, despite the known final diagnosis.",
+          "confirmed_evidence": [
+            "Patient presented with bilateral skin nodules and systemic symptoms (asthenia, anorexia, weight loss).",
+            "Skin nodule biopsy revealed diffuse infiltration of atypical cells consistent with metastatic undifferentiated carcinoma (E003).",
+            "Immunohistochemistry on the skin nodule biopsy showed positive nuclear staining for ER, negative PR, and faint cytoplasmic/negative membranous HER2-neu, confirming mammary origin consistent with lobular-type metastatic adenocarcinoma (E004)."
+          ],
+          "missing_key_evidence": [
+            "Specific evidence confirming the primary breast carcinoma",
+            "Clinical course after diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E004",
+          "source_text": "Immunohistochemical staining showed positive nuclear staining for estrogen receptor (ER) in 50% of tumor cells with ++/+++ intensity, negative progesterone receptor (PR) staining, and faint cytoplasmic and negative membranous staining for HER2-neu (c-erbB-2) (Figure 2). Controls confirmed the mammary origin of the metastases, consistent with lobular-type metastatic adenocarcinoma involving the skin.",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "biopsy results from the primary breast lesion, if performed",
+          "current_trajectory_hypothesis": "Skin nodule biopsy confirmed metastatic undifferentiated carcinoma, and IHC results strongly indicate a mammary origin (ER+, PR-, HER2-). The primary breast carcinoma has not yet been explicitly identified or confirmed. A biopsy of the primary breast lesion would provide definitive confirmation.",
+          "confirmed_evidence": [
+            "Patient presented with bilateral skin nodules and systemic symptoms (asthenia, anorexia, weight loss).",
+            "Skin nodule biopsy revealed diffuse infiltration of atypical cells consistent with metastatic undifferentiated carcinoma (E003).",
+            "Immunohistochemistry on the skin nodule biopsy showed positive nuclear staining for ER, negative PR, and faint cytoplasmic/negative membranous HER2-neu, confirming mammary origin consistent with lobular-type metastatic adenocarcinoma (E004)."
+          ],
+          "missing_key_evidence": [
+            "Specific evidence confirming the primary breast carcinoma (e.g., biopsy results from the breast)",
+            "Clinical course after diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E003",
+          "source_text": "A punch biopsy was performed in collaboration with the surgical department, and histopathological analysis revealed diffuse infiltration of atypical cells with large nuclei, prominent nucleoli, and atypical mitoses, consistent with metastatic undifferentiated carcinoma.",
+          "category": "pathology_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Skin nodule biopsy confirmed metastatic undifferentiated carcinoma, and IHC results strongly indicate a mammary origin (ER+, PR-, HER2-), leading to the diagnosis of metastatic breast carcinoma. The next step is to understand the patient's clinical course, treatment, and outcome.",
+          "confirmed_evidence": [
+            "Patient presented with bilateral skin nodules and systemic symptoms (asthenia, anorexia, weight loss).",
+            "Skin nodule biopsy revealed diffuse infiltration of atypical cells consistent with metastatic undifferentiated carcinoma (E003).",
+            "Immunohistochemistry on the skin nodule biopsy showed positive nuclear staining for ER, negative PR, and faint cytoplasmic/negative membranous HER2-neu, confirming mammary origin consistent with lobular-type metastatic adenocarcinoma (E004)."
+          ],
+          "missing_key_evidence": [
+            "Details of treatment administered",
+            "Response to treatment",
+            "Progression of disease",
+            "Specific outcome and timeline"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "Additional tests revealed an elevated cancer antigen (CA 15-3) level of >500 U/mL and carcinoembryonic antigen (CEA) level of 6.37 ng/mL.",
+          "category": "other",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "whole-body imaging (e.g., CT scan, PET scan) to assess the extent of metastatic disease and identify the primary tumor",
+          "current_trajectory_hypothesis": "The patient presented with skin nodules and systemic symptoms. Biopsy and IHC confirmed metastatic lobular-type adenocarcinoma of mammary origin. Elevated tumor markers further support this. The next step is to assess the full extent of the disease and definitively locate the primary tumor, if not already identified.",
+          "confirmed_evidence": [
+            "Patient presented with bilateral skin nodules and systemic symptoms (asthenia, anorexia, weight loss).",
+            "Skin nodule biopsy revealed diffuse infiltration of atypical cells consistent with metastatic undifferentiated carcinoma (E003).",
+            "Immunohistochemistry on the skin nodule biopsy showed positive nuclear staining for ER, negative PR, and faint cytoplasmic/negative membranous HER2-neu, confirming mammary origin consistent with lobular-type metastatic adenocarcinoma (E004).",
+            "Elevated cancer antigen (CA 15-3) level of >500 U/mL and carcinoembryonic antigen (CEA) level of 6.37 ng/mL (E005)."
+          ],
+          "missing_key_evidence": [
+            "Specific imaging findings of the primary breast tumor or other metastatic sites",
+            "Details of treatment administered",
+            "Response to treatment",
+            "Progression of disease",
+            "Specific outcome and timeline"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "Whole-body imaging order recorded; no corresponding source result available yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "results of whole-body imaging (e.g., CT scan, PET scan) to assess the extent of metastatic disease and identify the primary tumor",
+          "current_trajectory_hypothesis": "The patient presented with skin nodules and systemic symptoms. Biopsy and IHC confirmed metastatic lobular-type adenocarcinoma of mammary origin. Elevated tumor markers further support this. Whole-body imaging was ordered to assess the full extent of the disease and definitively locate the primary tumor.",
+          "confirmed_evidence": [
+            "Patient presented with bilateral skin nodules and systemic symptoms (asthenia, anorexia, weight loss).",
+            "Skin nodule biopsy revealed diffuse infiltration of atypical cells consistent with metastatic undifferentiated carcinoma (E003).",
+            "Immunohistochemistry on the skin nodule biopsy showed positive nuclear staining for ER, negative PR, and faint cytoplasmic/negative membranous HER2-neu, confirming mammary origin consistent with lobular-type metastatic adenocarcinoma (E004).",
+            "Elevated cancer antigen (CA 15-3) level of >500 U/mL and carcinoembryonic antigen (CEA) level of 6.37 ng/mL (E005)."
+          ],
+          "missing_key_evidence": [
+            "Specific imaging findings of the primary breast tumor or other metastatic sites",
+            "Details of treatment administered",
+            "Response to treatment",
+            "Progression of disease",
+            "Specific outcome and timeline"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E008",
+          "source_text": "A computed tomography scan revealed a significant accumulation of ascites and pleural effusion, though no lung metastases were identified (Figure 3).",
+          "category": "imaging_report",
+          "temporal_cue": "4 months after initiating treatment",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "specific findings or procedures that confirmed the primary breast carcinoma and led to treatment initiation",
+          "current_trajectory_hypothesis": "The patient presented with skin nodules and systemic symptoms. Biopsy and IHC confirmed metastatic lobular-type adenocarcinoma of mammary origin. Elevated tumor markers further supported this. While a CT scan revealed ascites and pleural effusion 4 months after treatment, the primary breast carcinoma itself has not yet been explicitly identified or confirmed, nor has the initial treatment been detailed.",
+          "confirmed_evidence": [
+            "Patient presented with bilateral skin nodules and systemic symptoms (asthenia, anorexia, weight loss).",
+            "Skin nodule biopsy revealed diffuse infiltration of atypical cells consistent with metastatic undifferentiated carcinoma (E003).",
+            "Immunohistochemistry on the skin nodule biopsy showed positive nuclear staining for ER, negative PR, and faint cytoplasmic/negative membranous HER2-neu, confirming mammary origin consistent with lobular-type metastatic adenocarcinoma (E004).",
+            "Elevated cancer antigen (CA 15-3) level of >500 U/mL and carcinoembryonic antigen (CEA) level of 6.37 ng/mL (E005).",
+            "A computed tomography scan revealed a significant accumulation of ascites and pleural effusion, though no lung metastases were identified, 4 months after initiating treatment (E008)."
+          ],
+          "missing_key_evidence": [
+            "Specific evidence confirming the primary breast carcinoma (e.g., imaging findings, biopsy results from the breast)",
+            "Details of initial treatment administered",
+            "Clinical course between diagnosis and 4 months post-treatment",
+            "Progression of disease leading to ascites/pleural effusion",
+            "Specific outcome and timeline"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E004",
+          "source_text": "Immunohistochemical staining showed positive nuclear staining for estrogen receptor (ER) in 50% of tumor cells with ++/+++ intensity, negative progesterone receptor (PR) staining, and faint cytoplasmic and negative membranous staining for HER2-neu (c-erbB-2) (Figure 2). Controls confirmed the mammary origin of the metastases, consistent with lobular-type metastatic adenocarcinoma involving the skin.",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 14,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with skin nodules and systemic symptoms. Biopsy and IHC confirmed metastatic lobular-type adenocarcinoma of mammary origin. Elevated tumor markers further supported this, leading to the diagnosis of primary breast carcinoma with cutaneous metastases. The next step is to understand the treatment initiated and the subsequent clinical course, including the progression of the disease.",
+          "confirmed_evidence": [
+            "Patient presented with bilateral skin nodules and systemic symptoms (asthenia, anorexia, weight loss).",
+            "Skin nodule biopsy revealed diffuse infiltration of atypical cells consistent with metastatic undifferentiated carcinoma (E003).",
+            "Immunohistochemistry on the skin nodule biopsy showed positive nuclear staining for ER, negative PR, and faint cytoplasmic/negative membranous HER2-neu, confirming mammary origin consistent with lobular-type metastatic adenocarcinoma (E004).",
+            "Elevated cancer antigen (CA 15-3) level of >500 U/mL and carcinoembryonic antigen (CEA) level of 6.37 ng/mL (E005).",
+            "A computed tomography scan revealed a significant accumulation of ascites and pleural effusion, though no lung metastases were identified, 4 months after initiating treatment (E008)."
+          ],
+          "missing_key_evidence": [
+            "Details of initial treatment administered",
+            "Clinical course between diagnosis and 4 months post-treatment",
+            "Progression of disease leading to ascites/pleural effusion",
+            "Specific outcome and timeline (death 7 months after diagnosis)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E008",
+          "source_text": "A computed tomography scan revealed a significant accumulation of ascites and pleural effusion, though no lung metastases were identified (Figure 3).",
+          "category": "imaging_report",
+          "temporal_cue": "4 months after initiating treatment",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 15,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "CM originating from primary breast carcinoma",
+          "trajectory_summary": "A 53-year-old woman presented with bilateral axillary and trunk nodules, asthenia, anorexia, and 10 kg weight loss. A punch biopsy of the skin nodules revealed diffuse infiltration of atypical cells consistent with metastatic undifferentiated carcinoma (E003). Immunohistochemistry on the biopsy confirmed mammary origin, consistent with lobular-type metastatic adenocarcinoma (ER+, PR-, HER2- faint/negative) (E004). Elevated tumor markers (CA 15-3 >500 U/mL, CEA 6.37 ng/mL) further supported the diagnosis (E005). Four months after initiating treatment, a CT scan showed significant ascites and pleural effusion (E008). The patient died of her illness 7 months after the diagnosis of CM originating from primary breast carcinoma.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with bilateral skin nodules, asthenia, anorexia, and weight loss.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Skin nodule biopsy revealed metastatic undifferentiated carcinoma.",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Immunohistochemistry confirmed mammary origin, consistent with lobular-type metastatic adenocarcinoma (ER+, PR-, HER2- faint/negative).",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Elevated cancer antigen (CA 15-3) and carcinoembryonic antigen (CEA) levels were observed.",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "A CT scan 4 months after treatment initiation showed ascites and pleural effusion.",
+              "evidence_ids": [
+                "E008"
+              ]
+            },
+            {
+              "claim": "The patient died of her illness 7 months after diagnosis.",
+              "evidence_ids": []
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Other primary tumor sites for the metastatic carcinoma",
+              "basis": "Immunohistochemistry on the skin nodule biopsy confirmed mammary origin (E004)."
+            }
+          ],
+          "remaining_uncertainties": [
+            "Specific imaging findings or biopsy results confirming the primary breast carcinoma itself (only metastatic origin was confirmed).",
+            "Details of the treatment administered.",
+            "Clinical course between diagnosis and 4 months post-treatment.",
+            "Specific cause of death beyond 'her illness'."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "CM originating from primary breast carcinoma",
+      "trajectory_summary": "A 53-year-old woman presented with bilateral axillary and trunk nodules, asthenia, anorexia, and 10 kg weight loss. A punch biopsy of the skin nodules revealed diffuse infiltration of atypical cells consistent with metastatic undifferentiated carcinoma (E003). Immunohistochemistry on the biopsy confirmed mammary origin, consistent with lobular-type metastatic adenocarcinoma (ER+, PR-, HER2- faint/negative) (E004). Elevated tumor markers (CA 15-3 >500 U/mL, CEA 6.37 ng/mL) further supported the diagnosis (E005). Four months after initiating treatment, a CT scan showed significant ascites and pleural effusion (E008). The patient died of her illness 7 months after the diagnosis of CM originating from primary breast carcinoma.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with bilateral skin nodules, asthenia, anorexia, and weight loss.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Skin nodule biopsy revealed metastatic undifferentiated carcinoma.",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Immunohistochemistry confirmed mammary origin, consistent with lobular-type metastatic adenocarcinoma (ER+, PR-, HER2- faint/negative).",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Elevated cancer antigen (CA 15-3) and carcinoembryonic antigen (CEA) levels were observed.",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "A CT scan 4 months after treatment initiation showed ascites and pleural effusion.",
+          "evidence_ids": [
+            "E008"
+          ]
+        },
+        {
+          "claim": "The patient died of her illness 7 months after diagnosis.",
+          "evidence_ids": []
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Other primary tumor sites for the metastatic carcinoma",
+          "basis": "Immunohistochemistry on the skin nodule biopsy confirmed mammary origin (E004)."
+        }
+      ],
+      "remaining_uncertainties": [
+        "Specific imaging findings or biopsy results confirming the primary breast carcinoma itself (only metastatic origin was confirmed).",
+        "Details of the treatment administered.",
+        "Clinical course between diagnosis and 4 months post-treatment.",
+        "Specific cause of death beyond 'her illness'."
+      ],
+      "confidence_that_diagnosis_is_supported": 0.9
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-30T17:40:54.513048+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC11806458",
+    "known_final_diagnosis": "she died of her illness 7 months after the diagnosis of CM originating from primary breast carcinoma.",
+    "turns_used": 15,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 6,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 3,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 1,
+      "ORDER_TEST": 3,
+      "REQUEST_RESULT": 8,
+      "WAIT_REASSESS": 2
+    },
+    "report_status_counts": {
+      "already_disclosed": 5,
+      "found": 4,
+      "not_reported": 1,
+      "ordered_but_not_documented": 4
+    },
+    "report_repair_attempted_count": 0,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {},
+    "answer_yield": 0.6428571428571429,
+    "unavailable_turn_rate": 0.35714285714285715,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-30T17:40:54.515091+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC11806458",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/oncology/episodes/PMC11806458.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/oncology/cases/PMC11806458.json",
+    "num_gold_steps": "6",
+    "num_pred_steps": "5",
+    "weighted_tversky_alignment": "0.6363636363636364",
+    "weighted_tversky_distance": "0.36363636363636365",
+    "matched_weight": "5.25",
+    "missed_weight": "1.0",
+    "extra_weight": "1.0",
+    "weighted_lcs_recall": "0.68",
+    "weighted_lcs_weight": "4.25",
+    "weighted_pairwise_order_accuracy": "0.6491884889588556",
+    "pairwise_comparable_pairs": "6",
+    "pairwise_correct_pairs": "4",
+    "pairwise_inversions": "2",
+    "gold_sequence": "other_or_off_protocol > lab_tests > pathology > imaging > medication_or_treatment > admission_or_clinical_course",
+    "prediction_sequence": "procedure_or_intervention > pathology > imaging > lab_tests > medication_or_treatment",
+    "error": ""
+  }
+}

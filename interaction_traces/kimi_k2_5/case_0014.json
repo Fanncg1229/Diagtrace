@@ -1,0 +1,553 @@
+{
+  "case_id": "case_0014",
+  "pmcid": "PMC11937883",
+  "model": "kimi_k2_5",
+  "episode": {
+    "case_id": "PMC11937883",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 12,
+    "termination": "final",
+    "known_final_diagnosis": "The biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, as observed in the H&E histological section (figure 1). ... These findings, along with previous imaging, supported the diagnosis of PCACC ... Histopathological examination of the excised tissue confirmed the diagnosis of PCACC",
+    "disclosed_evidence_ids": [
+      "E002",
+      "E003",
+      "E004"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "CT or MRI imaging report of the scalp/head performed during the workup of the right posterior scalp lesions",
+          "current_trajectory_hypothesis": "Young woman presents with 4-month history of progressive right posterior scalp swelling with two distinct lesions (cystic subcutaneous nodule and erythematous discolored plaque). Workup likely included imaging to characterize the lesions and assess extent, followed by biopsy confirming adenoid cystic carcinoma, then definitive excision.",
+          "confirmed_evidence": [
+            "Patient is woman in her 20s presenting to plastic surgery clinic",
+            "4-month history of persistent right posterior scalp swelling with pruritus and progressive enlargement",
+            "Physical exam: 12mm subcutaneous mobile tender cystic lesion and 11mm erythematous irregular brown lesion",
+            "No systemic symptoms (fever, night sweats, weight loss, bleeding)"
+          ],
+          "missing_key_evidence": [
+            "Imaging studies mentioned as supporting diagnosis",
+            "Biopsy procedure details and histopathological findings",
+            "Excision procedure and final histopathological confirmation",
+            "Workup to exclude metastatic adenoid cystic carcinoma from salivary glands or other primary sites"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "No CT or MRI imaging report of the scalp/head found in supplied evidence.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Histopathology report from the initial biopsy of the right posterior scalp lesions showing basaloid cutaneous lesion consistent with adenoid cystic carcinoma (H&E findings)",
+          "current_trajectory_hypothesis": "Young woman presents with 4-month progressive right posterior scalp swelling. After clinical examination revealing two distinct lesions, a biopsy was performed demonstrating basaloid cutaneous morphology consistent with adenoid cystic carcinoma, leading to definitive excision with histopathological confirmation of PCACC.",
+          "confirmed_evidence": [
+            "Patient is woman in her 20s presenting to plastic surgery clinic",
+            "4-month history of persistent right posterior scalp swelling with pruritus and progressive enlargement",
+            "Physical exam: 12mm subcutaneous mobile tender cystic lesion and 11mm erythematous irregular brown lesion with intact skin",
+            "No systemic symptoms (fever, night sweats, weight loss, bleeding)",
+            "No CT/MRI imaging report available in supplied evidence"
+          ],
+          "missing_key_evidence": [
+            "Biopsy procedure details and histopathological findings (H&E section showing basaloid lesion)",
+            "Excision procedure details and final histopathological confirmation",
+            "Workup to exclude metastatic adenoid cystic carcinoma from salivary glands or other primary sites",
+            "Immunohistochemical staining results if performed"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "The biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, as observed in the H&E histological section (figure 1).",
+          "category": "pathology_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Histopathology report from the excision of the right posterior scalp lesions confirming the diagnosis of primary cutaneous adenoid cystic carcinoma (PCACC)",
+          "current_trajectory_hypothesis": "Young woman presents with 4-month progressive right posterior scalp swelling with two distinct lesions (cystic nodule and erythematous plaque). Initial biopsy demonstrates basaloid cutaneous morphology consistent with adenoid cystic carcinoma. Definitive excision was performed with histopathological examination confirming PCACC.",
+          "confirmed_evidence": [
+            "Patient is woman in her 20s presenting to plastic surgery clinic",
+            "4-month history of persistent right posterior scalp swelling with pruritus and progressive enlargement",
+            "Physical exam: 12mm subcutaneous mobile tender cystic lesion and 11mm erythematous irregular brown lesion",
+            "Initial biopsy (E002): basaloid cutaneous lesion consistent with adenoid cystic carcinoma on H&E",
+            "No systemic symptoms (fever, night sweats, weight loss, bleeding)"
+          ],
+          "missing_key_evidence": [
+            "Excision procedure details and final histopathological confirmation of PCACC",
+            "Workup to exclude metastatic adenoid cystic carcinoma from salivary glands or other primary sites (essential for diagnosis of primary cutaneous vs metastatic)",
+            "Immunohistochemical staining results if performed",
+            "Imaging studies mentioned as supporting diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Clinical documentation regarding workup to exclude metastatic adenoid cystic carcinoma from salivary glands or other primary sites, including head and neck examination or imaging findings",
+          "current_trajectory_hypothesis": "Young woman presents with 4-month progressive right posterior scalp swelling. Initial biopsy (E002) shows basaloid cutaneous lesion consistent with adenoid cystic carcinoma. To establish diagnosis of primary cutaneous adenoid cystic carcinoma (PCACC) rather than metastatic disease, workup excluding salivary gland primary or other systemic sources would be required, followed by definitive excision.",
+          "confirmed_evidence": [
+            "Patient is woman in her 20s presenting to plastic surgery clinic",
+            "4-month history of persistent right posterior scalp swelling with pruritus and progressive enlargement",
+            "Physical exam: 12mm subcutaneous mobile tender cystic lesion and 11mm erythematous irregular brown lesion",
+            "Initial biopsy (E002): basaloid cutaneous lesion consistent with adenoid cystic carcinoma on H&E",
+            "No systemic symptoms (fever, night sweats, weight loss, bleeding)"
+          ],
+          "missing_key_evidence": [
+            "Workup to exclude metastatic adenoid cystic carcinoma from salivary glands (essential for PCACC diagnosis)",
+            "Excision procedure and final histopathological confirmation",
+            "Immunohistochemical staining results (CD117, p63, CK5/6, etc.)",
+            "Imaging studies mentioned as supporting diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "The PET-CT scan revealed the absence of fluorodeoxyglucose (FDG) uptake or hypermetabolic activity, with normal physiological FDG distribution in the lymph nodes, organs and bone marrow.",
+          "category": "imaging_report",
+          "temporal_cue": "after biopsy",
+          "phase_index": 4,
+          "phase_label": "advanced_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Immunohistochemical staining results from the biopsy or excision specimen, specifically CD117 (c-kit), p63, and cytokeratin markers to confirm adenoid cystic carcinoma",
+          "current_trajectory_hypothesis": "Young woman presents with 4-month progressive right posterior scalp swelling with two distinct lesions. Initial biopsy (E002) demonstrates basaloid cutaneous morphology consistent with adenoid cystic carcinoma. PET-CT (E003) shows no FDG uptake or hypermetabolic activity in lymph nodes, organs, or bone marrow, supporting primary cutaneous origin rather than metastatic disease. Workup likely included immunohistochemistry to confirm the diagnosis, followed by definitive excision with histopathological confirmation.",
+          "confirmed_evidence": [
+            "Patient is woman in her 20s presenting to plastic surgery clinic with 4-month history of right posterior scalp swelling and pruritus",
+            "Physical exam: 12mm subcutaneous mobile tender cystic lesion and 11mm erythematous irregular brown lesion",
+            "Initial biopsy (E002): basaloid cutaneous lesion consistent with adenoid cystic carcinoma on H&E",
+            "PET-CT (E003): absence of FDG uptake or hypermetabolic activity; normal physiological distribution in lymph nodes, organs and bone marrow (argues against metastatic disease from salivary gland primary)",
+            "No systemic symptoms (fever, night sweats, weight loss, bleeding)"
+          ],
+          "missing_key_evidence": [
+            "Excision procedure details and final histopathological confirmation of PCACC",
+            "Immunohistochemical staining results (CD117/c-kit, p63, CK5/6) to confirm diagnosis and distinguish from other basaloid tumors",
+            "Treatment outcome and follow-up information"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E002",
+          "source_text": "Immunohistochemistry was performed, revealing that the lesion exhibited patchy infiltrates positively staining for epithelial membrane antigen, specifically staining the apical aspect of the pseudo glandular cyst (figure 2A). Additionally, there was diffuse positive staining for pan-cytokeratin (AE1/AE3) (figure 2B).",
+          "category": "pathology_report",
+          "temporal_cue": "on admission",
+          "phase_index": 4,
+          "phase_label": "advanced_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Surgical excision report and corresponding histopathology report of the excised right posterior scalp tissue confirming primary cutaneous adenoid cystic carcinoma",
+          "current_trajectory_hypothesis": "Young woman presents with 4-month progressive right posterior scalp swelling with two distinct lesions. Initial biopsy (E002) shows basaloid morphology consistent with adenoid cystic carcinoma with positive EMA and pan-cytokeratin staining. PET-CT (E003) reveals no systemic hypermetabolic activity, supporting primary cutaneous origin. Patient underwent definitive surgical excision with histopathological examination confirming PCACC.",
+          "confirmed_evidence": [
+            "Patient is woman in her 20s presenting to plastic surgery clinic with 4-month history of right posterior scalp swelling and pruritus",
+            "Physical exam: 12mm subcutaneous mobile tender cystic lesion and 11mm erythematous irregular brown lesion",
+            "Initial biopsy (E002): basaloid cutaneous lesion consistent with adenoid cystic carcinoma on H&E",
+            "Immunohistochemistry (E002): patchy positive staining for EMA (apical aspect of pseudo glandular cyst) and diffuse positive staining for pan-cytokeratin (AE1/AE3)",
+            "PET-CT (E003): absence of FDG uptake or hypermetabolic activity in lymph nodes, organs and bone marrow, supporting primary cutaneous origin",
+            "No systemic symptoms (fever, night sweats, weight loss, bleeding)"
+          ],
+          "missing_key_evidence": [
+            "Definitive surgical excision procedure details",
+            "Final histopathological examination of excised tissue confirming PCACC diagnosis",
+            "Treatment outcome and follow-up information",
+            "CD117 (c-kit) immunohistochemistry status (characteristic marker for adenoid cystic carcinoma)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 4,
+          "phase_label": "advanced_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "CD117 (c-kit) immunohistochemistry staining results from the biopsy or excision specimen",
+          "current_trajectory_hypothesis": "Young woman presents with 4-month progressive right posterior scalp swelling. Initial biopsy (E002) demonstrates basaloid morphology consistent with adenoid cystic carcinoma with positive EMA and pan-cytokeratin. PET-CT (E003) shows no systemic hypermetabolic activity, supporting primary cutaneous origin. CD117 positivity would further support the diagnosis of adenoid cystic carcinoma, followed by definitive surgical excision.",
+          "confirmed_evidence": [
+            "Patient is woman in her 20s presenting to plastic surgery clinic with 4-month history of right posterior scalp swelling and pruritus",
+            "Physical exam: 12mm subcutaneous mobile tender cystic lesion and 11mm erythematous irregular brown lesion",
+            "Initial biopsy (E002): basaloid cutaneous lesion consistent with adenoid cystic carcinoma on H&E",
+            "Immunohistochemistry (E002): patchy positive staining for EMA (apical aspect of pseudo glandular cyst) and diffuse positive staining for pan-cytokeratin (AE1/AE3)",
+            "PET-CT (E003): absence of FDG uptake or hypermetabolic activity in lymph nodes, organs and bone marrow, supporting primary cutaneous origin",
+            "No systemic symptoms (fever, night sweats, weight loss, bleeding)"
+          ],
+          "missing_key_evidence": [
+            "CD117 (c-kit) immunohistochemistry status (characteristic marker for adenoid cystic carcinoma)",
+            "Definitive surgical excision procedure and final histopathological examination",
+            "Treatment outcome and follow-up information"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 4,
+          "phase_label": "advanced_workup",
+          "pending_orders": [],
+          "explanation": "No source record documents CD117 (c-kit) immunohistochemistry staining results.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Operative report or surgical procedure note documenting the excision of the right posterior scalp lesions",
+          "current_trajectory_hypothesis": "Young woman presents with 4-month progressive right posterior scalp swelling with two distinct lesions. Initial biopsy (E002) demonstrates basaloid morphology consistent with adenoid cystic carcinoma with positive EMA and pan-cytokeratin staining. PET-CT (E003) shows no systemic hypermetabolic activity, supporting primary cutaneous origin. Patient underwent definitive surgical excision with histopathological examination confirming PCACC.",
+          "confirmed_evidence": [
+            "Patient is woman in her 20s presenting to plastic surgery clinic with 4-month history of right posterior scalp swelling and pruritus",
+            "Physical exam: 12mm subcutaneous mobile tender cystic lesion and 11mm erythematous irregular brown lesion",
+            "Initial biopsy (E002): basaloid cutaneous lesion consistent with adenoid cystic carcinoma on H&E",
+            "Immunohistochemistry (E002): patchy positive staining for EMA (apical aspect of pseudo glandular cyst) and diffuse positive staining for pan-cytokeratin (AE1/AE3)",
+            "PET-CT (E003): absence of FDG uptake or hypermetabolic activity in lymph nodes, organs and bone marrow, supporting primary cutaneous origin",
+            "No systemic symptoms (fever, night sweats, weight loss, bleeding)"
+          ],
+          "missing_key_evidence": [
+            "Definitive surgical excision procedure documentation",
+            "Final histopathological examination of excised tissue confirming PCACC diagnosis",
+            "Treatment outcome and follow-up information"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "Under local anaesthesia, the two lesions were completely excised surgically. Subsequent reconstruction of the operative site involved the use of a local flap using adjacent skin to reconstruct and fill the defect created by the surgical excision on the scalp. A rotational flap was used, repositioning surrounding scalp tissue in an arc to effectively cover the excision site.",
+          "category": "treatment_response",
+          "temporal_cue": "after workup",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Histopathology report of the surgical specimen from the excised right posterior scalp lesions",
+          "current_trajectory_hypothesis": "Young woman presents with 4-month progressive right posterior scalp swelling with two distinct lesions. Initial biopsy (E002) demonstrates basaloid morphology consistent with adenoid cystic carcinoma with positive EMA and pan-cytokeratin staining. PET-CT (E003) shows no systemic hypermetabolic activity, supporting primary cutaneous origin. Complete surgical excision performed under local anesthesia with rotational flap reconstruction (E004). Final histopathological examination of the excised tissue is needed to confirm the diagnosis.",
+          "confirmed_evidence": [
+            "Patient is woman in her 20s presenting to plastic surgery clinic with 4-month history of right posterior scalp swelling and pruritus",
+            "Physical exam: 12mm subcutaneous mobile tender cystic lesion and 11mm erythematous irregular brown lesion",
+            "Initial biopsy (E002): basaloid cutaneous lesion consistent with adenoid cystic carcinoma on H&E",
+            "Immunohistochemistry (E002): patchy positive staining for EMA (apical aspect of pseudo glandular cyst) and diffuse positive staining for pan-cytokeratin (AE1/AE3)",
+            "PET-CT (E003): absence of FDG uptake or hypermetabolic activity in lymph nodes, organs and bone marrow, supporting primary cutaneous origin",
+            "Surgical excision (E004): complete excision of both lesions under local anesthesia with rotational flap reconstruction",
+            "No systemic symptoms (fever, night sweats, weight loss, bleeding)"
+          ],
+          "missing_key_evidence": [
+            "Final histopathological examination of excised tissue confirming PCACC diagnosis",
+            "Treatment outcome and follow-up information"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Clinical follow-up and treatment outcome after surgical excision of the right posterior scalp lesions",
+          "current_trajectory_hypothesis": "Young woman presents with 4-month progressive right posterior scalp swelling with two distinct lesions. Initial biopsy (E002) demonstrates basaloid morphology consistent with adenoid cystic carcinoma with positive EMA and pan-cytokeratin staining. PET-CT (E003) shows no systemic hypermetabolic activity, excluding metastatic disease and supporting primary cutaneous origin. Complete surgical excision performed under local anesthesia with rotational flap reconstruction (E004). Final histopathological examination confirmed PCACC, and patient underwent clinical follow-up.",
+          "confirmed_evidence": [
+            "Patient is woman in her 20s presenting to plastic surgery clinic with 4-month history of right posterior scalp swelling and pruritus",
+            "Physical exam: 12mm subcutaneous mobile tender cystic lesion and 11mm erythematous irregular brown lesion",
+            "Initial biopsy (E002): basaloid cutaneous lesion consistent with adenoid cystic carcinoma on H&E",
+            "Immunohistochemistry (E002): patchy positive staining for EMA (apical aspect of pseudo glandular cyst) and diffuse positive staining for pan-cytokeratin (AE1/AE3)",
+            "PET-CT (E003): absence of FDG uptake or hypermetabolic activity in lymph nodes, organs and bone marrow, supporting primary cutaneous origin",
+            "Surgical excision (E004): complete excision of both lesions under local anesthesia with rotational flap reconstruction",
+            "No systemic symptoms (fever, night sweats, weight loss, bleeding)"
+          ],
+          "missing_key_evidence": [
+            "Final histopathological examination results of excised tissue (confirmation of PCACC diagnosis)",
+            "Treatment outcome and follow-up information",
+            "Surgical margin status"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Histopathological details of the excised scalp tissue regarding perineural invasion, lymphovascular invasion, and surgical margin status",
+          "current_trajectory_hypothesis": "Young woman presents with 4-month progressive right posterior scalp swelling with two distinct lesions. Initial biopsy (E002) demonstrates basaloid morphology consistent with adenoid cystic carcinoma with positive EMA and pan-cytokeratin staining. PET-CT (E003) shows no systemic hypermetabolic activity, excluding metastatic disease and supporting primary cutaneous origin. Complete surgical excision performed under local anesthesia with rotational flap reconstruction (E004). Final histopathological examination of the excised tissue confirmed PCACC, with specific attention to prognostic features such as margin status and perineural invasion.",
+          "confirmed_evidence": [
+            "Patient is woman in her 20s presenting to plastic surgery clinic with 4-month history of right posterior scalp swelling and pruritus",
+            "Physical exam: 12mm subcutaneous mobile tender cystic lesion and 11mm erythematous irregular brown lesion",
+            "Initial biopsy (E002): basaloid cutaneous lesion consistent with adenoid cystic carcinoma on H&E",
+            "Immunohistochemistry (E002): patchy positive staining for EMA (apical aspect of pseudo glandular cyst) and diffuse positive staining for pan-cytokeratin (AE1/AE3)",
+            "PET-CT (E003): absence of FDG uptake or hypermetabolic activity in lymph nodes, organs and bone marrow, supporting primary cutaneous origin",
+            "Surgical excision (E004): complete excision of both lesions under local anesthesia with rotational flap reconstruction",
+            "No systemic symptoms (fever, night sweats, weight loss, bleeding)"
+          ],
+          "missing_key_evidence": [
+            "Final histopathological examination details of excised tissue (margin status, perineural invasion)",
+            "Treatment outcome and follow-up information"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Primary Cutaneous Adenoid Cystic Carcinoma (PCACC)",
+          "trajectory_summary": "A woman in her 20s presented to plastic surgery clinic with a 4-month history of progressive right posterior scalp swelling associated with pruritus and intermittent discomfort. Physical examination revealed two distinct right parieto-occipital lesions: a 12mm subcutaneous mobile tender cystic lesion with intact skin, and an 11mm erythematous lesion with irregular borders and brown discolouration. The patient denied systemic symptoms (fever, night sweats, weight loss, bleeding). Initial biopsy (E002) demonstrated a basaloid cutaneous lesion on H&E consistent with adenoid cystic carcinoma, with immunohistochemistry showing patchy positive staining for epithelial membrane antigen (apical aspect of pseudo glandular cyst) and diffuse positive staining for pan-cytokeratin (AE1/AE3). PET-CT imaging (E003) revealed absence of FDG uptake or hypermetabolic activity in lymph nodes, organs, and bone marrow, supporting a primary cutaneous origin rather than metastatic disease from salivary glands. Complete surgical excision of both lesions was performed under local anesthesia (E004) with reconstruction using a rotational flap. Histopathological examination of the excised tissue confirmed the diagnosis of PCACC.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Initial presentation of 4-month progressive right posterior scalp swelling with pruritus in woman in her 20s",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Physical examination revealed two distinct lesions: 12mm subcutaneous cystic lesion and 11mm erythematous irregular brown lesion",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Initial biopsy showed basaloid cutaneous lesion consistent with adenoid cystic carcinoma on H&E histology",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Immunohistochemistry demonstrated patchy positive EMA staining (apical aspect of pseudo glandular cyst) and diffuse positive pan-cytokeratin (AE1/AE3) staining",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "PET-CT showed absence of FDG uptake or hypermetabolic activity in lymph nodes, organs, and bone marrow, excluding metastatic disease",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Complete surgical excision of both lesions performed under local anesthesia with rotational flap reconstruction",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Histopathological examination of excised tissue confirmed diagnosis of PCACC",
+              "evidence_ids": []
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Metastatic adenoid cystic carcinoma from salivary glands",
+              "basis": "PET-CT (E003) showed no FDG uptake or hypermetabolic activity in lymph nodes, organs, or bone marrow, and no systemic symptoms were reported"
+            },
+            {
+              "alternative": "Systemic malignancy/lymphoma",
+              "basis": "No fever, night sweats, weight loss, or bleeding; PET-CT showed normal physiological FDG distribution without hypermetabolic activity"
+            }
+          ],
+          "remaining_uncertainties": [
+            "CD117 (c-kit) immunohistochemistry status was not documented in available records",
+            "Specific histopathological details of excised tissue (surgical margin status, perineural invasion) were not retrievable due to report restrictions",
+            "Long-term follow-up and recurrence status not documented in retrieved evidence"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Primary Cutaneous Adenoid Cystic Carcinoma (PCACC)",
+      "trajectory_summary": "A woman in her 20s presented to plastic surgery clinic with a 4-month history of progressive right posterior scalp swelling associated with pruritus and intermittent discomfort. Physical examination revealed two distinct right parieto-occipital lesions: a 12mm subcutaneous mobile tender cystic lesion with intact skin, and an 11mm erythematous lesion with irregular borders and brown discolouration. The patient denied systemic symptoms (fever, night sweats, weight loss, bleeding). Initial biopsy (E002) demonstrated a basaloid cutaneous lesion on H&E consistent with adenoid cystic carcinoma, with immunohistochemistry showing patchy positive staining for epithelial membrane antigen (apical aspect of pseudo glandular cyst) and diffuse positive staining for pan-cytokeratin (AE1/AE3). PET-CT imaging (E003) revealed absence of FDG uptake or hypermetabolic activity in lymph nodes, organs, and bone marrow, supporting a primary cutaneous origin rather than metastatic disease from salivary glands. Complete surgical excision of both lesions was performed under local anesthesia (E004) with reconstruction using a rotational flap. Histopathological examination of the excised tissue confirmed the diagnosis of PCACC.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Initial presentation of 4-month progressive right posterior scalp swelling with pruritus in woman in her 20s",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Physical examination revealed two distinct lesions: 12mm subcutaneous cystic lesion and 11mm erythematous irregular brown lesion",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Initial biopsy showed basaloid cutaneous lesion consistent with adenoid cystic carcinoma on H&E histology",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Immunohistochemistry demonstrated patchy positive EMA staining (apical aspect of pseudo glandular cyst) and diffuse positive pan-cytokeratin (AE1/AE3) staining",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "PET-CT showed absence of FDG uptake or hypermetabolic activity in lymph nodes, organs, and bone marrow, excluding metastatic disease",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Complete surgical excision of both lesions performed under local anesthesia with rotational flap reconstruction",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Histopathological examination of excised tissue confirmed diagnosis of PCACC",
+          "evidence_ids": []
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Metastatic adenoid cystic carcinoma from salivary glands",
+          "basis": "PET-CT (E003) showed no FDG uptake or hypermetabolic activity in lymph nodes, organs, or bone marrow, and no systemic symptoms were reported"
+        },
+        {
+          "alternative": "Systemic malignancy/lymphoma",
+          "basis": "No fever, night sweats, weight loss, or bleeding; PET-CT showed normal physiological FDG distribution without hypermetabolic activity"
+        }
+      ],
+      "remaining_uncertainties": [
+        "CD117 (c-kit) immunohistochemistry status was not documented in available records",
+        "Specific histopathological details of excised tissue (surgical margin status, perineural invasion) were not retrievable due to report restrictions",
+        "Long-term follow-up and recurrence status not documented in retrieved evidence"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.85
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-24T21:45:27.788861+00:00",
+    "clinician_model": "Kimi-K2.5",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC11937883",
+    "known_final_diagnosis": "The biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, as observed in the H&E histological section (figure 1). ... These findings, along with previous imaging, supported the diagnosis of PCACC ... Histopathological examination of the excised tissue confirmed the diagnosis of PCACC",
+    "turns_used": 12,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 7,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 3,
+    "gold_reasoning_span_count": 2,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "REQUEST_RESULT": 11
+    },
+    "report_status_counts": {
+      "already_disclosed": 1,
+      "found": 3,
+      "invalid_report_selection": 5,
+      "not_reported": 2
+    },
+    "answer_yield": 0.36363636363636365,
+    "unavailable_turn_rate": 0.18181818181818182,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-24T21:45:27.790820+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC11937883",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "3",
+    "num_pred_steps": "4",
+    "weighted_tversky_alignment": "0.15384615384615385",
+    "weighted_tversky_distance": "0.8461538461538461",
+    "matched_weight": "1.5",
+    "missed_weight": "2.75",
+    "extra_weight": "2.75",
+    "weighted_lcs_recall": "0.35294117647058826",
+    "weighted_lcs_weight": "1.5",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging > pathology > medication_or_treatment",
+    "prediction_sequence": "imaging > procedure_or_intervention > lab_tests > admission_or_clinical_course",
+    "error": ""
+  }
+}

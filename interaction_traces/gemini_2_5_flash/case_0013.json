@@ -1,0 +1,544 @@
+{
+  "case_id": "case_0013",
+  "pmcid": "PMC11929238",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC11929238",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 13,
+    "termination": "final",
+    "known_final_diagnosis": "The patient was diagnosed with early stage HPMF",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E003",
+      "E004",
+      "E005"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "physical examination findings of the skin lesions, specifically regarding their color and morphology",
+          "current_trajectory_hypothesis": "The patient presented with chronic itchy skin lesions. The known diagnosis is Hypopigmented Mycosis Fungoides (HPMF). I need to clarify the initial description of 'pigmented' lesions given the final diagnosis.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Detailed description of skin lesions (color, morphology, distribution)",
+            "Results of diagnostic tests (e.g., skin biopsy)",
+            "Clinical course and treatment"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "Upon clinical examination, hyperpigmented patches on the right side of his trunk and the lateral surface of his right thigh were evident",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "skin biopsy of the lesions for histopathological examination and immunohistochemistry",
+          "current_trajectory_hypothesis": "The patient presented with chronic itchy hyperpigmented patches. Given the known diagnosis of HPMF, a skin biopsy is essential to confirm the diagnosis and understand the nature of the lesions, especially considering the 'hyperpigmented' description.",
+          "confirmed_evidence": [
+            "Patient presented with itchy hyperpigmented patches on the right trunk and right thigh for 3 years (E001)"
+          ],
+          "missing_key_evidence": [
+            "Histopathological findings from skin biopsy",
+            "Immunohistochemistry results",
+            "Clinical course and treatment details"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "The order for skin biopsy and immunohistochemistry is documented but results are not yet disclosed.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "results of the skin biopsy and immunohistochemistry, including specific findings related to T-cell clonality or atypical lymphocytes",
+          "current_trajectory_hypothesis": "The patient presented with chronic itchy hyperpigmented patches. A skin biopsy was ordered to investigate the nature of these lesions, which is a key step in diagnosing Mycosis Fungoides. I need the results to confirm the diagnosis and understand the specific characteristics of the lesions.",
+          "confirmed_evidence": [
+            "Patient presented with itchy hyperpigmented patches on the right trunk and right thigh for 3 years (E001)",
+            "Skin biopsy and immunohistochemistry were ordered (ordered_but_not_documented)"
+          ],
+          "missing_key_evidence": [
+            "Histopathological findings from skin biopsy",
+            "Immunohistochemistry results (e.g., CD markers, T-cell clonality)",
+            "Clinical course and treatment details"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "Immunochemistry of the atypical lymphocytes were CD3+, CD8+, CD4−, CD20−.",
+          "category": "pathology_report",
+          "temporal_cue": "early workup",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "histopathological findings from the skin biopsy, including details on epidermotropism, atypical lymphocytes, and any mention of pigmentation",
+          "current_trajectory_hypothesis": "The patient presented with chronic itchy hyperpigmented patches. Immunohistochemistry showed CD3+, CD8+, CD4− atypical lymphocytes. I need the histopathology report to confirm the diagnosis of Mycosis Fungoides and to understand the microscopic features of the lesions, especially regarding the pigmentation given the known diagnosis of HPMF.",
+          "confirmed_evidence": [
+            "Patient presented with itchy hyperpigmented patches on the right trunk and right thigh for 3 years (E001)",
+            "Skin biopsy and immunohistochemistry were ordered (ordered_but_not_documented)",
+            "Immunohistochemistry showed atypical lymphocytes that were CD3+, CD8+, CD4−, CD20− (E004)"
+          ],
+          "missing_key_evidence": [
+            "Histopathological findings from skin biopsy (e.g., epidermotropism, atypical lymphocytes, Pautrier microabscesses)",
+            "T-cell clonality results",
+            "Clarification on the 'hyperpigmented' vs 'hypopigmented' nature of the lesions",
+            "Clinical course and treatment details"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "histopathological examination of the biopsy revealed parakeratosic hyperkeratosic epidermis with slight spongiosis. Papillary dermis was infiltrated moderately by atypical lymphocytes with mild deposition of melanophages. Lymphocytic infiltrate was situated in clusters and in linear basilar distribution along the dermoepidermal junction (Fig. 2).",
+          "category": "image_finding",
+          "temporal_cue": "early workup",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "results of T-cell receptor gene rearrangement studies (TCR clonality)",
+          "current_trajectory_hypothesis": "The patient presented with chronic itchy hyperpigmented patches. Histopathology showed atypical lymphocytes with melanophages, and immunohistochemistry revealed a CD3+, CD8+, CD4− phenotype. To further support the diagnosis of Mycosis Fungoides, I need to confirm T-cell clonality.",
+          "confirmed_evidence": [
+            "Patient presented with itchy hyperpigmented patches on the right trunk and right thigh for 3 years (E001)",
+            "Skin biopsy and immunohistochemistry were ordered (ordered_but_not_documented)",
+            "Immunohistochemistry showed atypical lymphocytes that were CD3+, CD8+, CD4−, CD20− (E004)",
+            "Histopathological examination revealed parakeratosic hyperkeratosic epidermis, slight spongiosis, moderate infiltration of papillary dermis by atypical lymphocytes with mild deposition of melanophages, and lymphocytic infiltrate in clusters and linear basilar distribution along the dermoepidermal junction (E003)"
+          ],
+          "missing_key_evidence": [
+            "T-cell clonality results",
+            "Clarification on the 'hyperpigmented' vs 'hypopigmented' nature of the lesions in relation to the final diagnosis",
+            "Clinical course and treatment details"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "The source records contain no documented results of T-cell receptor gene rearrangement studies (TCR clonality).",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "a more detailed clinical description or re-evaluation of the lesions' pigmentation, specifically addressing any hypopigmented areas or a re-assessment of the initial 'hyperpigmented' description given the final diagnosis of Hypopigmented Mycosis Fungoides",
+          "current_trajectory_hypothesis": "The patient presented with chronic itchy hyperpigmented patches. Histopathology showed atypical lymphocytes with melanophages, and immunohistochemistry revealed a CD3+, CD8+, CD4− phenotype. The known final diagnosis is Hypopigmented Mycosis Fungoides (HPMF), which contradicts the initial description of 'hyperpigmented' lesions. I need to clarify this discrepancy to understand how the diagnosis of HPMF was reached.",
+          "confirmed_evidence": [
+            "Patient presented with itchy hyperpigmented patches on the right trunk and right thigh for 3 years (E001)",
+            "Skin biopsy and immunohistochemistry were ordered (ordered_but_not_documented)",
+            "Immunohistochemistry showed atypical lymphocytes that were CD3+, CD8+, CD4−, CD20− (E004)",
+            "Histopathological examination revealed parakeratosic hyperkeratosic epidermis, slight spongiosis, moderate infiltration of papillary dermis by atypical lymphocytes with mild deposition of melanophages, and lymphocytic infiltrate in clusters and in linear basilar distribution along the dermoepidermal junction (E003)"
+          ],
+          "missing_key_evidence": [
+            "Clarification on the 'hyperpigmented' vs 'hypopigmented' nature of the lesions in relation to the final diagnosis of HPMF",
+            "Clinical course and treatment details"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E001",
+          "source_text": "Upon clinical examination, hyperpigmented patches on the right side of his trunk and the lateral surface of his right thigh were evident, with no other clinical features (Fig. 1).",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with chronic itchy hyperpigmented patches. Histopathology showed atypical lymphocytes with melanophages, and immunohistochemistry revealed a CD3+, CD8+, CD4− phenotype. There is a discrepancy between the initial 'hyperpigmented' description and the final diagnosis of Hypopigmented Mycosis Fungoides (HPMF). I need to understand how the final diagnosis of HPMF was established and if there's any explanation for this apparent contradiction.",
+          "confirmed_evidence": [
+            "Patient presented with itchy hyperpigmented patches on the right trunk and right thigh for 3 years (E001)",
+            "Skin biopsy and immunohistochemistry were ordered (ordered_but_not_documented)",
+            "Immunohistochemistry showed atypical lymphocytes that were CD3+, CD8+, CD4−, CD20− (E004)",
+            "Histopathological examination revealed parakeratosic hyperkeratosic epidermis, slight spongiosis, moderate infiltration of papillary dermis by atypical lymphocytes with mild deposition of melanophages, and lymphocytic infiltrate in clusters and in linear basilar distribution along the dermoepidermal junction (E003)"
+          ],
+          "missing_key_evidence": [
+            "Specific diagnostic criteria or findings for HPMF",
+            "Explanation for the 'hyperpigmented' vs 'hypopigmented' discrepancy",
+            "Clinical course and treatment details"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "Blood tests of the patient were all within normal ranges except a slight increase in the white blood cell count.",
+          "category": "other",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "final diagnostic conclusion from the pathology report, specifically noting any mention of hypopigmentation or how the diagnosis of Hypopigmented Mycosis Fungoides was established given the initial clinical presentation of hyperpigmented lesions",
+          "current_trajectory_hypothesis": "The patient presented with chronic itchy hyperpigmented patches. Histopathology showed atypical lymphocytes with melanophages, and immunohistochemistry revealed a CD3+, CD8+, CD4− phenotype. The known final diagnosis is Hypopigmented Mycosis Fungoides (HPMF), which appears to contradict the initial clinical description. I need to understand the definitive diagnostic conclusion from pathology and how the 'hypopigmented' aspect of the diagnosis was determined.",
+          "confirmed_evidence": [
+            "Patient presented with itchy hyperpigmented patches on the right trunk and right thigh for 3 years (E001)",
+            "Skin biopsy and immunohistochemistry were ordered (ordered_but_not_documented)",
+            "Immunohistochemistry showed atypical lymphocytes that were CD3+, CD8+, CD4−, CD20− (E004)",
+            "Histopathological examination revealed parakeratosic hyperkeratosic epidermis, slight spongiosis, moderate infiltration of papillary dermis by atypical lymphocytes with mild deposition of melanophages, and lymphocytic infiltrate in clusters and in linear basilar distribution along the dermoepidermal junction (E003)",
+            "Blood tests were normal except for a slight increase in WBC count (E002)"
+          ],
+          "missing_key_evidence": [
+            "Final diagnostic conclusion from pathology, specifically addressing the 'hypopigmented' aspect of the diagnosis",
+            "Clinical course and treatment details"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No pathology report excerpt explicitly stating the final diagnostic conclusion or mentioning hypopigmentation or diagnostic reasoning was found in the source.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with chronic itchy hyperpigmented patches. Histopathology showed atypical lymphocytes with melanophages, and immunohistochemistry revealed a CD3+, CD8+, CD4− phenotype. The known final diagnosis is Hypopigmented Mycosis Fungoides (HPMF), but the initial clinical presentation was hyperpigmented, and the pathology report did not explicitly clarify the 'hypopigmented' aspect. I need to understand the clinical trajectory, treatment, and response to see how the diagnosis was confirmed or if the lesions evolved to become hypopigmented.",
+          "confirmed_evidence": [
+            "Patient presented with itchy hyperpigmented patches on the right trunk and right thigh for 3 years (E001)",
+            "Skin biopsy and immunohistochemistry were ordered (ordered_but_not_documented)",
+            "Immunohistochemistry showed atypical lymphocytes that were CD3+, CD8+, CD4−, CD20− (E004)",
+            "Histopathological examination revealed parakeratosic hyperkeratosic epidermis, slight spongiosis, moderate infiltration of papillary dermis by atypical lymphocytes with mild deposition of melanophages, and lymphocytic infiltrate in clusters and in linear basilar distribution along the dermoepidermal junction (E003)",
+            "Blood tests were normal except for a slight increase in WBC count (E002)"
+          ],
+          "missing_key_evidence": [
+            "Clinical course and evolution of lesions",
+            "Treatment initiated and patient's response",
+            "Specific diagnostic criteria or findings for HPMF, especially regarding the 'hypopigmented' aspect",
+            "Confirmation of T-cell clonality"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "A chest and abdomen computed tomography (CT) scan was conducted, but yielded only normal findings with no lymphadenopathy or organomegaly.",
+          "category": "imaging_report",
+          "temporal_cue": "early workup",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with chronic itchy hyperpigmented patches. Histopathology showed atypical lymphocytes with melanophages, and immunohistochemistry revealed a CD3+, CD8+, CD4− phenotype. Despite the initial clinical description, the known final diagnosis is Hypopigmented Mycosis Fungoides (HPMF). I need to understand the clinical course, treatment, and response to treatment to see how the diagnosis was confirmed or if the lesions evolved to become hypopigmented, and to verify the overall trajectory.",
+          "confirmed_evidence": [
+            "Patient presented with itchy hyperpigmented patches on the right trunk and right thigh for 3 years (E001)",
+            "Skin biopsy and immunohistochemistry were ordered (ordered_but_not_documented)",
+            "Immunohistochemistry showed atypical lymphocytes that were CD3+, CD8+, CD4−, CD20− (E004)",
+            "Histopathological examination revealed parakeratosic hyperkeratosic epidermis, slight spongiosis, moderate infiltration of papillary dermis by atypical lymphocytes with mild deposition of melanophages, and lymphocytic infiltrate in clusters and in linear basilar distribution along the dermoepidermal junction (E003)",
+            "Blood tests were normal except for a slight increase in WBC count (E002)",
+            "Chest and abdomen CT scan was normal, with no lymphadenopathy or organomegaly (E005)"
+          ],
+          "missing_key_evidence": [
+            "Clinical course and evolution of lesions, especially regarding pigmentation",
+            "Treatment initiated and patient's response",
+            "Specific diagnostic criteria or findings for HPMF, especially regarding the 'hypopigmented' aspect",
+            "Confirmation of T-cell clonality"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No pending orders and no new clinical updates at or after the current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with chronic itchy hyperpigmented patches. Histopathology showed atypical lymphocytes with melanophages, and immunohistochemistry revealed a CD3+, CD8+, CD4− phenotype. Despite the initial clinical description, the known final diagnosis is Hypopigmented Mycosis Fungoides (HPMF). I need to understand the clinical course, treatment, and response to treatment to see how the diagnosis was confirmed or if the lesions evolved to become hypopigmented, and to verify the overall trajectory.",
+          "confirmed_evidence": [
+            "Patient presented with itchy hyperpigmented patches on the right trunk and right thigh for 3 years (E001)",
+            "Skin biopsy and immunohistochemistry were ordered (ordered_but_not_documented)",
+            "Immunohistochemistry showed atypical lymphocytes that were CD3+, CD8+, CD4−, CD20− (E004)",
+            "Histopathological examination revealed parakeratosic hyperkeratosic epidermis, slight spongiosis, moderate infiltration of papillary dermis by atypical lymphocytes with mild deposition of melanophages, and lymphocytic infiltrate in clusters and in linear basilar distribution along the dermoepidermal junction (E003)",
+            "Blood tests were normal except for a slight increase in WBC count (E002)",
+            "Chest and abdomen CT scan was normal, with no lymphadenopathy or organomegaly (E005)"
+          ],
+          "missing_key_evidence": [
+            "Clinical course and evolution of lesions, especially regarding pigmentation",
+            "Treatment initiated and patient's response",
+            "Specific diagnostic criteria or findings for HPMF, especially regarding the 'hypopigmented' aspect",
+            "Confirmation of T-cell clonality"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No pending results and no undisclosed clinical updates after current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with chronic itchy hyperpigmented patches. Histopathology showed atypical lymphocytes with melanophages, and immunohistochemistry revealed a CD3+, CD8+, CD4− phenotype, highly suggestive of Mycosis Fungoides. Despite the initial clinical description, the known final diagnosis is Hypopigmented Mycosis Fungoides (HPMF). I need to understand the clinical course, treatment, and response to treatment to see how the diagnosis was confirmed or if the lesions evolved to become hypopigmented, and to verify the overall trajectory.",
+          "confirmed_evidence": [
+            "Patient presented with itchy hyperpigmented patches on the right trunk and right thigh for 3 years (E001)",
+            "Skin biopsy and immunohistochemistry were ordered (ordered_but_not_documented)",
+            "Immunohistochemistry showed atypical lymphocytes that were CD3+, CD8+, CD4−, CD20− (E004)",
+            "Histopathological examination revealed parakeratosic hyperkeratosic epidermis, slight spongiosis, moderate infiltration of papillary dermis by atypical lymphocytes with mild deposition of melanophages, and lymphocytic infiltrate in clusters and in linear basilar distribution along the dermoepidermal junction (E003)",
+            "Blood tests were normal except for a slight increase in WBC count (E002)",
+            "Chest and abdomen CT scan was normal, with no lymphadenopathy or organomegaly (E005)"
+          ],
+          "missing_key_evidence": [
+            "Clinical course and evolution of lesions, especially regarding pigmentation",
+            "Treatment initiated and patient's response",
+            "Specific diagnostic criteria or findings for HPMF, especially regarding the 'hypopigmented' aspect",
+            "Confirmation of T-cell clonality"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No pending orders and no new undisclosed clinical updates after the current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "early stage HPMF",
+          "trajectory_summary": "A 61-year-old male with a history of alcoholism and heavy smoking presented with chronic (3 years) itchy hyperpigmented patches on his right trunk and right thigh. Initial workup included blood tests, which were normal except for a slight increase in white blood cell count, and a chest and abdomen CT scan, which was normal. A skin biopsy revealed parakeratosic hyperkeratosic epidermis with slight spongiosis, moderate infiltration of the papillary dermis by atypical lymphocytes with mild deposition of melanophages, and lymphocytic infiltrate in clusters and in linear basilar distribution along the dermoepidermal junction. Immunohistochemistry showed these atypical lymphocytes were CD3+, CD8+, CD4−, and CD20−. The known final diagnosis is early stage Hypopigmented Mycosis Fungoides (HPMF).",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with chronic itchy hyperpigmented patches on the right trunk and right thigh for 3 years.",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Histopathological examination of skin biopsy revealed parakeratosic hyperkeratosic epidermis with slight spongiosis, moderate infiltration of papillary dermis by atypical lymphocytes with mild deposition of melanophages, and lymphocytic infiltrate in clusters and in linear basilar distribution along the dermoepidermal junction.",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Immunohistochemistry of atypical lymphocytes showed a CD3+, CD8+, CD4−, CD20− phenotype.",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Systemic workup, including blood tests (except for slight WBC elevation) and chest/abdomen CT scan, was largely normal, indicating no systemic involvement.",
+              "evidence_ids": [
+                "E002",
+                "E005"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Systemic lymphoma",
+              "basis": "Normal chest and abdomen CT scan with no lymphadenopathy or organomegaly (E005)"
+            }
+          ],
+          "remaining_uncertainties": [
+            "The discrepancy between the initial clinical description of 'hyperpigmented' lesions and the final diagnosis of 'Hypopigmented Mycosis Fungoides' is not explained by the available evidence.",
+            "Results of T-cell receptor gene rearrangement studies (TCR clonality) were not documented.",
+            "Specific diagnostic criteria or findings that definitively established the 'hypopigmented' aspect of the diagnosis are not documented.",
+            "Clinical course, treatment initiated, and patient response to treatment are not documented."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "early stage HPMF",
+      "trajectory_summary": "A 61-year-old male with a history of alcoholism and heavy smoking presented with chronic (3 years) itchy hyperpigmented patches on his right trunk and right thigh. Initial workup included blood tests, which were normal except for a slight increase in white blood cell count, and a chest and abdomen CT scan, which was normal. A skin biopsy revealed parakeratosic hyperkeratosic epidermis with slight spongiosis, moderate infiltration of the papillary dermis by atypical lymphocytes with mild deposition of melanophages, and lymphocytic infiltrate in clusters and in linear basilar distribution along the dermoepidermal junction. Immunohistochemistry showed these atypical lymphocytes were CD3+, CD8+, CD4−, and CD20−. The known final diagnosis is early stage Hypopigmented Mycosis Fungoides (HPMF).",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with chronic itchy hyperpigmented patches on the right trunk and right thigh for 3 years.",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Histopathological examination of skin biopsy revealed parakeratosic hyperkeratosic epidermis with slight spongiosis, moderate infiltration of papillary dermis by atypical lymphocytes with mild deposition of melanophages, and lymphocytic infiltrate in clusters and in linear basilar distribution along the dermoepidermal junction.",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Immunohistochemistry of atypical lymphocytes showed a CD3+, CD8+, CD4−, CD20− phenotype.",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Systemic workup, including blood tests (except for slight WBC elevation) and chest/abdomen CT scan, was largely normal, indicating no systemic involvement.",
+          "evidence_ids": [
+            "E002",
+            "E005"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Systemic lymphoma",
+          "basis": "Normal chest and abdomen CT scan with no lymphadenopathy or organomegaly (E005)"
+        }
+      ],
+      "remaining_uncertainties": [
+        "The discrepancy between the initial clinical description of 'hyperpigmented' lesions and the final diagnosis of 'Hypopigmented Mycosis Fungoides' is not explained by the available evidence.",
+        "Results of T-cell receptor gene rearrangement studies (TCR clonality) were not documented.",
+        "Specific diagnostic criteria or findings that definitively established the 'hypopigmented' aspect of the diagnosis are not documented.",
+        "Clinical course, treatment initiated, and patient response to treatment are not documented."
+      ],
+      "confidence_that_diagnosis_is_supported": 0.7
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T19:58:45.082901+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC11929238",
+    "known_final_diagnosis": "The patient was diagnosed with early stage HPMF",
+    "turns_used": 13,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 4,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 5,
+    "gold_reasoning_span_count": 2,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_EXAM": 2,
+      "REQUEST_RESULT": 4,
+      "WAIT_REASSESS": 5
+    },
+    "report_status_counts": {
+      "already_disclosed": 1,
+      "found": 5,
+      "no_new_update": 3,
+      "not_reported": 2,
+      "ordered_but_not_documented": 1
+    },
+    "report_repair_attempted_count": 0,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {},
+    "answer_yield": 0.5,
+    "unavailable_turn_rate": 0.5,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T19:58:45.084909+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC11929238",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/dermatology/episodes/PMC11929238.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/dermatology/cases/PMC11929238.json",
+    "num_gold_steps": "4",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.12121212121212122",
+    "weighted_tversky_distance": "0.8787878787878788",
+    "matched_weight": "1.0",
+    "missed_weight": "4.25",
+    "extra_weight": "1.5",
+    "weighted_lcs_recall": "0.19047619047619047",
+    "weighted_lcs_weight": "1.0",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging > lab_tests > pathology > medication_or_treatment",
+    "prediction_sequence": "physical_examination > procedure_or_intervention > lab_tests",
+    "error": ""
+  }
+}

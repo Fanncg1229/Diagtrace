@@ -1,0 +1,363 @@
+{
+  "case_id": "case_0012",
+  "pmcid": "PMC11577480",
+  "model": "kimi_k2_5",
+  "episode": {
+    "case_id": "PMC11577480",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 6,
+    "termination": "final",
+    "known_final_diagnosis": "M. marinum infection",
+    "disclosed_evidence_ids": [
+      "E003",
+      "E005",
+      "E006",
+      "E008"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Histopathology report from the excisional biopsy performed 3 months ago",
+          "current_trajectory_hypothesis": "23-year-old aquarium worker with chronic skin nodules/ulcer on right arm following injury 2 years ago. Initial workup showed negative routine cultures and PCR. Suspicion for cutaneous TB due to positive T-SPOT.TB, but final diagnosis is M. marinum (fish tank granuloma). Need to verify histopathological findings and subsequent diagnostic confirmation.",
+          "confirmed_evidence": [
+            "Patient is 23-year-old male aquarium worker",
+            "Present with skin nodules and ulcer on right upper extremity/thumb for ~2 years following arm injury",
+            "Positive T-SPOT.TB test",
+            "Initial excisional biopsy 3 months ago with negative cultures and PCR",
+            "No lymph node involvement or lymphangitis noted"
+          ],
+          "missing_key_evidence": [
+            "Histopathology findings from initial biopsy",
+            "Specific test confirming M. marinum (repeat culture, PCR, or sequencing)",
+            "Treatment course and response",
+            "Rule-out of M. tuberculosis and other atypical mycobacteria"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "No histopathology report from the excisional biopsy performed 3 months ago is available in the source records.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Mycobacterial culture report or molecular sequencing result (e.g., 16S rRNA) that identified M. marinum from tissue sample",
+          "current_trajectory_hypothesis": "23-year-old aquarium worker with chronic cutaneous nodules/ulcer on right arm following injury 2 years ago. Initial workup 3 months ago showed negative routine cultures and PCR. Despite positive T-SPOT.TB, final diagnosis is M. marinum (fish tank granuloma), suggesting subsequent diagnostic testing with appropriate culture conditions (lower temperature) or molecular methods was performed to confirm.",
+          "confirmed_evidence": [
+            "Patient is 23-year-old male aquarium worker",
+            "Present with skin nodules and ulcer on right upper extremity/thumb for ~2 years following arm injury",
+            "Positive T-SPOT.TB test",
+            "Initial excisional biopsy 3 months ago with negative cultures and PCR",
+            "No lymph node involvement or lymphangitis noted"
+          ],
+          "missing_key_evidence": [
+            "Specific confirmatory test result identifying M. marinum (culture at 30°C or molecular sequencing)",
+            "Histopathology findings (granulomatous inflammation, etc.)",
+            "Treatment course and response to anti-M. marinum therapy",
+            "Rule-out of M. tuberculosis as causative agent"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "Subsequent cultures detected colonies on the Ogawa medium since day 11 from incubation, and DNA extraction followed by PCR sequencing confirmed M. marinum",
+          "category": "microbiology",
+          "temporal_cue": "after second excisional biopsy culture",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Histopathology report from the second excisional biopsy (the procedure that yielded the positive M. marinum culture)",
+          "current_trajectory_hypothesis": "23-year-old aquarium worker with chronic cutaneous nodules/ulcer on right arm following injury 2 years ago. Initial biopsy 3 months ago was negative on routine cultures/PCR. A second excisional biopsy was performed subsequently, which grew M. marinum on Ogawa medium at day 11 with PCR sequencing confirmation (E006). Final diagnosis is M. marinum (fish tank granuloma). Need to verify histopathological findings from the diagnostic biopsy and subsequent clinical course.",
+          "confirmed_evidence": [
+            "Patient is 23-year-old male aquarium worker",
+            "Present with skin nodules and ulcer on right upper extremity/thumb for ~2 years following arm injury",
+            "Positive T-SPOT.TB test",
+            "Initial excisional biopsy 3 months ago with negative cultures and PCR",
+            "No lymph node involvement or lymphangitis noted",
+            "Second excisional biopsy cultures grew colonies on Ogawa medium at day 11",
+            "PCR sequencing confirmed M. marinum (E006)"
+          ],
+          "missing_key_evidence": [
+            "Histopathology findings from the second/diagnostic biopsy (granulomatous inflammation, necrosis, organisms)",
+            "Treatment regimen and clinical response",
+            "Rule-out of active M. tuberculosis infection (chest imaging, clinical distinction)",
+            "Clinical course between first and second biopsy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "Histopathology of the specimen revealed that moderate infiltration of inflammatory cells was observed, but epithelioid granulomas, multinucleated giant cells, and necrosis were not observed",
+          "category": "pathology_report",
+          "temporal_cue": "after second excisional biopsy",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Chest imaging report (X-ray or CT) to evaluate for active pulmonary tuberculosis given the positive T-SPOT.TB test",
+          "current_trajectory_hypothesis": "23-year-old aquarium worker with chronic cutaneous nodules/ulcer on right arm following injury 2 years ago. Initial biopsy 3 months ago negative on routine cultures/PCR. Second excisional biopsy showed moderate inflammatory infiltrate without granulomas (E005) but grew M. marinum on Ogawa medium with PCR sequencing confirmation (E006). Final diagnosis is M. marinum (fish tank granuloma). Despite positive T-SPOT.TB suggesting latent TB infection, active cutaneous TB was ruled out by negative histopathology (no granulomas) and positive M. marinum culture. Need to verify systemic workup excluded pulmonary TB and confirm treatment course.",
+          "confirmed_evidence": [
+            "Patient is 23-year-old male aquarium worker",
+            "Present with skin nodules and ulcer on right upper extremity/thumb for ~2 years following arm injury",
+            "Positive T-SPOT.TB test",
+            "Initial excisional biopsy 3 months ago with negative cultures and PCR",
+            "No lymph node involvement or lymphangitis noted",
+            "Second excisional biopsy cultures grew colonies on Ogawa medium at day 11 (E006)",
+            "PCR sequencing confirmed M. marinum (E006)",
+            "Histopathology of second biopsy showed moderate inflammatory cell infiltration without epithelioid granulomas, multinucleated giant cells, or necrosis (E005)"
+          ],
+          "missing_key_evidence": [
+            "Chest imaging to rule out active pulmonary TB given positive T-SPOT.TB",
+            "Treatment regimen (likely clarithromycin/rifampicin) and clinical response",
+            "Final outcome or follow-up status"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "Whole-trunk computed tomography with contrast revealed no findings in the chest, or lymphadenopathy",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Treatment regimen administered and clinical response or outcome (e.g., resolution of skin lesions with clarithromycin or other anti-M. marinum therapy)",
+          "current_trajectory_hypothesis": "23-year-old aquarium worker with chronic cutaneous nodules/ulcer on right arm following injury 2 years ago. Initial biopsy 3 months ago negative on routine cultures/PCR. Second excisional biopsy showed moderate inflammatory infiltrate without granulomas (E005) but grew M. marinum on Ogawa medium with PCR sequencing confirmation (E006). CT imaging excluded active pulmonary TB or lymphadenopathy (E003). Final diagnosis is M. marinum (fish tank granuloma). The trajectory requires verification of appropriate antimicrobial therapy and clinical response to complete the evidence chain.",
+          "confirmed_evidence": [
+            "Patient is 23-year-old male aquarium worker",
+            "Present with skin nodules and ulcer on right upper extremity/thumb for ~2 years following arm injury",
+            "Positive T-SPOT.TB test",
+            "Initial excisional biopsy 3 months ago with negative cultures and PCR",
+            "No lymph node involvement or lymphangitis noted on exam",
+            "Second excisional biopsy cultures grew colonies on Ogawa medium at day 11 (E006)",
+            "PCR sequencing confirmed M. marinum (E006)",
+            "Histopathology of second biopsy showed moderate inflammatory cell infiltration without epithelioid granulomas, multinucleated giant cells, or necrosis (E005)",
+            "Whole-trunk CT revealed no chest findings or lymphadenopathy (E003)"
+          ],
+          "missing_key_evidence": [
+            "Antimicrobial treatment regimen (e.g., clarithromycin, rifampicin, doxycycline)",
+            "Clinical response to therapy or final outcome",
+            "Duration of treatment and follow-up status"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E008",
+          "source_text": "We treated with rifabutin 300 mg/day plus clarithromycin 800 mg/day. Due to liver dysfunction 1 month after starting the treatment, the regimen was changed to moxifloxacin 400 mg/day plus clarithromycin 800 mg/day. Three months later, the patient developed nausea due to moxifloxacin. The treatment was then switched to linezolid 1200 mg/day and clarithromycin. Following these changes, there were no further complications, and the skin findings demonstrated a trend of improvement. The nodule flattened, and the postinflammatory pigmentation had faded over 7 months",
+          "category": "treatment_response",
+          "temporal_cue": "over 7 months after diagnosis",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "M. marinum infection (fish tank granuloma)",
+          "trajectory_summary": "A 23-year-old male aquarium worker presented with a 2-year history of progressive skin nodules and ulcer on the right forearm and thumb following an occupational arm injury. Initial excisional biopsy 3 months prior demonstrated negative routine cultures and PCR, with positive T-SPOT.TB raising concern for cutaneous tuberculosis. A second excisional biopsy was performed, yielding histopathology showing moderate inflammatory cell infiltration without granulomas (E005). Crucially, cultures on Ogawa medium grew colonies at day 11, and PCR sequencing confirmed M. marinum (E006). Whole-trunk CT excluded active pulmonary tuberculosis or lymphadenopathy (E003). The patient was treated with sequential antimicrobial regimens (rifabutin/clarithromycin, then moxifloxacin/clarithromycin, then linezolid/clarithromycin) complicated by liver dysfunction and nausea, but achieved clinical improvement over 7 months with flattening of nodules and fading of post-inflammatory pigmentation (E008).",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient is aquarium worker with chronic cutaneous nodules/ulcer on right upper extremity following injury 2 years prior",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Second excisional biopsy cultures grew M. marinum on Ogawa medium at day 11",
+              "evidence_ids": [
+                "E006"
+              ]
+            },
+            {
+              "claim": "PCR sequencing confirmed M. marinum identification",
+              "evidence_ids": [
+                "E006"
+              ]
+            },
+            {
+              "claim": "Histopathology showed moderate inflammatory infiltrate without epithelioid granulomas, multinucleated giant cells, or necrosis",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "CT imaging revealed no chest findings or lymphadenopathy, ruling out active pulmonary TB",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Treatment with clarithromycin-based combination therapy (with rifabutin, then moxifloxacin, then linezolid) resulted in clinical improvement over 7 months with resolution of skin findings",
+              "evidence_ids": [
+                "E008"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Cutaneous Mycobacterium tuberculosis infection",
+              "basis": "Positive T-SPOT.TB indicated latent TB infection, but whole-trunk CT showed no chest findings or lymphadenopathy (E003), histopathology lacked caseating granulomas (E005), and M. marinum was cultured/sequenced from tissue (E006)"
+            },
+            {
+              "alternative": "Other atypical mycobacterial infections",
+              "basis": "PCR sequencing specifically identified M. marinum (E006), and clinical context (aquarium worker, aquatic injury) is classic for this organism"
+            }
+          ],
+          "remaining_uncertainties": [
+            "Specific incubation temperature of cultures (though M. marinum grows optimally at 30-32°C versus 37°C for M. tuberculosis)",
+            "Histopathology results from the initial excisional biopsy performed 3 months prior (not available in source records)",
+            "Specific details of the initial injury mechanism beyond 'arm injury while working with aquariums'"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "M. marinum infection (fish tank granuloma)",
+      "trajectory_summary": "A 23-year-old male aquarium worker presented with a 2-year history of progressive skin nodules and ulcer on the right forearm and thumb following an occupational arm injury. Initial excisional biopsy 3 months prior demonstrated negative routine cultures and PCR, with positive T-SPOT.TB raising concern for cutaneous tuberculosis. A second excisional biopsy was performed, yielding histopathology showing moderate inflammatory cell infiltration without granulomas (E005). Crucially, cultures on Ogawa medium grew colonies at day 11, and PCR sequencing confirmed M. marinum (E006). Whole-trunk CT excluded active pulmonary tuberculosis or lymphadenopathy (E003). The patient was treated with sequential antimicrobial regimens (rifabutin/clarithromycin, then moxifloxacin/clarithromycin, then linezolid/clarithromycin) complicated by liver dysfunction and nausea, but achieved clinical improvement over 7 months with flattening of nodules and fading of post-inflammatory pigmentation (E008).",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient is aquarium worker with chronic cutaneous nodules/ulcer on right upper extremity following injury 2 years prior",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Second excisional biopsy cultures grew M. marinum on Ogawa medium at day 11",
+          "evidence_ids": [
+            "E006"
+          ]
+        },
+        {
+          "claim": "PCR sequencing confirmed M. marinum identification",
+          "evidence_ids": [
+            "E006"
+          ]
+        },
+        {
+          "claim": "Histopathology showed moderate inflammatory infiltrate without epithelioid granulomas, multinucleated giant cells, or necrosis",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "CT imaging revealed no chest findings or lymphadenopathy, ruling out active pulmonary TB",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Treatment with clarithromycin-based combination therapy (with rifabutin, then moxifloxacin, then linezolid) resulted in clinical improvement over 7 months with resolution of skin findings",
+          "evidence_ids": [
+            "E008"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Cutaneous Mycobacterium tuberculosis infection",
+          "basis": "Positive T-SPOT.TB indicated latent TB infection, but whole-trunk CT showed no chest findings or lymphadenopathy (E003), histopathology lacked caseating granulomas (E005), and M. marinum was cultured/sequenced from tissue (E006)"
+        },
+        {
+          "alternative": "Other atypical mycobacterial infections",
+          "basis": "PCR sequencing specifically identified M. marinum (E006), and clinical context (aquarium worker, aquatic injury) is classic for this organism"
+        }
+      ],
+      "remaining_uncertainties": [
+        "Specific incubation temperature of cultures (though M. marinum grows optimally at 30-32°C versus 37°C for M. tuberculosis)",
+        "Histopathology results from the initial excisional biopsy performed 3 months prior (not available in source records)",
+        "Specific details of the initial injury mechanism beyond 'arm injury while working with aquariums'"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-24T21:41:49.367381+00:00",
+    "clinician_model": "Kimi-K2.5",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC11577480",
+    "known_final_diagnosis": "M. marinum infection",
+    "turns_used": 6,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 6,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "REQUEST_RESULT": 5
+    },
+    "report_status_counts": {
+      "found": 4,
+      "not_reported": 1
+    },
+    "answer_yield": 0.8,
+    "unavailable_turn_rate": 0.2,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-24T21:41:49.369599+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC11577480",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "6",
+    "num_pred_steps": "4",
+    "weighted_tversky_alignment": "0.25",
+    "weighted_tversky_distance": "0.75",
+    "matched_weight": "2.5",
+    "missed_weight": "4.0",
+    "extra_weight": "1.75",
+    "weighted_lcs_recall": "0.23076923076923078",
+    "weighted_lcs_weight": "1.5",
+    "weighted_pairwise_order_accuracy": "0.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "1",
+    "gold_sequence": "lab_tests > other_or_off_protocol > imaging > pathology > microbiology > medication_or_treatment",
+    "prediction_sequence": "procedure_or_intervention > microbiology > imaging > admission_or_clinical_course",
+    "error": ""
+  }
+}

@@ -1,0 +1,567 @@
+{
+  "case_id": "case_0403",
+  "pmcid": "PMC10292161",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC10292161",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 12,
+    "termination": "final",
+    "known_final_diagnosis": "we diagnosed our patient with post-streptococcal glomerulonephritis. Furthermore, the MRI findings of the brain and the history of elevated blood pressure were confluent with the diagnosis of PRES.",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E003",
+      "E004",
+      "E005",
+      "E007",
+      "E008"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "initial physical examination findings, including vital signs and neurological exam",
+          "current_trajectory_hypothesis": "Patient presented with neurological symptoms and fever. Initial physical exam findings are needed to guide further workup for potential PRES and PSGN.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Physical examination findings",
+            "Evidence of kidney involvement",
+            "Evidence of prior streptococcal infection",
+            "Brain imaging findings"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "On examination, the boy was found to have a blood pressure of 150/100 mmHg (99th percentile as per the Indian Pediatric Association) and a heart rate of 82 beats/minute.",
+          "category": "other",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "neurological examination findings and other relevant physical exam findings such as edema or skin lesions",
+          "current_trajectory_hypothesis": "The patient presented with neurological symptoms and hypertension, suggesting PRES. Further physical exam findings, especially neurological and signs of kidney involvement or prior infection, are needed to support both PRES and PSGN diagnoses.",
+          "confirmed_evidence": [
+            "Patient presented with fever, headache, projectile emesis, blurry vision, and involuntary movements.",
+            "Initial blood pressure was 150/100 mmHg (99th percentile) and heart rate 82 bpm."
+          ],
+          "missing_key_evidence": [
+            "Neurological examination findings",
+            "Evidence of kidney involvement (e.g., edema, urine findings)",
+            "Evidence of prior streptococcal infection (e.g., skin lesions, pharyngitis)",
+            "Brain imaging findings (MRI)",
+            "Laboratory tests for kidney function and streptococcal infection"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "Neurological examination was unremarkable except for decreased visual acuity of the left eye. Fundoscopy was unremarkable.",
+          "category": "other",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "physical examination for signs of kidney involvement, such as edema or urine abnormalities",
+          "current_trajectory_hypothesis": "Patient presented with neurological symptoms and hypertension, suggestive of PRES. Decreased visual acuity is noted. Now, I need to investigate for signs of kidney involvement to support the PSGN diagnosis.",
+          "confirmed_evidence": [
+            "Patient presented with fever, headache, projectile emesis, blurry vision, and involuntary movements.",
+            "Initial blood pressure was 150/100 mmHg (99th percentile) and heart rate 82 bpm.",
+            "Neurological examination was unremarkable except for decreased visual acuity of the left eye.",
+            "Fundoscopy was unremarkable."
+          ],
+          "missing_key_evidence": [
+            "Physical examination findings related to kidney involvement (e.g., edema, urine findings)",
+            "Laboratory tests for kidney function and streptococcal infection",
+            "Brain imaging findings (MRI)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "Investigations were significant for leukocytosis, positive IgM antibodies for Dengue, decreased complement 3, elevated anti-streptolysin (ASO) titers, uremia, hematuria, and proteinuria (Table 1).",
+          "category": "serology",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "brain MRI",
+          "current_trajectory_hypothesis": "Patient presented with neurological symptoms, hypertension, and decreased visual acuity, suggestive of PRES. Initial lab results show strong evidence for PSGN (decreased C3, elevated ASO, uremia, hematuria, proteinuria). Brain MRI findings are crucial to confirm PRES.",
+          "confirmed_evidence": [
+            "Patient presented with fever, headache, projectile emesis, blurry vision, and involuntary movements.",
+            "Initial blood pressure was 150/100 mmHg (99th percentile) and heart rate 82 bpm.",
+            "Neurological examination was unremarkable except for decreased visual acuity of the left eye.",
+            "Fundoscopy was unremarkable.",
+            "Investigations showed leukocytosis, positive IgM antibodies for Dengue, decreased complement 3, elevated anti-streptolysin (ASO) titers, uremia, hematuria, and proteinuria."
+          ],
+          "missing_key_evidence": [
+            "Brain MRI findings",
+            "Specific physical examination findings for kidney involvement (e.g., edema)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order for brain MRI recorded; no result disclosed yet",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "brain MRI findings",
+          "current_trajectory_hypothesis": "Patient presented with neurological symptoms, hypertension, and decreased visual acuity, suggestive of PRES. Lab results strongly support PSGN. Brain MRI findings are crucial to confirm PRES.",
+          "confirmed_evidence": [
+            "Patient presented with fever, headache, projectile emesis, blurry vision, and involuntary movements.",
+            "Initial blood pressure was 150/100 mmHg (99th percentile) and heart rate 82 bpm.",
+            "Neurological examination was unremarkable except for decreased visual acuity of the left eye.",
+            "Fundoscopy was unremarkable.",
+            "Investigations showed leukocytosis, positive IgM antibodies for Dengue, decreased complement 3, elevated anti-streptolysin (ASO) titers, uremia, hematuria, and proteinuria."
+          ],
+          "missing_key_evidence": [
+            "Brain MRI findings",
+            "Specific physical examination findings for kidney involvement (e.g., edema)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "MRI findings were remarkable for the symmetrical enhancement of superficial and deep watershed areas, predominantly in the occipital and temporal regions (Figure 1).",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "physical examination for signs of fluid overload or edema, commonly associated with kidney involvement",
+          "current_trajectory_hypothesis": "Patient presented with neurological symptoms, hypertension, and decreased visual acuity, with MRI findings consistent with PRES. Lab results strongly support PSGN. I need to confirm physical signs of kidney involvement, such as edema, to complete the initial assessment for PSGN.",
+          "confirmed_evidence": [
+            "Patient presented with fever, headache, projectile emesis, blurry vision, and involuntary movements.",
+            "Initial blood pressure was 150/100 mmHg (99th percentile) and heart rate 82 bpm.",
+            "Neurological examination was unremarkable except for decreased visual acuity of the left eye.",
+            "Fundoscopy was unremarkable.",
+            "Investigations showed leukocytosis, positive IgM antibodies for Dengue, decreased complement 3, elevated anti-streptolysin (ASO) titers, uremia, hematuria, and proteinuria.",
+            "Brain MRI findings were remarkable for symmetrical enhancement of superficial and deep watershed areas, predominantly in the occipital and temporal regions."
+          ],
+          "missing_key_evidence": [
+            "Specific physical examination findings for kidney involvement (e.g., edema)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No source record reports physical examination findings for signs of fluid overload or edema.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with neurological symptoms and hypertension, leading to a diagnosis of PRES based on MRI findings. Lab results strongly supported PSGN. I need to understand the subsequent clinical course, treatment, and outcome for both conditions.",
+          "confirmed_evidence": [
+            "Patient presented with fever, headache, projectile emesis, blurry vision, and involuntary movements.",
+            "Initial blood pressure was 150/100 mmHg (99th percentile) and heart rate 82 bpm.",
+            "Neurological examination was unremarkable except for decreased visual acuity of the left eye.",
+            "Fundoscopy was unremarkable.",
+            "Investigations showed leukocytosis, positive IgM antibodies for Dengue, decreased complement 3, elevated anti-streptolysin (ASO) titers, uremia, hematuria, and proteinuria.",
+            "Brain MRI findings were remarkable for symmetrical enhancement of superficial and deep watershed areas, predominantly in the occipital and temporal regions."
+          ],
+          "missing_key_evidence": [
+            "Clinical course and treatment for PRES and PSGN",
+            "Outcome of the patient",
+            "Management of Dengue IgM positivity"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "The results of 72 hours of blood pressure (BP) monitoring revealed elevated blood pressure with systolic readings > 140mmHg with the highest recorded blood pressure of 150/100 mmHg (99th percentile as per the Indian Pediatric Association).",
+          "category": "molecular_test",
+          "temporal_cue": "72 hours after admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with neurological symptoms and hypertension, confirmed as PRES by MRI. Lab results strongly supported PSGN. I need to understand the subsequent clinical course, treatment, and outcome for both conditions, and how the hypertension was managed.",
+          "confirmed_evidence": [
+            "Patient presented with fever, headache, projectile emesis, blurry vision, and involuntary movements.",
+            "Initial blood pressure was 150/100 mmHg (99th percentile) and heart rate 82 bpm, confirmed by 72-hour monitoring.",
+            "Neurological examination showed decreased visual acuity of the left eye.",
+            "Fundoscopy was unremarkable.",
+            "Investigations showed leukocytosis, positive IgM antibodies for Dengue, decreased complement 3, elevated anti-streptolysin (ASO) titers, uremia, hematuria, and proteinuria.",
+            "Brain MRI findings were remarkable for symmetrical enhancement of superficial and deep watershed areas, predominantly in the occipital and temporal regions, consistent with PRES."
+          ],
+          "missing_key_evidence": [
+            "Clinical course and treatment for PRES (hypertension management, resolution of neurological symptoms)",
+            "Clinical course and treatment for PSGN (management of kidney involvement, resolution of lab abnormalities)",
+            "Outcome of the patient"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E007",
+          "source_text": "Our patient was treated conservatively with ceftriaxone for antimicrobial coverage and amlodipine for blood pressure management. Six days after admission and treatment, the boy was asymptomatic, however, with minimal hematuria.",
+          "category": "other",
+          "temporal_cue": "six days after admission",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "follow-up laboratory results for kidney function (urea, creatinine), complement levels (C3), and anti-streptolysin O (ASO) titers",
+          "current_trajectory_hypothesis": "Patient presented with neurological symptoms and hypertension, confirmed as PRES by MRI. Lab results strongly supported PSGN. Initial treatment led to the patient being asymptomatic after 6 days with minimal hematuria. I need to verify the resolution of other PSGN markers to complete the trajectory.",
+          "confirmed_evidence": [
+            "Patient presented with fever, headache, projectile emesis, blurry vision, and involuntary movements.",
+            "Initial blood pressure was 150/100 mmHg (99th percentile) and heart rate 82 bpm, confirmed by 72-hour monitoring.",
+            "Neurological examination showed decreased visual acuity of the left eye.",
+            "Fundoscopy was unremarkable.",
+            "Investigations showed leukocytosis, positive IgM antibodies for Dengue, decreased complement 3, elevated anti-streptolysin (ASO) titers, uremia, hematuria, and proteinuria.",
+            "Brain MRI findings were remarkable for symmetrical enhancement of superficial and deep watershed areas, predominantly in the occipital and temporal regions, consistent with PRES.",
+            "Patient was treated with ceftriaxone and amlodipine.",
+            "Six days after admission and treatment, the boy was asymptomatic with minimal hematuria."
+          ],
+          "missing_key_evidence": [
+            "Resolution of kidney function abnormalities (urea, creatinine)",
+            "Resolution of complement levels (C3)",
+            "Resolution of ASO titers",
+            "Long-term outcome or follow-up for PRES and PSGN"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No source record contains follow-up laboratory results for urea, creatinine, complement C3, or ASO titers after admission.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with neurological symptoms and hypertension, confirmed as PRES by MRI. Lab results strongly supported PSGN. Initial treatment led to the patient being asymptomatic after 6 days with minimal hematuria. I need to understand the long-term outcome and resolution of both conditions to complete the trajectory.",
+          "confirmed_evidence": [
+            "Patient presented with fever, headache, projectile emesis, blurry vision, and involuntary movements.",
+            "Initial blood pressure was 150/100 mmHg (99th percentile) and heart rate 82 bpm, confirmed by 72-hour monitoring.",
+            "Neurological examination showed decreased visual acuity of the left eye.",
+            "Fundoscopy was unremarkable.",
+            "Investigations showed leukocytosis, positive IgM antibodies for Dengue, decreased complement 3, elevated anti-streptolysin (ASO) titers, uremia, hematuria, and proteinuria.",
+            "Brain MRI findings were remarkable for symmetrical enhancement of superficial and deep watershed areas, predominantly in the occipital and temporal regions, consistent with PRES.",
+            "Patient was treated with ceftriaxone and amlodipine.",
+            "Six days after admission and treatment, the boy was asymptomatic with minimal hematuria."
+          ],
+          "missing_key_evidence": [
+            "Long-term outcome or follow-up for PRES and PSGN",
+            "Resolution of kidney function abnormalities (urea, creatinine)",
+            "Resolution of complement levels (C3)",
+            "Resolution of ASO titers"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E008",
+          "source_text": "A repeat MRI after three weeks revealed a complete resolution of hyperintense lesions (Figure 2).",
+          "category": "imaging_report",
+          "temporal_cue": "three weeks after admission",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with neurological symptoms and hypertension, confirmed as PRES by MRI, which resolved after three weeks. Lab results strongly supported PSGN. Initial treatment led to the patient being asymptomatic after 6 days with minimal hematuria. I need to understand the long-term outcome and resolution of PSGN to complete the trajectory.",
+          "confirmed_evidence": [
+            "Patient presented with fever, headache, projectile emesis, blurry vision, and involuntary movements.",
+            "Initial blood pressure was 150/100 mmHg (99th percentile) and heart rate 82 bpm, confirmed by 72-hour monitoring.",
+            "Neurological examination showed decreased visual acuity of the left eye.",
+            "Fundoscopy was unremarkable.",
+            "Investigations showed leukocytosis, positive IgM antibodies for Dengue, decreased complement 3, elevated anti-streptolysin (ASO) titers, uremia, hematuria, and proteinuria.",
+            "Brain MRI findings were remarkable for symmetrical enhancement of superficial and deep watershed areas, predominantly in the occipital and temporal regions, consistent with PRES.",
+            "Patient was treated with ceftriaxone and amlodipine.",
+            "Six days after admission and treatment, the boy was asymptomatic with minimal hematuria.",
+            "A repeat MRI after three weeks revealed a complete resolution of hyperintense lesions."
+          ],
+          "missing_key_evidence": [
+            "Long-term outcome or follow-up for PSGN, including resolution of hematuria, proteinuria, uremia, C3, and ASO titers."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No pending orders and no undisclosed clinical updates after current phase",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "post-streptococcal glomerulonephritis and PRES",
+          "trajectory_summary": "A 15-year-old male presented with fever, headache, projectile emesis, blurry vision, and involuntary movements for seven days. Initial examination revealed hypertension (BP 150/100 mmHg) and decreased visual acuity in the left eye. Laboratory investigations showed leukocytosis, positive IgM for Dengue, decreased complement 3, elevated anti-streptolysin (ASO) titers, uremia, hematuria, and proteinuria, supporting a diagnosis of post-streptococcal glomerulonephritis. Brain MRI revealed symmetrical enhancement in superficial and deep watershed areas, predominantly occipital and temporal, consistent with Posterior Reversible Encephalopathy Syndrome (PRES). The patient was treated with ceftriaxone and amlodipine. Six days post-admission, he was asymptomatic with minimal hematuria. A repeat MRI after three weeks showed complete resolution of the hyperintense lesions.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with neurological symptoms including headache, projectile emesis, blurry vision, and involuntary movements.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Initial blood pressure was significantly elevated at 150/100 mmHg (99th percentile), confirmed by 72-hour monitoring.",
+              "evidence_ids": [
+                "E001",
+                "E005"
+              ]
+            },
+            {
+              "claim": "Neurological examination showed decreased visual acuity of the left eye.",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Laboratory tests indicated kidney involvement and recent streptococcal infection: decreased complement 3, elevated anti-streptolysin (ASO) titers, uremia, hematuria, and proteinuria.",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Brain MRI findings were remarkable for symmetrical enhancement of superficial and deep watershed areas, predominantly in the occipital and temporal regions, consistent with PRES.",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Patient was treated with ceftriaxone and amlodipine, leading to clinical improvement.",
+              "evidence_ids": [
+                "E007"
+              ]
+            },
+            {
+              "claim": "Repeat MRI after three weeks showed complete resolution of hyperintense lesions, confirming the reversible nature of PRES.",
+              "evidence_ids": [
+                "E008"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Dengue fever as the primary cause of neurological/renal symptoms",
+              "basis": "While positive IgM antibodies for Dengue were found (E003), the final diagnosis focused on PSGN and PRES, and the clinical trajectory and resolution were consistent with these diagnoses rather than Dengue being the sole or primary etiology for the severe neurological and renal manifestations."
+            }
+          ],
+          "remaining_uncertainties": [
+            "Full resolution of all PSGN markers (proteinuria, uremia, C3, ASO titers) beyond 'minimal hematuria' at 6 days.",
+            "Long-term follow-up for PSGN."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "post-streptococcal glomerulonephritis and PRES",
+      "trajectory_summary": "A 15-year-old male presented with fever, headache, projectile emesis, blurry vision, and involuntary movements for seven days. Initial examination revealed hypertension (BP 150/100 mmHg) and decreased visual acuity in the left eye. Laboratory investigations showed leukocytosis, positive IgM for Dengue, decreased complement 3, elevated anti-streptolysin (ASO) titers, uremia, hematuria, and proteinuria, supporting a diagnosis of post-streptococcal glomerulonephritis. Brain MRI revealed symmetrical enhancement in superficial and deep watershed areas, predominantly occipital and temporal, consistent with Posterior Reversible Encephalopathy Syndrome (PRES). The patient was treated with ceftriaxone and amlodipine. Six days post-admission, he was asymptomatic with minimal hematuria. A repeat MRI after three weeks showed complete resolution of the hyperintense lesions.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with neurological symptoms including headache, projectile emesis, blurry vision, and involuntary movements.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Initial blood pressure was significantly elevated at 150/100 mmHg (99th percentile), confirmed by 72-hour monitoring.",
+          "evidence_ids": [
+            "E001",
+            "E005"
+          ]
+        },
+        {
+          "claim": "Neurological examination showed decreased visual acuity of the left eye.",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Laboratory tests indicated kidney involvement and recent streptococcal infection: decreased complement 3, elevated anti-streptolysin (ASO) titers, uremia, hematuria, and proteinuria.",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Brain MRI findings were remarkable for symmetrical enhancement of superficial and deep watershed areas, predominantly in the occipital and temporal regions, consistent with PRES.",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Patient was treated with ceftriaxone and amlodipine, leading to clinical improvement.",
+          "evidence_ids": [
+            "E007"
+          ]
+        },
+        {
+          "claim": "Repeat MRI after three weeks showed complete resolution of hyperintense lesions, confirming the reversible nature of PRES.",
+          "evidence_ids": [
+            "E008"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Dengue fever as the primary cause of neurological/renal symptoms",
+          "basis": "While positive IgM antibodies for Dengue were found (E003), the final diagnosis focused on PSGN and PRES, and the clinical trajectory and resolution were consistent with these diagnoses rather than Dengue being the sole or primary etiology for the severe neurological and renal manifestations."
+        }
+      ],
+      "remaining_uncertainties": [
+        "Full resolution of all PSGN markers (proteinuria, uremia, C3, ASO titers) beyond 'minimal hematuria' at 6 days.",
+        "Long-term follow-up for PSGN."
+      ],
+      "confidence_that_diagnosis_is_supported": 0.9
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:23:25.663373+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10292161",
+    "known_final_diagnosis": "we diagnosed our patient with post-streptococcal glomerulonephritis. Furthermore, the MRI findings of the brain and the history of elevated blood pressure were confluent with the diagnosis of PRES.",
+    "turns_used": 12,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 7,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 7,
+    "gold_reasoning_span_count": 2,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_EXAM": 4,
+      "REQUEST_RESULT": 2,
+      "WAIT_REASSESS": 4
+    },
+    "report_status_counts": {
+      "found": 7,
+      "no_new_update": 1,
+      "not_reported": 2,
+      "ordered_but_not_documented": 1
+    },
+    "report_repair_attempted_count": 1,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 1
+    },
+    "answer_yield": 0.6363636363636364,
+    "unavailable_turn_rate": 0.36363636363636365,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:23:25.664484+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10292161",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/episodes/PMC10292161.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/cases/PMC10292161.json",
+    "num_gold_steps": "4",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.5",
+    "weighted_tversky_distance": "0.5",
+    "matched_weight": "2.25",
+    "missed_weight": "1.25",
+    "extra_weight": "0.5",
+    "weighted_lcs_recall": "0.6428571428571429",
+    "weighted_lcs_weight": "2.25",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "1",
+    "pairwise_inversions": "0",
+    "gold_sequence": "lab_tests > other_or_off_protocol > imaging > admission_or_clinical_course",
+    "prediction_sequence": "physical_examination > imaging > admission_or_clinical_course",
+    "error": ""
+  }
+}

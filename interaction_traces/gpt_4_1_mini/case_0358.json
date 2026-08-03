@@ -1,0 +1,308 @@
+{
+  "case_id": "case_0358",
+  "pmcid": "PMC6320031",
+  "model": "gpt_4_1_mini",
+  "episode": {
+    "case_id": "PMC6320031",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 6,
+    "termination": "final",
+    "known_final_diagnosis": "and was diagnosed as a GCT.",
+    "disclosed_evidence_ids": [
+      "E002",
+      "E003",
+      "E004"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "orbital MRI to evaluate for possible mass lesion causing diplopia",
+          "current_trajectory_hypothesis": "Patient with vertical diplopia and decreased visual acuity on upward gaze possibly due to an orbital mass lesion",
+          "confirmed_evidence": [
+            "3-year history of vertical diplopia with normal forward vision and decreased upward gaze visual acuity"
+          ],
+          "missing_key_evidence": [
+            "imaging to identify lesion causing diplopia",
+            "histopathology or cytology to confirm diagnosis of GCT"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "The orbital MRI test was ordered; no direct source record documents the ordering action.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "orbital MRI imaging report",
+          "current_trajectory_hypothesis": "Patient has vertical diplopia with decreased vision on upward gaze; suspect orbital mass causing symptoms; orbital MRI ordered to identify lesion",
+          "confirmed_evidence": [
+            "3-year history of vertical diplopia with normal forward vision and decreased upward gaze visual acuity",
+            "orbital MRI ordered for evaluation"
+          ],
+          "missing_key_evidence": [
+            "orbital MRI findings to identify mass lesion",
+            "histopathology or cytology to confirm diagnosis of granular cell tumor (GCT)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "An axial magnetic resonance images (MRI) view of the orbit revealed a nodule-like tumor derived from the inferior rectus muscle, which was slightly hypo-intense to the extraocular muscles on T1W with a very low central intensity on T2W and a higher intensity along the periphery.",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "biopsy of the orbital nodule for histopathological examination to confirm diagnosis",
+          "current_trajectory_hypothesis": "Orbital MRI showed a nodule in the inferior rectus muscle suspected to be the cause of diplopia; biopsy needed for definitive diagnosis of GCT",
+          "confirmed_evidence": [
+            "3-year history of vertical diplopia with decreased vision on upward gaze",
+            "Orbital MRI showing nodule-like tumor in inferior rectus muscle with characteristic signal intensities"
+          ],
+          "missing_key_evidence": [
+            "histopathological confirmation of granular cell tumor",
+            "clinical progression or treatment response data"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "Procedure order acknowledged but biopsy result not yet documented in source.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "histopathology report of the orbital nodule biopsy",
+          "current_trajectory_hypothesis": "Orbital MRI identified an inferior rectus muscle nodule; biopsy performed to confirm diagnosis of granular cell tumor (GCT)",
+          "confirmed_evidence": [
+            "3-year history of vertical diplopia with decreased vision on upward gaze",
+            "Orbital MRI showing nodule-like tumor in inferior rectus muscle",
+            "Orbital nodule biopsy ordered"
+          ],
+          "missing_key_evidence": [
+            "histopathological confirmation of granular cell tumor",
+            "clinical progression or treatment response data"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "Subsequent histopathological analysis demonstrated that the encapsulated tumor contained large nested or cord-like cells with small nuclei and abundant eosinophilic cytoplasmic particles. Immunohistochemistry showed that tumor cells strongly expressed CD68, S100 and vimentin, were weakly positive for Ki67, and negative for CK (Fig. 4)",
+          "category": "pathology_report",
+          "temporal_cue": "post surgery",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "clinical course update post biopsy to assess treatment and outcome",
+          "current_trajectory_hypothesis": "Histopathology confirmed encapsulated tumor with features consistent with granular cell tumor; next step is to understand clinical outcome or treatment response",
+          "confirmed_evidence": [
+            "3-year history of vertical diplopia with decreased vision on upward gaze",
+            "Orbital MRI showing nodule-like tumor in inferior rectus muscle",
+            "Histopathology showed encapsulated tumor with large nested cells, positive CD68, S100, and vimentin, weak Ki67, negative CK"
+          ],
+          "missing_key_evidence": [
+            "clinical progression or treatment response data"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "The tumor was surgically removed via a transconjunctival approach along inferior rectus muscle. Intraoperatively, the tumor was completely separated from muscle tissue since it was pseudoencapsular. The gross specimen exhibited a firm fibrotic nodule-like and pale-colored mass (Fig. 3). There was no significant improvement in globe mobility after surgery; however, a longer term follow-up is required.",
+          "category": "other",
+          "temporal_cue": "post imaging",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "granular cell tumor (GCT) of the inferior rectus muscle",
+          "trajectory_summary": "A 45-year-old man presented with a 3-year history of vertical diplopia and marked visual acuity decrease when gazing upward. Orbital MRI identified a nodule-like tumor in the inferior rectus muscle with characteristic T1 and T2 signal intensities. Subsequent biopsy and histopathological examination revealed an encapsulated tumor with large nested cells, positive immunostaining for CD68, S100, and vimentin, and negative for CK, consistent with granular cell tumor. The tumor was surgically resected via a transconjunctival approach, with no immediate improvement in globe mobility but requiring long-term follow-up.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Orbital MRI demonstrated a nodule-like tumor derived from the inferior rectus muscle with specific T1W hypo-intensity and marked T2W central low intensity",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Histopathological analysis showed encapsulated tumor with large nested or cord-like cells, abundant eosinophilic cytoplasmic particles, strong positivity for CD68, S100, and vimentin, and negative CK, confirming granular cell tumor",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Surgical removal of the tumor was performed via transconjunctival approach, with tumor pseudoencapsulated and separate from muscle tissue; gross specimen was firm fibrotic nodule-like pale mass",
+              "evidence_ids": [
+                "E003"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "ocular trauma or other ocular diseases causing diplopia",
+              "basis": "patient denied orbital trauma and had no other ocular diseases"
+            },
+            {
+              "alternative": "non-neoplastic causes of diplopia",
+              "basis": "imaging revealed discrete tumor nodule consistent with neoplastic pathology"
+            }
+          ],
+          "remaining_uncertainties": [
+            "Lack of documented long-term clinical follow-up and treatment outcomes beyond early postoperative period"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "granular cell tumor (GCT) of the inferior rectus muscle",
+      "trajectory_summary": "A 45-year-old man presented with a 3-year history of vertical diplopia and marked visual acuity decrease when gazing upward. Orbital MRI identified a nodule-like tumor in the inferior rectus muscle with characteristic T1 and T2 signal intensities. Subsequent biopsy and histopathological examination revealed an encapsulated tumor with large nested cells, positive immunostaining for CD68, S100, and vimentin, and negative for CK, consistent with granular cell tumor. The tumor was surgically resected via a transconjunctival approach, with no immediate improvement in globe mobility but requiring long-term follow-up.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Orbital MRI demonstrated a nodule-like tumor derived from the inferior rectus muscle with specific T1W hypo-intensity and marked T2W central low intensity",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Histopathological analysis showed encapsulated tumor with large nested or cord-like cells, abundant eosinophilic cytoplasmic particles, strong positivity for CD68, S100, and vimentin, and negative CK, confirming granular cell tumor",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Surgical removal of the tumor was performed via transconjunctival approach, with tumor pseudoencapsulated and separate from muscle tissue; gross specimen was firm fibrotic nodule-like pale mass",
+          "evidence_ids": [
+            "E003"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "ocular trauma or other ocular diseases causing diplopia",
+          "basis": "patient denied orbital trauma and had no other ocular diseases"
+        },
+        {
+          "alternative": "non-neoplastic causes of diplopia",
+          "basis": "imaging revealed discrete tumor nodule consistent with neoplastic pathology"
+        }
+      ],
+      "remaining_uncertainties": [
+        "Lack of documented long-term clinical follow-up and treatment outcomes beyond early postoperative period"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.9
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-26T06:48:06.339286+00:00",
+    "clinician_model": "gpt-4.1-mini-test",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC6320031",
+    "known_final_diagnosis": "and was diagnosed as a GCT.",
+    "turns_used": 6,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 3,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 3,
+    "gold_reasoning_span_count": 4,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_RESULT": 3
+    },
+    "report_status_counts": {
+      "found": 3,
+      "ordered_but_not_documented": 2
+    },
+    "report_repair_attempted_count": 1,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {
+      "verbatim_excerpt is not a contiguous source subspan.": 1
+    },
+    "answer_yield": 0.6,
+    "unavailable_turn_rate": 0.4,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-26T06:48:06.341123+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC6320031",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "4",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.34615384615384615",
+    "weighted_tversky_distance": "0.6538461538461539",
+    "matched_weight": "2.25",
+    "missed_weight": "2.25",
+    "extra_weight": "1.0",
+    "weighted_lcs_recall": "0.5",
+    "weighted_lcs_weight": "2.25",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "1",
+    "pairwise_inversions": "0",
+    "gold_sequence": "other_or_off_protocol > imaging > admission_or_clinical_course > pathology",
+    "prediction_sequence": "imaging > procedure_or_intervention > admission_or_clinical_course",
+    "error": ""
+  }
+}

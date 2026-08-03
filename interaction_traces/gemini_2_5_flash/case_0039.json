@@ -1,0 +1,387 @@
+{
+  "case_id": "case_0039",
+  "pmcid": "PMC7757284",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC7757284",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 8,
+    "termination": "final",
+    "known_final_diagnosis": "Although M. tuberculosis was not found, clinical suspicion, typical histopathological examination and response to ATT confirmed the diagnosis of TVC.",
+    "disclosed_evidence_ids": [
+      "E007",
+      "E008",
+      "E009",
+      "E010"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "skin biopsy of the lesion",
+          "current_trajectory_hypothesis": "Patient presented with chronic skin lesions and systemic symptoms. Given the chronicity and failure of prior treatments, a skin biopsy is a likely initial diagnostic step to investigate the nature of the lesion.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Histopathological findings from skin biopsy",
+            "Microbiological studies (e.g., AFB stain, culture) from biopsy or discharge",
+            "Response to anti-tuberculosis treatment"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "The skin biopsy procedure was ordered; no result yet disclosed.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "histopathological findings from the skin biopsy",
+          "current_trajectory_hypothesis": "The patient has chronic skin lesions suggestive of an infectious or inflammatory process. A skin biopsy was performed to determine the underlying pathology. Histopathological findings are crucial for diagnosis, especially given the mention of 'typical histopathological examination' in the final diagnosis.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Histopathological findings from skin biopsy",
+            "Microbiological studies (e.g., AFB stain, culture) from biopsy or discharge",
+            "Response to anti-tuberculosis treatment"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E007",
+          "source_text": "Skin biopsy of the lesion was performed and histopathology analysis showed marked pseudoepitheliomatous hyperplasia of epidermis, epithelioid granulomatous inflammation surrounding the caseous necrosis along with several Langerhans cells in the dermis and many lymphocytic infiltrates",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "acid-fast bacilli (AFB) stain results from the skin biopsy specimen",
+          "current_trajectory_hypothesis": "The histopathology showed granulomatous inflammation with caseous necrosis, highly suggestive of tuberculosis. It is important to check for the presence of acid-fast bacilli to confirm mycobacterial infection, especially since the final diagnosis mentions 'M. tuberculosis was not found'.",
+          "confirmed_evidence": [
+            "Patient presented with chronic verrucous plaque and purulent discharge on buttocks, thigh, and scrotum, with systemic symptoms like cough and night sweats.",
+            "Skin biopsy showed marked pseudoepitheliomatous hyperplasia, epithelioid granulomatous inflammation with caseous necrosis, Langerhans cells, and lymphocytic infiltrates (E007)."
+          ],
+          "missing_key_evidence": [
+            "Microbiological studies (e.g., AFB stain, culture) from biopsy or discharge for M. tuberculosis",
+            "Response to anti-tuberculosis treatment"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E008",
+          "source_text": "AFB staining using Ziehl-Neelsen and culture on Lowenstein-Jensen medium were negative.",
+          "category": "pathology_report",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Despite negative AFB stain and culture, the histopathological findings strongly suggested tuberculosis. The next step would be to initiate anti-tuberculosis treatment and monitor the patient's response, which is a key component of the final diagnosis.",
+          "confirmed_evidence": [
+            "Patient presented with chronic verrucous plaque and purulent discharge on buttocks, thigh, and scrotum, with systemic symptoms like cough and night sweats.",
+            "Skin biopsy showed marked pseudoepitheliomatous hyperplasia, epithelioid granulomatous inflammation with caseous necrosis, Langerhans cells, and lymphocytic infiltrates (E007).",
+            "AFB staining and culture on Lowenstein-Jensen medium from the biopsy were negative (E008)."
+          ],
+          "missing_key_evidence": [
+            "Initiation of anti-tuberculosis treatment",
+            "Clinical response to anti-tuberculosis treatment"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "No pending results or new clinical course updates available after current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "details of anti-tuberculosis treatment (ATT) initiation and the patient's clinical response",
+          "current_trajectory_hypothesis": "Despite negative microbiological findings, the strong histopathological evidence of granulomatous inflammation with caseous necrosis, combined with clinical suspicion, likely led to the initiation of anti-tuberculosis treatment. The patient's response to ATT is a key factor in confirming the diagnosis of Tuberculosis Verrucosa Cutis (TVC).",
+          "confirmed_evidence": [
+            "Patient presented with chronic verrucous plaque and purulent discharge on buttocks, thigh, and scrotum, with systemic symptoms like cough and night sweats.",
+            "Skin biopsy showed marked pseudoepitheliomatous hyperplasia, epithelioid granulomatous inflammation with caseous necrosis, Langerhans cells, and lymphocytic infiltrates (E007).",
+            "AFB staining and culture on Lowenstein-Jensen medium from the biopsy were negative (E008)."
+          ],
+          "missing_key_evidence": [
+            "Initiation of anti-tuberculosis treatment regimen",
+            "Clinical response to anti-tuberculosis treatment"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E009",
+          "source_text": "A multidisciplinary approach by referring to the Pulmonology department was carried out and anti-tuberculosis treatment (ATT) regimen 1 consisted of two-month intensive phase (Rifampicin 450mg, Isoniazid 225mg, Pyrazinamide 1200mg, Ethambutol 825mg daily) followed by four-month continuation phase (Rifampicin 450mg, Isoniazid 450mg three times a week) was given.",
+          "category": "other",
+          "temporal_cue": "after diagnosis",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "patient's clinical response to the anti-tuberculosis treatment (ATT)",
+          "current_trajectory_hypothesis": "The patient received anti-tuberculosis treatment based on clinical suspicion and histopathological findings, despite negative microbiological tests. The clinical response to this treatment is crucial for confirming the diagnosis of Tuberculosis Verrucosa Cutis (TVC), as stated in the final diagnosis.",
+          "confirmed_evidence": [
+            "Patient presented with chronic verrucous plaque and purulent discharge on buttocks, thigh, and scrotum, with systemic symptoms like cough and night sweats.",
+            "Skin biopsy showed marked pseudoepitheliomatous hyperplasia, epithelioid granulomatous inflammation with caseous necrosis, Langerhans cells, and lymphocytic infiltrates (E007).",
+            "AFB staining and culture on Lowenstein-Jensen medium from the biopsy were negative (E008).",
+            "Anti-tuberculosis treatment (ATT) regimen 1 (intensive and continuation phases) was initiated (E009)."
+          ],
+          "missing_key_evidence": [
+            "Clinical response to anti-tuberculosis treatment"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E010",
+          "source_text": "At two-month follow-up, the skin lesions showed significant improvement and the lesions were completely resolved after four months of therapy leaving atrophic scars (Figure 3).",
+          "category": "image_finding",
+          "temporal_cue": "2 months follow-up and 4 months follow-up",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "resolution of systemic symptoms (cough and night sweats) after anti-tuberculosis treatment",
+          "current_trajectory_hypothesis": "The patient's skin lesions responded well to ATT. To complete the picture of the patient's overall response and further support the clinical suspicion of tuberculosis, it is important to know if the associated systemic symptoms (cough and night sweats) also resolved with treatment.",
+          "confirmed_evidence": [
+            "Patient presented with chronic verrucous plaque and purulent discharge on buttocks, thigh, and scrotum, with systemic symptoms like cough and night sweats.",
+            "Skin biopsy showed marked pseudoepitheliomatous hyperplasia, epithelioid granulomatous inflammation with caseous necrosis, Langerhans cells, and lymphocytic infiltrates (E007).",
+            "AFB staining and culture on Lowenstein-Jensen medium from the biopsy were negative (E008).",
+            "Anti-tuberculosis treatment (ATT) regimen 1 (intensive and continuation phases) was initiated (E009).",
+            "Skin lesions showed significant improvement at 2 months and complete resolution at 4 months of therapy (E010)."
+          ],
+          "missing_key_evidence": [
+            "Resolution of systemic symptoms (cough, night sweats) with ATT"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No reported evidence in the source specifically mentions resolution of systemic symptoms such as cough and night sweats after anti-tuberculosis treatment.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Tuberculosis Verrucosa Cutis (TVC)",
+          "trajectory_summary": "A 35-year-old male presented with a two-year history of a large verrucous plaque and malodorous purulent discharge on the buttocks, thigh, and scrotum, accompanied by painful/itchy nodules, foul-smelling seropurulent discharge, and systemic symptoms including untreated cough and night sweats. Previous antifungal and antibiotic treatments had failed. A skin biopsy revealed marked pseudoepitheliomatous hyperplasia, epithelioid granulomatous inflammation with caseous necrosis, Langerhans cells, and lymphocytic infiltrates. Acid-fast bacilli (AFB) staining and culture for M. tuberculosis were negative. Based on clinical suspicion and typical histopathological findings, anti-tuberculosis treatment (ATT) was initiated. The skin lesions showed significant improvement within two months and complete resolution after four months of therapy, leaving atrophic scars.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with chronic verrucous plaque, purulent discharge, painful/itchy nodules, foul-smelling seropurulent discharge, untreated cough, and night sweats.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Skin biopsy showed marked pseudoepitheliomatous hyperplasia of epidermis, epithelioid granulomatous inflammation surrounding caseous necrosis, Langerhans cells, and lymphocytic infiltrates.",
+              "evidence_ids": [
+                "E007"
+              ]
+            },
+            {
+              "claim": "AFB staining and culture on Lowenstein-Jensen medium from the biopsy were negative for M. tuberculosis.",
+              "evidence_ids": [
+                "E008"
+              ]
+            },
+            {
+              "claim": "Anti-tuberculosis treatment (ATT) regimen 1 was initiated.",
+              "evidence_ids": [
+                "E009"
+              ]
+            },
+            {
+              "claim": "Skin lesions showed significant improvement at two months and complete resolution after four months of ATT.",
+              "evidence_ids": [
+                "E010"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Direct microbiological confirmation of M. tuberculosis",
+              "basis": "AFB staining and culture were negative (E008)."
+            },
+            {
+              "alternative": "Other bacterial or fungal infections",
+              "basis": "Previous antifungal and antibiotic treatment had failed (initial presentation)."
+            }
+          ],
+          "remaining_uncertainties": [
+            "Resolution of systemic symptoms (cough and night sweats) after anti-tuberculosis treatment was not documented."
+          ],
+          "confidence_that_diagnosis_is_supported": 1.0
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Tuberculosis Verrucosa Cutis (TVC)",
+      "trajectory_summary": "A 35-year-old male presented with a two-year history of a large verrucous plaque and malodorous purulent discharge on the buttocks, thigh, and scrotum, accompanied by painful/itchy nodules, foul-smelling seropurulent discharge, and systemic symptoms including untreated cough and night sweats. Previous antifungal and antibiotic treatments had failed. A skin biopsy revealed marked pseudoepitheliomatous hyperplasia, epithelioid granulomatous inflammation with caseous necrosis, Langerhans cells, and lymphocytic infiltrates. Acid-fast bacilli (AFB) staining and culture for M. tuberculosis were negative. Based on clinical suspicion and typical histopathological findings, anti-tuberculosis treatment (ATT) was initiated. The skin lesions showed significant improvement within two months and complete resolution after four months of therapy, leaving atrophic scars.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with chronic verrucous plaque, purulent discharge, painful/itchy nodules, foul-smelling seropurulent discharge, untreated cough, and night sweats.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Skin biopsy showed marked pseudoepitheliomatous hyperplasia of epidermis, epithelioid granulomatous inflammation surrounding caseous necrosis, Langerhans cells, and lymphocytic infiltrates.",
+          "evidence_ids": [
+            "E007"
+          ]
+        },
+        {
+          "claim": "AFB staining and culture on Lowenstein-Jensen medium from the biopsy were negative for M. tuberculosis.",
+          "evidence_ids": [
+            "E008"
+          ]
+        },
+        {
+          "claim": "Anti-tuberculosis treatment (ATT) regimen 1 was initiated.",
+          "evidence_ids": [
+            "E009"
+          ]
+        },
+        {
+          "claim": "Skin lesions showed significant improvement at two months and complete resolution after four months of ATT.",
+          "evidence_ids": [
+            "E010"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Direct microbiological confirmation of M. tuberculosis",
+          "basis": "AFB staining and culture were negative (E008)."
+        },
+        {
+          "alternative": "Other bacterial or fungal infections",
+          "basis": "Previous antifungal and antibiotic treatment had failed (initial presentation)."
+        }
+      ],
+      "remaining_uncertainties": [
+        "Resolution of systemic symptoms (cough and night sweats) after anti-tuberculosis treatment was not documented."
+      ],
+      "confidence_that_diagnosis_is_supported": 1.0
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T20:34:28.220860+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC7757284",
+    "known_final_diagnosis": "Although M. tuberculosis was not found, clinical suspicion, typical histopathological examination and response to ATT confirmed the diagnosis of TVC.",
+    "turns_used": 8,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 5,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 1,
+      "REQUEST_RESULT": 5,
+      "WAIT_REASSESS": 1
+    },
+    "report_status_counts": {
+      "found": 4,
+      "no_new_update": 1,
+      "not_reported": 1,
+      "ordered_but_not_documented": 1
+    },
+    "report_repair_attempted_count": 1,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 1
+    },
+    "answer_yield": 0.5714285714285714,
+    "unavailable_turn_rate": 0.42857142857142855,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T20:34:28.221803+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC7757284",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/dermatology/episodes/PMC7757284.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/dermatology/cases/PMC7757284.json",
+    "num_gold_steps": "6",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.3235294117647059",
+    "weighted_tversky_distance": "0.6764705882352942",
+    "matched_weight": "2.75",
+    "missed_weight": "3.75",
+    "extra_weight": "1.0",
+    "weighted_lcs_recall": "0.4230769230769231",
+    "weighted_lcs_weight": "2.75",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "1",
+    "pairwise_inversions": "0",
+    "gold_sequence": "other_or_off_protocol > imaging > lab_tests > microbiology > pathology > medication_or_treatment",
+    "prediction_sequence": "procedure_or_intervention > pathology > medication_or_treatment",
+    "error": ""
+  }
+}

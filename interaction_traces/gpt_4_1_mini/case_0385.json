@@ -1,0 +1,409 @@
+{
+  "case_id": "case_0385",
+  "pmcid": "PMC10088051",
+  "model": "gpt_4_1_mini",
+  "episode": {
+    "case_id": "PMC10088051",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 9,
+    "termination": "final",
+    "known_final_diagnosis": "They were having florid fungal septate hyphae with dichotomous branching and was diagnosed as ovarian Aspergillosis (Figures 1C-E).",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E003",
+      "E004"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "Order biopsy of the left lower abdominal mass for pathological examination",
+          "current_trajectory_hypothesis": "Patient has abdominal lump and pain with fever; an ovarian mass is palpable; biopsy is required to identify the pathological cause such as infection or tumor.",
+          "confirmed_evidence": [
+            "Abdominal lump and pain for two months with intermittent fever and chills",
+            "Left lower abdomen mass 10x8.5 cm found on vaginal exam"
+          ],
+          "missing_key_evidence": [
+            "Histopathology results confirming fungal infection and Aspergillosis",
+            "Imaging findings characterizing the ovarian mass",
+            "Microbiological or molecular testing confirming Aspergillus species"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Procedure ordered, no corresponding source record to mark found yet",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Biopsy of the ovarian mass performed to obtain histopathologic evidence of fungal infection and characterize the lesion",
+          "confirmed_evidence": [
+            "Abdominal lump and pain for two months with intermittent fever and chills",
+            "Left lower abdomen mass 10x8.5 cm found on vaginal exam",
+            "Biopsy procedure ordered for left lower abdominal mass"
+          ],
+          "missing_key_evidence": [
+            "Histopathology confirming florid fungal septate hyphae with dichotomous branching diagnostic of Aspergillosis",
+            "Imaging findings to characterize the mass",
+            "Microbiological or molecular confirmation of Aspergillus species"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "The contrast enhanced tomography (CECT) of the whole abdomen showed a heterogeneous enhancing solid cystic lesion with septations measuring 10x9.5x9.0 cm in the left ovary (Figure 1A).",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request histopathology report of the left ovarian mass biopsy specimen.",
+          "current_trajectory_hypothesis": "CT imaging shows left ovarian complex mass; biopsy histopathology is needed to confirm fungal infection and Aspergillosis diagnosis.",
+          "confirmed_evidence": [
+            "Heterogeneous enhancing solid cystic lesion with septations measuring 10x9.5x9.0 cm in the left ovary on CECT (E001)",
+            "Left lower abdomen mass 10x8.5 cm palpable on vaginal exam",
+            "Abdominal lump, pain, and intermittent fever with chills for 2 months"
+          ],
+          "missing_key_evidence": [
+            "Histopathology description of florid fungal septate hyphae with dichotomous branching consistent with Aspergillosis",
+            "Microbiological and/or molecular confirmation of Aspergillus species",
+            "Treatment course and clinical response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request the histopathology report describing the fungal elements in the ovarian mass biopsy specimen",
+          "current_trajectory_hypothesis": "CT scan showed a left ovarian complex cystic-solid mass, likely an abscess or neoplasm; histopathology will confirm the presence of fungal septate hyphae with dichotomous branching consistent with Aspergillosis.",
+          "confirmed_evidence": [
+            "Left ovarian heterogeneous enhancing solid cystic lesion with septations measuring 10x9.5x9.0 cm on CECT (E001)",
+            "Palpable left lower abdomen mass 10x8.5 cm on vaginal exam",
+            "Abdominal lump, pain, and intermittent fever for 2 months"
+          ],
+          "missing_key_evidence": [
+            "Histopathology showing florid fungal septate hyphae with dichotomous branching diagnostic of Aspergillosis",
+            "Microbiological or molecular confirmation of Aspergillus species",
+            "Details of clinical management, treatment and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "The Hematoxylin and Eosin (HE) and Periodic acid Schiff (PAS) stained sections of the ovarian mass were showing dense inflammation, and necrosis. They were having florid fungal septate hyphae with dichotomous branching",
+          "category": "image_finding",
+          "temporal_cue": "after surgery",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request microbiological or molecular test result confirming Aspergillus species in the ovarian mass biopsy",
+          "current_trajectory_hypothesis": "Histopathology showed florid fungal septate hyphae with dichotomous branching consistent with Aspergillosis; microbiological or molecular confirmation is needed to support the diagnosis of ovarian Aspergillosis.",
+          "confirmed_evidence": [
+            "Left ovarian heterogeneous enhancing solid cystic lesion with septations measuring 10x9.5x9.0 cm on CECT (E001)",
+            "Palpable left lower abdomen mass 10x8.5 cm on vaginal exam",
+            "Abdominal lump, pain, and intermittent fever for 2 months",
+            "Histopathology showing dense inflammation, necrosis, and florid fungal septate hyphae with dichotomous branching (E003)"
+          ],
+          "missing_key_evidence": [
+            "Microbiological or molecular confirmation of Aspergillus species",
+            "Details of clinical management, treatment and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "No microbiological or molecular test result confirming Aspergillus species in the ovarian mass biopsy is documented in the supplied records.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Diagnosis supported by clinical presentation, imaging of ovarian mass, and histopathology showing fungal septate hyphae with dichotomous branching consistent with Aspergillosis; microbiological/molecular tests lacking but diagnosis established at histopathology; treatment and outcome details pending.",
+          "confirmed_evidence": [
+            "Patient presented with left lower abdominal mass (10x8.5 cm) and symptoms of lump, pain, and fever",
+            "CECT abdomen showed heterogeneous enhancing solid cystic ovarian lesion (10x9.5x9.0 cm) (E001)",
+            "Histopathology from biopsy showed dense inflammation, necrosis, and florid fungal septate hyphae with dichotomous branching (E003)"
+          ],
+          "missing_key_evidence": [
+            "Documentation of microbiological or molecular confirmation of Aspergillus species",
+            "Details on clinical management, antifungal treatment, and patient outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "Gross findings of the left ovary specimen were showing a mass measuring 11 x 9.0 x 8.5 cm. The fallopian tube measured 4.5 cm in length. The outer surface of the ovary mass was encapsulated and light yellow serous fluid was seen oozing upon the incision. The cut surface of the incised mass showed cystic and solid areas with interspersed black pigmentation (Figure 1B).",
+          "category": "pathology_report",
+          "temporal_cue": "after surgery",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request documentation of clinical management, antifungal treatment, and patient outcome after diagnosis of ovarian Aspergillosis.",
+          "current_trajectory_hypothesis": "Diagnosis of ovarian Aspergillosis based on clinical presentation, imaging (E001), gross pathology (E002), and histopathology showing fungal septate hyphae with dichotomous branching (E003); management and outcome details needed to complete the trajectory.",
+          "confirmed_evidence": [
+            "Left ovarian heterogeneous enhancing solid cystic lesion on CECT (E001)",
+            "Gross specimen of left ovarian mass with cystic and solid areas, black pigmentation (E002)",
+            "Histopathology showing florid fungal septate hyphae with dichotomous branching diagnostic of Aspergillosis (E003)",
+            "Presentation with abdominal lump, pain, and intermittent fever"
+          ],
+          "missing_key_evidence": [
+            "Microbiological or molecular confirmation of Aspergillus species in the biopsy specimen",
+            "Details on clinical management, antifungal treatment, and patient outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "After a diagnosis of ovarian aspergillosis, the patient was given an intravenous formulation of voriconazole (6 mg/kg/day) and liposomal amphotericin B (0.5 mg/kg/day) for a period of ten days.",
+          "category": "treatment_response",
+          "temporal_cue": "post-diagnosis",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request clinical outcome or follow-up status after antifungal treatment for ovarian aspergillosis.",
+          "current_trajectory_hypothesis": "Patient with ovarian aspergillosis diagnosed by imaging, gross pathology, and histopathology treated with voriconazole and amphotericin B; clinical outcome after treatment is important to complete the trajectory.",
+          "confirmed_evidence": [
+            "Left ovarian heterogeneous enhancing solid cystic lesion on CECT (E001)",
+            "Gross pathology of ovarian mass with cystic and solid areas and pigmentation (E002)",
+            "Histopathology showing florid fungal septate hyphae with dichotomous branching consistent with Aspergillosis (E003)",
+            "Treatment with intravenous voriconazole and liposomal amphotericin B for ten days (E004)",
+            "Abdominal lump, pain, and intermittent fever for 2 months"
+          ],
+          "missing_key_evidence": [
+            "Microbiological or molecular confirmation of Aspergillus species",
+            "Documentation of clinical outcome or follow-up after antifungal therapy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No source evidence documents clinical outcome or follow-up status after antifungal treatment.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "ovarian Aspergillosis",
+          "trajectory_summary": "A 34-year-old woman presented with a 2-month history of left lower abdominal lump, pain, and intermittent fever with chills. Vaginal examination revealed a 10x8.5 cm left lower abdomen mass. Contrast-enhanced CT of the abdomen showed a heterogeneous enhancing solid cystic lesion with septations measuring 10x9.5x9.0 cm in the left ovary. Surgical excision revealed a specimen of 11x9x8.5 cm with cystic and solid areas and black pigmentation. Histopathology with H&E and PAS stains revealed dense inflammation, necrosis, and florid fungal septate hyphae with dichotomous branching consistent with Aspergillus infection. The patient was treated with intravenous voriconazole and liposomal amphotericin B for 10 days. Microbiological or molecular confirmation and post-treatment clinical outcome were not documented.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Left ovarian heterogeneous enhancing solid cystic lesion with septations on CECT measuring 10x9.5x9.0 cm",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Gross surgical specimen of left ovarian mass showed cystic and solid areas with black pigmentation, size 11x9x8.5 cm",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Histopathology showed dense inflammation, necrosis and florid fungal septate hyphae with dichotomous branching diagnostic of Aspergillosis",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Patient treated post-diagnosis with intravenous voriconazole and liposomal amphotericin B for ten days",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Clinical presentation with abdominal lump, pain, and intermittent fever over two months",
+              "evidence_ids": []
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "bacterial abscess or malignancy",
+              "basis": "Imaging and histopathology confirmed fungal infection, not bacterial or malignant pathology"
+            }
+          ],
+          "remaining_uncertainties": [
+            "No microbiological or molecular confirmation of Aspergillus species in biopsy specimen documented",
+            "No clinical outcome or follow-up information after antifungal therapy available"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "ovarian Aspergillosis",
+      "trajectory_summary": "A 34-year-old woman presented with a 2-month history of left lower abdominal lump, pain, and intermittent fever with chills. Vaginal examination revealed a 10x8.5 cm left lower abdomen mass. Contrast-enhanced CT of the abdomen showed a heterogeneous enhancing solid cystic lesion with septations measuring 10x9.5x9.0 cm in the left ovary. Surgical excision revealed a specimen of 11x9x8.5 cm with cystic and solid areas and black pigmentation. Histopathology with H&E and PAS stains revealed dense inflammation, necrosis, and florid fungal septate hyphae with dichotomous branching consistent with Aspergillus infection. The patient was treated with intravenous voriconazole and liposomal amphotericin B for 10 days. Microbiological or molecular confirmation and post-treatment clinical outcome were not documented.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Left ovarian heterogeneous enhancing solid cystic lesion with septations on CECT measuring 10x9.5x9.0 cm",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Gross surgical specimen of left ovarian mass showed cystic and solid areas with black pigmentation, size 11x9x8.5 cm",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Histopathology showed dense inflammation, necrosis and florid fungal septate hyphae with dichotomous branching diagnostic of Aspergillosis",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Patient treated post-diagnosis with intravenous voriconazole and liposomal amphotericin B for ten days",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Clinical presentation with abdominal lump, pain, and intermittent fever over two months",
+          "evidence_ids": []
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "bacterial abscess or malignancy",
+          "basis": "Imaging and histopathology confirmed fungal infection, not bacterial or malignant pathology"
+        }
+      ],
+      "remaining_uncertainties": [
+        "No microbiological or molecular confirmation of Aspergillus species in biopsy specimen documented",
+        "No clinical outcome or follow-up information after antifungal therapy available"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.8
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-24T02:21:55.175890+00:00",
+    "clinician_model": "gpt-4.1-mini-test",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10088051",
+    "known_final_diagnosis": "They were having florid fungal septate hyphae with dichotomous branching and was diagnosed as ovarian Aspergillosis (Figures 1C-E).",
+    "turns_used": 9,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 5,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 1,
+      "REQUEST_RESULT": 5,
+      "WAIT_REASSESS": 2
+    },
+    "report_status_counts": {
+      "found": 4,
+      "invalid_report_selection": 1,
+      "not_reported": 2,
+      "ordered_but_not_documented": 1
+    },
+    "answer_yield": 0.5,
+    "unavailable_turn_rate": 0.375,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-24T02:21:55.178538+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10088051",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "2",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.0",
+    "weighted_tversky_distance": "1.0",
+    "matched_weight": "0.0",
+    "missed_weight": "2.25",
+    "extra_weight": "2.75",
+    "weighted_lcs_recall": "0.0",
+    "weighted_lcs_weight": "0.0",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging > medication_or_treatment",
+    "prediction_sequence": "procedure_or_intervention > microbiology > admission_or_clinical_course",
+    "error": ""
+  }
+}

@@ -1,0 +1,629 @@
+{
+  "case_id": "case_0033",
+  "pmcid": "PMC7253921",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC7253921",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 14,
+    "termination": "final",
+    "known_final_diagnosis": "diagnostic hypothesis of cutaneous TB",
+    "disclosed_evidence_ids": [
+      "E007",
+      "E008",
+      "E009"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "Biopsy of a skin ulcer or nodule for histopathological examination and microbiological culture",
+          "current_trajectory_hypothesis": "Patient presents with chronic systemic symptoms and various ulcers. Investigating the nature of the skin lesions is crucial for diagnosing cutaneous TB.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Histopathology of skin lesions",
+            "Microbiological culture results from skin lesions",
+            "Specific evidence for Mycobacterium tuberculosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order recorded; no direct source evidence that biopsy was ordered at initial presentation.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Histopathological and microbiological results from skin biopsy of an ulcer or nodule",
+          "current_trajectory_hypothesis": "The patient's chronic symptoms and skin lesions suggest a need for tissue diagnosis. A skin biopsy is a key diagnostic step for cutaneous TB.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Histopathology findings from skin lesions",
+            "Microbiological culture or PCR results for Mycobacterium tuberculosis from skin lesions",
+            "Specific evidence linking skin lesions to TB"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E007",
+          "source_text": "Anatomopathological examination of one of the ulcers was performed on the lower limb, which revealed an epithelioid granulomatous process with palisade granulomas and central caseous necrosis.",
+          "category": "pathology_report",
+          "temporal_cue": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Microbiological culture or molecular test (PCR) results for Mycobacterium tuberculosis from the skin ulcer biopsy specimen",
+          "current_trajectory_hypothesis": "Histopathology showed granulomatous inflammation with caseous necrosis, highly suggestive of tuberculosis. Direct identification of Mycobacterium tuberculosis from the biopsy is needed for confirmation.",
+          "confirmed_evidence": [
+            "Patient presented with chronic watery diarrhea, abdominal pain, weight loss, nocturnal fever, multiple skin ulcers, painful nodules, glans ulcers, and arthralgia.",
+            "Skin ulcer biopsy revealed an epithelioid granulomatous process with palisade granulomas and central caseous necrosis."
+          ],
+          "missing_key_evidence": [
+            "Direct microbiological or molecular evidence of Mycobacterium tuberculosis from the skin lesions",
+            "Confirmation of the specific type of TB (e.g., cutaneous TB)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Results of acid-fast bacilli (AFB) staining or culture for Mycobacterium tuberculosis from the skin ulcer biopsy specimen",
+          "current_trajectory_hypothesis": "Histopathology showed granulomatous inflammation with caseous necrosis, highly suggestive of tuberculosis. Direct identification of Mycobacterium tuberculosis from the biopsy is crucial for confirmation.",
+          "confirmed_evidence": [
+            "Patient presented with chronic watery diarrhea, abdominal pain, weight loss, nocturnal fever, multiple skin ulcers, painful nodules, glans ulcers, and arthralgia.",
+            "Skin ulcer biopsy revealed an epithelioid granulomatous process with palisade granulomas and central caseous necrosis (E007)."
+          ],
+          "missing_key_evidence": [
+            "Direct microbiological or molecular evidence of Mycobacterium tuberculosis from the skin lesions",
+            "Confirmation of the specific type of TB (e.g., cutaneous TB)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E008",
+          "source_text": "The study of acid-fast bacilli (AFB) by Ziehl-Neelsen staining showed intact bacilli (Figure 3, Figure 4), and culture was positive for M. tuberculosis",
+          "category": "microbiology",
+          "temporal_cue": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Histopathological and microbiological results from biopsies taken during colonoscopy, especially from the shallow ulcers in the sigmoid and proximal rectum",
+          "current_trajectory_hypothesis": "The patient has confirmed cutaneous tuberculosis. Given the chronic gastrointestinal symptoms (diarrhea, abdominal pain, weight loss) and initial colonoscopy findings of shallow ulcers, it is important to investigate for possible intestinal tuberculosis to understand the full extent of the disease.",
+          "confirmed_evidence": [
+            "Patient presented with chronic watery diarrhea, abdominal pain, weight loss, nocturnal fever, multiple skin ulcers, painful nodules, glans ulcers, and arthralgia.",
+            "Skin ulcer biopsy revealed an epithelioid granulomatous process with palisade granulomas and central caseous necrosis (E007).",
+            "Acid-fast bacilli (AFB) by Ziehl-Neelsen staining showed intact bacilli, and culture was positive for M. tuberculosis from the skin ulcer biopsy (E008)."
+          ],
+          "missing_key_evidence": [
+            "Evidence of Mycobacterium tuberculosis in gastrointestinal lesions",
+            "Further characterization of the glans ulcers or arthralgia",
+            "Treatment and clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E009",
+          "source_text": "The histopathological analysis of the intestinal biopsy revealed a mild inflammatory infiltrate without the presence of bacilli.",
+          "category": "pathology_report",
+          "temporal_cue": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "Biopsy of a glans ulcer for histopathological examination and microbiological culture for Mycobacterium tuberculosis",
+          "current_trajectory_hypothesis": "Cutaneous tuberculosis has been confirmed from a lower limb ulcer. Given the presence of glans ulcers, it is important to determine if these are also manifestations of tuberculosis to understand the full extent of the disease.",
+          "confirmed_evidence": [
+            "Patient presented with chronic watery diarrhea, abdominal pain, weight loss, nocturnal fever, multiple skin ulcers, painful nodules, glans ulcers, and arthralgia.",
+            "Skin ulcer biopsy revealed an epithelioid granulomatous process with palisade granulomas and central caseous necrosis (E007).",
+            "Acid-fast bacilli (AFB) by Ziehl-Neelsen staining showed intact bacilli, and culture was positive for M. tuberculosis from the skin ulcer biopsy (E008).",
+            "Histopathological analysis of intestinal biopsy showed mild inflammatory infiltrate without bacilli (E009)."
+          ],
+          "missing_key_evidence": [
+            "Histopathological and microbiological evidence from glans ulcers",
+            "Further characterization of painful nodules on lower limbs and arthralgia",
+            "Treatment and clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "Order acknowledged, but no matching source record documents the procedure or its result.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Histopathological and microbiological results from biopsy of the painful erythematous nodules on lower limbs, if performed",
+          "current_trajectory_hypothesis": "Cutaneous tuberculosis has been confirmed from a lower limb ulcer. Given the presence of painful erythematous nodules on lower limbs, it is important to determine if these are also manifestations of tuberculosis or a reactive process, to understand the full extent of the disease.",
+          "confirmed_evidence": [
+            "Patient presented with chronic watery diarrhea, abdominal pain, weight loss, nocturnal fever, multiple skin ulcers, painful nodules, glans ulcers, and arthralgia.",
+            "Skin ulcer biopsy revealed an epithelioid granulomatous process with palisade granulomas and central caseous necrosis (E007).",
+            "Acid-fast bacilli (AFB) by Ziehl-Neelsen staining showed intact bacilli, and culture was positive for M. tuberculosis from the skin ulcer biopsy (E008).",
+            "Histopathological analysis of intestinal biopsy showed mild inflammatory infiltrate without bacilli (E009)."
+          ],
+          "missing_key_evidence": [
+            "Histopathological and microbiological evidence from painful erythematous nodules on lower limbs",
+            "Histopathological and microbiological evidence from glans ulcers",
+            "Further characterization of arthralgia",
+            "Treatment and clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E008",
+          "source_text": "The study of acid-fast bacilli (AFB) by Ziehl-Neelsen staining showed intact bacilli (Figure 3, Figure 4), and culture was positive for M. tuberculosis",
+          "category": "microbiology",
+          "temporal_cue": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Histopathological and microbiological results from biopsy of the glans ulcers, if performed",
+          "current_trajectory_hypothesis": "Cutaneous tuberculosis has been confirmed from a lower limb ulcer. Given the presence of glans ulcers, it is important to determine if these are also manifestations of tuberculosis to understand the full extent of the disease. A previous order for this biopsy was placed.",
+          "confirmed_evidence": [
+            "Patient presented with chronic watery diarrhea, abdominal pain, weight loss, nocturnal fever, multiple skin ulcers, painful nodules, glans ulcers, and arthralgia.",
+            "Skin ulcer biopsy revealed an epithelioid granulomatous process with palisade granulomas and central caseous necrosis (E007).",
+            "Acid-fast bacilli (AFB) by Ziehl-Neelsen staining showed intact bacilli, and culture was positive for M. tuberculosis from the skin ulcer biopsy (E008).",
+            "Histopathological analysis of intestinal biopsy showed mild inflammatory infiltrate without bacilli (E009)."
+          ],
+          "missing_key_evidence": [
+            "Histopathological and microbiological evidence from glans ulcers",
+            "Further characterization of painful erythematous nodules on lower limbs and arthralgia",
+            "Treatment and clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "No histopathological or microbiological results from biopsy of the glans ulcers are reported in the source.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Cutaneous tuberculosis has been confirmed from a lower limb ulcer. The next step is to understand the treatment plan and the patient's response to therapy, which is a critical part of the clinical trajectory.",
+          "confirmed_evidence": [
+            "Patient presented with chronic watery diarrhea, abdominal pain, weight loss, nocturnal fever, multiple skin ulcers, painful nodules, glans ulcers, and arthralgia.",
+            "Skin ulcer biopsy revealed an epithelioid granulomatous process with palisade granulomas and central caseous necrosis (E007).",
+            "Acid-fast bacilli (AFB) by Ziehl-Neelsen staining showed intact bacilli, and culture was positive for M. tuberculosis from the skin ulcer biopsy (E008).",
+            "Histopathological analysis of intestinal biopsy showed mild inflammatory infiltrate without bacilli (E009)."
+          ],
+          "missing_key_evidence": [
+            "Treatment regimen for tuberculosis",
+            "Patient's clinical response to treatment",
+            "Outcome of the disease",
+            "Further characterization of painful erythematous nodules on lower limbs and arthralgia (if related to TB or other conditions)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Information regarding the treatment initiated for tuberculosis and the patient's response to therapy",
+          "current_trajectory_hypothesis": "Cutaneous tuberculosis has been confirmed from a lower limb ulcer. The next critical step in the trajectory is to understand the treatment plan and the patient's clinical response to therapy.",
+          "confirmed_evidence": [
+            "Patient presented with chronic watery diarrhea, abdominal pain, weight loss, nocturnal fever, multiple skin ulcers, painful nodules, glans ulcers, and arthralgia.",
+            "Skin ulcer biopsy revealed an epithelioid granulomatous process with palisade granulomas and central caseous necrosis (E007).",
+            "Acid-fast bacilli (AFB) by Ziehl-Neelsen staining showed intact bacilli, and culture was positive for M. tuberculosis from the skin ulcer biopsy (E008).",
+            "Histopathological analysis of intestinal biopsy showed mild inflammatory infiltrate without bacilli (E009)."
+          ],
+          "missing_key_evidence": [
+            "Treatment regimen for tuberculosis",
+            "Patient's clinical response to treatment",
+            "Outcome of the disease",
+            "Further characterization of painful erythematous nodules on lower limbs and arthralgia (if related to TB or other conditions)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Cutaneous tuberculosis has been confirmed from a lower limb ulcer. The next critical step in the trajectory is to understand the treatment plan, the patient's clinical response to therapy, and the overall outcome.",
+          "confirmed_evidence": [
+            "Patient presented with chronic watery diarrhea, abdominal pain, weight loss, nocturnal fever, multiple skin ulcers, painful nodules, glans ulcers, and arthralgia.",
+            "Skin ulcer biopsy revealed an epithelioid granulomatous process with palisade granulomas and central caseous necrosis (E007).",
+            "Acid-fast bacilli (AFB) by Ziehl-Neelsen staining showed intact bacilli, and culture was positive for M. tuberculosis from the skin ulcer biopsy (E008).",
+            "Histopathological analysis of intestinal biopsy showed mild inflammatory infiltrate without bacilli (E009)."
+          ],
+          "missing_key_evidence": [
+            "Treatment regimen for tuberculosis",
+            "Patient's clinical response to treatment",
+            "Outcome of the disease",
+            "Further characterization of painful erythematous nodules on lower limbs and arthralgia (if related to TB or other conditions)",
+            "Nature of glans ulcers"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Information regarding the treatment initiated for tuberculosis and the patient's clinical course and outcome",
+          "current_trajectory_hypothesis": "Cutaneous tuberculosis has been confirmed from a lower limb ulcer. The next critical step in the trajectory is to understand the treatment plan, the patient's clinical response to therapy, and the overall outcome.",
+          "confirmed_evidence": [
+            "Patient presented with chronic watery diarrhea, abdominal pain, weight loss, nocturnal fever, multiple skin ulcers, painful nodules, glans ulcers, and arthralgia.",
+            "Skin ulcer biopsy revealed an epithelioid granulomatous process with palisade granulomas and central caseous necrosis (E007).",
+            "Acid-fast bacilli (AFB) by Ziehl-Neelsen staining showed intact bacilli, and culture was positive for M. tuberculosis from the skin ulcer biopsy (E008).",
+            "Histopathological analysis of intestinal biopsy showed mild inflammatory infiltrate without bacilli (E009)."
+          ],
+          "missing_key_evidence": [
+            "Treatment regimen for tuberculosis",
+            "Patient's clinical response to treatment",
+            "Outcome of the disease",
+            "Further characterization of painful erythematous nodules on lower limbs and arthralgia (if related to TB or other conditions)",
+            "Nature of glans ulcers"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Cutaneous tuberculosis has been confirmed from a lower limb ulcer. The next critical step in the trajectory is to understand the treatment plan, the patient's clinical response to therapy, and the overall outcome.",
+          "confirmed_evidence": [
+            "Patient presented with chronic watery diarrhea, abdominal pain, weight loss, nocturnal fever, multiple skin ulcers, painful nodules, glans ulcers, and arthralgia.",
+            "Skin ulcer biopsy revealed an epithelioid granulomatous process with palisade granulomas and central caseous necrosis (E007).",
+            "Acid-fast bacilli (AFB) by Ziehl-Neelsen staining showed intact bacilli, and culture was positive for M. tuberculosis from the skin ulcer biopsy (E008).",
+            "Histopathological analysis of intestinal biopsy showed mild inflammatory infiltrate without bacilli (E009)."
+          ],
+          "missing_key_evidence": [
+            "Treatment regimen for tuberculosis",
+            "Patient's clinical response to treatment",
+            "Outcome of the disease",
+            "Further characterization of painful erythematous nodules on lower limbs and arthralgia (if related to TB or other conditions)",
+            "Nature of glans ulcers"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "No pending orders or new clinical trajectory updates beyond confirmatory testing phase are available for disclosure.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 14,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "cutaneous TB",
+          "trajectory_summary": "A 23-year-old male presented with 9 months of chronic symptoms including watery diarrhea, abdominal pain, weight loss, nocturnal fever, multiple skin ulcers, painful nodules on lower limbs, glans ulcers, and arthralgia. Initial workup included colonoscopy showing shallow ulcers. A biopsy of a lower limb skin ulcer revealed an epithelioid granulomatous process with palisade granulomas and central caseous necrosis. Further microbiological analysis of this biopsy confirmed the presence of acid-fast bacilli by Ziehl-Neelsen staining and a positive culture for Mycobacterium tuberculosis, establishing the diagnosis of cutaneous tuberculosis. Histopathological analysis of intestinal biopsies showed only mild inflammatory infiltrate without bacilli, ruling out intestinal tuberculosis.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with chronic systemic symptoms and multiple skin lesions, including ulcers and painful nodules.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Histopathological examination of a lower limb skin ulcer revealed an epithelioid granulomatous process with palisade granulomas and central caseous necrosis.",
+              "evidence_ids": [
+                "E007"
+              ]
+            },
+            {
+              "claim": "Acid-fast bacilli (AFB) were identified by Ziehl-Neelsen staining from the skin ulcer biopsy.",
+              "evidence_ids": [
+                "E008"
+              ]
+            },
+            {
+              "claim": "Culture from the skin ulcer biopsy was positive for Mycobacterium tuberculosis.",
+              "evidence_ids": [
+                "E008"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Intestinal tuberculosis",
+              "basis": "Histopathological analysis of intestinal biopsies revealed only a mild inflammatory infiltrate without the presence of bacilli (E009)."
+            }
+          ],
+          "remaining_uncertainties": [
+            "Histopathological and microbiological evidence regarding the nature of the glans ulcers.",
+            "Histopathological and microbiological evidence regarding the nature of the painful erythematous nodules on lower limbs.",
+            "Specific treatment regimen initiated for tuberculosis.",
+            "Patient's clinical response to the treatment.",
+            "Long-term outcome of the disease."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "cutaneous TB",
+      "trajectory_summary": "A 23-year-old male presented with 9 months of chronic symptoms including watery diarrhea, abdominal pain, weight loss, nocturnal fever, multiple skin ulcers, painful nodules on lower limbs, glans ulcers, and arthralgia. Initial workup included colonoscopy showing shallow ulcers. A biopsy of a lower limb skin ulcer revealed an epithelioid granulomatous process with palisade granulomas and central caseous necrosis. Further microbiological analysis of this biopsy confirmed the presence of acid-fast bacilli by Ziehl-Neelsen staining and a positive culture for Mycobacterium tuberculosis, establishing the diagnosis of cutaneous tuberculosis. Histopathological analysis of intestinal biopsies showed only mild inflammatory infiltrate without bacilli, ruling out intestinal tuberculosis.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with chronic systemic symptoms and multiple skin lesions, including ulcers and painful nodules.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Histopathological examination of a lower limb skin ulcer revealed an epithelioid granulomatous process with palisade granulomas and central caseous necrosis.",
+          "evidence_ids": [
+            "E007"
+          ]
+        },
+        {
+          "claim": "Acid-fast bacilli (AFB) were identified by Ziehl-Neelsen staining from the skin ulcer biopsy.",
+          "evidence_ids": [
+            "E008"
+          ]
+        },
+        {
+          "claim": "Culture from the skin ulcer biopsy was positive for Mycobacterium tuberculosis.",
+          "evidence_ids": [
+            "E008"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Intestinal tuberculosis",
+          "basis": "Histopathological analysis of intestinal biopsies revealed only a mild inflammatory infiltrate without the presence of bacilli (E009)."
+        }
+      ],
+      "remaining_uncertainties": [
+        "Histopathological and microbiological evidence regarding the nature of the glans ulcers.",
+        "Histopathological and microbiological evidence regarding the nature of the painful erythematous nodules on lower limbs.",
+        "Specific treatment regimen initiated for tuberculosis.",
+        "Patient's clinical response to the treatment.",
+        "Long-term outcome of the disease."
+      ],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T20:30:24.787387+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC7253921",
+    "known_final_diagnosis": "diagnostic hypothesis of cutaneous TB",
+    "turns_used": 14,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 4,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 3,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 2,
+      "REQUEST_RESULT": 8,
+      "WAIT_REASSESS": 3
+    },
+    "report_status_counts": {
+      "already_disclosed": 1,
+      "found": 3,
+      "invalid_report_selection": 5,
+      "no_new_update": 1,
+      "not_reported": 1,
+      "ordered_but_not_documented": 2
+    },
+    "report_repair_attempted_count": 8,
+    "report_repair_failed_count": 5,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 13
+    },
+    "answer_yield": 0.3076923076923077,
+    "unavailable_turn_rate": 0.3076923076923077,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T20:30:24.790675+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC7253921",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/dermatology/episodes/PMC7253921.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/dermatology/cases/PMC7253921.json",
+    "num_gold_steps": "7",
+    "num_pred_steps": "4",
+    "weighted_tversky_alignment": "0.16666666666666666",
+    "weighted_tversky_distance": "0.8333333333333334",
+    "matched_weight": "1.75",
+    "missed_weight": "5.25",
+    "extra_weight": "1.75",
+    "weighted_lcs_recall": "0.14285714285714285",
+    "weighted_lcs_weight": "1.0",
+    "weighted_pairwise_order_accuracy": "0.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "1",
+    "gold_sequence": "admission_or_clinical_course > physical_examination > lab_tests > other_or_off_protocol > imaging > pathology > microbiology",
+    "prediction_sequence": "microbiology > procedure_or_intervention > medication_or_treatment > admission_or_clinical_course",
+    "error": ""
+  }
+}

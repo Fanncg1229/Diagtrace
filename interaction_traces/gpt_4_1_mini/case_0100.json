@@ -1,0 +1,567 @@
+{
+  "case_id": "case_0100",
+  "pmcid": "PMC10265877",
+  "model": "gpt_4_1_mini",
+  "episode": {
+    "case_id": "PMC10265877",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 12,
+    "termination": "final",
+    "known_final_diagnosis": "The patient met six of the EULAR/ACR 2019 classification criteria for systemic lupus erythematosus (SLE) [1], with a total score of 31 including glomerular proteinuria, and a Class V renal biopsy. Positive ANA results, positive anti-dsDNA and anti-Sm antibodies and reduced complement C3 and C4 proteins.",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E003",
+      "E004",
+      "E005",
+      "E006"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "order serological tests including ANA, anti-dsDNA, anti-Sm antibodies, and complement levels (C3, C4)",
+          "current_trajectory_hypothesis": "Patient has clinical signs suggestive of systemic lupus erythematosus including photosensitive rash, proteinuria, and edema; serological evidence is needed for confirmation",
+          "confirmed_evidence": [
+            "lower extremity edema for 1 month",
+            "photosensitive skin patches with fine scaling and pruritus",
+            "proteinuria 2+ and hematuria 1+ on urinalysis"
+          ],
+          "missing_key_evidence": [
+            "serological markers (ANA, anti-dsDNA, anti-Sm antibodies) and complement levels to support SLE diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Serological tests ordered as requested, no source record to show result yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "request results of serological tests including ANA, anti-dsDNA, anti-Sm antibodies, and complement levels (C3, C4)",
+          "current_trajectory_hypothesis": "Awaiting serological test results to provide immunological evidence supporting SLE diagnosis in patient with compatible clinical features",
+          "confirmed_evidence": [
+            "lower extremity edema for 1 month",
+            "photosensitive skin patches with fine scaling and pruritus",
+            "proteinuria 2+ and hematuria 1+ on urinalysis"
+          ],
+          "missing_key_evidence": [
+            "serological markers (ANA, anti-dsDNA, anti-Sm antibodies) and complement levels to support SLE diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "The patient's antibody test showed a positive result with a titer of 1:1800 and homogenous pattern. Additionally, the patient tested positive for anti-double-stranded DNA antibodies with a titer of 1:40, and for anti-Sm (+ +), anti-RNP (+ +), and anti-SSA antibodies (+). The complement C3 and C4 levels were reduced to 42 mg/L (normal range: 81–157 mg/dL) and 7 mg/dL (normal range: 13–39 mg/dL), respectively, while CH50 was 9.5 U/mL (normal range: 31.7–95 U/mL).",
+          "category": "serology",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "order a renal biopsy to characterize the type of lupus nephritis",
+          "current_trajectory_hypothesis": "Serological evidence strongly supports SLE diagnosis with positive ANA, anti-dsDNA, anti-Sm, and low complement; renal biopsy needed to confirm lupus nephritis class and explain proteinuria",
+          "confirmed_evidence": [
+            "positive ANA titer 1:1800 with homogenous pattern",
+            "positive anti-dsDNA antibodies 1:40",
+            "positive anti-Sm, anti-RNP, anti-SSA antibodies",
+            "reduced complement C3 (42 mg/L) and C4 (7 mg/dL)",
+            "proteinuria 2+ on urinalysis"
+          ],
+          "missing_key_evidence": [
+            "renal biopsy results specifying class of lupus nephritis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "Procedure order acknowledged; source has a procedure record to return upon request.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "request the renal biopsy report including classification of lupus nephritis",
+          "current_trajectory_hypothesis": "Renal biopsy will confirm the classification of lupus nephritis (hypothesized class V) explaining proteinuria and supporting the SLE diagnosis",
+          "confirmed_evidence": [
+            "positive ANA titer 1:1800 with homogenous pattern",
+            "positive anti-dsDNA antibodies 1:40",
+            "positive anti-Sm, anti-RNP, anti-SSA antibodies",
+            "reduced complement C3 (42 mg/L) and C4 (7 mg/dL)",
+            "proteinuria 2+ on urinalysis"
+          ],
+          "missing_key_evidence": [
+            "renal biopsy results specifying lupus nephritis class"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "A renal biopsy was performed. Light microscopy showed that 8/34 glomeruli were sclerotic and the rest showed segmental mesangial deposits and infiltration of neutrophils, but no mesangial cell or stromal proliferation. The glomerular basement membrane was diffusely thickened with segmental spikes. The renal interstitium contained some inflammatory infiltrates, and the tubules showed small focal atrophy and scattered proteinaceous and red blood cell casts. There was intimal fibrous proliferation and sclerosis of small arteries. Congo red stain for amyloid was negative. Direct immunofluorescence showed full-house staining along the mesangium and the capillary loops with subepithelial immune deposits of IgG (3 +), IgA (+), IgM (1 +), C3 (2 +), C1q (1 +), fibrinogen (2 +), albumin (−), kappa (2 +), lambda (3 +).",
+          "category": "pathology_report",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "order urine protein quantification to assess the level of proteinuria",
+          "current_trajectory_hypothesis": "Renal biopsy shows features consistent with lupus nephritis class V with subepithelial deposits; urine protein quantification is needed to establish nephrotic-range proteinuria presence as part of clinical severity assessment",
+          "confirmed_evidence": [
+            "positive ANA titer 1:1800 with homogenous pattern",
+            "positive anti-dsDNA antibodies 1:40",
+            "positive anti-Sm, anti-RNP, anti-SSA antibodies",
+            "reduced complement C3 (42 mg/L) and C4 (7 mg/dL)",
+            "proteinuria 2+ on urinalysis",
+            "renal biopsy showing thickened GBM with segmental spikes and subepithelial immune deposits consistent with class V lupus nephritis"
+          ],
+          "missing_key_evidence": [
+            "quantification of proteinuria to assess nephrotic range",
+            "clinical course and treatment response data"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Urine protein quantification test was ordered; no source record documents the result.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "request the urine protein quantification result",
+          "current_trajectory_hypothesis": "Urine protein quantification will clarify the severity of proteinuria to support the lupus nephritis diagnosis and assess nephrotic syndrome features",
+          "confirmed_evidence": [
+            "positive ANA titer 1:1800 with homogenous pattern",
+            "positive anti-dsDNA antibodies 1:40",
+            "positive anti-Sm, anti-RNP, anti-SSA antibodies",
+            "reduced complement C3 (42 mg/L) and C4 (7 mg/dL)",
+            "proteinuria 2+ on urinalysis",
+            "renal biopsy showing thickened GBM with segmental spikes and subepithelial immune deposits consistent with class V lupus nephritis"
+          ],
+          "missing_key_evidence": [
+            "urine protein quantification result to assess nephrotic range proteinuria",
+            "clinical course and treatment response data"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E001",
+          "source_text": "proteinuria of 4.5 g/day (urinary total volume 1000 mL)",
+          "category": "serology",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The diagnosis of SLE with class V lupus nephritis is supported by clinical, serological, pathological evidence and quantified nephrotic-range proteinuria; awaiting clinical course and treatment outcomes to complete trajectory",
+          "confirmed_evidence": [
+            "positive ANA titer 1:1800 with homogenous pattern",
+            "positive anti-dsDNA antibodies 1:40",
+            "positive anti-Sm, anti-RNP, anti-SSA antibodies",
+            "reduced complement C3 (42 mg/L) and C4 (7 mg/dL)",
+            "proteinuria 2+ and 4.5 g/day quantitative",
+            "renal biopsy showing thickened GBM with segmental spikes and subepithelial immune deposits consistent with class V lupus nephritis",
+            "clinical presentation with photosensitive rash, edema, and asthenia"
+          ],
+          "missing_key_evidence": [
+            "clinical course details and treatment response or outcomes data"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "The skin biopsy confirmed the diagnosis of LET, with the presence of inflammatory lymphohistiocytic infiltrates and dermal mucin on and below the skin surface, with little or no involvement of the epidermis or dermo-epidermal layer (Fig. 3). Direct immunofluorescence of skin biopsy confirmed LET by the presence of CD3/CD4 lymphocytes.",
+          "category": "pathology_report",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Diagnosis of SLE with class V lupus nephritis and lupus erythematosus tumidus (LET) skin involvement is well-supported; clinical course and treatment response data are needed to complete the documented trajectory",
+          "confirmed_evidence": [
+            "positive ANA titer 1:1800 with homogenous pattern",
+            "positive anti-dsDNA antibodies 1:40",
+            "positive anti-Sm, anti-RNP, anti-SSA antibodies",
+            "reduced complement C3 (42 mg/L) and C4 (7 mg/dL)",
+            "proteinuria 2+ and 4.5 g/day quantitative",
+            "renal biopsy showing thickened GBM with segmental spikes and subepithelial immune deposits consistent with class V lupus nephritis",
+            "clinical presentation with photosensitive rash, edema, asthenia, weight loss",
+            "skin biopsy confirming lupus erythematosus tumidus (LET)"
+          ],
+          "missing_key_evidence": [
+            "clinical course, treatment administered, and treatment response/outcome documentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "Ultrasound examination of the kidneys showed normal-sized kidneys (left 11.8 cm; right 11.7 cm).",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "SLE with class V lupus nephritis and LET skin involvement well documented; missing clinical course and treatment response data to finalize trajectory.",
+          "confirmed_evidence": [
+            "positive ANA titer 1:1800 with homogenous pattern",
+            "positive anti-dsDNA antibodies 1:40",
+            "positive anti-Sm, anti-RNP, anti-SSA antibodies",
+            "reduced complement C3 (42 mg/L) and C4 (7 mg/dL)",
+            "proteinuria 2+ and 4.5 g/day quantitative",
+            "renal biopsy showing thickened GBM with segmental spikes and subepithelial immune deposits consistent with class V lupus nephritis",
+            "clinical presentation with photosensitive rash, edema, asthenia, weight loss",
+            "skin biopsy confirming lupus erythematosus tumidus (LET)",
+            "normal kidney size on ultrasound"
+          ],
+          "missing_key_evidence": [
+            "clinical course, treatment administered, and treatment response or outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "SLE diagnosis with class V lupus nephritis and LET is supported by clinical, serological, pathological, and imaging evidence; clinical course and treatment response data are needed to complete the trajectory.",
+          "confirmed_evidence": [
+            "positive ANA titer 1:1800 with homogenous pattern",
+            "positive anti-dsDNA antibodies 1:40",
+            "positive anti-Sm, anti-RNP, anti-SSA antibodies",
+            "reduced complement C3 (42 mg/L) and C4 (7 mg/dL)",
+            "proteinuria 2+ and 4.5 g/day quantitative",
+            "renal biopsy consistent with class V lupus nephritis",
+            "skin biopsy confirming lupus erythematosus tumidus (LET)",
+            "normal kidney size on ultrasound",
+            "clinical presentation including photosensitive rash, edema, asthenia, and weight loss"
+          ],
+          "missing_key_evidence": [
+            "clinical course, treatment administered, and treatment response or outcome documentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "Symptomatic treatment was based on anti ptoteinuric treatment with ACE inhibitors (Captopril 25 1 table × 2/day) and substantive treatment combined oral corticotherapy at 1 mg/kg/day (prednisone 5 12 tablets/day) for 1 month followed by tapering 5 mg/15 days and hydroxychloroquine 200 twice a day. No DMARD therapy for SLE has been initiated.",
+          "category": "treatment_response",
+          "temporal_cue": "after diagnosis",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Therapy for SLE with class V lupus nephritis initiated with corticosteroids, hydroxychloroquine and ACE inhibitors; waiting for clinical course and treatment response documentation to finalize trajectory.",
+          "confirmed_evidence": [
+            "positive ANA titer 1:1800 with homogenous pattern",
+            "positive anti-dsDNA antibodies 1:40",
+            "positive anti-Sm, anti-RNP, anti-SSA antibodies",
+            "reduced complement C3 (42 mg/L) and C4 (7 mg/dL)",
+            "proteinuria 2+ and 4.5 g/day quantitative",
+            "renal biopsy consistent with class V lupus nephritis",
+            "skin biopsy confirming lupus erythematosus tumidus (LET)",
+            "normal kidney size on ultrasound",
+            "symptomatic treatment with ACE inhibitors and prednisone 1 mg/kg/day plus hydroxychloroquine",
+            "clinical presentation including photosensitive rash, edema, asthenia, and weight loss"
+          ],
+          "missing_key_evidence": [
+            "clinical course progression and treatment effectiveness or outcome documentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "After 1 month, the skin lesions regressed. At 6 and 12 months follow up, proteinuria improved to respecively 0.8 g/24 hour and 0.5 g/24 hour. At the latest check-up, 22 months after the initial presentation, the patient’s proteinuria was 684 mg/24 hour, serum creatinine was 51 µmol/l, and there was complete resolution of the lesions.",
+          "category": "other",
+          "temporal_cue": "follow up to 22 months",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Systemic lupus erythematosus with Class V lupus nephritis and lupus erythematosus tumidus (LET)",
+          "trajectory_summary": "A 38-year-old female presented with lower extremity edema, photosensitive erythematous skin patches, asthenia, and weight loss. Urinalysis revealed proteinuria and hematuria. Serological tests showed a high-titer positive ANA, anti-dsDNA, anti-Sm antibodies, and hypocomplementemia (low C3 and C4). Renal biopsy revealed thickened glomerular basement membranes with subepithelial immune deposits characteristic of Class V lupus nephritis. Skin biopsy confirmed lupus erythematosus tumidus. Urine protein quantification demonstrated nephrotic-range proteinuria (4.5 g/day). Treatment was initiated with corticosteroids, hydroxychloroquine, and ACE inhibitors. Over 22 months, the patient showed progressive improvement with resolution of skin lesions and reduction of proteinuria to 684 mg/day and stable normal serum creatinine.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Photosensitive erythematous skin patches with pruritus and lower extremity edema at presentation",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Urinalysis showing 2+ proteinuria and 1+ hematuria on admission",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Serology showing positive ANA titer 1:1800 with homogenous pattern, positive anti-dsDNA (1:40), anti-Sm and anti-RNP antibodies, and low complement C3 (42 mg/L) and C4 (7 mg/dL)",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Renal biopsy with thickened glomerular basement membrane and subepithelial immune deposits diagnostic of Class V lupus nephritis",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Urine protein quantification showing 4.5 g/day proteinuria on admission",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Skin biopsy confirming lupus erythematosus tumidus with lymphohistiocytic infiltrates and dermal mucin",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Normal kidney size on ultrasound",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Treatment with corticosteroids (prednisone 1 mg/kg/day), hydroxychloroquine, and ACE inhibitors after diagnosis",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "Follow-up showing skin lesion resolution after 1 month, progressive decrease of proteinuria to 684 mg/24h at 22 months, and stable normal serum creatinine",
+              "evidence_ids": [
+                "E006"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Other glomerulopathies",
+              "basis": "Renal biopsy criteria specific for lupus nephritis with full house immunofluorescence and subepithelial deposits"
+            },
+            {
+              "alternative": "Other causes of edema and proteinuria",
+              "basis": "Presence of positive lupus-specific serologies and characteristic skin lesions consistent with SLE"
+            }
+          ],
+          "remaining_uncertainties": [],
+          "confidence_that_diagnosis_is_supported": 0.99
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Systemic lupus erythematosus with Class V lupus nephritis and lupus erythematosus tumidus (LET)",
+      "trajectory_summary": "A 38-year-old female presented with lower extremity edema, photosensitive erythematous skin patches, asthenia, and weight loss. Urinalysis revealed proteinuria and hematuria. Serological tests showed a high-titer positive ANA, anti-dsDNA, anti-Sm antibodies, and hypocomplementemia (low C3 and C4). Renal biopsy revealed thickened glomerular basement membranes with subepithelial immune deposits characteristic of Class V lupus nephritis. Skin biopsy confirmed lupus erythematosus tumidus. Urine protein quantification demonstrated nephrotic-range proteinuria (4.5 g/day). Treatment was initiated with corticosteroids, hydroxychloroquine, and ACE inhibitors. Over 22 months, the patient showed progressive improvement with resolution of skin lesions and reduction of proteinuria to 684 mg/day and stable normal serum creatinine.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Photosensitive erythematous skin patches with pruritus and lower extremity edema at presentation",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Urinalysis showing 2+ proteinuria and 1+ hematuria on admission",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Serology showing positive ANA titer 1:1800 with homogenous pattern, positive anti-dsDNA (1:40), anti-Sm and anti-RNP antibodies, and low complement C3 (42 mg/L) and C4 (7 mg/dL)",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Renal biopsy with thickened glomerular basement membrane and subepithelial immune deposits diagnostic of Class V lupus nephritis",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Urine protein quantification showing 4.5 g/day proteinuria on admission",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Skin biopsy confirming lupus erythematosus tumidus with lymphohistiocytic infiltrates and dermal mucin",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Normal kidney size on ultrasound",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Treatment with corticosteroids (prednisone 1 mg/kg/day), hydroxychloroquine, and ACE inhibitors after diagnosis",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "Follow-up showing skin lesion resolution after 1 month, progressive decrease of proteinuria to 684 mg/24h at 22 months, and stable normal serum creatinine",
+          "evidence_ids": [
+            "E006"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Other glomerulopathies",
+          "basis": "Renal biopsy criteria specific for lupus nephritis with full house immunofluorescence and subepithelial deposits"
+        },
+        {
+          "alternative": "Other causes of edema and proteinuria",
+          "basis": "Presence of positive lupus-specific serologies and characteristic skin lesions consistent with SLE"
+        }
+      ],
+      "remaining_uncertainties": [],
+      "confidence_that_diagnosis_is_supported": 0.99
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-23T22:38:29.561211+00:00",
+    "clinician_model": "gpt-4.1-mini-test",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10265877",
+    "known_final_diagnosis": "The patient met six of the EULAR/ACR 2019 classification criteria for systemic lupus erythematosus (SLE) [1], with a total score of 31 including glomerular proteinuria, and a Class V renal biopsy. Positive ANA results, positive anti-dsDNA and anti-Sm antibodies and reduced complement C3 and C4 proteins.",
+    "turns_used": 12,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 9,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 6,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 1,
+      "ORDER_TEST": 2,
+      "REQUEST_RESULT": 3,
+      "WAIT_REASSESS": 5
+    },
+    "report_status_counts": {
+      "already_disclosed": 1,
+      "found": 6,
+      "invalid_report_selection": 1,
+      "ordered_but_not_documented": 3
+    },
+    "answer_yield": 0.6363636363636364,
+    "unavailable_turn_rate": 0.2727272727272727,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-23T22:38:29.563474+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10265877",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "5",
+    "num_pred_steps": "2",
+    "weighted_tversky_alignment": "0.125",
+    "weighted_tversky_distance": "0.875",
+    "matched_weight": "1.0",
+    "missed_weight": "5.0",
+    "extra_weight": "1.0",
+    "weighted_lcs_recall": "0.16666666666666666",
+    "weighted_lcs_weight": "1.0",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "lab_tests > pathology > imaging > medication_or_treatment > admission_or_clinical_course",
+    "prediction_sequence": "lab_tests > procedure_or_intervention",
+    "error": ""
+  }
+}

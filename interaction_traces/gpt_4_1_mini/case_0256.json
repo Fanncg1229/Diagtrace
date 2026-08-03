@@ -1,0 +1,568 @@
+{
+  "case_id": "case_0256",
+  "pmcid": "PMC11954494",
+  "model": "gpt_4_1_mini",
+  "episode": {
+    "case_id": "PMC11954494",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 13,
+    "termination": "final",
+    "known_final_diagnosis": "The final diagnosis was BRAF-wildtype PA, WHO grade 1.",
+    "disclosed_evidence_ids": [
+      "E002",
+      "E003",
+      "E004",
+      "E005",
+      "E006",
+      "E007"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "order pathology examination report of the tumor biopsy or resection specimen",
+          "current_trajectory_hypothesis": "A 7-year-old boy presents with personality change, visual disturbance, and vomiting. MRI showed a 5x5x7 cm intraventricular tumor invading nearby structures. The diagnosis under consideration is BRAF-wildtype pilocytic astrocytoma (PA) WHO grade 1, which requires pathological confirmation.",
+          "confirmed_evidence": [
+            "MRI brain showed a large intraventricular tumor invading temporal lobe, hypothalamus, and basal ganglia"
+          ],
+          "missing_key_evidence": [
+            "Pathology report confirming pilocytic astrocytoma and grading",
+            "Molecular testing confirming BRAF wildtype status"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Pathology examination ordered; no immediate source result disclosed at this phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "request pathology examination report of the tumor biopsy or resection specimen",
+          "current_trajectory_hypothesis": "The boy has a large intraventricular tumor seen on MRI with local invasion, and pathological analysis is key to confirming diagnosis as BRAF-wildtype pilocytic astrocytoma WHO grade 1.",
+          "confirmed_evidence": [
+            "MRI brain showed a large intraventricular tumor invading temporal lobe, hypothalamus, and basal ganglia"
+          ],
+          "missing_key_evidence": [
+            "Pathology report results confirming pilocytic astrocytoma and WHO grading",
+            "Molecular testing confirming BRAF wildtype status"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "Clinical routine pathological investigation of the resected tissue showed relatively small cell nuclei, few Rosenthal fibers, occasional mitosis (1 mitosis per 2 mm2), positivity for GFAP and synaptophysin, and a low Ki-67 proliferation rate (4.5% in hot spot areas), suggesting a LGG (Figure 1B). The tumor had normal TP53 expression, preserved expression of ATRX, and was negative for H3K27 mutation (H3 p.K28me3 assay) by immunohistochemistry (IHC), excluding other common brain tumor entities.",
+          "category": "pathology_report",
+          "temporal_cue": "post surgery",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "order molecular testing report for BRAF gene mutation status from the tumor specimen",
+          "current_trajectory_hypothesis": "Pathology report shows features of a low-grade glioma with GFAP positivity, low proliferation, and excluding other entities by IHC. Molecular testing for BRAF mutation is needed to confirm BRAF-wildtype status for final diagnosis of BRAF-wildtype pilocytic astrocytoma WHO grade 1.",
+          "confirmed_evidence": [
+            "Pathology report showing LGG features with small nuclei, few Rosenthal fibers, low mitosis, GFAP and synaptophysin positivity, low Ki-67, normal TP53 and ATRX, and negative H3K27 mutation (E002)"
+          ],
+          "missing_key_evidence": [
+            "Molecular testing confirming BRAF wildtype status"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "Molecular testing for BRAF gene mutation has been ordered but not yet documented in the source.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "request molecular testing report for BRAF gene mutation status from the tumor specimen",
+          "current_trajectory_hypothesis": "Molecular testing for BRAF mutation is pending and necessary to confirm BRAF-wildtype status, supporting the diagnosis of BRAF-wildtype pilocytic astrocytoma WHO grade 1.",
+          "confirmed_evidence": [
+            "Pathology report showing LGG features with small nuclei, few Rosenthal fibers, low mitosis, GFAP and synaptophysin positivity, low Ki-67, normal TP53 and ATRX, and negative H3K27 mutation (E002)"
+          ],
+          "missing_key_evidence": [
+            "Molecular testing confirming BRAF wildtype status"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "The tumor was screened for BRAF fusion (Oncomine FOCUS panel, ThermoFisher Scientific), and mutations in the BRAF or IDH1/2 genes (therascreen RGQ PCR, Qiagen), but no genetic alterations could be found.",
+          "category": "molecular_test",
+          "temporal_cue": "post surgery",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Initial MRI showed large tumor invading multiple areas; pathology confirmed low-grade glioma features compatible with pilocytic astrocytoma; molecular testing showed no BRAF mutation confirming BRAF-wildtype status; now awaiting clinical course or treatment details.",
+          "confirmed_evidence": [
+            "MRI brain showed large intraventricular tumor invading temporal lobe, hypothalamus, and basal ganglia",
+            "Pathology report confirmed low-grade glioma features with GFAP positivity, low proliferation, no H3K27 mutation, normal TP53 and ATRX (E002)",
+            "Molecular testing showed no BRAF or IDH gene mutations, indicating BRAF-wildtype status (E003)"
+          ],
+          "missing_key_evidence": [
+            "Postoperative clinical course, treatment, and outcomes to support diagnosis and trajectory"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "The targeted RNA sequencing by Archer FusionPlex identified an NTRK2 rearrangement joined with the novel 5' fusion partner ATG16L1. The genomic breakpoints were located in introns of the two genes, resulting in an ATG16L1 (exon 9)::NTRK2 (exon 16) in-frame fusion transcript (Figure 2A). Reinspection of the copy number alteration (CNA) plot inferred from the methylation data showed an evident loss in chromosome band 2q37.1 with a breakpoint within the ATG16L1 gene, resulting in the loss of the 3ʹ end. No apparent CNA could be seen in chromosome band 9q21.33 (NTRK2). However, zooming in on the gene level of NTRK2 hints at an copy number imbalance between the 5ʹ and 3ʹ ends, with lower levels of the 5ʹ end of NTRK2 (Figure 2B). To confirm the results, interphase fluorescent in situ hybridization (FISH) analysis with an NTRK2 break-apart probe was performed, verifying a DNA rearrangement of NTRK2 (Figure 2C).",
+          "category": "molecular_test",
+          "temporal_cue": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The initial large intraventricular tumor was histopathologically confirmed as a low-grade glioma with no BRAF mutation (BRAF-wildtype), and molecular workup identified an NTRK2 gene rearrangement. Awaiting more clinical course, treatment or outcome data to complete the trajectory.",
+          "confirmed_evidence": [
+            "MRI showed large intraventricular tumor invading temporal lobe, hypothalamus, basal ganglia",
+            "Pathology indicated LGG with GFAP positivity, low proliferation, absence of H3K27 mutation, normal TP53 and ATRX (E002)",
+            "Molecular testing showed no BRAF or IDH mutations (BRAF-wildtype) (E003)",
+            "Targeted RNA sequencing found ATG16L1::NTRK2 fusion and FISH confirmed NTRK2 rearrangement (E004)"
+          ],
+          "missing_key_evidence": [
+            "Postoperative clinical course details, treatment, response, and outcomes"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "We observed a 2.30-fold increase in the Tyr705 phosphorylated (p) site of TRKB in the ATG16L1::NTRK2 fusion transfected cells compared to the wild-type NTRK2 transfected cells (Figure 3A, I). Additionally, we detected a 1.73-fold increase in pERK (Thr202/Tyr204) and a 1.85-fold increase in pAKT (Ser473) in the fusion transfection compared to the wild-type cells. As both signaling pathways of MAPK and PI3K coalesce in S6 activation, we investigated the phosphorylation of Ser235/236 in S6. We found a 4.50-fold increase in pS6 in the ATG16L1::NTRK2 transfected cells compared to the wild-type NTRK2 transfected cells. There was no alteration in pSTAT3/STAT3 levels between fusion and wild-type transfected cells (Figure 3A, II). Hence, we concluded that the ATG16L1::TRKB fusion protein acts primarily upon the MAPK and PI3K pathways.",
+          "category": "other",
+          "temporal_cue": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The 7-year-old boy presented with personality change, visual disturbance, vomiting, and a large intraventricular tumor on MRI. Histopathology confirmed a low-grade glioma with immunohistochemical features and low proliferation compatible with pilocytic astrocytoma, BRAF-wildtype status was established by molecular testing. An NTRK2 gene fusion was identified indicating an oncogenic driver. Awaiting details on clinical management and outcome for a complete timeline.",
+          "confirmed_evidence": [
+            "MRI showed 5x5x7 cm intraventricular tumor invading temporal lobe, hypothalamus, and basal ganglia",
+            "Pathology report shows low-grade glioma features with GFAP positivity, low Ki-67, exclusion of other tumor entities by IHC (E002)",
+            "Molecular testing revealed no BRAF or IDH mutations confirming BRAF-wildtype status (E003)",
+            "RNA sequencing and FISH confirmed ATG16L1::NTRK2 fusion (E004)",
+            "Functional studies show the NTRK2 fusion protein activates MAPK and PI3K pathways (E005)"
+          ],
+          "missing_key_evidence": [
+            "Details on surgical treatment extent, postoperative therapy, clinical course and neurological outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "The expression of pERK, pAKT, pSTAT3, and pS6 was verified in primary tumor tissue from the ATG16L1::NTRK2 fusion-positive case. Tumor cells showed a strong immunopositivity for pERK and pS6 but were also slightly positive for pAKT and pSTAT3 (Figure 3B).",
+          "category": "pathology_report",
+          "temporal_cue": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The boy had a large intraventricular tumor on MRI, pathologically confirmed as low-grade glioma compatible with pilocytic astrocytoma, no BRAF mutation, with an oncogenic ATG16L1::NTRK2 fusion activating MAPK and PI3K pathways. Awaiting clinical management and outcome details for full trajectory.",
+          "confirmed_evidence": [
+            "MRI showed large intraventricular tumor invading temporal lobe, hypothalamus, basal ganglia (initial imaging)",
+            "Pathology report confirmed low-grade glioma features compatible with pilocytic astrocytoma WHO grade 1, GFAP positivity, low proliferation (E002)",
+            "Molecular testing showed BRAF-wildtype status with no BRAF or IDH mutations (E003)",
+            "RNA sequencing and FISH confirmed ATG16L1::NTRK2 fusion (E004)",
+            "Functional studies demonstrated activation of MAPK and PI3K pathways by NTRK2 fusion protein (E005)",
+            "Primary tumor immunohistochemistry showed activation of signaling pathways (E006)"
+          ],
+          "missing_key_evidence": [
+            "Surgical treatment details and extent of resection",
+            "Postoperative clinical course, therapy, and neurological outcomes"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E007",
+          "source_text": "Following the discovery of the ATG16L1::NTRK2 fusion, the patient was referred to the early phase clinical trials unit for potential entry into the phase I/II clinical trial SCOUT (NCT02637687). The SCOUT trial is for patients up to 21 years old with tumors harboring any NTRK gene fusion. A minimum of at least one measurable contrast-enhancing tumor lesion by MRI is usually required to enroll a subject into clinical trials to follow the efficacy of investigational drug therapy.",
+          "category": "imaging_report",
+          "temporal_cue": "June 2022",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "order imaging report detailing the postoperative MRI to assess extent of resection and residual tumor",
+          "current_trajectory_hypothesis": "The patient had a large intraventricular tumor pathologically confirmed as low-grade glioma compatible with pilocytic astrocytoma, BRAF-wildtype, driven by an NTRK2 fusion. He was referred for clinical trial enrollment after molecular diagnosis. The extent of surgical resection and residual tumor status remain unknown and are essential for full trajectory completeness.",
+          "confirmed_evidence": [
+            "MRI showed large intraventricular tumor invading temporal lobe, hypothalamus, basal ganglia (initial imaging)",
+            "Pathology indicates low-grade glioma compatible with pilocytic astrocytoma WHO grade 1, GFAP positive, low proliferation (E002)",
+            "Molecular testing showed no BRAF or IDH mutations (BRAF-wildtype) (E003)",
+            "RNA sequencing and FISH confirmed ATG16L1::NTRK2 fusion (E004)",
+            "Functional studies show NTRK2 fusion activates MAPK and PI3K pathways (E005)",
+            "Tumor tissue immunohistochemistry confirmed pathway activation (E006)",
+            "Patient referred for clinical trial enrollment following fusion discovery (E007)"
+          ],
+          "missing_key_evidence": [
+            "Details on postoperative imaging showing extent of resection or residual tumor",
+            "Clinical course and neurological outcome post surgery and during therapy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "explanation": "Order placed for postoperative MRI as requested. No matching result documented yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "request postoperative MRI imaging report to assess extent of tumor resection and residual tumor status",
+          "current_trajectory_hypothesis": "The 7-year-old boy presented with large intraventricular tumor confirmed as BRAF-wildtype pilocytic astrocytoma WHO grade 1 with NTRK2 fusion oncogenic driver; patient was referred for clinical trial enrollment. Postoperative imaging report is needed to confirm surgical resection extent and residual tumor.",
+          "confirmed_evidence": [
+            "Initial MRI showed large intraventricular tumor invading temporal lobe, hypothalamus, basal ganglia",
+            "Pathology confirmed low-grade glioma with GFAP positivity, low proliferation, no H3K27 mutation, normal TP53/ATRX (E002)",
+            "Molecular testing showed no BRAF or IDH mutations, confirming BRAF-wildtype (E003)",
+            "RNA sequencing and FISH confirmed ATG16L1::NTRK2 fusion (E004)",
+            "Functional studies showed MAPK and PI3K pathway activation by NTRK2 fusion (E005)",
+            "Tumor tissue immunohistochemistry confirmed pathway activation (E006)",
+            "Patient was referred for clinical trial enrollment following fusion discovery (E007)"
+          ],
+          "missing_key_evidence": [
+            "Postoperative MRI showing extent of tumor resection or residual mass",
+            "Clinical course and neurological outcome after surgery and during any therapy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "explanation": "No postoperative MRI imaging report documenting extent of tumor resection and residual tumor status is present in the current source records.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "Ask for details on the surgical procedure performed, including extent of resection and any intraoperative findings",
+          "current_trajectory_hypothesis": "A 7-year-old boy presented with a large intraventricular tumor seen on MRI, pathology confirmed a low-grade glioma compatible with pilocytic astrocytoma WHO grade 1, molecular tests confirmed BRAF-wildtype status and identified an oncogenic NTRK2 fusion. The patient was referred for clinical trial enrollment. Surgical details are missing and important to complete the clinical trajectory and evaluate treatment.",
+          "confirmed_evidence": [
+            "MRI showed a large intraventricular tumor invading nearby brain structures",
+            "Pathology confirmed features of low-grade glioma compatible with pilocytic astrocytoma WHO grade 1 (E002)",
+            "Molecular testing showed no BRAF/IDH mutations, confirming BRAF-wildtype status (E003)",
+            "RNA sequencing and FISH identified an ATG16L1::NTRK2 fusion (E004)",
+            "Functional studies demonstrated activation of MAPK and PI3K pathways by NTRK2 fusion protein (E005, E006)",
+            "Patient referred for clinical trial enrollment after tumor molecular diagnosis (E007)"
+          ],
+          "missing_key_evidence": [
+            "Surgical procedure details including extent of resection",
+            "Postoperative MRI imaging showing residual tumor status",
+            "Clinical course, treatment administered, and neurological outcomes"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "explanation": "No source record details the surgical procedure, extent of resection, or intraoperative findings.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The initial presentation, diagnostic MRI, pathology and molecular workup confirming low-grade glioma (pilocytic astrocytoma) BRAF-wildtype with NTRK2 fusion are well documented. Surgical details and postoperative imaging are lacking. Awaiting source updates on clinical management, postoperative course, and long-term outcomes to complete the trajectory.",
+          "confirmed_evidence": [
+            "Large intraventricular tumor on MRI invading temporal lobe, hypothalamus, basal ganglia",
+            "Pathology consistent with low-grade glioma/pilocytic astrocytoma WHO grade 1 with low proliferation and exclusion of other entities by IHC (E002)",
+            "Molecular tests confirm no BRAF or IDH mutations (BRAF-wildtype) (E003)",
+            "NTRK2 fusion ATG16L1::NTRK2 confirmed by RNA sequencing and FISH (E004)",
+            "Functional testing shows oncogenic activation of MAPK and PI3K pathways by fusion protein (E005, E006)",
+            "Referral to clinical trial following molecular diagnosis (E007)",
+            "No documented surgical details or postoperative imaging reports",
+            "No clinical course or neurological outcomes documented"
+          ],
+          "missing_key_evidence": [
+            "Surgical procedure and extent of tumor resection",
+            "Postoperative imaging findings documenting residual tumor",
+            "Detailed postoperative clinical course, therapy given, and neurological outcomes"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan.",
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "BRAF-wildtype pilocytic astrocytoma (PA), WHO grade 1",
+          "trajectory_summary": "A 7-year-old boy presented in September 2019 with personality change, visual disturbance, and vomiting. MRI revealed a 5×5×7 cm intraventricular tumor invading the temporal lobe, hypothalamus, and basal ganglia. Pathology of the resected tumor showed low-grade glioma features compatible with pilocytic astrocytoma with GFAP and synaptophysin positivity, low Ki-67 proliferation, normal TP53 and ATRX, and negative H3K27 mutation. Molecular testing detected no BRAF or IDH mutations, confirming BRAF-wildtype status. Targeted RNA sequencing revealed an ATG16L1::NTRK2 fusion, confirmed by FISH, which functionally activated the MAPK and PI3K pathways as also verified by immunohistochemistry in tumor tissue. The patient was referred for a clinical trial targeting tumors with NTRK fusions. Surgical procedure details, postoperative imaging, and clinical course were not documented in the source but the diagnostic and molecular findings support the final diagnosis of BRAF-wildtype pilocytic astrocytoma WHO grade 1.",
+          "key_supporting_evidence": [
+            {
+              "claim": "MRI brain showed a 5×5×7 cm intraventricular tumor invading temporal lobe, hypothalamus, and basal ganglia",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Pathology report showed low-grade glioma features with GFAP and synaptophysin positivity, low Ki-67, normal TP53/ATRX, negative H3K27 mutation, compatible with pilocytic astrocytoma WHO grade 1",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Molecular testing revealed no BRAF or IDH mutations, confirming BRAF-wildtype status",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Targeted RNA sequencing and FISH confirmed an ATG16L1::NTRK2 fusion gene rearrangement in the tumor",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Functional studies demonstrated MAPK and PI3K pathway activation by the NTRK2 fusion protein, corroborated by immunohistochemistry in tumor tissue",
+              "evidence_ids": [
+                "E005",
+                "E006"
+              ]
+            },
+            {
+              "claim": "Patient was referred to a clinical trial enrolling patients with NTRK fusion-positive tumors",
+              "evidence_ids": [
+                "E007"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Other brain tumor entities such as those with H3K27 mutation",
+              "basis": "Negative H3K27 mutation by immunohistochemistry and normal TP53/ATRX expression (E002)"
+            },
+            {
+              "alternative": "BRAF-mutated pilocytic astrocytoma",
+              "basis": "No BRAF fusion or mutations detected by molecular testing (E003)"
+            }
+          ],
+          "remaining_uncertainties": [
+            "Details of the surgical procedure and extent of tumor resection not documented",
+            "Postoperative imaging documenting residual tumor status missing",
+            "Clinical course, therapy administered, and neurological outcomes not documented"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "BRAF-wildtype pilocytic astrocytoma (PA), WHO grade 1",
+      "trajectory_summary": "A 7-year-old boy presented in September 2019 with personality change, visual disturbance, and vomiting. MRI revealed a 5×5×7 cm intraventricular tumor invading the temporal lobe, hypothalamus, and basal ganglia. Pathology of the resected tumor showed low-grade glioma features compatible with pilocytic astrocytoma with GFAP and synaptophysin positivity, low Ki-67 proliferation, normal TP53 and ATRX, and negative H3K27 mutation. Molecular testing detected no BRAF or IDH mutations, confirming BRAF-wildtype status. Targeted RNA sequencing revealed an ATG16L1::NTRK2 fusion, confirmed by FISH, which functionally activated the MAPK and PI3K pathways as also verified by immunohistochemistry in tumor tissue. The patient was referred for a clinical trial targeting tumors with NTRK fusions. Surgical procedure details, postoperative imaging, and clinical course were not documented in the source but the diagnostic and molecular findings support the final diagnosis of BRAF-wildtype pilocytic astrocytoma WHO grade 1.",
+      "key_supporting_evidence": [
+        {
+          "claim": "MRI brain showed a 5×5×7 cm intraventricular tumor invading temporal lobe, hypothalamus, and basal ganglia",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Pathology report showed low-grade glioma features with GFAP and synaptophysin positivity, low Ki-67, normal TP53/ATRX, negative H3K27 mutation, compatible with pilocytic astrocytoma WHO grade 1",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Molecular testing revealed no BRAF or IDH mutations, confirming BRAF-wildtype status",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Targeted RNA sequencing and FISH confirmed an ATG16L1::NTRK2 fusion gene rearrangement in the tumor",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Functional studies demonstrated MAPK and PI3K pathway activation by the NTRK2 fusion protein, corroborated by immunohistochemistry in tumor tissue",
+          "evidence_ids": [
+            "E005",
+            "E006"
+          ]
+        },
+        {
+          "claim": "Patient was referred to a clinical trial enrolling patients with NTRK fusion-positive tumors",
+          "evidence_ids": [
+            "E007"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Other brain tumor entities such as those with H3K27 mutation",
+          "basis": "Negative H3K27 mutation by immunohistochemistry and normal TP53/ATRX expression (E002)"
+        },
+        {
+          "alternative": "BRAF-mutated pilocytic astrocytoma",
+          "basis": "No BRAF fusion or mutations detected by molecular testing (E003)"
+        }
+      ],
+      "remaining_uncertainties": [
+        "Details of the surgical procedure and extent of tumor resection not documented",
+        "Postoperative imaging documenting residual tumor status missing",
+        "Clinical course, therapy administered, and neurological outcomes not documented"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.85
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-26T05:56:13.708042+00:00",
+    "clinician_model": "gpt-4.1-mini-test",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC11954494",
+    "known_final_diagnosis": "The final diagnosis was BRAF-wildtype PA, WHO grade 1.",
+    "turns_used": 13,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 6,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 6,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "ASK_HISTORY": 1,
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 3,
+      "REQUEST_RESULT": 3,
+      "WAIT_REASSESS": 5
+    },
+    "report_status_counts": {
+      "found": 6,
+      "invalid_report_selection": 1,
+      "not_reported": 2,
+      "ordered_but_not_documented": 3
+    },
+    "report_repair_attempted_count": 1,
+    "report_repair_failed_count": 1,
+    "report_repair_validation_error_counts": {
+      "verbatim_excerpt is not a contiguous source subspan.": 2
+    },
+    "answer_yield": 0.5,
+    "unavailable_turn_rate": 0.4166666666666667,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-26T05:56:13.710122+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC11954494",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "5",
+    "num_pred_steps": "4",
+    "weighted_tversky_alignment": "0.6923076923076923",
+    "weighted_tversky_distance": "0.3076923076923077",
+    "matched_weight": "4.5",
+    "missed_weight": "1.0",
+    "extra_weight": "0.5",
+    "weighted_lcs_recall": "0.5454545454545454",
+    "weighted_lcs_weight": "3.0",
+    "weighted_pairwise_order_accuracy": "0.3235439424377949",
+    "pairwise_comparable_pairs": "3",
+    "pairwise_correct_pairs": "1",
+    "pairwise_inversions": "2",
+    "gold_sequence": "imaging > pathology > lab_tests > other_or_off_protocol > medication_or_treatment",
+    "prediction_sequence": "pathology > lab_tests > imaging > clinical_history",
+    "error": ""
+  }
+}

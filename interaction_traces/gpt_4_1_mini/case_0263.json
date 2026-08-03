@@ -1,0 +1,394 @@
+{
+  "case_id": "case_0263",
+  "pmcid": "PMC3123646",
+  "model": "gpt_4_1_mini",
+  "episode": {
+    "case_id": "PMC3123646",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 8,
+    "termination": "final",
+    "known_final_diagnosis": "small primary colon cancer with systemic metastasis",
+    "disclosed_evidence_ids": [
+      "E002",
+      "E003",
+      "E004",
+      "E005",
+      "E006"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "order colonoscopy to investigate possible primary colon cancer",
+          "current_trajectory_hypothesis": "Patient presents with systemic lymphadenopathy and metastatic adenocarcinoma suspected from breast cancer but breast imaging negative; unknown primary cancer diagnosis currently.",
+          "confirmed_evidence": [
+            "Left cervical lymph node swelling with biopsy suggesting metastatic adenocarcinoma from breast cancer",
+            "No primary breast cancer detected on ultrasound and mammography",
+            "CT shows systemic lymph node swelling including left supraclavicular and para-aortic nodes",
+            "Upper gastrointestinal endoscopy negative for malignancy"
+          ],
+          "missing_key_evidence": [
+            "Identification of primary colon cancer lesion by colonoscopy",
+            "Histopathological confirmation of primary colon cancer",
+            "Evidence of systemic metastases from colon cancer"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "The order for colonoscopy is noted but the source does not document the order result at this phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "colonoscopy report and biopsy results",
+          "current_trajectory_hypothesis": "Colonoscopy ordered to identify primary colon cancer as origin of metastatic adenocarcinoma with systemic lymphadenopathy; awaiting diagnostic confirmation.",
+          "confirmed_evidence": [
+            "Left cervical lymph node swelling with biopsy suggesting metastatic adenocarcinoma from breast cancer",
+            "No primary breast cancer detected on ultrasound and mammography",
+            "CT shows systemic lymph node swelling including left supraclavicular and para-aortic nodes",
+            "Upper gastrointestinal endoscopy negative for malignancy",
+            "Colonoscopy ordered to identify potential primary colon cancer"
+          ],
+          "missing_key_evidence": [
+            "Identification of primary colon cancer lesion by colonoscopy",
+            "Histopathological confirmation of primary colon cancer",
+            "Evidence of systemic metastases from colon cancer"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "We performed a total colonoscopy and detected a small protruding lesion in the transverse colon (Figure 3). The tumour was very small, with a diameter of only about 12 mm, and contained a depressed component, leading to a diagnosis of macroscopic type with 0-Is+IIc according to the Paris classification [8]. Furthermore, the severely thickened stalk and irregular pits visible in a magnified image of the depressed area combined to suggest direct invasion of the deep submucosa (Figure 3C) [9].",
+          "category": "other",
+          "temporal_cue": "after admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "order biopsy of the small transverse colon lesion detected by colonoscopy",
+          "current_trajectory_hypothesis": "Colonoscopy identified a small lesion in the transverse colon suspicious for primary tumor; biopsy needed for histopathological confirmation of colon cancer.",
+          "confirmed_evidence": [
+            "Colonoscopy detected a small 12 mm transverse colon lesion with features suggesting invasion into deep submucosa"
+          ],
+          "missing_key_evidence": [
+            "Histopathological confirmation of primary colon adenocarcinoma from the colon lesion",
+            "Correlation of lymph node metastatic adenocarcinoma with colon primary"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Procedure order registered without a direct matching source result yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "report of biopsy pathology from the transverse colon lesion",
+          "current_trajectory_hypothesis": "Small colon lesion biopsied to confirm primary colon adenocarcinoma as source of systemic metastatic adenocarcinoma.",
+          "confirmed_evidence": [
+            "Colonoscopy detected a small 12 mm transverse colon lesion with features suggesting invasion into deep submucosa"
+          ],
+          "missing_key_evidence": [
+            "Histopathological confirmation of primary colon adenocarcinoma from the colon lesion",
+            "Correlation of lymph node metastatic adenocarcinoma with colon primary"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "A diagnostic endoscopic mucosal resection (EMR) was performed and the specimen removed was serially dissected into three sections and examined. The tumour was composed of poorly differentiated adenocarcinoma and signet-ring cell carcinoma (Figure 4). It primarily consisted of solidly proliferated cells, but exhibited some indistinct gland formation. The tumour had a preserved intramucosal component but infiltrated deeply into the submucosal layer, with severe lymphatic and venous invasion detected the submucosal layer. The vertical and horizontal cut ends of the resected tumour were both positive for cancer cells (Figure 4).",
+          "category": "pathology_report",
+          "temporal_cue": "after admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "immunohistochemical and molecular pathology correlation of the colon lesion and the lymph node biopsies",
+          "current_trajectory_hypothesis": "Poorly differentiated adenocarcinoma with signet-ring cells confirmed in the colon lesion; immunohistochemical correlation between colon primary and lymph node metastasis needed to confirm primary origin and systemic metastases.",
+          "confirmed_evidence": [
+            "Colonoscopy detected a small 12 mm transverse colon lesion with invasion into deep submucosa",
+            "Pathology of colon lesion shows poorly differentiated adenocarcinoma and signet-ring cell carcinoma with lymphatic and venous invasion"
+          ],
+          "missing_key_evidence": [
+            "Immunohistochemical confirmation that systemic lymph node adenocarcinoma metastases originated from the colon primary",
+            "Evidence that the systemic lymphadenopathy is metastatic from colon cancer rather than another primary"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "IHC studies showed strong expression of MUC5AC, and weak expression of MUC2 and CDX2; indicating the tumour having a mixed gastric and intestinal character, with the gastric phenotype being predominant. Patients with advanced colorectal cancer with gastric phenotypes have been reported to frequently exhibit lymphatic permeation and lymph node metastasis [10]. Additionally, the tumour was positive for CK20 and slightly positive for CK7. There was no evidence of differentiation to endocrine tumour or hepatoid adenocarcinoma (Figure 5).",
+          "category": "other",
+          "temporal_cue": "after admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "immunohistochemical results of the lymph node biopsy for comparison with the colon lesion IHC profile",
+          "current_trajectory_hypothesis": "Immunohistochemical profile of colon lesion shows gastric phenotype predominance; need to confirm metastatic adenocarcinoma in lymph nodes shares similar phenotype indicating systemic metastasis from colon primary.",
+          "confirmed_evidence": [
+            "Colonoscopy detected a small 12 mm transverse colon lesion with invasion into deep submucosa",
+            "Pathology of colon lesion shows poorly differentiated adenocarcinoma and signet-ring cell carcinoma with lymphatic and venous invasion",
+            "IHC of colon tumor positive for MUC5AC, weakly positive for MUC2 and CDX2, CK20 positive, CK7 slightly positive, indicating mixed gastric and intestinal phenotype"
+          ],
+          "missing_key_evidence": [
+            "IHC comparison demonstrating that systemic lymph node metastases derive from the colon primary cancer",
+            "Evidence linking systemic lymphadenopathy to colon cancer metastasis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "Additionally, immunohistochemistry (IHC) studies showed the biopsy specimen to be negative for cytokeratin 7 (CK7), and positive for CDX2, an intestine-specific homeobox transcription factor, and cytokeratin 20 (CK20), a cytoskeletal protein usually found in the colonic epithelium.",
+          "category": "pathology_report",
+          "temporal_cue": "after admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Colonoscopy identified small transverse colon lesion confirmed as poorly differentiated adenocarcinoma with signet-ring cells and lymphatic invasion; immunohistochemistry shows colon lesion and lymph node metastases phenotypically consistent with colon origin indicating systemic metastatic colon cancer.",
+          "confirmed_evidence": [
+            "Colonoscopy found a small 12 mm lesion in transverse colon with invasion to submucosa (E003)",
+            "Biopsy of colon lesion shows poorly differentiated adenocarcinoma and signet-ring cell carcinoma with lymphatic and venous invasion (E004)",
+            "IHC of colon lesion tumor shows mixed gastric and intestinal phenotype including MUC5AC, MUC2, CDX2, CK20, CK7 (E005)",
+            "IHC of lymph node biopsy shows CK7 negative, CDX2 positive, CK20 positive consistent with colon origin (E002)"
+          ],
+          "missing_key_evidence": [
+            "Documentation of clinical course, treatment, or outcome to confirm diagnosis finalization",
+            "Confirmation of rule-out of other possible primaries beyond breast and upper GI",
+            "Imaging or clinical evidence of systemic metastasis from colon primary"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "The patient was referred to the Gastrointestinal Oncology Division, where she underwent combination chemotherapy using capecitabine (Xeloda® ) plus oxaliplatin (Elplat® ) and bevacizumab (Avastin® ), which is one of the standard therapy of metastatic colon cancer. After 4 courses, CT scan showed a significant reduction of tumour volume, but after 10 courses, the tumour marker rapidly increased and peritoneal metastasis progressed.",
+          "category": "treatment_response",
+          "temporal_cue": "after admission",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "small primary colon cancer with systemic metastasis",
+          "trajectory_summary": "A 35-year-old woman presented with left cervical lymph node swelling and systemic lymphadenopathy. Initial lymph node biopsy suggested metastatic adenocarcinoma possibly from breast cancer, but breast imaging was negative. Upper GI endoscopy was negative. Colonoscopy revealed a small 12 mm transverse colon lesion with submucosal invasion. Biopsy of this lesion confirmed poorly differentiated adenocarcinoma with signet-ring cell features and lymphovascular invasion. Immunohistochemistry showed a mixed gastric and intestinal phenotype of the colon tumor and lymph node metastases had a profile (CK7 negative, CDX2 positive, CK20 positive) consistent with colon origin. The patient was treated with standard metastatic colon cancer chemotherapy with initial tumor reduction then progression.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Small 12 mm transverse colon lesion found by colonoscopy with invasion into deep submucosa",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Biopsy of colon lesion shows poorly differentiated adenocarcinoma with signet-ring cell carcinoma and lymphatic and venous invasion",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "IHC of colon lesion showing gastric and intestinal phenotype with MUC5AC, MUC2, CDX2, CK20, and CK7 expression",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "IHC of lymph node biopsy shows CK7 negative, CDX2 positive, CK20 positive consistent with colon origin of metastases",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Initial systemic lymphadenopathy and lymph node biopsy with adenocarcinoma; breast cancer ruled out by imaging and upper GI endoscopy negative",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Patient treated with metastatic colon cancer chemotherapy with initial tumor reduction then disease progression",
+              "evidence_ids": [
+                "E006"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "breast cancer primary",
+              "basis": "Negative breast ultrasonography and mammography; lymph node IHC profile inconsistent with breast origin"
+            },
+            {
+              "alternative": "upper gastrointestinal malignancy",
+              "basis": "Negative upper gastrointestinal endoscopy findings"
+            }
+          ],
+          "remaining_uncertainties": [],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "small primary colon cancer with systemic metastasis",
+      "trajectory_summary": "A 35-year-old woman presented with left cervical lymph node swelling and systemic lymphadenopathy. Initial lymph node biopsy suggested metastatic adenocarcinoma possibly from breast cancer, but breast imaging was negative. Upper GI endoscopy was negative. Colonoscopy revealed a small 12 mm transverse colon lesion with submucosal invasion. Biopsy of this lesion confirmed poorly differentiated adenocarcinoma with signet-ring cell features and lymphovascular invasion. Immunohistochemistry showed a mixed gastric and intestinal phenotype of the colon tumor and lymph node metastases had a profile (CK7 negative, CDX2 positive, CK20 positive) consistent with colon origin. The patient was treated with standard metastatic colon cancer chemotherapy with initial tumor reduction then progression.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Small 12 mm transverse colon lesion found by colonoscopy with invasion into deep submucosa",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Biopsy of colon lesion shows poorly differentiated adenocarcinoma with signet-ring cell carcinoma and lymphatic and venous invasion",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "IHC of colon lesion showing gastric and intestinal phenotype with MUC5AC, MUC2, CDX2, CK20, and CK7 expression",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "IHC of lymph node biopsy shows CK7 negative, CDX2 positive, CK20 positive consistent with colon origin of metastases",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Initial systemic lymphadenopathy and lymph node biopsy with adenocarcinoma; breast cancer ruled out by imaging and upper GI endoscopy negative",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Patient treated with metastatic colon cancer chemotherapy with initial tumor reduction then disease progression",
+          "evidence_ids": [
+            "E006"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "breast cancer primary",
+          "basis": "Negative breast ultrasonography and mammography; lymph node IHC profile inconsistent with breast origin"
+        },
+        {
+          "alternative": "upper gastrointestinal malignancy",
+          "basis": "Negative upper gastrointestinal endoscopy findings"
+        }
+      ],
+      "remaining_uncertainties": [],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-26T06:00:44.252300+00:00",
+    "clinician_model": "gpt-4.1-mini-test",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC3123646",
+    "known_final_diagnosis": "small primary colon cancer with systemic metastasis",
+    "turns_used": 8,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 6,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 5,
+    "gold_reasoning_span_count": 4,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_RESULT": 4,
+      "WAIT_REASSESS": 1
+    },
+    "report_status_counts": {
+      "found": 5,
+      "ordered_but_not_documented": 2
+    },
+    "report_repair_attempted_count": 0,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {},
+    "answer_yield": 0.7142857142857143,
+    "unavailable_turn_rate": 0.2857142857142857,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-26T06:00:44.253955+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC3123646",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "4",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.41379310344827586",
+    "weighted_tversky_distance": "0.5862068965517242",
+    "matched_weight": "3.0",
+    "missed_weight": "2.25",
+    "extra_weight": "1.0",
+    "weighted_lcs_recall": "0.38095238095238093",
+    "weighted_lcs_weight": "2.0",
+    "weighted_pairwise_order_accuracy": "0.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "1",
+    "gold_sequence": "imaging > pathology > procedure_or_intervention > medication_or_treatment",
+    "prediction_sequence": "procedure_or_intervention > lab_tests > pathology",
+    "error": ""
+  }
+}

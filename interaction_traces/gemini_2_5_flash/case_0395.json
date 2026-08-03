@@ -1,0 +1,490 @@
+{
+  "case_id": "case_0395",
+  "pmcid": "PMC10163626",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC10163626",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 10,
+    "termination": "final",
+    "known_final_diagnosis": "Features overall were consistent with a diagnosis of phlegmonous gastritis and duodenitis.",
+    "disclosed_evidence_ids": [
+      "E002",
+      "E004",
+      "E005",
+      "E006"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "What were the findings of the initial upper endoscopy with biopsy?",
+          "current_trajectory_hypothesis": "Patient presented with severe epigastric pain and vomiting, previously treated for H. pylori. The next step in diagnosis would likely involve endoscopy to visualize the gastric and duodenal mucosa and obtain biopsies.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Initial endoscopic findings",
+            "Biopsy results",
+            "Imaging findings"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "The order for upper endoscopy with biopsy is acknowledged; source result not yet returned.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the findings from the initial upper endoscopy and biopsy?",
+          "current_trajectory_hypothesis": "The patient presented with severe epigastric pain and vomiting. An upper endoscopy with biopsy is a crucial step to investigate the gastric and duodenal mucosa for inflammation or other abnormalities, especially given the prior H. pylori treatment and persistent symptoms.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Initial endoscopic findings",
+            "Biopsy results",
+            "Imaging findings"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "An upper endoscopy was pursued which revealed congested, erythematous, eroded, friable, nodular and scalloped gastric mucosa as well as erythematous mucosal changes in the duodenum (Fig. 2).",
+          "category": "image_finding",
+          "temporal_cue": "after admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the biopsy results from the initial upper endoscopy?",
+          "current_trajectory_hypothesis": "The patient presented with severe epigastric pain and vomiting. Initial endoscopy showed significant gastric and duodenal mucosal abnormalities. Biopsy results are critical to determine the nature of these changes and support the diagnosis of phlegmonous gastritis and duodenitis.",
+          "confirmed_evidence": [
+            "Initial upper endoscopy revealed congested, erythematous, eroded, friable, nodular and scalloped gastric mucosa",
+            "Initial upper endoscopy revealed erythematous mucosal changes in the duodenum"
+          ],
+          "missing_key_evidence": [
+            "Biopsy results from endoscopy",
+            "Imaging findings"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the histopathological findings from the gastric and duodenal biopsies taken during the initial upper endoscopy?",
+          "current_trajectory_hypothesis": "The patient presented with severe epigastric pain and vomiting, and initial endoscopy showed significant gastric and duodenal mucosal abnormalities. Histopathological findings from the biopsies are crucial to characterize the inflammation and support the diagnosis of phlegmonous gastritis and duodenitis.",
+          "confirmed_evidence": [
+            "Initial upper endoscopy revealed congested, erythematous, eroded, friable, nodular and scalloped gastric mucosa (E004)",
+            "Initial upper endoscopy revealed erythematous mucosal changes in the duodenum (E004)"
+          ],
+          "missing_key_evidence": [
+            "Histopathological findings from biopsies",
+            "Imaging findings"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "Pathology from the upper endoscopy revealed rare gland abscesses and diffuse lamina propria neutrophilic inflammation. Rare eosinophils were found as well as small lymphoid aggregates of polymorphic small lymphocytes. Stains for CMV and H. pylori were negative (after having received about two weeks of H. pylori directed treatment). There was no evidence of lymphoma or other malignancy.",
+          "category": "pathology_report",
+          "temporal_cue": "after endoscopy",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "What were the findings of any abdominal imaging, such as a CT scan, performed to evaluate the gastric and duodenal inflammation?",
+          "current_trajectory_hypothesis": "The patient presented with severe epigastric pain and vomiting, with endoscopic and histopathological findings consistent with severe inflammation (gland abscesses, neutrophilic inflammation) in the stomach and duodenum. To confirm the 'phlegmonous' nature, which implies transmural involvement, imaging findings are crucial.",
+          "confirmed_evidence": [
+            "Initial upper endoscopy revealed congested, erythematous, eroded, friable, nodular and scalloped gastric mucosa (E004)",
+            "Initial upper endoscopy revealed erythematous mucosal changes in the duodenum (E004)",
+            "Pathology from the upper endoscopy revealed rare gland abscesses and diffuse lamina propria neutrophilic inflammation (E005)",
+            "Biopsies were negative for CMV, H. pylori, lymphoma, or other malignancy (E005)"
+          ],
+          "missing_key_evidence": [
+            "Abdominal imaging findings (e.g., CT scan)",
+            "Microbiology results (e.g., cultures)",
+            "Clinical course and treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Order for abdominal CT scan to evaluate gastric and duodenal inflammation has been placed; no result documented yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the findings of the abdominal CT scan performed to evaluate the gastric and duodenal inflammation?",
+          "current_trajectory_hypothesis": "The patient presented with severe epigastric pain and vomiting, with endoscopic and histopathological findings consistent with severe inflammation in the stomach and duodenum. Imaging, specifically a CT scan, is needed to assess the extent of inflammation, particularly transmural involvement, which is characteristic of phlegmonous gastritis.",
+          "confirmed_evidence": [
+            "Initial upper endoscopy revealed congested, erythematous, eroded, friable, nodular and scalloped gastric mucosa (E004)",
+            "Initial upper endoscopy revealed erythematous mucosal changes in the duodenum (E004)",
+            "Pathology from the upper endoscopy revealed rare gland abscesses and diffuse lamina propria neutrophilic inflammation (E005)",
+            "Biopsies were negative for CMV, H. pylori, lymphoma, or other malignancy (E005)"
+          ],
+          "missing_key_evidence": [
+            "Abdominal imaging findings (e.g., CT scan)",
+            "Microbiology results (e.g., cultures)",
+            "Clinical course and treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "contrast enhanced computed tomography of the abdomen revealed diffuse bowel wall thickening involving the stomach with mucosal enhancement, as well as patches of focal thickening with retained fluid in the stomach (Fig. 1). Also notable on cross-sectional imaging was diffuse adenopathy involving the mesenteric, gastro-hepatic, and para-aortic abdominal lymph nodes. No pancreatic enhancement noted.",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Were any bacterial cultures performed on gastric or duodenal tissue, or gastric fluid, given the presence of gland abscesses and diffuse neutrophilic inflammation?",
+          "current_trajectory_hypothesis": "The patient presented with severe epigastric pain and vomiting. Endoscopy, biopsy, and CT scan findings strongly suggest severe, transmural inflammation of the stomach and duodenum, consistent with phlegmonous gastritis and duodenitis. Given the gland abscesses and neutrophilic inflammation, identifying a causative bacterial organism through cultures would be a crucial piece of evidence.",
+          "confirmed_evidence": [
+            "Initial upper endoscopy revealed congested, erythematous, eroded, friable, nodular and scalloped gastric mucosa (E004)",
+            "Initial upper endoscopy revealed erythematous mucosal changes in the duodenum (E004)",
+            "Pathology from the upper endoscopy revealed rare gland abscesses and diffuse lamina propria neutrophilic inflammation (E005)",
+            "Biopsies were negative for CMV, H. pylori, lymphoma, or other malignancy (E005)",
+            "Abdominal CT scan revealed diffuse bowel wall thickening involving the stomach with mucosal enhancement, patches of focal thickening with retained fluid in the stomach, and diffuse adenopathy (E002)"
+          ],
+          "missing_key_evidence": [
+            "Microbiology results (e.g., bacterial cultures)",
+            "Clinical course and treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Order for bacterial cultures on specified tissue/fluid placed; no source evidence documenting this order yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the results of any bacterial cultures performed on gastric or duodenal tissue or gastric fluid?",
+          "current_trajectory_hypothesis": "The patient presented with severe epigastric pain and vomiting. Endoscopy, biopsy, and CT scan findings strongly suggest severe, transmural inflammation of the stomach and duodenum, consistent with phlegmonous gastritis and duodenitis. Given the gland abscesses and neutrophilic inflammation, identifying a causative bacterial organism through cultures would be a crucial piece of evidence.",
+          "confirmed_evidence": [
+            "Initial upper endoscopy revealed congested, erythematous, eroded, friable, nodular and scalloped gastric mucosa (E004)",
+            "Initial upper endoscopy revealed erythematous mucosal changes in the duodenum (E004)",
+            "Pathology from the upper endoscopy revealed rare gland abscesses and diffuse lamina propria neutrophilic inflammation (E005)",
+            "Biopsies were negative for CMV, H. pylori, lymphoma, or other malignancy (E005)",
+            "Abdominal CT scan revealed diffuse bowel wall thickening involving the stomach with mucosal enhancement, patches of focal thickening with retained fluid in the stomach, and diffuse adenopathy (E002)"
+          ],
+          "missing_key_evidence": [
+            "Microbiology results (e.g., bacterial cultures)",
+            "Clinical course and treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E005",
+          "source_text": "Cultures from gastric biopsy grew Granulicatella adiacens in broth medium only, as well as one colony of coagulase-negative Staphylococcus species.",
+          "category": "pathology_report",
+          "temporal_cue": "after endoscopy",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with severe epigastric pain and vomiting. Endoscopy, biopsy, CT scan, and cultures have provided significant evidence of severe, transmural inflammation of the stomach and duodenum, with identification of potential bacterial pathogens. The next step is to understand the clinical management and patient's response to treatment.",
+          "confirmed_evidence": [
+            "Initial upper endoscopy revealed congested, erythematous, eroded, friable, nodular and scalloped gastric mucosa (E004)",
+            "Initial upper endoscopy revealed erythematous mucosal changes in the duodenum (E004)",
+            "Pathology from the upper endoscopy revealed rare gland abscesses and diffuse lamina propria neutrophilic inflammation (E005)",
+            "Biopsies were negative for CMV, H. pylori, lymphoma, or other malignancy (E005)",
+            "Abdominal CT scan revealed diffuse bowel wall thickening involving the stomach with mucosal enhancement, patches of focal thickening with retained fluid in the stomach, and diffuse adenopathy (E002)",
+            "Cultures from gastric biopsy grew Granulicatella adiacens in broth medium only, as well as one colony of coagulase-negative Staphylococcus species (E005)"
+          ],
+          "missing_key_evidence": [
+            "Clinical course and treatment provided",
+            "Patient's response to treatment"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "The patient received a 14-day course of IV daptomycin (due to a medication reaction, IV vancomycin was deferred) and cefepime. He also eventually completed a two-week course of quadruple therapy for Helicobacter pylori infection. He was followed closely by Infectious Disease, General Surgery, and Gastroenterology during his stay. Half-way through the antibiotic course for phlegmonous gastritis his symptoms began improving, his appetite returned, and radiographic thickening of the gastric lining resolved. Three months following his initial hospitalization he is now in his usual state of health and follow up upper endoscopy revealed normal gross appearance of his stomach and esophagus. He did not require gastrectomy nor other surgical management.",
+          "category": "other",
+          "temporal_cue": "during and three months after hospitalization",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Features overall were consistent with a diagnosis of phlegmonous gastritis and duodenitis.",
+          "trajectory_summary": "A 19-year-old man presented with three weeks of severe epigastric pain, vomiting, and weight loss, after prior treatment for H. pylori gastritis. Initial upper endoscopy revealed congested, erythematous, eroded, friable, nodular, and scalloped gastric mucosa, and erythematous duodenal changes. Biopsies showed rare gland abscesses and diffuse lamina propria neutrophilic inflammation, with negative stains for CMV, H. pylori, lymphoma, or malignancy. An abdominal CT scan revealed diffuse bowel wall thickening of the stomach with mucosal enhancement, focal thickening with retained fluid, and diffuse adenopathy. Gastric biopsy cultures grew Granulicatella adiacens and coagulase-negative Staphylococcus. The patient was treated with IV daptomycin and cefepime, and later H. pylori quadruple therapy. Symptoms improved halfway through the antibiotic course, radiographic thickening resolved, and a follow-up endoscopy showed normal gross appearance. The patient returned to his usual state of health without requiring surgery.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with severe epigastric pain, vomiting, and weight loss, with prior H. pylori treatment.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Upper endoscopy revealed severe inflammation of the gastric and duodenal mucosa, including congestion, erythema, erosion, friability, nodularity, and scalloping.",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Biopsies showed histopathological evidence of severe inflammation with rare gland abscesses and diffuse lamina propria neutrophilic inflammation.",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "Abdominal CT scan demonstrated diffuse bowel wall thickening of the stomach with mucosal enhancement and focal thickening, indicating transmural involvement.",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Gastric biopsy cultures identified bacterial growth, including Granulicatella adiacens and coagulase-negative Staphylococcus.",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "Patient's symptoms improved and radiographic findings resolved with antibiotic treatment.",
+              "evidence_ids": [
+                "E006"
+              ]
+            },
+            {
+              "claim": "Follow-up endoscopy showed normal gross appearance of the stomach and esophagus.",
+              "evidence_ids": [
+                "E006"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "H. pylori gastritis (as primary cause)",
+              "basis": "Patient had prior treatment, and biopsies were negative for H. pylori after treatment (E005)."
+            },
+            {
+              "alternative": "CMV infection",
+              "basis": "Biopsies were negative for CMV (E005)."
+            },
+            {
+              "alternative": "Lymphoma or other malignancy",
+              "basis": "Biopsies showed no evidence of lymphoma or other malignancy (E005)."
+            }
+          ],
+          "remaining_uncertainties": [],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Features overall were consistent with a diagnosis of phlegmonous gastritis and duodenitis.",
+      "trajectory_summary": "A 19-year-old man presented with three weeks of severe epigastric pain, vomiting, and weight loss, after prior treatment for H. pylori gastritis. Initial upper endoscopy revealed congested, erythematous, eroded, friable, nodular, and scalloped gastric mucosa, and erythematous duodenal changes. Biopsies showed rare gland abscesses and diffuse lamina propria neutrophilic inflammation, with negative stains for CMV, H. pylori, lymphoma, or malignancy. An abdominal CT scan revealed diffuse bowel wall thickening of the stomach with mucosal enhancement, focal thickening with retained fluid, and diffuse adenopathy. Gastric biopsy cultures grew Granulicatella adiacens and coagulase-negative Staphylococcus. The patient was treated with IV daptomycin and cefepime, and later H. pylori quadruple therapy. Symptoms improved halfway through the antibiotic course, radiographic thickening resolved, and a follow-up endoscopy showed normal gross appearance. The patient returned to his usual state of health without requiring surgery.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with severe epigastric pain, vomiting, and weight loss, with prior H. pylori treatment.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Upper endoscopy revealed severe inflammation of the gastric and duodenal mucosa, including congestion, erythema, erosion, friability, nodularity, and scalloping.",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Biopsies showed histopathological evidence of severe inflammation with rare gland abscesses and diffuse lamina propria neutrophilic inflammation.",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "Abdominal CT scan demonstrated diffuse bowel wall thickening of the stomach with mucosal enhancement and focal thickening, indicating transmural involvement.",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Gastric biopsy cultures identified bacterial growth, including Granulicatella adiacens and coagulase-negative Staphylococcus.",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "Patient's symptoms improved and radiographic findings resolved with antibiotic treatment.",
+          "evidence_ids": [
+            "E006"
+          ]
+        },
+        {
+          "claim": "Follow-up endoscopy showed normal gross appearance of the stomach and esophagus.",
+          "evidence_ids": [
+            "E006"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "H. pylori gastritis (as primary cause)",
+          "basis": "Patient had prior treatment, and biopsies were negative for H. pylori after treatment (E005)."
+        },
+        {
+          "alternative": "CMV infection",
+          "basis": "Biopsies were negative for CMV (E005)."
+        },
+        {
+          "alternative": "Lymphoma or other malignancy",
+          "basis": "Biopsies showed no evidence of lymphoma or other malignancy (E005)."
+        }
+      ],
+      "remaining_uncertainties": [],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:18:31.248252+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10163626",
+    "known_final_diagnosis": "Features overall were consistent with a diagnosis of phlegmonous gastritis and duodenitis.",
+    "turns_used": 10,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 7,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 3,
+      "REQUEST_RESULT": 5,
+      "WAIT_REASSESS": 1
+    },
+    "report_status_counts": {
+      "already_disclosed": 1,
+      "found": 4,
+      "invalid_report_selection": 1,
+      "ordered_but_not_documented": 3
+    },
+    "report_repair_attempted_count": 2,
+    "report_repair_failed_count": 1,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 3
+    },
+    "answer_yield": 0.5555555555555556,
+    "unavailable_turn_rate": 0.3333333333333333,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:18:31.249863+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10163626",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/episodes/PMC10163626.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/cases/PMC10163626.json",
+    "num_gold_steps": "5",
+    "num_pred_steps": "4",
+    "weighted_tversky_alignment": "0.42424242424242425",
+    "weighted_tversky_distance": "0.5757575757575757",
+    "matched_weight": "3.5",
+    "missed_weight": "2.75",
+    "extra_weight": "1.0",
+    "weighted_lcs_recall": "0.56",
+    "weighted_lcs_weight": "3.5",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "3",
+    "pairwise_correct_pairs": "3",
+    "pairwise_inversions": "0",
+    "gold_sequence": "lab_tests > imaging > microbiology > pathology > admission_or_clinical_course",
+    "prediction_sequence": "procedure_or_intervention > lab_tests > imaging > microbiology",
+    "error": ""
+  }
+}

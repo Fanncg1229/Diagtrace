@@ -1,0 +1,568 @@
+{
+  "case_id": "case_0410",
+  "pmcid": "PMC10375377",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC10375377",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 15,
+    "termination": "final",
+    "known_final_diagnosis": "With these results, this case can be diagnosed as neurocysticercosis.",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E003"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "neurological examination findings, especially regarding vision and motor weakness",
+          "current_trajectory_hypothesis": "Patient presents with neurological symptoms (headache, vision loss, left-sided weakness) and a history of stroke. Investigating the neurological exam findings to characterize the symptoms and guide further workup towards neurocysticercosis.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "detailed neurological exam findings",
+            "imaging results (CT/MRI brain)",
+            "CSF analysis",
+            "serological tests for neurocysticercosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "No neurological examination findings including vision and motor weakness are reported in the source records.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "brain imaging (CT or MRI) report",
+          "current_trajectory_hypothesis": "Patient presents with neurological symptoms (headache, vision loss, left-sided weakness) and a history of stroke. Brain imaging is crucial to identify any structural lesions that could explain these symptoms and potentially point towards neurocysticercosis.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "brain imaging findings",
+            "detailed neurological exam findings (if available later)",
+            "CSF analysis",
+            "serological tests for neurocysticercosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order for brain imaging (CT or MRI) recorded; results not yet disclosed.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "report of the brain imaging (CT or MRI)",
+          "current_trajectory_hypothesis": "Patient presents with neurological symptoms (headache, vision loss, left-sided weakness) and a history of stroke. Brain imaging is crucial to identify any structural lesions that could explain these symptoms and potentially point towards neurocysticercosis. The imaging was previously ordered, and now the results are needed.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "brain imaging findings",
+            "detailed neurological exam findings (if available later)",
+            "CSF analysis",
+            "serological tests for neurocysticercosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "Computed tomography (CT) of the brain was conducted and showed multiple calcified nodules showing nodular calcified stage at right subcortical parietal lobe, left thalamus, left basal ganglia and granular nodular stage at right cortical-subcortical occipital lobe",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "serological test for cysticercosis antibodies",
+          "current_trajectory_hypothesis": "Brain imaging revealed multiple calcified and granular nodules, highly suggestive of neurocysticercosis. The next step is to seek serological confirmation to support the diagnosis.",
+          "confirmed_evidence": [
+            "CT brain showed multiple calcified nodules (nodular calcified stage) in right subcortical parietal lobe, left thalamus, left basal ganglia, and granular nodular stage in right cortical-subcortical occipital lobe (E001)"
+          ],
+          "missing_key_evidence": [
+            "serological test results for cysticercosis",
+            "CSF analysis results",
+            "detailed neurological exam findings (if available later)",
+            "clinical course/treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "Order acknowledged for serological test; no source evidence documents test result.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "results of serological test for cysticercosis antibodies",
+          "current_trajectory_hypothesis": "Brain imaging revealed multiple calcified and granular nodules, highly suggestive of neurocysticercosis. Serological testing for cysticercosis antibodies was ordered to further support the diagnosis. Now requesting the results of this test.",
+          "confirmed_evidence": [
+            "CT brain showed multiple calcified nodules (nodular calcified stage) in right subcortical parietal lobe, left thalamus, left basal ganglia, and granular nodular stage in right cortical-subcortical occipital lobe (E001)"
+          ],
+          "missing_key_evidence": [
+            "serological test results for cysticercosis",
+            "CSF analysis results (if performed)",
+            "detailed neurological exam findings (if available later)",
+            "clinical course/treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No serological test results for cysticercosis antibodies are reported in the source.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "cerebrospinal fluid (CSF) analysis for cysticercosis",
+          "current_trajectory_hypothesis": "Brain imaging revealed multiple calcified and granular nodules, highly suggestive of neurocysticercosis. Serological tests were not reported. CSF analysis is another important diagnostic tool for neurocysticercosis to look for antibodies or other markers.",
+          "confirmed_evidence": [
+            "CT brain showed multiple calcified nodules (nodular calcified stage) in right subcortical parietal lobe, left thalamus, left basal ganglia, and granular nodular stage in right cortical-subcortical occipital lobe (E001)"
+          ],
+          "missing_key_evidence": [
+            "CSF analysis results for cysticercosis",
+            "detailed neurological exam findings (if available later)",
+            "clinical course/treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "CSF analysis for cysticercosis was ordered but no source-documented result is available.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "results of cerebrospinal fluid (CSF) analysis for cysticercosis",
+          "current_trajectory_hypothesis": "Brain imaging revealed multiple calcified and granular nodules, highly suggestive of neurocysticercosis. Serological tests were not reported. CSF analysis was ordered as another important diagnostic tool for neurocysticercosis, and now the results are needed.",
+          "confirmed_evidence": [
+            "CT brain showed multiple calcified nodules (nodular calcified stage) in right subcortical parietal lobe, left thalamus, left basal ganglia, and granular nodular stage in right cortical-subcortical occipital lobe (E001)"
+          ],
+          "missing_key_evidence": [
+            "CSF analysis results for cysticercosis",
+            "detailed neurological exam findings (if available later)",
+            "clinical course/treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No CSF analysis results for cysticercosis are reported in the supplied evidence.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Brain imaging revealed multiple calcified and granular nodules, highly suggestive of neurocysticercosis. Serological and CSF tests were not reported. I need to find further evidence to support the diagnosis, such as clinical course, treatment, or additional diagnostic procedures.",
+          "confirmed_evidence": [
+            "CT brain showed multiple calcified nodules (nodular calcified stage) in right subcortical parietal lobe, left thalamus, left basal ganglia, and granular nodular stage in right cortical-subcortical occipital lobe (E001)"
+          ],
+          "missing_key_evidence": [
+            "further diagnostic confirmation (e.g., biopsy, specific serology/CSF if available later)",
+            "treatment initiated and response",
+            "detailed neurological exam findings (if available later)",
+            "clinical course/outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "MR image was obtained and showed a small spherical lesion at right subcortical occipital lobe showing different intensities (Fig. 2). Lesion was hypointense on T1-weighted image, hyperintense rim on T2-weighted image. Ring enhancement was noted on the contrast enhanced T1 and blooming artefact on SWI. These findings suggesting granular nodular stage. Other multiple singular lesions were seen at left juxtacortical temporal lobe, right juxtacortical parietal lobe and left thalamus showing different intensities (Figs. 3, and 4). Lesion was also hypointense on T1-weighted image with no signal on T2-weighted image, with blooming artefact on SWI which suggesting nodular calcified stage. No restricted area was seen within the lesion on DWI-ADC on both stages.",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "treatment initiated for neurocysticercosis and patient's response",
+          "current_trajectory_hypothesis": "Brain imaging (CT and MRI) revealed multiple lesions consistent with different stages of neurocysticercosis (E001, E002). Serological and CSF tests were not reported. The next step is to understand the treatment initiated and the patient's clinical response to further support the diagnosis.",
+          "confirmed_evidence": [
+            "CT brain showed multiple calcified nodules (nodular calcified stage) in right subcortical parietal lobe, left thalamus, left basal ganglia, and granular nodular stage in right cortical-subcortical occipital lobe (E001)",
+            "MR image showed a small spherical lesion at right subcortical occipital lobe suggesting granular nodular stage, and multiple singular lesions at left juxtacortical temporal lobe, right juxtacortical parietal lobe and left thalamus suggesting nodular calcified stage (E002)"
+          ],
+          "missing_key_evidence": [
+            "treatment initiated and patient's response",
+            "detailed neurological exam findings (if available later)",
+            "outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No source evidence reports treatment initiation or patient's response.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Brain imaging (CT and MRI) revealed multiple lesions consistent with different stages of neurocysticercosis (E001, E002). Serological and CSF tests were not reported, nor was treatment or response. I need to find any further clinical course updates or patient outcome to complete the trajectory.",
+          "confirmed_evidence": [
+            "CT brain showed multiple calcified nodules (nodular calcified stage) in right subcortical parietal lobe, left thalamus, left basal ganglia, and granular nodular stage in right cortical-subcortical occipital lobe (E001)",
+            "MR image showed a small spherical lesion at right subcortical occipital lobe suggesting granular nodular stage, and multiple singular lesions at left juxtacortical temporal lobe, right juxtacortical parietal lobe and left thalamus suggesting nodular calcified stage (E002)"
+          ],
+          "missing_key_evidence": [
+            "further diagnostic confirmation (e.g., biopsy, specific serology/CSF if available later)",
+            "treatment initiated and response",
+            "detailed neurological exam findings (if available later)",
+            "clinical course/outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "MR Spectroscopy was conducted (Fig. 5). Minor shift scale (approximately -0.5 ppm) was made based on major resonances of N-acetylaspartate (NAA), creatine (Cr), and choline (Cho) in the spectroscopy control from the normal parenchyma. Increase in lactate and decrease in choline and N-acetylaspartate were seen which suggesting diagnosis of an inflammatory lesion. Levels of NAA/Cr ratio (0.38) and Cho/Cr ratio (1.21) were seen to be below 1.5.",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Brain imaging (CT, MRI, MRS) revealed multiple lesions consistent with different stages of neurocysticercosis and inflammatory changes (E001, E002, E003). Serological and CSF tests were not reported. I need to find any further clinical course updates, treatment details, or patient outcome to complete the trajectory.",
+          "confirmed_evidence": [
+            "CT brain showed multiple calcified nodules (nodular calcified stage) in right subcortical parietal lobe, left thalamus, left basal ganglia, and granular nodular stage in right cortical-subcortical occipital lobe (E001)",
+            "MR image showed a small spherical lesion at right subcortical occipital lobe suggesting granular nodular stage, and multiple singular lesions at left juxtacortical temporal lobe, right juxtacortical parietal lobe and left thalamus suggesting nodular calcified stage (E002)",
+            "MR Spectroscopy showed increased lactate and decreased choline and N-acetylaspartate, suggesting an inflammatory lesion (E003)"
+          ],
+          "missing_key_evidence": [
+            "treatment initiated and patient's response",
+            "detailed neurological exam findings (if available later)",
+            "overall clinical course/outcome",
+            "further diagnostic confirmation (e.g., specific serology/CSF if available later)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No pending results or new clinical course updates after early workup phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "details of treatment administered for neurocysticercosis and the patient's clinical response or outcome",
+          "current_trajectory_hypothesis": "Brain imaging (CT, MRI, MRS) revealed multiple lesions consistent with different stages of neurocysticercosis and inflammatory changes (E001, E002, E003). Serological and CSF tests were not reported. I need to find information about the treatment administered and the patient's response or overall outcome to complete the trajectory.",
+          "confirmed_evidence": [
+            "CT brain showed multiple calcified nodules (nodular calcified stage) in right subcortical parietal lobe, left thalamus, left basal ganglia, and granular nodular stage in right cortical-subcortical occipital lobe (E001)",
+            "MR image showed a small spherical lesion at right subcortical occipital lobe suggesting granular nodular stage, and multiple singular lesions at left juxtacortical temporal lobe, right juxtacortical parietal lobe and left thalamus suggesting nodular calcified stage (E002)",
+            "MR Spectroscopy showed increased lactate and decreased choline and N-acetylaspartate, suggesting an inflammatory lesion (E003)"
+          ],
+          "missing_key_evidence": [
+            "treatment initiated and patient's response/outcome",
+            "detailed neurological exam findings (if available later)",
+            "further diagnostic confirmation (e.g., specific serology/CSF if available later)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No evidence provided in the source records about treatment administered or clinical response/outcome.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "any further diagnostic procedures performed, such as biopsy or endoscopy, to confirm the diagnosis",
+          "current_trajectory_hypothesis": "Brain imaging (CT, MRI, MRS) revealed multiple lesions consistent with different stages of neurocysticercosis and inflammatory changes (E001, E002, E003). Serological and CSF tests were not reported, nor was treatment or response. I need to find any further definitive diagnostic procedures that might have been performed to confirm the diagnosis.",
+          "confirmed_evidence": [
+            "CT brain showed multiple calcified nodules (nodular calcified stage) in right subcortical parietal lobe, left thalamus, left basal ganglia, and granular nodular stage in right cortical-subcortical occipital lobe (E001)",
+            "MR image showed a small spherical lesion at right subcortical occipital lobe suggesting granular nodular stage, and multiple singular lesions at left juxtacortical temporal lobe, right juxtacortical parietal lobe and left thalamus suggesting nodular calcified stage (E002)",
+            "MR Spectroscopy showed increased lactate and decreased choline and N-acetylaspartate, suggesting an inflammatory lesion (E003)"
+          ],
+          "missing_key_evidence": [
+            "further definitive diagnostic confirmation (e.g., biopsy)",
+            "treatment initiated and patient's response/outcome",
+            "detailed neurological exam findings (if available later)",
+            "specific serology/CSF results (if available later)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No source record documents results of further diagnostic procedures such as biopsy or endoscopy.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 14,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Brain imaging (CT, MRI, MRS) revealed multiple lesions consistent with different stages of neurocysticercosis and inflammatory changes (E001, E002, E003). Serological and CSF tests were not reported, nor was treatment or response. I need to find any general clinical course updates or patient outcome to complete the trajectory, as specific requests for treatment and further procedures have not yielded results.",
+          "confirmed_evidence": [
+            "CT brain showed multiple calcified nodules (nodular calcified stage) in right subcortical parietal lobe, left thalamus, left basal ganglia, and granular nodular stage in right cortical-subcortical occipital lobe (E001)",
+            "MR image showed a small spherical lesion at right subcortical occipital lobe suggesting granular nodular stage, and multiple singular lesions at left juxtacortical temporal lobe, right juxtacortical parietal lobe and left thalamus suggesting nodular calcified stage (E002)",
+            "MR Spectroscopy showed increased lactate and decreased choline and N-acetylaspartate, suggesting an inflammatory lesion (E003)"
+          ],
+          "missing_key_evidence": [
+            "treatment initiated and patient's response/outcome",
+            "detailed neurological exam findings (if available later)",
+            "specific serology/CSF results (if available later)",
+            "any further diagnostic confirmation (e.g., biopsy)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No pending orders with source-backed results and no undisclosed clinical course updates after the current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 15,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "neurocysticercosis",
+          "trajectory_summary": "A 71-year-old man presented with intermittent headaches, abrupt vision loss, and left-sided weakness, with a history of stroke one year prior. Initial brain CT revealed multiple calcified nodules (nodular calcified stage) and granular nodular stage lesions in various brain regions. Subsequent MRI confirmed these findings, showing lesions consistent with both granular nodular and nodular calcified stages. MR Spectroscopy indicated an inflammatory lesion with increased lactate and decreased choline and N-acetylaspartate. No serological, CSF, or biopsy confirmation was reported, nor was information on treatment or patient outcome.",
+          "key_supporting_evidence": [
+            {
+              "claim": "CT brain showed multiple calcified nodules (nodular calcified stage) in right subcortical parietal lobe, left thalamus, left basal ganglia, and granular nodular stage in right cortical-subcortical occipital lobe.",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "MR image showed a small spherical lesion at right subcortical occipital lobe suggesting granular nodular stage, and multiple singular lesions at left juxtacortical temporal lobe, right juxtacortical parietal lobe and left thalamus suggesting nodular calcified stage.",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "MR Spectroscopy showed increased lactate and decreased choline and N-acetylaspartate, suggesting an inflammatory lesion.",
+              "evidence_ids": [
+                "E003"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Stroke",
+              "basis": "While there was a history of stroke, the current imaging findings of multiple lesions in different stages (calcified and granular nodular) are not typical for an acute or subacute stroke event, but rather suggest a parasitic infection."
+            },
+            {
+              "alternative": "Brain malignancy (primary or metastatic)",
+              "basis": "The presence of multiple lesions in different stages (calcified and granular nodular) and the specific MRS findings (increased lactate, decreased NAA/Cr and Cho/Cr ratios below 1.5) are less characteristic of typical brain tumors, which often show elevated choline."
+            }
+          ],
+          "remaining_uncertainties": [
+            "Specific serological or CSF test results for cysticercosis antibodies/antigens",
+            "Histopathological confirmation via biopsy",
+            "Details of treatment administered for neurocysticercosis",
+            "Patient's clinical response to treatment or overall outcome",
+            "Detailed neurological examination findings"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "neurocysticercosis",
+      "trajectory_summary": "A 71-year-old man presented with intermittent headaches, abrupt vision loss, and left-sided weakness, with a history of stroke one year prior. Initial brain CT revealed multiple calcified nodules (nodular calcified stage) and granular nodular stage lesions in various brain regions. Subsequent MRI confirmed these findings, showing lesions consistent with both granular nodular and nodular calcified stages. MR Spectroscopy indicated an inflammatory lesion with increased lactate and decreased choline and N-acetylaspartate. No serological, CSF, or biopsy confirmation was reported, nor was information on treatment or patient outcome.",
+      "key_supporting_evidence": [
+        {
+          "claim": "CT brain showed multiple calcified nodules (nodular calcified stage) in right subcortical parietal lobe, left thalamus, left basal ganglia, and granular nodular stage in right cortical-subcortical occipital lobe.",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "MR image showed a small spherical lesion at right subcortical occipital lobe suggesting granular nodular stage, and multiple singular lesions at left juxtacortical temporal lobe, right juxtacortical parietal lobe and left thalamus suggesting nodular calcified stage.",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "MR Spectroscopy showed increased lactate and decreased choline and N-acetylaspartate, suggesting an inflammatory lesion.",
+          "evidence_ids": [
+            "E003"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Stroke",
+          "basis": "While there was a history of stroke, the current imaging findings of multiple lesions in different stages (calcified and granular nodular) are not typical for an acute or subacute stroke event, but rather suggest a parasitic infection."
+        },
+        {
+          "alternative": "Brain malignancy (primary or metastatic)",
+          "basis": "The presence of multiple lesions in different stages (calcified and granular nodular) and the specific MRS findings (increased lactate, decreased NAA/Cr and Cho/Cr ratios below 1.5) are less characteristic of typical brain tumors, which often show elevated choline."
+        }
+      ],
+      "remaining_uncertainties": [
+        "Specific serological or CSF test results for cysticercosis antibodies/antigens",
+        "Histopathological confirmation via biopsy",
+        "Details of treatment administered for neurocysticercosis",
+        "Patient's clinical response to treatment or overall outcome",
+        "Detailed neurological examination findings"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.9
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:27:34.790835+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10375377",
+    "known_final_diagnosis": "With these results, this case can be diagnosed as neurocysticercosis.",
+    "turns_used": 15,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 3,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 3,
+    "gold_reasoning_span_count": 4,
+    "action_counts": {
+      "ASK_HISTORY": 2,
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 1,
+      "ORDER_TEST": 3,
+      "REQUEST_EXAM": 1,
+      "REQUEST_RESULT": 3,
+      "WAIT_REASSESS": 4
+    },
+    "report_status_counts": {
+      "found": 3,
+      "no_new_update": 2,
+      "not_reported": 5,
+      "ordered_but_not_documented": 4
+    },
+    "report_repair_attempted_count": 0,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {},
+    "answer_yield": 0.21428571428571427,
+    "unavailable_turn_rate": 0.7857142857142857,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:27:34.792104+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10375377",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/episodes/PMC10375377.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/cases/PMC10375377.json",
+    "num_gold_steps": "2",
+    "num_pred_steps": "5",
+    "weighted_tversky_alignment": "0.1935483870967742",
+    "weighted_tversky_distance": "0.8064516129032258",
+    "matched_weight": "1.5",
+    "missed_weight": "0.25",
+    "extra_weight": "3.0",
+    "weighted_lcs_recall": "0.8571428571428571",
+    "weighted_lcs_weight": "1.5",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging > other_or_off_protocol",
+    "prediction_sequence": "physical_examination > imaging > lab_tests > clinical_history > procedure_or_intervention",
+    "error": ""
+  }
+}

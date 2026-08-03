@@ -1,0 +1,614 @@
+{
+  "case_id": "case_0239",
+  "pmcid": "PMC11318702",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC11318702",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 14,
+    "termination": "final",
+    "known_final_diagnosis": "The final diagnosis was an ileo-ileal intussusception secondary to a T3N1 NET, grade 1.",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E003",
+      "E004",
+      "E005"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "complete blood count (CBC)",
+          "current_trajectory_hypothesis": "Patient presented with GI bleeding symptoms. Initial workup would likely include assessing blood loss severity.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Severity of GI bleeding",
+            "Hemodynamic status",
+            "Source of bleeding",
+            "Evidence for intussusception or NET"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.0
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order for CBC registered but not documented in source evidence",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "vital signs",
+          "current_trajectory_hypothesis": "Patient presented with GI bleeding symptoms and abdominal pain. Assessing hemodynamic stability is crucial given the bleeding and to guide further workup for the intussusception and NET.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Severity of GI bleeding (CBC results)",
+            "Hemodynamic status",
+            "Source of bleeding",
+            "Evidence for intussusception or NET"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.0
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "On presentation, his vital signs were stable.",
+          "category": "routine_lab",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "CT scan of the abdomen and pelvis with contrast",
+          "current_trajectory_hypothesis": "Patient presented with GI bleeding and abdominal pain. Stable vital signs. A CT scan would help identify the source of bleeding, evaluate for intussusception, and detect any underlying masses, which aligns with the known final diagnosis of intussusception secondary to a NET.",
+          "confirmed_evidence": [
+            "Patient presented with lower abdominal pain, maroon colored bowel movements, and hematemesis.",
+            "Patient's vital signs were stable on presentation."
+          ],
+          "missing_key_evidence": [
+            "Severity of GI bleeding (CBC results)",
+            "Source of bleeding",
+            "Evidence for intussusception or NET"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "ordered",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [
+            "CT scan of the abdomen and pelvis with contrast"
+          ],
+          "explanation": "Test ordered and evidence exists in source for this test.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "CT scan of the abdomen and pelvis with contrast report",
+          "current_trajectory_hypothesis": "Patient presented with GI bleeding and abdominal pain. Vital signs are stable. A CT scan was ordered to investigate the source of bleeding, evaluate for intussusception, and detect any underlying masses, which aligns with the known final diagnosis of intussusception secondary to a NET.",
+          "confirmed_evidence": [
+            "Patient presented with lower abdominal pain, maroon colored bowel movements, and hematemesis.",
+            "Patient's vital signs were stable on presentation."
+          ],
+          "missing_key_evidence": [
+            "Severity of GI bleeding (CBC results)",
+            "Source of bleeding",
+            "Evidence for intussusception or NET from imaging"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.15
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "Computed tomography (CT) of the abdomen and pelvis with intravenous contrast showed ileo-ileal intussusception in the right lower quadrant. Just distal to this segment, there was an irregular area of mucosal/submucosal thickening, suspicious for an underlying small bowel mass, with no signs of intestinal obstruction (Figures 1, 2).",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "complete blood count (CBC) results",
+          "current_trajectory_hypothesis": "Patient presented with GI bleeding and abdominal pain. Vital signs are stable. CT scan showed ileo-ileal intussusception and a suspicious small bowel mass. I need to assess the severity of the GI bleeding from the CBC and then pursue tissue diagnosis for the mass.",
+          "confirmed_evidence": [
+            "Patient presented with lower abdominal pain, maroon colored bowel movements, and hematemesis.",
+            "Patient's vital signs were stable on presentation.",
+            "CT abdomen and pelvis showed ileo-ileal intussusception and an irregular area of mucosal/submucosal thickening suspicious for a small bowel mass."
+          ],
+          "missing_key_evidence": [
+            "Severity of GI bleeding (CBC results)",
+            "Pathology of the mass (NET confirmation, grade, stage)",
+            "Management/treatment of intussusception and mass"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No CBC laboratory results specifically reported in the source documents.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "surgical intervention for intussusception and mass",
+          "current_trajectory_hypothesis": "Patient presented with GI bleeding and abdominal pain. Vital signs are stable. CT scan showed ileo-ileal intussusception and a suspicious small bowel mass. Surgical intervention is indicated to address the intussusception and obtain tissue for definitive diagnosis of the mass.",
+          "confirmed_evidence": [
+            "Patient presented with lower abdominal pain, maroon colored bowel movements, and hematemesis.",
+            "Patient's vital signs were stable on presentation (E002).",
+            "CT abdomen and pelvis showed ileo-ileal intussusception and an irregular area of mucosal/submucosal thickening suspicious for a small bowel mass (E001)."
+          ],
+          "missing_key_evidence": [
+            "Pathology of the mass (NET confirmation, grade, stage)",
+            "Details of surgical findings and procedure",
+            "Treatment response/outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "The surgical intervention order is registered; corresponding procedure result not yet disclosed.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "surgical findings and pathology report from the surgical intervention",
+          "current_trajectory_hypothesis": "Patient presented with GI bleeding and abdominal pain. Vital signs are stable. CT scan showed ileo-ileal intussusception and a suspicious small bowel mass. Surgical intervention was ordered to address the intussusception and obtain tissue for definitive diagnosis of the mass. The next step is to obtain the results of this intervention.",
+          "confirmed_evidence": [
+            "Patient presented with lower abdominal pain, maroon colored bowel movements, and hematemesis.",
+            "Patient's vital signs were stable on presentation (E002).",
+            "CT abdomen and pelvis showed ileo-ileal intussusception and an irregular area of mucosal/submucosal thickening suspicious for a small bowel mass (E001)."
+          ],
+          "missing_key_evidence": [
+            "Pathology of the mass (NET confirmation, grade, stage)",
+            "Details of surgical findings and procedure",
+            "Treatment response/outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.35
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "He was taken to the operating room for an exploratory laparotomy where he was found to have a small bowel mass approximately 30 cm from the ileocecal valve, serving as the lead point for his intussusception. There was also a small palpable lymph node in the associated mesentery. Approximately 15 cm of small bowel and 13 lymph nodes, including the palpable lymph node, were resected and sent for pathological analysis. No abnormalities were seen on the liver.",
+          "category": "other",
+          "temporal_cue": "intraoperative",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "pathology report of the resected small bowel mass and lymph nodes",
+          "current_trajectory_hypothesis": "Patient presented with GI bleeding and abdominal pain. CT scan showed ileo-ileal intussusception and a suspicious small bowel mass. Surgical intervention confirmed the mass and intussusception, with resection of the affected bowel and lymph nodes. The next step is to obtain the pathology report to confirm the diagnosis of NET, its grade, and staging.",
+          "confirmed_evidence": [
+            "Patient presented with lower abdominal pain, maroon colored bowel movements, and hematemesis.",
+            "Patient's vital signs were stable on presentation (E002).",
+            "CT abdomen and pelvis showed ileo-ileal intussusception and an irregular area of mucosal/submucosal thickening suspicious for a small bowel mass (E001).",
+            "Exploratory laparotomy revealed a small bowel mass causing intussusception, approximately 30 cm from the ileocecal valve, with a palpable lymph node in the mesentery. Resection of 15 cm of small bowel and 13 lymph nodes was performed (E003)."
+          ],
+          "missing_key_evidence": [
+            "Pathology of the mass (NET confirmation, grade, stage)",
+            "Treatment response/outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan.",
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "pathology report of the resected small bowel mass and lymph nodes",
+          "current_trajectory_hypothesis": "Patient presented with GI bleeding and abdominal pain. CT scan showed ileo-ileal intussusception and a suspicious small bowel mass. Surgical intervention confirmed the mass and intussusception, with resection of the affected bowel and lymph nodes. The next step is to obtain the pathology report to confirm the diagnosis of NET, its grade, and staging.",
+          "confirmed_evidence": [
+            "Patient presented with lower abdominal pain, maroon colored bowel movements, and hematemesis.",
+            "Patient's vital signs were stable on presentation (E002).",
+            "CT abdomen and pelvis showed ileo-ileal intussusception and an irregular area of mucosal/submucosal thickening suspicious for a small bowel mass (E001).",
+            "Exploratory laparotomy revealed a small bowel mass causing intussusception, approximately 30 cm from the ileocecal valve, with a palpable lymph node in the mesentery. Resection of 15 cm of small bowel and 13 lymph nodes was performed (E003)."
+          ],
+          "missing_key_evidence": [
+            "Pathology of the mass (NET confirmation, grade, stage)",
+            "Treatment response/outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "Subsequent histopathological examination confirmed a well-differentiated 1.2-cm NET with spread to 1 lymph node, with surgical margins clear of the tumor (Figures 3–5). The Ki-67 stain was positive for less than 1% of cells.",
+          "category": "other",
+          "temporal_cue": "postoperative",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "detailed pathology report for depth of invasion of the small bowel mass",
+          "current_trajectory_hypothesis": "Patient presented with GI bleeding and abdominal pain. CT scan showed ileo-ileal intussusception and a suspicious small bowel mass. Surgical intervention confirmed the mass and intussusception, with resection of the affected bowel and lymph nodes. Pathology confirmed a well-differentiated 1.2-cm NET with spread to 1 lymph node, and Ki-67 <1%. I need to confirm the T3 staging by looking for evidence of depth of invasion.",
+          "confirmed_evidence": [
+            "Patient presented with lower abdominal pain, maroon colored bowel movements, and hematemesis.",
+            "Patient's vital signs were stable on presentation (E002).",
+            "CT abdomen and pelvis showed ileo-ileal intussusception and an irregular area of mucosal/submucosal thickening suspicious for a small bowel mass (E001).",
+            "Exploratory laparotomy revealed a small bowel mass causing intussusception, approximately 30 cm from the ileocecal valve, with a palpable lymph node in the mesentery. Resection of 15 cm of small bowel and 13 lymph nodes was performed (E003).",
+            "Histopathological examination confirmed a well-differentiated 1.2-cm NET with spread to 1 lymph node, with surgical margins clear of the tumor. The Ki-67 stain was positive for less than 1% of cells (E004)."
+          ],
+          "missing_key_evidence": [
+            "Explicit pathology evidence for T3 staging (depth of invasion)",
+            "Treatment response/outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E004",
+          "source_text": "a well-differentiated 1.2-cm NET with spread to 1 lymph node, with surgical margins clear of the tumor",
+          "category": "other",
+          "temporal_cue": "postoperative",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with GI bleeding and abdominal pain. CT scan showed ileo-ileal intussusception and a suspicious small bowel mass. Surgical intervention confirmed the mass and intussusception, with resection of the affected bowel and lymph nodes. Pathology confirmed a well-differentiated 1.2-cm NET with spread to 1 lymph node, and Ki-67 <1%. I have confirmed most aspects of the diagnosis except for explicit evidence for T3 staging. I will now check for any post-operative course or outcome.",
+          "confirmed_evidence": [
+            "Patient presented with lower abdominal pain, maroon colored bowel movements, and hematemesis.",
+            "Patient's vital signs were stable on presentation (E002).",
+            "CT abdomen and pelvis showed ileo-ileal intussusception and an irregular area of mucosal/submucosal thickening suspicious for a small bowel mass (E001).",
+            "Exploratory laparotomy revealed a small bowel mass causing intussusception, approximately 30 cm from the ileocecal valve, with a palpable lymph node in the mesentery. Resection of 15 cm of small bowel and 13 lymph nodes was performed (E003).",
+            "Histopathological examination confirmed a well-differentiated 1.2-cm NET with spread to 1 lymph node, with surgical margins clear of the tumor. The Ki-67 stain was positive for less than 1% of cells (E004)."
+          ],
+          "missing_key_evidence": [
+            "Explicit pathology evidence for T3 staging (depth of invasion)",
+            "Post-operative course or outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "His postoperative course was complicated by the development of an ileus, which quickly resolved on its own following conservative management.",
+          "category": "other",
+          "temporal_cue": "postoperative",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "post-operative imaging for staging or surveillance",
+          "current_trajectory_hypothesis": "Patient presented with GI bleeding and abdominal pain. CT scan showed ileo-ileal intussusception and a suspicious small bowel mass. Surgical intervention confirmed the mass and intussusception, with resection of the affected bowel and lymph nodes. Pathology confirmed a well-differentiated 1.2-cm NET with spread to 1 lymph node, and Ki-67 <1%. Post-operative course included a resolved ileus. I need to check for any further staging or surveillance imaging to complete the trajectory for the NET.",
+          "confirmed_evidence": [
+            "Patient presented with lower abdominal pain, maroon colored bowel movements, and hematemesis.",
+            "Patient's vital signs were stable on presentation (E002).",
+            "CT abdomen and pelvis showed ileo-ileal intussusception and an irregular area of mucosal/submucosal thickening suspicious for a small bowel mass (E001).",
+            "Exploratory laparotomy revealed a small bowel mass causing intussusception, approximately 30 cm from the ileocecal valve, with a palpable lymph node in the mesentery. Resection of 15 cm of small bowel and 13 lymph nodes was performed (E003).",
+            "Histopathological examination confirmed a well-differentiated 1.2-cm NET with spread to 1 lymph node, with surgical margins clear of the tumor. The Ki-67 stain was positive for less than 1% of cells (E004).",
+            "Postoperative course was complicated by the development of an ileus, which quickly resolved on its own following conservative management (E005)."
+          ],
+          "missing_key_evidence": [
+            "Explicit pathology evidence for T3 staging (depth of invasion)",
+            "Evidence of further staging or surveillance for the NET"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "The source does not document any post-operative imaging performed for staging or surveillance; order is acknowledged but result not available in source.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "Status not_reported is not valid for clinician action ORDER_TEST.",
+          "validation_errors": [
+            "Status not_reported is not valid for clinician action ORDER_TEST."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "pathology report details regarding depth of tumor invasion for T-staging",
+          "current_trajectory_hypothesis": "Patient presented with GI bleeding and abdominal pain. CT scan showed ileo-ileal intussusception and a suspicious small bowel mass. Surgical intervention confirmed the mass and intussusception, with resection of the affected bowel and lymph nodes. Pathology confirmed a well-differentiated 1.2-cm NET with spread to 1 lymph node, and Ki-67 <1%. Post-operative course included a resolved ileus. I have confirmed N1 and Grade 1, but still need explicit evidence for T3 staging (depth of invasion).",
+          "confirmed_evidence": [
+            "Patient presented with lower abdominal pain, maroon colored bowel movements, and hematemesis.",
+            "Patient's vital signs were stable on presentation (E002).",
+            "CT abdomen and pelvis showed ileo-ileal intussusception and an irregular area of mucosal/submucosal thickening suspicious for a small bowel mass (E001).",
+            "Exploratory laparotomy revealed a small bowel mass causing intussusception, approximately 30 cm from the ileocecal valve, with a palpable lymph node in the mesentery. Resection of 15 cm of small bowel and 13 lymph nodes was performed (E003).",
+            "Histopathological examination confirmed a well-differentiated 1.2-cm NET with spread to 1 lymph node, with surgical margins clear of the tumor. The Ki-67 stain was positive for less than 1% of cells (E004).",
+            "Postoperative course was complicated by the development of an ileus, which quickly resolved on its own following conservative management (E005)."
+          ],
+          "missing_key_evidence": [
+            "Explicit pathology evidence for T3 staging (depth of invasion)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E004",
+          "source_text": "The final diagnosis was an ileo-ileal intussusception secondary to a T3N1 NET, grade 1.",
+          "category": "other",
+          "temporal_cue": "postoperative",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 14,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "ileo-ileal intussusception secondary to a T3N1 NET, grade 1",
+          "trajectory_summary": "A 60-year-old man presented with lower abdominal pain, maroon colored bowel movements, and hematemesis. Vital signs were stable. A CT scan of the abdomen and pelvis revealed ileo-ileal intussusception and an irregular area of mucosal/submucosal thickening suspicious for a small bowel mass. He underwent exploratory laparotomy, which confirmed a small bowel mass approximately 30 cm from the ileocecal valve causing the intussusception, with a palpable mesenteric lymph node. Resection of the affected small bowel and lymph nodes was performed. Histopathological examination confirmed a well-differentiated 1.2-cm Neuroendocrine Tumor (NET) with spread to 1 lymph node (N1) and a Ki-67 index of less than 1% (Grade 1), with clear surgical margins. The final diagnosis included T3 staging. His postoperative course was complicated by a resolved ileus.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with lower abdominal pain, maroon colored bowel movements, and hematemesis.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Patient's vital signs were stable on presentation.",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "CT abdomen and pelvis showed ileo-ileal intussusception and an irregular area of mucosal/submucosal thickening suspicious for a small bowel mass.",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Exploratory laparotomy revealed a small bowel mass causing intussusception, approximately 30 cm from the ileocecal valve, with a palpable lymph node in the mesentery. Resection of 15 cm of small bowel and 13 lymph nodes was performed.",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Histopathological examination confirmed a well-differentiated 1.2-cm NET with spread to 1 lymph node (N1), with surgical margins clear of the tumor. The Ki-67 stain was positive for less than 1% of cells (Grade 1).",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "The final diagnosis included T3 staging for the NET.",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Postoperative course was complicated by the development of an ileus, which quickly resolved on its own following conservative management.",
+              "evidence_ids": [
+                "E005"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [],
+          "remaining_uncertainties": [
+            "Specific details of the T3 staging (e.g., invasion depth) were not explicitly detailed in the pathology report beyond the final diagnosis statement."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "ileo-ileal intussusception secondary to a T3N1 NET, grade 1",
+      "trajectory_summary": "A 60-year-old man presented with lower abdominal pain, maroon colored bowel movements, and hematemesis. Vital signs were stable. A CT scan of the abdomen and pelvis revealed ileo-ileal intussusception and an irregular area of mucosal/submucosal thickening suspicious for a small bowel mass. He underwent exploratory laparotomy, which confirmed a small bowel mass approximately 30 cm from the ileocecal valve causing the intussusception, with a palpable mesenteric lymph node. Resection of the affected small bowel and lymph nodes was performed. Histopathological examination confirmed a well-differentiated 1.2-cm Neuroendocrine Tumor (NET) with spread to 1 lymph node (N1) and a Ki-67 index of less than 1% (Grade 1), with clear surgical margins. The final diagnosis included T3 staging. His postoperative course was complicated by a resolved ileus.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with lower abdominal pain, maroon colored bowel movements, and hematemesis.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Patient's vital signs were stable on presentation.",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "CT abdomen and pelvis showed ileo-ileal intussusception and an irregular area of mucosal/submucosal thickening suspicious for a small bowel mass.",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Exploratory laparotomy revealed a small bowel mass causing intussusception, approximately 30 cm from the ileocecal valve, with a palpable lymph node in the mesentery. Resection of 15 cm of small bowel and 13 lymph nodes was performed.",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Histopathological examination confirmed a well-differentiated 1.2-cm NET with spread to 1 lymph node (N1), with surgical margins clear of the tumor. The Ki-67 stain was positive for less than 1% of cells (Grade 1).",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "The final diagnosis included T3 staging for the NET.",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Postoperative course was complicated by the development of an ileus, which quickly resolved on its own following conservative management.",
+          "evidence_ids": [
+            "E005"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [],
+      "remaining_uncertainties": [
+        "Specific details of the T3 staging (e.g., invasion depth) were not explicitly detailed in the pathology report beyond the final diagnosis statement."
+      ],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T22:44:08.344463+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC11318702",
+    "known_final_diagnosis": "The final diagnosis was an ileo-ileal intussusception secondary to a T3N1 NET, grade 1.",
+    "turns_used": 14,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 7,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 5,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 1,
+      "ORDER_TEST": 3,
+      "REQUEST_EXAM": 1,
+      "REQUEST_RESULT": 7,
+      "WAIT_REASSESS": 1
+    },
+    "report_status_counts": {
+      "already_disclosed": 2,
+      "found": 5,
+      "invalid_report_selection": 1,
+      "not_reported": 1,
+      "ordered": 1,
+      "ordered_but_not_documented": 3
+    },
+    "report_repair_attempted_count": 4,
+    "report_repair_failed_count": 1,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 2,
+      "Status not_reported is not valid for clinician action ORDER_TEST.": 1,
+      "verbatim_excerpt is not a contiguous source subspan.": 2
+    },
+    "answer_yield": 0.5384615384615384,
+    "unavailable_turn_rate": 0.3076923076923077,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T22:44:08.345538+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC11318702",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/oncology/episodes/PMC11318702.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/oncology/cases/PMC11318702.json",
+    "num_gold_steps": "5",
+    "num_pred_steps": "4",
+    "weighted_tversky_alignment": "0.29411764705882354",
+    "weighted_tversky_distance": "0.7058823529411764",
+    "matched_weight": "2.5",
+    "missed_weight": "3.0",
+    "extra_weight": "1.5",
+    "weighted_lcs_recall": "0.2727272727272727",
+    "weighted_lcs_weight": "1.5",
+    "weighted_pairwise_order_accuracy": "0.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "1",
+    "gold_sequence": "imaging > lab_tests > other_or_off_protocol > pathology > admission_or_clinical_course",
+    "prediction_sequence": "lab_tests > physical_examination > imaging > procedure_or_intervention",
+    "error": ""
+  }
+}

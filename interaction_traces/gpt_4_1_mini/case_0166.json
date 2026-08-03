@@ -1,0 +1,555 @@
+{
+  "case_id": "case_0166",
+  "pmcid": "PMC6119376",
+  "model": "gpt_4_1_mini",
+  "episode": {
+    "case_id": "PMC6119376",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 13,
+    "termination": "final",
+    "known_final_diagnosis": "In 2012, the brain biopsy pathology showed that the tumour was recurrent DLBCL. ... This immunophenotype is similar to the cardiac tumour and confirmed the cerebral relapse of the PCL.",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E009",
+      "E010",
+      "E011",
+      "E014",
+      "E015"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "MRI chest report detailing the characteristics and findings related to the cardiac mass",
+          "current_trajectory_hypothesis": "Patient presented with a large cardiac mass causing hemodynamic compromise, identified by chest MRI in 2007",
+          "confirmed_evidence": [
+            "Initial MRI of the chest showed a large cardiac mass 8.4×7.4×7.6 cm involving the right atrium and mediastinum, invading both intracardiac and extracardiac structures"
+          ],
+          "missing_key_evidence": [
+            "Imaging details confirming nature of mass consistent with lymphoma",
+            "Histopathology or biopsy results of cardiac mass",
+            "Clinical course between 2007 and 2012",
+            "Brain biopsy pathology details confirming recurrent DLBCL"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "MRI of the chest (figure 1) showed a large right heart mass (8.4×7.4×7.6 cm) centred at the lateral aspect of the right heart near the atrioventricular plane extending inside the cardiac lumen and outside into the pericardial and epicardial fat. The tricuspid valve was deformed by the mass; there was no involvement of the interatrial and interventricular septum.",
+          "category": "imaging_report",
+          "temporal_cue": "in 2007 on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "cardiac mass biopsy to obtain histopathology and immunophenotyping of the tumor",
+          "current_trajectory_hypothesis": "Large cardiac mass identified by MRI in 2007 is suspected primary cardiac lymphoma; histopathologic confirmation pending.",
+          "confirmed_evidence": [
+            "MRI of the chest showed a large right heart mass invading the right atrium and mediastinum in 2007"
+          ],
+          "missing_key_evidence": [
+            "Histopathology or biopsy results confirming cardiac mass diagnosis",
+            "Clinical course from 2007 to 2012 including treatments or progression",
+            "Brain biopsy pathology details confirming recurrent DLBCL in 2012"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Procedure order acknowledged, no documented source result yet",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "histopathology and immunophenotyping report of the cardiac mass biopsy",
+          "current_trajectory_hypothesis": "The cardiac mass biopsy was performed to establish diagnosis; awaiting histopathology and immunophenotyping results to confirm primary cardiac lymphoma",
+          "confirmed_evidence": [
+            "Chest MRI documented a large right heart mass invading the right atrium and mediastinum in 2007"
+          ],
+          "missing_key_evidence": [
+            "Histopathology and immunophenotyping confirming diagnosis of primary cardiac lymphoma",
+            "Clinical course and treatments between 2007 and 2012",
+            "Brain biopsy pathology and immunophenotyping confirming recurrent DLBCL in 2012"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.35
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E009",
+          "source_text": "In 2012, the brain biopsy pathology showed that the tumour was recurrent DLBCL. Flow cytometric immunophenotyping showed a monoclonal B-cell population positive for CD10, CD19 and CD20 with kappa light chain restriction.",
+          "category": "pathology_report",
+          "temporal_cue": "in 2012 after brain biopsy",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "histopathology and immunophenotyping report of the cardiac mass biopsy performed initially",
+          "current_trajectory_hypothesis": "The cardiac mass biopsy was performed after 2007 MRI, results would confirm primary cardiac lymphoma diagnosis; brain biopsy in 2012 confirmed recurrence as DLBCL.",
+          "confirmed_evidence": [
+            "MRI of the chest in 2007 showed a large right heart mass invading the right atrium and mediastinum",
+            "Brain biopsy pathology in 2012 showed recurrent DLBCL with immunophenotyping CD10, CD19, CD20 positive"
+          ],
+          "missing_key_evidence": [
+            "Histopathology and immunophenotyping confirming the cardiac mass diagnosis as DLBCL",
+            "Details of clinical course and treatment between 2007 and 2012 supporting the PCL diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "No pathology or immunophenotyping report for the initial cardiac mass biopsy is present in the supplied evidence.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Initial large cardiac mass identified in 2007 with brain biopsy in 2012 confirming recurrent DLBCL; interim clinical course and treatment details to support primary cardiac lymphoma diagnosis remain missing",
+          "confirmed_evidence": [
+            "MRI chest in 2007 showed a large right heart mass invading right atrium and mediastinum",
+            "Brain biopsy pathology in 2012 showed recurrent DLBCL with immunophenotype similar to cardiac tumor"
+          ],
+          "missing_key_evidence": [
+            "Histopathology and immunophenotyping confirming cardiac mass as DLBCL",
+            "Clinical course and treatments between 2007 and 2012 that support primary cardiac lymphoma diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E010",
+          "source_text": "The patient was successfully reinduced with high-dose methotrexate resulting in disappearance of the brain mass.",
+          "category": "treatment_response",
+          "temporal_cue": "after brain biopsy in 2012",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "Ask for the patient's clinical course, treatments, or interventions between 2007 and 2012 related to the cardiac mass and possible lymphoma",
+          "current_trajectory_hypothesis": "Initial large cardiac mass suspected as lymphoma in 2007; brain biopsy in 2012 confirmed recurrent DLBCL; interim clinical course and treatments are not yet documented",
+          "confirmed_evidence": [
+            "MRI in 2007 showed large right heart mass invading right atrium and mediastinum",
+            "Brain biopsy pathology in 2012 showed recurrent DLBCL with immunophenotype similar to cardiac tumor",
+            "Patient responded to high-dose methotrexate after 2012 brain biopsy"
+          ],
+          "missing_key_evidence": [
+            "Histopathology and immunophenotyping confirming cardiac mass diagnosis as DLBCL",
+            "Detailed clinical course and treatments from 2007 to 2012 supporting primary cardiac lymphoma diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Initial large cardiac mass suspected lymphoma in 2007; brain biopsy in 2012 confirmed recurrent DLBCL; treatment response documented post-2012; interim clinical course and cardiac biopsy pathology remain missing",
+          "confirmed_evidence": [
+            "MRI chest in 2007 showed large right heart mass invading right atrium and mediastinum",
+            "Brain biopsy pathology in 2012 showed recurrent DLBCL with immunophenotype CD10, CD19, CD20 positive",
+            "Patient responded to high-dose methotrexate after brain biopsy in 2012"
+          ],
+          "missing_key_evidence": [
+            "Histopathology and immunophenotyping confirming cardiac mass diagnosis as DLBCL",
+            "Clinical course and treatments from 2007 to 2012 supporting primary cardiac lymphoma diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E011",
+          "source_text": "Afterwards, on several occasions, he was admitted to the emergency room for treatment of electrolyte disturbances with hypernatraemia from diabetes insipidus. Desmopressin treatment optimised sodium levels and hydration, but despite the successful lymphoma treatment, his altered mental status persisted.",
+          "category": "other",
+          "temporal_cue": "after 2012 methotrexate treatment",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient had large right heart mass with suspected lymphoma in 2007; brain biopsy in 2012 confirmed recurrent DLBCL; patient treated with methotrexate and persistent neurological symptoms; detailed cardiac biopsy pathology and treatment history remain undocumented",
+          "confirmed_evidence": [
+            "MRI chest in 2007 showed a large right heart mass invading right atrium and mediastinum",
+            "Brain biopsy pathology in 2012 showed recurrent DLBCL with immunophenotype CD10, CD19, CD20 positive",
+            "Successful response to high-dose methotrexate post-2012 brain biopsy",
+            "Recurrent hospitalizations for electrolyte disturbances and diabetes insipidus management after 2012 treatment"
+          ],
+          "missing_key_evidence": [
+            "Histopathology and immunophenotyping confirming the cardiac mass as DLBCL",
+            "Detailed clinical course and treatments from 2007 to 2012 supporting primary cardiac lymphoma diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E014",
+          "source_text": "He returned 1 year later and his cognitive functions had improved; memory and learning difficulties persisted but confabulation was no longer evident.",
+          "category": "other",
+          "temporal_cue": "in 2014",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Initial MRI in 2007 showed large right heart mass; brain biopsy in 2012 confirmed recurrent DLBCL; treatment with methotrexate succeeded for brain lesion; interim cardiac biopsy pathology and clinical treatment course remain undocumented",
+          "confirmed_evidence": [
+            "MRI chest in 2007 showed a large right heart mass invading right atrium and mediastinum",
+            "Brain biopsy pathology in 2012 showed recurrent DLBCL positive for CD10, CD19, CD20",
+            "Patient responded to high-dose methotrexate after 2012 brain biopsy",
+            "Recurrent electrolyte disturbances and diabetes insipidus after 2012",
+            "Cognitive function improved in 2014 despite residual memory and learning difficulties"
+          ],
+          "missing_key_evidence": [
+            "Cardiac biopsy histopathology and immunophenotyping confirming diagnosis of primary cardiac lymphoma",
+            "Detailed clinical course and treatments from 2007–2012 supporting the diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E015",
+          "source_text": "He was last seen in the clinic in 2017 (ie, 10 years after onset of cardiac symptoms and 5 years after the CNS relapse); at that time, there was no evidence of tumour recurrence. He had returned to gainful manual work despite the persistence of the amnesia and the fact that he had forgotten how to read and to write, notwithstanding speech and cognitive therapy.",
+          "category": "other",
+          "temporal_cue": "in 2017",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "clinical records or documented clinical course summary from 2007 to 2012 describing treatments or interventions for the cardiac mass suspected primary cardiac lymphoma",
+          "current_trajectory_hypothesis": "Initial large right heart mass detected by MRI in 2007 likely representing primary cardiac lymphoma; brain biopsy in 2012 confirmed recurrent DLBCL; clinical course details on cardiac lymphoma treatment from 2007 to 2012 remain undocumented",
+          "confirmed_evidence": [
+            "MRI chest in 2007 showed a large right heart mass invading the right atrium and mediastinum",
+            "Brain biopsy pathology in 2012 showed recurrent DLBCL with immunophenotype CD10, CD19, CD20 positive",
+            "Patient responded to high-dose methotrexate after brain biopsy in 2012",
+            "Follow-up records indicate persistent neurological effects and cognitive changes post treatment",
+            "Last clinic visit in 2017 showed no tumor recurrence with some residual cognitive impairment"
+          ],
+          "missing_key_evidence": [
+            "Histopathology and immunophenotyping confirming cardiac mass diagnosis as DLBCL",
+            "Clinical course and specific oncologic treatments or interventions from 2007 to 2012 supporting primary cardiac lymphoma diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "clinical note or summary documenting treatment interventions or chemotherapy given for the cardiac mass primary cardiac lymphoma between 2007 and 2012",
+          "current_trajectory_hypothesis": "Initial MRI in 2007 showed a large right heart mass suspected as primary cardiac lymphoma; brain biopsy in 2012 confirmed recurrent DLBCL; treatment and clinical course details for the cardiac lymphoma 2007-2012 remain undocumented",
+          "confirmed_evidence": [
+            "MRI chest in 2007 showed a large right heart mass invading right atrium and mediastinum",
+            "Brain biopsy pathology in 2012 showed recurrent DLBCL with immunophenotype CD10, CD19, CD20 positive",
+            "Patient responded successfully to high-dose methotrexate after 2012 brain biopsy",
+            "Follow-up notes document persistent neurological symptoms and later cognitive improvement",
+            "Last clinic visit in 2017 showed no tumor recurrence with residual cognitive deficits"
+          ],
+          "missing_key_evidence": [
+            "Histopathology and immunophenotyping confirming cardiac mass diagnosis as DLBCL",
+            "Specific oncologic treatments or chemotherapy administered for cardiac lymphoma between 2007-2012 supporting primary cardiac lymphoma diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Initial presentation in 2007 with large right heart mass suspected as primary cardiac lymphoma; brain biopsy in 2012 confirmed recurrent DLBCL; treatment with high-dose methotrexate succeeded for brain relapse; clinical course and biopsy pathology for cardiac mass remain undocumented in available data.",
+          "confirmed_evidence": [
+            "MRI chest in 2007 showed large right heart mass invading right atrium and mediastinum",
+            "Brain biopsy pathology in 2012 showed recurrent DLBCL with CD10, CD19, CD20 positivity",
+            "Patient responded to high-dose methotrexate after brain biopsy",
+            "Follow-up visits documented persistent neurological symptoms and later cognitive improvement",
+            "No tumour recurrence at 2017 clinic visit despite residual cognitive deficits"
+          ],
+          "missing_key_evidence": [
+            "Histopathology and immunophenotyping confirming cardiac mass as DLBCL",
+            "Detailed clinical course and treatment interventions for cardiac lymphoma between 2007-2012"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.45
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No pending results or new clinical trajectory updates available after the current phase",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Primary cardiac lymphoma (PCL) with cerebral relapse as recurrent diffuse large B-cell lymphoma (DLBCL)",
+          "trajectory_summary": "In 2007, a 37-year-old man presented with haemodynamic cardiac compromise. Chest MRI showed a large right heart mass invading the right atrium and mediastinum. Although histopathology of the cardiac biopsy is not documented, the cardiac tumour immunophenotype is described as similar to the later brain biopsy. In 2012, a brain biopsy revealed recurrent DLBCL (CD10, CD19, CD20 positive), confirming cerebral relapse of the previously suspected primary cardiac lymphoma. Post-2012, the patient was successfully treated with high-dose methotrexate leading to disappearance of the brain mass. Subsequent follow-ups noted persistent neurological symptoms with gradual cognitive improvement but no evidence of tumor recurrence as late as 2017.",
+          "key_supporting_evidence": [
+            {
+              "claim": "MRI chest in 2007 showed a large right heart mass invading the right atrium and mediastinum",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Brain biopsy pathology in 2012 confirmed recurrent DLBCL with immunophenotyping positive for CD10, CD19, and CD20",
+              "evidence_ids": [
+                "E009"
+              ]
+            },
+            {
+              "claim": "Immunophenotype of brain tumour similar to the cardiac tumour confirming cerebral relapse of the primary cardiac lymphoma",
+              "evidence_ids": [
+                "E009"
+              ]
+            },
+            {
+              "claim": "Successful treatment with high-dose methotrexate after 2012 brain biopsy resulting in disappearance of the brain mass",
+              "evidence_ids": [
+                "E010"
+              ]
+            },
+            {
+              "claim": "Follow-up visits post-2012 documented persistent neurological symptoms with gradual cognitive improvement and no tumor recurrence by 2017",
+              "evidence_ids": [
+                "E011",
+                "E014",
+                "E015"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [],
+          "remaining_uncertainties": [
+            "No documented histopathology or immunophenotyping report of the cardiac mass biopsy to definitively confirm primary cardiac lymphoma",
+            "No detailed clinical course or oncological treatment records for the cardiac lymphoma between 2007 and 2012"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Primary cardiac lymphoma (PCL) with cerebral relapse as recurrent diffuse large B-cell lymphoma (DLBCL)",
+      "trajectory_summary": "In 2007, a 37-year-old man presented with haemodynamic cardiac compromise. Chest MRI showed a large right heart mass invading the right atrium and mediastinum. Although histopathology of the cardiac biopsy is not documented, the cardiac tumour immunophenotype is described as similar to the later brain biopsy. In 2012, a brain biopsy revealed recurrent DLBCL (CD10, CD19, CD20 positive), confirming cerebral relapse of the previously suspected primary cardiac lymphoma. Post-2012, the patient was successfully treated with high-dose methotrexate leading to disappearance of the brain mass. Subsequent follow-ups noted persistent neurological symptoms with gradual cognitive improvement but no evidence of tumor recurrence as late as 2017.",
+      "key_supporting_evidence": [
+        {
+          "claim": "MRI chest in 2007 showed a large right heart mass invading the right atrium and mediastinum",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Brain biopsy pathology in 2012 confirmed recurrent DLBCL with immunophenotyping positive for CD10, CD19, and CD20",
+          "evidence_ids": [
+            "E009"
+          ]
+        },
+        {
+          "claim": "Immunophenotype of brain tumour similar to the cardiac tumour confirming cerebral relapse of the primary cardiac lymphoma",
+          "evidence_ids": [
+            "E009"
+          ]
+        },
+        {
+          "claim": "Successful treatment with high-dose methotrexate after 2012 brain biopsy resulting in disappearance of the brain mass",
+          "evidence_ids": [
+            "E010"
+          ]
+        },
+        {
+          "claim": "Follow-up visits post-2012 documented persistent neurological symptoms with gradual cognitive improvement and no tumor recurrence by 2017",
+          "evidence_ids": [
+            "E011",
+            "E014",
+            "E015"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [],
+      "remaining_uncertainties": [
+        "No documented histopathology or immunophenotyping report of the cardiac mass biopsy to definitively confirm primary cardiac lymphoma",
+        "No detailed clinical course or oncological treatment records for the cardiac lymphoma between 2007 and 2012"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.7
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-25T19:47:43.729518+00:00",
+    "clinician_model": "gpt-4.1-mini-test",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC6119376",
+    "known_final_diagnosis": "In 2012, the brain biopsy pathology showed that the tumour was recurrent DLBCL. ... This immunophenotype is similar to the cardiac tumour and confirmed the cerebral relapse of the PCL.",
+    "turns_used": 13,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 5,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 6,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "ASK_HISTORY": 1,
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 1,
+      "REQUEST_RESULT": 5,
+      "WAIT_REASSESS": 5
+    },
+    "report_status_counts": {
+      "found": 6,
+      "invalid_report_selection": 3,
+      "no_new_update": 1,
+      "not_reported": 1,
+      "ordered_but_not_documented": 1
+    },
+    "report_repair_attempted_count": 3,
+    "report_repair_failed_count": 3,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 6
+    },
+    "answer_yield": 0.5,
+    "unavailable_turn_rate": 0.25,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-25T19:47:43.732316+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC6119376",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "6",
+    "num_pred_steps": "5",
+    "weighted_tversky_alignment": "0.32432432432432434",
+    "weighted_tversky_distance": "0.6756756756756757",
+    "matched_weight": "3.0",
+    "missed_weight": "3.25",
+    "extra_weight": "1.5",
+    "weighted_lcs_recall": "0.48",
+    "weighted_lcs_weight": "3.0",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "3",
+    "pairwise_correct_pairs": "3",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging > pathology > admission_or_clinical_course > other_or_off_protocol > lab_tests > medication_or_treatment",
+    "prediction_sequence": "imaging > procedure_or_intervention > clinical_history > admission_or_clinical_course > medication_or_treatment",
+    "error": ""
+  }
+}

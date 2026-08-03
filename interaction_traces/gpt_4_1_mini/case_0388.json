@@ -1,0 +1,400 @@
+{
+  "case_id": "case_0388",
+  "pmcid": "PMC10105824",
+  "model": "gpt_4_1_mini",
+  "episode": {
+    "case_id": "PMC10105824",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 8,
+    "termination": "final",
+    "known_final_diagnosis": "According to preoperative imaging, the diagnosis was uterine leiomyoma. However, intraoperative diagnosis confirmed a right ovarian fibroma.",
+    "disclosed_evidence_ids": [
+      "E004",
+      "E005",
+      "E006"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "operative findings and intraoperative diagnosis report",
+          "current_trajectory_hypothesis": "Initial pelvic pain and imaging suggested uterine fibroids; intraoperative diagnosis reportedly found right ovarian fibroma.",
+          "confirmed_evidence": [
+            "Initial ultrasound showed large uterine fibroids without ovarian torsion risk."
+          ],
+          "missing_key_evidence": [
+            "Details of intraoperative findings confirming ovarian fibroma rather than uterine leiomyoma.",
+            "Preoperative imaging reports specifically describing the adnexal mass."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "Visualization of the pelvic organs showed a partially torsioned right adnexal mass, measuring 14 × 10 × 10 cm with many areas of cystic degeneration and hemorrhage as well as a cyst with two pieces of smooth hemorrhagic friable tissue measuring 2.5 × 2 × 0.5 cm (Figures 1, 2). The right ovary was not observed separate from the mass. According to preoperative imaging, the diagnosis was uterine leiomyoma. However, intraoperative diagnosis confirmed a right ovarian fibroma.",
+          "category": "pathology_report",
+          "temporal_cue": "operative",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "preoperative pelvic imaging report describing the adnexal mass",
+          "current_trajectory_hypothesis": "Initial pelvic pain and ultrasound suggested large uterine fibroids; preoperative imaging diagnosed uterine leiomyoma; intraoperative findings revealed right ovarian fibroma with torsion.",
+          "confirmed_evidence": [
+            "Initial ultrasound showed uterine fibroids without evident ovarian torsion risk.",
+            "Intraoperative findings showed a partially torsioned right adnexal mass confirming ovarian fibroma, not uterine leiomyoma."
+          ],
+          "missing_key_evidence": [
+            "Details of the preoperative imaging specifically describing the adnexal mass and its characteristics prior to surgery."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "The MRI findings revealed a solid mass measuring 10.5 × 9.5 × 11.3 cm anterior to the uterine fundus with numerous internal non-enhancing cystic spaces. The mass slightly abuts the anterior uterine fundus but appears to cause mass effect on the uterus. Immediately inferior to this 11 cm mass, a tubular cystic lesion measuring 3.2 × 5.2 × 5.3 cm was found. The uterus was also found to be anteverted, slightly anteflexed, and normal-sized. The findings also included a right ovarian cyst measuring 1.1 cm. The 11 cm solid mass was presumed to represent a pedunculated partially necrotic fibroid that had torsed and disconnected from the uterus. Radiology recommended surgical resection.",
+          "category": "imaging_report",
+          "temporal_cue": "few days after ER visit",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "pathology or histopathology report of the resected ovarian mass",
+          "current_trajectory_hypothesis": "Preoperative pelvic MRI suggested a large solid pedunculated uterine fibroid with torsion. Intraoperative findings identified a right ovarian fibroma, not uterine leiomyoma. Confirmation requires pathologic analysis of the resected mass.",
+          "confirmed_evidence": [
+            "Initial ultrasound showed uterine fibroids without ovarian torsion risk.",
+            "Preoperative MRI identified a large solid pelvic mass presumed to be uterine leiomyoma.",
+            "Intraoperative findings showed a partially torsioned right adnexal mass consistent with ovarian fibroma."
+          ],
+          "missing_key_evidence": [
+            "Histopathological confirmation of ovarian fibroma from the resected specimen.",
+            "Details clarifying differentiation from uterine leiomyoma beyond intraoperative impression."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E005",
+          "source_text": "Visualization of the pelvic organs showed a partially torsioned right adnexal mass, measuring 14 × 10 × 10 cm with many areas of cystic degeneration and hemorrhage as well as a cyst with two pieces of smooth hemorrhagic friable tissue measuring 2.5 × 2 × 0.5 cm (Figures 1, 2). The right ovary was not observed separate from the mass. According to preoperative imaging, the diagnosis was uterine leiomyoma. However, intraoperative diagnosis confirmed a right ovarian fibroma. Following procedure termination, the patient was brought to the recovery room in stable condition. Specimens sent to cytology included aspiration peritoneal fluid and contents of right ovarian cyst, specimens sent to pathology included right adnexal mass, uterus with left ovary, and bilateral fallopian tubes.",
+          "category": "pathology_report",
+          "temporal_cue": "operative",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "histopathology report findings of the resected right adnexal mass specifying tumor cell type, immunohistochemistry, or features distinguishing ovarian fibroma from uterine leiomyoma",
+          "current_trajectory_hypothesis": "Preoperative imaging suggested uterine leiomyoma based on large pelvic mass. Intraoperative findings revealed a partially torsioned right adnexal mass identified as ovarian fibroma. Cytology and pathology specimen collection included the right adnexal mass. Histopathology details will confirm the diagnosis.",
+          "confirmed_evidence": [
+            "Pelvic ultrasound identified uterine fibroids without ovarian torsion risk.",
+            "Pelvic MRI indicated large solid mass presumed uterine leiomyoma with torsion suspected.",
+            "Intraoperative findings indicated a right ovarian fibroma with partial torsion, not uterine leiomyoma.",
+            "Specimens including right adnexal mass sent to pathology and cytology during surgery."
+          ],
+          "missing_key_evidence": [
+            "Histopathological characterization of the right adnexal mass confirming ovarian fibroma.",
+            "Report of immunohistochemical markers or other distinguishing pathology features."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E005",
+          "source_text": "Visualization of the pelvic organs showed a partially torsioned right adnexal mass, measuring 14 × 10 × 10 cm with many areas of cystic degeneration and hemorrhage as well as a cyst with two pieces of smooth hemorrhagic friable tissue measuring 2.5 × 2 × 0.5 cm (Figures 1, 2). The right ovary was not observed separate from the mass. According to preoperative imaging, the diagnosis was uterine leiomyoma. However, intraoperative diagnosis confirmed a right ovarian fibroma.",
+          "category": "pathology_report",
+          "temporal_cue": "operative",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "postoperative clinical course and follow-up notes documenting patient's recovery and any further diagnostic confirmation",
+          "current_trajectory_hypothesis": "Patient with pelvic pain initially suspected to have uterine leiomyoma on imaging but intraoperative findings revealed a right ovarian fibroma. Surgical specimens were sent for pathology confirmation which remains the key step.",
+          "confirmed_evidence": [
+            "Initial pelvic ultrasound showed large uterine fibroids without ovarian torsion risk.",
+            "Pelvic MRI indicated a large solid mass presumed uterine leiomyoma with suspicion for torsion.",
+            "Intraoperative findings identified a partially torsioned right adnexal mass diagnosed as ovarian fibroma.",
+            "Surgical specimens including right adnexal mass sent for pathology and cytology."
+          ],
+          "missing_key_evidence": [
+            "Histopathological details confirming ovarian fibroma with specific cell type or immunohistochemical features.",
+            "Postoperative clinical course and follow-up confirming the diagnosis and patient's recovery."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "After the procedure, the patient’s hospital course was uneventful and a follow-up appointment was scheduled a week following the surgery. Cytology and pathology reports were negative for malignancy.",
+          "category": "clinical_course",
+          "temporal_cue": "postoperative",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "request immunohistochemical staining or detailed histopathology testing specific to the right adnexal mass to distinguish ovarian fibroma from uterine leiomyoma",
+          "current_trajectory_hypothesis": "Preoperative imaging indicated uterine leiomyoma, but intraoperative observations and surgical specimens support a right ovarian fibroma diagnosis; histopathology and immunohistochemistry testing are key for definitive confirmation.",
+          "confirmed_evidence": [
+            "Ultrasound showed uterine fibroids without ovarian torsion risk.",
+            "MRI revealed a large solid mass presumed to be a uterine leiomyoma.",
+            "Intraoperative findings showed a partially torsioned right adnexal mass identified as ovarian fibroma.",
+            "Specimens, including right adnexal mass, were sent to pathology and cytology during surgery.",
+            "Postoperative clinical course was uneventful; pathology and cytology negative for malignancy."
+          ],
+          "missing_key_evidence": [
+            "Detailed histopathology or immunohistochemical confirmation specifically differentiating ovarian fibroma from uterine leiomyoma."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "Order acknowledged but no corresponding source report documents the test result.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Preoperative imaging suggested uterine leiomyoma; intraoperative findings identified right ovarian fibroma with partial torsion; pathology and cytology negative for malignancy; awaiting detailed histopathology or immunohistochemical confirmation.",
+          "confirmed_evidence": [
+            "Initial ultrasound showed uterine fibroids without ovarian torsion risk.",
+            "Pelvic MRI revealed large solid mass presumed uterine leiomyoma.",
+            "Intraoperative findings showed partially torsioned right adnexal mass consistent with ovarian fibroma.",
+            "Surgical specimens sent to pathology and cytology; postoperative course uneventful.",
+            "Pathology and cytology negative for malignancy."
+          ],
+          "missing_key_evidence": [
+            "Detailed histopathological or immunohistochemical confirmation differentiating ovarian fibroma from uterine leiomyoma.",
+            "Further clinical course or follow-up notes documenting definitive diagnosis or patient recovery."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No pending orders, and no undisclosed clinical trajectory updates available after current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Right ovarian fibroma (initially presumed uterine leiomyoma on imaging)",
+          "trajectory_summary": "A 61-year-old woman presented with intense pelvic and abdominal pain. Initial ultrasound revealed large uterine fibroids without ovarian torsion. Preoperative MRI showed a large solid pelvic mass diagnosed as uterine leiomyoma. During surgery, a partially torsioned right adnexal mass was visualized, and intraoperative diagnosis confirmed right ovarian fibroma. Surgical specimens including the right adnexal mass, uterus, ovaries, and fallopian tubes were sent for pathology and cytology. Postoperative course was uneventful, with pathology and cytology negative for malignancy. No additional histopathologic or immunohistochemical details were documented to further differentiate the tumor.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Initial transabdominal ultrasound showed uterine fibroids without evidence of ovarian torsion risk",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Preoperative MRI identified a large solid pelvic mass presumed to be a pedunculated uterine leiomyoma with torsion suspected",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Intraoperative visualization revealed a partially torsioned right adnexal mass with cystic degeneration and hemorrhage; right ovary not seen separate from mass; intraoperative diagnosis confirmed right ovarian fibroma rather than uterine leiomyoma",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "Specimens including right adnexal mass, uterus, ovaries, and fallopian tubes sent to pathology and cytology; pathology and cytology were negative for malignancy",
+              "evidence_ids": [
+                "E005",
+                "E006"
+              ]
+            },
+            {
+              "claim": "Postoperative recovery was uneventful with scheduled follow-up",
+              "evidence_ids": [
+                "E006"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Uterine leiomyoma",
+              "basis": "Preoperative imaging suggested uterine leiomyoma but intraoperative findings and pathology confirmed ovarian fibroma"
+            },
+            {
+              "alternative": "Ovarian malignancy",
+              "basis": "Pathology and cytology reports were negative for malignancy"
+            }
+          ],
+          "remaining_uncertainties": [
+            "Absence of detailed histopathological or immunohistochemical reports specifically differentiating ovarian fibroma from uterine leiomyoma"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Right ovarian fibroma (initially presumed uterine leiomyoma on imaging)",
+      "trajectory_summary": "A 61-year-old woman presented with intense pelvic and abdominal pain. Initial ultrasound revealed large uterine fibroids without ovarian torsion. Preoperative MRI showed a large solid pelvic mass diagnosed as uterine leiomyoma. During surgery, a partially torsioned right adnexal mass was visualized, and intraoperative diagnosis confirmed right ovarian fibroma. Surgical specimens including the right adnexal mass, uterus, ovaries, and fallopian tubes were sent for pathology and cytology. Postoperative course was uneventful, with pathology and cytology negative for malignancy. No additional histopathologic or immunohistochemical details were documented to further differentiate the tumor.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Initial transabdominal ultrasound showed uterine fibroids without evidence of ovarian torsion risk",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Preoperative MRI identified a large solid pelvic mass presumed to be a pedunculated uterine leiomyoma with torsion suspected",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Intraoperative visualization revealed a partially torsioned right adnexal mass with cystic degeneration and hemorrhage; right ovary not seen separate from mass; intraoperative diagnosis confirmed right ovarian fibroma rather than uterine leiomyoma",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "Specimens including right adnexal mass, uterus, ovaries, and fallopian tubes sent to pathology and cytology; pathology and cytology were negative for malignancy",
+          "evidence_ids": [
+            "E005",
+            "E006"
+          ]
+        },
+        {
+          "claim": "Postoperative recovery was uneventful with scheduled follow-up",
+          "evidence_ids": [
+            "E006"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Uterine leiomyoma",
+          "basis": "Preoperative imaging suggested uterine leiomyoma but intraoperative findings and pathology confirmed ovarian fibroma"
+        },
+        {
+          "alternative": "Ovarian malignancy",
+          "basis": "Pathology and cytology reports were negative for malignancy"
+        }
+      ],
+      "remaining_uncertainties": [
+        "Absence of detailed histopathological or immunohistochemical reports specifically differentiating ovarian fibroma from uterine leiomyoma"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.85
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T23:46:20.756340+00:00",
+    "clinician_model": "gpt-4.1-mini-test",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10105824",
+    "known_final_diagnosis": "According to preoperative imaging, the diagnosis was uterine leiomyoma. However, intraoperative diagnosis confirmed a right ovarian fibroma.",
+    "turns_used": 8,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 5,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 3,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_RESULT": 5,
+      "WAIT_REASSESS": 1
+    },
+    "report_status_counts": {
+      "already_disclosed": 2,
+      "found": 3,
+      "no_new_update": 1,
+      "ordered_but_not_documented": 1
+    },
+    "report_repair_attempted_count": 1,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {
+      "verbatim_excerpt is not a contiguous source subspan.": 1
+    },
+    "answer_yield": 0.7142857142857143,
+    "unavailable_turn_rate": 0.2857142857142857,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T23:46:20.758173+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10105824",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "4",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.34615384615384615",
+    "weighted_tversky_distance": "0.6538461538461539",
+    "matched_weight": "2.25",
+    "missed_weight": "2.25",
+    "extra_weight": "1.0",
+    "weighted_lcs_recall": "0.5",
+    "weighted_lcs_weight": "2.25",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "1",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging > admission_or_clinical_course > other_or_off_protocol > pathology",
+    "prediction_sequence": "lab_tests > imaging > admission_or_clinical_course",
+    "error": ""
+  }
+}

@@ -1,0 +1,976 @@
+{
+  "case_id": "case_0017",
+  "pmcid": "PMC12255965",
+  "model": "claude_haiku_4_5",
+  "episode": {
+    "case_id": "PMC12255965",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 14,
+    "termination": "final",
+    "known_final_diagnosis": "Based on the patient’s lymphocyte count, comprehensive medical history, clinical manifestations, the entire treatment process, as well as the results of various auxiliary examinations, we arrived at a consideration of a diagnosis of ICL.",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E003",
+      "E004",
+      "E006",
+      "E008",
+      "E011"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "What is the patient's detailed immunization history, particularly regarding HPV vaccination or any history of warts/verrucae? Also, has there been any documented recurrent or severe infections (respiratory, skin, or other), and any history of malignancy or lymphoproliferative disorders?",
+          "current_trajectory_hypothesis": "35-year-old Chinese male chef presenting with 6-month foamuria and progressive generalized edema with scattered verrucous hyperplasia. Known prior verruca vulgaris at age 29. The final diagnosis is ICL (Idiopathic CD4+ T-cell Lymphocytopenia), which is characterized by low CD4+ T-cell counts without HIV infection, often associated with increased susceptibility to opportunistic infections and malignancies. The verrucous hyperplasia and persistent proteinuria may reflect immune dysfunction.",
+          "confirmed_evidence": [
+            "35-year-old male with 6-month foamuria and progressive generalized edema",
+            "Scattered verrucous hyperplasia on limbs and face",
+            "Prior verruca vulgaris at age 29",
+            "No diabetes, hypertension, or autoimmune disease history",
+            "No family history of renal disease"
+          ],
+          "missing_key_evidence": [
+            "CD4+ T-cell count and lymphocyte differential to confirm ICL diagnosis",
+            "HIV status and other infectious disease serology",
+            "Renal function tests (creatinine, BUN) and urinalysis details",
+            "Proteinuria quantification and kidney biopsy findings if performed",
+            "History of recurrent infections or opportunistic infections",
+            "Temporal relationship between verrucae and immune dysfunction"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.15
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "Physical examination revealed general severe pitting edema. Mild verrucous hyperplasia was noted in the face and upper extremities, while severe and coalescing lesions were present in lower extremities.",
+          "category": "other",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Please provide the patient's CD4+ T-cell count, CD8+ T-cell count, total lymphocyte count, and CD4/CD8 ratio from the initial workup.",
+          "current_trajectory_hypothesis": "35-year-old Chinese male chef with 6-month foamuria, progressive generalized edema, and scattered verrucous hyperplasia (mild on face/upper extremities, severe/coalescing on lower extremities). Prior verruca vulgaris at age 29. The known final diagnosis is ICL (Idiopathic CD4+ T-cell Lymphocytopenia), which requires documented CD4+ T-cell count <400 cells/μL on multiple occasions without HIV infection. The verrucous hyperplasia and proteinuria may reflect immune dysfunction secondary to CD4+ lymphocytopenia.",
+          "confirmed_evidence": [
+            "35-year-old male with 6-month foamuria and progressive generalized edema",
+            "General severe pitting edema on admission",
+            "Mild verrucous hyperplasia on face and upper extremities",
+            "Severe and coalescing verrucous lesions on lower extremities",
+            "Prior verruca vulgaris at age 29",
+            "No diabetes, hypertension, or autoimmune disease history"
+          ],
+          "missing_key_evidence": [
+            "CD4+ T-cell count (critical for ICL diagnosis)",
+            "CD8+ T-cell count and total lymphocyte count",
+            "HIV serology status",
+            "Renal function tests and 24-hour urine protein quantification",
+            "Kidney biopsy findings if performed",
+            "Urinalysis details (proteinuria, hematuria, casts)",
+            "History of opportunistic infections or recurrent infections",
+            "Timeline of symptom progression and immune dysfunction"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order for the requested lymphocyte subset counts placed; results not yet reported.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "Status found is not valid for clinician action ORDER_TEST.",
+          "validation_errors": [
+            "Status found is not valid for clinician action ORDER_TEST."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the CD4+ T-cell count, CD8+ T-cell count, total lymphocyte count, and CD4/CD8 ratio from the initial laboratory workup.",
+          "current_trajectory_hypothesis": "35-year-old Chinese male chef with 6-month foamuria, progressive generalized edema, and scattered verrucous hyperplasia (mild on face/upper extremities, severe/coalescing on lower extremities). Prior verruca vulgaris at age 29. The known final diagnosis is ICL (Idiopathic CD4+ T-cell Lymphocytopenia), which requires documented CD4+ T-cell count <400 cells/μL without HIV infection. The verrucous hyperplasia and proteinuria likely reflect immune dysfunction secondary to CD4+ lymphocytopenia.",
+          "confirmed_evidence": [
+            "35-year-old male with 6-month foamuria and progressive generalized edema",
+            "General severe pitting edema on admission",
+            "Mild verrucous hyperplasia on face and upper extremities",
+            "Severe and coalescing verrucous lesions on lower extremities",
+            "Prior verruca vulgaris at age 29",
+            "No diabetes, hypertension, or autoimmune disease history"
+          ],
+          "missing_key_evidence": [
+            "CD4+ T-cell count (critical for ICL diagnosis confirmation)",
+            "CD8+ T-cell count and total lymphocyte count",
+            "HIV serology status to rule out HIV-related immunosuppression",
+            "Renal function tests (creatinine, BUN) and 24-hour urine protein quantification",
+            "Kidney biopsy findings if performed to characterize proteinuria etiology",
+            "Urinalysis details (proteinuria degree, hematuria, casts)",
+            "History of opportunistic infections or recurrent infections",
+            "Treatment course and response to immunosuppressive therapy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.25
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "At another hospital’s evaluation, initial lab results were: white blood cell counts 6.27 × 10^9/L; mature lymphocyte counts 0.87 × 10^9/L; CD4 + T cell counts: 30/uL; CD8 + T cell counts: 165/uL; CD4/CD8+: 0.18; NK cell counts 56/uL.",
+          "category": "other",
+          "temporal_cue": "before admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the patient's HIV serology status (HIV antibody and/or HIV RNA testing) and results of other infectious disease screening (hepatitis B, hepatitis C, syphilis, CMV, EBV, tuberculosis) performed during the initial workup.",
+          "current_trajectory_hypothesis": "35-year-old Chinese male chef with 6-month foamuria, progressive generalized edema, and scattered verrucous hyperplasia. Prior verruca vulgaris at age 29. Laboratory findings show severely depressed CD4+ T-cell count of 30/μL (normal >500/μL), CD8+ T-cell count 165/μL, and CD4/CD8 ratio of 0.18, consistent with severe immunosuppression. The known final diagnosis is ICL (Idiopathic CD4+ T-cell Lymphocytopenia). To confirm ICL diagnosis, HIV infection must be excluded as the cause of CD4+ lymphocytopenia. The verrucous hyperplasia and proteinuria likely reflect immune dysfunction secondary to CD4+ lymphocytopenia.",
+          "confirmed_evidence": [
+            "35-year-old male with 6-month foamuria and progressive generalized edema",
+            "General severe pitting edema on admission",
+            "Mild verrucous hyperplasia on face and upper extremities; severe and coalescing lesions on lower extremities",
+            "Prior verruca vulgaris at age 29",
+            "CD4+ T-cell count 30/μL (severely depressed)",
+            "CD8+ T-cell count 165/μL",
+            "CD4/CD8 ratio 0.18 (severely inverted)",
+            "NK cell count 56/μL (low)",
+            "Total lymphocyte count 0.87 × 10^9/L (low)",
+            "No diabetes, hypertension, or autoimmune disease history"
+          ],
+          "missing_key_evidence": [
+            "HIV serology status (critical to confirm ICL diagnosis by excluding HIV)",
+            "Other infectious disease serology (hepatitis B/C, syphilis, CMV, EBV, TB)",
+            "Renal function tests (creatinine, BUN) and 24-hour urine protein quantification",
+            "Kidney biopsy findings if performed to characterize proteinuria etiology",
+            "Urinalysis details (proteinuria degree, hematuria, casts)",
+            "History of opportunistic infections or recurrent infections",
+            "Treatment course and response to therapy",
+            "Temporal progression of CD4+ count decline"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.45
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "The diagnostic tests for hepatitis B virus, hepatitis C virus, Epstein-Barr virus (EBV), cytomegalovirus (CMV), syphilis, and HIV were all negative.",
+          "category": "pathology_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the patient's renal function tests (serum creatinine, blood urea nitrogen, estimated glomerular filtration rate) and urinalysis results, including 24-hour urine protein quantification or spot urine protein-to-creatinine ratio.",
+          "current_trajectory_hypothesis": "35-year-old Chinese male chef with 6-month foamuria and progressive generalized edema. Physical exam shows severe pitting edema with mild verrucous hyperplasia on face/upper extremities and severe coalescing lesions on lower extremities. Laboratory findings confirm severe CD4+ T-cell lymphocytopenia (CD4 30/μL, CD8 165/μL, CD4/CD8 0.18, NK 56/μL) with negative HIV and other infectious disease serology, consistent with ICL (Idiopathic CD4+ T-cell Lymphocytopenia). The foamuria and edema suggest concurrent nephrotic syndrome or significant proteinuria, which needs characterization to understand the full clinical trajectory.",
+          "confirmed_evidence": [
+            "35-year-old male with 6-month foamuria and progressive generalized edema",
+            "General severe pitting edema on admission",
+            "Mild verrucous hyperplasia on face and upper extremities; severe and coalescing lesions on lower extremities",
+            "Prior verruca vulgaris at age 29",
+            "CD4+ T-cell count 30/μL (severely depressed)",
+            "CD8+ T-cell count 165/μL",
+            "CD4/CD8 ratio 0.18 (severely inverted)",
+            "NK cell count 56/μL (low)",
+            "Total lymphocyte count 0.87 × 10^9/L (low)",
+            "HIV serology negative",
+            "Hepatitis B, C, EBV, CMV, syphilis all negative",
+            "No diabetes, hypertension, or autoimmune disease history"
+          ],
+          "missing_key_evidence": [
+            "Renal function tests (creatinine, BUN, eGFR) to assess kidney function",
+            "Urinalysis and 24-hour urine protein quantification to characterize proteinuria",
+            "Kidney biopsy findings if performed to determine etiology of proteinuria (membranous nephropathy, minimal change disease, or other)",
+            "History of opportunistic infections or recurrent infections related to CD4+ lymphocytopenia",
+            "Treatment course and response to therapy",
+            "Temporal progression of CD4+ count decline and clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan.",
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the patient's urinalysis results and urine protein quantification (24-hour urine protein or spot urine protein-to-creatinine ratio) from the initial workup.",
+          "current_trajectory_hypothesis": "35-year-old Chinese male chef with 6-month foamuria and progressive generalized edema. Physical exam shows severe pitting edema with mild verrucous hyperplasia on face/upper extremities and severe coalescing lesions on lower extremities. Laboratory findings confirm severe CD4+ T-cell lymphocytopenia (CD4 30/μL, CD8 165/μL, CD4/CD8 0.18, NK 56/μL) with negative HIV and other infectious disease serology, consistent with ICL (Idiopathic CD4+ T-cell Lymphocytopenia). The foamuria and edema suggest concurrent nephrotic syndrome or significant proteinuria that needs characterization.",
+          "confirmed_evidence": [
+            "35-year-old male with 6-month foamuria and progressive generalized edema",
+            "General severe pitting edema on admission",
+            "Mild verrucous hyperplasia on face and upper extremities; severe and coalescing lesions on lower extremities",
+            "Prior verruca vulgaris at age 29",
+            "CD4+ T-cell count 30/μL (severely depressed)",
+            "CD8+ T-cell count 165/μL",
+            "CD4/CD8 ratio 0.18 (severely inverted)",
+            "NK cell count 56/μL (low)",
+            "Total lymphocyte count 0.87 × 10^9/L (low)",
+            "HIV serology negative",
+            "Hepatitis B, C, EBV, CMV, syphilis all negative",
+            "No diabetes, hypertension, or autoimmune disease history"
+          ],
+          "missing_key_evidence": [
+            "Urinalysis and urine protein quantification to characterize proteinuria severity",
+            "Serum creatinine and renal function to assess kidney function",
+            "Kidney biopsy findings if performed to determine etiology of proteinuria",
+            "History of opportunistic infections or recurrent infections related to CD4+ lymphocytopenia",
+            "Treatment course and response to therapy",
+            "Temporal progression of CD4+ count decline and clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E004",
+          "source_text": "Upon admission, laboratory tests showed: urinary protein 4+, red blood cells 71.9/uL, white blood cells 1.8/uL; 24-hour urine protein 4.5 g;",
+          "category": "pathology_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the serum creatinine, blood urea nitrogen (BUN), and estimated glomerular filtration rate (eGFR) from the initial laboratory workup on admission.",
+          "current_trajectory_hypothesis": "35-year-old Chinese male chef with 6-month foamuria and progressive generalized edema. Physical exam shows severe pitting edema with mild verrucous hyperplasia on face/upper extremities and severe coalescing lesions on lower extremities. Laboratory findings confirm severe CD4+ T-cell lymphocytopenia (CD4 30/μL, CD8 165/μL, CD4/CD8 0.18, NK 56/μL) with negative HIV and other infectious disease serology, consistent with ICL (Idiopathic CD4+ T-cell Lymphocytopenia). Urinalysis shows 4+ proteinuria with 24-hour urine protein 4.5 g, indicating nephrotic-range proteinuria. Renal function assessment is needed to complete the clinical picture of concurrent renal involvement.",
+          "confirmed_evidence": [
+            "35-year-old male with 6-month foamuria and progressive generalized edema",
+            "General severe pitting edema on admission",
+            "Mild verrucous hyperplasia on face and upper extremities; severe and coalescing lesions on lower extremities",
+            "Prior verruca vulgaris at age 29",
+            "CD4+ T-cell count 30/μL (severely depressed)",
+            "CD8+ T-cell count 165/μL",
+            "CD4/CD8 ratio 0.18 (severely inverted)",
+            "NK cell count 56/μL (low)",
+            "Total lymphocyte count 0.87 × 10^9/L (low)",
+            "HIV serology negative",
+            "Hepatitis B, C, EBV, CMV, syphilis all negative",
+            "Urinary protein 4+, red blood cells 71.9/uL, white blood cells 1.8/uL",
+            "24-hour urine protein 4.5 g (nephrotic-range proteinuria)",
+            "No diabetes, hypertension, or autoimmune disease history"
+          ],
+          "missing_key_evidence": [
+            "Serum creatinine and renal function (BUN, eGFR) to assess kidney function and rule out renal failure",
+            "Kidney biopsy findings if performed to determine etiology of proteinuria (membranous nephropathy, minimal change disease, or other)",
+            "History of opportunistic infections or recurrent infections related to CD4+ lymphocytopenia",
+            "Treatment course and response to therapy",
+            "Temporal progression of CD4+ count decline and clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E004",
+          "source_text": "Upon admission, laboratory tests showed: urinary protein 4+, red blood cells 71.9/uL, white blood cells 1.8/uL; 24-hour urine protein 4.5 g; serum albumin 16.5 g/l; serum creatinine 63 µmol/L (corresponding to an estimated glomerular filtration rate of 123 mL/min/1.73 m² as calculated by the CKD-EPI equation); hemoglobin 115 g/L; white blood cell counts 3.68 × 10^9/L; mature lymphocyte counts 0.81 × 10^9/L; platelets were normal. CD4 + T cell counts: 77/Ul (reference range, 441–2156/uL); CD8 + T cell counts: 339/uL (reference range,125–1312/uL); CD4/CD8+: 0.23 (reference range, 0.71–2.78); NK cell counts 49/uL (reference range, 95–640/uL). TSH: 24.90 mIU/L, FT3: 3.44pmol/L, TT4: 53.80nmol/L, thyroglobulin: 52.40ng/Ml. Anti-nuclear antibody 1:100, anti-double-stranded DNA antibody with titer of 25.4/IU. All extractable nuclear antigen (ENA) test were negative. The complement C3 levels were reduced to 0.58 g/L, while complement C4 0.17 g/L was within the normal range. Subsequent investigations disclosed that the serum immunoglobulin G (IgG) concentration was markedly diminished, registering at 4.51 g/L. The assays for anti-neutrophil cytoplasmic antibody (ANCA), anti-glomerular basement membrane (GBM) antibody, serum anti-M-type phospholipase A2 receptor (PLA2R) antibody, Coombs’test, antiphospholipid antibody, immunofixation electrophoresis, and tumor biomarkers all manifested negative findings. The viral serological screenings for herpes simplex virus (HSV) and rubella virus (RV) exhibited equivocal results. The diagnostic tests for hepatitis B virus, hepatitis C virus, Epstein-Barr virus (EBV), cytomegalovirus (CMV), syphilis, and HIV were all negative. Bone marrow flow cytometry analysis did not identify any conspicuous aberrant hematopoietic lymphocytes and plasma cells. Whole-genome sequencing failed to detect any genetic polymorphisms or mutations.",
+          "category": "pathology_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the kidney biopsy findings, including histopathology report, immunofluorescence results, and electron microscopy findings if a renal biopsy was performed during the workup or hospitalization.",
+          "current_trajectory_hypothesis": "35-year-old Chinese male chef with 6-month foamuria and progressive generalized edema. Physical exam shows severe pitting edema with mild verrucous hyperplasia on face/upper extremities and severe coalescing lesions on lower extremities. Laboratory findings on admission confirm severe CD4+ T-cell lymphocytopenia (CD4 77/μL, CD8 339/μL, CD4/CD8 0.23, NK 49/μL) with negative HIV and other infectious disease serology, consistent with ICL (Idiopathic CD4+ T-cell Lymphocytopenia). Nephrotic-range proteinuria (4+ on urinalysis, 24-hour urine protein 4.5 g) with hematuria (RBC 71.9/uL) and preserved renal function (creatinine 63 µmol/L, eGFR 123 mL/min/1.73 m²). Additional findings include low serum albumin (16.5 g/L), low IgG (4.51 g/L), reduced C3 (0.58 g/L), elevated TSH (24.90 mIU/L), low-titer ANA (1:100) and anti-dsDNA (25.4 IU), negative ANCA/GBM/PLA2R antibodies, and normal bone marrow flow cytometry. The kidney biopsy findings would help characterize the etiology of proteinuria and its relationship to ICL.",
+          "confirmed_evidence": [
+            "35-year-old male with 6-month foamuria and progressive generalized edema",
+            "General severe pitting edema on admission",
+            "Mild verrucous hyperplasia on face and upper extremities; severe and coalescing lesions on lower extremities",
+            "Prior verruca vulgaris at age 29",
+            "CD4+ T-cell count 77/μL (severely depressed, reference 441–2156/μL)",
+            "CD8+ T-cell count 339/μL (reference 125–1312/μL)",
+            "CD4/CD8 ratio 0.23 (reference 0.71–2.78, severely inverted)",
+            "NK cell count 49/μL (reference 95–640/μL, low)",
+            "Total lymphocyte count 0.81 × 10^9/L (low)",
+            "HIV serology negative",
+            "Hepatitis B, C, EBV, CMV, syphilis all negative",
+            "Urinary protein 4+, RBC 71.9/uL, WBC 1.8/uL",
+            "24-hour urine protein 4.5 g (nephrotic-range proteinuria)",
+            "Serum creatinine 63 µmol/L, eGFR 123 mL/min/1.73 m² (preserved renal function)",
+            "Serum albumin 16.5 g/L (low)",
+            "IgG 4.51 g/L (markedly diminished)",
+            "C3 0.58 g/L (reduced), C4 0.17 g/L (normal)",
+            "TSH 24.90 mIU/L (elevated), FT3 3.44 pmol/L, TT4 53.80 nmol/L",
+            "ANA 1:100, anti-dsDNA 25.4 IU (low-titer)",
+            "ANCA, GBM, PLA2R antibodies negative",
+            "Bone marrow flow cytometry normal",
+            "No diabetes, hypertension, or autoimmune disease history"
+          ],
+          "missing_key_evidence": [
+            "Kidney biopsy histopathology, immunofluorescence, and electron microscopy findings to characterize proteinuria etiology",
+            "History of opportunistic infections or recurrent infections related to CD4+ lymphocytopenia",
+            "Treatment course (immunosuppressive therapy, antiretroviral agents, or other) and response",
+            "Temporal progression of CD4+ count decline and clinical course during hospitalization",
+            "Outcome and follow-up CD4+ counts"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "To clarify the pathological changes of his kidney histology, a renal biopsy was performed in November 2022 (Fig. 2). Pathological diagnosis was secondary membranous nephropathy. Combining clinical and lab findings, pathological diagnosis was class V lupus nephritis.",
+          "category": "pathology_report",
+          "temporal_cue": "November 2022",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the treatment course during hospitalization, including medications administered (immunosuppressive agents, corticosteroids, antiretrovirals, or other therapies), timing of treatment initiation, and clinical response including changes in proteinuria, edema, CD4+ T-cell counts, and any documented complications or opportunistic infections.",
+          "current_trajectory_hypothesis": "35-year-old Chinese male chef with 6-month foamuria and progressive generalized edema. Physical exam shows severe pitting edema with mild verrucous hyperplasia on face/upper extremities and severe coalescing lesions on lower extremities. Laboratory findings on admission confirm severe CD4+ T-cell lymphocytopenia (CD4 77/μL, CD8 339/μL, CD4/CD8 0.23, NK 49/μL) with negative HIV and other infectious disease serology, consistent with ICL (Idiopathic CD4+ T-cell Lymphocytopenia). Nephrotic-range proteinuria (4+ on urinalysis, 24-hour urine protein 4.5 g) with hematuria and preserved renal function. Kidney biopsy in November 2022 revealed secondary membranous nephropathy with class V lupus nephritis. The treatment course and clinical response would complete the trajectory reconstruction and demonstrate how ICL diagnosis was confirmed and managed.",
+          "confirmed_evidence": [
+            "35-year-old male with 6-month foamuria and progressive generalized edema",
+            "General severe pitting edema on admission",
+            "Mild verrucous hyperplasia on face and upper extremities; severe and coalescing lesions on lower extremities",
+            "Prior verruca vulgaris at age 29",
+            "CD4+ T-cell count 77/μL (severely depressed)",
+            "CD8+ T-cell count 339/μL",
+            "CD4/CD8 ratio 0.23 (severely inverted)",
+            "NK cell count 49/μL (low)",
+            "HIV serology negative",
+            "Hepatitis B, C, EBV, CMV, syphilis all negative",
+            "24-hour urine protein 4.5 g (nephrotic-range proteinuria)",
+            "Serum creatinine 63 µmol/L, eGFR 123 mL/min/1.73 m² (preserved renal function)",
+            "Serum albumin 16.5 g/L (low)",
+            "IgG 4.51 g/L (markedly diminished)",
+            "C3 0.58 g/L (reduced)",
+            "TSH 24.90 mIU/L (elevated)",
+            "ANA 1:100, anti-dsDNA 25.4 IU (low-titer)",
+            "ANCA, GBM, PLA2R antibodies negative",
+            "Bone marrow flow cytometry normal",
+            "Kidney biopsy November 2022: secondary membranous nephropathy with class V lupus nephritis"
+          ],
+          "missing_key_evidence": [
+            "Treatment course and medications administered during hospitalization",
+            "Clinical response to treatment (changes in proteinuria, edema, CD4+ counts)",
+            "Documented opportunistic infections or recurrent infections related to CD4+ lymphocytopenia",
+            "Temporal progression of CD4+ count decline and recovery",
+            "Hospital course complications and outcome",
+            "Follow-up CD4+ counts and long-term clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E008",
+          "source_text": "Due to the development of visual field defects following hydroxychloroquine use(0.2 g orally twice daily), the patient discontinued the medication after less than two months of treatment. In light of the patient’s lack of efficacy in the hormonal treatment regimen and the exacerbation of verruca vulgaris following hormonal intervention, along with an immunocompromised state, sulfamethoxazole-trimethoprim (SMZ) was prescribed prophylactically. We recommended immunoglobulin replacement to enhance immunity and mitigate the risk of infection; however, the patient declined due to financial concerns. Levothyroxine sodium (50 µg/day) was administered for subclinical hypothyroidism.",
+          "category": "serology",
+          "temporal_cue": "during initial treatment",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the clinical course and outcome documentation, including: (1) hospital discharge summary with final diagnosis statement; (2) follow-up CD4+ T-cell counts after treatment initiation to document the trajectory of immune reconstitution or persistent lymphocytopenia; (3) response to treatment including changes in proteinuria, edema, and verrucous lesions; (4) any documented opportunistic infections during hospitalization or follow-up; and (5) final clinical status at discharge or last follow-up visit.",
+          "current_trajectory_hypothesis": "35-year-old Chinese male chef with 6-month foamuria and progressive generalized edema presenting with severe CD4+ T-cell lymphocytopenia (CD4 77/μL) without HIV infection, consistent with ICL (Idiopathic CD4+ T-cell Lymphocytopenia). Concurrent nephrotic-range proteinuria (4.5 g/24h) with class V lupus nephritis on kidney biopsy. Treatment included hydroxychloroquine (discontinued after 2 months due to visual field defects), prophylactic SMZ-TMP for opportunistic infection prevention, levothyroxine for subclinical hypothyroidism, and declined immunoglobulin replacement. The clinical course and outcome documentation would complete the trajectory reconstruction and confirm how ICL diagnosis was established and managed.",
+          "confirmed_evidence": [
+            "35-year-old male with 6-month foamuria and progressive generalized edema",
+            "General severe pitting edema on admission with mild verrucous hyperplasia on face/upper extremities and severe coalescing lesions on lower extremities",
+            "Prior verruca vulgaris at age 29",
+            "CD4+ T-cell count 77/μL (severely depressed, reference 441–2156/μL)",
+            "CD8+ T-cell count 339/μL, CD4/CD8 ratio 0.23 (severely inverted)",
+            "NK cell count 49/μL (low)",
+            "HIV serology negative; hepatitis B, C, EBV, CMV, syphilis all negative",
+            "24-hour urine protein 4.5 g with 4+ proteinuria and hematuria (RBC 71.9/uL)",
+            "Serum creatinine 63 µmol/L, eGFR 123 mL/min/1.73 m² (preserved renal function)",
+            "Serum albumin 16.5 g/L (low), IgG 4.51 g/L (markedly diminished)",
+            "C3 0.58 g/L (reduced), TSH 24.90 mIU/L (elevated)",
+            "ANA 1:100, anti-dsDNA 25.4 IU (low-titer); ANCA, GBM, PLA2R antibodies negative",
+            "Bone marrow flow cytometry normal; whole-genome sequencing negative for genetic mutations",
+            "Kidney biopsy November 2022: secondary membranous nephropathy with class V lupus nephritis",
+            "Treatment: hydroxychloroquine (discontinued after <2 months due to visual field defects), prophylactic SMZ-TMP, levothyroxine 50 µg/day, declined immunoglobulin replacement"
+          ],
+          "missing_key_evidence": [
+            "Hospital discharge summary with explicit final diagnosis statement confirming ICL",
+            "Follow-up CD4+ T-cell counts after treatment to document immune trajectory",
+            "Clinical response to treatment (changes in proteinuria, edema, verrucous lesions)",
+            "Documented opportunistic infections during hospitalization or follow-up",
+            "Final clinical status and outcome at discharge or last follow-up",
+            "Temporal relationship between ICL diagnosis confirmation and clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.82
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "During the one-years follow-up, deep vein embolism, acute kidney injury and cytomegaloviraemia occurred, while the proteinuria showed no remission and the verrucous lesions expanded seriously.",
+          "category": "other",
+          "temporal_cue": "one-year follow-up",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the hospital discharge summary or final diagnostic statement that explicitly confirms the diagnosis of ICL (Idiopathic CD4+ T-cell Lymphocytopenia), including the diagnostic criteria used and the clinical reasoning for this diagnosis.",
+          "current_trajectory_hypothesis": "35-year-old Chinese male chef with 6-month foamuria and progressive generalized edema presenting with severe CD4+ T-cell lymphocytopenia (CD4 77/μL) without HIV infection, consistent with ICL (Idiopathic CD4+ T-cell Lymphocytopenia). Concurrent nephrotic-range proteinuria (4.5 g/24h) with class V lupus nephritis on kidney biopsy. Treatment included hydroxychloroquine (discontinued after 2 months due to visual field defects), prophylactic SMZ-TMP, levothyroxine, and declined immunoglobulin replacement. One-year follow-up complicated by deep vein thrombosis, acute kidney injury, cytomegalovirus viremia, progressive verrucous lesions, and persistent proteinuria. The discharge summary or final diagnostic statement would provide explicit confirmation of ICL diagnosis and complete the trajectory reconstruction.",
+          "confirmed_evidence": [
+            "35-year-old male with 6-month foamuria and progressive generalized edema",
+            "General severe pitting edema on admission with mild verrucous hyperplasia on face/upper extremities and severe coalescing lesions on lower extremities",
+            "Prior verruca vulgaris at age 29",
+            "CD4+ T-cell count 77/μL (severely depressed, reference 441–2156/μL)",
+            "CD8+ T-cell count 339/μL, CD4/CD8 ratio 0.23 (severely inverted)",
+            "NK cell count 49/μL (low)",
+            "HIV serology negative; hepatitis B, C, EBV, CMV, syphilis all negative",
+            "24-hour urine protein 4.5 g with 4+ proteinuria and hematuria",
+            "Serum creatinine 63 µmol/L, eGFR 123 mL/min/1.73 m² (preserved renal function)",
+            "Serum albumin 16.5 g/L (low), IgG 4.51 g/L (markedly diminished)",
+            "C3 0.58 g/L (reduced), TSH 24.90 mIU/L (elevated)",
+            "ANA 1:100, anti-dsDNA 25.4 IU (low-titer); ANCA, GBM, PLA2R antibodies negative",
+            "Bone marrow flow cytometry normal; whole-genome sequencing negative for genetic mutations",
+            "Kidney biopsy November 2022: secondary membranous nephropathy with class V lupus nephritis",
+            "Treatment: hydroxychloroquine (discontinued after <2 months due to visual field defects), prophylactic SMZ-TMP, levothyroxine 50 µg/day",
+            "One-year follow-up: deep vein thrombosis, acute kidney injury, cytomegalovirus viremia, progressive verrucous lesions, persistent proteinuria"
+          ],
+          "missing_key_evidence": [
+            "Explicit hospital discharge summary or final diagnostic statement confirming ICL diagnosis",
+            "Diagnostic criteria documentation used to establish ICL diagnosis",
+            "Follow-up CD4+ T-cell counts after treatment to document immune trajectory",
+            "Clinical response to treatment (changes in proteinuria, edema, verrucous lesions)",
+            "Details of cytomegalovirus viremia (CMV viral load, clinical manifestations, treatment)",
+            "Details of acute kidney injury (creatinine elevation, mechanism, treatment response)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E011",
+          "source_text": "Based on the patient’s lymphocyte count, comprehensive medical history, clinical manifestations, the entire treatment process, as well as the results of various auxiliary examinations, we arrived at a consideration of a diagnosis of ICL. Additionally, throughout the disease course, the CD4 + T cell count remained persistently below 150 cells/µL, with no improvement observed even when the prednisone dosage was tapered to 7.5 mg per day and lupus activity was nearly quiescent.",
+          "category": "other",
+          "temporal_cue": "throughout disease course",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide documentation of the CD4+ T-cell count measurements throughout the disease course and follow-up period, including: (1) the initial CD4+ count of 30/μL at another hospital before admission; (2) CD4+ count on admission (77/μL); (3) any CD4+ counts measured during hospitalization or after treatment initiation; and (4) CD4+ counts at one-year follow-up or last documented measurement, to verify the persistent CD4+ lymphocytopenia below 150 cells/μL that remained unresponsive to treatment.",
+          "current_trajectory_hypothesis": "35-year-old Chinese male chef with 6-month foamuria and progressive generalized edema presenting with severe CD4+ T-cell lymphocytopenia (CD4 30/μL initially, 77/μL on admission) without HIV infection, consistent with ICL (Idiopathic CD4+ T-cell Lymphocytopenia). Concurrent nephrotic-range proteinuria (4.5 g/24h) with class V lupus nephritis on kidney biopsy. Treatment included hydroxychloroquine (discontinued after 2 months due to visual field defects), prophylactic SMZ-TMP, levothyroxine, and declined immunoglobulin replacement. One-year follow-up complicated by deep vein thrombosis, acute kidney injury, cytomegalovirus viremia, progressive verrucous lesions, and persistent proteinuria. The diagnosis of ICL was established based on persistent CD4+ T-cell count below 150 cells/μL throughout the disease course despite treatment, with no improvement even when prednisone was tapered to 7.5 mg/day and lupus activity was nearly quiescent. Serial CD4+ measurements would verify this key diagnostic criterion.",
+          "confirmed_evidence": [
+            "35-year-old male with 6-month foamuria and progressive generalized edema",
+            "General severe pitting edema on admission with mild verrucous hyperplasia on face/upper extremities and severe coalescing lesions on lower extremities",
+            "Prior verruca vulgaris at age 29",
+            "CD4+ T-cell count 30/μL at another hospital before admission",
+            "CD4+ T-cell count 77/μL on admission (reference 441–2156/μL)",
+            "CD8+ T-cell count 339/μL, CD4/CD8 ratio 0.23 (severely inverted)",
+            "NK cell count 49/μL (low)",
+            "HIV serology negative; hepatitis B, C, EBV, CMV, syphilis all negative",
+            "24-hour urine protein 4.5 g with 4+ proteinuria and hematuria",
+            "Serum creatinine 63 µmol/L, eGFR 123 mL/min/1.73 m² (preserved renal function)",
+            "Serum albumin 16.5 g/L (low), IgG 4.51 g/L (markedly diminished)",
+            "C3 0.58 g/L (reduced), TSH 24.90 mIU/L (elevated)",
+            "ANA 1:100, anti-dsDNA 25.4 IU (low-titer); ANCA, GBM, PLA2R antibodies negative",
+            "Bone marrow flow cytometry normal; whole-genome sequencing negative for genetic mutations",
+            "Kidney biopsy November 2022: secondary membranous nephropathy with class V lupus nephritis",
+            "Treatment: hydroxychloroquine (discontinued after <2 months due to visual field defects), prophylactic SMZ-TMP, levothyroxine 50 µg/day",
+            "One-year follow-up: deep vein thrombosis, acute kidney injury, cytomegalovirus viremia, progressive verrucous lesions, persistent proteinuria",
+            "CD4+ T-cell count remained persistently below 150 cells/μL throughout disease course with no improvement despite prednisone taper to 7.5 mg/day and near-quiescent lupus activity"
+          ],
+          "missing_key_evidence": [
+            "Serial CD4+ T-cell counts during hospitalization and follow-up to document persistent lymphocytopenia trajectory",
+            "Specific timing and values of CD4+ measurements at key clinical milestones",
+            "Details of cytomegalovirus viremia (CMV viral load, clinical manifestations, treatment)",
+            "Details of acute kidney injury (creatinine elevation, mechanism, treatment response)",
+            "Documentation of prednisone dosing schedule and timing of taper",
+            "Final clinical status and long-term outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.88
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E011",
+          "source_text": "Additionally, throughout the disease course, the CD4 + T cell count remained persistently below 150 cells/µL, with no improvement observed even when the prednisone dosage was tapered to 7.5 mg per day and lupus activity was nearly quiescent.",
+          "category": "other",
+          "temporal_cue": "throughout disease course",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide documentation of any other opportunistic infections or immune-related complications during the hospitalization and follow-up period, including: (1) details of the cytomegalovirus viremia (CMV viral load, clinical manifestations, organ involvement, treatment); (2) details of the acute kidney injury (timing, creatinine elevation, mechanism, whether related to lupus nephritis progression or other causes); (3) details of the deep vein thrombosis (location, timing, treatment); (4) any other documented infections or complications related to the severe CD4+ lymphocytopenia; and (5) response to prophylactic SMZ-TMP and other supportive measures.",
+          "current_trajectory_hypothesis": "35-year-old Chinese male chef with 6-month foamuria and progressive generalized edema presenting with severe CD4+ T-cell lymphocytopenia (CD4 30/μL initially, 77/μL on admission) without HIV infection, consistent with ICL (Idiopathic CD4+ T-cell Lymphocytopenia). Concurrent nephrotic-range proteinuria (4.5 g/24h) with class V lupus nephritis on kidney biopsy. Treatment included hydroxychloroquine (discontinued after 2 months due to visual field defects), prophylactic SMZ-TMP, levothyroxine, and declined immunoglobulin replacement. One-year follow-up complicated by deep vein thrombosis, acute kidney injury, cytomegalovirus viremia, progressive verrucous lesions, and persistent proteinuria. The diagnosis of ICL was established based on persistent CD4+ T-cell count below 150 cells/μL throughout the disease course despite treatment. Documentation of opportunistic infections and complications would further support the ICL diagnosis and demonstrate the clinical consequences of severe CD4+ lymphocytopenia.",
+          "confirmed_evidence": [
+            "35-year-old male with 6-month foamuria and progressive generalized edema",
+            "General severe pitting edema on admission with mild verrucous hyperplasia on face/upper extremities and severe coalescing lesions on lower extremities",
+            "Prior verruca vulgaris at age 29",
+            "CD4+ T-cell count 30/μL at another hospital before admission",
+            "CD4+ T-cell count 77/μL on admission (reference 441–2156/μL)",
+            "CD8+ T-cell count 339/μL, CD4/CD8 ratio 0.23 (severely inverted)",
+            "NK cell count 49/μL (low)",
+            "HIV serology negative; hepatitis B, C, EBV, CMV, syphilis all negative on initial screening",
+            "24-hour urine protein 4.5 g with 4+ proteinuria and hematuria",
+            "Serum creatinine 63 µmol/L, eGFR 123 mL/min/1.73 m² on admission (preserved renal function)",
+            "Serum albumin 16.5 g/L (low), IgG 4.51 g/L (markedly diminished)",
+            "C3 0.58 g/L (reduced), TSH 24.90 mIU/L (elevated)",
+            "ANA 1:100, anti-dsDNA 25.4 IU (low-titer); ANCA, GBM, PLA2R antibodies negative",
+            "Bone marrow flow cytometry normal; whole-genome sequencing negative for genetic mutations",
+            "Kidney biopsy November 2022: secondary membranous nephropathy with class V lupus nephritis",
+            "Treatment: hydroxychloroquine (discontinued after <2 months due to visual field defects), prophylactic SMZ-TMP, levothyroxine 50 µg/day",
+            "One-year follow-up: deep vein thrombosis, acute kidney injury, cytomegalovirus viremia, progressive verrucous lesions, persistent proteinuria",
+            "CD4+ T-cell count remained persistently below 150 cells/μL throughout disease course with no improvement despite prednisone taper to 7.5 mg/day and near-quiescent lupus activity",
+            "Diagnosis of ICL established based on lymphocyte count, comprehensive medical history, clinical manifestations, entire treatment process, and auxiliary examination results"
+          ],
+          "missing_key_evidence": [
+            "Details of cytomegalovirus viremia (CMV viral load, clinical manifestations, organ involvement, treatment response)",
+            "Details of acute kidney injury (timing, creatinine elevation, mechanism, relationship to lupus nephritis or other causes)",
+            "Details of deep vein thrombosis (location, timing, treatment, relationship to ICL or other factors)",
+            "Documentation of other opportunistic infections or immune-related complications",
+            "Response to prophylactic SMZ-TMP and other supportive measures",
+            "Final clinical status and long-term outcome at last follow-up"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E002",
+          "source_text": "During the one-years follow-up, deep vein embolism, acute kidney injury and cytomegaloviraemia occurred, while the proteinuria showed no remission and the verrucous lesions expanded seriously.",
+          "category": "other",
+          "temporal_cue": "one-year follow-up",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 14,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Idiopathic CD4+ T-cell Lymphocytopenia (ICL)",
+          "trajectory_summary": "A 35-year-old Chinese male chef presented with 6-month persistent foamuria and progressive generalized edema. Physical examination revealed severe pitting edema with mild verrucous hyperplasia on face and upper extremities, and severe coalescing verrucous lesions on lower extremities. Initial laboratory workup at another hospital showed CD4+ T-cell count of 30/μL. On admission, repeat testing confirmed severe CD4+ T-cell lymphocytopenia (CD4 77/μL, reference 441–2156/μL) with inverted CD4/CD8 ratio (0.23), low NK cells (49/μL), and low total lymphocytes (0.81 × 10^9/L). HIV serology and other infectious disease screening (hepatitis B/C, EBV, CMV, syphilis) were all negative, excluding HIV-related immunosuppression. Nephrotic-range proteinuria (4.5 g/24h) with hematuria was documented. Renal function was preserved (creatinine 63 µmol/L, eGFR 123 mL/min/1.73 m²). Kidney biopsy in November 2022 revealed secondary membranous nephropathy with class V lupus nephritis. Additional findings included markedly diminished IgG (4.51 g/L), reduced C3 (0.58 g/L), elevated TSH (24.90 mIU/L), low-titer ANA (1:100) and anti-dsDNA (25.4 IU), negative ANCA/GBM/PLA2R antibodies, and normal bone marrow flow cytometry. Whole-genome sequencing revealed no genetic mutations. Treatment included hydroxychloroquine (discontinued after <2 months due to visual field defects), prophylactic sulfamethoxazole-trimethoprim, and levothyroxine. Throughout the disease course, CD4+ T-cell count remained persistently below 150 cells/μL with no improvement despite prednisone taper to 7.5 mg/day and near-quiescent lupus activity. One-year follow-up was complicated by deep vein thrombosis, acute kidney injury, cytomegalovirus viremia, progressive verrucous lesions, and persistent proteinuria. The diagnosis of ICL was established based on the patient's persistent severe CD4+ T-cell lymphocytopenia, comprehensive medical history, clinical manifestations, entire treatment process, and results of various auxiliary examinations.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Severe CD4+ T-cell lymphocytopenia documented on multiple occasions",
+              "evidence_ids": [
+                "E001",
+                "E004",
+                "E011"
+              ]
+            },
+            {
+              "claim": "CD4+ T-cell count persistently below 150 cells/μL throughout disease course unresponsive to treatment",
+              "evidence_ids": [
+                "E011"
+              ]
+            },
+            {
+              "claim": "HIV serology negative, excluding HIV-related immunosuppression as cause of CD4+ lymphocytopenia",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Other infectious disease serology negative (hepatitis B/C, EBV, CMV, syphilis)",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Inverted CD4/CD8 ratio (0.23) with low NK cells (49/μL) and low total lymphocytes (0.81 × 10^9/L)",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Normal bone marrow flow cytometry excluding hematologic malignancy",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Whole-genome sequencing negative for genetic mutations excluding genetic immunodeficiency",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Severe pitting edema with verrucous hyperplasia on physical examination",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Nephrotic-range proteinuria (4.5 g/24h) with hematuria and preserved renal function",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Kidney biopsy showing secondary membranous nephropathy with class V lupus nephritis",
+              "evidence_ids": [
+                "E006"
+              ]
+            },
+            {
+              "claim": "Markedly diminished IgG (4.51 g/L) and reduced C3 (0.58 g/L)",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Low-titer ANA (1:100) and anti-dsDNA (25.4 IU) with negative ANCA/GBM/PLA2R antibodies",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Opportunistic infection (cytomegalovirus viremia) during one-year follow-up consistent with severe immunosuppression",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Treatment with hydroxychloroquine discontinued due to visual field defects; prophylactic SMZ-TMP initiated",
+              "evidence_ids": [
+                "E008"
+              ]
+            },
+            {
+              "claim": "Diagnosis of ICL established based on lymphocyte count, comprehensive medical history, clinical manifestations, entire treatment process, and auxiliary examination results",
+              "evidence_ids": [
+                "E011"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "HIV-related immunosuppression",
+              "basis": "HIV serology negative (E004)"
+            },
+            {
+              "alternative": "Hepatitis B-related immunosuppression",
+              "basis": "Hepatitis B serology negative (E004)"
+            },
+            {
+              "alternative": "Hepatitis C-related immunosuppression",
+              "basis": "Hepatitis C serology negative (E004)"
+            },
+            {
+              "alternative": "CMV-related immunosuppression (primary infection)",
+              "basis": "CMV serology negative on initial screening (E004); CMV viremia occurred during follow-up as opportunistic infection secondary to ICL"
+            },
+            {
+              "alternative": "EBV-related immunosuppression",
+              "basis": "EBV serology negative (E004)"
+            },
+            {
+              "alternative": "Hematologic malignancy or lymphoproliferative disorder",
+              "basis": "Normal bone marrow flow cytometry (E004)"
+            },
+            {
+              "alternative": "Genetic immunodeficiency",
+              "basis": "Whole-genome sequencing negative for genetic mutations (E004)"
+            },
+            {
+              "alternative": "Primary renal disease as cause of proteinuria",
+              "basis": "Kidney biopsy showed secondary membranous nephropathy with class V lupus nephritis, indicating secondary renal involvement; proteinuria likely related to concurrent lupus nephritis rather than primary renal disease"
+            }
+          ],
+          "remaining_uncertainties": [
+            "Specific mechanism of CD4+ T-cell destruction in ICL (etiology remains idiopathic by definition)",
+            "Detailed clinical manifestations and treatment response of cytomegalovirus viremia during one-year follow-up",
+            "Specific mechanism and severity of acute kidney injury during one-year follow-up (whether related to lupus nephritis progression, medication toxicity, or other causes)",
+            "Detailed characteristics of deep vein thrombosis (location, extent, treatment, relationship to ICL or other factors)",
+            "Long-term clinical outcome and final status at last follow-up",
+            "Whether the concurrent lupus nephritis (class V) represents true systemic lupus erythematosus or lupus-like manifestations secondary to ICL"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.92
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Idiopathic CD4+ T-cell Lymphocytopenia (ICL)",
+      "trajectory_summary": "A 35-year-old Chinese male chef presented with 6-month persistent foamuria and progressive generalized edema. Physical examination revealed severe pitting edema with mild verrucous hyperplasia on face and upper extremities, and severe coalescing verrucous lesions on lower extremities. Initial laboratory workup at another hospital showed CD4+ T-cell count of 30/μL. On admission, repeat testing confirmed severe CD4+ T-cell lymphocytopenia (CD4 77/μL, reference 441–2156/μL) with inverted CD4/CD8 ratio (0.23), low NK cells (49/μL), and low total lymphocytes (0.81 × 10^9/L). HIV serology and other infectious disease screening (hepatitis B/C, EBV, CMV, syphilis) were all negative, excluding HIV-related immunosuppression. Nephrotic-range proteinuria (4.5 g/24h) with hematuria was documented. Renal function was preserved (creatinine 63 µmol/L, eGFR 123 mL/min/1.73 m²). Kidney biopsy in November 2022 revealed secondary membranous nephropathy with class V lupus nephritis. Additional findings included markedly diminished IgG (4.51 g/L), reduced C3 (0.58 g/L), elevated TSH (24.90 mIU/L), low-titer ANA (1:100) and anti-dsDNA (25.4 IU), negative ANCA/GBM/PLA2R antibodies, and normal bone marrow flow cytometry. Whole-genome sequencing revealed no genetic mutations. Treatment included hydroxychloroquine (discontinued after <2 months due to visual field defects), prophylactic sulfamethoxazole-trimethoprim, and levothyroxine. Throughout the disease course, CD4+ T-cell count remained persistently below 150 cells/μL with no improvement despite prednisone taper to 7.5 mg/day and near-quiescent lupus activity. One-year follow-up was complicated by deep vein thrombosis, acute kidney injury, cytomegalovirus viremia, progressive verrucous lesions, and persistent proteinuria. The diagnosis of ICL was established based on the patient's persistent severe CD4+ T-cell lymphocytopenia, comprehensive medical history, clinical manifestations, entire treatment process, and results of various auxiliary examinations.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Severe CD4+ T-cell lymphocytopenia documented on multiple occasions",
+          "evidence_ids": [
+            "E001",
+            "E004",
+            "E011"
+          ]
+        },
+        {
+          "claim": "CD4+ T-cell count persistently below 150 cells/μL throughout disease course unresponsive to treatment",
+          "evidence_ids": [
+            "E011"
+          ]
+        },
+        {
+          "claim": "HIV serology negative, excluding HIV-related immunosuppression as cause of CD4+ lymphocytopenia",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Other infectious disease serology negative (hepatitis B/C, EBV, CMV, syphilis)",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Inverted CD4/CD8 ratio (0.23) with low NK cells (49/μL) and low total lymphocytes (0.81 × 10^9/L)",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Normal bone marrow flow cytometry excluding hematologic malignancy",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Whole-genome sequencing negative for genetic mutations excluding genetic immunodeficiency",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Severe pitting edema with verrucous hyperplasia on physical examination",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Nephrotic-range proteinuria (4.5 g/24h) with hematuria and preserved renal function",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Kidney biopsy showing secondary membranous nephropathy with class V lupus nephritis",
+          "evidence_ids": [
+            "E006"
+          ]
+        },
+        {
+          "claim": "Markedly diminished IgG (4.51 g/L) and reduced C3 (0.58 g/L)",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Low-titer ANA (1:100) and anti-dsDNA (25.4 IU) with negative ANCA/GBM/PLA2R antibodies",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Opportunistic infection (cytomegalovirus viremia) during one-year follow-up consistent with severe immunosuppression",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Treatment with hydroxychloroquine discontinued due to visual field defects; prophylactic SMZ-TMP initiated",
+          "evidence_ids": [
+            "E008"
+          ]
+        },
+        {
+          "claim": "Diagnosis of ICL established based on lymphocyte count, comprehensive medical history, clinical manifestations, entire treatment process, and auxiliary examination results",
+          "evidence_ids": [
+            "E011"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "HIV-related immunosuppression",
+          "basis": "HIV serology negative (E004)"
+        },
+        {
+          "alternative": "Hepatitis B-related immunosuppression",
+          "basis": "Hepatitis B serology negative (E004)"
+        },
+        {
+          "alternative": "Hepatitis C-related immunosuppression",
+          "basis": "Hepatitis C serology negative (E004)"
+        },
+        {
+          "alternative": "CMV-related immunosuppression (primary infection)",
+          "basis": "CMV serology negative on initial screening (E004); CMV viremia occurred during follow-up as opportunistic infection secondary to ICL"
+        },
+        {
+          "alternative": "EBV-related immunosuppression",
+          "basis": "EBV serology negative (E004)"
+        },
+        {
+          "alternative": "Hematologic malignancy or lymphoproliferative disorder",
+          "basis": "Normal bone marrow flow cytometry (E004)"
+        },
+        {
+          "alternative": "Genetic immunodeficiency",
+          "basis": "Whole-genome sequencing negative for genetic mutations (E004)"
+        },
+        {
+          "alternative": "Primary renal disease as cause of proteinuria",
+          "basis": "Kidney biopsy showed secondary membranous nephropathy with class V lupus nephritis, indicating secondary renal involvement; proteinuria likely related to concurrent lupus nephritis rather than primary renal disease"
+        }
+      ],
+      "remaining_uncertainties": [
+        "Specific mechanism of CD4+ T-cell destruction in ICL (etiology remains idiopathic by definition)",
+        "Detailed clinical manifestations and treatment response of cytomegalovirus viremia during one-year follow-up",
+        "Specific mechanism and severity of acute kidney injury during one-year follow-up (whether related to lupus nephritis progression, medication toxicity, or other causes)",
+        "Detailed characteristics of deep vein thrombosis (location, extent, treatment, relationship to ICL or other factors)",
+        "Long-term clinical outcome and final status at last follow-up",
+        "Whether the concurrent lupus nephritis (class V) represents true systemic lupus erythematosus or lupus-like manifestations secondary to ICL"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.92
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T04:30:24.238393+00:00",
+    "clinician_model": "claude-haiku-4-5",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC12255965",
+    "known_final_diagnosis": "Based on the patient’s lymphocyte count, comprehensive medical history, clinical manifestations, the entire treatment process, as well as the results of various auxiliary examinations, we arrived at a consideration of a diagnosis of ICL.",
+    "turns_used": 14,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 15,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 7,
+    "gold_reasoning_span_count": 3,
+    "action_counts": {
+      "ASK_HISTORY": 1,
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_RESULT": 11
+    },
+    "report_status_counts": {
+      "already_disclosed": 4,
+      "found": 7,
+      "invalid_report_selection": 1,
+      "ordered_but_not_documented": 1
+    },
+    "report_repair_attempted_count": 4,
+    "report_repair_failed_count": 1,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 1,
+      "Status found is not valid for clinician action ORDER_TEST.": 1,
+      "verbatim_excerpt is not a contiguous source subspan.": 3
+    },
+    "answer_yield": 0.8461538461538461,
+    "unavailable_turn_rate": 0.07692307692307693,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T04:30:24.241349+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC12255965",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "6",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.2413793103448276",
+    "weighted_tversky_distance": "0.7586206896551724",
+    "matched_weight": "1.75",
+    "missed_weight": "4.5",
+    "extra_weight": "0.5",
+    "weighted_lcs_recall": "0.28",
+    "weighted_lcs_weight": "1.75",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "1",
+    "pairwise_inversions": "0",
+    "gold_sequence": "lab_tests > admission_or_clinical_course > other_or_off_protocol > pathology > imaging > medication_or_treatment",
+    "prediction_sequence": "clinical_history > lab_tests > admission_or_clinical_course",
+    "error": ""
+  }
+}

@@ -1,0 +1,382 @@
+{
+  "case_id": "case_0102",
+  "pmcid": "PMC10775661",
+  "model": "gpt_4_1_mini",
+  "episode": {
+    "case_id": "PMC10775661",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 8,
+    "termination": "final",
+    "known_final_diagnosis": "Autosomal dominant polycystic kidney disease with right pelvic ectopic multicystic kidney",
+    "disclosed_evidence_ids": [
+      "E003",
+      "E004",
+      "E005"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "order renal ultrasound imaging to evaluate kidney morphology and locate renal cysts",
+          "current_trajectory_hypothesis": "Adult male presents with painless hematuria and left flank pain, possible renal pathology such as cystic disease or ectopic kidney",
+          "confirmed_evidence": [
+            "painless and total hematuria",
+            "left flank dull constant pain",
+            "elevated blood pressure (154/112 mmHg)",
+            "no abdominal tenderness or mass"
+          ],
+          "missing_key_evidence": [
+            "imaging evidence to identify polycystic kidney disease and ectopic kidney",
+            "laboratory evidence for renal function and hematuria source"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Renal ultrasound imaging was ordered but no direct source evidence exists of this order distinct from other imaging.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "renal ultrasound imaging report",
+          "current_trajectory_hypothesis": "Adult male with painless hematuria and left flank pain, ordered renal ultrasound to evaluate for cystic kidney disease or ectopic kidney",
+          "confirmed_evidence": [
+            "painless and total hematuria",
+            "left flank dull constant pain",
+            "elevated blood pressure 154/112 mmHg",
+            "no abdominal tenderness or mass"
+          ],
+          "missing_key_evidence": [
+            "renal ultrasound findings to confirm polycystic kidney disease",
+            "evidence of right pelvic ectopic multicystic kidney on imaging",
+            "laboratory evidence for renal function"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "Abdominal ultrasonography showed both kidneys to be larger than normal and had multiple cysts of varying sizes with the right kidney located in the right iliac fossa (Fig. 1).",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "order serum creatinine and blood urea nitrogen (BUN) to assess renal function",
+          "current_trajectory_hypothesis": "The patient presents with hematuria and left flank pain, renal ultrasound shows enlarged kidneys with multiple cysts and an ectopic right kidney, consistent with possible polycystic kidney disease with ectopic multicystic kidney; renal function needs evaluation",
+          "confirmed_evidence": [
+            "painless and total hematuria",
+            "left flank dull constant pain",
+            "elevated blood pressure 154/112 mmHg",
+            "abdominal ultrasound showing enlarged kidneys with multiple cysts and right pelvic ectopic kidney"
+          ],
+          "missing_key_evidence": [
+            "renal function laboratory tests such as serum creatinine and BUN",
+            "confirmation of diagnosis through longitudinal course or additional imaging",
+            "any histopathologic confirmation if taken",
+            "any documented treatment response or outcomes"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "Order acknowledged; no direct source result yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "serum creatinine and blood urea nitrogen (BUN) lab results",
+          "current_trajectory_hypothesis": "Patient with painless hematuria and left flank pain has ultrasound confirmed enlarged kidneys with multiple cysts and right pelvic ectopic kidney; renal function labs pending to assess kidney impairment",
+          "confirmed_evidence": [
+            "painless and total hematuria",
+            "left flank dull constant pain",
+            "elevated blood pressure 154/112 mmHg",
+            "abdominal ultrasound showing enlarged kidneys with multiple cysts and right pelvic ectopic kidney"
+          ],
+          "missing_key_evidence": [
+            "renal function laboratory tests results",
+            "any documented treatment response or outcomes",
+            "longitudinal clinical course or additional imaging if available",
+            "histopathologic confirmation if performed"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "His renal function was deranged. [sodium 140 mmol/l, potassium 4.9 mmol/l, urea 13.6 μmol/l, creatinine 518 μmol/l, eGFR 13 ml/min]",
+          "category": "routine_lab",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "order urinalysis and urine microscopy to evaluate hematuria characteristics and possible infection or casts",
+          "current_trajectory_hypothesis": "Patient with painless total hematuria and left flank pain has renal ultrasound confirming enlarged multicystic kidneys with right pelvic ectopic kidney and deranged renal function, consistent with autosomal dominant polycystic kidney disease and ectopic multicystic kidney; further urine studies needed to characterize hematuria and exclude infection or other causes",
+          "confirmed_evidence": [
+            "painless and total hematuria",
+            "left flank dull constant pain",
+            "elevated blood pressure 154/112 mmHg",
+            "ultrasound showing enlarged kidneys with multiple cysts and right pelvic ectopic kidney",
+            "deranged renal function with creatinine 518 μmol/l, eGFR 13 ml/min"
+          ],
+          "missing_key_evidence": [
+            "urinalysis and urine microscopy to assess hematuria source",
+            "longitudinal clinical course, treatment response, or outcomes documented",
+            "any histopathologic confirmation if performed"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "The order for urinalysis and urine microscopy has been placed; however, no source evidence documents the result.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "urinalysis and urine microscopy results",
+          "current_trajectory_hypothesis": "The patient with painless total hematuria and left flank pain has ultrasound evidence of enlarged multicystic kidneys with a right pelvic ectopic kidney, and deranged renal function. To further characterize the hematuria and exclude infection or other microscopic abnormalities, urinalysis and urine microscopy results are needed.",
+          "confirmed_evidence": [
+            "painless and total hematuria",
+            "left flank dull constant pain",
+            "elevated blood pressure 154/112 mmHg",
+            "ultrasound showing enlarged kidneys with multiple cysts and right pelvic ectopic kidney",
+            "deranged renal function with creatinine 518 μmol/l, eGFR 13 ml/min"
+          ],
+          "missing_key_evidence": [
+            "urinalysis and urine microscopy to assess hematuria characteristics and exclude infection or other causes",
+            "longitudinal clinical course, documented treatment response, or outcome",
+            "any histopathology if performed"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No urinalysis or urine microscopy results found in the source evidence.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Confirmed autosomal dominant polycystic kidney disease with ectopic right pelvic multicystic kidney on ultrasound with renal impairment; awaiting further clinical course or treatment response for longitudinal trajectory confirmation",
+          "confirmed_evidence": [
+            "painless and total hematuria",
+            "left flank dull constant pain",
+            "elevated blood pressure 154/112 mmHg",
+            "ultrasound showing enlarged kidneys with multiple cysts and right pelvic ectopic kidney",
+            "deranged renal function with creatinine 518 μmol/l, eGFR 13 ml/min"
+          ],
+          "missing_key_evidence": [
+            "further clinical course or treatment response",
+            "urinalysis and urine microscopy results",
+            "histopathologic confirmation if performed"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "Abdominopelvic computer tomographic scan (CT-Scan) without contrast showed enlarged kidneys with the renal parenchyma replaced by innumerable cyst of varying sizes. The right kidney was ectopically located in the right aspect of the pelvis. The right and left kidneys measure 18.8 cm × 8.0 cm and 21 cm × 9.8 cm respectively. The cysts were hypodense with thin walls with some of the walls calcified. The other intra-abdominal organs did not have cysts (Figs. 2, 3 and 4).",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Autosomal dominant polycystic kidney disease with right pelvic ectopic multicystic kidney",
+          "trajectory_summary": "A 46-year-old Ghanaian male presented with painless total hematuria and left flank dull pain, and elevated blood pressure. Abdominal ultrasound showed enlarged kidneys with multiple cysts of varying sizes and a right kidney ectopically located in the right iliac fossa. Renal function tests revealed marked impairment with creatinine 518 μmol/l and eGFR 13 ml/min. CT scan confirmed enlarged kidneys with numerous cysts replacing the renal parenchyma and ectopic right pelvic kidney with calcified cyst walls. No other abdominal organs were affected.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Painless total hematuria and left flank dull constant pain with elevated blood pressure",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Abdominal ultrasound showed enlarged bilateral kidneys with multiple cysts and right ectopic kidney in right iliac fossa",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Renal function deranged with elevated creatinine 518 μmol/l, urea 13.6 μmol/l, low eGFR 13 ml/min",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "CT Scan showed enlarged kidneys with renal parenchyma replaced by innumerable cysts, hypodense thin-walled cysts with some wall calcification, and right kidney ectopically located in pelvis",
+              "evidence_ids": [
+                "E005"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [],
+          "remaining_uncertainties": [
+            "No urinalysis or urine microscopy results documented to further characterize hematuria",
+            "No histopathologic confirmation documented",
+            "No longitudinal clinical course, treatment response, or outcomes documented"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Autosomal dominant polycystic kidney disease with right pelvic ectopic multicystic kidney",
+      "trajectory_summary": "A 46-year-old Ghanaian male presented with painless total hematuria and left flank dull pain, and elevated blood pressure. Abdominal ultrasound showed enlarged kidneys with multiple cysts of varying sizes and a right kidney ectopically located in the right iliac fossa. Renal function tests revealed marked impairment with creatinine 518 μmol/l and eGFR 13 ml/min. CT scan confirmed enlarged kidneys with numerous cysts replacing the renal parenchyma and ectopic right pelvic kidney with calcified cyst walls. No other abdominal organs were affected.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Painless total hematuria and left flank dull constant pain with elevated blood pressure",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Abdominal ultrasound showed enlarged bilateral kidneys with multiple cysts and right ectopic kidney in right iliac fossa",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Renal function deranged with elevated creatinine 518 μmol/l, urea 13.6 μmol/l, low eGFR 13 ml/min",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "CT Scan showed enlarged kidneys with renal parenchyma replaced by innumerable cysts, hypodense thin-walled cysts with some wall calcification, and right kidney ectopically located in pelvis",
+          "evidence_ids": [
+            "E005"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [],
+      "remaining_uncertainties": [
+        "No urinalysis or urine microscopy results documented to further characterize hematuria",
+        "No histopathologic confirmation documented",
+        "No longitudinal clinical course, treatment response, or outcomes documented"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-25T18:26:25.512608+00:00",
+    "clinician_model": "gpt-4.1-mini-test",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10775661",
+    "known_final_diagnosis": "Autosomal dominant polycystic kidney disease with right pelvic ectopic multicystic kidney",
+    "turns_used": 8,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 4,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 3,
+    "gold_reasoning_span_count": 3,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 3,
+      "REQUEST_RESULT": 3,
+      "WAIT_REASSESS": 1
+    },
+    "report_status_counts": {
+      "found": 3,
+      "not_reported": 1,
+      "ordered_but_not_documented": 3
+    },
+    "report_repair_attempted_count": 1,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {
+      "verbatim_excerpt is not a contiguous source subspan.": 1
+    },
+    "answer_yield": 0.42857142857142855,
+    "unavailable_turn_rate": 0.5714285714285714,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-25T18:26:25.514358+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10775661",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "5",
+    "num_pred_steps": "2",
+    "weighted_tversky_alignment": "0.45454545454545453",
+    "weighted_tversky_distance": "0.5454545454545454",
+    "matched_weight": "2.5",
+    "missed_weight": "3.0",
+    "extra_weight": "0.0",
+    "weighted_lcs_recall": "0.2727272727272727",
+    "weighted_lcs_weight": "1.5",
+    "weighted_pairwise_order_accuracy": "0.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "1",
+    "gold_sequence": "lab_tests > other_or_off_protocol > imaging > pathology > admission_or_clinical_course",
+    "prediction_sequence": "imaging > lab_tests",
+    "error": ""
+  }
+}

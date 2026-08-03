@@ -1,0 +1,715 @@
+{
+  "case_id": "case_0050",
+  "pmcid": "PMC10037015",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC10037015",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 15,
+    "termination": "final",
+    "known_final_diagnosis": "The patient was diagnosed with NOMI.",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E003",
+      "E004",
+      "E005"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "Please describe the characteristics of the sudden-onset abdominal pain, including location, radiation, severity, and any associated symptoms.",
+          "current_trajectory_hypothesis": "The patient presented with sudden-onset abdominal pain, metabolic acidosis, and inflammatory markers, but initial CT did not show occlusive ischemia. The final diagnosis is NOMI, suggesting a non-occlusive ischemic process.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Detailed characteristics of abdominal pain",
+            "Specific inflammatory markers",
+            "Hemodynamic status",
+            "Further diagnostic workup for NOMI",
+            "Evidence confirming NOMI"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "No source record describes the characteristics of the sudden-onset abdominal pain including location, radiation, severity, or associated symptoms.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the specific laboratory values for serum phosphate, lactate, white blood cell count, and any other inflammatory markers (e.g., CRP) at presentation.",
+          "current_trajectory_hypothesis": "The patient presented with sudden-onset abdominal pain, metabolic lactic acidosis, elevated serum phosphate, leukocytosis, and inflammatory signs. Initial CT did not show occlusive bowel ischemia. The final diagnosis is NOMI, suggesting a non-occlusive ischemic process, likely related to hypoperfusion or underlying comorbidities.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Specific lab values for acidosis and inflammation",
+            "Details of initial abdominal CT findings",
+            "Hemodynamic status at presentation",
+            "Further diagnostic workup for NOMI",
+            "Evidence confirming NOMI"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.15
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "Arterial blood gas testing showed metabolic lactic acidosis (pH 7.110, pCO2 32 mmHg, HCO3 9.5 mmol/L, lactate 9.1 mmol/L). Further laboratory investigations revealed leukocytosis, marked inflammatory signs, and renal dysfunction (Table). Furthermore, a remarkable elevation in serum phosphate level (14.4 mg/dL), disproportionate to the renal dysfunction, was noted.",
+          "category": "routine_lab",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the detailed findings of the initial abdominal contrast-enhanced CT scan, specifically looking for signs of bowel wall thickening, pneumatosis, portal venous gas, or any other findings suggestive of ischemia or alternative diagnoses.",
+          "current_trajectory_hypothesis": "The patient presented with sudden-onset abdominal pain, severe metabolic lactic acidosis, elevated serum phosphate, leukocytosis, and inflammatory signs. Initial CT was reported as not showing specific signs of bowel ischemia, but NOMI is the final diagnosis, suggesting a non-occlusive process. I need to understand the full details of the initial CT to see if there were any subtle signs or if it primarily ruled out occlusive causes.",
+          "confirmed_evidence": [
+            "Patient presented with sudden-onset abdominal pain",
+            "Metabolic lactic acidosis (pH 7.110, pCO2 32 mmHg, HCO3 9.5 mmol/L, lactate 9.1 mmol/L) at presentation",
+            "Leukocytosis and marked inflammatory signs at presentation",
+            "Elevated serum phosphate (14.4 mg/dL) at presentation",
+            "Renal dysfunction at presentation"
+          ],
+          "missing_key_evidence": [
+            "Detailed findings of initial abdominal CT scan",
+            "Hemodynamic status at presentation",
+            "Further diagnostic workup for NOMI",
+            "Evidence confirming NOMI"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "Abdominal contrast-enhanced CT revealed a dilated colon and small intestine, containing fluids. However, complete or closed-loop obstruction was not observed. Free air, ascites, and other signs of an ischemic bowel, such as the absence of bowel wall enhancement, pneumatosis intestinalis, hepatic portal venous gas, and bowel wall thickening, were not seen (Fig. 1).",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "Please provide the patient's vital signs at presentation, including blood pressure, heart rate, respiratory rate, and temperature, and any documented signs of hypoperfusion or shock.",
+          "current_trajectory_hypothesis": "The patient presented with sudden-onset abdominal pain, severe metabolic lactic acidosis, elevated serum phosphate, leukocytosis, and inflammatory signs. Initial CT showed dilated bowel but no clear signs of occlusive ischemia. Given the final diagnosis of NOMI, I need to investigate the patient's hemodynamic status at presentation, as hypoperfusion is a key factor in NOMI.",
+          "confirmed_evidence": [
+            "Patient presented with sudden-onset abdominal pain",
+            "Metabolic lactic acidosis (pH 7.110, pCO2 32 mmHg, HCO3 9.5 mmol/L, lactate 9.1 mmol/L) at presentation",
+            "Leukocytosis and marked inflammatory signs at presentation",
+            "Elevated serum phosphate (14.4 mg/dL) at presentation",
+            "Renal dysfunction at presentation",
+            "Initial abdominal contrast-enhanced CT showed dilated colon and small intestine with fluids, but no complete/closed-loop obstruction, free air, ascites, or specific signs of ischemic bowel (no absence of bowel wall enhancement, pneumatosis intestinalis, hepatic portal venous gas, or bowel wall thickening)."
+          ],
+          "missing_key_evidence": [
+            "Hemodynamic status at presentation",
+            "Further diagnostic workup for NOMI",
+            "Evidence confirming NOMI"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.25
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E001",
+          "source_text": "Upon admission, her O2 saturation was 98% with the administration of 4 L of oxygen, and her limbs were cold with mottled skin.",
+          "category": "routine_lab",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "Please provide the patient's specific vital signs at presentation, including blood pressure, heart rate, respiratory rate, and temperature.",
+          "current_trajectory_hypothesis": "The patient presented with sudden-onset abdominal pain, severe metabolic lactic acidosis, elevated serum phosphate, leukocytosis, and inflammatory signs. Initial CT showed dilated bowel but no clear signs of occlusive ischemia. Signs of hypoperfusion (cold limbs, mottled skin) were noted. Given the final diagnosis of NOMI, understanding the full hemodynamic status at presentation is crucial.",
+          "confirmed_evidence": [
+            "Patient presented with sudden-onset abdominal pain",
+            "Metabolic lactic acidosis (pH 7.110, pCO2 32 mmHg, HCO3 9.5 mmol/L, lactate 9.1 mmol/L) at presentation",
+            "Leukocytosis and marked inflammatory signs at presentation",
+            "Elevated serum phosphate (14.4 mg/dL) at presentation",
+            "Renal dysfunction at presentation",
+            "Initial abdominal contrast-enhanced CT showed dilated colon and small intestine with fluids, but no complete/closed-loop obstruction, free air, ascites, or specific signs of ischemic bowel (no absence of bowel wall enhancement, pneumatosis intestinalis, hepatic portal venous gas, or bowel wall thickening).",
+            "O2 saturation was 98% with 4 L of oxygen at admission",
+            "Limbs were cold with mottled skin at admission"
+          ],
+          "missing_key_evidence": [
+            "Specific vital signs (BP, HR, RR, Temp) at presentation",
+            "Further diagnostic workup for NOMI",
+            "Evidence confirming NOMI"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "One hour after admission, her systolic blood pressure decreased from 139 to 60 mmHg and she went into shock.",
+          "category": "other",
+          "temporal_cue": "one hour after admission",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "Please provide the patient's heart rate, respiratory rate, and temperature at presentation.",
+          "current_trajectory_hypothesis": "The patient presented with sudden-onset abdominal pain, severe metabolic lactic acidosis, elevated serum phosphate, leukocytosis, and inflammatory signs. Initial CT showed dilated bowel but no clear signs of occlusive ischemia. At admission, systolic BP was 139 mmHg, but rapidly decreased to 60 mmHg within an hour, leading to shock, with signs of hypoperfusion (cold limbs, mottled skin). This severe hypoperfusion is a strong predisposing factor for NOMI. I need to complete the initial hemodynamic picture and then focus on the diagnostic confirmation of NOMI.",
+          "confirmed_evidence": [
+            "Patient presented with sudden-onset abdominal pain",
+            "Metabolic lactic acidosis (pH 7.110, pCO2 32 mmHg, HCO3 9.5 mmol/L, lactate 9.1 mmol/L) at presentation",
+            "Leukocytosis and marked inflammatory signs at presentation",
+            "Elevated serum phosphate (14.4 mg/dL) at presentation",
+            "Renal dysfunction at presentation",
+            "Initial abdominal contrast-enhanced CT showed dilated colon and small intestine with fluids, but no complete/closed-loop obstruction, free air, ascites, or specific signs of ischemic bowel (no absence of bowel wall enhancement, pneumatosis intestinalis, hepatic portal venous gas, or bowel wall thickening).",
+            "O2 saturation was 98% with 4 L of oxygen at admission",
+            "Limbs were cold with mottled skin at admission",
+            "Systolic blood pressure was 139 mmHg at admission, decreasing to 60 mmHg within one hour, leading to shock."
+          ],
+          "missing_key_evidence": [
+            "Heart rate, respiratory rate, and temperature at presentation",
+            "Further diagnostic workup for NOMI",
+            "Evidence confirming NOMI"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.35
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "explanation": "No source record reports the heart rate, respiratory rate, or temperature at presentation.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Given the patient's clinical deterioration into shock and suspicion of NOMI despite negative initial CT for occlusive ischemia, what further diagnostic imaging or procedure was performed to investigate bowel ischemia?",
+          "current_trajectory_hypothesis": "The patient presented with sudden-onset abdominal pain, severe metabolic lactic acidosis, elevated serum phosphate, leukocytosis, and inflammatory signs. Initial CT showed dilated bowel but no clear signs of occlusive ischemia. The patient rapidly deteriorated into shock with signs of hypoperfusion. This clinical picture strongly suggests NOMI. I need to identify the diagnostic steps taken to confirm NOMI.",
+          "confirmed_evidence": [
+            "Patient presented with sudden-onset abdominal pain",
+            "Metabolic lactic acidosis (pH 7.110, pCO2 32 mmHg, HCO3 9.5 mmol/L, lactate 9.1 mmol/L) at presentation",
+            "Leukocytosis and marked inflammatory signs at presentation",
+            "Elevated serum phosphate (14.4 mg/dL) at presentation",
+            "Renal dysfunction at presentation",
+            "Initial abdominal contrast-enhanced CT showed dilated colon and small intestine with fluids, but no complete/closed-loop obstruction, free air, ascites, or specific signs of ischemic bowel (no absence of bowel wall enhancement, pneumatosis intestinalis, hepatic portal venous gas, or bowel wall thickening).",
+            "O2 saturation was 98% with 4 L of oxygen at admission",
+            "Limbs were cold with mottled skin at admission",
+            "Systolic blood pressure was 139 mmHg at admission, decreasing to 60 mmHg within one hour, leading to shock."
+          ],
+          "missing_key_evidence": [
+            "Diagnostic workup for NOMI confirmation (e.g., angiography, endoscopy, surgery)",
+            "Evidence confirming NOMI"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "explanation": "Order recorded; source documents emergency laparotomy after clinical deterioration.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the findings from the emergency laparotomy, specifically looking for signs of bowel ischemia, necrosis, or other abnormalities.",
+          "current_trajectory_hypothesis": "The patient presented with sudden-onset abdominal pain, severe metabolic lactic acidosis, elevated serum phosphate, leukocytosis, and inflammatory signs. Initial CT showed dilated bowel but no clear signs of occlusive ischemia. The patient rapidly deteriorated into shock with signs of hypoperfusion. An emergency laparotomy was performed, which is a key step in diagnosing NOMI.",
+          "confirmed_evidence": [
+            "Patient presented with sudden-onset abdominal pain",
+            "Metabolic lactic acidosis (pH 7.110, pCO2 32 mmHg, HCO3 9.5 mmol/L, lactate 9.1 mmol/L) at presentation",
+            "Leukocytosis and marked inflammatory signs at presentation",
+            "Elevated serum phosphate (14.4 mg/dL) at presentation",
+            "Renal dysfunction at presentation",
+            "Initial abdominal contrast-enhanced CT showed dilated colon and small intestine with fluids, but no complete/closed-loop obstruction, free air, ascites, or specific signs of ischemic bowel (no absence of bowel wall enhancement, pneumatosis intestinalis, hepatic portal venous gas, or bowel wall thickening).",
+            "O2 saturation was 98% with 4 L of oxygen at admission",
+            "Limbs were cold with mottled skin at admission",
+            "Systolic blood pressure was 139 mmHg at admission, decreasing to 60 mmHg within one hour, leading to shock.",
+            "Emergency laparotomy was performed after clinical deterioration."
+          ],
+          "missing_key_evidence": [
+            "Findings from emergency laparotomy",
+            "Evidence confirming NOMI"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.45
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the gross findings observed during the emergency laparotomy, specifically describing the appearance of the bowel and any other abdominal organs.",
+          "current_trajectory_hypothesis": "The patient presented with sudden-onset abdominal pain, severe metabolic lactic acidosis, elevated serum phosphate, leukocytosis, and inflammatory signs. Initial CT showed dilated bowel but no clear signs of occlusive ischemia. The patient rapidly deteriorated into shock with signs of hypoperfusion. An emergency laparotomy was performed, which is a key step in diagnosing NOMI. I need to understand the direct observations from this procedure to confirm the diagnosis.",
+          "confirmed_evidence": [
+            "Patient presented with sudden-onset abdominal pain",
+            "Metabolic lactic acidosis (pH 7.110, pCO2 32 mmHg, HCO3 9.5 mmol/L, lactate 9.1 mmol/L) at presentation",
+            "Leukocytosis and marked inflammatory signs at presentation",
+            "Elevated serum phosphate (14.4 mg/dL) at presentation",
+            "Renal dysfunction at presentation",
+            "Initial abdominal contrast-enhanced CT showed dilated colon and small intestine with fluids, but no complete/closed-loop obstruction, free air, ascites, or specific signs of ischemic bowel (no absence of bowel wall enhancement, pneumatosis intestinalis, hepatic portal venous gas, or bowel wall thickening).",
+            "O2 saturation was 98% with 4 L of oxygen at admission",
+            "Limbs were cold with mottled skin at admission",
+            "Systolic blood pressure was 139 mmHg at admission, decreasing to 60 mmHg within one hour, leading to shock.",
+            "Emergency laparotomy was performed after clinical deterioration."
+          ],
+          "missing_key_evidence": [
+            "Gross findings from emergency laparotomy",
+            "Evidence confirming NOMI"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "The ileum and whole colon, except for the sigmoid, were discontinuously necrotic despite pulsation of the superior mesenteric artery (Fig. 2). There was no bowel obstruction.",
+          "category": "image_finding",
+          "temporal_cue": "six hours after admission",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide any pathological findings from resected bowel tissue, or the definitive diagnosis made based on the surgical findings.",
+          "current_trajectory_hypothesis": "The patient presented with sudden-onset abdominal pain, severe metabolic lactic acidosis, elevated serum phosphate, leukocytosis, and inflammatory signs. Initial CT showed dilated bowel but no clear signs of occlusive ischemia. The patient rapidly deteriorated into shock with signs of hypoperfusion. Emergency laparotomy revealed discontinuously necrotic ileum and whole colon despite patent mesenteric arteries, strongly suggesting NOMI. I need to confirm the definitive diagnosis based on these findings, potentially with pathology.",
+          "confirmed_evidence": [
+            "Patient presented with sudden-onset abdominal pain",
+            "Metabolic lactic acidosis (pH 7.110, pCO2 32 mmHg, HCO3 9.5 mmol/L, lactate 9.1 mmol/L) at presentation",
+            "Leukocytosis and marked inflammatory signs at presentation",
+            "Elevated serum phosphate (14.4 mg/dL) at presentation",
+            "Renal dysfunction at presentation",
+            "Initial abdominal contrast-enhanced CT showed dilated colon and small intestine with fluids, but no complete/closed-loop obstruction, free air, ascites, or specific signs of ischemic bowel (no absence of bowel wall enhancement, pneumatosis intestinalis, hepatic portal venous gas, or bowel wall thickening).",
+            "O2 saturation was 98% with 4 L of oxygen at admission",
+            "Limbs were cold with mottled skin at admission",
+            "Systolic blood pressure was 139 mmHg at admission, decreasing to 60 mmHg within one hour, leading to shock.",
+            "Emergency laparotomy was performed after clinical deterioration.",
+            "Gross findings during laparotomy (six hours after admission) showed discontinuously necrotic ileum and whole colon (except sigmoid), despite pulsation of the superior mesenteric artery, with no bowel obstruction."
+          ],
+          "missing_key_evidence": [
+            "Pathological confirmation of NOMI",
+            "Subsequent clinical course and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E004",
+          "source_text": "The ileum and whole colon, except for the sigmoid, were discontinuously necrotic despite pulsation of the superior mesenteric artery (Fig. 2). There was no bowel obstruction.",
+          "category": "image_finding",
+          "temporal_cue": "six hours after admission",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the pathology report findings from any resected bowel tissue, or the explicit statement of the final diagnosis of NOMI based on the surgical findings.",
+          "current_trajectory_hypothesis": "The patient presented with sudden-onset abdominal pain, severe metabolic lactic acidosis, elevated serum phosphate, leukocytosis, and inflammatory signs. Initial CT showed dilated bowel but no clear signs of occlusive ischemia. The patient rapidly deteriorated into shock with signs of hypoperfusion. Emergency laparotomy revealed discontinuously necrotic ileum and whole colon despite patent mesenteric arteries, with no bowel obstruction, which is highly suggestive of NOMI. I need to confirm the definitive diagnosis, ideally with a pathology report or an explicit diagnostic statement.",
+          "confirmed_evidence": [
+            "Patient presented with sudden-onset abdominal pain",
+            "Metabolic lactic acidosis (pH 7.110, pCO2 32 mmHg, HCO3 9.5 mmol/L, lactate 9.1 mmol/L) at presentation",
+            "Leukocytosis and marked inflammatory signs at presentation",
+            "Elevated serum phosphate (14.4 mg/dL) at presentation",
+            "Renal dysfunction at presentation",
+            "Initial abdominal contrast-enhanced CT showed dilated colon and small intestine with fluids, but no complete/closed-loop obstruction, free air, ascites, or specific signs of ischemic bowel (no absence of bowel wall enhancement, pneumatosis intestinalis, hepatic portal venous gas, or bowel wall thickening).",
+            "O2 saturation was 98% with 4 L of oxygen at admission",
+            "Limbs were cold with mottled skin at admission",
+            "Systolic blood pressure was 139 mmHg at admission, decreasing to 60 mmHg within one hour, leading to shock.",
+            "Emergency laparotomy was performed after clinical deterioration.",
+            "Gross findings during laparotomy (six hours after admission) showed discontinuously necrotic ileum and whole colon (except sigmoid), despite pulsation of the superior mesenteric artery, with no bowel obstruction."
+          ],
+          "missing_key_evidence": [
+            "Pathological confirmation of NOMI",
+            "Subsequent clinical course and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the pathology report findings from the resected bowel tissue.",
+          "current_trajectory_hypothesis": "The patient presented with sudden-onset abdominal pain, severe metabolic lactic acidosis, elevated serum phosphate, leukocytosis, and inflammatory signs. Initial CT showed dilated bowel but no clear signs of occlusive ischemia. The patient rapidly deteriorated into shock with signs of hypoperfusion. Emergency laparotomy revealed discontinuously necrotic ileum and whole colon despite patent mesenteric arteries, with no bowel obstruction, which is highly suggestive of NOMI. I need to confirm the definitive diagnosis with a pathology report.",
+          "confirmed_evidence": [
+            "Patient presented with sudden-onset abdominal pain",
+            "Metabolic lactic acidosis (pH 7.110, pCO2 32 mmHg, HCO3 9.5 mmol/L, lactate 9.1 mmol/L) at presentation",
+            "Leukocytosis and marked inflammatory signs at presentation",
+            "Elevated serum phosphate (14.4 mg/dL) at presentation",
+            "Renal dysfunction at presentation",
+            "Initial abdominal contrast-enhanced CT showed dilated colon and small intestine with fluids, but no complete/closed-loop obstruction, free air, ascites, or specific signs of ischemic bowel (no absence of bowel wall enhancement, pneumatosis intestinalis, hepatic portal venous gas, or bowel wall thickening).",
+            "O2 saturation was 98% with 4 L of oxygen at admission",
+            "Limbs were cold with mottled skin at admission",
+            "Systolic blood pressure was 139 mmHg at admission, decreasing to 60 mmHg within one hour, leading to shock.",
+            "Emergency laparotomy was performed after clinical deterioration.",
+            "Gross findings during laparotomy (six hours after admission) showed discontinuously necrotic ileum and whole colon (except sigmoid), despite pulsation of the superior mesenteric artery, with no bowel obstruction."
+          ],
+          "missing_key_evidence": [
+            "Pathological confirmation of NOMI",
+            "Subsequent clinical course and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "No source record provides pathology report findings from the resected bowel tissue.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with sudden-onset abdominal pain, severe metabolic lactic acidosis, elevated serum phosphate, leukocytosis, and inflammatory signs. Initial CT showed dilated bowel but no clear signs of occlusive ischemia. The patient rapidly deteriorated into shock with signs of hypoperfusion. Emergency laparotomy revealed discontinuously necrotic ileum and whole colon despite patent mesenteric arteries, with no bowel obstruction, which is highly suggestive of NOMI. I need to understand the subsequent clinical course and outcome to complete the trajectory.",
+          "confirmed_evidence": [
+            "Patient presented with sudden-onset abdominal pain",
+            "Metabolic lactic acidosis (pH 7.110, pCO2 32 mmHg, HCO3 9.5 mmol/L, lactate 9.1 mmol/L) at presentation",
+            "Leukocytosis and marked inflammatory signs at presentation",
+            "Elevated serum phosphate (14.4 mg/dL) at presentation",
+            "Renal dysfunction at presentation",
+            "Initial abdominal contrast-enhanced CT showed dilated colon and small intestine with fluids, but no complete/closed-loop obstruction, free air, ascites, or specific signs of ischemic bowel (no absence of bowel wall enhancement, pneumatosis intestinalis, hepatic portal venous gas, or bowel wall thickening).",
+            "O2 saturation was 98% with 4 L of oxygen at admission",
+            "Limbs were cold with mottled skin at admission",
+            "Systolic blood pressure was 139 mmHg at admission, decreasing to 60 mmHg within one hour, leading to shock.",
+            "Emergency laparotomy was performed after clinical deterioration.",
+            "Gross findings during laparotomy (six hours after admission) showed discontinuously necrotic ileum and whole colon (except sigmoid), despite pulsation of the superior mesenteric artery, with no bowel obstruction."
+          ],
+          "missing_key_evidence": [
+            "Subsequent clinical course and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "The patient was diagnosed with NOMI. Therefore, ileal resection, subtotal colectomy, and jejunostomy were performed. The residual jejunal length was 120 cm.",
+          "category": "other",
+          "temporal_cue": "after surgery",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 14,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with sudden-onset abdominal pain, severe metabolic lactic acidosis, elevated serum phosphate, leukocytosis, and inflammatory signs. Initial CT showed dilated bowel but no clear signs of occlusive ischemia. The patient rapidly deteriorated into shock with signs of hypoperfusion. Emergency laparotomy revealed discontinuously necrotic ileum and whole colon despite patent mesenteric arteries, with no bowel obstruction, leading to the diagnosis of NOMI. Surgical intervention included ileal resection, subtotal colectomy, and jejunostomy. I need to understand the subsequent clinical course and outcome to complete the trajectory.",
+          "confirmed_evidence": [
+            "Patient presented with sudden-onset abdominal pain",
+            "Metabolic lactic acidosis (pH 7.110, pCO2 32 mmHg, HCO3 9.5 mmol/L, lactate 9.1 mmol/L) at presentation",
+            "Leukocytosis and marked inflammatory signs at presentation",
+            "Elevated serum phosphate (14.4 mg/dL) at presentation",
+            "Renal dysfunction at presentation",
+            "Initial abdominal contrast-enhanced CT showed dilated colon and small intestine with fluids, but no complete/closed-loop obstruction, free air, ascites, or specific signs of ischemic bowel (no absence of bowel wall enhancement, pneumatosis intestinalis, hepatic portal venous gas, or bowel wall thickening).",
+            "O2 saturation was 98% with 4 L of oxygen at admission",
+            "Limbs were cold with mottled skin at admission",
+            "Systolic blood pressure was 139 mmHg at admission, decreasing to 60 mmHg within one hour, leading to shock.",
+            "Emergency laparotomy was performed after clinical deterioration.",
+            "Gross findings during laparotomy (six hours after admission) showed discontinuously necrotic ileum and whole colon (except sigmoid), despite pulsation of the superior mesenteric artery, with no bowel obstruction.",
+            "The patient was diagnosed with NOMI.",
+            "Ileal resection, subtotal colectomy, and jejunostomy were performed, with a residual jejunal length of 120 cm."
+          ],
+          "missing_key_evidence": [
+            "Subsequent clinical course and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No pending orders and no undisclosed clinical course updates after current phase",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 15,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "NOMI",
+          "trajectory_summary": "An 86-year-old woman with a history of diabetes, hypertension, angina pectoris, and chronic kidney disease presented with sudden-onset abdominal pain. Initial laboratory tests revealed severe metabolic lactic acidosis (pH 7.110, lactate 9.1 mmol/L), leukocytosis, marked inflammatory signs, renal dysfunction, and a significantly elevated serum phosphate level (14.4 mg/dL). An initial abdominal contrast-enhanced CT scan showed dilated colon and small intestine with fluids but ruled out complete/closed-loop obstruction, free air, ascites, and specific signs of occlusive ischemic bowel (no absence of bowel wall enhancement, pneumatosis intestinalis, hepatic portal venous gas, or bowel wall thickening). At admission, she exhibited signs of hypoperfusion (cold limbs, mottled skin) and her systolic blood pressure rapidly decreased from 139 mmHg to 60 mmHg within one hour, leading to shock. Due to clinical deterioration, an emergency laparotomy was performed six hours after admission. Surgical findings revealed discontinuously necrotic ileum and whole colon (except for the sigmoid), despite pulsation of the superior mesenteric artery, and no bowel obstruction. Based on these findings, the patient was diagnosed with NOMI, and underwent ileal resection, subtotal colectomy, and jejunostomy.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with sudden-onset abdominal pain, metabolic lactic acidosis, leukocytosis, inflammatory signs, and elevated serum phosphate.",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Initial abdominal CT showed dilated bowel but no signs of occlusive ischemia or obstruction.",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Patient rapidly deteriorated into shock with signs of hypoperfusion (cold limbs, mottled skin) and severe hypotension.",
+              "evidence_ids": [
+                "E001",
+                "E003"
+              ]
+            },
+            {
+              "claim": "Emergency laparotomy revealed discontinuously necrotic ileum and whole colon despite patent mesenteric arteries and no bowel obstruction.",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "The patient was diagnosed with NOMI and underwent surgical resection.",
+              "evidence_ids": [
+                "E005"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Complete or closed-loop bowel obstruction",
+              "basis": "Initial CT showed no complete or closed-loop obstruction (E002); laparotomy confirmed no bowel obstruction (E004)."
+            },
+            {
+              "alternative": "Occlusive ischemic bowel",
+              "basis": "Initial CT showed no specific signs of ischemic bowel such as absence of bowel wall enhancement, pneumatosis intestinalis, hepatic portal venous gas, or bowel wall thickening (E002); laparotomy revealed pulsation of the superior mesenteric artery (E004)."
+            }
+          ],
+          "remaining_uncertainties": [
+            "Specific heart rate, respiratory rate, and temperature at presentation.",
+            "Specific values for other inflammatory markers (e.g., CRP).",
+            "Pathology report findings from resected bowel tissue.",
+            "Detailed post-operative clinical course and long-term outcome."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "NOMI",
+      "trajectory_summary": "An 86-year-old woman with a history of diabetes, hypertension, angina pectoris, and chronic kidney disease presented with sudden-onset abdominal pain. Initial laboratory tests revealed severe metabolic lactic acidosis (pH 7.110, lactate 9.1 mmol/L), leukocytosis, marked inflammatory signs, renal dysfunction, and a significantly elevated serum phosphate level (14.4 mg/dL). An initial abdominal contrast-enhanced CT scan showed dilated colon and small intestine with fluids but ruled out complete/closed-loop obstruction, free air, ascites, and specific signs of occlusive ischemic bowel (no absence of bowel wall enhancement, pneumatosis intestinalis, hepatic portal venous gas, or bowel wall thickening). At admission, she exhibited signs of hypoperfusion (cold limbs, mottled skin) and her systolic blood pressure rapidly decreased from 139 mmHg to 60 mmHg within one hour, leading to shock. Due to clinical deterioration, an emergency laparotomy was performed six hours after admission. Surgical findings revealed discontinuously necrotic ileum and whole colon (except for the sigmoid), despite pulsation of the superior mesenteric artery, and no bowel obstruction. Based on these findings, the patient was diagnosed with NOMI, and underwent ileal resection, subtotal colectomy, and jejunostomy.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with sudden-onset abdominal pain, metabolic lactic acidosis, leukocytosis, inflammatory signs, and elevated serum phosphate.",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Initial abdominal CT showed dilated bowel but no signs of occlusive ischemia or obstruction.",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Patient rapidly deteriorated into shock with signs of hypoperfusion (cold limbs, mottled skin) and severe hypotension.",
+          "evidence_ids": [
+            "E001",
+            "E003"
+          ]
+        },
+        {
+          "claim": "Emergency laparotomy revealed discontinuously necrotic ileum and whole colon despite patent mesenteric arteries and no bowel obstruction.",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "The patient was diagnosed with NOMI and underwent surgical resection.",
+          "evidence_ids": [
+            "E005"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Complete or closed-loop bowel obstruction",
+          "basis": "Initial CT showed no complete or closed-loop obstruction (E002); laparotomy confirmed no bowel obstruction (E004)."
+        },
+        {
+          "alternative": "Occlusive ischemic bowel",
+          "basis": "Initial CT showed no specific signs of ischemic bowel such as absence of bowel wall enhancement, pneumatosis intestinalis, hepatic portal venous gas, or bowel wall thickening (E002); laparotomy revealed pulsation of the superior mesenteric artery (E004)."
+        }
+      ],
+      "remaining_uncertainties": [
+        "Specific heart rate, respiratory rate, and temperature at presentation.",
+        "Specific values for other inflammatory markers (e.g., CRP).",
+        "Pathology report findings from resected bowel tissue.",
+        "Detailed post-operative clinical course and long-term outcome."
+      ],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T20:43:29.411941+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10037015",
+    "known_final_diagnosis": "The patient was diagnosed with NOMI.",
+    "turns_used": 15,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 5,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 5,
+    "gold_reasoning_span_count": 2,
+    "action_counts": {
+      "ASK_HISTORY": 1,
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_EXAM": 3,
+      "REQUEST_RESULT": 7,
+      "WAIT_REASSESS": 2
+    },
+    "report_status_counts": {
+      "already_disclosed": 2,
+      "found": 5,
+      "invalid_report_selection": 2,
+      "no_new_update": 1,
+      "not_reported": 3,
+      "ordered_but_not_documented": 1
+    },
+    "report_repair_attempted_count": 4,
+    "report_repair_failed_count": 2,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 4,
+      "verbatim_excerpt is not a contiguous source subspan.": 2
+    },
+    "answer_yield": 0.5,
+    "unavailable_turn_rate": 0.35714285714285715,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T20:43:29.413674+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10037015",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/emergencymed/episodes/PMC10037015.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/emergencymed/cases/PMC10037015.json",
+    "num_gold_steps": "4",
+    "num_pred_steps": "5",
+    "weighted_tversky_alignment": "0.56",
+    "weighted_tversky_distance": "0.43999999999999995",
+    "matched_weight": "3.5",
+    "missed_weight": "0.75",
+    "extra_weight": "1.0",
+    "weighted_lcs_recall": "0.8235294117647058",
+    "weighted_lcs_weight": "3.5",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "3",
+    "pairwise_correct_pairs": "3",
+    "pairwise_inversions": "0",
+    "gold_sequence": "lab_tests > imaging > admission_or_clinical_course > procedure_or_intervention",
+    "prediction_sequence": "clinical_history > lab_tests > imaging > physical_examination > procedure_or_intervention",
+    "error": ""
+  }
+}

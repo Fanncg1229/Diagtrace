@@ -1,0 +1,476 @@
+{
+  "case_id": "case_0090",
+  "pmcid": "PMC5344281",
+  "model": "kimi_k2_5",
+  "episode": {
+    "case_id": "PMC5344281",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 9,
+    "termination": "final",
+    "known_final_diagnosis": "After pathological confirmation of IMT, the patient was referred for surgery in order to remove the mass.",
+    "disclosed_evidence_ids": [
+      "E004",
+      "E005",
+      "E006",
+      "E008"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "CT scan of abdomen and pelvis performed during the initial workup at the referring center or upon admission to Razi Hospital",
+          "current_trajectory_hypothesis": "68-year-old man with chronic RLQ/hypogastric pain, weight loss, and anorexia likely found to have an abdominal mass on imaging, subsequently diagnosed as IMT via pathology",
+          "confirmed_evidence": [
+            "68-year-old male with one month history of colicky hypogastric/RLQ pain radiating to back",
+            "Associated with 2-3 kg weight loss and anorexia",
+            "Prior prostatectomy and H. pylori infection",
+            "No fever, nausea, vomiting, or infectious symptoms"
+          ],
+          "missing_key_evidence": [
+            "Imaging findings demonstrating the mass location and characteristics",
+            "Laboratory results (CBC, inflammatory markers, tumor markers)",
+            "Pathology report confirming IMT diagnosis",
+            "Details of surgical referral and mass resection"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "An abdominal CT scan showed a well-demarcated and homogenous solitary mass in the cecum with no distention in the ileum. The ileum wall was thickened (Figure 1).",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Pathology report from biopsy or surgical specimen of the cecal mass confirming inflammatory myofibroblastic tumor (IMT)",
+          "current_trajectory_hypothesis": "68-year-old man with cecal mass discovered on CT imaging underwent tissue sampling (likely colonoscopic biopsy or surgical excision) demonstrating inflammatory myofibroblastic tumor, leading to surgical referral for mass removal",
+          "confirmed_evidence": [
+            "68-year-old male with one month history of colicky hypogastric/RLQ pain radiating to back",
+            "Associated with 2-3 kg weight loss and anorexia",
+            "CT scan showing well-demarcated homogeneous solitary mass in cecum with thickened ileum wall (E004)",
+            "No ileal distention on imaging"
+          ],
+          "missing_key_evidence": [
+            "Pathology report confirming IMT diagnosis with specific histologic features",
+            "Method of tissue acquisition (colonoscopy, CT-guided biopsy, or surgical specimen)",
+            "Laboratory results (CBC, inflammatory markers)",
+            "Surgical referral details and operative findings",
+            "Immunohistochemical staining results supporting IMT diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "The lamina propria was infiltrated by a number of PMNCs admixed by some eosinophils (Figure 3). Immunohistochemical evaluation was positive for vimentin and CD68. C-Kit (CD117) was negative while CD34, smooth muscle actin (SMA), and ALK were focally positive. There were no reports of cyclin D1, desmin, or pancytokeratin (Figure 4).",
+          "category": "pathology_report",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Colonoscopy report describing the cecal mass appearance and biopsy procedure performed to obtain tissue for pathological diagnosis",
+          "current_trajectory_hypothesis": "68-year-old man with RLQ pain and cecal mass on CT underwent colonoscopic evaluation with biopsy of the cecal mass showing inflammatory infiltrate with spindle cells and characteristic IHC profile (vimentin+, CD68+, ALK focal+, SMA focal+, CD117-), leading to pathological diagnosis of IMT and subsequent surgical referral",
+          "confirmed_evidence": [
+            "68-year-old male with one month history of colicky hypogastric/RLQ pain radiating to back",
+            "Associated with 2-3 kg weight loss and anorexia",
+            "CT scan showing well-demarcated homogeneous solitary mass in cecum with thickened ileum wall (E004)",
+            "Pathology showing lamina propria infiltrated by PMNCs and eosinophils with IHC positive for vimentin, CD68, focally positive for CD34, SMA, and ALK, negative for CD117 (E006)"
+          ],
+          "missing_key_evidence": [
+            "Colonoscopic visualization and description of the cecal mass",
+            "Method of tissue acquisition (endoscopic biopsy vs other)",
+            "Explicit final pathologic diagnosis statement naming 'Inflammatory Myofibroblastic Tumor'",
+            "Surgical referral documentation and operative outcome",
+            "Pre-operative laboratory workup (CBC, inflammatory markers)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "A colonoscopy revealed a large mass like lesion in the cecum (Figure 2); during the procedure a biopsy was taken from the cecum.",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Final pathologic diagnosis statement explicitly naming 'Inflammatory Myofibroblastic Tumor' or 'IMT' based on the colonoscopic biopsy findings",
+          "current_trajectory_hypothesis": "68-year-old man with RLQ pain and cecal mass underwent colonoscopy (E005) showing large mass-like lesion with biopsy, pathology demonstrating inflammatory infiltrate with spindle cells and characteristic IHC profile (vimentin+, CD68+, ALK focal+, SMA focal+, CD117-) consistent with IMT (E006), leading to pathological confirmation and subsequent surgical referral for mass removal",
+          "confirmed_evidence": [
+            "68-year-old male with one month history of colicky hypogastric/RLQ pain radiating to back",
+            "Associated with 2-3 kg weight loss and anorexia",
+            "CT scan showing well-demarcated homogeneous solitary mass in cecum with thickened ileum wall (E004)",
+            "Colonoscopy revealing large mass-like lesion in cecum with biopsy obtained (E005)",
+            "Pathology showing lamina propria infiltrated by PMNCs and eosinophils with IHC positive for vimentin, CD68, focally positive for CD34, SMA, and ALK, negative for CD117 (E006)"
+          ],
+          "missing_key_evidence": [
+            "Explicit final pathologic diagnosis statement naming 'Inflammatory Myofibroblastic Tumor'",
+            "Surgical referral documentation and operative outcome",
+            "Pre-operative laboratory workup (CBC, inflammatory markers)",
+            "Post-operative course and treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E008",
+          "source_text": "After pathological confirmation of IMT, the patient was referred for surgery in order to remove the mass.",
+          "category": "treatment_response",
+          "temporal_cue": "after diagnosis",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Final pathology report conclusion or diagnosis line explicitly stating 'Inflammatory Myofibroblastic Tumor' or 'IMT' as the definitive diagnosis",
+          "current_trajectory_hypothesis": "68-year-old man with chronic RLQ pain and cecal mass underwent colonoscopic biopsy (E005) demonstrating spindle cell proliferation with inflammatory infiltrate and characteristic IHC profile (ALK+, SMA+, vimentin+, CD68+, CD117-) diagnostic of IMT (E006), confirmed by pathology report naming the diagnosis, leading to surgical referral for mass excision (E008)",
+          "confirmed_evidence": [
+            "68-year-old male with one month history of colicky hypogastric/RLQ pain radiating to back with weight loss and anorexia",
+            "CT scan showing well-demarcated homogeneous solitary cecal mass with thickened ileum wall (E004)",
+            "Colonoscopy revealing large mass-like lesion in cecum with biopsy obtained (E005)",
+            "Histopathology showing PMNCs, eosinophils, and spindle cells with IHC positive for vimentin, CD68, focal ALK, SMA, CD34, negative for CD117 (E006)",
+            "Pathological confirmation of IMT leading to surgical referral for mass removal (E008)"
+          ],
+          "missing_key_evidence": [
+            "Explicit final pathologic diagnosis statement with 'Inflammatory Myofibroblastic Tumor' nomenclature",
+            "Surgical procedure details and outcome",
+            "Pre-operative laboratory workup (CBC, inflammatory markers, tumor markers)",
+            "Post-operative course and follow-up"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No source record explicitly states the final pathology report conclusion or diagnosis line with 'Inflammatory Myofibroblastic Tumor' or 'IMT' as definitive diagnosis.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Complete blood count (CBC), erythrocyte sedimentation rate (ESR), and C-reactive protein (CRP) results from the initial admission workup",
+          "current_trajectory_hypothesis": "68-year-old man with chronic RLQ pain, weight loss, and cecal mass discovered on CT (E004) underwent colonoscopy (E005) with biopsy showing spindle cell proliferation, inflammatory infiltrate (PMNCs/eosinophils), and characteristic IHC profile (ALK+, SMA+, vimentin+, CD68+, CD117-) consistent with IMT, confirmed pathologically (E008), leading to surgical referral for mass excision",
+          "confirmed_evidence": [
+            "68-year-old male with one month colicky hypogastric/RLQ pain radiating to back, weight loss (2-3kg), and anorexia",
+            "CT scan: well-demarcated homogeneous solitary cecal mass, thickened ileum wall, no distention (E004)",
+            "Colonoscopy: large mass-like lesion in cecum with biopsy obtained (E005)",
+            "Histopathology: lamina propria infiltrated by PMNCs and eosinophils; IHC positive for vimentin, CD68, focal ALK, SMA, CD34; negative for CD117 (E006)",
+            "Pathological confirmation of IMT with subsequent surgical referral for mass removal (E008)"
+          ],
+          "missing_key_evidence": [
+            "Pre-operative laboratory inflammatory markers or CBC",
+            "Surgical procedure details and outcome",
+            "Explicit differential diagnosis considerations (e.g., GIST exclusion based on CD117 negativity)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No source record reports CBC, ESR, or CRP results.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Surgical procedure report or operative findings from the mass resection surgery, including details of the cecal mass removal and post-operative course",
+          "current_trajectory_hypothesis": "68-year-old man with chronic RLQ pain and cecal mass underwent colonoscopic biopsy demonstrating spindle cell proliferation with inflammatory infiltrate and characteristic IHC profile (ALK+, SMA+, vimentin+, CD68+, CD117-) pathologically confirmed as IMT, leading to surgical referral for mass excision",
+          "confirmed_evidence": [
+            "68-year-old male with one month colicky hypogastric/RLQ pain radiating to back, weight loss (2-3kg), and anorexia",
+            "CT scan: well-demarcated homogeneous solitary cecal mass with thickened ileum wall, no ileal distention (E004)",
+            "Colonoscopy: large mass-like lesion in cecum with biopsy obtained (E005)",
+            "Histopathology: lamina propria infiltrated by PMNCs and eosinophils; IHC positive for vimentin, CD68, focal ALK, SMA, CD34; negative for CD117 (E006)",
+            "Pathological confirmation of IMT with subsequent surgical referral for mass removal (E008)"
+          ],
+          "missing_key_evidence": [
+            "Surgical procedure details, operative findings, and post-operative outcome",
+            "Explicit documentation of differential diagnosis exclusion (e.g., GIST excluded by CD117 negativity)",
+            "Pre-operative laboratory inflammatory markers"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E008",
+          "source_text": "On surgery, approximately 40 mL ascites were found in the abdomen. A mass was seen in the cecum with ileocolic intussusception. Afterwards, the patient underwent right hemicolectomy with an end-to-end anastomosis of ileocolic. No enlarge lymph nodes were observed. The patient was discharged seven days after surgery and had no complications during follow-up.",
+          "category": "treatment_response",
+          "temporal_cue": "after diagnosis",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Pathology report from the resected right hemicolectomy specimen describing the mass, confirming inflammatory myofibroblastic tumor, and detailing surgical margins and lymph node examination",
+          "current_trajectory_hypothesis": "68-year-old man with chronic RLQ pain and cecal mass underwent colonoscopic biopsy (E005) demonstrating spindle cell proliferation with inflammatory infiltrate and characteristic IHC profile (ALK+, SMA+, vimentin+, CD68+, CD117-) consistent with IMT (E006), confirmed pathologically leading to right hemicolectomy for cecal mass with ileocolic intussusception (E008), with uneventful postoperative course",
+          "confirmed_evidence": [
+            "68-year-old male with one month colicky hypogastric/RLQ pain radiating to back, weight loss (2-3kg), and anorexia",
+            "CT scan: well-demarcated homogeneous solitary cecal mass with thickened ileum wall, no ileal distention (E004)",
+            "Colonoscopy: large mass-like lesion in cecum with biopsy obtained (E005)",
+            "Histopathology: lamina propria infiltrated by PMNCs and eosinophils; IHC positive for vimentin, CD68, focal ALK, SMA, CD34; negative for CD117 (E006)",
+            "Pathological confirmation of IMT with surgical referral (E008)",
+            "Surgical findings: 40 mL ascites, cecal mass with ileocolic intussusception, right hemicolectomy with end-to-end anastomosis, no enlarged lymph nodes, discharged 7 days post-op without complications (E008)"
+          ],
+          "missing_key_evidence": [
+            "Definitive pathology report from resected specimen confirming IMT on larger tissue sample",
+            "Surgical margin status and formal lymph node pathology assessment",
+            "Documentation of differential diagnosis exclusion (e.g., GIST excluded by CD117 negativity)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "The source does not contain a pathology report from the resected right hemicolectomy specimen with the requested details.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Inflammatory Myofibroblastic Tumor (IMT) of the cecum",
+          "trajectory_summary": "A 68-year-old man presented with one month of colicky right lower quadrant pain radiating to the back, associated with 2-3 kg weight loss and anorexia. Initial CT imaging revealed a well-demarcated homogeneous solitary cecal mass with thickened ileum wall (E004). Colonoscopy demonstrated a large mass-like lesion in the cecum from which biopsies were obtained (E005). Histopathological examination of the biopsy specimen showed lamina propria infiltration by polymorphonuclear cells and eosinophils. Immunohistochemical staining was positive for vimentin, CD68, and focally positive for ALK, SMA, and CD34, while negative for CD117 (E006), a profile characteristic of IMT and excluding GIST. Following pathological confirmation of IMT (E008), the patient underwent surgical exploration revealing 40 mL ascites, cecal mass with ileocolic intussusception, and no enlarged lymph nodes. He underwent right hemicolectomy with end-to-end ileocolic anastomosis (E008). The patient was discharged seven days post-operatively without complications.",
+          "key_supporting_evidence": [
+            {
+              "claim": "CT scan demonstrated well-demarcated homogeneous solitary cecal mass with thickened ileum wall",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Colonoscopy revealed large mass-like lesion in cecum with biopsy obtained",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "Histopathology showed inflammatory infiltrate (PMNCs, eosinophils) with IHC positive for vimentin, CD68, focal ALK, SMA, CD34 and negative for CD117",
+              "evidence_ids": [
+                "E006"
+              ]
+            },
+            {
+              "claim": "Pathological confirmation of IMT established leading to surgical referral",
+              "evidence_ids": [
+                "E008"
+              ]
+            },
+            {
+              "claim": "Surgical findings included cecal mass with ileocolic intussusception, 40 mL ascites, no enlarged lymph nodes; right hemicolectomy performed",
+              "evidence_ids": [
+                "E008"
+              ]
+            },
+            {
+              "claim": "Uneventful postoperative course with discharge on day 7 and no complications",
+              "evidence_ids": [
+                "E008"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Gastrointestinal stromal tumor (GIST)",
+              "basis": "CD117 (C-Kit) negativity on immunohistochemistry (E006) despite cecal mass location"
+            },
+            {
+              "alternative": "Infectious/inflammatory colitis",
+              "basis": "Well-demarcated solitary mass on CT (E004) and mass-like lesion on colonoscopy (E005) rather than mucosal inflammation; specific IHC profile diagnostic of neoplastic process"
+            }
+          ],
+          "remaining_uncertainties": [
+            "Explicit final pathology report header stating 'Inflammatory Myofibroblastic Tumor' was not available in source records, though E008 explicitly references 'pathological confirmation of IMT'",
+            "Resection specimen pathology details (surgical margins, definitive lymph node assessment) not documented in available source",
+            "Pre-operative laboratory values (CBC, inflammatory markers) not reported in source"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Inflammatory Myofibroblastic Tumor (IMT) of the cecum",
+      "trajectory_summary": "A 68-year-old man presented with one month of colicky right lower quadrant pain radiating to the back, associated with 2-3 kg weight loss and anorexia. Initial CT imaging revealed a well-demarcated homogeneous solitary cecal mass with thickened ileum wall (E004). Colonoscopy demonstrated a large mass-like lesion in the cecum from which biopsies were obtained (E005). Histopathological examination of the biopsy specimen showed lamina propria infiltration by polymorphonuclear cells and eosinophils. Immunohistochemical staining was positive for vimentin, CD68, and focally positive for ALK, SMA, and CD34, while negative for CD117 (E006), a profile characteristic of IMT and excluding GIST. Following pathological confirmation of IMT (E008), the patient underwent surgical exploration revealing 40 mL ascites, cecal mass with ileocolic intussusception, and no enlarged lymph nodes. He underwent right hemicolectomy with end-to-end ileocolic anastomosis (E008). The patient was discharged seven days post-operatively without complications.",
+      "key_supporting_evidence": [
+        {
+          "claim": "CT scan demonstrated well-demarcated homogeneous solitary cecal mass with thickened ileum wall",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Colonoscopy revealed large mass-like lesion in cecum with biopsy obtained",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "Histopathology showed inflammatory infiltrate (PMNCs, eosinophils) with IHC positive for vimentin, CD68, focal ALK, SMA, CD34 and negative for CD117",
+          "evidence_ids": [
+            "E006"
+          ]
+        },
+        {
+          "claim": "Pathological confirmation of IMT established leading to surgical referral",
+          "evidence_ids": [
+            "E008"
+          ]
+        },
+        {
+          "claim": "Surgical findings included cecal mass with ileocolic intussusception, 40 mL ascites, no enlarged lymph nodes; right hemicolectomy performed",
+          "evidence_ids": [
+            "E008"
+          ]
+        },
+        {
+          "claim": "Uneventful postoperative course with discharge on day 7 and no complications",
+          "evidence_ids": [
+            "E008"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Gastrointestinal stromal tumor (GIST)",
+          "basis": "CD117 (C-Kit) negativity on immunohistochemistry (E006) despite cecal mass location"
+        },
+        {
+          "alternative": "Infectious/inflammatory colitis",
+          "basis": "Well-demarcated solitary mass on CT (E004) and mass-like lesion on colonoscopy (E005) rather than mucosal inflammation; specific IHC profile diagnostic of neoplastic process"
+        }
+      ],
+      "remaining_uncertainties": [
+        "Explicit final pathology report header stating 'Inflammatory Myofibroblastic Tumor' was not available in source records, though E008 explicitly references 'pathological confirmation of IMT'",
+        "Resection specimen pathology details (surgical margins, definitive lymph node assessment) not documented in available source",
+        "Pre-operative laboratory values (CBC, inflammatory markers) not reported in source"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.85
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T01:06:04.555215+00:00",
+    "clinician_model": "Kimi-K2.5",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC5344281",
+    "known_final_diagnosis": "After pathological confirmation of IMT, the patient was referred for surgery in order to remove the mass.",
+    "turns_used": 9,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 6,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "REQUEST_RESULT": 8
+    },
+    "report_status_counts": {
+      "already_disclosed": 1,
+      "found": 4,
+      "not_reported": 3
+    },
+    "report_repair_attempted_count": 2,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 2
+    },
+    "answer_yield": 0.625,
+    "unavailable_turn_rate": 0.375,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T01:06:04.557602+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC5344281",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "6",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.3076923076923077",
+    "weighted_tversky_distance": "0.6923076923076923",
+    "matched_weight": "2.0",
+    "missed_weight": "3.0",
+    "extra_weight": "0.75",
+    "weighted_lcs_recall": "0.2",
+    "weighted_lcs_weight": "1.0",
+    "weighted_pairwise_order_accuracy": "0.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "1",
+    "gold_sequence": "other_or_off_protocol > physical_examination > lab_tests > imaging > procedure_or_intervention > medication_or_treatment",
+    "prediction_sequence": "admission_or_clinical_course > procedure_or_intervention > lab_tests",
+    "error": ""
+  }
+}

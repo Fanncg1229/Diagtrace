@@ -1,0 +1,741 @@
+{
+  "case_id": "case_0411",
+  "pmcid": "PMC10381099",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC10381099",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 15,
+    "termination": "final",
+    "known_final_diagnosis": "A CT angiogram of the head and neck revealed an occlusion of the distal basilar artery with a cerebral perfusion deficit of the right superior cerebellar artery",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E003",
+      "E004",
+      "E005",
+      "E006",
+      "E007",
+      "E008",
+      "E009",
+      "E010",
+      "E011",
+      "E012"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "CT scan of the head without contrast",
+          "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms suggestive of stroke, likely ischemic given AF history and rivaroxaban cessation. Initial imaging is needed to rule out hemorrhage and assess for early ischemic changes.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Initial imaging findings (CT head)",
+            "Neurological exam findings",
+            "Further stroke workup (e.g., CTA, MRI)",
+            "Confirmation of basilar artery occlusion"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "The CT scan of the head without contrast was ordered; awaiting results if documented in source.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "findings from the CT scan of the head without contrast",
+          "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms suggestive of stroke. An initial CT head is crucial to rule out hemorrhage and identify early ischemic changes, guiding further management and confirming the stroke type.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "CT head findings",
+            "Neurological exam findings",
+            "Further stroke workup (e.g., CTA, MRI)",
+            "Confirmation of basilar artery occlusion"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "The immediate CT of the head was reported as normal.",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "CT angiogram (CTA) of the head and neck",
+          "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms concerning for ischemic stroke. Initial CT head was normal, ruling out hemorrhage. A CTA of the head and neck is needed to visualize cerebral vasculature and identify potential occlusions, especially given the known final diagnosis of basilar artery occlusion.",
+          "confirmed_evidence": [
+            "Patient presented with nausea, dry mouth, left-sided tingling, difficulty speaking, and mild dysarthria (E001)",
+            "Patient has a history of atrial fibrillation and stopped rivaroxaban prior to presentation (E001)",
+            "Initial CT head was normal (E003)"
+          ],
+          "missing_key_evidence": [
+            "CTA head and neck findings",
+            "Neurological exam findings",
+            "Confirmation of basilar artery occlusion and perfusion deficit",
+            "Further stroke workup (e.g., MRI if CTA is inconclusive or for parenchymal changes)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order acknowledged; no source evidence excerpt for ordering, awaiting results.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "findings from the CT angiogram (CTA) of the head and neck",
+          "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms. Initial CT head was normal, ruling out hemorrhage. A CTA of the head and neck was ordered to identify vascular occlusions, which is expected to reveal a basilar artery occlusion based on the known final diagnosis.",
+          "confirmed_evidence": [
+            "Patient presented with nausea, dry mouth, left-sided tingling, difficulty speaking, and mild dysarthria (E001)",
+            "Patient has a history of atrial fibrillation and stopped rivaroxaban prior to presentation (E001)",
+            "Initial CT head was normal (E003)"
+          ],
+          "missing_key_evidence": [
+            "CTA head and neck findings (specifically basilar artery occlusion and perfusion deficit)",
+            "Neurological exam findings",
+            "Further details on clinical course or treatment"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "A CT angiogram of the head and neck revealed an occlusion of the distal basilar artery with a cerebral perfusion deficit of the right superior cerebellar artery (Figures 1, 2).",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "neurological examination findings on admission",
+          "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms. Initial CT head was normal, but CTA confirmed distal basilar artery occlusion with a cerebral perfusion deficit. A detailed neurological exam is crucial to understand the extent of the stroke and guide management.",
+          "confirmed_evidence": [
+            "Patient presented with nausea, dry mouth, left-sided tingling, difficulty speaking, and mild dysarthria (E001)",
+            "Patient has a history of atrial fibrillation and stopped rivaroxaban prior to presentation (E001)",
+            "Initial CT head was normal (E003)",
+            "CT angiogram of the head and neck revealed an occlusion of the distal basilar artery with a cerebral perfusion deficit of the right superior cerebellar artery (E004)"
+          ],
+          "missing_key_evidence": [
+            "Neurological exam findings",
+            "Further details on clinical course or treatment post-diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "On arrival, her blood pressure was 150/80, her blood glucose level was 101 mg/dL, her heart rate was in the 70s (beats per minute), and there was active AF with a right bundle branch block on electrocardiogram. She reported no pain she was afebrile. National Institutes of Health Stroke Scale (NIHSS) was 1 for mild dysarthria; no motor deficits or weakness was appreciated on her initial examination. Glasgow Coma Scale (GCS) was 15, fully alert and oriented. Her pupils were equal and reactive on both sides. Modified Rankin Scale (mRS) score was 1.",
+          "category": "routine_lab",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms, initially normal CT head, followed by CTA confirming distal basilar artery occlusion. Initial neurological exam showed mild symptoms. Now, I need to understand the subsequent clinical course and any treatment interventions.",
+          "confirmed_evidence": [
+            "Patient presented with nausea, dry mouth, left-sided tingling, difficulty speaking, and mild dysarthria (E001)",
+            "Patient has a history of atrial fibrillation and stopped rivaroxaban prior to presentation (E001)",
+            "Initial CT head was normal (E003)",
+            "CT angiogram of the head and neck revealed an occlusion of the distal basilar artery with a cerebral perfusion deficit of the right superior cerebellar artery (E004)",
+            "Initial neurological exam showed NIHSS 1 for mild dysarthria, no motor deficits, GCS 15, and mRS 1 (E001)"
+          ],
+          "missing_key_evidence": [
+            "Details of treatment for basilar artery occlusion",
+            "Subsequent clinical progression or changes in neurological status",
+            "Any further imaging (e.g., MRI) to assess infarction",
+            "Patient outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "The initial CT head report suggested a questionable lesion in the left frontal lobe (Figure 3), but, because this was not present throughout all the CT images, MRI with and without contrast was ordered for further evaluation of the BAO and the possible left frontal lesion.",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "findings from the MRI of the brain with and without contrast",
+          "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms, initially normal CT head, followed by CTA confirming distal basilar artery occlusion. Initial neurological exam showed mild symptoms. An MRI was ordered to further evaluate the basilar artery occlusion and a questionable left frontal lesion.",
+          "confirmed_evidence": [
+            "Patient presented with nausea, dry mouth, left-sided tingling, difficulty speaking, and mild dysarthria (E001)",
+            "Patient has a history of atrial fibrillation and stopped rivaroxaban prior to presentation (E001)",
+            "Initial CT head was normal (E003)",
+            "CT angiogram of the head and neck revealed an occlusion of the distal basilar artery with a cerebral perfusion deficit of the right superior cerebellar artery (E004)",
+            "Initial neurological exam showed NIHSS 1 for mild dysarthria, no motor deficits, GCS 15, and mRS 1 (E001)",
+            "An MRI with and without contrast was ordered for further evaluation of the BAO and a questionable left frontal lesion (E005)"
+          ],
+          "missing_key_evidence": [
+            "MRI findings regarding basilar artery occlusion and any infarction",
+            "MRI findings regarding the questionable left frontal lesion",
+            "Details of treatment for basilar artery occlusion",
+            "Subsequent clinical progression or changes in neurological status",
+            "Patient outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "The brain MRI was completed and showed no acute infarcts or ischemia (Figure 4). The possible contrast-enhancing lesion in the left frontal lobe was not seen on the MRI.",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms, initially normal CT head, followed by CTA confirming distal basilar artery occlusion with a cerebral perfusion deficit. Initial neurological exam showed mild symptoms. MRI showed no acute infarcts. I need to understand the treatment and clinical progression given these findings.",
+          "confirmed_evidence": [
+            "Patient presented with nausea, dry mouth, left-sided tingling, difficulty speaking, and mild dysarthria (E001)",
+            "Patient has a history of atrial fibrillation and stopped rivaroxaban prior to presentation (E001)",
+            "Initial CT head was normal (E003)",
+            "CT angiogram of the head and neck revealed an occlusion of the distal basilar artery with a cerebral perfusion deficit of the right superior cerebellar artery (E004)",
+            "Initial neurological exam showed NIHSS 1 for mild dysarthria, no motor deficits, GCS 15, and mRS 1 (E001)",
+            "An MRI with and without contrast was ordered for further evaluation of the BAO and a questionable left frontal lesion (E005)",
+            "Brain MRI showed no acute infarcts or ischemia, and the possible left frontal lesion was not seen (E006)"
+          ],
+          "missing_key_evidence": [
+            "Details of treatment for basilar artery occlusion",
+            "Subsequent clinical progression or changes in neurological status",
+            "Patient outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E007",
+          "source_text": "On the evening of admission, the patient developed an acute feeling of illness, worsening nausea and vomiting, vertigo, perioral and left-hand numbness, and light-headedness. The primary team called the neurology team, stating that she had worsening mental status and had become more somnolent. She was then transferred to the intensive care unit (ICU) for neuro checks every hour. A CT angiogram was ordered and showed stable findings compared to the morning. Her neurologic exam at this time was significant for disorientation where she was confused as to where she was, bradyphrenia, moderate-severe dysarthria with trouble remembering words and muffled speech, left-sided ptosis, and bilateral mild ataxia with finger-nose-finger. She was started on a heparin drip, as it was suspected that propagation of the BAO was the cause of her deterioration. She was nil per mouth for the next three to four hours.",
+          "category": "imaging_report",
+          "temporal_cue": "evening of admission",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms, initially normal CT head, followed by CTA confirming distal basilar artery occlusion with a cerebral perfusion deficit. Initial neurological exam showed mild symptoms, and MRI showed no acute infarcts. However, the patient's condition acutely worsened on the evening of admission with new neurological deficits, leading to initiation of a heparin drip for suspected BAO propagation. I need to understand the patient's response to this treatment and the subsequent clinical progression.",
+          "confirmed_evidence": [
+            "Patient presented with nausea, dry mouth, left-sided tingling, difficulty speaking, and mild dysarthria (E001)",
+            "Patient has a history of atrial fibrillation and stopped rivaroxaban prior to presentation (E001)",
+            "Initial CT head was normal (E003)",
+            "CT angiogram of the head and neck revealed an occlusion of the distal basilar artery with a cerebral perfusion deficit of the right superior cerebellar artery (E004)",
+            "Initial neurological exam showed NIHSS 1 for mild dysarthria, no motor deficits, GCS 15, and mRS 1 (E001)",
+            "An MRI with and without contrast was ordered for further evaluation of the BAO and a questionable left frontal lesion (E005)",
+            "Brain MRI showed no acute infarcts or ischemia, and the possible left frontal lesion was not seen (E006)",
+            "On the evening of admission, the patient developed worsening nausea, vomiting, vertigo, numbness, light-headedness, worsening mental status, and somnolence (E007)",
+            "Repeat CT angiogram showed stable findings compared to the morning (E007)",
+            "Neurologic exam on evening of admission showed disorientation, bradyphrenia, moderate-severe dysarthria, left-sided ptosis, and bilateral mild ataxia (E007)",
+            "Patient was started on a heparin drip due to suspected propagation of the BAO (E007)"
+          ],
+          "missing_key_evidence": [
+            "Patient's response to heparin drip",
+            "Further clinical progression or changes in neurological status after heparin initiation",
+            "Any further interventions or treatments",
+            "Patient outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E009",
+          "source_text": "The next morning, the patient was almost back to her baseline. She had no deficits on neurologic examination but did report some mild dizziness. A repeat head CT to check on the occlusion and for any intracranial bleeds was negative. Interestingly, she had started to report vivid visual hallucinations of her daughter in a bathing suit at the beach, but she knew that the images she saw could not be real.",
+          "category": "imaging_report",
+          "temporal_cue": "morning after thrombectomy",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms, initially normal CT head, followed by CTA confirming distal basilar artery occlusion with a cerebral perfusion deficit. Initial neurological exam showed mild symptoms, and MRI showed no acute infarcts. However, the patient's condition acutely worsened on the evening of admission with new neurological deficits, leading to initiation of a heparin drip. The patient improved significantly by the next morning, but the previous report mentions 'morning after thrombectomy', implying a missing intervention.",
+          "confirmed_evidence": [
+            "Patient presented with nausea, dry mouth, left-sided tingling, difficulty speaking, and mild dysarthria (E001)",
+            "Patient has a history of atrial fibrillation and stopped rivaroxaban prior to presentation (E001)",
+            "Initial CT head was normal (E003)",
+            "CT angiogram of the head and neck revealed an occlusion of the distal basilar artery with a cerebral perfusion deficit of the right superior cerebellar artery (E004)",
+            "Initial neurological exam showed NIHSS 1 for mild dysarthria, no motor deficits, GCS 15, and mRS 1 (E001)",
+            "An MRI with and without contrast was ordered for further evaluation of the BAO and a questionable left frontal lesion (E005)",
+            "Brain MRI showed no acute infarcts or ischemia, and the possible left frontal lesion was not seen (E006)",
+            "On the evening of admission, the patient developed worsening nausea, vomiting, vertigo, numbness, light-headedness, worsening mental status, and somnolence (E007)",
+            "Repeat CT angiogram showed stable findings compared to the morning (E007)",
+            "Neurologic exam on evening of admission showed disorientation, bradyphrenia, moderate-severe dysarthria, left-sided ptosis, and bilateral mild ataxia (E007)",
+            "Patient was started on a heparin drip due to suspected propagation of the BAO (E007)",
+            "The next morning, the patient was almost back to her baseline with no neurological deficits, only mild dizziness (E009)",
+            "A repeat head CT was negative (E009)"
+          ],
+          "missing_key_evidence": [
+            "Details of any intervention (e.g., thrombectomy) that occurred after the neurological deterioration and before the improvement",
+            "Patient outcome beyond the next morning"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E010",
+          "source_text": "That afternoon, a CT angiogram showed a widely patent basilar artery with no evidence of residual distal embolus.",
+          "category": "imaging_report",
+          "temporal_cue": "afternoon after thrombectomy",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "details of the thrombectomy procedure, including timing and findings",
+          "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms, initially normal CT head, followed by CTA confirming distal basilar artery occlusion with a cerebral perfusion deficit. Initial neurological exam showed mild symptoms, and MRI showed no acute infarcts. However, the patient's condition acutely worsened on the evening of admission with new neurological deficits, leading to initiation of a heparin drip. The patient improved significantly by the next morning, and a subsequent CTA showed a widely patent basilar artery. The previous reports mention 'after thrombectomy', indicating a critical missing intervention that needs to be documented.",
+          "confirmed_evidence": [
+            "Patient presented with nausea, dry mouth, left-sided tingling, difficulty speaking, and mild dysarthria (E001)",
+            "Patient has a history of atrial fibrillation and stopped rivaroxaban prior to presentation (E001)",
+            "Initial CT head was normal (E003)",
+            "CT angiogram of the head and neck revealed an occlusion of the distal basilar artery with a cerebral perfusion deficit of the right superior cerebellar artery (E004)",
+            "Initial neurological exam showed NIHSS 1 for mild dysarthria, no motor deficits, GCS 15, and mRS 1 (E001)",
+            "An MRI with and without contrast was ordered for further evaluation of the BAO and a questionable left frontal lesion (E005)",
+            "Brain MRI showed no acute infarcts or ischemia, and the possible left frontal lesion was not seen (E006)",
+            "On the evening of admission, the patient developed worsening nausea, vomiting, vertigo, numbness, light-headedness, worsening mental status, and somnolence (E007)",
+            "Repeat CT angiogram showed stable findings compared to the morning (E007)",
+            "Neurologic exam on evening of admission showed disorientation, bradyphrenia, moderate-severe dysarthria, left-sided ptosis, and bilateral mild ataxia (E007)",
+            "Patient was started on a heparin drip due to suspected propagation of the BAO (E007)",
+            "The next morning, the patient was almost back to her baseline with no neurological deficits, only mild dizziness (E009)",
+            "A repeat head CT was negative (E009)",
+            "That afternoon, a CT angiogram showed a widely patent basilar artery with no evidence of residual distal embolus (E010)"
+          ],
+          "missing_key_evidence": [
+            "Details of the thrombectomy procedure (timing, findings, success)",
+            "Patient outcome beyond the next morning"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "explanation": "Procedure ordered; source evidence exists for procedure details but not yet disclosed.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "details and findings of the thrombectomy procedure",
+          "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms, initially normal CT head, followed by CTA confirming distal basilar artery occlusion with a cerebral perfusion deficit. Initial neurological exam showed mild symptoms, and MRI showed no acute infarcts. However, the patient's condition acutely worsened on the evening of admission with new neurological deficits, leading to initiation of a heparin drip. The patient improved significantly by the next morning, and a subsequent CTA showed a widely patent basilar artery. The previous reports mention 'after thrombectomy', indicating a critical intervention that needs to be documented to understand the full trajectory.",
+          "confirmed_evidence": [
+            "Patient presented with nausea, dry mouth, left-sided tingling, difficulty speaking, and mild dysarthria (E001)",
+            "Patient has a history of atrial fibrillation and stopped rivaroxaban prior to presentation (E001)",
+            "Initial CT head was normal (E003)",
+            "CT angiogram of the head and neck revealed an occlusion of the distal basilar artery with a cerebral perfusion deficit of the right superior cerebellar artery (E004)",
+            "Initial neurological exam showed NIHSS 1 for mild dysarthria, no motor deficits, GCS 15, and mRS 1 (E001)",
+            "An MRI with and without contrast was ordered for further evaluation of the BAO and a questionable left frontal lesion (E005)",
+            "Brain MRI showed no acute infarcts or ischemia, and the possible left frontal lesion was not seen (E006)",
+            "On the evening of admission, the patient developed worsening nausea, vomiting, vertigo, numbness, light-headedness, worsening mental status, and somnolence (E007)",
+            "Repeat CT angiogram showed stable findings compared to the morning (E007)",
+            "Neurologic exam on evening of admission showed disorientation, bradyphrenia, moderate-severe dysarthria, left-sided ptosis, and bilateral mild ataxia (E007)",
+            "Patient was started on a heparin drip due to suspected propagation of the BAO (E007)",
+            "The next morning, the patient was almost back to her baseline with no neurological deficits, only mild dizziness (E009)",
+            "A repeat head CT was negative (E009)",
+            "That afternoon, a CT angiogram showed a widely patent basilar artery with no evidence of residual distal embolus (E010)"
+          ],
+          "missing_key_evidence": [
+            "Details of the thrombectomy procedure (timing, findings, success)",
+            "Patient outcome beyond the next morning"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E008",
+          "source_text": "Our neurology team was in contact with the interventional radiology team, and, after a discussion with the patient and her family, it was decided that interventional radiology would perform a mechanical thrombectomy. The procedure was started within an hour of these new symptoms onset. The patient tolerated the procedure with no acute complications and was sent back to the ICU for monitoring. The heparin drip was restarted immediately after the procedure.",
+          "category": "other",
+          "temporal_cue": "evening of admission",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms, initially normal CT head, followed by CTA confirming distal basilar artery occlusion with a cerebral perfusion deficit. Initial neurological exam showed mild symptoms, and MRI showed no acute infarcts. However, the patient's condition acutely worsened, leading to a mechanical thrombectomy. The procedure was successful, and the patient's neurological status improved significantly. I need to understand the patient's final outcome or discharge status.",
+          "confirmed_evidence": [
+            "Patient presented with nausea, dry mouth, left-sided tingling, difficulty speaking, and mild dysarthria (E001)",
+            "Patient has a history of atrial fibrillation and stopped rivaroxaban prior to presentation (E001)",
+            "Initial CT head was normal (E003)",
+            "CT angiogram of the head and neck revealed an occlusion of the distal basilar artery with a cerebral perfusion deficit of the right superior cerebellar artery (E004)",
+            "Initial neurological exam showed NIHSS 1 for mild dysarthria, no motor deficits, GCS 15, and mRS 1 (E001)",
+            "An MRI with and without contrast was ordered for further evaluation of the BAO and a questionable left frontal lesion (E005)",
+            "Brain MRI showed no acute infarcts or ischemia, and the possible left frontal lesion was not seen (E006)",
+            "On the evening of admission, the patient developed worsening nausea, vomiting, vertigo, numbness, light-headedness, worsening mental status, and somnolence (E007)",
+            "Repeat CT angiogram showed stable findings compared to the morning (E007)",
+            "Neurologic exam on evening of admission showed disorientation, bradyphrenia, moderate-severe dysarthria, left-sided ptosis, and bilateral mild ataxia (E007)",
+            "Patient was started on a heparin drip due to suspected propagation of the BAO (E007)",
+            "Mechanical thrombectomy was performed within an hour of new symptoms, with no acute complications (E008)",
+            "The heparin drip was restarted immediately after the procedure (E008)",
+            "The next morning, the patient was almost back to her baseline with no neurological deficits, only mild dizziness (E009)",
+            "A repeat head CT was negative (E009)",
+            "That afternoon, a CT angiogram showed a widely patent basilar artery with no evidence of residual distal embolus (E010)"
+          ],
+          "missing_key_evidence": [
+            "Patient's discharge status or long-term outcome",
+            "Any further follow-up or treatment plan"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E011",
+          "source_text": "An MRI of the brain was performed on the morning of the patient’s third day at the hospital, which showed diffusion restriction in the bilateral cerebellar hemispheres and central midbrain (Figure 5) consistent with her deficits appreciated before she was transferred to the ICU.",
+          "category": "imaging_report",
+          "temporal_cue": "hospital day 3 morning",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 14,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms, initially normal CT head, followed by CTA confirming distal basilar artery occlusion with a cerebral perfusion deficit. Initial neurological exam showed mild symptoms, and MRI showed no acute infarcts. However, the patient's condition acutely worsened, leading to a mechanical thrombectomy. The procedure was successful, and the patient's neurological status improved significantly. A subsequent MRI on day 3 confirmed diffusion restriction in the bilateral cerebellar hemispheres and central midbrain. I need to understand the patient's final outcome or discharge status.",
+          "confirmed_evidence": [
+            "Patient presented with nausea, dry mouth, left-sided tingling, difficulty speaking, and mild dysarthria (E001)",
+            "Patient has a history of atrial fibrillation and stopped rivaroxaban prior to presentation (E001)",
+            "Initial CT head was normal (E003)",
+            "CT angiogram of the head and neck revealed an occlusion of the distal basilar artery with a cerebral perfusion deficit of the right superior cerebellar artery (E004)",
+            "Initial neurological exam showed NIHSS 1 for mild dysarthria, no motor deficits, GCS 15, and mRS 1 (E001)",
+            "An MRI with and without contrast was ordered for further evaluation of the BAO and a questionable left frontal lesion (E005)",
+            "Brain MRI showed no acute infarcts or ischemia, and the possible left frontal lesion was not seen (E006)",
+            "On the evening of admission, the patient developed worsening nausea, vomiting, vertigo, numbness, light-headedness, worsening mental status, and somnolence (E007)",
+            "Repeat CT angiogram showed stable findings compared to the morning (E007)",
+            "Neurologic exam on evening of admission showed disorientation, bradyphrenia, moderate-severe dysarthria, left-sided ptosis, and bilateral mild ataxia (E007)",
+            "Patient was started on a heparin drip due to suspected propagation of the BAO (E007)",
+            "Mechanical thrombectomy was performed within an hour of new symptoms, with no acute complications (E008)",
+            "The heparin drip was restarted immediately after the procedure (E008)",
+            "The next morning, the patient was almost back to her baseline with no neurological deficits, only mild dizziness (E009)",
+            "A repeat head CT was negative (E009)",
+            "That afternoon, a CT angiogram showed a widely patent basilar artery with no evidence of residual distal embolus (E010)",
+            "An MRI of the brain on hospital day 3 showed diffusion restriction in the bilateral cerebellar hemispheres and central midbrain consistent with her deficits (E011)"
+          ],
+          "missing_key_evidence": [
+            "Patient's discharge status or long-term outcome",
+            "Any further follow-up or treatment plan"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E012",
+          "source_text": "Her visual hallucinations and dizziness resolved, and the patient was eventually sufficiently stable for discharge a few days later.",
+          "category": "other",
+          "temporal_cue": "few days after hospital day 3",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 15,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "A CT angiogram of the head and neck revealed an occlusion of the distal basilar artery with a cerebral perfusion deficit of the right superior cerebellar artery",
+          "trajectory_summary": "An 83-year-old woman with a history of atrial fibrillation (AF) and recent cessation of rivaroxaban presented with acute neurological symptoms including nausea, dry mouth, left-sided tingling, difficulty speaking, and mild dysarthria. An initial CT head was normal (E003). A CT angiogram (CTA) of the head and neck revealed an occlusion of the distal basilar artery with a cerebral perfusion deficit of the right superior cerebellar artery (E004). Initial neurological exam showed mild dysarthria (NIHSS 1) (E001). An MRI of the brain initially showed no acute infarcts or ischemia (E006). On the evening of admission, the patient's neurological status acutely worsened with new symptoms including worsening mental status, somnolence, moderate-severe dysarthria, and ataxia (E007). A mechanical thrombectomy was performed within an hour of these new symptoms (E008). The patient's condition significantly improved by the next morning, returning almost to baseline with no neurological deficits except mild dizziness (E009). A subsequent CTA showed a widely patent basilar artery (E010). An MRI on hospital day 3 showed diffusion restriction in the bilateral cerebellar hemispheres and central midbrain (E011). The patient was eventually discharged a few days later with resolved symptoms (E012).",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with acute neurological symptoms including nausea, dry mouth, left-sided tingling, difficulty speaking, and mild dysarthria, with a history of atrial fibrillation and recent cessation of rivaroxaban.",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Initial CT scan of the head was reported as normal, ruling out acute hemorrhage.",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "CT angiogram of the head and neck revealed an occlusion of the distal basilar artery with a cerebral perfusion deficit of the right superior cerebellar artery.",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Patient's neurological status acutely worsened on the evening of admission, developing disorientation, bradyphrenia, moderate-severe dysarthria, left-sided ptosis, and bilateral mild ataxia.",
+              "evidence_ids": [
+                "E007"
+              ]
+            },
+            {
+              "claim": "A mechanical thrombectomy was performed within an hour of the new symptom onset.",
+              "evidence_ids": [
+                "E008"
+              ]
+            },
+            {
+              "claim": "The patient's neurological status improved significantly the next morning, returning almost to baseline with no deficits except mild dizziness.",
+              "evidence_ids": [
+                "E009"
+              ]
+            },
+            {
+              "claim": "A CT angiogram performed that afternoon showed a widely patent basilar artery with no evidence of residual distal embolus.",
+              "evidence_ids": [
+                "E010"
+              ]
+            },
+            {
+              "claim": "An MRI of the brain on hospital day 3 showed diffusion restriction in the bilateral cerebellar hemispheres and central midbrain, consistent with deficits.",
+              "evidence_ids": [
+                "E011"
+              ]
+            },
+            {
+              "claim": "The patient was eventually discharged a few days later with resolved visual hallucinations and dizziness.",
+              "evidence_ids": [
+                "E012"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Intracranial hemorrhage",
+              "basis": "Initial CT head was normal (E003)"
+            },
+            {
+              "alternative": "Acute infarcts on initial MRI",
+              "basis": "Brain MRI showed no acute infarcts or ischemia (E006)"
+            },
+            {
+              "alternative": "Left frontal lesion",
+              "basis": "The possible contrast-enhancing lesion in the left frontal lobe was not seen on the MRI (E006)"
+            }
+          ],
+          "remaining_uncertainties": [
+            "Specific long-term neurological outcome beyond discharge.",
+            "Detailed findings of the thrombectomy procedure itself (e.g., specific recanalization grade, retrieved clot characteristics).",
+            "Specific treatment plan post-discharge (e.g., long-term anticoagulation strategy)."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "A CT angiogram of the head and neck revealed an occlusion of the distal basilar artery with a cerebral perfusion deficit of the right superior cerebellar artery",
+      "trajectory_summary": "An 83-year-old woman with a history of atrial fibrillation (AF) and recent cessation of rivaroxaban presented with acute neurological symptoms including nausea, dry mouth, left-sided tingling, difficulty speaking, and mild dysarthria. An initial CT head was normal (E003). A CT angiogram (CTA) of the head and neck revealed an occlusion of the distal basilar artery with a cerebral perfusion deficit of the right superior cerebellar artery (E004). Initial neurological exam showed mild dysarthria (NIHSS 1) (E001). An MRI of the brain initially showed no acute infarcts or ischemia (E006). On the evening of admission, the patient's neurological status acutely worsened with new symptoms including worsening mental status, somnolence, moderate-severe dysarthria, and ataxia (E007). A mechanical thrombectomy was performed within an hour of these new symptoms (E008). The patient's condition significantly improved by the next morning, returning almost to baseline with no neurological deficits except mild dizziness (E009). A subsequent CTA showed a widely patent basilar artery (E010). An MRI on hospital day 3 showed diffusion restriction in the bilateral cerebellar hemispheres and central midbrain (E011). The patient was eventually discharged a few days later with resolved symptoms (E012).",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with acute neurological symptoms including nausea, dry mouth, left-sided tingling, difficulty speaking, and mild dysarthria, with a history of atrial fibrillation and recent cessation of rivaroxaban.",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Initial CT scan of the head was reported as normal, ruling out acute hemorrhage.",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "CT angiogram of the head and neck revealed an occlusion of the distal basilar artery with a cerebral perfusion deficit of the right superior cerebellar artery.",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Patient's neurological status acutely worsened on the evening of admission, developing disorientation, bradyphrenia, moderate-severe dysarthria, left-sided ptosis, and bilateral mild ataxia.",
+          "evidence_ids": [
+            "E007"
+          ]
+        },
+        {
+          "claim": "A mechanical thrombectomy was performed within an hour of the new symptom onset.",
+          "evidence_ids": [
+            "E008"
+          ]
+        },
+        {
+          "claim": "The patient's neurological status improved significantly the next morning, returning almost to baseline with no deficits except mild dizziness.",
+          "evidence_ids": [
+            "E009"
+          ]
+        },
+        {
+          "claim": "A CT angiogram performed that afternoon showed a widely patent basilar artery with no evidence of residual distal embolus.",
+          "evidence_ids": [
+            "E010"
+          ]
+        },
+        {
+          "claim": "An MRI of the brain on hospital day 3 showed diffusion restriction in the bilateral cerebellar hemispheres and central midbrain, consistent with deficits.",
+          "evidence_ids": [
+            "E011"
+          ]
+        },
+        {
+          "claim": "The patient was eventually discharged a few days later with resolved visual hallucinations and dizziness.",
+          "evidence_ids": [
+            "E012"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Intracranial hemorrhage",
+          "basis": "Initial CT head was normal (E003)"
+        },
+        {
+          "alternative": "Acute infarcts on initial MRI",
+          "basis": "Brain MRI showed no acute infarcts or ischemia (E006)"
+        },
+        {
+          "alternative": "Left frontal lesion",
+          "basis": "The possible contrast-enhancing lesion in the left frontal lobe was not seen on the MRI (E006)"
+        }
+      ],
+      "remaining_uncertainties": [
+        "Specific long-term neurological outcome beyond discharge.",
+        "Detailed findings of the thrombectomy procedure itself (e.g., specific recanalization grade, retrieved clot characteristics).",
+        "Specific treatment plan post-discharge (e.g., long-term anticoagulation strategy)."
+      ],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:28:56.104639+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10381099",
+    "known_final_diagnosis": "A CT angiogram of the head and neck revealed an occlusion of the distal basilar artery with a cerebral perfusion deficit of the right superior cerebellar artery",
+    "turns_used": 15,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 9,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 11,
+    "gold_reasoning_span_count": 4,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 1,
+      "ORDER_TEST": 2,
+      "REQUEST_EXAM": 1,
+      "REQUEST_RESULT": 4,
+      "WAIT_REASSESS": 6
+    },
+    "report_status_counts": {
+      "found": 11,
+      "ordered_but_not_documented": 3
+    },
+    "report_repair_attempted_count": 0,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {},
+    "answer_yield": 0.7857142857142857,
+    "unavailable_turn_rate": 0.21428571428571427,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:28:56.106502+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10381099",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/episodes/PMC10381099.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/cases/PMC10381099.json",
+    "num_gold_steps": "5",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.20689655172413793",
+    "weighted_tversky_distance": "0.7931034482758621",
+    "matched_weight": "1.5",
+    "missed_weight": "2.75",
+    "extra_weight": "1.5",
+    "weighted_lcs_recall": "0.35294117647058826",
+    "weighted_lcs_weight": "1.5",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "lab_tests > imaging > admission_or_clinical_course > other_or_off_protocol > medication_or_treatment",
+    "prediction_sequence": "imaging > physical_examination > procedure_or_intervention",
+    "error": ""
+  }
+}

@@ -1,0 +1,398 @@
+{
+  "case_id": "case_0051",
+  "pmcid": "PMC11299886",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC11299886",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 8,
+    "termination": "final",
+    "known_final_diagnosis": "The imaging study revealed a Stanford Type A aortic dissection extending from the aortic root to the aortic bifurcation (Figures 1, 2).",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E003",
+      "E004"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "What were the initial vital signs and cardiovascular and abdominal physical exam findings in the ED?",
+          "current_trajectory_hypothesis": "Patient presented with abdominal and back pain. Investigating initial ED assessment to understand the severity and potential cardiovascular involvement.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Initial vital signs",
+            "Cardiovascular exam findings",
+            "Abdominal exam findings"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "Physical exam revealed only diffuse abdominal tenderness with no pulse discrepancies.",
+          "category": "physical_exam",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "What were the initial vital signs, including blood pressure in both arms if measured?",
+          "current_trajectory_hypothesis": "Patient presented with abdominal and back pain. Initial physical exam showed diffuse abdominal tenderness and no pulse discrepancies. I need to assess initial hemodynamic status and further evaluate for signs of aortic dissection.",
+          "confirmed_evidence": [
+            "Patient presented with rectal tenesmus, gas pains, abdominal distention, and abdominal pain radiating to the back and chest.",
+            "Physical exam revealed diffuse abdominal tenderness with no pulse discrepancies."
+          ],
+          "missing_key_evidence": [
+            "Initial vital signs (blood pressure, heart rate, respiratory rate, temperature)",
+            "Detailed cardiovascular exam findings (e.g., murmurs, peripheral pulses)",
+            "Imaging findings"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "In the Emergency Department, her blood pressure was 170/68, but other vital signs were within normal limits.",
+          "category": "other",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "What imaging studies were performed in the Emergency Department to investigate the abdominal and back pain?",
+          "current_trajectory_hypothesis": "Patient presented with abdominal and back pain, elevated blood pressure, and diffuse abdominal tenderness. Given the symptoms and vital signs, imaging is crucial to evaluate for serious conditions like aortic dissection.",
+          "confirmed_evidence": [
+            "Patient presented with rectal tenesmus, gas pains, abdominal distention, and abdominal pain radiating to the back and chest.",
+            "Physical exam revealed diffuse abdominal tenderness with no pulse discrepancies.",
+            "Initial blood pressure was 170/68, with other vital signs within normal limits."
+          ],
+          "missing_key_evidence": [
+            "Imaging findings (e.g., CT scan, ultrasound, X-ray)",
+            "Laboratory results",
+            "Further clinical course or interventions"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order acknowledged for CT chest, abdomen, and pelvis with contrast as imaging to investigate abdominal and back pain.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What were the findings of the CT chest, abdomen, and pelvis with contrast?",
+          "current_trajectory_hypothesis": "Patient presented with abdominal and back pain, elevated blood pressure, and diffuse abdominal tenderness. A CT scan was ordered to investigate the cause of pain, and the results are crucial for diagnosing or ruling out aortic dissection.",
+          "confirmed_evidence": [
+            "Patient presented with rectal tenesmus, gas pains, abdominal distention, and abdominal pain radiating to the back and chest.",
+            "Physical exam revealed diffuse abdominal tenderness with no pulse discrepancies.",
+            "Initial blood pressure was 170/68, with other vital signs within normal limits.",
+            "A CT chest, abdomen, and pelvis with contrast was ordered."
+          ],
+          "missing_key_evidence": [
+            "CT scan findings",
+            "Laboratory results",
+            "Further clinical course or interventions"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "The imaging study revealed a Stanford Type A aortic dissection extending from the aortic root to the aortic bifurcation (Figures 1, 2).",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presented with abdominal and back pain, elevated blood pressure, and diffuse abdominal tenderness. A CT scan revealed a Stanford Type A aortic dissection. I need to understand the immediate management and clinical course following this critical diagnosis.",
+          "confirmed_evidence": [
+            "Patient presented with rectal tenesmus, gas pains, abdominal distention, and abdominal pain radiating to the back and chest.",
+            "Physical exam revealed diffuse abdominal tenderness with no pulse discrepancies.",
+            "Initial blood pressure was 170/68, with other vital signs within normal limits.",
+            "A CT chest, abdomen, and pelvis with contrast was ordered.",
+            "The CT scan revealed a Stanford Type A aortic dissection extending from the aortic root to the aortic bifurcation."
+          ],
+          "missing_key_evidence": [
+            "Immediate management/treatment post-diagnosis",
+            "Clinical course and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "She was started on a nicardipine infusion with a systolic pressure goal of less than 120 and an esmolol infusion with a heart rate goal of less than 60. Cardiothoracic Surgery was consulted and she was taken to the operating room for emergent intervention. She spent 8 days in the hospital, during which she made a complete recovery and then was discharged.",
+          "category": "treatment_response",
+          "temporal_cue": "after diagnosis",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "What was the specific emergent intervention performed by Cardiothoracic Surgery?",
+          "current_trajectory_hypothesis": "Patient presented with abdominal and back pain, elevated blood pressure, and diffuse abdominal tenderness. A CT scan revealed a Stanford Type A aortic dissection. She was medically managed and taken to the operating room for emergent intervention. I need to confirm the specific surgical procedure performed.",
+          "confirmed_evidence": [
+            "Patient presented with rectal tenesmus, gas pains, abdominal distention, and abdominal pain radiating to the back and chest.",
+            "Physical exam revealed diffuse abdominal tenderness with no pulse discrepancies.",
+            "Initial blood pressure was 170/68, with other vital signs within normal limits.",
+            "A CT chest, abdomen, and pelvis with contrast was ordered.",
+            "The CT scan revealed a Stanford Type A aortic dissection extending from the aortic root to the aortic bifurcation.",
+            "She was started on nicardipine and esmolol infusions.",
+            "Cardiothoracic Surgery was consulted and she was taken to the operating room for emergent intervention.",
+            "She spent 8 days in the hospital, made a complete recovery, and was discharged."
+          ],
+          "missing_key_evidence": [
+            "Specific details of the emergent intervention (e.g., surgical repair type)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "The source does not specify the exact emergent intervention performed by Cardiothoracic Surgery.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "What were the initial laboratory results obtained in the Emergency Department?",
+          "current_trajectory_hypothesis": "Patient presented with abdominal and back pain, elevated blood pressure, and diffuse abdominal tenderness. A CT scan revealed a Stanford Type A aortic dissection, leading to emergent surgical intervention and recovery. I need to check for any initial lab findings that might have contributed to the diagnostic process or ruled out other conditions.",
+          "confirmed_evidence": [
+            "Patient presented with rectal tenesmus, gas pains, abdominal distention, and abdominal pain radiating to the back and chest.",
+            "Physical exam revealed diffuse abdominal tenderness with no pulse discrepancies.",
+            "Initial blood pressure was 170/68, with other vital signs within normal limits.",
+            "A CT chest, abdomen, and pelvis with contrast was ordered.",
+            "The CT scan revealed a Stanford Type A aortic dissection extending from the aortic root to the aortic bifurcation.",
+            "She was started on nicardipine and esmolol infusions.",
+            "Cardiothoracic Surgery was consulted and she was taken to the operating room for emergent intervention.",
+            "She spent 8 days in the hospital, made a complete recovery, and was discharged."
+          ],
+          "missing_key_evidence": [
+            "Initial laboratory results (e.g., CBC, metabolic panel, cardiac enzymes, D-dimer)",
+            "Specific details of the emergent intervention (e.g., surgical repair type)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "Initial laboratory results were ordered but not documented in the source.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Stanford Type A aortic dissection extending from the aortic root to the aortic bifurcation",
+          "trajectory_summary": "A 69-year-old woman presented to the ED with abdominal pain radiating to her back and chest, rectal tenesmus, gas pains, and abdominal distention. Initial assessment revealed diffuse abdominal tenderness, elevated blood pressure (170/68), and no pulse discrepancies. A CT chest, abdomen, and pelvis with contrast was ordered, which revealed a Stanford Type A aortic dissection extending from the aortic root to the aortic bifurcation. She was medically managed with nicardipine and esmolol infusions, underwent emergent cardiothoracic surgical intervention, made a complete recovery, and was discharged after 8 days.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with abdominal pain radiating to back and chest, rectal tenesmus, gas pains, and abdominal distention.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Initial blood pressure was 170/68, with other vital signs within normal limits.",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Physical exam revealed diffuse abdominal tenderness with no pulse discrepancies.",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "CT chest, abdomen, and pelvis with contrast revealed a Stanford Type A aortic dissection extending from the aortic root to the aortic bifurcation.",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Patient was started on nicardipine and esmolol infusions, underwent emergent cardiothoracic surgical intervention, made a complete recovery, and was discharged after 8 days.",
+              "evidence_ids": [
+                "E004"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Irritable Bowel Syndrome (IBS)",
+              "basis": "Patient initially attributed symptoms to IBS, but CT imaging revealed a Stanford Type A aortic dissection as the cause of severe pain."
+            }
+          ],
+          "remaining_uncertainties": [
+            "Specific details of the emergent cardiothoracic surgical intervention.",
+            "Initial laboratory results."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Stanford Type A aortic dissection extending from the aortic root to the aortic bifurcation",
+      "trajectory_summary": "A 69-year-old woman presented to the ED with abdominal pain radiating to her back and chest, rectal tenesmus, gas pains, and abdominal distention. Initial assessment revealed diffuse abdominal tenderness, elevated blood pressure (170/68), and no pulse discrepancies. A CT chest, abdomen, and pelvis with contrast was ordered, which revealed a Stanford Type A aortic dissection extending from the aortic root to the aortic bifurcation. She was medically managed with nicardipine and esmolol infusions, underwent emergent cardiothoracic surgical intervention, made a complete recovery, and was discharged after 8 days.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with abdominal pain radiating to back and chest, rectal tenesmus, gas pains, and abdominal distention.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Initial blood pressure was 170/68, with other vital signs within normal limits.",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Physical exam revealed diffuse abdominal tenderness with no pulse discrepancies.",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "CT chest, abdomen, and pelvis with contrast revealed a Stanford Type A aortic dissection extending from the aortic root to the aortic bifurcation.",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Patient was started on nicardipine and esmolol infusions, underwent emergent cardiothoracic surgical intervention, made a complete recovery, and was discharged after 8 days.",
+          "evidence_ids": [
+            "E004"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Irritable Bowel Syndrome (IBS)",
+          "basis": "Patient initially attributed symptoms to IBS, but CT imaging revealed a Stanford Type A aortic dissection as the cause of severe pain."
+        }
+      ],
+      "remaining_uncertainties": [
+        "Specific details of the emergent cardiothoracic surgical intervention.",
+        "Initial laboratory results."
+      ],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T20:42:39.003587+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC11299886",
+    "known_final_diagnosis": "The imaging study revealed a Stanford Type A aortic dissection extending from the aortic root to the aortic bifurcation (Figures 1, 2).",
+    "turns_used": 8,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 5,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 2,
+      "REQUEST_EXAM": 2,
+      "REQUEST_RESULT": 2,
+      "WAIT_REASSESS": 1
+    },
+    "report_status_counts": {
+      "found": 4,
+      "not_reported": 1,
+      "ordered_but_not_documented": 2
+    },
+    "report_repair_attempted_count": 1,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 1
+    },
+    "answer_yield": 0.5714285714285714,
+    "unavailable_turn_rate": 0.42857142857142855,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T20:42:39.004626+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC11299886",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/emergencymed/episodes/PMC11299886.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/emergencymed/cases/PMC11299886.json",
+    "num_gold_steps": "4",
+    "num_pred_steps": "4",
+    "weighted_tversky_alignment": "0.5217391304347826",
+    "weighted_tversky_distance": "0.4782608695652174",
+    "matched_weight": "3.0",
+    "missed_weight": "0.75",
+    "extra_weight": "1.0",
+    "weighted_lcs_recall": "0.5333333333333333",
+    "weighted_lcs_weight": "2.0",
+    "weighted_pairwise_order_accuracy": "0.30952947050158414",
+    "pairwise_comparable_pairs": "3",
+    "pairwise_correct_pairs": "1",
+    "pairwise_inversions": "2",
+    "gold_sequence": "lab_tests > physical_examination > imaging > medication_or_treatment",
+    "prediction_sequence": "physical_examination > imaging > procedure_or_intervention > lab_tests",
+    "error": ""
+  }
+}

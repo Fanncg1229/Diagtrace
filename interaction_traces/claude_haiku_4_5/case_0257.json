@@ -1,0 +1,560 @@
+{
+  "case_id": "case_0257",
+  "pmcid": "PMC12036169",
+  "model": "claude_haiku_4_5",
+  "episode": {
+    "case_id": "PMC12036169",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 9,
+    "termination": "final",
+    "known_final_diagnosis": "The final pathological diagnosis was pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type), staged as pT1miN0M0.",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E003",
+      "E006"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the chest CT report describing the nodule in the right lower lobe, including size, characteristics, location, and any radiological features noted",
+          "current_trajectory_hypothesis": "9-year-old girl with 3-week persistent cough and sputum production, initially treated as suspected respiratory infection without improvement. Chest CT identified a right lower lobe nodule prompting admission. Final diagnosis is pulmonary minimally invasive mucinous adenocarcinoma (MIA). Seeking to establish the imaging findings that led to further workup.",
+          "confirmed_evidence": [
+            "9-year-old female patient",
+            "3-week history of persistent cough and sputum production",
+            "Symptoms did not improve with antibiotic treatment",
+            "Chest CT revealed nodule in right lower lobe",
+            "Patient admitted for further treatment"
+          ],
+          "missing_key_evidence": [
+            "Detailed CT imaging characteristics of the nodule (size, density, margins, location within RLL)",
+            "Pathological diagnosis confirmation and specimen details",
+            "Diagnostic procedure performed (biopsy, resection, etc.)",
+            "Staging workup details (lymph node assessment, metastatic workup)",
+            "Clinical course and treatment after diagnosis",
+            "Histopathological findings confirming mucinous adenocarcinoma"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.15
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan.",
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "What was the clinical course after the chest CT finding? Was a biopsy or surgical procedure performed to obtain tissue diagnosis? If so, what was the procedure type and when was it performed?",
+          "current_trajectory_hypothesis": "9-year-old girl with 3-week persistent cough and sputum production, unresponsive to antibiotics. Chest CT identified a right lower lobe nodule. Final diagnosis is pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type), pT1miN0M0. Need to establish the diagnostic pathway from imaging finding to pathological confirmation.",
+          "confirmed_evidence": [
+            "9-year-old female patient",
+            "3-week history of persistent cough and sputum production",
+            "Symptoms did not improve with antibiotic treatment",
+            "Chest CT revealed nodule in right lower lobe",
+            "Patient admitted for further treatment",
+            "Final diagnosis: pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type), pT1miN0M0"
+          ],
+          "missing_key_evidence": [
+            "Detailed CT imaging characteristics (size, density, margins, specific location within RLL)",
+            "Diagnostic procedure performed (biopsy type, resection, timing)",
+            "Histopathological findings and specimen details",
+            "Staging workup details (lymph node assessment, metastatic evaluation)",
+            "Clinical course between admission and diagnosis",
+            "Treatment after diagnosis and patient outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "The patient successfully underwent VATS of the right lower lobe without postoperative complications.",
+          "category": "other",
+          "temporal_cue": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the pathology report from the VATS specimen of the right lower lobe, including histological diagnosis, tumor type, size, margins, lymph node involvement, and any special stains or immunohistochemistry performed",
+          "current_trajectory_hypothesis": "9-year-old girl with 3-week persistent cough and sputum production, unresponsive to antibiotics. Chest CT identified a right lower lobe nodule. VATS of right lower lobe was performed without complications. Pathological examination confirmed pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type), pT1miN0M0. Seeking detailed pathology findings to establish the diagnostic confirmation.",
+          "confirmed_evidence": [
+            "9-year-old female patient",
+            "3-week history of persistent cough and sputum production",
+            "Symptoms did not improve with antibiotic treatment",
+            "Chest CT revealed nodule in right lower lobe",
+            "Patient admitted for further treatment",
+            "VATS of right lower lobe performed without postoperative complications",
+            "Final diagnosis: pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type), pT1miN0M0"
+          ],
+          "missing_key_evidence": [
+            "Detailed CT imaging characteristics (size, density, margins, specific location within RLL)",
+            "Pathology report confirming histological diagnosis of mucinous adenocarcinoma",
+            "Tumor size and margin status from resection specimen",
+            "Lymph node assessment (N0 staging confirmation)",
+            "Metastatic workup details (M0 staging confirmation)",
+            "Clinical course between admission and VATS procedure"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.35
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "Histopathological examination of the resected tumor revealed a predominantly lepidic growth pattern with mucin secretion under low-power view (Fig. 1C). Middle-power magnification revealed tumor cells with abundant apical cytoplasmic mucin and small, basally oriented nuclei (Fig. 1D). The partial tumor exhibited an invasive pattern of infiltrative glands lined by tumor cells containing abundant intracytoplasmic mucin, measuring less than 5 mm in size (Fig. 1E). Notably, the focal area exhibited atypical goblet cell hyperplasia (Fig. 1F, arrows) in the bronchial epithelium (Fig. 1F, triangles). The resection margin and lymph nodes were negative. The immunohistochemical staining results were as follows: CK7 was positive (Fig. 1G), TTF-1 was negative (Fig. 1H), and CK5/6 staining revealed no evidence of a basal cell layer (Fig. 1I).",
+          "category": "image_finding",
+          "temporal_cue": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "What were the specific clinical symptoms and timeline before admission? Was there any fever, hemoptysis, weight loss, or other systemic symptoms? Also, what was the patient's smoking history or any environmental exposures?",
+          "current_trajectory_hypothesis": "9-year-old girl with 3-week persistent cough and sputum production, unresponsive to antibiotics. Chest CT identified a right lower lobe nodule. VATS of right lower lobe performed without complications. Pathological examination confirmed pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type) with lepidic growth pattern, focal invasive component <5mm, negative margins and lymph nodes (pT1miN0M0). Seeking to establish the complete clinical presentation and any risk factors that may be relevant to this unusual pediatric lung cancer diagnosis.",
+          "confirmed_evidence": [
+            "9-year-old female patient",
+            "3-week history of persistent cough and sputum production",
+            "Symptoms did not improve with antibiotic treatment",
+            "Chest CT revealed nodule in right lower lobe",
+            "Patient admitted for further treatment",
+            "VATS of right lower lobe performed without postoperative complications",
+            "Histopathology: predominantly lepidic growth pattern with mucin secretion",
+            "Tumor cells with abundant apical cytoplasmic mucin and small basally oriented nuclei",
+            "Focal invasive component <5mm with infiltrative glands",
+            "Atypical goblet cell hyperplasia in bronchial epithelium",
+            "Resection margin and lymph nodes negative",
+            "CK7 positive, TTF-1 negative, CK5/6 negative for basal cell layer",
+            "Final diagnosis: pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type), pT1miN0M0"
+          ],
+          "missing_key_evidence": [
+            "Detailed CT imaging characteristics (size, density, margins, specific location within RLL)",
+            "Complete symptom review (fever, hemoptysis, weight loss, systemic symptoms)",
+            "Patient's smoking history or environmental exposures (unusual for 9-year-old)",
+            "Timing and details of antibiotic treatment prior to admission",
+            "Metastatic workup details (imaging for M0 staging confirmation)",
+            "Clinical course between admission and VATS procedure",
+            "Post-operative follow-up and patient outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No source record provides information on specific clinical symptoms, timeline before admission, fever, hemoptysis, weight loss, systemic symptoms, smoking history, or environmental exposures.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide the chest CT report with specific details about the nodule in the right lower lobe, including size (in mm), density characteristics (ground-glass, solid, mixed), margins (well-defined or irregular), and any other radiological features that prompted the diagnostic workup",
+          "current_trajectory_hypothesis": "9-year-old girl with 3-week persistent cough and sputum production, unresponsive to antibiotics. Chest CT identified a right lower lobe nodule leading to admission. VATS of right lower lobe was performed without complications. Pathological examination confirmed pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type) with lepidic growth pattern, focal invasive component <5mm, negative margins and lymph nodes (pT1miN0M0). Seeking CT imaging details to complete the diagnostic trajectory from initial imaging finding to pathological confirmation.",
+          "confirmed_evidence": [
+            "9-year-old female patient",
+            "3-week history of persistent cough and sputum production",
+            "Symptoms did not improve with antibiotic treatment",
+            "Chest CT revealed nodule in right lower lobe",
+            "Patient admitted for further treatment",
+            "VATS of right lower lobe performed without postoperative complications",
+            "Histopathology: predominantly lepidic growth pattern with mucin secretion",
+            "Tumor cells with abundant apical cytoplasmic mucin and small basally oriented nuclei",
+            "Focal invasive component <5mm with infiltrative glands",
+            "Atypical goblet cell hyperplasia in bronchial epithelium",
+            "Resection margin and lymph nodes negative",
+            "CK7 positive, TTF-1 negative, CK5/6 negative for basal cell layer",
+            "Final diagnosis: pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type), pT1miN0M0"
+          ],
+          "missing_key_evidence": [
+            "Detailed CT imaging characteristics (size in mm, density, margins, specific location within RLL)",
+            "Metastatic workup details (imaging for M0 staging confirmation)",
+            "Clinical course between admission and VATS procedure",
+            "Post-operative follow-up and patient outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan.",
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "9-year-old girl with 3-week persistent cough and sputum production, unresponsive to antibiotics. Chest CT identified a right lower lobe nodule leading to hospital admission. VATS of right lower lobe was performed without complications. Pathological examination of the resected specimen confirmed pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type) with lepidic growth pattern, focal invasive component <5mm, negative margins and lymph nodes (pT1miN0M0). Seeking to complete the trajectory with imaging details and staging workup documentation.",
+          "confirmed_evidence": [
+            "9-year-old female patient",
+            "3-week history of persistent cough and sputum production",
+            "Symptoms did not improve with antibiotic treatment",
+            "Chest CT revealed nodule in right lower lobe",
+            "Patient admitted for further treatment",
+            "VATS of right lower lobe performed without postoperative complications",
+            "Histopathology: predominantly lepidic growth pattern with mucin secretion",
+            "Tumor cells with abundant apical cytoplasmic mucin and small basally oriented nuclei",
+            "Focal invasive component <5mm with infiltrative glands",
+            "Atypical goblet cell hyperplasia in bronchial epithelium",
+            "Resection margin and lymph nodes negative",
+            "CK7 positive, TTF-1 negative, CK5/6 negative for basal cell layer",
+            "Final diagnosis: pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type), pT1miN0M0"
+          ],
+          "missing_key_evidence": [
+            "Detailed CT imaging characteristics (size in mm, density, margins, specific location within RLL)",
+            "Metastatic workup details (imaging for M0 staging confirmation)",
+            "Clinical course between admission and VATS procedure",
+            "Post-operative follow-up and patient outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "The patient remained well 11 months after resection and did not require additional treatment.",
+          "category": "other",
+          "temporal_cue": "11 months after resection",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide any imaging reports documenting the staging workup for metastatic disease (M0 staging), such as chest CT with mediastinal/hilar lymph node assessment, abdominal imaging, or other imaging performed to rule out distant metastases",
+          "current_trajectory_hypothesis": "9-year-old girl with 3-week persistent cough and sputum production, unresponsive to antibiotics. Chest CT identified a right lower lobe nodule leading to hospital admission. VATS of right lower lobe was performed without complications. Pathological examination confirmed pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type) with lepidic growth pattern, focal invasive component <5mm, negative margins and lymph nodes (pT1miN0M0). Patient remained well 11 months after resection without additional treatment. Seeking to complete staging documentation, particularly M0 confirmation.",
+          "confirmed_evidence": [
+            "9-year-old female patient",
+            "3-week history of persistent cough and sputum production",
+            "Symptoms did not improve with antibiotic treatment",
+            "Chest CT revealed nodule in right lower lobe",
+            "Patient admitted for further treatment",
+            "VATS of right lower lobe performed without postoperative complications",
+            "Histopathology: predominantly lepidic growth pattern with mucin secretion",
+            "Tumor cells with abundant apical cytoplasmic mucin and small basally oriented nuclei",
+            "Focal invasive component <5mm with infiltrative glands",
+            "Atypical goblet cell hyperplasia in bronchial epithelium",
+            "Resection margin and lymph nodes negative",
+            "CK7 positive, TTF-1 negative, CK5/6 negative for basal cell layer",
+            "Final diagnosis: pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type), pT1miN0M0",
+            "Patient remained well 11 months after resection without additional treatment"
+          ],
+          "missing_key_evidence": [
+            "Detailed CT imaging characteristics (size in mm, density, margins, specific location within RLL)",
+            "Metastatic workup details (imaging for M0 staging confirmation)",
+            "Clinical course between admission and VATS procedure"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "Chest CT revealed a nodule in the right lower lobe, leading to the patient’s admission to our hospital for further treatment. Contrast-enhanced chest CT revealed a solid nodule measuring 1.9 cm × 1.6 cm in the posterior basal segment of the right lower lobe (Fig. 1A) with irregular margins and slight enhancement (Fig. 1B).",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Please provide any additional staging workup documentation, such as abdominal imaging, brain imaging, or bone imaging performed to assess for distant metastases (M0 staging confirmation), or any lymph node sampling/assessment results from mediastinal or hilar stations",
+          "current_trajectory_hypothesis": "9-year-old girl with 3-week persistent cough and sputum production, unresponsive to antibiotics. Chest CT identified a 1.9 cm × 1.6 cm solid nodule with irregular margins in the posterior basal segment of right lower lobe. VATS of right lower lobe was performed without complications. Pathological examination confirmed pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type) with lepidic growth pattern, focal invasive component <5mm, negative resection margins and lymph nodes (pT1miN0M0). Patient remained well 11 months after resection without additional treatment. Seeking to complete staging documentation for M0 confirmation.",
+          "confirmed_evidence": [
+            "9-year-old female patient",
+            "3-week history of persistent cough and sputum production",
+            "Symptoms did not improve with antibiotic treatment",
+            "Chest CT revealed 1.9 cm × 1.6 cm solid nodule in posterior basal segment of right lower lobe with irregular margins and slight enhancement",
+            "Patient admitted for further treatment",
+            "VATS of right lower lobe performed without postoperative complications",
+            "Histopathology: predominantly lepidic growth pattern with mucin secretion",
+            "Tumor cells with abundant apical cytoplasmic mucin and small basally oriented nuclei",
+            "Focal invasive component <5mm with infiltrative glands",
+            "Atypical goblet cell hyperplasia in bronchial epithelium",
+            "Resection margin and lymph nodes negative",
+            "CK7 positive, TTF-1 negative, CK5/6 negative for basal cell layer",
+            "Final diagnosis: pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type), pT1miN0M0",
+            "Patient remained well 11 months after resection without additional treatment"
+          ],
+          "missing_key_evidence": [
+            "Metastatic workup details (abdominal, brain, or bone imaging for M0 staging confirmation)",
+            "Lymph node sampling or assessment results from mediastinal/hilar stations",
+            "Clinical course details between admission and VATS procedure"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.82
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E003",
+          "source_text": "The resection margin and lymph nodes were negative.",
+          "category": "image_finding",
+          "temporal_cue": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type), staged as pT1miN0M0",
+          "trajectory_summary": "A 9-year-old girl presented with a 3-week history of persistent cough and sputum production that did not improve despite antibiotic treatment for suspected respiratory infection. Chest CT revealed a 1.9 cm × 1.6 cm solid nodule with irregular margins and slight enhancement in the posterior basal segment of the right lower lobe, prompting hospital admission for further evaluation. Video-assisted thoracoscopic surgery (VATS) of the right lower lobe was performed without postoperative complications. Histopathological examination of the resected specimen confirmed pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type) with a predominantly lepidic growth pattern, focal invasive component measuring less than 5 mm, negative resection margins, and negative lymph nodes (pT1miN0M0). The patient remained well 11 months after resection without requiring additional treatment.",
+          "key_supporting_evidence": [
+            {
+              "claim": "9-year-old female patient with 3-week persistent cough and sputum production unresponsive to antibiotics",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Chest CT revealed 1.9 cm × 1.6 cm solid nodule with irregular margins and slight enhancement in posterior basal segment of right lower lobe",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "VATS of right lower lobe performed without postoperative complications",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Histopathology confirmed predominantly lepidic growth pattern with mucin secretion, tumor cells with abundant apical cytoplasmic mucin and small basally oriented nuclei, focal invasive component <5 mm with infiltrative glands, and atypical goblet cell hyperplasia in bronchial epithelium",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Resection margin and lymph nodes negative (N0 staging)",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Immunohistochemistry: CK7 positive, TTF-1 negative, CK5/6 negative for basal cell layer",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Patient remained well 11 months after resection without additional treatment",
+              "evidence_ids": [
+                "E006"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Infectious pneumonia or bronchitis",
+              "basis": "Symptoms did not improve with antibiotic treatment; imaging revealed a discrete nodule rather than infiltrates; pathology confirmed malignancy"
+            },
+            {
+              "alternative": "Benign lung nodule or hamartoma",
+              "basis": "Histopathology confirmed malignant adenocarcinoma with mucinous differentiation and invasive component"
+            },
+            {
+              "alternative": "Non-mucinous adenocarcinoma or other lung cancer subtypes",
+              "basis": "Histopathology specifically documented abundant intracytoplasmic mucin, lepidic growth pattern, and goblet cell hyperplasia characteristic of mucinous adenocarcinoma"
+            },
+            {
+              "alternative": "Advanced stage lung cancer with lymph node or distant metastases",
+              "basis": "Resection margins and lymph nodes were negative; patient remained well 11 months post-resection without additional treatment, consistent with early-stage disease (pT1miN0M0)"
+            }
+          ],
+          "remaining_uncertainties": [
+            "Specific details of metastatic workup (abdominal, brain, or bone imaging) to formally document M0 staging, though clinical course and lack of treatment requirement support absence of distant metastases",
+            "Complete clinical course details between hospital admission and VATS procedure",
+            "Specific details of antibiotic treatment prior to admission"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.92
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type), staged as pT1miN0M0",
+      "trajectory_summary": "A 9-year-old girl presented with a 3-week history of persistent cough and sputum production that did not improve despite antibiotic treatment for suspected respiratory infection. Chest CT revealed a 1.9 cm × 1.6 cm solid nodule with irregular margins and slight enhancement in the posterior basal segment of the right lower lobe, prompting hospital admission for further evaluation. Video-assisted thoracoscopic surgery (VATS) of the right lower lobe was performed without postoperative complications. Histopathological examination of the resected specimen confirmed pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type) with a predominantly lepidic growth pattern, focal invasive component measuring less than 5 mm, negative resection margins, and negative lymph nodes (pT1miN0M0). The patient remained well 11 months after resection without requiring additional treatment.",
+      "key_supporting_evidence": [
+        {
+          "claim": "9-year-old female patient with 3-week persistent cough and sputum production unresponsive to antibiotics",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Chest CT revealed 1.9 cm × 1.6 cm solid nodule with irregular margins and slight enhancement in posterior basal segment of right lower lobe",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "VATS of right lower lobe performed without postoperative complications",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Histopathology confirmed predominantly lepidic growth pattern with mucin secretion, tumor cells with abundant apical cytoplasmic mucin and small basally oriented nuclei, focal invasive component <5 mm with infiltrative glands, and atypical goblet cell hyperplasia in bronchial epithelium",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Resection margin and lymph nodes negative (N0 staging)",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Immunohistochemistry: CK7 positive, TTF-1 negative, CK5/6 negative for basal cell layer",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Patient remained well 11 months after resection without additional treatment",
+          "evidence_ids": [
+            "E006"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Infectious pneumonia or bronchitis",
+          "basis": "Symptoms did not improve with antibiotic treatment; imaging revealed a discrete nodule rather than infiltrates; pathology confirmed malignancy"
+        },
+        {
+          "alternative": "Benign lung nodule or hamartoma",
+          "basis": "Histopathology confirmed malignant adenocarcinoma with mucinous differentiation and invasive component"
+        },
+        {
+          "alternative": "Non-mucinous adenocarcinoma or other lung cancer subtypes",
+          "basis": "Histopathology specifically documented abundant intracytoplasmic mucin, lepidic growth pattern, and goblet cell hyperplasia characteristic of mucinous adenocarcinoma"
+        },
+        {
+          "alternative": "Advanced stage lung cancer with lymph node or distant metastases",
+          "basis": "Resection margins and lymph nodes were negative; patient remained well 11 months post-resection without additional treatment, consistent with early-stage disease (pT1miN0M0)"
+        }
+      ],
+      "remaining_uncertainties": [
+        "Specific details of metastatic workup (abdominal, brain, or bone imaging) to formally document M0 staging, though clinical course and lack of treatment requirement support absence of distant metastases",
+        "Complete clinical course details between hospital admission and VATS procedure",
+        "Specific details of antibiotic treatment prior to admission"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.92
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T09:02:37.331406+00:00",
+    "clinician_model": "claude-haiku-4-5",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC12036169",
+    "known_final_diagnosis": "The final pathological diagnosis was pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type), staged as pT1miN0M0.",
+    "turns_used": 9,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 7,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "ASK_HISTORY": 2,
+      "FINAL_TRAJECTORY": 1,
+      "REQUEST_RESULT": 5,
+      "WAIT_REASSESS": 1
+    },
+    "report_status_counts": {
+      "already_disclosed": 1,
+      "found": 4,
+      "invalid_report_selection": 2,
+      "not_reported": 1
+    },
+    "report_repair_attempted_count": 2,
+    "report_repair_failed_count": 2,
+    "report_repair_validation_error_counts": {
+      "verbatim_excerpt is not a contiguous source subspan.": 4
+    },
+    "answer_yield": 0.625,
+    "unavailable_turn_rate": 0.125,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T09:02:37.334350+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC12036169",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "4",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.5555555555555556",
+    "weighted_tversky_distance": "0.4444444444444444",
+    "matched_weight": "2.5",
+    "missed_weight": "1.0",
+    "extra_weight": "0.5",
+    "weighted_lcs_recall": "0.7142857142857143",
+    "weighted_lcs_weight": "2.5",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "1",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging > other_or_off_protocol > lab_tests > medication_or_treatment",
+    "prediction_sequence": "imaging > clinical_history > lab_tests",
+    "error": ""
+  }
+}

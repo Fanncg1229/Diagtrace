@@ -1,0 +1,578 @@
+{
+  "case_id": "case_0156",
+  "pmcid": "PMC4316841",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC4316841",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 12,
+    "termination": "final",
+    "known_final_diagnosis": "Further tests confirmed a diffuse large B cell lymphoma.",
+    "disclosed_evidence_ids": [
+      "E005",
+      "E007",
+      "E011",
+      "E012",
+      "E013"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Brain MRI with and without contrast",
+          "current_trajectory_hypothesis": "Patient presented with subacute neurological symptoms. Brain imaging is a standard initial step to investigate such symptoms and look for structural lesions that might be related to the known final diagnosis of DLBCL.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Brain imaging findings",
+            "CSF analysis results",
+            "Biopsy results",
+            "Confirmation of DLBCL type"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order for Brain MRI with and without contrast noted; no source result yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Brain MRI report findings",
+          "current_trajectory_hypothesis": "Patient presented with subacute neurological symptoms. Brain imaging is a standard initial step to investigate such symptoms and look for structural lesions that might be related to the known final diagnosis of DLBCL. I am awaiting the results of the previously ordered MRI.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Brain imaging findings",
+            "CSF analysis results",
+            "Biopsy results",
+            "Confirmation of DLBCL type"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "MRI examination (figure 1A–C) demonstrated extensive confluent areas of T2-weighted hyperintensity diffusely throughout the cerebrum and brainstem. There was no perceptible mass effect, abnormal post-gadolinum contrast enhancement nor restriction of diffusion of the diffusion weighted imaging sequences.",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Lumbar puncture for CSF analysis (cell count, protein, glucose, cytology, oligoclonal bands, infectious workup)",
+          "current_trajectory_hypothesis": "The patient has subacute neurological symptoms and MRI findings of extensive T2 hyperintensities without mass effect or enhancement. Given the known final diagnosis of DLBCL, CSF analysis is crucial to investigate for central nervous system involvement, paraneoplastic syndromes, or other causes of the neurological presentation.",
+          "confirmed_evidence": [
+            "Patient presented with personality change, emotional lability, and progressive amnestic syndrome over 3 weeks.",
+            "Brain MRI showed extensive confluent areas of T2-weighted hyperintensity diffusely throughout the cerebrum and brainstem.",
+            "Brain MRI showed no perceptible mass effect, abnormal post-gadolinium contrast enhancement, nor restriction of diffusion."
+          ],
+          "missing_key_evidence": [
+            "CSF analysis results",
+            "Biopsy results",
+            "Confirmation of DLBCL type and location"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order acknowledged, source includes CSF analysis results but testing not yet requested",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "CSF analysis results (cell count, protein, glucose, cytology, oligoclonal bands, infectious workup)",
+          "current_trajectory_hypothesis": "The patient has subacute neurological symptoms and MRI findings of extensive T2 hyperintensities without mass effect or enhancement. CSF analysis is crucial to investigate for central nervous system involvement, paraneoplastic syndromes, or other causes, especially given the known final diagnosis of DLBCL. I am requesting the results of the previously ordered lumbar puncture.",
+          "confirmed_evidence": [
+            "Patient presented with personality change, emotional lability, and progressive amnestic syndrome over 3 weeks.",
+            "Brain MRI showed extensive confluent areas of T2-weighted hyperintensity diffusely throughout the cerebrum and brainstem.",
+            "Brain MRI showed no perceptible mass effect, abnormal post-gadolinium contrast enhancement, nor restriction of diffusion."
+          ],
+          "missing_key_evidence": [
+            "CSF analysis results",
+            "Biopsy results",
+            "Confirmation of DLBCL type and location"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E007",
+          "source_text": "Cerebrospinal fluid (CSF) examination showed a protein level of 0.74 g/L with a glucose of 3.2 mmol/L (serum 5.5 mmol/L), <1 white blood cell per millilitre and negative oligoclonal bands. CSF PCR for viruses including JC and HIV were also negative. CSF cytology showed a moderately cellular fluid with increased numbers of lymphocytes and macrophages with no atypical cells, consistent with a mild chronic inflammatory/reactive process.",
+          "category": "pathology_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "Brain biopsy of the T2 hyperintense lesions",
+          "current_trajectory_hypothesis": "The patient presents with subacute neurological symptoms and MRI findings of extensive T2 hyperintensities. CSF analysis shows a chronic inflammatory/reactive process but no atypical cells. Given the known final diagnosis of DLBCL, a brain biopsy is necessary to obtain tissue for definitive diagnosis and characterization of the lesions.",
+          "confirmed_evidence": [
+            "Patient presented with personality change, emotional lability, and progressive amnestic syndrome over 3 weeks.",
+            "Brain MRI showed extensive confluent areas of T2-weighted hyperintensity diffusely throughout the cerebrum and brainstem.",
+            "Brain MRI showed no perceptible mass effect, abnormal post-gadolinium contrast enhancement, nor restriction of diffusion.",
+            "CSF analysis showed protein 0.74 g/L, glucose 3.2 mmol/L, <1 WBC/mL, negative oligoclonal bands, negative viral PCRs.",
+            "CSF cytology showed moderately cellular fluid with increased lymphocytes and macrophages, consistent with mild chronic inflammatory/reactive process, but no atypical cells."
+          ],
+          "missing_key_evidence": [
+            "Brain biopsy results (histopathology, immunohistochemistry)",
+            "Confirmation of DLBCL type and location"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "The brain biopsy procedure was ordered; however, no immediate source record documents the biopsy order event itself.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Brain biopsy histopathology and immunohistochemistry results",
+          "current_trajectory_hypothesis": "The patient presents with subacute neurological symptoms, MRI findings of extensive T2 hyperintensities, and CSF analysis showing a chronic inflammatory/reactive process. A brain biopsy was ordered to obtain tissue for definitive diagnosis. I am now requesting the results of this biopsy to confirm the known final diagnosis of DLBCL.",
+          "confirmed_evidence": [
+            "Patient presented with personality change, emotional lability, and progressive amnestic syndrome over 3 weeks.",
+            "Brain MRI showed extensive confluent areas of T2-weighted hyperintensity diffusely throughout the cerebrum and brainstem.",
+            "Brain MRI showed no perceptible mass effect, abnormal post-gadolinium contrast enhancement, nor restriction of diffusion.",
+            "CSF analysis showed protein 0.74 g/L, glucose 3.2 mmol/L, <1 WBC/mL, negative oligoclonal bands, negative viral PCRs.",
+            "CSF cytology showed moderately cellular fluid with increased lymphocytes and macrophages, consistent with mild chronic inflammatory/reactive process, but no atypical cells.",
+            "A brain biopsy was ordered to investigate the T2 hyperintense lesions."
+          ],
+          "missing_key_evidence": [
+            "Brain biopsy results (histopathology, immunohistochemistry) confirming DLBCL",
+            "Details of DLBCL type and location within the brain",
+            "Treatment and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E011",
+          "source_text": "Histological examination showed diffuse and nodular infiltration of cerebrum by large atypical lymphoid cells. The cells showed nuclear pleomorphism and showed clusters around blood vessels and diffuse spread into the surrounding cortex.",
+          "category": "pathology_report",
+          "temporal_cue": "months later",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Brain biopsy immunohistochemistry results for lymphoid markers (e.g., CD20, CD3, CD5, CD10, BCL6, MUM1, Ki-67)",
+          "current_trajectory_hypothesis": "The patient has subacute neurological symptoms, MRI findings of extensive T2 hyperintensities, and CSF analysis showing a chronic inflammatory/reactive process. Brain biopsy histopathology showed infiltration by large atypical lymphoid cells. To confirm the known final diagnosis of Diffuse Large B-cell Lymphoma (DLBCL), immunohistochemistry is essential to determine the cell lineage and specific subtype.",
+          "confirmed_evidence": [
+            "Patient presented with personality change, emotional lability, and progressive amnestic syndrome over 3 weeks.",
+            "Brain MRI showed extensive confluent areas of T2-weighted hyperintensity diffusely throughout the cerebrum and brainstem.",
+            "Brain MRI showed no perceptible mass effect, abnormal post-gadolinium contrast enhancement, nor restriction of diffusion.",
+            "CSF analysis showed protein 0.74 g/L, glucose 3.2 mmol/L, <1 WBC/mL, negative oligoclonal bands, negative viral PCRs.",
+            "CSF cytology showed moderately cellular fluid with increased lymphocytes and macrophages, consistent with mild chronic inflammatory/reactive process, but no atypical cells.",
+            "A brain biopsy was ordered to investigate the T2 hyperintense lesions.",
+            "Brain biopsy histopathology showed diffuse and nodular infiltration of cerebrum by large atypical lymphoid cells with nuclear pleomorphism, clustering around blood vessels, and diffuse spread into the surrounding cortex."
+          ],
+          "missing_key_evidence": [
+            "Brain biopsy immunohistochemistry results confirming DLBCL",
+            "Details of DLBCL subtype (e.g., GCB vs. non-GCB)",
+            "Treatment and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E011",
+          "source_text": "Histological examination showed diffuse and nodular infiltration of cerebrum by large atypical lymphoid cells. The cells showed nuclear pleomorphism and showed clusters around blood vessels and diffuse spread into the surrounding cortex.",
+          "category": "pathology_report",
+          "temporal_cue": "months later",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Immunohistochemistry results from the brain biopsy, specifically for lymphoid markers (e.g., CD20, CD3, CD5, CD10, BCL6, MUM1, Ki-67) to confirm the B-cell lineage and subtype.",
+          "current_trajectory_hypothesis": "The patient has subacute neurological symptoms, MRI findings of extensive T2 hyperintensities, and CSF analysis showing a chronic inflammatory/reactive process. Brain biopsy histopathology showed infiltration by large atypical lymphoid cells. To definitively confirm the known final diagnosis of Diffuse Large B-cell Lymphoma (DLBCL), immunohistochemistry is essential to determine the cell lineage and specific subtype, as this information was not provided in the general histological description.",
+          "confirmed_evidence": [
+            "Patient presented with personality change, emotional lability, and progressive amnestic syndrome over 3 weeks.",
+            "Brain MRI showed extensive confluent areas of T2-weighted hyperintensity diffusely throughout the cerebrum and brainstem.",
+            "Brain MRI showed no perceptible mass effect, abnormal post-gadolinium contrast enhancement, nor restriction of diffusion.",
+            "CSF analysis showed protein 0.74 g/L, glucose 3.2 mmol/L, <1 WBC/mL, negative oligoclonal bands, negative viral PCRs.",
+            "CSF cytology showed moderately cellular fluid with increased lymphocytes and macrophages, consistent with mild chronic inflammatory/reactive process, but no atypical cells.",
+            "A brain biopsy was ordered to investigate the T2 hyperintense lesions.",
+            "Brain biopsy histopathology showed diffuse and nodular infiltration of cerebrum by large atypical lymphoid cells with nuclear pleomorphism, clustering around blood vessels, and diffuse spread into the surrounding cortex."
+          ],
+          "missing_key_evidence": [
+            "Brain biopsy immunohistochemistry results confirming DLBCL",
+            "Details of DLBCL subtype (e.g., GCB vs. non-GCB)",
+            "Treatment and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E011",
+          "source_text": "Histological examination showed diffuse and nodular infiltration of cerebrum by large atypical lymphoid cells. The cells showed nuclear pleomorphism and showed clusters around blood vessels and diffuse spread into the surrounding cortex.",
+          "category": "pathology_report",
+          "temporal_cue": "months later",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Immunohistochemical staining results from the brain biopsy, specifically confirming B-cell lineage markers (e.g., CD20 positivity) and other relevant markers to characterize the lymphoma.",
+          "current_trajectory_hypothesis": "The patient has subacute neurological symptoms, MRI findings of extensive T2 hyperintensities, and CSF analysis showing a chronic inflammatory/reactive process. Brain biopsy histopathology showed infiltration by large atypical lymphoid cells. To definitively confirm the known final diagnosis of Diffuse Large B-cell Lymphoma (DLBCL), specific immunohistochemistry results are essential to determine the B-cell lineage and further characterize the lymphoma, as this information was not provided in the general histological description (E011).",
+          "confirmed_evidence": [
+            "Patient presented with personality change, emotional lability, and progressive amnestic syndrome over 3 weeks.",
+            "Brain MRI showed extensive confluent areas of T2-weighted hyperintensity diffusely throughout the cerebrum and brainstem.",
+            "Brain MRI showed no perceptible mass effect, abnormal post-gadolinium contrast enhancement, nor restriction of diffusion.",
+            "CSF analysis showed protein 0.74 g/L, glucose 3.2 mmol/L, <1 WBC/mL, negative oligoclonal bands, negative viral PCRs.",
+            "CSF cytology showed moderately cellular fluid with increased lymphocytes and macrophages, consistent with mild chronic inflammatory/reactive process, but no atypical cells.",
+            "A brain biopsy was ordered to investigate the T2 hyperintense lesions.",
+            "Brain biopsy histopathology showed diffuse and nodular infiltration of cerebrum by large atypical lymphoid cells with nuclear pleomorphism, clustering around blood vessels, and diffuse spread into the surrounding cortex."
+          ],
+          "missing_key_evidence": [
+            "Brain biopsy immunohistochemistry results specifically confirming B-cell lineage (e.g., CD20 positivity) and other markers for DLBCL",
+            "Details of DLBCL subtype (e.g., GCB vs. non-GCB)",
+            "Treatment and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E011",
+          "source_text": "The cells showed nuclear pleomorphism and showed clusters around blood vessels and diffuse spread into the surrounding cortex. Further tests confirmed a diffuse large B cell lymphoma.",
+          "category": "pathology_report",
+          "temporal_cue": "months later",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with subacute neurological symptoms, followed by MRI showing extensive T2 hyperintensities. CSF analysis showed a chronic inflammatory/reactive process. Brain biopsy histopathology revealed atypical lymphoid cells, and further tests confirmed diffuse large B cell lymphoma. Now, I need to understand the subsequent clinical course, treatment, and patient outcome.",
+          "confirmed_evidence": [
+            "Patient presented with personality change, emotional lability, and progressive amnestic syndrome over 3 weeks.",
+            "Brain MRI showed extensive confluent areas of T2-weighted hyperintensity diffusely throughout the cerebrum and brainstem.",
+            "Brain MRI showed no perceptible mass effect, abnormal post-gadolinium contrast enhancement, nor restriction of diffusion.",
+            "CSF analysis showed protein 0.74 g/L, glucose 3.2 mmol/L, <1 WBC/mL, negative oligoclonal bands, negative viral PCRs.",
+            "CSF cytology showed moderately cellular fluid with increased lymphocytes and macrophages, consistent with mild chronic inflammatory/reactive process, but no atypical cells.",
+            "A brain biopsy was performed to investigate the T2 hyperintense lesions.",
+            "Brain biopsy histopathology showed diffuse and nodular infiltration of cerebrum by large atypical lymphoid cells with nuclear pleomorphism, clustering around blood vessels, and diffuse spread into the surrounding cortex.",
+            "Further tests on the brain biopsy confirmed a diffuse large B cell lymphoma."
+          ],
+          "missing_key_evidence": [
+            "Details of DLBCL subtype (e.g., GCB vs. non-GCB), if available.",
+            "Treatment initiated for DLBCL",
+            "Patient's response to treatment",
+            "Overall outcome or clinical course after diagnosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E012",
+          "source_text": "Following a bone marrow biopsy and PET/CT scan, no evidence of lymphoma outside the central nervous system was found.",
+          "category": "pathology_report",
+          "temporal_cue": "after biopsy",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with subacute neurological symptoms, followed by MRI showing extensive T2 hyperintensities. CSF analysis showed a chronic inflammatory/reactive process. Brain biopsy histopathology revealed atypical lymphoid cells, and further tests confirmed diffuse large B cell lymphoma, specifically primary CNS lymphoma. Now, I need to understand the subsequent clinical course, treatment, and patient outcome.",
+          "confirmed_evidence": [
+            "Patient presented with personality change, emotional lability, and progressive amnestic syndrome over 3 weeks.",
+            "Brain MRI showed extensive confluent areas of T2-weighted hyperintensity diffusely throughout the cerebrum and brainstem.",
+            "Brain MRI showed no perceptible mass effect, abnormal post-gadolinium contrast enhancement, nor restriction of diffusion.",
+            "CSF analysis showed protein 0.74 g/L, glucose 3.2 mmol/L, <1 WBC/mL, negative oligoclonal bands, negative viral PCRs.",
+            "CSF cytology showed moderately cellular fluid with increased lymphocytes and macrophages, consistent with mild chronic inflammatory/reactive process, but no atypical cells.",
+            "A brain biopsy was performed to investigate the T2 hyperintense lesions.",
+            "Brain biopsy histopathology showed diffuse and nodular infiltration of cerebrum by large atypical lymphoid cells with nuclear pleomorphism, clustering around blood vessels, and diffuse spread into the surrounding cortex.",
+            "Further tests on the brain biopsy confirmed a diffuse large B cell lymphoma.",
+            "Bone marrow biopsy and PET/CT scan showed no evidence of lymphoma outside the central nervous system, indicating primary CNS lymphoma."
+          ],
+          "missing_key_evidence": [
+            "Details of DLBCL subtype (e.g., GCB vs. non-GCB), if available.",
+            "Treatment initiated for primary CNS DLBCL",
+            "Patient's response to treatment",
+            "Overall outcome or clinical course after diagnosis and treatment"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E013",
+          "source_text": "Treatment commenced, including high-dose methotrexate, cytarabine and rituximab, followed by radiotherapy (40 Gy total). Repeat MRI showed significant improvement in the central nervous system disease (figure 1G–I) and she also improved functionally, being discharged home without a package of care after previously needing 24 h nursing care. Ten months later, functional status had not deteriorated and neuropsychometric testing was equivalent to that done several months prior to commencement of treatment (ie, before significant further cognitive decline), however remaining below premorbid estimates. Importantly, her gait and mobility also improved dramatically as she went from being unable to walk unaided immediately prior to treatment, to walking independently, swimming twice weekly and using a cross-trainer regularly.",
+          "category": "image_finding",
+          "temporal_cue": "post-treatment and 10 months follow-up",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Diffuse large B cell lymphoma (Primary CNS Lymphoma)",
+          "trajectory_summary": "A 50-year-old lady presented with subacutely progressive amnestic syndrome, personality change, emotional lability, severe anxiety, and insomnia. Initial neurological exam showed brisk reflexes, language difficulty, and apraxia. Brain MRI revealed extensive confluent T2-weighted hyperintensities throughout the cerebrum and brainstem, without mass effect, enhancement, or diffusion restriction. CSF analysis showed elevated protein, normal glucose, <1 WBC/mL, negative oligoclonal bands and viral PCRs, and cytology consistent with a mild chronic inflammatory/reactive process but no atypical cells. A brain biopsy, performed months later, showed diffuse and nodular infiltration of the cerebrum by large atypical lymphoid cells. Further tests confirmed a diffuse large B cell lymphoma. Staging with bone marrow biopsy and PET/CT found no evidence of lymphoma outside the central nervous system, confirming primary CNS lymphoma. Treatment included high-dose methotrexate, cytarabine, rituximab, and radiotherapy. Post-treatment, repeat MRI showed significant improvement, and the patient experienced dramatic functional recovery, including improved mobility and neuropsychometric status.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with subacutely progressive amnestic syndrome, personality change, emotional lability, severe anxiety, and insomnia.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Brain MRI demonstrated extensive confluent areas of T2-weighted hyperintensity diffusely throughout the cerebrum and brainstem, with no mass effect, abnormal post-gadolinium contrast enhancement, or restriction of diffusion.",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "CSF analysis showed protein 0.74 g/L, glucose 3.2 mmol/L, <1 white blood cell per millilitre, negative oligoclonal bands, and negative viral PCRs. CSF cytology showed moderately cellular fluid with increased lymphocytes and macrophages, consistent with a mild chronic inflammatory/reactive process, but no atypical cells.",
+              "evidence_ids": [
+                "E007"
+              ]
+            },
+            {
+              "claim": "Histological examination of a brain biopsy showed diffuse and nodular infiltration of cerebrum by large atypical lymphoid cells with nuclear pleomorphism, clustering around blood vessels, and diffuse spread into the surrounding cortex.",
+              "evidence_ids": [
+                "E011"
+              ]
+            },
+            {
+              "claim": "Further tests confirmed a diffuse large B cell lymphoma.",
+              "evidence_ids": [
+                "E011"
+              ]
+            },
+            {
+              "claim": "Bone marrow biopsy and PET/CT scan showed no evidence of lymphoma outside the central nervous system, indicating primary CNS lymphoma.",
+              "evidence_ids": [
+                "E012"
+              ]
+            },
+            {
+              "claim": "Treatment included high-dose methotrexate, cytarabine, rituximab, followed by radiotherapy (40 Gy total).",
+              "evidence_ids": [
+                "E013"
+              ]
+            },
+            {
+              "claim": "Repeat MRI showed significant improvement in the central nervous system disease, and the patient improved functionally, being discharged home without a package of care and regaining independent mobility.",
+              "evidence_ids": [
+                "E013"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Infectious encephalitis (e.g., JC virus, HIV)",
+              "basis": "CSF PCR for viruses including JC and HIV were negative (E007)."
+            },
+            {
+              "alternative": "Demyelinating disease (e.g., MS)",
+              "basis": "Negative oligoclonal bands in CSF (E007) and lack of typical MRI features (no enhancement, no diffusion restriction, diffuse T2 hyperintensities not typical for MS plaques) (E005)."
+            },
+            {
+              "alternative": "Systemic lymphoma with CNS metastasis",
+              "basis": "Bone marrow biopsy and PET/CT scan showed no evidence of lymphoma outside the central nervous system (E012)."
+            }
+          ],
+          "remaining_uncertainties": [
+            "Specific immunohistochemistry markers (e.g., CD20, CD3, CD10, BCL6, MUM1, Ki-67) used to confirm DLBCL and determine its subtype (e.g., GCB vs. non-GCB) were not explicitly detailed in the provided reports, beyond the general statement 'Further tests confirmed a diffuse large B cell lymphoma'."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Diffuse large B cell lymphoma (Primary CNS Lymphoma)",
+      "trajectory_summary": "A 50-year-old lady presented with subacutely progressive amnestic syndrome, personality change, emotional lability, severe anxiety, and insomnia. Initial neurological exam showed brisk reflexes, language difficulty, and apraxia. Brain MRI revealed extensive confluent T2-weighted hyperintensities throughout the cerebrum and brainstem, without mass effect, enhancement, or diffusion restriction. CSF analysis showed elevated protein, normal glucose, <1 WBC/mL, negative oligoclonal bands and viral PCRs, and cytology consistent with a mild chronic inflammatory/reactive process but no atypical cells. A brain biopsy, performed months later, showed diffuse and nodular infiltration of the cerebrum by large atypical lymphoid cells. Further tests confirmed a diffuse large B cell lymphoma. Staging with bone marrow biopsy and PET/CT found no evidence of lymphoma outside the central nervous system, confirming primary CNS lymphoma. Treatment included high-dose methotrexate, cytarabine, rituximab, and radiotherapy. Post-treatment, repeat MRI showed significant improvement, and the patient experienced dramatic functional recovery, including improved mobility and neuropsychometric status.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with subacutely progressive amnestic syndrome, personality change, emotional lability, severe anxiety, and insomnia.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Brain MRI demonstrated extensive confluent areas of T2-weighted hyperintensity diffusely throughout the cerebrum and brainstem, with no mass effect, abnormal post-gadolinium contrast enhancement, or restriction of diffusion.",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "CSF analysis showed protein 0.74 g/L, glucose 3.2 mmol/L, <1 white blood cell per millilitre, negative oligoclonal bands, and negative viral PCRs. CSF cytology showed moderately cellular fluid with increased lymphocytes and macrophages, consistent with a mild chronic inflammatory/reactive process, but no atypical cells.",
+          "evidence_ids": [
+            "E007"
+          ]
+        },
+        {
+          "claim": "Histological examination of a brain biopsy showed diffuse and nodular infiltration of cerebrum by large atypical lymphoid cells with nuclear pleomorphism, clustering around blood vessels, and diffuse spread into the surrounding cortex.",
+          "evidence_ids": [
+            "E011"
+          ]
+        },
+        {
+          "claim": "Further tests confirmed a diffuse large B cell lymphoma.",
+          "evidence_ids": [
+            "E011"
+          ]
+        },
+        {
+          "claim": "Bone marrow biopsy and PET/CT scan showed no evidence of lymphoma outside the central nervous system, indicating primary CNS lymphoma.",
+          "evidence_ids": [
+            "E012"
+          ]
+        },
+        {
+          "claim": "Treatment included high-dose methotrexate, cytarabine, rituximab, followed by radiotherapy (40 Gy total).",
+          "evidence_ids": [
+            "E013"
+          ]
+        },
+        {
+          "claim": "Repeat MRI showed significant improvement in the central nervous system disease, and the patient improved functionally, being discharged home without a package of care and regaining independent mobility.",
+          "evidence_ids": [
+            "E013"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Infectious encephalitis (e.g., JC virus, HIV)",
+          "basis": "CSF PCR for viruses including JC and HIV were negative (E007)."
+        },
+        {
+          "alternative": "Demyelinating disease (e.g., MS)",
+          "basis": "Negative oligoclonal bands in CSF (E007) and lack of typical MRI features (no enhancement, no diffusion restriction, diffuse T2 hyperintensities not typical for MS plaques) (E005)."
+        },
+        {
+          "alternative": "Systemic lymphoma with CNS metastasis",
+          "basis": "Bone marrow biopsy and PET/CT scan showed no evidence of lymphoma outside the central nervous system (E012)."
+        }
+      ],
+      "remaining_uncertainties": [
+        "Specific immunohistochemistry markers (e.g., CD20, CD3, CD10, BCL6, MUM1, Ki-67) used to confirm DLBCL and determine its subtype (e.g., GCB vs. non-GCB) were not explicitly detailed in the provided reports, beyond the general statement 'Further tests confirmed a diffuse large B cell lymphoma'."
+      ],
+      "confidence_that_diagnosis_is_supported": 0.9
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T22:12:01.293256+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC4316841",
+    "known_final_diagnosis": "Further tests confirmed a diffuse large B cell lymphoma.",
+    "turns_used": 12,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 8,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 5,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 1,
+      "ORDER_TEST": 2,
+      "REQUEST_RESULT": 6,
+      "WAIT_REASSESS": 2
+    },
+    "report_status_counts": {
+      "already_disclosed": 3,
+      "found": 5,
+      "ordered_but_not_documented": 3
+    },
+    "report_repair_attempted_count": 0,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {},
+    "answer_yield": 0.7272727272727273,
+    "unavailable_turn_rate": 0.2727272727272727,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T22:12:01.295392+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC4316841",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/neurology/episodes/PMC4316841.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/neurology/cases/PMC4316841.json",
+    "num_gold_steps": "4",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.37037037037037035",
+    "weighted_tversky_distance": "0.6296296296296297",
+    "matched_weight": "2.5",
+    "missed_weight": "2.25",
+    "extra_weight": "1.0",
+    "weighted_lcs_recall": "0.3157894736842105",
+    "weighted_lcs_weight": "1.5",
+    "weighted_pairwise_order_accuracy": "0.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "1",
+    "gold_sequence": "other_or_off_protocol > lab_tests > imaging > pathology",
+    "prediction_sequence": "imaging > lab_tests > procedure_or_intervention",
+    "error": ""
+  }
+}

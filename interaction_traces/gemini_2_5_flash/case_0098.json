@@ -1,0 +1,460 @@
+{
+  "case_id": "case_0098",
+  "pmcid": "PMC9758892",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC9758892",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 12,
+    "termination": "final",
+    "known_final_diagnosis": "These findings, along with the patient’s underlying pancytopenia as a result of leukemia, confirmed leukemic retinopathy.",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E003",
+      "E004"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "fundoscopic examination findings",
+          "current_trajectory_hypothesis": "Patient with AML-M5 post-chemotherapy presents with blurred vision, suggesting a possible ocular complication. Fundoscopic examination is crucial to assess for retinopathy.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Specific ocular findings related to blurred vision",
+            "Confirmation of leukemic retinopathy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "The patient’s visual acuity consisted of light perception in the right eye and 3-m finger count in the left eye. Pupils of both eyes were midsize and briskly reactive, and no relative afferent pupillary defect was detected. Intraocular pressure (IOP) of both eyes were within normal limits. Conjunctiva and sclera were white and quiet. Cornea was clear. Anterior chamber was deep and quiet, the lenses were clear, and no vitreous hemorrhage was detected. Overall, anterior segment examination was unremarkable. Dilated fundus examination was performed. As shown in Fig. 2, in the right eye subhyaloid hemorrhage along with peripapillary intraretinal and flame-shaped hemorrhages were observed. Subhyaloid and intraretinal hemorrhages, along with a yellowish dense exudate in the fovea, is apparent in the fundus image of the left eye, as shown in Fig. 3.",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "complete blood count (CBC) with differential",
+          "current_trajectory_hypothesis": "The patient's fundoscopic findings are highly suggestive of leukemic retinopathy. To confirm the diagnosis, current blood counts, especially platelet count and white blood cell count, are needed to assess for pancytopenia, which is a key component of the final diagnosis.",
+          "confirmed_evidence": [
+            "Patient has AML-M5 history and presented with blurred vision, fever, headache, and petechiae.",
+            "Fundoscopic examination revealed subhyaloid hemorrhage, peripapillary intraretinal and flame-shaped hemorrhages in the right eye, and subhyaloid and intraretinal hemorrhages with a yellowish dense exudate in the fovea in the left eye."
+          ],
+          "missing_key_evidence": [
+            "Current blood counts (e.g., hemoglobin, platelets, WBC) to confirm pancytopenia at presentation",
+            "Confirmation of active leukemia or relapse status"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Order for CBC with differential recognized but no direct source record documents the test result.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "complete blood count (CBC) results, including white blood cell count, hemoglobin, and platelet count",
+          "current_trajectory_hypothesis": "The fundoscopic findings strongly suggest leukemic retinopathy. To fully support the diagnosis, current evidence of pancytopenia, as mentioned in the final diagnosis, is crucial. The previous request for CBC was 'ordered_but_not_documented', so I need to explicitly request the results.",
+          "confirmed_evidence": [
+            "Patient has a history of AML-M5 and presented with blurred vision, fever, headache, and petechiae.",
+            "Fundoscopic examination (E003) revealed significant retinal hemorrhages (subhyaloid, intraretinal, flame-shaped) and a foveal exudate in both eyes."
+          ],
+          "missing_key_evidence": [
+            "Current blood counts (e.g., hemoglobin, platelets, WBC) to confirm pancytopenia at presentation",
+            "Confirmation of active leukemia or relapse status"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "Initial lab results revealed pancytopenia including severe neutropenia [total white blood cell (WBC) count 300 × 109/L], anemia [hemoglobin (Hg) 4.1 g/dL], and thrombocytopenia [platelets (Plt) 7000 109/L].",
+          "category": "routine_lab",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "peripheral blood smear for blasts",
+          "current_trajectory_hypothesis": "The patient's fundoscopic findings and pancytopenia strongly support leukemic retinopathy. To fully confirm the diagnosis, especially the 'as a result of leukemia' component, it's important to determine if there is active leukemia or relapse, which can be assessed by looking for blasts in the peripheral blood.",
+          "confirmed_evidence": [
+            "Patient has a history of AML-M5 and presented with blurred vision, fever, headache, and petechiae.",
+            "Fundoscopic examination (E003) revealed significant retinal hemorrhages (subhyaloid, intraretinal, flame-shaped) and a foveal exudate in both eyes, consistent with retinopathy.",
+            "Initial lab results (E001) showed pancytopenia (severe neutropenia, anemia, thrombocytopenia) on admission."
+          ],
+          "missing_key_evidence": [
+            "Confirmation of active leukemia or relapse (e.g., presence of blasts) at the time of presentation to link pancytopenia directly to leukemia."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Peripheral blood smear for blasts ordered; source has no documented result.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "peripheral blood smear results, specifically for the presence of blasts",
+          "current_trajectory_hypothesis": "The patient's fundoscopic findings and pancytopenia strongly support leukemic retinopathy. To fully confirm the diagnosis, especially the 'as a result of leukemia' component, it's important to determine if there is active leukemia or relapse, which can be assessed by looking for blasts in the peripheral blood. I need to explicitly request the result of the previously ordered test.",
+          "confirmed_evidence": [
+            "Patient has a history of AML-M5 and presented with blurred vision, fever, headache, and petechiae.",
+            "Fundoscopic examination (E003) revealed significant retinal hemorrhages (subhyaloid, intraretinal, flame-shaped) and a foveal exudate in both eyes, consistent with retinopathy.",
+            "Initial lab results (E001) showed pancytopenia (severe neutropenia, anemia, thrombocytopenia) on admission."
+          ],
+          "missing_key_evidence": [
+            "Confirmation of active leukemia or relapse (e.g., presence of blasts) at the time of presentation to link pancytopenia directly to leukemia."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Peripheral blood smear results for the presence of blasts are not reported in the provided evidence.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "bone marrow biopsy for assessment of leukemia status",
+          "current_trajectory_hypothesis": "The patient's fundoscopic findings (E003) and pancytopenia (E001) strongly support leukemic retinopathy. To fully confirm the diagnosis, especially the 'underlying pancytopenia as a result of leukemia' component, it's crucial to determine if there is active leukemia or relapse. A bone marrow biopsy is the definitive test for this.",
+          "confirmed_evidence": [
+            "Patient has a history of AML-M5 and presented with blurred vision, fever, headache, and petechiae.",
+            "Fundoscopic examination (E003) revealed significant retinal hemorrhages (subhyaloid, intraretinal, flame-shaped) and a foveal exudate in both eyes, consistent with retinopathy.",
+            "Initial lab results (E001) showed pancytopenia (severe neutropenia, anemia, thrombocytopenia) on admission."
+          ],
+          "missing_key_evidence": [
+            "Confirmation of active leukemia or relapse (e.g., presence of blasts in bone marrow) at the time of presentation to link pancytopenia directly to leukemia."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Order for bone marrow biopsy recorded but no source evidence documents the test result",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "bone marrow biopsy results, specifically for the presence of blasts or signs of active leukemia",
+          "current_trajectory_hypothesis": "The patient's fundoscopic findings (E003) and pancytopenia (E001) strongly support leukemic retinopathy. To fully confirm the diagnosis, especially the 'underlying pancytopenia as a result of leukemia' component, it's crucial to determine if there is active leukemia or relapse. I need to explicitly request the result of the previously ordered bone marrow biopsy.",
+          "confirmed_evidence": [
+            "Patient has a history of AML-M5 and presented with blurred vision, fever, headache, and petechiae.",
+            "Fundoscopic examination (E003) revealed significant retinal hemorrhages (subhyaloid, intraretinal, flame-shaped) and a foveal exudate in both eyes, consistent with retinopathy.",
+            "Initial lab results (E001) showed pancytopenia (severe neutropenia, anemia, thrombocytopenia) on admission."
+          ],
+          "missing_key_evidence": [
+            "Confirmation of active leukemia or relapse (e.g., presence of blasts in bone marrow) at the time of presentation to link pancytopenia directly to leukemia."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "No source record reports bone marrow biopsy results or mentions blasts or active leukemia signs.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient's fundoscopic findings (E003) and pancytopenia (E001) strongly support leukemic retinopathy. To fully confirm the diagnosis, especially the 'underlying pancytopenia as a result of leukemia' component, it's crucial to determine if there is active leukemia or relapse. Since specific test results for blasts or bone marrow biopsy were not reported, I need to look for any other documented clinical course or diagnostic summary that clarifies the leukemia status.",
+          "confirmed_evidence": [
+            "Patient has a history of AML-M5 and presented with blurred vision, fever, headache, and petechiae.",
+            "Fundoscopic examination (E003) revealed significant retinal hemorrhages (subhyaloid, intraretinal, flame-shaped) and a foveal exudate in both eyes, consistent with retinopathy.",
+            "Initial lab results (E001) showed pancytopenia (severe neutropenia, anemia, thrombocytopenia) on admission."
+          ],
+          "missing_key_evidence": [
+            "Confirmation of active leukemia or relapse at the time of presentation to link pancytopenia directly to leukemia."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "Spinal brain computed tomography (CT) scan was carried out, which indicated subarachnoid hemorrhage (SAH) in the left frontal and parietal lobes of the brain as shown in Fig. 1. Midline shift and intraventricular hemorrhage were not detected.",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient's fundoscopic findings (E003) and pancytopenia (E001) strongly support leukemic retinopathy. To fully confirm the diagnosis, especially the 'underlying pancytopenia as a result of leukemia' component, it's crucial to determine if there is active leukemia or relapse. Since specific test results for blasts or bone marrow biopsy were not reported, I need to look for any other documented clinical course or diagnostic summary that clarifies the leukemia status and its link to the pancytopenia.",
+          "confirmed_evidence": [
+            "Patient has a history of AML-M5 and presented with blurred vision, fever, headache, and petechiae.",
+            "Fundoscopic examination (E003) revealed significant retinal hemorrhages (subhyaloid, intraretinal, flame-shaped) and a foveal exudate in both eyes, consistent with retinopathy.",
+            "Initial lab results (E001) showed pancytopenia (severe neutropenia, anemia, thrombocytopenia) on admission.",
+            "Spinal brain CT scan (E002) indicated subarachnoid hemorrhage in the left frontal and parietal lobes."
+          ],
+          "missing_key_evidence": [
+            "Confirmation of active leukemia or relapse at the time of presentation to link pancytopenia directly to leukemia, as stated in the final diagnosis."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "Given the patient’s complicated condition, treating the underlying hematologic disturbance that caused SAH and retinal hemorrhages was our main treatment approach. The patient’s thrombocytopenia and anemia were improved by multiple transfusions of platelets and packed cells. He was also started on antibacterial, antifungal, and antiviral medications for neutropenic fever.",
+          "category": "treatment_response",
+          "temporal_cue": "during admission",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "clinical course update or diagnostic statement confirming the patient's leukemia status or relapse at the time of presentation",
+          "current_trajectory_hypothesis": "The patient's fundoscopic findings (E003) and pancytopenia (E001) strongly support leukemic retinopathy. To fully confirm the diagnosis, especially the 'underlying pancytopenia as a result of leukemia' component, it's crucial to determine if there is active leukemia or relapse, given the history of remission. Specific test results for blasts or bone marrow biopsy were not reported, so I need to look for any other documented clinical course or diagnostic summary that clarifies the leukemia status.",
+          "confirmed_evidence": [
+            "Patient has a history of AML-M5 and presented with blurred vision, fever, headache, and petechiae.",
+            "Fundoscopic examination (E003) revealed significant retinal hemorrhages (subhyaloid, intraretinal, flame-shaped) and a foveal exudate in both eyes, consistent with retinopathy.",
+            "Initial lab results (E001) showed pancytopenia (severe neutropenia, anemia, thrombocytopenia) on admission.",
+            "Spinal brain CT scan (E002) indicated subarachnoid hemorrhage in the left frontal and parietal lobes.",
+            "Treatment for pancytopenia and neutropenic fever was initiated (E004)."
+          ],
+          "missing_key_evidence": [
+            "Confirmation of active leukemia or relapse at the time of presentation to link pancytopenia directly to leukemia, as stated in the final diagnosis."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E003",
+          "source_text": "These findings, along with the patient’s underlying pancytopenia as a result of leukemia, confirmed leukemic retinopathy.",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Diagnostic statement or clinical conclusion regarding the cause of pancytopenia in relation to the patient's leukemia history.",
+          "current_trajectory_hypothesis": "The patient's fundoscopic findings (E003) and pancytopenia (E001) strongly support leukemic retinopathy. To fully confirm the diagnosis, especially the 'underlying pancytopenia as a result of leukemia' component, it's crucial to determine if there is active leukemia or relapse, given the history of remission. Since specific test results for blasts or bone marrow biopsy were not reported, I need to look for any other documented clinical course or diagnostic summary that clarifies the leukemia status and its link to the pancytopenia.",
+          "confirmed_evidence": [
+            "Patient has a history of AML-M5 and presented with blurred vision, fever, headache, and petechiae.",
+            "Fundoscopic examination (E003) revealed significant retinal hemorrhages (subhyaloid, intraretinal, flame-shaped) and a foveal exudate in both eyes, consistent with retinopathy.",
+            "Initial lab results (E001) showed pancytopenia (severe neutropenia, anemia, thrombocytopenia) on admission.",
+            "Spinal brain CT scan (E002) indicated subarachnoid hemorrhage in the left frontal and parietal lobes.",
+            "Treatment for pancytopenia and neutropenic fever was initiated (E004)."
+          ],
+          "missing_key_evidence": [
+            "Confirmation of active leukemia or relapse at the time of presentation to link pancytopenia directly to leukemia, as stated in the final diagnosis."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E003",
+          "source_text": "These findings, along with the patient’s underlying pancytopenia as a result of leukemia, confirmed leukemic retinopathy.",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Leukemic retinopathy",
+          "trajectory_summary": "A 36-year-old male with a history of AML-M5 in remission presented with blurred vision, fever, headache, and petechiae. Fundoscopic examination revealed significant retinal hemorrhages (subhyaloid, intraretinal, flame-shaped, and foveal exudate). Initial lab results showed pancytopenia (severe neutropenia, anemia, and thrombocytopenia). The diagnosis of leukemic retinopathy was confirmed, attributed to the patient's underlying pancytopenia as a result of leukemia. A spinal brain CT scan also indicated subarachnoid hemorrhage. Treatment for pancytopenia and neutropenic fever was initiated.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with blurred vision, fever, headache, and petechiae, with a history of AML-M5 in remission.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Fundoscopic examination revealed subhyaloid hemorrhage, peripapillary intraretinal and flame-shaped hemorrhages in the right eye, and subhyaloid and intraretinal hemorrhages with a yellowish dense exudate in the fovea in the left eye.",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Initial lab results showed pancytopenia, including severe neutropenia (WBC 300 × 10^9/L), anemia (Hg 4.1 g/dL), and thrombocytopenia (Plt 7000 10^9/L).",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "The patient's underlying pancytopenia was a result of leukemia, confirming leukemic retinopathy.",
+              "evidence_ids": [
+                "E003"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [],
+          "remaining_uncertainties": [
+            "Specific evidence (e.g., bone marrow biopsy or peripheral smear results) confirming active leukemia or relapse at the time of presentation, beyond the final diagnostic statement linking pancytopenia to leukemia."
+          ],
+          "confidence_that_diagnosis_is_supported": 1.0
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Leukemic retinopathy",
+      "trajectory_summary": "A 36-year-old male with a history of AML-M5 in remission presented with blurred vision, fever, headache, and petechiae. Fundoscopic examination revealed significant retinal hemorrhages (subhyaloid, intraretinal, flame-shaped, and foveal exudate). Initial lab results showed pancytopenia (severe neutropenia, anemia, and thrombocytopenia). The diagnosis of leukemic retinopathy was confirmed, attributed to the patient's underlying pancytopenia as a result of leukemia. A spinal brain CT scan also indicated subarachnoid hemorrhage. Treatment for pancytopenia and neutropenic fever was initiated.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with blurred vision, fever, headache, and petechiae, with a history of AML-M5 in remission.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Fundoscopic examination revealed subhyaloid hemorrhage, peripapillary intraretinal and flame-shaped hemorrhages in the right eye, and subhyaloid and intraretinal hemorrhages with a yellowish dense exudate in the fovea in the left eye.",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Initial lab results showed pancytopenia, including severe neutropenia (WBC 300 × 10^9/L), anemia (Hg 4.1 g/dL), and thrombocytopenia (Plt 7000 10^9/L).",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "The patient's underlying pancytopenia was a result of leukemia, confirming leukemic retinopathy.",
+          "evidence_ids": [
+            "E003"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [],
+      "remaining_uncertainties": [
+        "Specific evidence (e.g., bone marrow biopsy or peripheral smear results) confirming active leukemia or relapse at the time of presentation, beyond the final diagnostic statement linking pancytopenia to leukemia."
+      ],
+      "confidence_that_diagnosis_is_supported": 1.0
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T21:25:37.791790+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC9758892",
+    "known_final_diagnosis": "These findings, along with the patient’s underlying pancytopenia as a result of leukemia, confirmed leukemic retinopathy.",
+    "turns_used": 12,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 4,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 1,
+      "ORDER_TEST": 2,
+      "REQUEST_EXAM": 1,
+      "REQUEST_RESULT": 5,
+      "WAIT_REASSESS": 2
+    },
+    "report_status_counts": {
+      "already_disclosed": 2,
+      "found": 4,
+      "not_reported": 2,
+      "ordered_but_not_documented": 3
+    },
+    "report_repair_attempted_count": 0,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {},
+    "answer_yield": 0.5454545454545454,
+    "unavailable_turn_rate": 0.45454545454545453,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T21:25:37.793448+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC9758892",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/internalmed/episodes/PMC9758892.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/internalmed/cases/PMC9758892.json",
+    "num_gold_steps": "4",
+    "num_pred_steps": "4",
+    "weighted_tversky_alignment": "0.19444444444444445",
+    "weighted_tversky_distance": "0.8055555555555556",
+    "matched_weight": "1.75",
+    "missed_weight": "2.25",
+    "extra_weight": "2.5",
+    "weighted_lcs_recall": "0.4375",
+    "weighted_lcs_weight": "1.75",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "1",
+    "pairwise_inversions": "0",
+    "gold_sequence": "lab_tests > imaging > medication_or_treatment > admission_or_clinical_course",
+    "prediction_sequence": "physical_examination > lab_tests > pathology > admission_or_clinical_course",
+    "error": ""
+  }
+}

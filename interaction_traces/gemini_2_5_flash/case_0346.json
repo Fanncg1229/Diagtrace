@@ -1,0 +1,648 @@
+{
+  "case_id": "case_0346",
+  "pmcid": "PMC3464327",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC3464327",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 15,
+    "termination": "final",
+    "known_final_diagnosis": "Based on these findings, a diagnosis of TINU syndrome was made",
+    "disclosed_evidence_ids": [
+      "E002",
+      "E003",
+      "E004",
+      "E005",
+      "E006",
+      "E007"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Urinalysis and basic metabolic panel (BMP)",
+          "current_trajectory_hypothesis": "Patient presents with symptoms suggestive of renal and ocular involvement. Investigating renal function and urine abnormalities is a logical first step given flank pain, urinary symptoms, and foamy urine, which could point towards tubulointerstitial nephritis.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "objective evidence of renal dysfunction",
+            "specific findings related to uveitis",
+            "histopathological confirmation of tubulointerstitial nephritis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Test order acknowledged; no source record with results found yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Results of urinalysis and basic metabolic panel (BMP)",
+          "current_trajectory_hypothesis": "Patient presents with symptoms suggestive of renal and ocular involvement. Investigating renal function and urine abnormalities is a logical first step given flank pain, urinary symptoms, and foamy urine, which could point towards tubulointerstitial nephritis. I am awaiting these results to assess renal involvement.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "objective evidence of renal dysfunction",
+            "specific findings related to uveitis",
+            "histopathological confirmation of tubulointerstitial nephritis",
+            "results of initial lab tests"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "Laboratory tests conducted at the hospital showed a blood urea nitrogen of 26 mg/dL (the upper limit of normal), a serum creatinine of 2.3 mg/dL, and an estimated glomerular filtration rate (GFR) of 30.9 mL/min (normal, 80 to 120 mL/min).",
+          "category": "routine_lab",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Urinalysis results and ophthalmological findings related to uveitis",
+          "current_trajectory_hypothesis": "Initial lab tests show renal dysfunction, supporting the nephritis component of TINU. I need to confirm the uveitis component and further characterize the renal involvement with urinalysis.",
+          "confirmed_evidence": [
+            "elevated BUN (26 mg/dL)",
+            "elevated serum creatinine (2.3 mg/dL)",
+            "decreased eGFR (30.9 mL/min)"
+          ],
+          "missing_key_evidence": [
+            "specific urinalysis findings",
+            "objective ophthalmological findings confirming uveitis",
+            "histopathological confirmation of tubulointerstitial nephritis",
+            "evidence ruling out other causes of renal dysfunction or uveitis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E007",
+          "source_text": "The patient's visual acuity was 20 / 20 in the right eye and 20 / 25 in the left eye. A slit lamp examination showed a mild degree (1+ to 2+) of inflammatory cells in the anterior chamber of both eyes; however, synechia of the iris was not observed. Results of a funduscopic examination were normal, and vitreous opacity was not observed.",
+          "category": "molecular_test",
+          "temporal_cue": "after admission",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Urinalysis results, specifically looking for proteinuria, hematuria, or pyuria",
+          "current_trajectory_hypothesis": "The patient presents with renal dysfunction and confirmed uveitis, supporting the ocular component of TINU syndrome. I need urinalysis results to further characterize the renal involvement and support the tubulointerstitial nephritis component.",
+          "confirmed_evidence": [
+            "elevated BUN (26 mg/dL)",
+            "elevated serum creatinine (2.3 mg/dL)",
+            "decreased eGFR (30.9 mL/min)",
+            "mild inflammatory cells in the anterior chamber of both eyes (1+ to 2+)"
+          ],
+          "missing_key_evidence": [
+            "specific urinalysis findings (e.g., sterile pyuria, proteinuria)",
+            "histopathological confirmation of tubulointerstitial nephritis",
+            "evidence ruling out other causes of renal dysfunction or uveitis",
+            "temporal relationship between uveitis and nephritis onset"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "The source records do not report urinalysis results for proteinuria, hematuria, or pyuria.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "Kidney biopsy",
+          "current_trajectory_hypothesis": "The patient presents with renal dysfunction and confirmed uveitis, strongly suggesting TINU syndrome. Histopathological confirmation of tubulointerstitial nephritis via kidney biopsy is the next crucial step to solidify the diagnosis.",
+          "confirmed_evidence": [
+            "elevated BUN (26 mg/dL)",
+            "elevated serum creatinine (2.3 mg/dL)",
+            "decreased eGFR (30.9 mL/min)",
+            "mild inflammatory cells in the anterior chamber of both eyes (1+ to 2+)"
+          ],
+          "missing_key_evidence": [
+            "histopathological confirmation of tubulointerstitial nephritis",
+            "temporal relationship between uveitis and nephritis onset",
+            "evidence ruling out other causes of renal dysfunction or uveitis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "Procedure order received; no exact prior order match in source, returning ordered status.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Results of the kidney biopsy, specifically looking for evidence of tubulointerstitial nephritis",
+          "current_trajectory_hypothesis": "The patient presents with renal dysfunction and confirmed uveitis, strongly suggesting TINU syndrome. Histopathological confirmation of tubulointerstitial nephritis via kidney biopsy is crucial to solidify the diagnosis.",
+          "confirmed_evidence": [
+            "elevated BUN (26 mg/dL)",
+            "elevated serum creatinine (2.3 mg/dL)",
+            "decreased eGFR (30.9 mL/min)",
+            "mild inflammatory cells in the anterior chamber of both eyes (1+ to 2+)"
+          ],
+          "missing_key_evidence": [
+            "histopathological confirmation of tubulointerstitial nephritis",
+            "temporal relationship between uveitis and nephritis onset",
+            "evidence ruling out other causes of renal dysfunction or uveitis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "A kidney biopsy specimen revealed diffuse interstitial infiltration of lymphocytes and eosinophils and mild tubular atrophy with focal fibrosis of the interstitium (Fig. 1). No electron-dense deposits were seen on electron microscopy (Fig. 2). No antibody deposits or immune complexes were apparent on immunofluorescent studies.",
+          "category": "image_finding",
+          "temporal_cue": "after admission",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Documentation of the temporal relationship between the onset of uveitis and the onset of renal symptoms/nephritis",
+          "current_trajectory_hypothesis": "The patient has biopsy-proven tubulointerstitial nephritis and confirmed uveitis. Establishing the temporal relationship between these two conditions is crucial for confirming the diagnosis of TINU syndrome.",
+          "confirmed_evidence": [
+            "elevated BUN (26 mg/dL)",
+            "elevated serum creatinine (2.3 mg/dL)",
+            "decreased eGFR (30.9 mL/min)",
+            "mild inflammatory cells in the anterior chamber of both eyes (1+ to 2+)",
+            "kidney biopsy showing diffuse interstitial infiltration of lymphocytes and eosinophils, mild tubular atrophy with focal fibrosis, and no immune deposits"
+          ],
+          "missing_key_evidence": [
+            "explicit documentation of the temporal relationship between uveitis and nephritis onset",
+            "evidence ruling out other causes of renal dysfunction or uveitis (e.g., drug-induced TIN, infection)",
+            "urinalysis findings (e.g., sterile pyuria)",
+            "treatment and clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "One week before coming to our hospital, he visited a local ophthalmologic clinic for bilateral floater symptoms and was diagnosed with anterior uveitis and treated with systemic and topical steroids.",
+          "category": "other",
+          "temporal_cue": "one week before admission",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Any documented urinalysis findings, especially regarding white blood cells, red blood cells, or casts, to further characterize the renal involvement.",
+          "current_trajectory_hypothesis": "The patient has biopsy-proven tubulointerstitial nephritis and confirmed uveitis, with a clear temporal relationship. Further characterization of the renal involvement through urinalysis, particularly for sterile pyuria, would strengthen the diagnosis of TINU syndrome.",
+          "confirmed_evidence": [
+            "elevated BUN (26 mg/dL)",
+            "elevated serum creatinine (2.3 mg/dL)",
+            "decreased eGFR (30.9 mL/min)",
+            "mild inflammatory cells in the anterior chamber of both eyes (1+ to 2+)",
+            "kidney biopsy showing diffuse interstitial infiltration of lymphocytes and eosinophils, mild tubular atrophy with focal fibrosis, and no immune deposits",
+            "anterior uveitis diagnosed one week before hospital admission for renal symptoms"
+          ],
+          "missing_key_evidence": [
+            "specific urinalysis findings (e.g., sterile pyuria)",
+            "evidence ruling out other causes of renal dysfunction or uveitis (e.g., drug-induced TIN, infection)",
+            "treatment and clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "No urinalysis findings are documented in the provided evidence.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "Was there any investigation into potential causes of tubulointerstitial nephritis, such as drug-induced injury, especially considering the patient's use of traditional Korean herbal medicines?",
+          "current_trajectory_hypothesis": "The patient has biopsy-proven tubulointerstitial nephritis and confirmed uveitis, with a clear temporal relationship, strongly supporting TINU syndrome. However, it's important to rule out other causes of tubulointerstitial nephritis, such as drug-induced injury, given the patient's history of herbal medicine use.",
+          "confirmed_evidence": [
+            "elevated BUN (26 mg/dL)",
+            "elevated serum creatinine (2.3 mg/dL)",
+            "decreased eGFR (30.9 mL/min)",
+            "mild inflammatory cells in the anterior chamber of both eyes (1+ to 2+)",
+            "kidney biopsy showing diffuse interstitial infiltration of lymphocytes and eosinophils, mild tubular atrophy with focal fibrosis, and no immune deposits",
+            "anterior uveitis diagnosed one week before hospital admission for renal symptoms"
+          ],
+          "missing_key_evidence": [
+            "evidence ruling out other causes of renal dysfunction or uveitis (e.g., drug-induced TIN, infection)",
+            "treatment and clinical course",
+            "specific urinalysis findings (e.g., sterile pyuria)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "He was diagnosed with hypertension 15 years prior and had taken traditional Korean herbal medicines, such as acanthopanax, phellinus, licorice root, and steamed red ginseng.",
+          "category": "other",
+          "temporal_cue": "before admission",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Were the traditional Korean herbal medicines considered or ruled out as a cause for the tubulointerstitial nephritis, and was there any investigation into their potential nephrotoxicity?",
+          "current_trajectory_hypothesis": "The patient has biopsy-proven tubulointerstitial nephritis and confirmed uveitis, with a clear temporal relationship, strongly supporting TINU syndrome. While the patient's history of herbal medicine use is known, it's crucial to verify if these were investigated as a potential cause of the nephritis to rule out alternative etiologies.",
+          "confirmed_evidence": [
+            "elevated BUN (26 mg/dL)",
+            "elevated serum creatinine (2.3 mg/dL)",
+            "decreased eGFR (30.9 mL/min)",
+            "mild inflammatory cells in the anterior chamber of both eyes (1+ to 2+)",
+            "kidney biopsy showing diffuse interstitial infiltration of lymphocytes and eosinophils, mild tubular atrophy with focal fibrosis, and no immune deposits",
+            "anterior uveitis diagnosed one week before hospital admission for renal symptoms",
+            "history of using traditional Korean herbal medicines (acanthopanax, phellinus, licorice root, and steamed red ginseng)"
+          ],
+          "missing_key_evidence": [
+            "evidence ruling out other causes of renal dysfunction or uveitis (e.g., drug-induced TIN, infection)",
+            "treatment and clinical course",
+            "specific urinalysis findings (e.g., sterile pyuria)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E002",
+          "source_text": "He was diagnosed with hypertension 15 years prior and had taken traditional Korean herbal medicines, such as acanthopanax, phellinus, licorice root, and steamed red ginseng.",
+          "category": "other",
+          "temporal_cue": "before admission",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Any documented urinalysis findings, specifically for sterile pyuria (white blood cells in urine without bacteriuria), which is characteristic of tubulointerstitial nephritis.",
+          "current_trajectory_hypothesis": "The patient has biopsy-proven tubulointerstitial nephritis and confirmed uveitis, with a clear temporal relationship, strongly supporting TINU syndrome. While other causes of TIN need to be considered, specific urinalysis findings like sterile pyuria would further strengthen the diagnosis of TINU syndrome.",
+          "confirmed_evidence": [
+            "elevated BUN (26 mg/dL)",
+            "elevated serum creatinine (2.3 mg/dL)",
+            "decreased eGFR (30.9 mL/min)",
+            "mild inflammatory cells in the anterior chamber of both eyes (1+ to 2+)",
+            "kidney biopsy showing diffuse interstitial infiltration of lymphocytes and eosinophils, mild tubular atrophy with focal fibrosis, and no immune deposits",
+            "anterior uveitis diagnosed one week before hospital admission for renal symptoms",
+            "history of using traditional Korean herbal medicines (acanthopanax, phellinus, licorice root, and steamed red ginseng)"
+          ],
+          "missing_key_evidence": [
+            "specific urinalysis findings (e.g., sterile pyuria)",
+            "evidence explicitly ruling out other causes of renal dysfunction or uveitis (e.g., drug-induced TIN, infection)",
+            "treatment and clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "No urinalysis findings or sterile pyuria are documented in the supplied evidence.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient has biopsy-proven tubulointerstitial nephritis and confirmed uveitis, with a clear temporal relationship, strongly supporting TINU syndrome. I need to understand the clinical course and treatment response to further solidify the diagnosis and trajectory.",
+          "confirmed_evidence": [
+            "elevated BUN (26 mg/dL)",
+            "elevated serum creatinine (2.3 mg/dL)",
+            "decreased eGFR (30.9 mL/min)",
+            "mild inflammatory cells in the anterior chamber of both eyes (1+ to 2+)",
+            "kidney biopsy showing diffuse interstitial infiltration of lymphocytes and eosinophils, mild tubular atrophy with focal fibrosis, and no immune deposits",
+            "anterior uveitis diagnosed one week before hospital admission for renal symptoms",
+            "history of using traditional Korean herbal medicines (acanthopanax, phellinus, licorice root, and steamed red ginseng)"
+          ],
+          "missing_key_evidence": [
+            "evidence explicitly ruling out other causes of renal dysfunction or uveitis (e.g., drug-induced TIN, infection)",
+            "treatment and clinical course",
+            "specific urinalysis findings (e.g., sterile pyuria)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "An ultrasonography of the kidney showed elevated echogenicity of the parenchyma.",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient has biopsy-proven tubulointerstitial nephritis and confirmed uveitis, with a clear temporal relationship, strongly supporting TINU syndrome. I need to understand the treatment and clinical course to complete the trajectory and assess the response to therapy, which can further support the diagnosis.",
+          "confirmed_evidence": [
+            "elevated BUN (26 mg/dL)",
+            "elevated serum creatinine (2.3 mg/dL)",
+            "decreased eGFR (30.9 mL/min)",
+            "mild inflammatory cells in the anterior chamber of both eyes (1+ to 2+)",
+            "kidney biopsy showing diffuse interstitial infiltration of lymphocytes and eosinophils, mild tubular atrophy with focal fibrosis, and no immune deposits",
+            "anterior uveitis diagnosed one week before hospital admission for renal symptoms",
+            "history of using traditional Korean herbal medicines (acanthopanax, phellinus, licorice root, and steamed red ginseng)",
+            "kidney ultrasonography showed elevated echogenicity of the parenchyma"
+          ],
+          "missing_key_evidence": [
+            "evidence explicitly ruling out other causes of renal dysfunction or uveitis (e.g., drug-induced TIN, infection)",
+            "treatment and clinical course/response",
+            "specific urinalysis findings (e.g., sterile pyuria)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "No pending orders and no undisclosed clinical course updates after the current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 14,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient has biopsy-proven tubulointerstitial nephritis and confirmed uveitis, with a clear temporal relationship, strongly supporting TINU syndrome. I need to understand the treatment and clinical course to complete the trajectory and assess the response to therapy, which can further support the diagnosis and rule out other possibilities.",
+          "confirmed_evidence": [
+            "elevated BUN (26 mg/dL)",
+            "elevated serum creatinine (2.3 mg/dL)",
+            "decreased eGFR (30.9 mL/min)",
+            "mild inflammatory cells in the anterior chamber of both eyes (1+ to 2+)",
+            "kidney biopsy showing diffuse interstitial infiltration of lymphocytes and eosinophils, mild tubular atrophy with focal fibrosis, and no immune deposits",
+            "anterior uveitis diagnosed one week before hospital admission for renal symptoms",
+            "history of using traditional Korean herbal medicines (acanthopanax, phellinus, licorice root, and steamed red ginseng)",
+            "kidney ultrasonography showed elevated echogenicity of the parenchyma"
+          ],
+          "missing_key_evidence": [
+            "evidence explicitly ruling out other causes of renal dysfunction or uveitis (e.g., drug-induced TIN, infection)",
+            "treatment and clinical course/response",
+            "specific urinalysis findings (e.g., sterile pyuria)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "No pending orders and no undisclosed source-grounded clinical course update after phase 5.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 15,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "TINU syndrome",
+          "trajectory_summary": "A 61-year-old man presented with bilateral flank pain, dyspnea, urinary frequency, foamy urine, and bilateral floater symptoms. He had a recent diagnosis of anterior uveitis one week prior to hospital admission. Initial laboratory tests revealed acute kidney injury with elevated BUN (26 mg/dL), serum creatinine (2.3 mg/dL), and decreased eGFR (30.9 mL/min). Ophthalmological examination confirmed mild inflammatory cells in the anterior chamber of both eyes. A kidney biopsy showed diffuse interstitial infiltration of lymphocytes and eosinophils, mild tubular atrophy with focal fibrosis, and no evidence of immune complex deposition, consistent with tubulointerstitial nephritis. The temporal association of uveitis preceding the renal symptoms, along with the biopsy findings, supported the diagnosis of TINU syndrome.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with symptoms including bilateral flank pain, dyspnea on exertion, urinary frequency, and foamy urine.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Patient was diagnosed with anterior uveitis one week prior to hospital admission for renal symptoms.",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Laboratory tests showed elevated BUN (26 mg/dL), serum creatinine (2.3 mg/dL), and decreased eGFR (30.9 mL/min), indicating renal dysfunction.",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Slit lamp examination revealed mild inflammatory cells (1+ to 2+) in the anterior chamber of both eyes, confirming uveitis.",
+              "evidence_ids": [
+                "E007"
+              ]
+            },
+            {
+              "claim": "Kidney biopsy demonstrated diffuse interstitial infiltration of lymphocytes and eosinophils, mild tubular atrophy with focal fibrosis, and absence of electron-dense deposits or immune complexes, consistent with tubulointerstitial nephritis.",
+              "evidence_ids": [
+                "E006"
+              ]
+            },
+            {
+              "claim": "Kidney ultrasonography showed elevated echogenicity of the parenchyma.",
+              "evidence_ids": [
+                "E005"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Immune complex mediated glomerulonephritis",
+              "basis": "Kidney biopsy showed no electron-dense deposits on electron microscopy and no antibody deposits or immune complexes on immunofluorescent studies (E006)."
+            }
+          ],
+          "remaining_uncertainties": [
+            "Specific urinalysis findings (e.g., sterile pyuria, proteinuria, hematuria)",
+            "Explicit investigation or ruling out of traditional Korean herbal medicine-induced tubulointerstitial nephritis",
+            "Treatment and clinical course/response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "TINU syndrome",
+      "trajectory_summary": "A 61-year-old man presented with bilateral flank pain, dyspnea, urinary frequency, foamy urine, and bilateral floater symptoms. He had a recent diagnosis of anterior uveitis one week prior to hospital admission. Initial laboratory tests revealed acute kidney injury with elevated BUN (26 mg/dL), serum creatinine (2.3 mg/dL), and decreased eGFR (30.9 mL/min). Ophthalmological examination confirmed mild inflammatory cells in the anterior chamber of both eyes. A kidney biopsy showed diffuse interstitial infiltration of lymphocytes and eosinophils, mild tubular atrophy with focal fibrosis, and no evidence of immune complex deposition, consistent with tubulointerstitial nephritis. The temporal association of uveitis preceding the renal symptoms, along with the biopsy findings, supported the diagnosis of TINU syndrome.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with symptoms including bilateral flank pain, dyspnea on exertion, urinary frequency, and foamy urine.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Patient was diagnosed with anterior uveitis one week prior to hospital admission for renal symptoms.",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Laboratory tests showed elevated BUN (26 mg/dL), serum creatinine (2.3 mg/dL), and decreased eGFR (30.9 mL/min), indicating renal dysfunction.",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Slit lamp examination revealed mild inflammatory cells (1+ to 2+) in the anterior chamber of both eyes, confirming uveitis.",
+          "evidence_ids": [
+            "E007"
+          ]
+        },
+        {
+          "claim": "Kidney biopsy demonstrated diffuse interstitial infiltration of lymphocytes and eosinophils, mild tubular atrophy with focal fibrosis, and absence of electron-dense deposits or immune complexes, consistent with tubulointerstitial nephritis.",
+          "evidence_ids": [
+            "E006"
+          ]
+        },
+        {
+          "claim": "Kidney ultrasonography showed elevated echogenicity of the parenchyma.",
+          "evidence_ids": [
+            "E005"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Immune complex mediated glomerulonephritis",
+          "basis": "Kidney biopsy showed no electron-dense deposits on electron microscopy and no antibody deposits or immune complexes on immunofluorescent studies (E006)."
+        }
+      ],
+      "remaining_uncertainties": [
+        "Specific urinalysis findings (e.g., sterile pyuria, proteinuria, hematuria)",
+        "Explicit investigation or ruling out of traditional Korean herbal medicine-induced tubulointerstitial nephritis",
+        "Treatment and clinical course/response"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.9
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T23:21:51.820935+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC3464327",
+    "known_final_diagnosis": "Based on these findings, a diagnosis of TINU syndrome was made",
+    "turns_used": 15,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 6,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 6,
+    "gold_reasoning_span_count": 2,
+    "action_counts": {
+      "ASK_HISTORY": 1,
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_RESULT": 8,
+      "WAIT_REASSESS": 3
+    },
+    "report_status_counts": {
+      "already_disclosed": 1,
+      "found": 6,
+      "no_new_update": 2,
+      "not_reported": 3,
+      "ordered_but_not_documented": 2
+    },
+    "report_repair_attempted_count": 1,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 1
+    },
+    "answer_yield": 0.5,
+    "unavailable_turn_rate": 0.5,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T23:21:51.822243+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC3464327",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/ophthalmology/episodes/PMC3464327.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/ophthalmology/cases/PMC3464327.json",
+    "num_gold_steps": "3",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.17391304347826086",
+    "weighted_tversky_distance": "0.8260869565217391",
+    "matched_weight": "1.0",
+    "missed_weight": "1.75",
+    "extra_weight": "1.5",
+    "weighted_lcs_recall": "0.36363636363636365",
+    "weighted_lcs_weight": "1.0",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "other_or_off_protocol > lab_tests > imaging",
+    "prediction_sequence": "lab_tests > procedure_or_intervention > clinical_history",
+    "error": ""
+  }
+}

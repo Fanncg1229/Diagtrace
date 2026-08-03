@@ -1,0 +1,709 @@
+{
+  "case_id": "case_0132",
+  "pmcid": "PMC10662534",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC10662534",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 15,
+    "termination": "final",
+    "known_final_diagnosis": "The patient was diagnosed with nondiabetic LRPN",
+    "disclosed_evidence_ids": [
+      "E002",
+      "E003",
+      "E004",
+      "E005"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "lumbar spine MRI",
+          "current_trajectory_hypothesis": "Patient presents with subacute left lower limb weakness and numbness. Initial workup likely involved imaging to rule out compressive neuropathy.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Spinal imaging results",
+            "Nerve conduction study/EMG results",
+            "Blood tests for inflammatory/metabolic causes",
+            "Biopsy results if performed"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "The lumbar spine MRI test has been ordered; no corresponding source evidence yet to report results.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "lumbar spine MRI report",
+          "current_trajectory_hypothesis": "Patient presents with subacute left lower limb weakness and numbness. Initial workup likely involved imaging to rule out compressive neuropathy. Lumbar spine MRI was ordered.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Lumbar spine MRI findings",
+            "Nerve conduction study/EMG results",
+            "Blood tests for inflammatory/metabolic causes",
+            "Biopsy results if performed"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "Gadolinium-enhanced magnetic resonance imaging (MRI) of the lumbosacral plexuses and lumbar spine demonstrated enhancement of the cauda equina nerve roots bilaterally, sparing the lumbosacral plexuses (Fig. 1).",
+          "category": "imaging_report",
+          "temporal_cue": "eight days from symptom onset",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "nerve conduction study and electromyography (NCS/EMG) of the left lower limb",
+          "current_trajectory_hypothesis": "Patient presents with subacute left lower limb weakness and numbness. Lumbar spine MRI showed bilateral cauda equina nerve root enhancement. Next step is to assess nerve function directly to characterize the neuropathy.",
+          "confirmed_evidence": [
+            "Left lower limb weakness and numbness",
+            "Absent left ankle deep-tendon reflex",
+            "Diminished proprioception and pain perception in left lower limb distal to mid-calf",
+            "Gadolinium-enhanced MRI of lumbosacral plexuses and lumbar spine showed enhancement of cauda equina nerve roots bilaterally, sparing lumbosacral plexuses (E003)"
+          ],
+          "missing_key_evidence": [
+            "Nerve conduction study/EMG results",
+            "Blood tests for inflammatory/metabolic causes (e.g., diabetes, autoimmune markers)",
+            "Biopsy results if performed",
+            "Clinical course/treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "The nerve conduction study and electromyography order is accepted; no source result yet disclosed.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "nerve conduction study and electromyography (NCS/EMG) report of the left lower limb",
+          "current_trajectory_hypothesis": "Patient presents with subacute left lower limb weakness and numbness. Lumbar spine MRI showed bilateral cauda equina nerve root enhancement. NCS/EMG was ordered to further characterize the neuropathy and localize the lesion.",
+          "confirmed_evidence": [
+            "Left lower limb weakness and numbness",
+            "Absent left ankle deep-tendon reflex",
+            "Diminished proprioception and pain perception in left lower limb distal to mid-calf",
+            "Gadolinium-enhanced MRI of lumbosacral plexuses and lumbar spine showed enhancement of cauda equina nerve roots bilaterally, sparing lumbosacral plexuses (E003)"
+          ],
+          "missing_key_evidence": [
+            "Nerve conduction study/EMG findings",
+            "Blood tests for inflammatory/metabolic causes (e.g., diabetes, autoimmune markers)",
+            "Biopsy results if performed",
+            "Clinical course/treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "A nerve conduction study (NCS) and electromyography (EMG) performed eight days from symptom onset suggested a plexopathy. Specifically, there was an asymmetrically absent left-sided tibial H-reflex, diminished left saphenous sensory response of 1.93 μV compared with a right saphenous sensory response of 4.2 μV, and reduced recruitment on EMG of the left-sided vastus lateralis, gastrocnemius, and tibialis anterior muscles.",
+          "category": "other",
+          "temporal_cue": "eight days from symptom onset",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "blood tests for diabetes (HbA1c, fasting glucose) and inflammatory/autoimmune markers (ESR, CRP, ANA, ANCA)",
+          "current_trajectory_hypothesis": "Patient presents with subacute left lower limb weakness and numbness. MRI showed cauda equina nerve root enhancement, and NCS/EMG suggested plexopathy. To confirm 'nondiabetic' LRPN and investigate potential inflammatory causes, metabolic and autoimmune blood tests are necessary.",
+          "confirmed_evidence": [
+            "Left lower limb weakness and numbness",
+            "Absent left ankle deep-tendon reflex",
+            "Diminished proprioception and pain perception in left lower limb distal to mid-calf",
+            "Gadolinium-enhanced MRI of lumbosacral plexuses and lumbar spine showed enhancement of cauda equina nerve roots bilaterally, sparing lumbosacral plexuses (E003)",
+            "NCS/EMG suggested a plexopathy with specific left-sided abnormalities (E002)"
+          ],
+          "missing_key_evidence": [
+            "Blood test results for diabetes and inflammatory/autoimmune conditions",
+            "CSF analysis results",
+            "Biopsy results if performed",
+            "Clinical course/treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No source record documents results for these blood tests, order acknowledged",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "blood test results for diabetes (HbA1c, fasting glucose) and inflammatory/autoimmune markers (ESR, CRP, ANA, ANCA)",
+          "current_trajectory_hypothesis": "Patient presents with subacute left lower limb weakness and numbness. MRI showed cauda equina nerve root enhancement, and NCS/EMG suggested plexopathy. Blood tests were ordered to rule out diabetes and other inflammatory/autoimmune causes, which are crucial for confirming 'nondiabetic' LRPN.",
+          "confirmed_evidence": [
+            "Left lower limb weakness and numbness",
+            "Absent left ankle deep-tendon reflex",
+            "Diminished proprioception and pain perception in left lower limb distal to mid-calf",
+            "Gadolinium-enhanced MRI of lumbosacral plexuses and lumbar spine showed enhancement of cauda equina nerve roots bilaterally, sparing lumbosacral plexuses (E003)",
+            "NCS/EMG suggested a plexopathy with specific left-sided abnormalities (E002)"
+          ],
+          "missing_key_evidence": [
+            "Blood test results for diabetes and inflammatory/autoimmune conditions",
+            "CSF analysis results",
+            "Biopsy results if performed",
+            "Clinical course/treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "Microbiological and autoimmune assays performed on blood and CSF samples were unyielding (Table 1).",
+          "category": "serology",
+          "temporal_cue": "12 days from symptom onset",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "cerebrospinal fluid (CSF) analysis report (cell count, protein, glucose, oligoclonal bands)",
+          "current_trajectory_hypothesis": "Patient presents with subacute left lower limb weakness and numbness. MRI showed cauda equina nerve root enhancement, and NCS/EMG suggested plexopathy. Blood tests for autoimmune/microbiological causes were unyielding. CSF analysis is crucial to rule out inflammatory or infectious etiologies of the neuropathy, especially given the MRI findings.",
+          "confirmed_evidence": [
+            "Left lower limb weakness and numbness",
+            "Absent left ankle deep-tendon reflex",
+            "Diminished proprioception and pain perception in left lower limb distal to mid-calf",
+            "Gadolinium-enhanced MRI of lumbosacral plexuses and lumbar spine showed enhancement of cauda equina nerve roots bilaterally, sparing lumbosacral plexuses (E003)",
+            "NCS/EMG suggested a plexopathy with specific left-sided abnormalities (E002)",
+            "Microbiological and autoimmune assays performed on blood and CSF samples were unyielding (E005)"
+          ],
+          "missing_key_evidence": [
+            "Specific CSF analysis findings (cell count, protein, glucose, oligoclonal bands)",
+            "Specific diabetes markers (HbA1c, fasting glucose) results",
+            "Biopsy results if performed",
+            "Clinical course/treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "A lumbar puncture was performed 12 days from symptom onset, showing a normal opening pressure of 12 cm H2O. Importantly, cerebrospinal fluid (CSF) examination revealed cytoalbuminologic dissociation (CSF protein 1.03 g/L, with a CSF white blood cell count of 1/μL) but was otherwise negative for oligoclonal bands.",
+          "category": "other",
+          "temporal_cue": "12 days from symptom onset",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "specific results for HbA1c and fasting glucose tests",
+          "current_trajectory_hypothesis": "Patient presents with subacute left lower limb weakness and numbness. MRI showed cauda equina nerve root enhancement, and NCS/EMG suggested plexopathy. Blood and CSF analysis ruled out several causes, but specific diabetes markers are needed to confirm the 'nondiabetic' aspect of the LRPN diagnosis.",
+          "confirmed_evidence": [
+            "Left lower limb weakness and numbness",
+            "Absent left ankle deep-tendon reflex",
+            "Diminished proprioception and pain perception in left lower limb distal to mid-calf",
+            "Gadolinium-enhanced MRI of lumbosacral plexuses and lumbar spine showed enhancement of cauda equina nerve roots bilaterally, sparing lumbosacral plexuses (E003)",
+            "NCS/EMG suggested a plexopathy with specific left-sided abnormalities (E002)",
+            "Microbiological and autoimmune assays performed on blood and CSF samples were unyielding (E005)",
+            "CSF analysis showed cytoalbuminologic dissociation (protein 1.03 g/L, WBC 1/μL) but negative for oligoclonal bands (E004)"
+          ],
+          "missing_key_evidence": [
+            "Specific diabetes markers (HbA1c, fasting glucose) results",
+            "Biopsy results if performed",
+            "Clinical course/treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No source record reports specific results for HbA1c or fasting glucose tests.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presents with subacute left lower limb weakness and numbness. MRI showed cauda equina nerve root enhancement, and NCS/EMG suggested plexopathy. Blood and CSF analysis ruled out several alternative causes, and the 'nondiabetic' aspect is supported by unyielding assays. Now, I need to understand the clinical progression and any interventions.",
+          "confirmed_evidence": [
+            "Left lower limb weakness and numbness",
+            "Absent left ankle deep-tendon reflex",
+            "Diminished proprioception and pain perception in left lower limb distal to mid-calf",
+            "Gadolinium-enhanced MRI of lumbosacral plexuses and lumbar spine showed enhancement of cauda equina nerve roots bilaterally, sparing lumbosacral plexuses (E003)",
+            "NCS/EMG suggested a plexopathy with specific left-sided abnormalities (E002)",
+            "Microbiological and autoimmune assays performed on blood and CSF samples were unyielding (E005)",
+            "CSF analysis showed cytoalbuminologic dissociation (protein 1.03 g/L, WBC 1/μL) but negative for oligoclonal bands (E004)"
+          ],
+          "missing_key_evidence": [
+            "Clinical course/treatment response",
+            "Biopsy results if performed"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Patient presents with subacute left lower limb weakness and numbness. MRI showed cauda equina nerve root enhancement, and NCS/EMG suggested plexopathy. Blood and CSF analysis ruled out several alternative causes, supporting an inflammatory neuropathy. The 'nondiabetic' aspect is supported by unyielding assays. Now, I need to understand the clinical progression, treatment, and response to further support the diagnosis of nondiabetic LRPN.",
+          "confirmed_evidence": [
+            "Left lower limb weakness and numbness",
+            "Absent left ankle deep-tendon reflex",
+            "Diminished proprioception and pain perception in left lower limb distal to mid-calf",
+            "Gadolinium-enhanced MRI of lumbosacral plexuses and lumbar spine showed enhancement of cauda equina nerve roots bilaterally, sparing lumbosacral plexuses (E003)",
+            "NCS/EMG suggested a plexopathy with specific left-sided abnormalities (E002)",
+            "Microbiological and autoimmune assays performed on blood and CSF samples were unyielding (E005)",
+            "CSF analysis showed cytoalbuminologic dissociation (protein 1.03 g/L, WBC 1/μL) but negative for oligoclonal bands (E004)"
+          ],
+          "missing_key_evidence": [
+            "Treatment initiated and patient's response",
+            "Further clinical course/outcome",
+            "Biopsy results if performed (though less likely for LRPN unless atypical presentation)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "details of treatment initiated and patient's response or clinical course",
+          "current_trajectory_hypothesis": "Patient presents with subacute left lower limb weakness and numbness. MRI showed cauda equina nerve root enhancement, and NCS/EMG suggested plexopathy. Blood and CSF analysis ruled out several alternative causes, supporting an inflammatory neuropathy. The 'nondiabetic' aspect is supported by unyielding assays. Now, I need to understand the clinical progression, treatment, and response to further support the diagnosis of nondiabetic LRPN.",
+          "confirmed_evidence": [
+            "Left lower limb weakness and numbness",
+            "Absent left ankle deep-tendon reflex",
+            "Diminished proprioception and pain perception in left lower limb distal to mid-calf",
+            "Gadolinium-enhanced MRI of lumbosacral plexuses and lumbar spine showed enhancement of cauda equina nerve roots bilaterally, sparing lumbosacral plexuses (E003)",
+            "NCS/EMG suggested a plexopathy with specific left-sided abnormalities (E002)",
+            "Microbiological and autoimmune assays performed on blood and CSF samples were unyielding (E005)",
+            "CSF analysis showed cytoalbuminologic dissociation (protein 1.03 g/L, WBC 1/μL) but negative for oligoclonal bands (E004)"
+          ],
+          "missing_key_evidence": [
+            "Treatment initiated and patient's response",
+            "Further clinical course/outcome",
+            "Biopsy results if performed (though less likely for LRPN unless atypical presentation)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "treatment administered and patient's clinical outcome",
+          "current_trajectory_hypothesis": "Patient presents with subacute left lower limb weakness and numbness. MRI showed cauda equina nerve root enhancement, and NCS/EMG suggested plexopathy. Blood and CSF analysis ruled out several alternative causes, supporting an inflammatory neuropathy. The 'nondiabetic' aspect is supported by unyielding assays. Now, I need to understand the clinical progression, treatment, and response to further support the diagnosis of nondiabetic LRPN.",
+          "confirmed_evidence": [
+            "Left lower limb weakness and numbness",
+            "Absent left ankle deep-tendon reflex",
+            "Diminished proprioception and pain perception in left lower limb distal to mid-calf",
+            "Gadolinium-enhanced MRI of lumbosacral plexuses and lumbar spine showed enhancement of cauda equina nerve roots bilaterally, sparing lumbosacral plexuses (E003)",
+            "NCS/EMG suggested a plexopathy with specific left-sided abnormalities (E002)",
+            "Microbiological and autoimmune assays performed on blood and CSF samples were unyielding (E005)",
+            "CSF analysis showed cytoalbuminologic dissociation (protein 1.03 g/L, WBC 1/μL) but negative for oligoclonal bands (E004)"
+          ],
+          "missing_key_evidence": [
+            "Treatment administered and patient's clinical outcome/response",
+            "Biopsy results if performed (though less likely for LRPN unless atypical presentation)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "details of immunotherapy administered and patient's response to treatment",
+          "current_trajectory_hypothesis": "Patient presents with subacute left lower limb weakness and numbness. MRI showed cauda equina nerve root enhancement, and NCS/EMG suggested plexopathy. Blood and CSF analysis ruled out several alternative causes, supporting an inflammatory neuropathy. The 'nondiabetic' aspect is supported by unyielding assays. Now, I need to understand the specific treatment administered, likely immunotherapy for LRPN, and the patient's response to further support the diagnosis.",
+          "confirmed_evidence": [
+            "Left lower limb weakness and numbness",
+            "Absent left ankle deep-tendon reflex",
+            "Diminished proprioception and pain perception in left lower limb distal to mid-calf",
+            "Gadolinium-enhanced MRI of lumbosacral plexuses and lumbar spine showed enhancement of cauda equina nerve roots bilaterally, sparing lumbosacral plexuses (E003)",
+            "NCS/EMG suggested a plexopathy with specific left-sided abnormalities (E002)",
+            "Microbiological and autoimmune assays performed on blood and CSF samples were unyielding (E005)",
+            "CSF analysis showed cytoalbuminologic dissociation (protein 1.03 g/L, WBC 1/μL) but negative for oligoclonal bands (E004)"
+          ],
+          "missing_key_evidence": [
+            "Specific treatment administered and patient's response",
+            "Further clinical course/outcome",
+            "Biopsy results if performed (though less likely for LRPN unless atypical presentation)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 14,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "clinical course, including any immunotherapy administered and patient's response",
+          "current_trajectory_hypothesis": "Patient presents with subacute left lower limb weakness and numbness. MRI showed cauda equina nerve root enhancement, and NCS/EMG suggested plexopathy. Blood and CSF analysis ruled out several alternative causes, supporting an inflammatory neuropathy. The 'nondiabetic' aspect is supported by unyielding assays. Now, I need to understand the specific immunotherapy administered and the patient's response to further support the diagnosis of nondiabetic LRPN.",
+          "confirmed_evidence": [
+            "Left lower limb weakness and numbness",
+            "Absent left ankle deep-tendon reflex",
+            "Diminished proprioception and pain perception in left lower limb distal to mid-calf",
+            "Gadolinium-enhanced MRI of lumbosacral plexuses and lumbar spine showed enhancement of cauda equina nerve roots bilaterally, sparing lumbosacral plexuses (E003)",
+            "NCS/EMG suggested a plexopathy with specific left-sided abnormalities (E002)",
+            "Microbiological and autoimmune assays performed on blood and CSF samples were unyielding (E005)",
+            "CSF analysis showed cytoalbuminologic dissociation (protein 1.03 g/L, WBC 1/μL) but negative for oligoclonal bands (E004)"
+          ],
+          "missing_key_evidence": [
+            "Specific immunotherapy administered and patient's response",
+            "Further clinical course/outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 15,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "nondiabetic LRPN",
+          "trajectory_summary": "A 35-year-old woman presented with a 1-week history of gradually worsening left lower limb weakness and numbness, accompanied by an absent left ankle deep-tendon reflex and diminished sensation. MRI of the lumbosacral plexuses and lumbar spine showed bilateral cauda equina nerve root enhancement, sparing the plexuses. NCS/EMG suggested a plexopathy with specific left-sided abnormalities. Blood and CSF microbiological and autoimmune assays were unyielding. CSF analysis revealed cytoalbuminologic dissociation (high protein, low cell count) but was negative for oligoclonal bands. These findings, in the absence of diabetes or other identified causes, supported the diagnosis of nondiabetic LRPN.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with subacute left lower limb weakness and numbness, absent left ankle deep-tendon reflex, diffuse weakness, and diminished sensation.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Gadolinium-enhanced MRI of lumbosacral plexuses and lumbar spine demonstrated enhancement of the cauda equina nerve roots bilaterally, sparing the lumbosacral plexuses.",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Nerve conduction study and electromyography suggested a plexopathy with asymmetrically absent left-sided tibial H-reflex, diminished left saphenous sensory response, and reduced recruitment on EMG of left-sided muscles.",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Cerebrospinal fluid (CSF) examination revealed cytoalbuminologic dissociation (CSF protein 1.03 g/L, with a CSF white blood cell count of 1/μL) but was otherwise negative for oligoclonal bands.",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Microbiological and autoimmune assays performed on blood and CSF samples were unyielding, supporting the 'nondiabetic' and idiopathic nature of the condition.",
+              "evidence_ids": [
+                "E005"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Diabetic LRPN",
+              "basis": "Microbiological and autoimmune assays performed on blood and CSF samples were unyielding (E005), and the diagnosis specifies 'nondiabetic'."
+            },
+            {
+              "alternative": "Infectious neuropathy",
+              "basis": "Microbiological assays on blood and CSF were unyielding (E005), and CSF white blood cell count was low (1/μL) (E004)."
+            },
+            {
+              "alternative": "Autoimmune neuropathy (e.g., vasculitis, typical CIDP)",
+              "basis": "Autoimmune assays on blood and CSF were unyielding (E005), and CSF was negative for oligoclonal bands (E004)."
+            },
+            {
+              "alternative": "Compressive radiculopathy (e.g., disc herniation)",
+              "basis": "MRI showed nerve root enhancement without mention of compression (E003), and NCS/EMG suggested plexopathy rather than isolated radiculopathy (E002)."
+            }
+          ],
+          "remaining_uncertainties": [
+            "Specific results for HbA1c and fasting glucose tests were not explicitly documented, though implied negative by 'unyiedling assays' and the 'nondiabetic' diagnosis.",
+            "Details of specific treatment administered (e.g., IVIG, steroids) and the patient's clinical response or long-term outcome are not documented."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "nondiabetic LRPN",
+      "trajectory_summary": "A 35-year-old woman presented with a 1-week history of gradually worsening left lower limb weakness and numbness, accompanied by an absent left ankle deep-tendon reflex and diminished sensation. MRI of the lumbosacral plexuses and lumbar spine showed bilateral cauda equina nerve root enhancement, sparing the plexuses. NCS/EMG suggested a plexopathy with specific left-sided abnormalities. Blood and CSF microbiological and autoimmune assays were unyielding. CSF analysis revealed cytoalbuminologic dissociation (high protein, low cell count) but was negative for oligoclonal bands. These findings, in the absence of diabetes or other identified causes, supported the diagnosis of nondiabetic LRPN.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with subacute left lower limb weakness and numbness, absent left ankle deep-tendon reflex, diffuse weakness, and diminished sensation.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Gadolinium-enhanced MRI of lumbosacral plexuses and lumbar spine demonstrated enhancement of the cauda equina nerve roots bilaterally, sparing the lumbosacral plexuses.",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Nerve conduction study and electromyography suggested a plexopathy with asymmetrically absent left-sided tibial H-reflex, diminished left saphenous sensory response, and reduced recruitment on EMG of left-sided muscles.",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Cerebrospinal fluid (CSF) examination revealed cytoalbuminologic dissociation (CSF protein 1.03 g/L, with a CSF white blood cell count of 1/μL) but was otherwise negative for oligoclonal bands.",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Microbiological and autoimmune assays performed on blood and CSF samples were unyielding, supporting the 'nondiabetic' and idiopathic nature of the condition.",
+          "evidence_ids": [
+            "E005"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Diabetic LRPN",
+          "basis": "Microbiological and autoimmune assays performed on blood and CSF samples were unyielding (E005), and the diagnosis specifies 'nondiabetic'."
+        },
+        {
+          "alternative": "Infectious neuropathy",
+          "basis": "Microbiological assays on blood and CSF were unyielding (E005), and CSF white blood cell count was low (1/μL) (E004)."
+        },
+        {
+          "alternative": "Autoimmune neuropathy (e.g., vasculitis, typical CIDP)",
+          "basis": "Autoimmune assays on blood and CSF were unyielding (E005), and CSF was negative for oligoclonal bands (E004)."
+        },
+        {
+          "alternative": "Compressive radiculopathy (e.g., disc herniation)",
+          "basis": "MRI showed nerve root enhancement without mention of compression (E003), and NCS/EMG suggested plexopathy rather than isolated radiculopathy (E002)."
+        }
+      ],
+      "remaining_uncertainties": [
+        "Specific results for HbA1c and fasting glucose tests were not explicitly documented, though implied negative by 'unyiedling assays' and the 'nondiabetic' diagnosis.",
+        "Details of specific treatment administered (e.g., IVIG, steroids) and the patient's clinical response or long-term outcome are not documented."
+      ],
+      "confidence_that_diagnosis_is_supported": 0.9
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T21:55:46.240195+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10662534",
+    "known_final_diagnosis": "The patient was diagnosed with nondiabetic LRPN",
+    "turns_used": 15,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 5,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 5,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 3,
+      "REQUEST_RESULT": 9,
+      "WAIT_REASSESS": 2
+    },
+    "report_status_counts": {
+      "found": 4,
+      "invalid_report_selection": 6,
+      "not_reported": 1,
+      "ordered_but_not_documented": 3
+    },
+    "report_repair_attempted_count": 7,
+    "report_repair_failed_count": 6,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 11,
+      "verbatim_excerpt is not a contiguous source subspan.": 2
+    },
+    "answer_yield": 0.2857142857142857,
+    "unavailable_turn_rate": 0.2857142857142857,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T21:55:46.243009+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10662534",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/neurology/episodes/PMC10662534.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/neurology/cases/PMC10662534.json",
+    "num_gold_steps": "4",
+    "num_pred_steps": "4",
+    "weighted_tversky_alignment": "0.65",
+    "weighted_tversky_distance": "0.35",
+    "matched_weight": "3.25",
+    "missed_weight": "0.25",
+    "extra_weight": "0.75",
+    "weighted_lcs_recall": "0.7142857142857143",
+    "weighted_lcs_weight": "2.5",
+    "weighted_pairwise_order_accuracy": "0.3886314142121213",
+    "pairwise_comparable_pairs": "3",
+    "pairwise_correct_pairs": "1",
+    "pairwise_inversions": "2",
+    "gold_sequence": "other_or_off_protocol > medication_or_treatment > imaging > lab_tests",
+    "prediction_sequence": "imaging > lab_tests > admission_or_clinical_course > medication_or_treatment",
+    "error": ""
+  }
+}

@@ -1,0 +1,522 @@
+{
+  "case_id": "case_0078",
+  "pmcid": "PMC10564149",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC10564149",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 15,
+    "termination": "final",
+    "known_final_diagnosis": "The working diagnosis was DM type 2, hypertension, homozygote HbE and renal complications.",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E004"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Order initial laboratory tests, including complete blood count, basic metabolic panel (with creatinine and eGFR), and urinalysis.",
+          "current_trajectory_hypothesis": "A patient with known diabetes and hypertension, presenting with non-specific symptoms, likely underwent initial laboratory investigations to assess her general health and potential complications, which may have revealed early signs of renal involvement or hematological abnormalities.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Specific laboratory results for renal function (creatinine, eGFR, proteinuria)",
+            "Evidence of hematological abnormalities (CBC, hemoglobin electrophoresis for HbE)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Initial laboratory tests ordered; no immediate result in source",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request results for complete blood count, basic metabolic panel (including creatinine and eGFR), and urinalysis.",
+          "current_trajectory_hypothesis": "The patient, with known diabetes and hypertension, presented with non-specific symptoms. Initial lab tests were ordered to assess for complications, particularly renal involvement and hematological issues, given the final diagnosis of renal complications and homozygote HbE.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Specific laboratory results for renal function (creatinine, eGFR, proteinuria)",
+            "Evidence of hematological abnormalities (CBC, hemoglobin electrophoresis for HbE)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "Laboratory testing results are shown in Table 1 and Figures 1-3. The Mentzer Index (mean cell volume/red blood cell count) was < 13, indicating the possibility of thalassemia, haemoglobinopathy, and iron deficiency anaemia. A peripheral blood smear showed hypochromic microcytic anisopoikilocytosis (normocytic, many ovalocytes, and target cells). Therefore, the clinical pathologist performed laboratory testing of serum iron (SI), total iron-binding capacity (TIBC), and haemoglobin electrophoresis.",
+          "category": "routine_lab",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request results for hemoglobin electrophoresis, serum iron (SI), and total iron-binding capacity (TIBC).",
+          "current_trajectory_hypothesis": "Initial lab work revealed findings suggestive of thalassemia/hemoglobinopathy (low Mentzer Index, hypochromic microcytic anisopoikilocytosis), prompting further investigation with serum iron, TIBC, and hemoglobin electrophoresis to confirm the homozygote HbE diagnosis.",
+          "confirmed_evidence": [
+            "Initial lab findings (Mentzer Index < 13, hypochromic microcytic anisopoikilocytosis) suggested thalassemia/hemoglobinopathy (E001)"
+          ],
+          "missing_key_evidence": [
+            "Specific results of hemoglobin electrophoresis to confirm HbE",
+            "Serum iron and TIBC results",
+            "Results for renal function (creatinine, eGFR, urinalysis)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "The following results were obtained by Hb electrophoresis: HbA 2.9%, HbF 3.8%, HbE 89.4%, and HbA2 3.9%. As a result, it was concluded that homozygote HbE exists (Figure 2).",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request results for basic metabolic panel (including creatinine and eGFR) and urinalysis.",
+          "current_trajectory_hypothesis": "The patient's initial workup revealed homozygote HbE. Now, I need to verify the 'renal complications' part of the final diagnosis by obtaining results from the initially ordered basic metabolic panel and urinalysis.",
+          "confirmed_evidence": [
+            "Initial lab findings (Mentzer Index < 13, hypochromic microcytic anisopoikilocytosis) suggested thalassemia/hemoglobinopathy (E001)",
+            "Hemoglobin electrophoresis confirmed homozygote HbE (HbA 2.9%, HbF 3.8%, HbE 89.4%, HbA2 3.9%) (E004)"
+          ],
+          "missing_key_evidence": [
+            "Specific laboratory results for renal function (creatinine, eGFR, proteinuria)",
+            "Serum iron and TIBC results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "No source evidence documents results for basic metabolic panel or urinalysis at or after the current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient's initial workup confirmed homozygote HbE. Specific lab results for renal function (creatinine, eGFR, urinalysis) were not reported. I need to find evidence for the 'renal complications' part of the final diagnosis, which might be documented in the clinical course or through other diagnostic findings or treatments.",
+          "confirmed_evidence": [
+            "Initial lab findings (Mentzer Index < 13, hypochromic microcytic anisopoikilocytosis) suggested thalassemia/hemoglobinopathy (E001)",
+            "Hemoglobin electrophoresis confirmed homozygote HbE (HbA 2.9%, HbF 3.8%, HbE 89.4%, HbA2 3.9%) (E004)"
+          ],
+          "missing_key_evidence": [
+            "Specific evidence for renal complications (e.g., proteinuria, elevated creatinine, eGFR, or clinical course related to renal disease)",
+            "Serum iron and TIBC results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "No pending orders and no new undisclosed clinical trajectory update after the current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient's initial workup confirmed homozygote HbE. Specific lab results for renal function (creatinine, eGFR, urinalysis) were not reported. I need to find evidence for the 'renal complications' part of the final diagnosis, which might be documented in the clinical course or through other diagnostic findings or treatments.",
+          "confirmed_evidence": [
+            "Initial lab findings (Mentzer Index < 13, hypochromic microcytic anisopoikilocytosis) suggested thalassemia/hemoglobinopathy (E001)",
+            "Hemoglobin electrophoresis confirmed homozygote HbE (HbA 2.9%, HbF 3.8%, HbE 89.4%, HbA2 3.9%) (E004)"
+          ],
+          "missing_key_evidence": [
+            "Specific evidence for renal complications (e.g., proteinuria, elevated creatinine, eGFR, or clinical course related to renal disease)",
+            "Serum iron and TIBC results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "No pending orders with source-backed evidence and no new undisclosed clinical trajectory update after current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient's initial workup confirmed homozygote HbE. I am still seeking evidence for 'renal complications' as part of the final diagnosis, as specific lab results (creatinine, eGFR, urinalysis) were not reported. I will look for any documented clinical course or other findings that support renal involvement.",
+          "confirmed_evidence": [
+            "Initial lab findings (Mentzer Index < 13, hypochromic microcytic anisopoikilocytosis) suggested thalassemia/hemoglobinopathy (E001)",
+            "Hemoglobin electrophoresis confirmed homozygote HbE (HbA 2.9%, HbF 3.8%, HbE 89.4%, HbA2 3.9%) (E004)"
+          ],
+          "missing_key_evidence": [
+            "Specific evidence for renal complications (e.g., proteinuria, elevated creatinine, eGFR, or clinical course related to renal disease)",
+            "Serum iron and TIBC results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "No pending orders with source-backed results and no undisclosed clinical trajectory updates after current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient's initial workup confirmed homozygote HbE. I am still seeking evidence for 'renal complications' as part of the final diagnosis. Since specific lab results (creatinine, eGFR, urinalysis) were not reported, I need to find any documented clinical course or other findings that support renal involvement or its management.",
+          "confirmed_evidence": [
+            "Initial lab findings (Mentzer Index < 13, hypochromic microcytic anisopoikilocytosis) suggested thalassemia/hemoglobinopathy (E001)",
+            "Hemoglobin electrophoresis confirmed homozygote HbE (HbA 2.9%, HbF 3.8%, HbE 89.4%, HbA2 3.9%) (E004)"
+          ],
+          "missing_key_evidence": [
+            "Specific evidence for renal complications (e.g., proteinuria, elevated creatinine, eGFR, or clinical course related to renal disease)",
+            "Serum iron and TIBC results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "No pending orders and no new clinical trajectory update beyond current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request results for serum iron (SI) and total iron-binding capacity (TIBC).",
+          "current_trajectory_hypothesis": "The patient's initial workup confirmed homozygote HbE. I am still seeking evidence for 'renal complications' as part of the final diagnosis. I will also request the serum iron and TIBC results, which were indicated as performed in the initial lab findings, to complete the hematological picture.",
+          "confirmed_evidence": [
+            "Initial lab findings (Mentzer Index < 13, hypochromic microcytic anisopoikilocytosis) suggested thalassemia/hemoglobinopathy (E001)",
+            "Hemoglobin electrophoresis confirmed homozygote HbE (HbA 2.9%, HbF 3.8%, HbE 89.4%, HbA2 3.9%) (E004)"
+          ],
+          "missing_key_evidence": [
+            "Specific evidence for renal complications (e.g., proteinuria, elevated creatinine, eGFR, or clinical course related to renal disease)",
+            "Serum iron and TIBC results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E001",
+          "source_text": "Therefore, the clinical pathologist performed laboratory testing of serum iron (SI), total iron-binding capacity (TIBC), and haemoglobin electrophoresis.",
+          "category": "routine_lab",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient's initial workup confirmed homozygote HbE. I am still seeking evidence for 'renal complications' as part of the final diagnosis. Since specific lab results (creatinine, eGFR, urinalysis) were not reported, I need to find any documented clinical course, treatment, or other diagnostic findings that support renal involvement.",
+          "confirmed_evidence": [
+            "Initial presentation included diabetes and hypertension for almost ten years (initial presentation)",
+            "Initial lab findings (Mentzer Index < 13, hypochromic microcytic anisopoikilocytosis) suggested thalassemia/hemoglobinopathy (E001)",
+            "Hemoglobin electrophoresis confirmed homozygote HbE (HbA 2.9%, HbF 3.8%, HbE 89.4%, HbA2 3.9%) (E004)"
+          ],
+          "missing_key_evidence": [
+            "Specific evidence for renal complications (e.g., proteinuria, elevated creatinine, eGFR, or clinical course related to renal disease)",
+            "Serum iron and TIBC results (specific values)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "No pending orders or new clinical course update available after current phase",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request specific results for serum iron (SI) and total iron-binding capacity (TIBC).",
+          "current_trajectory_hypothesis": "The patient's initial workup confirmed homozygote HbE. I am still seeking specific results for serum iron and TIBC, which were indicated as performed, to complete the hematological picture. I also need to find evidence for 'renal complications' as part of the final diagnosis.",
+          "confirmed_evidence": [
+            "Initial presentation included diabetes and hypertension for almost ten years (initial presentation)",
+            "Initial lab findings (Mentzer Index < 13, hypochromic microcytic anisopoikilocytosis) suggested thalassemia/hemoglobinopathy (E001)",
+            "Hemoglobin electrophoresis confirmed homozygote HbE (HbA 2.9%, HbF 3.8%, HbE 89.4%, HbA2 3.9%) (E004)"
+          ],
+          "missing_key_evidence": [
+            "Specific evidence for renal complications (e.g., proteinuria, elevated creatinine, eGFR, or clinical course related to renal disease)",
+            "Specific values for serum iron and TIBC results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Serum iron (SI) and total iron-binding capacity (TIBC) results are not documented in the supplied evidence.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient's initial workup confirmed homozygote HbE. I have not yet found specific lab evidence for 'renal complications' (creatinine, eGFR, urinalysis, SI, TIBC). I need to find any documented clinical course, treatment, or other diagnostic findings that support renal involvement.",
+          "confirmed_evidence": [
+            "Initial presentation included diabetes and hypertension for almost ten years (initial presentation)",
+            "Initial lab findings (Mentzer Index < 13, hypochromic microcytic anisopoikilocytosis) suggested thalassemia/hemoglobinopathy (E001)",
+            "Hemoglobin electrophoresis confirmed homozygote HbE (HbA 2.9%, HbF 3.8%, HbE 89.4%, HbA2 3.9%) (E004)"
+          ],
+          "missing_key_evidence": [
+            "Specific evidence for renal complications (e.g., proteinuria, elevated creatinine, eGFR, or clinical course related to renal disease)",
+            "Specific values for serum iron and TIBC results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "No pending orders and no later undisclosed clinical course updates are available.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient's initial workup confirmed homozygote HbE. I have not yet found specific lab evidence for 'renal complications' (creatinine, eGFR, urinalysis, SI, TIBC). I need to find any documented clinical course, treatment, or other diagnostic findings that support renal involvement, as this is part of the final diagnosis.",
+          "confirmed_evidence": [
+            "Initial presentation included diabetes and hypertension for almost ten years (initial presentation)",
+            "Initial lab findings (Mentzer Index < 13, hypochromic microcytic anisopoikilocytosis) suggested thalassemia/hemoglobinopathy (E001)",
+            "Hemoglobin electrophoresis confirmed homozygote HbE (HbA 2.9%, HbF 3.8%, HbE 89.4%, HbA2 3.9%) (E004)"
+          ],
+          "missing_key_evidence": [
+            "Specific evidence for renal complications (e.g., proteinuria, elevated creatinine, eGFR, or clinical course related to renal disease)",
+            "Specific values for serum iron and TIBC results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "No pending orders and no new undisclosed clinical trajectory update at or after current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 14,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient's initial workup confirmed homozygote HbE. I have not yet found specific lab evidence for 'renal complications' (creatinine, eGFR, urinalysis, SI, TIBC). I need to find any documented clinical course, treatment, or other diagnostic findings that support renal involvement, as this is a key part of the final diagnosis.",
+          "confirmed_evidence": [
+            "Initial presentation included diabetes and hypertension for almost ten years (initial presentation)",
+            "Initial lab findings (Mentzer Index < 13, hypochromic microcytic anisopoikilocytosis) suggested thalassemia/hemoglobinopathy (E001)",
+            "Hemoglobin electrophoresis confirmed homozygote HbE (HbA 2.9%, HbF 3.8%, HbE 89.4%, HbA2 3.9%) (E004)"
+          ],
+          "missing_key_evidence": [
+            "Specific evidence for renal complications (e.g., proteinuria, elevated creatinine, eGFR, or clinical course related to renal disease)",
+            "Specific values for serum iron and TIBC results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "No pending results and no new clinical trajectory update available beyond current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 15,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "The working diagnosis was DM type 2, hypertension, homozygote HbE and renal complications.",
+          "trajectory_summary": "A 52-year-old woman with a ten-year history of diabetes and hypertension presented for a routine check-up with non-specific symptoms of weakness and dizziness. Initial laboratory findings, including a Mentzer Index < 13 and hypochromic microcytic anisopoikilocytosis, suggested a thalassemia or hemoglobinopathy. Subsequent hemoglobin electrophoresis confirmed homozygote HbE with HbA 2.9%, HbF 3.8%, HbE 89.4%, and HbA2 3.9%. Specific laboratory evidence for renal complications, such as creatinine, eGFR, or urinalysis results, and specific values for serum iron and TIBC, were not documented in the provided information.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient had diabetes and hypertension for almost ten years",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Initial lab findings suggested thalassemia/hemoglobinopathy (Mentzer Index < 13, hypochromic microcytic anisopoikilocytosis)",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Hemoglobin electrophoresis confirmed homozygote HbE (HbA 2.9%, HbF 3.8%, HbE 89.4%, HbA2 3.9%)",
+              "evidence_ids": [
+                "E004"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [],
+          "remaining_uncertainties": [
+            "Specific evidence for renal complications (e.g., proteinuria, elevated creatinine, eGFR, or clinical course related to renal disease)",
+            "Specific values for serum iron and total iron-binding capacity (TIBC) results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "The working diagnosis was DM type 2, hypertension, homozygote HbE and renal complications.",
+      "trajectory_summary": "A 52-year-old woman with a ten-year history of diabetes and hypertension presented for a routine check-up with non-specific symptoms of weakness and dizziness. Initial laboratory findings, including a Mentzer Index < 13 and hypochromic microcytic anisopoikilocytosis, suggested a thalassemia or hemoglobinopathy. Subsequent hemoglobin electrophoresis confirmed homozygote HbE with HbA 2.9%, HbF 3.8%, HbE 89.4%, and HbA2 3.9%. Specific laboratory evidence for renal complications, such as creatinine, eGFR, or urinalysis results, and specific values for serum iron and TIBC, were not documented in the provided information.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient had diabetes and hypertension for almost ten years",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Initial lab findings suggested thalassemia/hemoglobinopathy (Mentzer Index < 13, hypochromic microcytic anisopoikilocytosis)",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Hemoglobin electrophoresis confirmed homozygote HbE (HbA 2.9%, HbF 3.8%, HbE 89.4%, HbA2 3.9%)",
+          "evidence_ids": [
+            "E004"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [],
+      "remaining_uncertainties": [
+        "Specific evidence for renal complications (e.g., proteinuria, elevated creatinine, eGFR, or clinical course related to renal disease)",
+        "Specific values for serum iron and total iron-binding capacity (TIBC) results"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.7
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T21:04:35.096627+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10564149",
+    "known_final_diagnosis": "The working diagnosis was DM type 2, hypertension, homozygote HbE and renal complications.",
+    "turns_used": 15,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 3,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 2,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_RESULT": 5,
+      "WAIT_REASSESS": 8
+    },
+    "report_status_counts": {
+      "already_disclosed": 1,
+      "found": 2,
+      "no_new_update": 8,
+      "not_reported": 2,
+      "ordered_but_not_documented": 1
+    },
+    "report_repair_attempted_count": 0,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {},
+    "answer_yield": 0.21428571428571427,
+    "unavailable_turn_rate": 0.7857142857142857,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T21:04:35.098497+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10564149",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/internalmed/episodes/PMC10564149.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/internalmed/cases/PMC10564149.json",
+    "num_gold_steps": "3",
+    "num_pred_steps": "1",
+    "weighted_tversky_alignment": "0.36363636363636365",
+    "weighted_tversky_distance": "0.6363636363636364",
+    "matched_weight": "1.0",
+    "missed_weight": "1.75",
+    "extra_weight": "0.0",
+    "weighted_lcs_recall": "0.36363636363636365",
+    "weighted_lcs_weight": "1.0",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "lab_tests > imaging > other_or_off_protocol",
+    "prediction_sequence": "lab_tests",
+    "error": ""
+  }
+}

@@ -1,0 +1,554 @@
+{
+  "case_id": "case_0060",
+  "pmcid": "PMC7239515",
+  "model": "gpt_4_1_mini",
+  "episode": {
+    "case_id": "PMC7239515",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 13,
+    "termination": "final",
+    "known_final_diagnosis": "A tension pneumothorax, possibly secondary to underlying COVID-19, was diagnosed.",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E005",
+      "E007",
+      "E008",
+      "E009",
+      "E010"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Order a chest X-ray to evaluate lung fields and confirm the presence of pneumothorax or other abnormalities",
+          "current_trajectory_hypothesis": "Patient presenting with acute worsening breathlessness and signs suggestive of left-sided lung pathology possibly tension pneumothorax; chest X-ray needed",
+          "confirmed_evidence": [
+            "Hypoxaemia with SpO2 88%-90% on 15 L oxygen",
+            "Absent breath sounds on left hemithorax with reduced vocal fremitus and asymmetrical chest expansion",
+            "Acute worsening over 4 hours of breathlessness and pleuritic chest pain"
+          ],
+          "missing_key_evidence": [
+            "Imaging evidence confirming pneumothorax",
+            "Evidence excluding or supporting underlying COVID-19 lung involvement"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Chest X-ray order recorded; awaiting result.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request the chest X-ray report to confirm the presence of pneumothorax or other abnormalities",
+          "current_trajectory_hypothesis": "Chest X-ray will confirm the suspected left-sided tension pneumothorax and any COVID-19 related lung changes",
+          "confirmed_evidence": [
+            "Hypoxaemia with SpO2 88%-90% on 15 L oxygen",
+            "Absent breath sounds on left hemithorax with reduced vocal fremitus and asymmetrical chest expansion",
+            "Acute worsening over 4 hours of breathlessness and pleuritic chest pain",
+            "Chest X-ray ordered to evaluate lung pathology"
+          ],
+          "missing_key_evidence": [
+            "Imaging evidence confirming pneumothorax",
+            "Evidence excluding or supporting underlying COVID-19 lung involvement"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "A portable anteroposterior chest radiograph was performed demonstrating a large left-sided pneumothorax with mediastinal shift and radiological signs of tension",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Order a SARS-CoV-2 PCR test to confirm COVID-19 infection and correlate with possible secondary tension pneumothorax",
+          "current_trajectory_hypothesis": "Imaging confirms left-sided tension pneumothorax; need to confirm COVID-19 to support underlying infectious cause contributing to pneumothorax",
+          "confirmed_evidence": [
+            "Large left-sided pneumothorax with mediastinal shift and radiological signs of tension on chest X-ray",
+            "Clinical presentation with 3-week history of dry cough, fever, and worsening respiratory distress"
+          ],
+          "missing_key_evidence": [
+            "Laboratory confirmation of SARS-CoV-2 infection",
+            "Further clinical course and treatment outcomes"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "Order for SARS-CoV-2 PCR test acknowledged but no documented test result available in the source",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request the result of the SARS-CoV-2 PCR test to confirm the presence or absence of COVID-19 infection",
+          "current_trajectory_hypothesis": "Confirming SARS-CoV-2 infection will support the hypothesis of secondary tension pneumothorax due to underlying COVID-19",
+          "confirmed_evidence": [
+            "Large left-sided pneumothorax with mediastinal shift and tension features on chest X-ray",
+            "Clinical features including 3-week history of dry cough, fever, shortness of breath"
+          ],
+          "missing_key_evidence": [
+            "Laboratory confirmation of SARS-CoV-2 infection",
+            "Subsequent treatment response and clinical course"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E010",
+          "source_text": "His initial COVID-19 swab returned negative, however after review of the history and imaging by the infectious diseases team it was felt he very likely had COVID-19",
+          "category": "other",
+          "temporal_cue": "2 days later",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "Ask about any prior episodes of lung problems, recent trauma, or invasive procedures that could explain the pneumothorax",
+          "current_trajectory_hypothesis": "Confirmed left-sided tension pneumothorax on imaging; negative initial COVID-19 PCR but clinical suspicion remains; underlying lung status and any other risk factors unclear",
+          "confirmed_evidence": [
+            "Large left-sided pneumothorax with mediastinal shift and tension on chest X-ray",
+            "Initial negative SARS-CoV-2 PCR test with high clinical suspicion of COVID-19",
+            "Presentation with 3-week history of dry cough, fever, and worsening respiratory distress",
+            "No history of recent trauma or previous pneumothoraces"
+          ],
+          "missing_key_evidence": [
+            "Further confirmatory testing or clinical course supporting COVID-19 diagnosis",
+            "Treatment interventions and patient response details",
+            "Physical examination findings post intervention",
+            "Exclusion of other causes for pneumothorax beyond COVID-19"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No source evidence about prior episodes of lung problems, recent trauma, or invasive procedures is reported.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Confirmed left-sided tension pneumothorax with mediastinal shift; negative initial COVID-19 PCR but clinical suspicion remains; awaiting treatment response and further clinical course documentation",
+          "confirmed_evidence": [
+            "Large left-sided pneumothorax with mediastinal shift and tension on chest X-ray",
+            "Initial negative SARS-CoV-2 PCR test but high clinical suspicion of COVID-19 based on history and imaging",
+            "Clinical presentation with 3-week history of dry cough, fever, worsening breathlessness and pleuritic chest pain",
+            "No history of recent trauma or previous pneumothoraces"
+          ],
+          "missing_key_evidence": [
+            "Treatment interventions for pneumothorax and patient response",
+            "Physical exam findings post intervention",
+            "Further confirmatory evidence supporting COVID-19 diagnosis or exclusion",
+            "Course and outcome details"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E009",
+          "source_text": "The treatment resulted in immediate improvement in respiratory and cardiovascular physiology with clinical and radiological evidence of lung re-expansion (figure 3). Within an hour the patient’s oxygen requirement reduced from 15 L/min via a non-rebreathe mask, to 4 L/min via nasal cannula, with normalisation of respiratory and heart rate.",
+          "category": "image_finding",
+          "temporal_cue": "within an hour after treatment",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request detailed description of the treatment administered for the tension pneumothorax including timing and type of intervention",
+          "current_trajectory_hypothesis": "Treatment for tension pneumothorax led to clinical and radiological improvement; detailed intervention description needed to complete clinical trajectory",
+          "confirmed_evidence": [
+            "Chest X-ray confirms left-sided tension pneumothorax with mediastinal shift",
+            "Initial negative SARS-CoV-2 PCR but high clinical suspicion of COVID-19",
+            "Clinical improvement and lung re-expansion observed within an hour after treatment",
+            "Patient's oxygen requirement and vital signs normalized after treatment"
+          ],
+          "missing_key_evidence": [
+            "Exact treatment modality and timing details for pneumothorax",
+            "Further confirmation or exclusion of COVID-19 infection",
+            "Longer-term clinical course and outcomes"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E007",
+          "source_text": "On review of the chest X-ray, the patient was treated with immediate emergency needle decompression of his pneumothorax with a 14-gauge cannula inserted in the second rib space and mid-clavicular line.",
+          "category": "treatment_response",
+          "temporal_cue": "on admission",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Order follow-up chest X-ray to document lung re-expansion and resolution of pneumothorax",
+          "current_trajectory_hypothesis": "Patient treated with emergency needle decompression for tension pneumothorax; follow-up imaging needed to confirm resolution",
+          "confirmed_evidence": [
+            "Initial chest X-ray shows large left-sided tension pneumothorax with mediastinal shift",
+            "Emergency needle decompression performed with immediate clinical improvement",
+            "Clinical and radiological evidence of lung re-expansion within an hour after treatment"
+          ],
+          "missing_key_evidence": [
+            "Follow-up chest X-ray imaging to confirm pneumothorax resolution",
+            "Further clinical course and COVID-19 confirmation or exclusion"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "Order for follow-up chest X-ray documented; no matching source result yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request the follow-up chest X-ray report to confirm lung re-expansion and resolution of pneumothorax after needle decompression",
+          "current_trajectory_hypothesis": "Follow-up imaging will confirm resolution of tension pneumothorax and lung re-expansion after emergency needle decompression",
+          "confirmed_evidence": [
+            "Initial chest X-ray shows large left-sided tension pneumothorax with mediastinal shift",
+            "Emergency needle decompression performed with immediate clinical improvement",
+            "Clinical and radiological evidence of lung re-expansion within an hour after treatment"
+          ],
+          "missing_key_evidence": [
+            "Follow-up imaging confirmation of pneumothorax resolution",
+            "Further clinical course and COVID-19 confirmation or exclusion"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "A repeat chest radiograph was also performed, confirming lung re-expansion with extensive bilateral consolidation (figure 3).",
+          "category": "imaging_report",
+          "temporal_cue": "after treatment",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Order sputum culture and PCR testing for other common respiratory pathogens to evaluate for coinfections or alternate causes of pneumothorax and pneumonia",
+          "current_trajectory_hypothesis": "Tension pneumothorax confirmed with emergency treatment leading to lung re-expansion; COVID-19 PCR initially negative but clinical suspicion remains; bilateral consolidation suggests underlying infectious or inflammatory lung disease; evaluation for coinfections or other pathogens needed",
+          "confirmed_evidence": [
+            "Large left-sided tension pneumothorax confirmed on X-ray with mediastinal shift",
+            "Emergency needle decompression led to immediate clinical improvement and lung re-expansion",
+            "Follow-up chest radiograph shows lung re-expansion with extensive bilateral consolidation",
+            "Initial COVID-19 PCR was negative but clinical suspicion remains high"
+          ],
+          "missing_key_evidence": [
+            "Microbiological evidence supporting or excluding COVID-19 or other infections",
+            "Clinical course details and outcomes after treatment",
+            "Additional confirmatory testing of COVID-19 or differential diagnoses"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "Order acknowledged; no matching documented test result found in source evidence",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Tension pneumothorax diagnosed and treated emergently with clinical and radiological improvement. Initial COVID-19 PCR negative but strong clinical suspicion present. Bilateral consolidations seen post treatment suggest underlying infectious or inflammatory lung process possibly COVID-19. Awaiting further microbiology and clinical course details for confirmation.",
+          "confirmed_evidence": [
+            "Large left-sided tension pneumothorax with mediastinal shift on chest X-ray (E001)",
+            "Emergency needle decompression with 14-gauge cannula at 2nd intercostal space mid-clavicular line (E007)",
+            "Immediate clinical and radiological improvement post treatment with reduced oxygen requirement (E009)",
+            "Repeat chest X-ray showing lung re-expansion and extensive bilateral consolidation (E005)",
+            "Initial negative SARS-CoV-2 PCR but high clinical suspicion of COVID-19 infection (E010)",
+            "No history of trauma or prior lung problems reported"
+          ],
+          "missing_key_evidence": [
+            "Microbiology or molecular confirmation of COVID-19 or other respiratory infections",
+            "Additional clinical course details including treatment outcomes and patient status",
+            "Results of sputum cultures and PCR for coinfections or alternate etiologies"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E008",
+          "source_text": "Following initial decompression, a 12-French Seldinger chest drain was inserted into the patients left axilla.",
+          "category": "treatment_response",
+          "temporal_cue": "on admission",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request results of the sputum culture and PCR testing for respiratory pathogens including SARS-CoV-2 to evaluate for coinfections or confirm COVID-19",
+          "current_trajectory_hypothesis": "Patient had tension pneumothorax diagnosed and treated emergently; initial SARS-CoV-2 PCR negative but clinical suspicion remains and bilateral consolidations seen; microbiological tests pending that could confirm COVID-19 or other respiratory infections",
+          "confirmed_evidence": [
+            "Large left-sided tension pneumothorax with mediastinal shift on chest X-ray (E001)",
+            "Emergency needle decompression with 14-gauge cannula performed (E007)",
+            "Immediate clinical and radiological improvement after treatment with lung re-expansion (E009, E005)",
+            "Initial SARS-CoV-2 PCR negative, but infectious diseases team suspects COVID-19 clinically (E010)",
+            "12-French Seldinger chest drain inserted after decompression (E008)",
+            "No history of prior lung problems or trauma"
+          ],
+          "missing_key_evidence": [
+            "Microbiological confirmation or exclusion of COVID-19 or other respiratory pathogens",
+            "Detailed clinical course and treatment outcome data following chest drain insertion"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "The source documents do not report results of sputum culture or PCR testing for respiratory pathogens.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "A tension pneumothorax, possibly secondary to underlying COVID-19",
+          "trajectory_summary": "A 36-year-old man presented with a 3-week history of dry cough, fever, and worsening breathlessness, culminating in acute hypoxaemia and left-sided chest signs. Chest X-ray confirmed a large left-sided tension pneumothorax with mediastinal shift. Initial treatment with emergency needle decompression led to immediate clinical and radiological improvement, followed by insertion of a chest drain. Follow-up imaging showed lung re-expansion but extensive bilateral consolidation. SARS-CoV-2 PCR was initially negative; however, clinical suspicion of COVID-19 remained high based on history and imaging. No prior trauma or lung disease was documented. Microbiological confirmation was unavailable. The clinical course and response to treatment support the diagnosis of tension pneumothorax, likely secondary to underlying COVID-19.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Large left-sided tension pneumothorax with mediastinal shift on chest X-ray",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Emergency needle decompression of pneumothorax with 14-gauge cannula at 2nd rib mid-clavicular line",
+              "evidence_ids": [
+                "E007"
+              ]
+            },
+            {
+              "claim": "Clinical and radiological improvement with lung re-expansion and reduced oxygen requirement after treatment",
+              "evidence_ids": [
+                "E009",
+                "E005"
+              ]
+            },
+            {
+              "claim": "Insertion of a 12-French Seldinger chest drain into left axilla after decompression",
+              "evidence_ids": [
+                "E008"
+              ]
+            },
+            {
+              "claim": "Initial SARS-CoV-2 PCR negative but infectious diseases team suspected COVID-19 based on history and imaging",
+              "evidence_ids": [
+                "E010"
+              ]
+            },
+            {
+              "claim": "Bilateral lung consolidation on follow-up imaging consistent with underlying infection or inflammation",
+              "evidence_ids": [
+                "E005"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Traumatic or prior lung pathology causes",
+              "basis": "No history of recent trauma or previous pneumothoraces documented"
+            }
+          ],
+          "remaining_uncertainties": [
+            "Lack of microbiological confirmation or exclusion of COVID-19 or other respiratory pathogens",
+            "No documented sputum culture or PCR results for coinfections",
+            "Long-term clinical course and outcomes after chest drain insertion"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "A tension pneumothorax, possibly secondary to underlying COVID-19",
+      "trajectory_summary": "A 36-year-old man presented with a 3-week history of dry cough, fever, and worsening breathlessness, culminating in acute hypoxaemia and left-sided chest signs. Chest X-ray confirmed a large left-sided tension pneumothorax with mediastinal shift. Initial treatment with emergency needle decompression led to immediate clinical and radiological improvement, followed by insertion of a chest drain. Follow-up imaging showed lung re-expansion but extensive bilateral consolidation. SARS-CoV-2 PCR was initially negative; however, clinical suspicion of COVID-19 remained high based on history and imaging. No prior trauma or lung disease was documented. Microbiological confirmation was unavailable. The clinical course and response to treatment support the diagnosis of tension pneumothorax, likely secondary to underlying COVID-19.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Large left-sided tension pneumothorax with mediastinal shift on chest X-ray",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Emergency needle decompression of pneumothorax with 14-gauge cannula at 2nd rib mid-clavicular line",
+          "evidence_ids": [
+            "E007"
+          ]
+        },
+        {
+          "claim": "Clinical and radiological improvement with lung re-expansion and reduced oxygen requirement after treatment",
+          "evidence_ids": [
+            "E009",
+            "E005"
+          ]
+        },
+        {
+          "claim": "Insertion of a 12-French Seldinger chest drain into left axilla after decompression",
+          "evidence_ids": [
+            "E008"
+          ]
+        },
+        {
+          "claim": "Initial SARS-CoV-2 PCR negative but infectious diseases team suspected COVID-19 based on history and imaging",
+          "evidence_ids": [
+            "E010"
+          ]
+        },
+        {
+          "claim": "Bilateral lung consolidation on follow-up imaging consistent with underlying infection or inflammation",
+          "evidence_ids": [
+            "E005"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Traumatic or prior lung pathology causes",
+          "basis": "No history of recent trauma or previous pneumothoraces documented"
+        }
+      ],
+      "remaining_uncertainties": [
+        "Lack of microbiological confirmation or exclusion of COVID-19 or other respiratory pathogens",
+        "No documented sputum culture or PCR results for coinfections",
+        "Long-term clinical course and outcomes after chest drain insertion"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.85
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-23T20:00:09.522584+00:00",
+    "clinician_model": "gpt-4.1-mini-test",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC7239515",
+    "known_final_diagnosis": "A tension pneumothorax, possibly secondary to underlying COVID-19, was diagnosed.",
+    "turns_used": 13,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 6,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 6,
+    "gold_reasoning_span_count": 4,
+    "action_counts": {
+      "ASK_HISTORY": 1,
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 4,
+      "REQUEST_RESULT": 5,
+      "WAIT_REASSESS": 2
+    },
+    "report_status_counts": {
+      "found": 6,
+      "not_reported": 2,
+      "ordered_but_not_documented": 4
+    },
+    "answer_yield": 0.5,
+    "unavailable_turn_rate": 0.5,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-23T20:00:09.524762+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC7239515",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "5",
+    "num_pred_steps": "6",
+    "weighted_tversky_alignment": "0.5517241379310345",
+    "weighted_tversky_distance": "0.4482758620689655",
+    "matched_weight": "4.0",
+    "missed_weight": "0.25",
+    "extra_weight": "1.5",
+    "weighted_lcs_recall": "0.9411764705882353",
+    "weighted_lcs_weight": "4.0",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "6",
+    "pairwise_correct_pairs": "6",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging > lab_tests > other_or_off_protocol > medication_or_treatment > admission_or_clinical_course",
+    "prediction_sequence": "imaging > lab_tests > clinical_history > medication_or_treatment > admission_or_clinical_course > microbiology",
+    "error": ""
+  }
+}

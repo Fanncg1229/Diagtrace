@@ -1,0 +1,513 @@
+{
+  "case_id": "case_0101",
+  "pmcid": "PMC10314569",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC10314569",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 11,
+    "termination": "final",
+    "known_final_diagnosis": "Based on the above findings, a diagnosis of membranous nephropathy-type PGNMID was made.",
+    "disclosed_evidence_ids": [
+      "E002",
+      "E003",
+      "E004"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Kidney biopsy findings, including light microscopy, immunofluorescence, and electron microscopy reports.",
+          "current_trajectory_hypothesis": "The patient presents with persistent proteinuria and monoclonal gammopathy features. A kidney biopsy is essential to confirm the specific type of glomerulonephritis, particularly membranous nephropathy-type PGNMID.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Specific kidney pathology findings (light microscopy, immunofluorescence, electron microscopy)",
+            "Detailed characterization of proteinuria and kidney function",
+            "Further workup for monoclonal gammopathy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "Kidney biopsy showed 24 glomeruli, of which 2 showed global sclerosis, 2 showed segmental sclerosis, and 1 collapsed. Tubulointerstitial damage was observed in 10–20% of patients. There was an increase in mesangial cells and matrix without nodular lesions under light microscopy (Fig. 1). No obvious spike formation was observed under high magnification with periodic acid methenamine silver staining (Fig. 1). An immunofluorescence study showed granular deposits of IgG and C3 on the capillary wall and weak positivity for C1q (Fig. 2a). IgG3 was predominant among the IgG subclasses, and intraglomerular κ and λ staining was negative for κ and positive for λ (Fig. 2b). Direct fast scarlet staining was negative. Electron microscopy revealed lumpy deposits without a fibrillar structure in the subepithelial area (Fig. 3).",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Serum and urine protein electrophoresis and immunofixation results, and serum free light chain assay results.",
+          "current_trajectory_hypothesis": "The kidney biopsy findings (subepithelial deposits, monoclonal IgG3 with lambda restriction) strongly suggest membranous nephropathy-type PGNMID. However, the initial presentation mentioned kappa Bence-Jones protein positivity, which needs to be reconciled with the lambda restriction found in the glomeruli. Further characterization of the systemic monoclonal gammopathy is needed.",
+          "confirmed_evidence": [
+            "Kidney biopsy showed subepithelial lumpy deposits without fibrillar structure on electron microscopy, consistent with membranous nephropathy.",
+            "Immunofluorescence showed granular deposits of IgG and C3 on the capillary wall, with IgG3 predominance and intraglomerular lambda restriction (negative for kappa), supporting PGNMID."
+          ],
+          "missing_key_evidence": [
+            "Detailed characterization of the systemic monoclonal gammopathy (serum/urine protein electrophoresis, immunofixation, free light chain assay) to correlate with glomerular findings.",
+            "Clinical course, treatment, and outcome."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "His urinary protein level was 0.84 g/g⋅Cr without occult blood, and urine immunofixation showed BJP-κ type. Serum immunofixation showed IgG-κ type, and the blood immunoglobulin free light chain κ/λ ratio was also elevated (Table 1).",
+          "category": "serology",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Detailed bone marrow biopsy report, including plasma cell clonality and immunohistochemistry findings.",
+          "current_trajectory_hypothesis": "The kidney biopsy findings (subepithelial deposits, IgG3-lambda restriction) strongly suggest membranous nephropathy-type PGNMID. However, there is a discrepancy between the systemic monoclonal gammopathy (IgG-kappa, kappa Bence-Jones proteinuria) and the glomerular deposits (IgG3-lambda). A detailed bone marrow biopsy report is crucial to characterize the plasma cell dyscrasia and potentially reconcile this discrepancy, or identify a separate monoclonal process.",
+          "confirmed_evidence": [
+            "Kidney biopsy showed subepithelial lumpy deposits without fibrillar structure on electron microscopy, consistent with membranous nephropathy.",
+            "Immunofluorescence showed granular deposits of IgG and C3 on the capillary wall, with IgG3 predominance and intraglomerular lambda restriction (negative for kappa), supporting PGNMID.",
+            "Systemic monoclonal gammopathy identified as IgG-kappa type with elevated kappa/lambda free light chain ratio and kappa Bence-Jones proteinuria."
+          ],
+          "missing_key_evidence": [
+            "Detailed characterization of the plasma cell dyscrasia from bone marrow biopsy, including clonality and immunohistochemistry, to understand its relationship to the glomerular deposits.",
+            "Kidney function parameters (e.g., creatinine, eGFR).",
+            "Clinical course, treatment, and outcome."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No evidence record contains detailed bone marrow biopsy report or immunohistochemistry findings on plasma cell clonality.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Serum creatinine, eGFR, and other relevant kidney function tests at presentation or admission.",
+          "current_trajectory_hypothesis": "The kidney biopsy findings (subepithelial deposits, IgG3-lambda restriction) strongly suggest membranous nephropathy-type PGNMID. There is a discrepancy between the systemic IgG-kappa gammopathy and the glomerular IgG3-lambda deposits, which could indicate two separate monoclonal processes or a complex presentation. I need to assess the patient's kidney function at the time of diagnosis to understand the severity of the kidney involvement.",
+          "confirmed_evidence": [
+            "Kidney biopsy showed subepithelial lumpy deposits without fibrillar structure on electron microscopy, consistent with membranous nephropathy.",
+            "Immunofluorescence showed granular deposits of IgG and C3 on the capillary wall, with IgG3 predominance and intraglomerular lambda restriction (negative for kappa), supporting PGNMID.",
+            "Systemic monoclonal gammopathy identified as IgG-kappa type with elevated kappa/lambda free light chain ratio and kappa Bence-Jones proteinuria.",
+            "Bone marrow aspiration showed 5% plasma cells without multiple myeloma diagnosis."
+          ],
+          "missing_key_evidence": [
+            "Detailed kidney function parameters (creatinine, eGFR) at presentation.",
+            "Clinical course, treatment, and outcome."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No source record provides serum creatinine, eGFR, or relevant kidney function lab test results at presentation or admission.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Serum protein electrophoresis results, including total protein, albumin, and gamma globulin levels, at presentation or admission.",
+          "current_trajectory_hypothesis": "The kidney biopsy findings (subepithelial deposits, IgG3-lambda restriction) strongly suggest membranous nephropathy-type PGNMID. There is a discrepancy between the systemic IgG-kappa gammopathy and the glomerular IgG3-lambda deposits. I need to confirm the initial hyperproteinemia and high gamma globulin level mentioned in the chief complaint with specific lab results to fully characterize the systemic monoclonal gammopathy.",
+          "confirmed_evidence": [
+            "Kidney biopsy showed subepithelial lumpy deposits without fibrillar structure on electron microscopy, consistent with membranous nephropathy.",
+            "Immunofluorescence showed granular deposits of IgG and C3 on the capillary wall, with IgG3 predominance and intraglomerular lambda restriction (negative for kappa), supporting PGNMID.",
+            "Systemic monoclonal gammopathy identified as IgG-kappa type with elevated kappa/lambda free light chain ratio and kappa Bence-Jones proteinuria.",
+            "Bone marrow aspiration showed 5% plasma cells without multiple myeloma diagnosis."
+          ],
+          "missing_key_evidence": [
+            "Specific serum protein electrophoresis results (total protein, albumin, gamma globulin) to confirm hyperproteinemia and high gamma globulin.",
+            "Detailed kidney function parameters (creatinine, eGFR) at presentation.",
+            "Clinical course, treatment, and outcome."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No source record contains serum protein electrophoresis results including total protein, albumin, and gamma globulin levels at presentation.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Specific total protein and gamma globulin levels from one year prior, when hyperproteinemia and high gamma globulin were first noted.",
+          "current_trajectory_hypothesis": "The kidney biopsy findings (subepithelial deposits, IgG3-lambda restriction) strongly suggest membranous nephropathy-type PGNMID. There is a discrepancy between the systemic IgG-kappa gammopathy and the glomerular IgG3-lambda deposits. I need to confirm the specific values of hyperproteinemia and high gamma globulin level mentioned in the initial presentation to fully characterize the systemic monoclonal gammopathy at the time of initial referral.",
+          "confirmed_evidence": [
+            "Kidney biopsy showed subepithelial lumpy deposits without fibrillar structure on electron microscopy, consistent with membranous nephropathy.",
+            "Immunofluorescence showed granular deposits of IgG and C3 on the capillary wall, with IgG3 predominance and intraglomerular lambda restriction (negative for kappa), supporting PGNMID.",
+            "Systemic monoclonal gammopathy identified as IgG-kappa type with elevated kappa/lambda free light chain ratio and kappa Bence-Jones proteinuria.",
+            "Bone marrow aspiration showed 5% plasma cells without multiple myeloma diagnosis."
+          ],
+          "missing_key_evidence": [
+            "Specific total protein and gamma globulin levels from one year prior.",
+            "Detailed kidney function parameters (creatinine, eGFR) at presentation.",
+            "Clinical course, treatment, and outcome."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "explanation": "No evidence record reports specific total protein and gamma globulin levels from one year prior.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The kidney biopsy findings (subepithelial deposits, IgG3-lambda restriction) strongly support membranous nephropathy-type PGNMID. There is a discrepancy between the systemic IgG-kappa gammopathy and the glomerular IgG3-lambda deposits, which is a known feature of PGNMID. I need to understand the patient's clinical course, treatment, and response to complete the trajectory.",
+          "confirmed_evidence": [
+            "Kidney biopsy showed subepithelial lumpy deposits without fibrillar structure on electron microscopy, consistent with membranous nephropathy.",
+            "Immunofluorescence showed granular deposits of IgG and C3 on the capillary wall, with IgG3 predominance and intraglomerular lambda restriction (negative for kappa), supporting PGNMID.",
+            "Systemic monoclonal gammopathy identified as IgG-kappa type with elevated kappa/lambda free light chain ratio and kappa Bence-Jones proteinuria.",
+            "Bone marrow aspiration showed 5% plasma cells without multiple myeloma diagnosis."
+          ],
+          "missing_key_evidence": [
+            "Specific total protein and gamma globulin levels from one year prior.",
+            "Detailed kidney function parameters (creatinine, eGFR) at presentation.",
+            "Clinical course, treatment, and outcome after diagnosis."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "Considering that hypertension and obesity-related hyperfiltration may have contributed to the urinary protein, he was treated with sodium restriction and body weight loss in addition to valsartan (40 mg, daily) (Fig. 4). Since his proteinuria increased gradually over the three years, oral prednisolone (30 mg, daily) was initiated, which led to a decrease in proteinuria. Valsartan was changed to azilsartan (40 mg, daily), and teneligliptin (20 mg, daily) was initiated. Oral prednisolone was gradually tapered to a dose of 10 mg per day, and his proteinuria was 0.88 g/g⋅Cr with the use of azilsartan (40 mg daily, canagliflozin (100 mg, daily), and esaxerenone (1.25 mg, daily).",
+          "category": "other",
+          "temporal_cue": "clinical course over 3 years",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Proteinuria level (g/g⋅Cr) immediately prior to the initiation of oral prednisolone.",
+          "current_trajectory_hypothesis": "The kidney biopsy findings (subepithelial deposits, IgG3-lambda restriction) strongly support membranous nephropathy-type PGNMID. There is a discrepancy between the systemic IgG-kappa gammopathy and the glomerular IgG3-lambda deposits, which is a known feature of PGNMID. I need to quantify the proteinuria level before steroid treatment to better understand the severity of the disease and the response to therapy.",
+          "confirmed_evidence": [
+            "Kidney biopsy showed subepithelial lumpy deposits without fibrillar structure on electron microscopy, consistent with membranous nephropathy.",
+            "Immunofluorescence showed granular deposits of IgG and C3 on the capillary wall, with IgG3 predominance and intraglomerular lambda restriction (negative for kappa), supporting PGNMID.",
+            "Systemic monoclonal gammopathy identified as IgG-kappa type with elevated kappa/lambda free light chain ratio and kappa Bence-Jones proteinuria.",
+            "Bone marrow aspiration showed 5% plasma cells without multiple myeloma diagnosis.",
+            "Initial proteinuria was 0.84 g/g⋅Cr, which gradually increased over three years, leading to prednisolone initiation.",
+            "Prednisolone treatment led to a decrease in proteinuria, with a subsequent level of 0.88 g/g⋅Cr on maintenance therapy."
+          ],
+          "missing_key_evidence": [
+            "Specific proteinuria level before prednisolone initiation to quantify treatment response.",
+            "Detailed kidney function parameters (creatinine, eGFR) at presentation.",
+            "Specific total protein and gamma globulin levels from one year prior."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "explanation": "The source does not report the proteinuria level immediately prior to initiation of oral prednisolone.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Specific gamma globulin level from one year prior, when hyperproteinemia and high gamma globulin were first noted.",
+          "current_trajectory_hypothesis": "The kidney biopsy findings (subepithelial deposits, IgG3-lambda restriction) strongly support membranous nephropathy-type PGNMID. There is a discrepancy between the systemic IgG-kappa gammopathy and the glomerular IgG3-lambda deposits. I need to confirm the specific gamma globulin level from one year prior to fully characterize the systemic monoclonal gammopathy at the time of initial referral.",
+          "confirmed_evidence": [
+            "Kidney biopsy showed subepithelial lumpy deposits without fibrillar structure on electron microscopy, consistent with membranous nephropathy.",
+            "Immunofluorescence showed granular deposits of IgG and C3 on the capillary wall, with IgG3 predominance and intraglomerular lambda restriction (negative for kappa), supporting PGNMID.",
+            "Systemic monoclonal gammopathy identified as IgG-kappa type with elevated kappa/lambda free light chain ratio and kappa Bence-Jones proteinuria.",
+            "Bone marrow aspiration showed 5% plasma cells without multiple myeloma diagnosis.",
+            "Initial proteinuria was 0.84 g/g⋅Cr, which gradually increased over three years, leading to prednisolone initiation.",
+            "Prednisolone treatment led to a decrease in proteinuria, with a subsequent level of 0.88 g/g⋅Cr on maintenance therapy."
+          ],
+          "missing_key_evidence": [
+            "Specific gamma globulin level from one year prior.",
+            "Detailed kidney function parameters (creatinine, eGFR) at presentation.",
+            "Specific proteinuria level before prednisolone initiation to quantify treatment response.",
+            "Long-term clinical course and outcome."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "explanation": "No source record provides a specific gamma globulin level from one year prior.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The kidney biopsy findings (subepithelial deposits, IgG3-lambda restriction) strongly support membranous nephropathy-type PGNMID. There is a discrepancy between the systemic IgG-kappa gammopathy and the glomerular IgG3-lambda deposits, which is a known feature of PGNMID. The clinical course and treatment response have been partially described, but a more comprehensive understanding of the patient's long-term clinical status and outcome is needed.",
+          "confirmed_evidence": [
+            "Kidney biopsy showed subepithelial lumpy deposits without fibrillar structure on electron microscopy, consistent with membranous nephropathy.",
+            "Immunofluorescence showed granular deposits of IgG and C3 on the capillary wall, with IgG3 predominance and intraglomerular lambda restriction (negative for kappa), supporting PGNMID.",
+            "Systemic monoclonal gammopathy identified as IgG-kappa type with elevated kappa/lambda free light chain ratio and kappa Bence-Jones proteinuria.",
+            "Bone marrow aspiration showed 5% plasma cells without multiple myeloma diagnosis.",
+            "Initial proteinuria was 0.84 g/g⋅Cr, which gradually increased over three years, leading to prednisolone initiation.",
+            "Prednisolone treatment led to a decrease in proteinuria, with a subsequent level of 0.88 g/g⋅Cr on maintenance therapy with azilsartan, canagliflozin, and esaxerenone."
+          ],
+          "missing_key_evidence": [
+            "Detailed kidney function parameters (creatinine, eGFR) at presentation.",
+            "Specific total protein and gamma globulin levels from one year prior.",
+            "Specific proteinuria level before prednisolone initiation to quantify treatment response.",
+            "Overall long-term clinical status and outcome beyond kidney parameters."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "explanation": "No pending orders and no undisclosed clinical trajectory updates beyond current phase",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "membranous nephropathy-type PGNMID",
+          "trajectory_summary": "The patient, a 50-year-old man with hypertension, type 2 diabetes, hyperlipidemia, hyperuricemia, fatty liver, and obesity, presented with persistent proteinuria, hyperproteinemia (9 g/dl), high gamma globulin, and kappa Bence-Jones protein positivity. Bone marrow aspiration showed 5% plasma cells without multiple myeloma. A kidney biopsy revealed subepithelial lumpy deposits without fibrillar structure on electron microscopy, and granular deposits of IgG and C3 on the capillary wall with IgG3 predominance and intraglomerular lambda restriction on immunofluorescence, consistent with membranous nephropathy-type PGNMID. Systemic workup showed IgG-kappa monoclonal gammopathy with an elevated kappa/lambda free light chain ratio and kappa Bence-Jones proteinuria. The patient's proteinuria gradually increased over three years. He was treated with sodium restriction, weight loss, valsartan (later azilsartan), and oral prednisolone. Prednisolone led to a decrease in proteinuria, which was maintained at 0.88 g/g⋅Cr on a regimen including azilsartan, canagliflozin, and esaxerenone.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with persistent proteinuria, hyperproteinemia (9 g/dl), high gamma globulin level, and κ Bence-Jones protein positivity.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Kidney biopsy showed subepithelial lumpy deposits without a fibrillar structure on electron microscopy, consistent with membranous nephropathy.",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Immunofluorescence showed granular deposits of IgG and C3 on the capillary wall, with IgG3 predominance and intraglomerular lambda restriction (negative for κ and positive for λ), supporting PGNMID.",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "Systemic monoclonal gammopathy identified as IgG-κ type with elevated blood immunoglobulin free light chain κ/λ ratio and urinary BJP-κ type.",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Bone marrow aspiration showed 5% plasma cells without multiple myeloma diagnosis.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Proteinuria increased gradually over three years, leading to initiation of oral prednisolone, which decreased proteinuria to 0.88 g/g⋅Cr on maintenance therapy.",
+              "evidence_ids": [
+                "E004"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Multiple Myeloma",
+              "basis": "Bone marrow aspiration showed only 5% plasma cells, not meeting diagnostic criteria for multiple myeloma."
+            },
+            {
+              "alternative": "Primary Membranous Nephropathy",
+              "basis": "The presence of monoclonal IgG3-lambda deposits on kidney biopsy rules out primary membranous nephropathy and points to PGNMID."
+            },
+            {
+              "alternative": "Kappa-restricted PGNMID",
+              "basis": "The glomerular deposits were lambda-restricted, not kappa."
+            }
+          ],
+          "remaining_uncertainties": [
+            "Specific total protein and gamma globulin levels from one year prior.",
+            "Detailed kidney function parameters (creatinine, eGFR) at presentation.",
+            "Specific proteinuria level immediately prior to prednisolone initiation.",
+            "Overall long-term clinical status and outcome beyond the described proteinuria response."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "membranous nephropathy-type PGNMID",
+      "trajectory_summary": "The patient, a 50-year-old man with hypertension, type 2 diabetes, hyperlipidemia, hyperuricemia, fatty liver, and obesity, presented with persistent proteinuria, hyperproteinemia (9 g/dl), high gamma globulin, and kappa Bence-Jones protein positivity. Bone marrow aspiration showed 5% plasma cells without multiple myeloma. A kidney biopsy revealed subepithelial lumpy deposits without fibrillar structure on electron microscopy, and granular deposits of IgG and C3 on the capillary wall with IgG3 predominance and intraglomerular lambda restriction on immunofluorescence, consistent with membranous nephropathy-type PGNMID. Systemic workup showed IgG-kappa monoclonal gammopathy with an elevated kappa/lambda free light chain ratio and kappa Bence-Jones proteinuria. The patient's proteinuria gradually increased over three years. He was treated with sodium restriction, weight loss, valsartan (later azilsartan), and oral prednisolone. Prednisolone led to a decrease in proteinuria, which was maintained at 0.88 g/g⋅Cr on a regimen including azilsartan, canagliflozin, and esaxerenone.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with persistent proteinuria, hyperproteinemia (9 g/dl), high gamma globulin level, and κ Bence-Jones protein positivity.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Kidney biopsy showed subepithelial lumpy deposits without a fibrillar structure on electron microscopy, consistent with membranous nephropathy.",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Immunofluorescence showed granular deposits of IgG and C3 on the capillary wall, with IgG3 predominance and intraglomerular lambda restriction (negative for κ and positive for λ), supporting PGNMID.",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "Systemic monoclonal gammopathy identified as IgG-κ type with elevated blood immunoglobulin free light chain κ/λ ratio and urinary BJP-κ type.",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Bone marrow aspiration showed 5% plasma cells without multiple myeloma diagnosis.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Proteinuria increased gradually over three years, leading to initiation of oral prednisolone, which decreased proteinuria to 0.88 g/g⋅Cr on maintenance therapy.",
+          "evidence_ids": [
+            "E004"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Multiple Myeloma",
+          "basis": "Bone marrow aspiration showed only 5% plasma cells, not meeting diagnostic criteria for multiple myeloma."
+        },
+        {
+          "alternative": "Primary Membranous Nephropathy",
+          "basis": "The presence of monoclonal IgG3-lambda deposits on kidney biopsy rules out primary membranous nephropathy and points to PGNMID."
+        },
+        {
+          "alternative": "Kappa-restricted PGNMID",
+          "basis": "The glomerular deposits were lambda-restricted, not kappa."
+        }
+      ],
+      "remaining_uncertainties": [
+        "Specific total protein and gamma globulin levels from one year prior.",
+        "Detailed kidney function parameters (creatinine, eGFR) at presentation.",
+        "Specific proteinuria level immediately prior to prednisolone initiation.",
+        "Overall long-term clinical status and outcome beyond the described proteinuria response."
+      ],
+      "confidence_that_diagnosis_is_supported": 0.8
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T21:28:21.566902+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10314569",
+    "known_final_diagnosis": "Based on the above findings, a diagnosis of membranous nephropathy-type PGNMID was made.",
+    "turns_used": 11,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 6,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 3,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "REQUEST_RESULT": 8,
+      "WAIT_REASSESS": 2
+    },
+    "report_status_counts": {
+      "found": 3,
+      "no_new_update": 1,
+      "not_reported": 6
+    },
+    "report_repair_attempted_count": 1,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {
+      "verbatim_excerpt is not a contiguous source subspan.": 1
+    },
+    "answer_yield": 0.3,
+    "unavailable_turn_rate": 0.7,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T21:28:21.568681+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10314569",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/nephrology/episodes/PMC10314569.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/nephrology/cases/PMC10314569.json",
+    "num_gold_steps": "3",
+    "num_pred_steps": "4",
+    "weighted_tversky_alignment": "0.0975609756097561",
+    "weighted_tversky_distance": "0.9024390243902439",
+    "matched_weight": "1.0",
+    "missed_weight": "1.75",
+    "extra_weight": "3.75",
+    "weighted_lcs_recall": "0.36363636363636365",
+    "weighted_lcs_weight": "1.0",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "lab_tests > imaging > other_or_off_protocol",
+    "prediction_sequence": "procedure_or_intervention > lab_tests > pathology > admission_or_clinical_course",
+    "error": ""
+  }
+}

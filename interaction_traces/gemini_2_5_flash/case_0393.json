@@ -1,0 +1,448 @@
+{
+  "case_id": "case_0393",
+  "pmcid": "PMC10132788",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC10132788",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 10,
+    "termination": "final",
+    "known_final_diagnosis": "left renal artery dissection",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E003",
+      "E004"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "Initial vital signs and abdominal/flank examination findings upon ED presentation",
+          "current_trajectory_hypothesis": "Patient presented with left flank pain after a near fall. Initial assessment will help characterize the pain and guide imaging.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Initial physical exam findings",
+            "Imaging results for abdominal pain",
+            "Confirmation of renal artery dissection"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Initial vital signs and abdominal/flank exam findings are not reported in the source records.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "CT scan of the abdomen and pelvis with contrast to evaluate for potential causes of left flank pain, including renal pathology or vascular injury.",
+          "current_trajectory_hypothesis": "Patient presented with left flank pain after a near fall. Given the lack of reported physical exam findings, imaging is the next logical step to investigate the cause of the pain and rule out serious conditions like renal artery dissection.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Imaging results for abdominal pain",
+            "Confirmation of renal artery dissection"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.15
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order for CT scan of abdomen and pelvis with contrast has been recorded; results pending.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Report of the CT scan of the abdomen and pelvis with contrast.",
+          "current_trajectory_hypothesis": "Patient presented with left flank pain after a near fall. A CT scan with contrast was ordered to investigate the cause of the pain, with a high suspicion for vascular injury given the known final diagnosis.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "CT scan findings",
+            "Confirmation of renal artery dissection"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "CT revealed left renal non-enhancement, secondary to suspected acute traumatic left renal artery dissection (Figure 1).",
+          "category": "imaging_report",
+          "temporal_cue": "on admission",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with left flank pain after a near fall. A CT scan revealed suspected acute traumatic left renal artery dissection with left renal non-enhancement. The next step is to understand how this diagnosis was confirmed or managed.",
+          "confirmed_evidence": [
+            "Patient presented with left-sided flank pain, nausea, vomiting, and inability to sit comfortably after a near fall with twisting.",
+            "CT scan of the abdomen and pelvis with contrast revealed left renal non-enhancement, secondary to suspected acute traumatic left renal artery dissection."
+          ],
+          "missing_key_evidence": [
+            "Confirmation of the diagnosis (if further steps were taken)",
+            "Management plan for the renal artery dissection",
+            "Clinical course and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "A discussion with the trauma surgeon and vascular surgeon at an outside facility occurred. Due to the lack of other injuries, the decision was made to initiate heparin anticoagulation in an attempt at renal salvage.",
+          "category": "other",
+          "temporal_cue": "after initial imaging",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with left flank pain after a near fall. A CT scan revealed suspected acute traumatic left renal artery dissection. Heparin anticoagulation was initiated for renal salvage. I need to know the outcome of this treatment and any further diagnostic or monitoring steps.",
+          "confirmed_evidence": [
+            "Patient presented with left-sided flank pain, nausea, vomiting, and inability to sit comfortably after a near fall with twisting.",
+            "CT scan of the abdomen and pelvis with contrast revealed left renal non-enhancement, secondary to suspected acute traumatic left renal artery dissection.",
+            "Heparin anticoagulation was initiated in an attempt at renal salvage after discussion with trauma and vascular surgeons, due to lack of other injuries."
+          ],
+          "missing_key_evidence": [
+            "Confirmation of the diagnosis (if further steps were taken)",
+            "Effectiveness of heparin anticoagulation",
+            "Clinical course and outcome regarding renal function or artery patency"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "The patient was emergently transferred for a higher level of care, and an angiogram (Figure 2) showed a complete lack of flow to the left kidney.",
+          "category": "imaging_report",
+          "temporal_cue": "after transfer",
+          "phase_index": 4,
+          "phase_label": "advanced_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with left flank pain after a near fall. A CT scan revealed suspected acute traumatic left renal artery dissection with left renal non-enhancement. Heparin anticoagulation was initiated for renal salvage, but a subsequent angiogram showed a complete lack of flow to the left kidney. I need to understand the next steps in management or the clinical outcome.",
+          "confirmed_evidence": [
+            "Patient presented with left-sided flank pain, nausea, vomiting, and inability to sit comfortably after a near fall with twisting.",
+            "CT scan of the abdomen and pelvis with contrast revealed left renal non-enhancement, secondary to suspected acute traumatic left renal artery dissection.",
+            "Heparin anticoagulation was initiated in an attempt at renal salvage after discussion with trauma and vascular surgeons, due to lack of other injuries.",
+            "An angiogram showed a complete lack of flow to the left kidney after transfer for a higher level of care."
+          ],
+          "missing_key_evidence": [
+            "Intervention or further management after angiogram",
+            "Final outcome for the left kidney",
+            "Confirmation of the diagnosis (if further steps were taken beyond imaging)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.75
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "the patient ultimately required a nephrectomy due to renal necrosis.",
+          "category": "other",
+          "temporal_cue": "after angiogram",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Pathology report from the nephrectomy specimen.",
+          "current_trajectory_hypothesis": "The patient presented with left flank pain after a near fall. A CT scan revealed suspected acute traumatic left renal artery dissection with left renal non-enhancement. Heparin anticoagulation was initiated, but an angiogram showed a complete lack of flow to the left kidney, ultimately leading to nephrectomy due to renal necrosis. Pathological confirmation of the dissection from the nephrectomy specimen would provide definitive evidence for the diagnosis.",
+          "confirmed_evidence": [
+            "Patient presented with left-sided flank pain, nausea, vomiting, and inability to sit comfortably after a near fall with twisting.",
+            "CT scan of the abdomen and pelvis with contrast revealed left renal non-enhancement, secondary to suspected acute traumatic left renal artery dissection.",
+            "Heparin anticoagulation was initiated in an attempt at renal salvage after discussion with trauma and vascular surgeons, due to lack of other injuries.",
+            "An angiogram showed a complete lack of flow to the left kidney after transfer for a higher level of care.",
+            "The patient ultimately required a nephrectomy due to renal necrosis."
+          ],
+          "missing_key_evidence": [
+            "Pathological confirmation of renal artery dissection from nephrectomy specimen",
+            "Details on patient's recovery post-nephrectomy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No pathology report from the nephrectomy specimen is documented in the provided source records.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Initial laboratory results, specifically complete blood count (CBC) and renal function tests (BUN, creatinine) upon ED presentation.",
+          "current_trajectory_hypothesis": "The patient presented with left flank pain after a near fall. A CT scan revealed suspected acute traumatic left renal artery dissection with left renal non-enhancement. Heparin anticoagulation was initiated, but an angiogram showed a complete lack of flow to the left kidney, ultimately leading to nephrectomy due to renal necrosis. Initial lab results, particularly renal function, would provide a more complete picture of the patient's status at presentation.",
+          "confirmed_evidence": [
+            "Patient presented with left-sided flank pain, nausea, vomiting, and inability to sit comfortably after a near fall with twisting.",
+            "CT scan of the abdomen and pelvis with contrast revealed left renal non-enhancement, secondary to suspected acute traumatic left renal artery dissection.",
+            "Heparin anticoagulation was initiated in an attempt at renal salvage after discussion with trauma and vascular surgeons, due to lack of other injuries.",
+            "An angiogram showed a complete lack of flow to the left kidney after transfer for a higher level of care.",
+            "The patient ultimately required a nephrectomy due to renal necrosis."
+          ],
+          "missing_key_evidence": [
+            "Initial laboratory results (CBC, renal function)",
+            "Pathological confirmation of renal artery dissection from nephrectomy specimen (not available)",
+            "Details on patient's recovery post-nephrectomy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "Order acknowledged, but source evidence does not document the results.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with left flank pain after a near fall. A CT scan revealed suspected acute traumatic left renal artery dissection with left renal non-enhancement. Heparin anticoagulation was initiated, but an angiogram showed a complete lack of flow to the left kidney, ultimately leading to nephrectomy due to renal necrosis. I need to understand the patient's recovery and any long-term outcomes after this major surgery.",
+          "confirmed_evidence": [
+            "Patient presented with left-sided flank pain, nausea, vomiting, and inability to sit comfortably after a near fall with twisting.",
+            "CT scan of the abdomen and pelvis with contrast revealed left renal non-enhancement, secondary to suspected acute traumatic left renal artery dissection.",
+            "Heparin anticoagulation was initiated in an attempt at renal salvage after discussion with trauma and vascular surgeons, due to lack of other injuries.",
+            "An angiogram showed a complete lack of flow to the left kidney after transfer for a higher level of care.",
+            "The patient ultimately required a nephrectomy due to renal necrosis."
+          ],
+          "missing_key_evidence": [
+            "Pathological confirmation of renal artery dissection from nephrectomy specimen (not available)",
+            "Initial laboratory results (CBC, renal function) (ordered but not documented)",
+            "Details on patient's recovery and long-term outcome post-nephrectomy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No pending orders and no undisclosed clinical course update after current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "left renal artery dissection",
+          "trajectory_summary": "A 51-year-old male presented with left-sided flank pain, nausea, and vomiting after a near fall with twisting. A CT scan of the abdomen and pelvis with contrast revealed left renal non-enhancement, secondary to suspected acute traumatic left renal artery dissection. Heparin anticoagulation was initiated for renal salvage. The patient was transferred for a higher level of care, where an angiogram showed a complete lack of flow to the left kidney. Ultimately, the patient required a nephrectomy due to renal necrosis.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with left-sided flank pain, nausea, vomiting, and inability to sit comfortably after a near fall with twisting.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "CT scan revealed left renal non-enhancement, secondary to suspected acute traumatic left renal artery dissection.",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Heparin anticoagulation was initiated in an attempt at renal salvage.",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "An angiogram showed a complete lack of flow to the left kidney.",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "The patient ultimately required a nephrectomy due to renal necrosis.",
+              "evidence_ids": [
+                "E004"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Other common causes of flank pain (e.g., nephrolithiasis, pyelonephritis)",
+              "basis": "The CT scan immediately identified a vascular etiology (left renal non-enhancement, suspected dissection), making these alternatives less likely."
+            }
+          ],
+          "remaining_uncertainties": [
+            "Initial vital signs and physical examination findings upon ED presentation",
+            "Initial laboratory results (CBC, renal function)",
+            "Pathology report from the nephrectomy specimen",
+            "Detailed patient recovery and long-term outcome post-nephrectomy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "left renal artery dissection",
+      "trajectory_summary": "A 51-year-old male presented with left-sided flank pain, nausea, and vomiting after a near fall with twisting. A CT scan of the abdomen and pelvis with contrast revealed left renal non-enhancement, secondary to suspected acute traumatic left renal artery dissection. Heparin anticoagulation was initiated for renal salvage. The patient was transferred for a higher level of care, where an angiogram showed a complete lack of flow to the left kidney. Ultimately, the patient required a nephrectomy due to renal necrosis.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with left-sided flank pain, nausea, vomiting, and inability to sit comfortably after a near fall with twisting.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "CT scan revealed left renal non-enhancement, secondary to suspected acute traumatic left renal artery dissection.",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Heparin anticoagulation was initiated in an attempt at renal salvage.",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "An angiogram showed a complete lack of flow to the left kidney.",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "The patient ultimately required a nephrectomy due to renal necrosis.",
+          "evidence_ids": [
+            "E004"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Other common causes of flank pain (e.g., nephrolithiasis, pyelonephritis)",
+          "basis": "The CT scan immediately identified a vascular etiology (left renal non-enhancement, suspected dissection), making these alternatives less likely."
+        }
+      ],
+      "remaining_uncertainties": [
+        "Initial vital signs and physical examination findings upon ED presentation",
+        "Initial laboratory results (CBC, renal function)",
+        "Pathology report from the nephrectomy specimen",
+        "Detailed patient recovery and long-term outcome post-nephrectomy"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:17:34.839245+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC10132788",
+    "known_final_diagnosis": "left renal artery dissection",
+    "turns_used": 10,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 5,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 3,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 2,
+      "REQUEST_EXAM": 1,
+      "REQUEST_RESULT": 2,
+      "WAIT_REASSESS": 4
+    },
+    "report_status_counts": {
+      "found": 4,
+      "no_new_update": 1,
+      "not_reported": 2,
+      "ordered_but_not_documented": 2
+    },
+    "report_repair_attempted_count": 1,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 1
+    },
+    "answer_yield": 0.4444444444444444,
+    "unavailable_turn_rate": 0.5555555555555556,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-28T00:17:34.840046+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC10132788",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/episodes/PMC10132788.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/radiology/cases/PMC10132788.json",
+    "num_gold_steps": "2",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.3157894736842105",
+    "weighted_tversky_distance": "0.6842105263157895",
+    "matched_weight": "1.5",
+    "missed_weight": "0.25",
+    "extra_weight": "1.5",
+    "weighted_lcs_recall": "0.8571428571428571",
+    "weighted_lcs_weight": "1.5",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging > other_or_off_protocol",
+    "prediction_sequence": "physical_examination > imaging > lab_tests",
+    "error": ""
+  }
+}

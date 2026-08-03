@@ -1,0 +1,364 @@
+{
+  "case_id": "case_0371",
+  "pmcid": "PMC9003581",
+  "model": "gpt_4_1_mini",
+  "episode": {
+    "case_id": "PMC9003581",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 8,
+    "termination": "final",
+    "known_final_diagnosis": "oculomotor nerve schwannoma",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Order brain MRI with contrast to evaluate for oculomotor nerve schwannoma and related abnormalities",
+          "current_trajectory_hypothesis": "The patient presents with left recurrent migrainous headaches associated with intermittent ipsilateral oculomotor nerve palsy, suggestive of a lesion affecting the oculomotor nerve possibly a schwannoma given the known diagnosis.",
+          "confirmed_evidence": [
+            "10-year history of left recurrent migrainous headaches",
+            "Ipsilateral intermittent oculomotor nerve palsy",
+            "Recurrent episodes with ptosis and monocular horizontal diplopia resolving without treatment"
+          ],
+          "missing_key_evidence": [
+            "Imaging evidence of oculomotor nerve schwannoma",
+            "Physical exam findings confirming current cranial nerve III palsy",
+            "Histological or radiological confirmation of schwannoma"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order for brain MRI with contrast recorded; no matching source evidence yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request report of brain MRI with contrast to identify lesion consistent with oculomotor nerve schwannoma",
+          "current_trajectory_hypothesis": "The patient has symptoms indicative of an oculomotor nerve lesion; MRI with contrast should show evidence of schwannoma.",
+          "confirmed_evidence": [
+            "10-year history of left recurrent migrainous headaches",
+            "Ipsilateral intermittent oculomotor nerve palsy",
+            "Recurrent episodes with ptosis and monocular horizontal diplopia resolving without treatment",
+            "Brain MRI with contrast was ordered"
+          ],
+          "missing_key_evidence": [
+            "Imaging evidence of oculomotor nerve schwannoma on brain MRI with contrast",
+            "Physical exam findings confirming current cranial nerve III palsy",
+            "Histological or radiological confirmation of schwannoma"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "Brain MRI, performed one year from the last attack, revealed an enhancing nodule on the cisternal segment of the left oculomotor nerve suggestive of schwannoma (Figure 1 ).",
+          "category": "imaging_report",
+          "temporal_cue": "one year from the last attack",
+          "phase_index": 4,
+          "phase_label": "advanced_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "Request physical examination findings focusing on cranial nerve III function to assess current oculomotor nerve palsy",
+          "current_trajectory_hypothesis": "Brain MRI showed an enhancing nodule on the left oculomotor nerve suggesting schwannoma; physical exam findings could confirm clinical correlation with oculomotor nerve palsy.",
+          "confirmed_evidence": [
+            "10-year history of left recurrent migrainous headaches",
+            "Ipsilateral intermittent oculomotor nerve palsy",
+            "Recurrent episodes with ptosis and monocular horizontal diplopia resolving without treatment",
+            "Brain MRI with contrast showing an enhancing nodule on the left oculomotor nerve suggestive of schwannoma"
+          ],
+          "missing_key_evidence": [
+            "Current physical exam findings confirming oculomotor nerve palsy",
+            "Histological confirmation or further diagnostic procedures to confirm schwannoma"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 4,
+          "phase_label": "advanced_workup",
+          "pending_orders": [],
+          "explanation": "No physical examination findings focusing on cranial nerve III function are reported in the source.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The MRI showed an enhancing nodule suggestive of oculomotor nerve schwannoma; further clinical course or histological results may confirm the diagnosis.",
+          "confirmed_evidence": [
+            "10-year history of left recurrent migrainous headaches",
+            "Ipsilateral intermittent oculomotor nerve palsy",
+            "Recurrent episodes with ptosis and monocular horizontal diplopia resolving without treatment",
+            "Brain MRI with contrast showing an enhancing nodule on the left oculomotor nerve suggestive of schwannoma"
+          ],
+          "missing_key_evidence": [
+            "Current physical exam findings confirming oculomotor nerve palsy",
+            "Histological examination or surgical confirmation of schwannoma",
+            "Follow-up data on clinical progression or treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "On follow-up, she no longer presented additional episodes.",
+          "category": "other",
+          "temporal_cue": "follow-up",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request histopathological results or biopsy report if available to confirm oculomotor nerve schwannoma",
+          "current_trajectory_hypothesis": "MRI shows an enhancing nodule on the left oculomotor nerve consistent with schwannoma; histological confirmation would solidify diagnosis.",
+          "confirmed_evidence": [
+            "10-year history of left recurrent migrainous headaches",
+            "Ipsilateral intermittent oculomotor nerve palsy",
+            "Recurrent episodes with ptosis and monocular horizontal diplopia resolving without treatment",
+            "Brain MRI with contrast showing an enhancing nodule on the left oculomotor nerve suggestive of schwannoma",
+            "During follow-up, no additional episodes presented"
+          ],
+          "missing_key_evidence": [
+            "Histological examination or biopsy confirming schwannoma",
+            "Current physical examination findings confirming oculomotor nerve palsy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No histopathological or biopsy report evidence is available in the source records.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_EXAM",
+          "request": "Request documented neurological examination focusing on cranial nerve III findings during initial or recurrent episodes to correlate clinical signs with imaging",
+          "current_trajectory_hypothesis": "MRI shows a nodule on the left oculomotor nerve suggestive of schwannoma; documented neuro exam findings at symptomatic times would support clinical correlation of palsy and lesion.",
+          "confirmed_evidence": [
+            "10-year history of left recurrent migrainous headaches",
+            "Ipsilateral intermittent oculomotor nerve palsy",
+            "Recurrent episodes with ptosis and monocular horizontal diplopia resolving without treatment",
+            "Brain MRI with contrast showing an enhancing nodule on the left oculomotor nerve suggestive of schwannoma",
+            "During follow-up, no additional episodes presented"
+          ],
+          "missing_key_evidence": [
+            "Detailed neurological exam findings for cranial nerve III palsy during attacks or recurrence",
+            "Histological or biopsy confirmation of schwannoma"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No documented neurological examination focusing on cranial nerve III found in the source records.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "MRI demonstrated an enhancing nodule consistent with oculomotor nerve schwannoma; further clinical or procedural confirmation or response during follow-up could further corroborate diagnosis.",
+          "confirmed_evidence": [
+            "10-year history of left recurrent migrainous headaches and intermittent ipsilateral oculomotor nerve palsy",
+            "Recurrent episodes of ptosis and diplopia resolving spontaneously",
+            "Brain MRI with contrast showing enhancing nodule on cisternal segment of left oculomotor nerve suggestive of schwannoma",
+            "During follow-up, no additional episodes presented"
+          ],
+          "missing_key_evidence": [
+            "Physical or neurological examination findings confirming oculomotor nerve palsy at episodes",
+            "Histological or biopsy confirmation of schwannoma",
+            "Further clinical course details or treatment response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "no_new_update",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "explanation": "No pending results to reveal and no undisclosed later clinical course updates found beyond current phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "oculomotor nerve schwannoma",
+          "trajectory_summary": "An 18-year-old girl with a 10-year history of left recurrent migrainous headaches and ipsilateral intermittent oculomotor nerve palsy presenting with ptosis and diplopia episodes that resolved spontaneously. Brain MRI with contrast performed one year after the last attack revealed an enhancing nodule on the cisternal segment of the left oculomotor nerve, suggestive of schwannoma. Follow-up showed no additional episodes. No histopathological confirmation or detailed neurological examination findings during episodes were documented in the sources.",
+          "key_supporting_evidence": [
+            {
+              "claim": "The patient has left recurrent migrainous headaches and ipsilateral intermittent oculomotor nerve palsy with recurrent episodes of ptosis and monocular horizontal diplopia resolving without treatment",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Brain MRI with contrast showed an enhancing nodule on the cisternal segment of the left oculomotor nerve suggestive of schwannoma",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "During follow-up, no additional episodes occurred",
+              "evidence_ids": [
+                "E002"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [],
+          "remaining_uncertainties": [
+            "Physical or neurological examination findings confirming current or past oculomotor nerve palsy",
+            "Histopathological or biopsy confirmation of schwannoma",
+            "Additional clinical course or treatment details"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "oculomotor nerve schwannoma",
+      "trajectory_summary": "An 18-year-old girl with a 10-year history of left recurrent migrainous headaches and ipsilateral intermittent oculomotor nerve palsy presenting with ptosis and diplopia episodes that resolved spontaneously. Brain MRI with contrast performed one year after the last attack revealed an enhancing nodule on the cisternal segment of the left oculomotor nerve, suggestive of schwannoma. Follow-up showed no additional episodes. No histopathological confirmation or detailed neurological examination findings during episodes were documented in the sources.",
+      "key_supporting_evidence": [
+        {
+          "claim": "The patient has left recurrent migrainous headaches and ipsilateral intermittent oculomotor nerve palsy with recurrent episodes of ptosis and monocular horizontal diplopia resolving without treatment",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Brain MRI with contrast showed an enhancing nodule on the cisternal segment of the left oculomotor nerve suggestive of schwannoma",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "During follow-up, no additional episodes occurred",
+          "evidence_ids": [
+            "E002"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [],
+      "remaining_uncertainties": [
+        "Physical or neurological examination findings confirming current or past oculomotor nerve palsy",
+        "Histopathological or biopsy confirmation of schwannoma",
+        "Additional clinical course or treatment details"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.7
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-26T06:57:04.154456+00:00",
+    "clinician_model": "gpt-4.1-mini-test",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC9003581",
+    "known_final_diagnosis": "oculomotor nerve schwannoma",
+    "turns_used": 8,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 3,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 2,
+    "gold_reasoning_span_count": 3,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_EXAM": 2,
+      "REQUEST_RESULT": 2,
+      "WAIT_REASSESS": 2
+    },
+    "report_status_counts": {
+      "found": 2,
+      "no_new_update": 1,
+      "not_reported": 3,
+      "ordered_but_not_documented": 1
+    },
+    "report_repair_attempted_count": 1,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 1
+    },
+    "answer_yield": 0.2857142857142857,
+    "unavailable_turn_rate": 0.7142857142857143,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-26T06:57:04.156019+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC9003581",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "3",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.2727272727272727",
+    "weighted_tversky_distance": "0.7272727272727273",
+    "matched_weight": "1.5",
+    "missed_weight": "1.0",
+    "extra_weight": "1.5",
+    "weighted_lcs_recall": "0.6",
+    "weighted_lcs_weight": "1.5",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging > admission_or_clinical_course > other_or_off_protocol",
+    "prediction_sequence": "imaging > physical_examination > procedure_or_intervention",
+    "error": ""
+  }
+}

@@ -1,0 +1,449 @@
+{
+  "case_id": "case_0257",
+  "pmcid": "PMC12036169",
+  "model": "gpt_4_1_mini",
+  "episode": {
+    "case_id": "PMC12036169",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 10,
+    "termination": "final",
+    "known_final_diagnosis": "The final pathological diagnosis was pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type), staged as pT1miN0M0.",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E003",
+      "E004"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Order a chest CT scan report to evaluate the characteristics of the right lower lobe nodule",
+          "current_trajectory_hypothesis": "Patient presents with persistent cough and sputum; initial CT detected a right lower lobe nodule requiring characterization",
+          "confirmed_evidence": [
+            "Persistent cough and sputum for three weeks not responsive to antibiotics",
+            "Chest CT revealed a nodule in the right lower lobe"
+          ],
+          "missing_key_evidence": [
+            "Detailed radiologic description of the nodule including size, morphology, any invasion or lymphadenopathy",
+            "Imaging features that may support malignancy such as spiculated margins, ground-glass opacity"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "ordered",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [
+            "chest CT scan"
+          ],
+          "explanation": "Ordered chest CT scan with source-supported evidence available for later result disclosure.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request the chest CT scan report describing the characteristics of the right lower lobe nodule, including size, morphology, margins, and any associated findings",
+          "current_trajectory_hypothesis": "Patient has persistent cough and sputum with a right lower lobe nodule seen on CT needing detailed characterization to assess possibility of malignancy",
+          "confirmed_evidence": [
+            "Persistent cough and sputum for three weeks not responsive to antibiotics",
+            "Chest CT revealed a nodule in the right lower lobe"
+          ],
+          "missing_key_evidence": [
+            "Detailed imaging characteristics of the nodule such as size, margin, density, and lymph node involvement",
+            "Confirmatory tissue diagnosis through pathology",
+            "Clinical course after biopsy or surgery"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [
+            "chest CT scan"
+          ],
+          "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan.",
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Awaiting detailed chest CT findings to further evaluate the right lower lobe nodule in patient with persistent cough and sputum.",
+          "confirmed_evidence": [
+            "Persistent cough and sputum for three weeks not responsive to antibiotics",
+            "Initial chest CT revealed a nodule in the right lower lobe"
+          ],
+          "missing_key_evidence": [
+            "Detailed imaging characteristics of the nodule including size, morphology, margins, density, lymphadenopathy",
+            "Pathology for confirmatory diagnosis of pulmonary mucinous adenocarcinoma",
+            "Clinical course, including biopsy or surgical outcomes"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "Chest CT revealed a nodule in the right lower lobe, leading to the patient’s admission to our hospital for further treatment. Contrast-enhanced chest CT revealed a solid nodule measuring 1.9 cm × 1.6 cm in the posterior basal segment of the right lower lobe (Fig. 1A) with irregular margins and slight enhancement (Fig. 1B).",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "Order histopathology examination report after biopsy or surgical resection of the nodule to confirm the diagnosis",
+          "current_trajectory_hypothesis": "Initial imaging showed a 1.9 x 1.6 cm solid nodule with irregular margins and slight enhancement in the right lower lobe; histopathology is needed for definitive diagnosis of pulmonary minimally invasive mucinous adenocarcinoma",
+          "confirmed_evidence": [
+            "Chest CT revealed a 1.9 cm x 1.6 cm solid nodule with irregular margins and slight enhancement in the right lower lobe (E001)"
+          ],
+          "missing_key_evidence": [
+            "Histopathological confirmation of mucinous adenocarcinoma, including subtype and stage",
+            "Details on the biopsy or surgical procedure",
+            "Clinical course after histopathology"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order for histopathology examination after biopsy or surgical resection has been registered.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Chest CT demonstrated a suspicious right lower lobe nodule; histopathology is pending to confirm diagnosis of pulmonary minimally invasive mucinous adenocarcinoma and determine stage",
+          "confirmed_evidence": [
+            "Persistent cough and sputum for three weeks, not responsive to antibiotics",
+            "Chest CT revealed a 1.9 cm x 1.6 cm solid nodule with irregular margins and slight enhancement in the right lower lobe (E001)"
+          ],
+          "missing_key_evidence": [
+            "Histopathological confirmation of mucinous adenocarcinoma with subtype and stage",
+            "Details of biopsy or surgical procedure and clinical course after pathology"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E003",
+          "source_text": "Histopathological examination of the resected tumor revealed a predominantly lepidic growth pattern with mucin secretion under low-power view (Fig. 1C). Middle-power magnification revealed tumor cells with abundant apical cytoplasmic mucin and small, basally oriented nuclei (Fig. 1D). The partial tumor exhibited an invasive pattern of infiltrative glands lined by tumor cells containing abundant intracytoplasmic mucin, measuring less than 5 mm in size (Fig. 1E). Notably, the focal area exhibited atypical goblet cell hyperplasia (Fig. 1F, arrows) in the bronchial epithelium (Fig. 1F, triangles). The resection margin and lymph nodes were negative. The immunohistochemical staining results were as follows: CK7 was positive (Fig. 1G), TTF-1 was negative (Fig. 1H), and CK5/6 staining revealed no evidence of a basal cell layer (Fig. 1I).",
+          "category": "image_finding",
+          "temporal_cue": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Request the pathology report summary including the final pathological diagnosis and staging information for the resected pulmonary nodule",
+          "current_trajectory_hypothesis": "Persistent cough and sputum led to imaging showing a 1.9 x 1.6 cm right lower lobe nodule with irregular margins; surgical resection histopathology shows mucinous adenocarcinoma features with negative margins and lymph nodes but final diagnosis and staging details are pending",
+          "confirmed_evidence": [
+            "Chest CT revealed a 1.9 cm x 1.6 cm solid nodule with irregular margins and slight enhancement in the right lower lobe (E001)",
+            "Histopathology of resected tumor showed predominantly lepidic growth with mucin secretion, invasive component <5 mm, negative margins and lymph nodes, immunostains CK7 positive, TTF1 negative, CK5/6 no basal layer (E003)"
+          ],
+          "missing_key_evidence": [
+            "Final pathological diagnosis and staging including classification as pulmonary minimally invasive mucinous adenocarcinoma (MIA mucinous type), pT1miN0M0",
+            "Clinical course or follow-up if available"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Imaging and histopathology consistent with pulmonary minimally invasive mucinous adenocarcinoma; final pathologic diagnosis and staging details plus clinical course remain to be documented.",
+          "confirmed_evidence": [
+            "Chest CT revealed a 1.9 cm x 1.6 cm solid nodule with irregular margins and slight enhancement in the right lower lobe (E001).",
+            "Histopathology of resected tumor showed lepidic growth pattern with mucin secretion, invasive component <5 mm, negative resection margin and lymph nodes, CK7 positive, TTF-1 negative, CK5/6 no basal layer (E003)."
+          ],
+          "missing_key_evidence": [
+            "Final pathological diagnosis and staging including confirmation of pulmonary minimally invasive mucinous adenocarcinoma mucinous type, pT1miN0M0",
+            "Documentation of clinical course, treatment response, or follow-up"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "Next-generation sequencing (NGS) analysis of 1021 cancer-related genes by Geneplus Technology identified the KRAS G12D mutation. No mutations were detected in EGFR, ALK, ROS-1, or TP53 genes.",
+          "category": "molecular_test",
+          "temporal_cue": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Imaging and histopathology strongly support pulmonary minimally invasive mucinous adenocarcinoma with KRAS mutation; final pathology summary including staging and clinical follow-up remain undocumented",
+          "confirmed_evidence": [
+            "Chest CT showed a 1.9 cm x 1.6 cm solid right lower lobe nodule with irregular margins and slight enhancement (E001)",
+            "Histopathology of resected tumor showed predominantly lepidic growth with mucin secretion, invasive pattern <5 mm, negative margins and lymph nodes, CK7 positive, TTF-1 negative, CK5/6 negative (E003)",
+            "NGS identified KRAS G12D mutation with no EGFR, ALK, ROS-1, or TP53 mutations (E004)"
+          ],
+          "missing_key_evidence": [
+            "Final descriptive pathological diagnosis and staging (pT1miN0M0) in report",
+            "Documentation of clinical course, treatment response, or longer-term outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Chest CT and histopathology show features consistent with pulmonary minimally invasive mucinous adenocarcinoma; molecular testing reveals KRAS mutation; awaiting final pathology diagnosis, staging, and clinical course details.",
+          "confirmed_evidence": [
+            "Chest CT showed a 1.9 cm x 1.6 cm solid right lower lobe nodule with irregular margins and slight enhancement (E001)",
+            "Histopathology revealed lepidic growth pattern with mucin secretion, invasive component <5 mm, negative margins and lymph nodes, immunostaining CK7 positive, TTF-1 negative, CK5/6 negative (E003)",
+            "NGS identified KRAS G12D mutation, with no EGFR, ALK, ROS-1, or TP53 mutations (E004)"
+          ],
+          "missing_key_evidence": [
+            "Final pathology report with explicit diagnosis and staging details (pT1miN0M0)",
+            "Documented clinical course, treatment response, or follow-up information"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type), staged pT1miN0M0",
+          "trajectory_summary": "A 9-year-old girl presented with persistent cough and sputum for three weeks unresponsive to antibiotics. Initial chest CT revealed a 1.9 cm × 1.6 cm solid nodule with irregular margins and slight enhancement in the right lower lobe. Surgical resection was performed. Histopathology demonstrated a predominantly lepidic growth pattern with mucin secretion and an invasive component less than 5 mm, negative resection margins and lymph nodes, and immunohistochemical profile consistent with mucinous adenocarcinoma (CK7+, TTF-1-, CK5/6-). Molecular testing revealed a KRAS G12D mutation with no EGFR, ALK, ROS-1, or TP53 mutations. Although the explicit final diagnostic statement and pT1miN0M0 staging were not directly quoted, the pathological description and negative lymph nodes confirm the minimally invasive mucinous adenocarcinoma diagnosis and stage.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Chest CT showed a 1.9 cm × 1.6 cm solid nodule with irregular margins and slight enhancement in the right lower lobe",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Histopathology revealed predominantly lepidic growth with mucin secretion, invasive component under 5 mm, negative margins and lymph nodes, CK7 positive, TTF-1 negative, CK5/6 negative",
+              "evidence_ids": [
+                "E003"
+              ]
+            },
+            {
+              "claim": "NGS analysis identified KRAS G12D mutation without EGFR, ALK, ROS-1, or TP53 mutations",
+              "evidence_ids": [
+                "E004"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "non-mucinous lung carcinoma or other infectious/inflammatory causes",
+              "basis": "Histopathology and immunohistochemistry consistent with mucinous adenocarcinoma; negative lymph nodes and molecular profile exclude common infectious or inflammatory etiologies"
+            }
+          ],
+          "remaining_uncertainties": [
+            "Explicit textual final pathology diagnosis statement and traditional staging code pT1miN0M0 was not directly documented",
+            "Longer-term clinical course, treatment response, or follow-up data were not available"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.85
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type), staged pT1miN0M0",
+      "trajectory_summary": "A 9-year-old girl presented with persistent cough and sputum for three weeks unresponsive to antibiotics. Initial chest CT revealed a 1.9 cm × 1.6 cm solid nodule with irregular margins and slight enhancement in the right lower lobe. Surgical resection was performed. Histopathology demonstrated a predominantly lepidic growth pattern with mucin secretion and an invasive component less than 5 mm, negative resection margins and lymph nodes, and immunohistochemical profile consistent with mucinous adenocarcinoma (CK7+, TTF-1-, CK5/6-). Molecular testing revealed a KRAS G12D mutation with no EGFR, ALK, ROS-1, or TP53 mutations. Although the explicit final diagnostic statement and pT1miN0M0 staging were not directly quoted, the pathological description and negative lymph nodes confirm the minimally invasive mucinous adenocarcinoma diagnosis and stage.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Chest CT showed a 1.9 cm × 1.6 cm solid nodule with irregular margins and slight enhancement in the right lower lobe",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Histopathology revealed predominantly lepidic growth with mucin secretion, invasive component under 5 mm, negative margins and lymph nodes, CK7 positive, TTF-1 negative, CK5/6 negative",
+          "evidence_ids": [
+            "E003"
+          ]
+        },
+        {
+          "claim": "NGS analysis identified KRAS G12D mutation without EGFR, ALK, ROS-1, or TP53 mutations",
+          "evidence_ids": [
+            "E004"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "non-mucinous lung carcinoma or other infectious/inflammatory causes",
+          "basis": "Histopathology and immunohistochemistry consistent with mucinous adenocarcinoma; negative lymph nodes and molecular profile exclude common infectious or inflammatory etiologies"
+        }
+      ],
+      "remaining_uncertainties": [
+        "Explicit textual final pathology diagnosis statement and traditional staging code pT1miN0M0 was not directly documented",
+        "Longer-term clinical course, treatment response, or follow-up data were not available"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.85
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-26T05:56:54.624423+00:00",
+    "clinician_model": "gpt-4.1-mini-test",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC12036169",
+    "known_final_diagnosis": "The final pathological diagnosis was pulmonary minimally invasive mucinous adenocarcinoma (MIA, mucinous type), staged as pT1miN0M0.",
+    "turns_used": 10,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 3,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 3,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 2,
+      "REQUEST_RESULT": 2,
+      "WAIT_REASSESS": 5
+    },
+    "report_status_counts": {
+      "found": 3,
+      "invalid_report_selection": 4,
+      "ordered": 1,
+      "ordered_but_not_documented": 1
+    },
+    "report_repair_attempted_count": 4,
+    "report_repair_failed_count": 4,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 6,
+      "verbatim_excerpt is not a contiguous source subspan.": 2
+    },
+    "answer_yield": 0.3333333333333333,
+    "unavailable_turn_rate": 0.1111111111111111,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-26T05:56:54.626949+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC12036169",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "4",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.45454545454545453",
+    "weighted_tversky_distance": "0.5454545454545454",
+    "matched_weight": "2.5",
+    "missed_weight": "1.0",
+    "extra_weight": "1.0",
+    "weighted_lcs_recall": "0.7142857142857143",
+    "weighted_lcs_weight": "2.5",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "1",
+    "pairwise_inversions": "0",
+    "gold_sequence": "imaging > other_or_off_protocol > lab_tests > medication_or_treatment",
+    "prediction_sequence": "imaging > procedure_or_intervention > lab_tests",
+    "error": ""
+  }
+}

@@ -1,0 +1,373 @@
+{
+  "case_id": "case_0242",
+  "pmcid": "PMC11484462",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC11484462",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 8,
+    "termination": "final",
+    "known_final_diagnosis": "A subsequent bone marrow biopsy demonstrated slightly hypercellular marrow (70%) with evidence of trilineage hematopoiesis, mild myeloid hyperplasia, mild megakaryocytic hyperplasia, and molecular evidence of BCR/ABL + fusion, consistent with CML, chronic phase.",
+    "disclosed_evidence_ids": [
+      "E005",
+      "E006",
+      "E009"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "abdominal CT scan findings",
+          "current_trajectory_hypothesis": "Patient presented with acute abdominal symptoms and highly abnormal blood counts. Initial workup likely focused on abdominal pain and peritonitis, potentially revealing findings related to CML.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Details of initial abdominal workup (imaging, surgical exploration if any)",
+            "Further hematologic workup for high WBC/platelets",
+            "Bone marrow biopsy details",
+            "Molecular testing results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Abdominal CT scan test ordered; result not yet disclosed",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "peripheral blood smear findings",
+          "current_trajectory_hypothesis": "Patient presented with acute abdominal symptoms and highly abnormal blood counts. While initial workup likely addressed the acute abdomen, the striking hematologic abnormalities (high WBC and platelets) would have prompted further investigation, starting with a peripheral blood smear, which is a key step towards diagnosing CML.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Details of initial abdominal workup (imaging, surgical exploration if any)",
+            "Peripheral blood smear findings",
+            "Bone marrow biopsy details",
+            "Molecular testing results (BCR/ABL)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order for peripheral blood smear noted, no results yet disclosed.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "peripheral blood smear findings",
+          "current_trajectory_hypothesis": "The patient presented with acute abdominal symptoms and highly abnormal blood counts. While the acute abdomen likely prompted initial investigation, the striking hematologic abnormalities (high WBC and platelets) would have necessitated further workup, with a peripheral blood smear being a crucial early step in diagnosing CML.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Abdominal CT scan findings",
+            "Peripheral blood smear findings",
+            "Bone marrow biopsy details",
+            "Molecular testing results (BCR/ABL)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "Peripheral blood smear demonstrated severe leukocytosis and thrombocytosis, but no circulating blasts.",
+          "category": "other",
+          "temporal_cue": "targeted hematology workup",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "abdominal CT scan findings",
+          "current_trajectory_hypothesis": "The patient presented with acute abdominal symptoms and highly abnormal blood counts. The peripheral blood smear showed severe leukocytosis and thrombocytosis without blasts, consistent with CML chronic phase. The initial abdominal symptoms and peritonitis would have prompted imaging, which needs to be clarified.",
+          "confirmed_evidence": [
+            "Initial presentation with worsening abdominal pain, nausea, vomiting, tachycardia, focal peritonitis, and elevated WBC (38.4 x 10^9/L) and platelets (691 x 10^9/L)",
+            "Peripheral blood smear showed severe leukocytosis and thrombocytosis, but no circulating blasts (E006)"
+          ],
+          "missing_key_evidence": [
+            "Abdominal CT scan findings",
+            "Bone marrow biopsy details",
+            "Molecular testing results (BCR/ABL)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "Despite sepsis workup, including repeat CT with oral and intravenous contrast, no source of infection or contrast leak was identified.",
+          "category": "imaging_report",
+          "temporal_cue": "postoperative period",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "ORDER_PROCEDURE",
+          "request": "bone marrow biopsy",
+          "current_trajectory_hypothesis": "The patient presented with acute abdominal symptoms and highly abnormal blood counts. The peripheral blood smear showed severe leukocytosis and thrombocytosis without blasts, strongly suggesting CML. The abdominal CT did not reveal a source for the abdominal symptoms. The next step in confirming CML is a bone marrow biopsy.",
+          "confirmed_evidence": [
+            "Initial presentation with worsening abdominal pain, nausea, vomiting, tachycardia, focal peritonitis, and elevated WBC (38.4 x 10^9/L) and platelets (691 x 10^9/L)",
+            "Peripheral blood smear showed severe leukocytosis and thrombocytosis, but no circulating blasts (E006)",
+            "Abdominal CT scan showed no source of infection or contrast leak despite sepsis workup (E005)"
+          ],
+          "missing_key_evidence": [
+            "Bone marrow biopsy findings (morphology, cellularity, hyperplasia)",
+            "Molecular testing results (BCR/ABL)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Procedure order for bone marrow biopsy is registered; source has a later biopsy result but not at this order phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "bone marrow biopsy findings (cellularity, trilineage hematopoiesis, myeloid/megakaryocytic hyperplasia)",
+          "current_trajectory_hypothesis": "The patient presented with acute abdominal symptoms and highly abnormal blood counts. The peripheral blood smear showed severe leukocytosis and thrombocytosis without blasts, strongly suggesting CML. The abdominal CT did not reveal a source for the abdominal symptoms. A bone marrow biopsy was ordered to confirm CML, and its findings are crucial for diagnosis.",
+          "confirmed_evidence": [
+            "Initial presentation with worsening abdominal pain, nausea, vomiting, tachycardia, focal peritonitis, and elevated WBC (38.4 x 10^9/L) and platelets (691 x 10^9/L)",
+            "Peripheral blood smear showed severe leukocytosis and thrombocytosis, but no circulating blasts (E006)",
+            "Abdominal CT scan showed no source of infection or contrast leak despite sepsis workup (E005)"
+          ],
+          "missing_key_evidence": [
+            "Bone marrow biopsy findings (morphology, cellularity, hyperplasia)",
+            "Molecular testing results (BCR/ABL)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E009",
+          "source_text": "A subsequent bone marrow biopsy demonstrated slightly hypercellular marrow (70%) with evidence of trilineage hematopoiesis, mild myeloid hyperplasia, mild megakaryocytic hyperplasia",
+          "category": "pathology_report",
+          "temporal_cue": "after PCR positive",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "molecular evidence of BCR/ABL + fusion from bone marrow biopsy",
+          "current_trajectory_hypothesis": "The patient presented with acute abdominal symptoms and highly abnormal blood counts. Initial workup included a peripheral blood smear showing severe leukocytosis and thrombocytosis without blasts, and a negative abdominal CT. A bone marrow biopsy revealed hypercellular marrow with trilineage hematopoiesis and myeloid/megakaryocytic hyperplasia. The final diagnosis explicitly mentions molecular evidence of BCR/ABL + fusion from the bone marrow biopsy as confirmatory for CML.",
+          "confirmed_evidence": [
+            "Initial presentation with worsening abdominal pain, nausea, vomiting, tachycardia, focal peritonitis, and elevated WBC (38.4 x 10^9/L) and platelets (691 x 10^9/L)",
+            "Peripheral blood smear showed severe leukocytosis and thrombocytosis, but no circulating blasts (E006)",
+            "Abdominal CT scan showed no source of infection or contrast leak despite sepsis workup (E005)",
+            "Bone marrow biopsy demonstrated slightly hypercellular marrow (70%) with evidence of trilineage hematopoiesis, mild myeloid hyperplasia, mild megakaryocytic hyperplasia (E009)"
+          ],
+          "missing_key_evidence": [
+            "Molecular testing results (BCR/ABL + fusion) from bone marrow biopsy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.4
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E009",
+          "source_text": "molecular evidence of BCR/ABL + fusion",
+          "category": "pathology_report",
+          "temporal_cue": "after PCR positive",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "CML, chronic phase",
+          "trajectory_summary": "A 53-year-old male presented with acute abdominal pain, nausea, vomiting, tachycardia, and focal peritonitis, along with highly elevated WBC (38.4 x 10^9/L) and platelet counts (691 x 10^9/L). Initial workup included an abdominal CT scan which found no source of infection or contrast leak. A peripheral blood smear showed severe leukocytosis and thrombocytosis without circulating blasts. Subsequent bone marrow biopsy revealed slightly hypercellular marrow (70%) with evidence of trilineage hematopoiesis, mild myeloid and megakaryocytic hyperplasia, and molecular evidence of BCR/ABL + fusion, confirming the diagnosis of CML, chronic phase.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Initial presentation included highly elevated WBC (38.4 x 10^9/L) and platelet count (691 x 10^9/L).",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Peripheral blood smear demonstrated severe leukocytosis and thrombocytosis, but no circulating blasts.",
+              "evidence_ids": [
+                "E006"
+              ]
+            },
+            {
+              "claim": "Bone marrow biopsy demonstrated slightly hypercellular marrow (70%) with evidence of trilineage hematopoiesis, mild myeloid hyperplasia, mild megakaryocytic hyperplasia.",
+              "evidence_ids": [
+                "E009"
+              ]
+            },
+            {
+              "claim": "Molecular evidence of BCR/ABL + fusion was found.",
+              "evidence_ids": [
+                "E009"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Acute abdominal infection or contrast leak as a cause for peritonitis",
+              "basis": "Abdominal CT scan showed no source of infection or contrast leak despite sepsis workup. (E005)"
+            }
+          ],
+          "remaining_uncertainties": [
+            "The specific etiology of the initial acute abdominal symptoms (pain, nausea, vomiting, focal peritonitis) remains unclear beyond ruling out infection/leak, but this does not impact the CML diagnosis."
+          ],
+          "confidence_that_diagnosis_is_supported": 0.9
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "CML, chronic phase",
+      "trajectory_summary": "A 53-year-old male presented with acute abdominal pain, nausea, vomiting, tachycardia, and focal peritonitis, along with highly elevated WBC (38.4 x 10^9/L) and platelet counts (691 x 10^9/L). Initial workup included an abdominal CT scan which found no source of infection or contrast leak. A peripheral blood smear showed severe leukocytosis and thrombocytosis without circulating blasts. Subsequent bone marrow biopsy revealed slightly hypercellular marrow (70%) with evidence of trilineage hematopoiesis, mild myeloid and megakaryocytic hyperplasia, and molecular evidence of BCR/ABL + fusion, confirming the diagnosis of CML, chronic phase.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Initial presentation included highly elevated WBC (38.4 x 10^9/L) and platelet count (691 x 10^9/L).",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Peripheral blood smear demonstrated severe leukocytosis and thrombocytosis, but no circulating blasts.",
+          "evidence_ids": [
+            "E006"
+          ]
+        },
+        {
+          "claim": "Bone marrow biopsy demonstrated slightly hypercellular marrow (70%) with evidence of trilineage hematopoiesis, mild myeloid hyperplasia, mild megakaryocytic hyperplasia.",
+          "evidence_ids": [
+            "E009"
+          ]
+        },
+        {
+          "claim": "Molecular evidence of BCR/ABL + fusion was found.",
+          "evidence_ids": [
+            "E009"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Acute abdominal infection or contrast leak as a cause for peritonitis",
+          "basis": "Abdominal CT scan showed no source of infection or contrast leak despite sepsis workup. (E005)"
+        }
+      ],
+      "remaining_uncertainties": [
+        "The specific etiology of the initial acute abdominal symptoms (pain, nausea, vomiting, focal peritonitis) remains unclear beyond ruling out infection/leak, but this does not impact the CML diagnosis."
+      ],
+      "confidence_that_diagnosis_is_supported": 0.9
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T22:46:50.964064+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC11484462",
+    "known_final_diagnosis": "A subsequent bone marrow biopsy demonstrated slightly hypercellular marrow (70%) with evidence of trilineage hematopoiesis, mild myeloid hyperplasia, mild megakaryocytic hyperplasia, and molecular evidence of BCR/ABL + fusion, consistent with CML, chronic phase.",
+    "turns_used": 8,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 4,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 3,
+    "gold_reasoning_span_count": 3,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_PROCEDURE": 1,
+      "ORDER_TEST": 2,
+      "REQUEST_RESULT": 4
+    },
+    "report_status_counts": {
+      "already_disclosed": 1,
+      "found": 3,
+      "ordered_but_not_documented": 3
+    },
+    "report_repair_attempted_count": 2,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 2
+    },
+    "answer_yield": 0.5714285714285714,
+    "unavailable_turn_rate": 0.42857142857142855,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T22:46:50.965702+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC11484462",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/oncology/episodes/PMC11484462.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/oncology/cases/PMC11484462.json",
+    "num_gold_steps": "7",
+    "num_pred_steps": "2",
+    "weighted_tversky_alignment": "0.4827586206896552",
+    "weighted_tversky_distance": "0.5172413793103448",
+    "matched_weight": "3.5",
+    "missed_weight": "3.75",
+    "extra_weight": "0.0",
+    "weighted_lcs_recall": "0.4827586206896552",
+    "weighted_lcs_weight": "3.5",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "1",
+    "pairwise_inversions": "0",
+    "gold_sequence": "lab_tests > imaging > procedure_or_intervention > other_or_off_protocol > pathology > medication_or_treatment > admission_or_clinical_course",
+    "prediction_sequence": "imaging > pathology",
+    "error": ""
+  }
+}

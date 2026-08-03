@@ -1,0 +1,587 @@
+{
+  "case_id": "case_0039",
+  "pmcid": "PMC7757284",
+  "model": "gpt_4_1_mini",
+  "episode": {
+    "case_id": "PMC7757284",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 13,
+    "termination": "final",
+    "known_final_diagnosis": "Although M. tuberculosis was not found, clinical suspicion, typical histopathological examination and response to ATT confirmed the diagnosis of TVC.",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E007",
+      "E008",
+      "E010"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "order a skin biopsy of the verrucous plaque for histopathological examination",
+          "current_trajectory_hypothesis": "Patient has chronic verrucous plaque with seropurulent discharge and systemic symptoms suggestive of a chronic infectious process, needing histopathological confirmation.",
+          "confirmed_evidence": [
+            "large verrucous plaque with malodorous discharge",
+            "chronic symptoms and lesion progression",
+            "failed antifungal and antibiotic treatment",
+            "untreated cough and night sweats"
+          ],
+          "missing_key_evidence": [
+            "histopathological features to support tuberculosis verrucosa cutis (TVC) diagnosis",
+            "microbiological evidence or culture results",
+            "imaging or other systemic workup for TB"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Order for a skin biopsy placed; result not yet documented",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "request histopathology report of the skin biopsy of the verrucous plaque",
+          "current_trajectory_hypothesis": "Histopathological examination of the verrucous plaque is needed to identify features supporting tuberculosis verrucosa cutis diagnosis.",
+          "confirmed_evidence": [
+            "Large verrucous plaque with malodorous discharge",
+            "Chronic symptoms and lesion progression",
+            "Failed antifungal and antibiotic treatment",
+            "Untreated cough and night sweats",
+            "Skin biopsy was ordered"
+          ],
+          "missing_key_evidence": [
+            "Histopathological features to support tuberculosis verrucosa cutis (TVC) diagnosis",
+            "Microbiological evidence or culture results for TB",
+            "Imaging or other systemic workup for tuberculosis"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E007",
+          "source_text": "marked pseudoepitheliomatous hyperplasia of epidermis, epithelioid granulomatous inflammation surrounding the caseous necrosis along with several Langerhans cells in the dermis and many lymphocytic infiltrates",
+          "category": "image_finding",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "order acid-fast bacilli (AFB) staining and mycobacterial culture from skin biopsy tissue",
+          "current_trajectory_hypothesis": "Histopathology shows granulomatous inflammation suggestive of tuberculosis verrucosa cutis; microbiological tests are needed to detect M. tuberculosis.",
+          "confirmed_evidence": [
+            "Marked pseudoepitheliomatous hyperplasia of epidermis",
+            "Epithelioid granulomatous inflammation surrounding caseous necrosis",
+            "Presence of Langerhans cells and lymphocytic infiltrates in dermis"
+          ],
+          "missing_key_evidence": [
+            "Acid-fast bacilli staining and culture results to detect mycobacteria",
+            "Imaging or systemic workup for tuberculosis involvement",
+            "Clinical course and therapeutic response documentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.5
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Order for acid-fast bacilli staining and mycobacterial culture from skin biopsy tissue recorded but no matching source record with result found yet.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "request acid-fast bacilli (AFB) staining and mycobacterial culture results from the skin biopsy tissue",
+          "current_trajectory_hypothesis": "AFB staining and culture results are needed to assess microbiological evidence of M. tuberculosis in the biopsy supporting the TVC diagnosis.",
+          "confirmed_evidence": [
+            "Marked pseudoepitheliomatous hyperplasia of epidermis",
+            "Epithelioid granulomatous inflammation surrounding caseous necrosis",
+            "Presence of Langerhans cells and lymphocytic infiltrates in dermis",
+            "Order placed for AFB staining and mycobacterial culture"
+          ],
+          "missing_key_evidence": [
+            "AFB staining and culture results from skin biopsy",
+            "Imaging or systemic workup for tuberculosis involvement",
+            "Documented clinical course and therapeutic response"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E008",
+          "source_text": "AFB staining using Ziehl-Neelsen and culture on Lowenstein-Jensen medium were negative.",
+          "category": "pathology_report",
+          "temporal_cue": "on admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "ask about any systemic symptoms progression or new symptoms after the initial presentation and biopsy",
+          "current_trajectory_hypothesis": "Histopathology shows granulomatous inflammation suggestive of TVC, but AFB and culture are negative; systemic symptoms progression or treatment response can further support diagnosis.",
+          "confirmed_evidence": [
+            "Large verrucous plaque with malodorous discharge",
+            "Chronic symptoms and lesion progression",
+            "Marked pseudoepitheliomatous hyperplasia and granulomatous inflammation with caseous necrosis on biopsy",
+            "AFB staining and culture negative"
+          ],
+          "missing_key_evidence": [
+            "Systemic symptoms progression or new symptoms post biopsy",
+            "Imaging or other systemic workup for TB",
+            "Clinical course and therapeutic response documentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "Some painful and itchy nodules then developed over the lesions in the last five months. The nodules ulcerated and extended with foul-smelling seropurulent discharge. The lesions thickened and expanded rapidly covering the left buttock, thigh and scrotum, forming an annular hyperkeratotic plaque with central healing.",
+          "category": "other",
+          "temporal_cue": "before admission",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "order chest X-ray imaging to evaluate for pulmonary tuberculosis or systemic involvement",
+          "current_trajectory_hypothesis": "Histopathology and clinical features support TVC despite negative AFB and culture; chest X-ray is needed to assess pulmonary/systemic TB involvement which corroborates clinical suspicion.",
+          "confirmed_evidence": [
+            "Large verrucous plaque with malodorous discharge",
+            "Chronic symptoms and lesion progression",
+            "Marked pseudoepitheliomatous hyperplasia and granulomatous inflammation with caseous necrosis on biopsy",
+            "AFB staining and culture negative",
+            "Progressive systemic symptoms including untreated cough and night sweats"
+          ],
+          "missing_key_evidence": [
+            "Chest X-ray imaging to evaluate pulmonary TB",
+            "Clinical course and therapeutic response documentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "Chest X-ray imaging order acknowledged; evidence from source record E004 confirms chest radiograph available but this is ordering phase.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "request chest X-ray imaging report results regarding pulmonary tuberculosis or systemic involvement",
+          "current_trajectory_hypothesis": "Chest X-ray result is needed to evaluate for pulmonary tuberculosis or disseminated TB that supports the clinical suspicion of tuberculosis verrucosa cutis in the context of systemic symptoms.",
+          "confirmed_evidence": [
+            "Large verrucous plaque with malodorous discharge",
+            "Chronic symptoms and lesion progression",
+            "Marked pseudoepitheliomatous hyperplasia and granulomatous inflammation with caseous necrosis on biopsy",
+            "AFB staining and culture negative",
+            "Progressive systemic symptoms including untreated cough and night sweats",
+            "Chest X-ray ordered"
+          ],
+          "missing_key_evidence": [
+            "Chest X-ray imaging report to assess pulmonary or systemic TB",
+            "Documentation on clinical course and therapeutic response to anti-tuberculous therapy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 8,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Histopathology shows granulomatous inflammation; microbiology was negative; chest X-ray result unavailable; clinical course and response to therapy needed to further support TVC diagnosis.",
+          "confirmed_evidence": [
+            "Large verrucous plaque with malodorous discharge",
+            "Chronic symptoms and lesion progression",
+            "Marked pseudoepitheliomatous hyperplasia and granulomatous inflammation with caseous necrosis on biopsy",
+            "AFB staining and culture negative",
+            "Progressive systemic symptoms including untreated cough and night sweats"
+          ],
+          "missing_key_evidence": [
+            "Chest X-ray imaging report",
+            "Clinical course and therapeutic response documentation to anti-tuberculous therapy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 9,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Histopathology shows granulomatous inflammation consistent with TVC despite negative microbiology; clinical course and therapeutic response documentation are needed to confirm diagnosis.",
+          "confirmed_evidence": [
+            "Large verrucous plaque with malodorous discharge",
+            "Chronic symptoms and progressive lesion enlargement",
+            "Marked pseudoepitheliomatous hyperplasia and granulomatous inflammation with caseous necrosis on biopsy",
+            "Negative AFB staining and mycobacterial culture",
+            "Progressive systemic symptoms including untreated cough and night sweats"
+          ],
+          "missing_key_evidence": [
+            "Chest X-ray imaging report to evaluate pulmonary TB",
+            "Documentation of clinical course and therapeutic response to anti-tuberculous therapy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 10,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Histopathology shows granulomatous inflammation consistent with TVC; AFB and culture negative; chest X-ray report unavailable; clinical course and response to ATT are crucial for confirming diagnosis.",
+          "confirmed_evidence": [
+            "Large verrucous plaque with malodorous discharge",
+            "Chronic symptoms and progressive lesion enlargement",
+            "Marked pseudoepitheliomatous hyperplasia and granulomatous inflammation with caseous necrosis on biopsy (E007)",
+            "Negative AFB staining and mycobacterial culture (E008)",
+            "Progressive systemic symptoms including untreated cough and night sweats (E001)"
+          ],
+          "missing_key_evidence": [
+            "Chest X-ray imaging report to evaluate pulmonary tuberculosis",
+            "Documentation of clinical course and therapeutic response to anti-tuberculous therapy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 11,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "Despite negative AFB and culture and unavailable chest X-ray report, clinical diagnosis of TVC supported by histopathology; response to ATT needed to confirm diagnosis.",
+          "confirmed_evidence": [
+            "Large verrucous plaque with malodorous discharge",
+            "Chronic symptoms and progressive lesion enlargement",
+            "Marked pseudoepitheliomatous hyperplasia and granulomatous inflammation with caseous necrosis on biopsy (E007)",
+            "Negative AFB staining and mycobacterial culture (E008)",
+            "Progressive systemic symptoms including untreated cough and night sweats (E001)"
+          ],
+          "missing_key_evidence": [
+            "Chest X-ray imaging report to evaluate pulmonary tuberculosis",
+            "Documentation of clinical course and therapeutic response to anti-tuberculous therapy"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.65
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "validation_errors": [
+            "A diagnosis-revealing record requires a strict safe excerpt.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 12,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "ask about the clinical course and response to anti-tuberculous therapy (ATT) after diagnosis consideration",
+          "current_trajectory_hypothesis": "Histopathology supports TVC; AFB and culture negative; chest X-ray unavailable; clinical improvement with ATT would confirm diagnosis.",
+          "confirmed_evidence": [
+            "Large verrucous plaque with malodorous discharge",
+            "Chronic symptoms and progressive lesion enlargement",
+            "Marked pseudoepitheliomatous hyperplasia and granulomatous inflammation with caseous necrosis on biopsy (E007)",
+            "Negative AFB staining and mycobacterial culture (E008)",
+            "Progressive systemic symptoms including untreated cough and night sweats (E001)"
+          ],
+          "missing_key_evidence": [
+            "Chest X-ray imaging report to evaluate pulmonary tuberculosis",
+            "Clinical course and documented therapeutic response to ATT"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E010",
+          "source_text": "At two-month follow-up, the skin lesions showed significant improvement and the lesions were completely resolved after four months of therapy leaving atrophic scars (Figure 3).",
+          "category": "image_finding",
+          "temporal_cue": "2 months follow-up and 4 months follow-up",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 13,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Tuberculosis verrucosa cutis (TVC)",
+          "trajectory_summary": "A 35-year-old male presented with a chronic large verrucous plaque with malodorous purulent discharge on buttocks, thigh, and scrotum, progressing over two years with painful itchy ulcerated nodules and systemic symptoms including untreated cough and night sweats. Initial biopsy showed marked pseudoepitheliomatous hyperplasia and epithelioid granulomatous inflammation with caseous necrosis and lymphocytic infiltrates. Acid-fast bacilli staining and mycobacterial culture were negative. Despite no microbiological confirmation, the clinical presentation and characteristic histopathology supported the diagnosis of TVC. Clinical improvement and complete resolution of lesions after four months of anti-tuberculous therapy confirmed the diagnosis.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Chronic large verrucous plaque with malodorous purulent discharge involving buttocks, thigh, and scrotum with progressive ulcerated nodules and systemic symptoms",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "Skin biopsy histopathology showed marked pseudoepitheliomatous hyperplasia, epithelioid granulomatous inflammation surrounding caseous necrosis, Langerhans cells, and lymphocytic infiltrates",
+              "evidence_ids": [
+                "E007"
+              ]
+            },
+            {
+              "claim": "Acid-fast bacilli staining and mycobacterial culture from biopsy were negative",
+              "evidence_ids": [
+                "E008"
+              ]
+            },
+            {
+              "claim": "Marked clinical improvement and complete resolution of skin lesions after four months of anti-tuberculous therapy",
+              "evidence_ids": [
+                "E010"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Fungal or bacterial infection",
+              "basis": "Failed prior antifungal and antibiotic treatments; histopathology and clinical course inconsistent"
+            }
+          ],
+          "remaining_uncertainties": [
+            "Chest X-ray imaging report to evaluate pulmonary tuberculosis was not available in the documentation"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Tuberculosis verrucosa cutis (TVC)",
+      "trajectory_summary": "A 35-year-old male presented with a chronic large verrucous plaque with malodorous purulent discharge on buttocks, thigh, and scrotum, progressing over two years with painful itchy ulcerated nodules and systemic symptoms including untreated cough and night sweats. Initial biopsy showed marked pseudoepitheliomatous hyperplasia and epithelioid granulomatous inflammation with caseous necrosis and lymphocytic infiltrates. Acid-fast bacilli staining and mycobacterial culture were negative. Despite no microbiological confirmation, the clinical presentation and characteristic histopathology supported the diagnosis of TVC. Clinical improvement and complete resolution of lesions after four months of anti-tuberculous therapy confirmed the diagnosis.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Chronic large verrucous plaque with malodorous purulent discharge involving buttocks, thigh, and scrotum with progressive ulcerated nodules and systemic symptoms",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "Skin biopsy histopathology showed marked pseudoepitheliomatous hyperplasia, epithelioid granulomatous inflammation surrounding caseous necrosis, Langerhans cells, and lymphocytic infiltrates",
+          "evidence_ids": [
+            "E007"
+          ]
+        },
+        {
+          "claim": "Acid-fast bacilli staining and mycobacterial culture from biopsy were negative",
+          "evidence_ids": [
+            "E008"
+          ]
+        },
+        {
+          "claim": "Marked clinical improvement and complete resolution of skin lesions after four months of anti-tuberculous therapy",
+          "evidence_ids": [
+            "E010"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Fungal or bacterial infection",
+          "basis": "Failed prior antifungal and antibiotic treatments; histopathology and clinical course inconsistent"
+        }
+      ],
+      "remaining_uncertainties": [
+        "Chest X-ray imaging report to evaluate pulmonary tuberculosis was not available in the documentation"
+      ],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-25T16:26:46.459575+00:00",
+    "clinician_model": "gpt-4.1-mini-test",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC7757284",
+    "known_final_diagnosis": "Although M. tuberculosis was not found, clinical suspicion, typical histopathological examination and response to ATT confirmed the diagnosis of TVC.",
+    "turns_used": 13,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 4,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "ASK_HISTORY": 2,
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 3,
+      "REQUEST_RESULT": 3,
+      "WAIT_REASSESS": 4
+    },
+    "report_status_counts": {
+      "found": 4,
+      "invalid_report_selection": 5,
+      "ordered_but_not_documented": 3
+    },
+    "report_repair_attempted_count": 6,
+    "report_repair_failed_count": 5,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 11
+    },
+    "answer_yield": 0.3333333333333333,
+    "unavailable_turn_rate": 0.25,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-25T16:26:46.463056+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC7757284",
+    "status": "completed",
+    "episode_path": "[LOCAL_PATH_REMOVED]",
+    "case_path": "[LOCAL_PATH_REMOVED]",
+    "num_gold_steps": "6",
+    "num_pred_steps": "4",
+    "weighted_tversky_alignment": "0.2631578947368421",
+    "weighted_tversky_distance": "0.736842105263158",
+    "matched_weight": "2.5",
+    "missed_weight": "4.0",
+    "extra_weight": "1.5",
+    "weighted_lcs_recall": "0.23076923076923078",
+    "weighted_lcs_weight": "1.5",
+    "weighted_pairwise_order_accuracy": "0.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "1",
+    "gold_sequence": "other_or_off_protocol > imaging > lab_tests > microbiology > pathology > medication_or_treatment",
+    "prediction_sequence": "procedure_or_intervention > microbiology > clinical_history > imaging",
+    "error": ""
+  }
+}

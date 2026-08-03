@@ -1,0 +1,383 @@
+{
+  "case_id": "case_0012",
+  "pmcid": "PMC11577480",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC11577480",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 7,
+    "termination": "final",
+    "known_final_diagnosis": "M. marinum infection",
+    "disclosed_evidence_ids": [
+      "E005",
+      "E006",
+      "E008",
+      "E011"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "histopathology report from the initial excisional biopsy performed 3 months prior, specifically looking for granulomas, acid-fast bacilli, or other characteristic findings",
+          "current_trajectory_hypothesis": "Patient presented with chronic skin lesions on the right upper extremity following an aquarium-related injury. Initial workup included a positive T-SPOT.TB and a biopsy that was negative for M. tuberculosis by culture and PCR. The final diagnosis is M. marinum infection. I need to understand the initial biopsy findings to see if they were suggestive of mycobacterial infection despite negative specific tests.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Detailed histopathology findings from initial biopsy",
+            "Specifics of the initial PCR target",
+            "Subsequent diagnostic steps that led to M. marinum diagnosis",
+            "Treatment and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.1
+        },
+        "report": {
+          "status": "not_reported",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "No histopathology report from the initial excisional biopsy is available in the source records; only the report after the second excisional biopsy is documented.",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "histopathology and microbiology results from the second excisional biopsy, including any specific mycobacterial cultures or PCR findings",
+          "current_trajectory_hypothesis": "The patient presented with chronic skin lesions after an aquarium-related injury. Initial workup, including a first biopsy, was inconclusive. A second excisional biopsy was performed, which likely provided the key diagnostic evidence for M. marinum infection.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Detailed histopathology and microbiology findings from the second excisional biopsy",
+            "Specifics of the PCR targets used in the second biopsy",
+            "Treatment initiated and patient's response",
+            "Clinical course and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "invalid_report_selection",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan.",
+            "A diagnosis-revealing record requires a strict safe excerpt."
+          ],
+          "final_validation_passed": false,
+          "repair_failed": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "histopathological findings from the second excisional biopsy of the skin lesion",
+          "current_trajectory_hypothesis": "The patient presented with chronic skin lesions after an aquarium-related injury. Initial workup was inconclusive. A second excisional biopsy was performed, and I am seeking its histopathological findings to identify characteristic features of mycobacterial infection, such as granulomas or specific cellular infiltrates, which would support the M. marinum diagnosis.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "Detailed histopathology findings from the second biopsy",
+            "Microbiology culture and PCR results from the second biopsy",
+            "Specifics of the PCR targets used",
+            "Treatment initiated and patient's response",
+            "Clinical course and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "Histopathology of the specimen revealed that moderate infiltration of inflammatory cells was observed, but epithelioid granulomas, multinucleated giant cells, and necrosis were not observed",
+          "category": "pathology_report",
+          "temporal_cue": "after second excisional biopsy",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "microbiology culture and PCR results from the second excisional biopsy, specifically for mycobacteria",
+          "current_trajectory_hypothesis": "The patient presented with chronic skin lesions after an aquarium-related injury. Initial workup was inconclusive. A second excisional biopsy was performed. Histopathology from this biopsy showed inflammatory cells but no granulomas. I now need to find the microbiology results (culture or PCR) from this second biopsy, as these are crucial for confirming M. marinum infection, especially given the non-specific histopathology.",
+          "confirmed_evidence": [
+            "Patient presented with chronic skin lesions on right upper extremity and thumb following an arm injury related to aquarium work.",
+            "Initial T-SPOT.TB was positive.",
+            "First excisional biopsy cultures and PCR were negative for M. tuberculosis.",
+            "Histopathology from the second excisional biopsy showed moderate infiltration of inflammatory cells but no epithelioid granulomas, multinucleated giant cells, or necrosis (E005)."
+          ],
+          "missing_key_evidence": [
+            "Microbiology culture and PCR results from the second biopsy, specifically for M. marinum or other mycobacteria",
+            "Specifics of the PCR targets used in the second biopsy",
+            "Treatment initiated and patient's response",
+            "Clinical course and outcome"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.3
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E006",
+          "source_text": "Subsequent cultures detected colonies on the Ogawa medium since day 11 from incubation, and DNA extraction followed by PCR sequencing confirmed M. marinum",
+          "category": "microbiology",
+          "temporal_cue": "after second excisional biopsy culture",
+          "phase_index": 5,
+          "phase_label": "confirmatory_testing",
+          "pending_orders": [],
+          "verbatim": true,
+          "repair_attempted": true,
+          "repair_count": 1,
+          "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+          "validation_errors": [
+            "verbatim_excerpt is not a contiguous source subspan."
+          ],
+          "final_validation_passed": true,
+          "repair_failed": false
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with chronic skin lesions after an aquarium-related injury. Initial workup was inconclusive, with a positive T-SPOT.TB but negative initial cultures/PCR. A second excisional biopsy's histopathology was non-specific, but subsequent cultures and PCR sequencing confirmed M. marinum infection (E006). I now need to understand the treatment administered and the patient's clinical response to complete the trajectory.",
+          "confirmed_evidence": [
+            "Patient presented with chronic skin lesions on right upper extremity and thumb following an arm injury related to aquarium work.",
+            "Initial T-SPOT.TB was positive.",
+            "First excisional biopsy cultures and PCR were negative for M. tuberculosis.",
+            "Histopathology from the second excisional biopsy showed moderate infiltration of inflammatory cells but no epithelioid granulomas, multinucleated giant cells, or necrosis (E005).",
+            "Subsequent cultures from the second biopsy detected colonies on Ogawa medium, and PCR sequencing confirmed M. marinum (E006)."
+          ],
+          "missing_key_evidence": [
+            "Treatment regimen for M. marinum",
+            "Patient's response to treatment",
+            "Overall clinical course and outcome",
+            "Specifics of the PCR targets used in the second biopsy (less critical)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E008",
+          "source_text": "We treated with rifabutin 300 mg/day plus clarithromycin 800 mg/day. Due to liver dysfunction 1 month after starting the treatment, the regimen was changed to moxifloxacin 400 mg/day plus clarithromycin 800 mg/day. Three months later, the patient developed nausea due to moxifloxacin. The treatment was then switched to linezolid 1200 mg/day and clarithromycin. Following these changes, there were no further complications, and the skin findings demonstrated a trend of improvement. The nodule flattened, and the postinflammatory pigmentation had faded over 7 months",
+          "category": "treatment_response",
+          "temporal_cue": "over 7 months after diagnosis",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "WAIT_REASSESS",
+          "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+          "current_trajectory_hypothesis": "The patient presented with chronic skin lesions after an aquarium-related injury. Initial workup was inconclusive, with a positive T-SPOT.TB but negative initial cultures/PCR for M. tuberculosis. A second excisional biopsy's histopathology was non-specific, but subsequent cultures and PCR sequencing confirmed M. marinum infection (E006). Treatment involved multiple regimen changes due to side effects, eventually leading to improvement over 7 months (E008). I need to confirm the final outcome or resolution of the infection.",
+          "confirmed_evidence": [
+            "Patient presented with chronic skin lesions on right upper extremity and thumb following an arm injury related to aquarium work.",
+            "Initial T-SPOT.TB was positive.",
+            "First excisional biopsy cultures and PCR were negative for M. tuberculosis.",
+            "Histopathology from the second excisional biopsy showed moderate infiltration of inflammatory cells but no epithelioid granulomas, multinucleated giant cells, or necrosis (E005).",
+            "Subsequent cultures from the second biopsy detected colonies on Ogawa medium, and PCR sequencing confirmed M. marinum (E006).",
+            "Treatment regimen was initially rifabutin + clarithromycin, changed to moxifloxacin + clarithromycin due to liver dysfunction, then to linezolid + clarithromycin due to nausea, leading to improvement over 7 months (E008)."
+          ],
+          "missing_key_evidence": [
+            "Final outcome or resolution of the infection"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E011",
+          "source_text": "Skin nodule after treatment. The nodule has flattened, but scarring remains.",
+          "category": "image_finding",
+          "temporal_cue": "after treatment (7 months)",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "M. marinum infection",
+          "trajectory_summary": "A 23-year-old man with a history of aquarium management and an arm injury presented with chronic skin nodules and an ulcer on his right upper extremity. Initial workup included a positive T-SPOT.TB test and an excisional biopsy that was negative for M. tuberculosis by culture and PCR. A second excisional biopsy revealed non-specific histopathology (inflammatory cells, no granulomas) but subsequent cultures and PCR sequencing confirmed M. marinum. Treatment involved multiple antibiotic regimen changes due to side effects (rifabutin + clarithromycin, then moxifloxacin + clarithromycin, then linezolid + clarithromycin), leading to clinical improvement over 7 months, with the nodule flattening and post-inflammatory pigmentation fading, though scarring remained.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with chronic skin lesions (nodule, ulcer, discharge, pain) on the right upper extremity following an arm injury related to aquarium work.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Initial T-SPOT.TB test was positive, indicating mycobacterial exposure.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Initial excisional biopsy cultures and PCR were negative for M. tuberculosis.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Histopathology from the second excisional biopsy showed moderate infiltration of inflammatory cells but no epithelioid granulomas, multinucleated giant cells, or necrosis.",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "Subsequent cultures from the second biopsy detected colonies on Ogawa medium, and PCR sequencing confirmed M. marinum.",
+              "evidence_ids": [
+                "E006"
+              ]
+            },
+            {
+              "claim": "Treatment involved multiple antibiotic regimen changes (rifabutin + clarithromycin, then moxifloxacin + clarithromycin, then linezolid + clarithromycin) due to side effects, leading to improvement over 7 months.",
+              "evidence_ids": [
+                "E008"
+              ]
+            },
+            {
+              "claim": "The skin nodule flattened, and post-inflammatory pigmentation faded, with scarring remaining after treatment.",
+              "evidence_ids": [
+                "E008",
+                "E011"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Mycobacterium tuberculosis infection",
+              "basis": "Initial excisional biopsy cultures and PCR were negative for M. tuberculosis, despite a positive T-SPOT.TB test. The definitive identification of M. marinum from the second biopsy further ruled out M. tuberculosis as the causative agent for the current infection."
+            }
+          ],
+          "remaining_uncertainties": [],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "M. marinum infection",
+      "trajectory_summary": "A 23-year-old man with a history of aquarium management and an arm injury presented with chronic skin nodules and an ulcer on his right upper extremity. Initial workup included a positive T-SPOT.TB test and an excisional biopsy that was negative for M. tuberculosis by culture and PCR. A second excisional biopsy revealed non-specific histopathology (inflammatory cells, no granulomas) but subsequent cultures and PCR sequencing confirmed M. marinum. Treatment involved multiple antibiotic regimen changes due to side effects (rifabutin + clarithromycin, then moxifloxacin + clarithromycin, then linezolid + clarithromycin), leading to clinical improvement over 7 months, with the nodule flattening and post-inflammatory pigmentation fading, though scarring remained.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with chronic skin lesions (nodule, ulcer, discharge, pain) on the right upper extremity following an arm injury related to aquarium work.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Initial T-SPOT.TB test was positive, indicating mycobacterial exposure.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Initial excisional biopsy cultures and PCR were negative for M. tuberculosis.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Histopathology from the second excisional biopsy showed moderate infiltration of inflammatory cells but no epithelioid granulomas, multinucleated giant cells, or necrosis.",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "Subsequent cultures from the second biopsy detected colonies on Ogawa medium, and PCR sequencing confirmed M. marinum.",
+          "evidence_ids": [
+            "E006"
+          ]
+        },
+        {
+          "claim": "Treatment involved multiple antibiotic regimen changes (rifabutin + clarithromycin, then moxifloxacin + clarithromycin, then linezolid + clarithromycin) due to side effects, leading to improvement over 7 months.",
+          "evidence_ids": [
+            "E008"
+          ]
+        },
+        {
+          "claim": "The skin nodule flattened, and post-inflammatory pigmentation faded, with scarring remaining after treatment.",
+          "evidence_ids": [
+            "E008",
+            "E011"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Mycobacterium tuberculosis infection",
+          "basis": "Initial excisional biopsy cultures and PCR were negative for M. tuberculosis, despite a positive T-SPOT.TB test. The definitive identification of M. marinum from the second biopsy further ruled out M. tuberculosis as the causative agent for the current infection."
+        }
+      ],
+      "remaining_uncertainties": [],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T19:56:59.920763+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC11577480",
+    "known_final_diagnosis": "M. marinum infection",
+    "turns_used": 7,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 7,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "REQUEST_RESULT": 4,
+      "WAIT_REASSESS": 2
+    },
+    "report_status_counts": {
+      "found": 4,
+      "invalid_report_selection": 1,
+      "not_reported": 1
+    },
+    "report_repair_attempted_count": 2,
+    "report_repair_failed_count": 1,
+    "report_repair_validation_error_counts": {
+      "A diagnosis-revealing record requires a strict safe excerpt.": 1,
+      "verbatim_excerpt is not a contiguous source subspan.": 2
+    },
+    "answer_yield": 0.6666666666666666,
+    "unavailable_turn_rate": 0.16666666666666666,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T19:56:59.923347+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC11577480",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/dermatology/episodes/PMC11577480.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/dermatology/cases/PMC11577480.json",
+    "num_gold_steps": "6",
+    "num_pred_steps": "2",
+    "weighted_tversky_alignment": "0.11764705882352941",
+    "weighted_tversky_distance": "0.8823529411764706",
+    "matched_weight": "1.0",
+    "missed_weight": "5.5",
+    "extra_weight": "1.0",
+    "weighted_lcs_recall": "0.15384615384615385",
+    "weighted_lcs_weight": "1.0",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "lab_tests > other_or_off_protocol > imaging > pathology > microbiology > medication_or_treatment",
+    "prediction_sequence": "procedure_or_intervention > microbiology",
+    "error": ""
+  }
+}

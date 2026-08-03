@@ -1,0 +1,373 @@
+{
+  "case_id": "case_0125",
+  "pmcid": "PMC9527853",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC9527853",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 7,
+    "termination": "final",
+    "known_final_diagnosis": "A diagnosis of sarcoidosis was made based upon the renal biopsy findings and the above serological test results.",
+    "disclosed_evidence_ids": [
+      "E001",
+      "E002",
+      "E004",
+      "E005"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "MRI brain and orbits report",
+          "current_trajectory_hypothesis": "Patient presented with ocular symptoms and optic nerve edema. MRI was ordered to rule out intracranial pathology. The results of this MRI might provide initial clues or rule out alternative diagnoses, potentially leading to further systemic workup.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "MRI findings",
+            "Retina consult findings",
+            "Systemic workup for sarcoidosis",
+            "Renal biopsy findings",
+            "Serological test results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.0
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E002",
+          "source_text": "The magnetic resonance imaging results were normal, with no evidence of any intracranial abnormality or mass.",
+          "category": "imaging_report",
+          "temporal_cue": "after initial presentation",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Retina consult findings",
+          "current_trajectory_hypothesis": "Initial presentation included retinal ischemic changes for which a retina consult was obtained. The findings from this consult could provide further insights into the etiology of the ocular symptoms and guide subsequent investigations, especially given the normal MRI.",
+          "confirmed_evidence": [
+            "Patient presented with blurry vision, glare, and ocular findings including optic nerve edema, cotton-wool spots, and retinal vessel congestion.",
+            "MRI brain and orbits was normal, ruling out intracranial pathology."
+          ],
+          "missing_key_evidence": [
+            "Retina consult findings",
+            "Systemic workup for sarcoidosis",
+            "Renal biopsy findings",
+            "Serological test results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.0
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E001",
+          "source_text": "On presentation, visual acuity in his right eye was 20/50 and 20/100 in his left eye; both could be corrected to 20/20. Intraocular pressures were 33 mm Hg and 38 mm Hg by applanation in each eye, respectively, and external examination was normal except for decreased confrontational fields in the left eye. The slit lamp examination was normal, including a clear anterior chamber and vitreous with open angles by gonioscopy in both eyes. The fundus examination demonstrated mild edema of the optic nerves and scattered cotton-wool spots with congestion of retinal vessels bilaterally. In addition, dot-blot hemorrhages were seen in the right retinal periphery.",
+          "category": "other",
+          "temporal_cue": "on presentation",
+          "phase_index": 1,
+          "phase_label": "early_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Results of systemic workup for the cause of optic nerve edema and retinal changes",
+          "current_trajectory_hypothesis": "After a normal MRI and initial ophthalmological assessment, the next step would likely involve a systemic workup to identify the underlying cause of the optic nerve edema and retinal changes, especially given the preliminary diagnosis of hypertensive retinopathy in a patient with only hyperlipidemia.",
+          "confirmed_evidence": [
+            "Patient presented with blurry vision, glare, and ocular findings including optic nerve edema, cotton-wool spots, and retinal vessel congestion.",
+            "MRI brain and orbits was normal, ruling out intracranial pathology."
+          ],
+          "missing_key_evidence": [
+            "Retina consult findings (if distinct from initial presentation)",
+            "Systemic workup for sarcoidosis",
+            "Renal biopsy findings",
+            "Serological test results"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.0
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "The initial nephrology workup included a 24-h blood pressure monitor, serologic testing, urine sediment analysis, urinalysis, and kidney ultrasound. The 24-h blood pressure monitor revealed an average blood pressure of 126/80 mm Hg. The urinalysis results were remarkable for mild hematuria and proteinuria. The urine protein-creatinine ratio was 0.69 (reference range, less than 0.2), and the albumin-creatinine ratio was 22.4 mg/g (reference range, less than 30.0). A urine sediment analysis showed increased urinary B2-microglobulin of 359 mcg/L (reference range, less than 300 mcg/L). The serum creatinine had increased to 2.73 mg/dL from a baseline reading of 1.51 mg/dL, which was obtained 6 months prior. Due to the rapid decline in kidney function, a serologic workup for secondary causes of acute glomerulonephritis was performed. The results were inconclusive, however, with a positive ANA titer of 1: 640 and low complement 3 of 72.4 mg/ dL. The calcium level was in the reference range at 8.6 mg/dL. Serum and urine protein electrophoresis demonstrated a normal pattern. C-reactive protein (CRP) levels were normal at 0.2. The kidney ultrasound results were unremarkable.",
+          "category": "routine_lab",
+          "temporal_cue": "after referral to nephrology",
+          "phase_index": 2,
+          "phase_label": "targeted_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Renal biopsy findings",
+          "current_trajectory_hypothesis": "Following the nephrology workup revealing rapid decline in kidney function, proteinuria, hematuria, and inconclusive serology for glomerulonephritis, a renal biopsy would be a logical next step to determine the cause of kidney injury. This is explicitly mentioned as key to the final diagnosis of sarcoidosis.",
+          "confirmed_evidence": [
+            "Patient presented with blurry vision, glare, and ocular findings including optic nerve edema, cotton-wool spots, and retinal vessel congestion.",
+            "MRI brain and orbits was normal, ruling out intracranial pathology.",
+            "Nephrology workup revealed rapid decline in kidney function (serum creatinine increased from 1.51 to 2.73 mg/dL), mild hematuria, proteinuria (urine protein-creatinine ratio 0.69), increased urinary B2-microglobulin, positive ANA (1:640), and low complement 3 (72.4 mg/dL), but was inconclusive for acute glomerulonephritis."
+          ],
+          "missing_key_evidence": [
+            "Renal biopsy findings",
+            "Specific serological test results confirming sarcoidosis",
+            "Retina consult findings (if distinct from initial presentation)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.2
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "A renal biopsy demonstrated non-caseating granulomatous interstitial nephritis, staining negative for acid fast bacilli and fungi.",
+          "category": "pathology_report",
+          "temporal_cue": "after nephrology workup",
+          "phase_index": 4,
+          "phase_label": "advanced_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 5,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Specific serological test results that confirmed sarcoidosis, as mentioned in the final diagnosis",
+          "current_trajectory_hypothesis": "The renal biopsy revealed non-caseating granulomatous interstitial nephritis, which is highly suggestive of sarcoidosis. The final diagnosis explicitly states that serological test results, in addition to the biopsy, confirmed sarcoidosis. I need to obtain these specific serological results to complete the diagnostic trajectory.",
+          "confirmed_evidence": [
+            "Patient presented with blurry vision, glare, and ocular findings including optic nerve edema, cotton-wool spots, and retinal vessel congestion.",
+            "MRI brain and orbits was normal, ruling out intracranial pathology.",
+            "Nephrology workup revealed rapid decline in kidney function, proteinuria, hematuria, increased urinary B2-microglobulin, positive ANA (1:640), and low complement 3, but was inconclusive for acute glomerulonephritis.",
+            "Renal biopsy demonstrated non-caseating granulomatous interstitial nephritis, negative for acid fast bacilli and fungi, strongly supporting sarcoidosis."
+          ],
+          "missing_key_evidence": [
+            "Specific serological test results confirming sarcoidosis",
+            "Retina consult findings (if distinct from initial presentation)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.7
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E005",
+          "source_text": "Based on the biopsy results, the patient’s vitamin D levels were evaluated. The results showed a 1,25-dihydroxyvitamin D3 to 25-hydroxyvitamin D3 ratio greater than 2 (50 ng/mL: 12.5 ng/mL), indicating extrarenal vitamin D3 production. The angiotensin-converting enzyme level was elevated at 73 U: L (reference range, less than 52 U: L).",
+          "category": "pathology_report",
+          "temporal_cue": "after nephrology workup",
+          "phase_index": 4,
+          "phase_label": "advanced_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 6,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "Specific findings from the retina consult",
+          "current_trajectory_hypothesis": "The diagnosis of sarcoidosis is strongly supported by the renal biopsy and specific serological markers. However, the initial presentation mentioned a retina consult was obtained for retinal ischemic changes. I need to verify the specific findings from this consult to complete the ocular trajectory and ensure no other relevant information was identified.",
+          "confirmed_evidence": [
+            "Patient presented with blurry vision, glare, and ocular findings including optic nerve edema, cotton-wool spots, and retinal vessel congestion (E001, initial prompt).",
+            "MRI brain and orbits was normal, ruling out intracranial pathology (E002).",
+            "Nephrology workup revealed rapid decline in kidney function, proteinuria, hematuria, increased urinary B2-microglobulin, positive ANA (1:640), and low complement 3, but was inconclusive for acute glomerulonephritis (E004).",
+            "Renal biopsy demonstrated non-caseating granulomatous interstitial nephritis, negative for acid fast bacilli and fungi, strongly supporting sarcoidosis (E005).",
+            "Serological tests showed elevated angiotensin-converting enzyme (ACE) level (73 U/L) and an abnormal 1,25-dihydroxyvitamin D3 to 25-hydroxyvitamin D3 ratio (>2), indicating extrarenal vitamin D3 production (E006)."
+          ],
+          "missing_key_evidence": [
+            "Specific findings from the retina consult"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "already_disclosed",
+          "evidence_id": "E001",
+          "source_text": "The fundus examination demonstrated mild edema of the optic nerves and scattered cotton-wool spots with congestion of retinal vessels bilaterally. In addition, dot-blot hemorrhages were seen in the right retinal periphery.",
+          "category": "other",
+          "temporal_cue": "on presentation",
+          "phase_index": 4,
+          "phase_label": "advanced_workup",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 7,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "A diagnosis of sarcoidosis was made based upon the renal biopsy findings and the above serological test results.",
+          "trajectory_summary": "A 63-year-old man presented with blurry vision, glare, optic nerve edema, cotton-wool spots, and retinal hemorrhages. An MRI of the brain and orbits was normal. Subsequent systemic workup for the cause of ocular findings revealed rapid decline in kidney function, proteinuria, hematuria, and increased urinary B2-microglobulin. Serologic tests showed positive ANA and low complement 3, but were inconclusive for acute glomerulonephritis. A renal biopsy demonstrated non-caseating granulomatous interstitial nephritis, ruling out infectious causes. Further serological testing revealed elevated angiotensin-converting enzyme (ACE) and an abnormal 1,25-dihydroxyvitamin D3 to 25-hydroxyvitamin D3 ratio, confirming the diagnosis of sarcoidosis.",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with blurry vision, glare, and ocular findings including optic nerve edema, cotton-wool spots, retinal vessel congestion, and dot-blot hemorrhages.",
+              "evidence_ids": [
+                "E001"
+              ]
+            },
+            {
+              "claim": "MRI brain and orbits was normal, ruling out intracranial pathology.",
+              "evidence_ids": [
+                "E002"
+              ]
+            },
+            {
+              "claim": "Nephrology workup revealed rapid decline in kidney function (serum creatinine increased from 1.51 to 2.73 mg/dL), proteinuria (urine protein-creatinine ratio 0.69), hematuria, and increased urinary B2-microglobulin.",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Serologic tests showed positive ANA (1:640) and low complement 3 (72.4 mg/dL), but were inconclusive for acute glomerulonephritis.",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Renal biopsy demonstrated non-caseating granulomatous interstitial nephritis, negative for acid fast bacilli and fungi.",
+              "evidence_ids": [
+                "E005"
+              ]
+            },
+            {
+              "claim": "Serological tests showed elevated angiotensin-converting enzyme (ACE) level (73 U/L) and an abnormal 1,25-dihydroxyvitamin D3 to 25-hydroxyvitamin D3 ratio (>2), indicating extrarenal vitamin D3 production.",
+              "evidence_ids": []
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Intracranial pathology",
+              "basis": "Normal MRI brain and orbits."
+            },
+            {
+              "alternative": "Infectious granulomatous disease (e.g., tuberculosis, fungal infection)",
+              "basis": "Renal biopsy stained negative for acid fast bacilli and fungi."
+            },
+            {
+              "alternative": "Acute glomerulonephritis",
+              "basis": "Serologic workup was inconclusive, and renal biopsy showed granulomatous interstitial nephritis rather than typical glomerulonephritis."
+            }
+          ],
+          "remaining_uncertainties": [],
+          "confidence_that_diagnosis_is_supported": 0.95
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "A diagnosis of sarcoidosis was made based upon the renal biopsy findings and the above serological test results.",
+      "trajectory_summary": "A 63-year-old man presented with blurry vision, glare, optic nerve edema, cotton-wool spots, and retinal hemorrhages. An MRI of the brain and orbits was normal. Subsequent systemic workup for the cause of ocular findings revealed rapid decline in kidney function, proteinuria, hematuria, and increased urinary B2-microglobulin. Serologic tests showed positive ANA and low complement 3, but were inconclusive for acute glomerulonephritis. A renal biopsy demonstrated non-caseating granulomatous interstitial nephritis, ruling out infectious causes. Further serological testing revealed elevated angiotensin-converting enzyme (ACE) and an abnormal 1,25-dihydroxyvitamin D3 to 25-hydroxyvitamin D3 ratio, confirming the diagnosis of sarcoidosis.",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with blurry vision, glare, and ocular findings including optic nerve edema, cotton-wool spots, retinal vessel congestion, and dot-blot hemorrhages.",
+          "evidence_ids": [
+            "E001"
+          ]
+        },
+        {
+          "claim": "MRI brain and orbits was normal, ruling out intracranial pathology.",
+          "evidence_ids": [
+            "E002"
+          ]
+        },
+        {
+          "claim": "Nephrology workup revealed rapid decline in kidney function (serum creatinine increased from 1.51 to 2.73 mg/dL), proteinuria (urine protein-creatinine ratio 0.69), hematuria, and increased urinary B2-microglobulin.",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Serologic tests showed positive ANA (1:640) and low complement 3 (72.4 mg/dL), but were inconclusive for acute glomerulonephritis.",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Renal biopsy demonstrated non-caseating granulomatous interstitial nephritis, negative for acid fast bacilli and fungi.",
+          "evidence_ids": [
+            "E005"
+          ]
+        },
+        {
+          "claim": "Serological tests showed elevated angiotensin-converting enzyme (ACE) level (73 U/L) and an abnormal 1,25-dihydroxyvitamin D3 to 25-hydroxyvitamin D3 ratio (>2), indicating extrarenal vitamin D3 production.",
+          "evidence_ids": []
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Intracranial pathology",
+          "basis": "Normal MRI brain and orbits."
+        },
+        {
+          "alternative": "Infectious granulomatous disease (e.g., tuberculosis, fungal infection)",
+          "basis": "Renal biopsy stained negative for acid fast bacilli and fungi."
+        },
+        {
+          "alternative": "Acute glomerulonephritis",
+          "basis": "Serologic workup was inconclusive, and renal biopsy showed granulomatous interstitial nephritis rather than typical glomerulonephritis."
+        }
+      ],
+      "remaining_uncertainties": [],
+      "confidence_that_diagnosis_is_supported": 0.95
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T21:49:34.139243+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC9527853",
+    "known_final_diagnosis": "A diagnosis of sarcoidosis was made based upon the renal biopsy findings and the above serological test results.",
+    "turns_used": 7,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 6,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 4,
+    "gold_reasoning_span_count": 1,
+    "action_counts": {
+      "FINAL_TRAJECTORY": 1,
+      "REQUEST_RESULT": 6
+    },
+    "report_status_counts": {
+      "already_disclosed": 2,
+      "found": 4
+    },
+    "report_repair_attempted_count": 0,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {},
+    "answer_yield": 1.0,
+    "unavailable_turn_rate": 0.0,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T21:49:34.140454+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC9527853",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/nephrology/episodes/PMC9527853.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/nephrology/cases/PMC9527853.json",
+    "num_gold_steps": "5",
+    "num_pred_steps": "3",
+    "weighted_tversky_alignment": "0.3125",
+    "weighted_tversky_distance": "0.6875",
+    "matched_weight": "2.5",
+    "missed_weight": "3.5",
+    "extra_weight": "1.0",
+    "weighted_lcs_recall": "0.4166666666666667",
+    "weighted_lcs_weight": "2.5",
+    "weighted_pairwise_order_accuracy": "1.0",
+    "pairwise_comparable_pairs": "1",
+    "pairwise_correct_pairs": "1",
+    "pairwise_inversions": "0",
+    "gold_sequence": "medication_or_treatment > imaging > lab_tests > pathology > admission_or_clinical_course",
+    "prediction_sequence": "imaging > lab_tests > procedure_or_intervention",
+    "error": ""
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "case_id": "case_0084",
+  "pmcid": "PMC12282292",
+  "model": "gemini_2_5_flash",
+  "episode": {
+    "case_id": "PMC12282292",
+    "setting": "trajectory_reconstruction",
+    "max_turns": 15,
+    "turns_used": 4,
+    "termination": "final",
+    "known_final_diagnosis": "The patient presented in this case report was diagnosed with EPI based on his clinical symptoms, low fecal elastase, and improvement of symptoms with initiation of PERT.",
+    "disclosed_evidence_ids": [
+      "E004",
+      "E005"
+    ],
+    "turns": [
+      {
+        "turn_number": 1,
+        "clinician": {
+          "action": "ORDER_TEST",
+          "request": "fecal elastase-1 level",
+          "current_trajectory_hypothesis": "Patient presents with symptoms suggestive of malabsorption, potentially due to exocrine pancreatic insufficiency (EPI). Fecal elastase-1 is a key diagnostic test for EPI.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "fecal elastase-1 level",
+            "response to pancreatic enzyme replacement therapy (PERT)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "ordered_but_not_documented",
+          "evidence_id": "",
+          "source_text": "",
+          "phase_index": 0,
+          "phase_label": "initial_presentation",
+          "pending_orders": [],
+          "explanation": "Ordered test fecal elastase-1 level without a matching result yet",
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 2,
+        "clinician": {
+          "action": "REQUEST_RESULT",
+          "request": "fecal elastase-1 level result",
+          "current_trajectory_hypothesis": "Patient presents with symptoms suggestive of malabsorption, potentially due to exocrine pancreatic insufficiency (EPI). Fecal elastase-1 is a key diagnostic test for EPI, and the result is pending.",
+          "confirmed_evidence": [],
+          "missing_key_evidence": [
+            "fecal elastase-1 level",
+            "response to pancreatic enzyme replacement therapy (PERT)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.6
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E004",
+          "source_text": "A 48-hour fecal fat study demonstrated massive steatorrhea (total fat in 24 hours of 277 g) and fecal elastase less than 40 μg/g.",
+          "category": "other",
+          "temporal_cue": "on admission",
+          "phase_index": 3,
+          "phase_label": "clinical_progression",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 3,
+        "clinician": {
+          "action": "ASK_HISTORY",
+          "request": "patient's response to pancreatic enzyme replacement therapy (PERT)",
+          "current_trajectory_hypothesis": "The patient's symptoms of severe diarrhea, weight loss, and steatorrhea are highly suggestive of exocrine pancreatic insufficiency (EPI), supported by a very low fecal elastase-1 level. The next step is to confirm the diagnosis by observing the patient's response to PERT.",
+          "confirmed_evidence": [
+            "severe diarrhea, 41-kg weight loss, progressive muscle weakness, recurrent falls, oily/greasy stools, foul-smelling gas",
+            "Roux-en-Y bypass surgery 35 years ago",
+            "fecal elastase less than 40 μg/g",
+            "massive steatorrhea (total fat in 24 hours of 277 g)"
+          ],
+          "missing_key_evidence": [
+            "response to pancreatic enzyme replacement therapy (PERT)"
+          ],
+          "confidence_that_diagnosis_is_supported": 0.8
+        },
+        "report": {
+          "status": "found",
+          "evidence_id": "E005",
+          "source_text": "His diarrhea improved 2 months after initiation of PERT, allowing him to regain weight to his previous baseline while reducing his caloric intake to 1800 to 2000 calories per day.",
+          "category": "other",
+          "temporal_cue": "2 months after initiation of PERT",
+          "phase_index": 6,
+          "phase_label": "treatment_or_outcome",
+          "pending_orders": [],
+          "verbatim": true
+        }
+      },
+      {
+        "turn_number": 4,
+        "clinician": {
+          "action": "FINAL_TRAJECTORY",
+          "final_diagnosis": "Exocrine Pancreatic Insufficiency (EPI)",
+          "trajectory_summary": "A 71-year-old man with a history of Roux-en-Y bypass surgery presented with severe diarrhea, significant weight loss, and steatorrhea. Diagnostic workup revealed a very low fecal elastase level (<40 μg/g) and massive steatorrhea (277 g/24h). His symptoms, including diarrhea and weight loss, significantly improved within 2 months of initiating pancreatic enzyme replacement therapy (PERT).",
+          "key_supporting_evidence": [
+            {
+              "claim": "Patient presented with clinical symptoms consistent with malabsorption and EPI, including severe diarrhea, 41-kg weight loss, progressive muscle weakness, recurrent falls, oily/greasy stools, and excessive foul-smelling gas.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Patient had a history of Roux-en-Y bypass surgery 35 years prior, a risk factor for EPI.",
+              "evidence_ids": []
+            },
+            {
+              "claim": "Fecal elastase level was less than 40 μg/g, indicating severe exocrine pancreatic insufficiency.",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "A 48-hour fecal fat study demonstrated massive steatorrhea (total fat in 24 hours of 277 g).",
+              "evidence_ids": [
+                "E004"
+              ]
+            },
+            {
+              "claim": "Diarrhea and weight loss improved significantly 2 months after initiation of pancreatic enzyme replacement therapy (PERT).",
+              "evidence_ids": [
+                "E005"
+              ]
+            }
+          ],
+          "ruled_out_or_less_likely_alternatives": [
+            {
+              "alternative": "Acute or chronic pancreatitis",
+              "basis": "Patient's known prior history explicitly states no acute or chronic pancreatitis."
+            }
+          ],
+          "remaining_uncertainties": [],
+          "confidence_that_diagnosis_is_supported": 1.0
+        },
+        "report": null
+      }
+    ],
+    "final": {
+      "action": "FINAL_TRAJECTORY",
+      "final_diagnosis": "Exocrine Pancreatic Insufficiency (EPI)",
+      "trajectory_summary": "A 71-year-old man with a history of Roux-en-Y bypass surgery presented with severe diarrhea, significant weight loss, and steatorrhea. Diagnostic workup revealed a very low fecal elastase level (<40 μg/g) and massive steatorrhea (277 g/24h). His symptoms, including diarrhea and weight loss, significantly improved within 2 months of initiating pancreatic enzyme replacement therapy (PERT).",
+      "key_supporting_evidence": [
+        {
+          "claim": "Patient presented with clinical symptoms consistent with malabsorption and EPI, including severe diarrhea, 41-kg weight loss, progressive muscle weakness, recurrent falls, oily/greasy stools, and excessive foul-smelling gas.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Patient had a history of Roux-en-Y bypass surgery 35 years prior, a risk factor for EPI.",
+          "evidence_ids": []
+        },
+        {
+          "claim": "Fecal elastase level was less than 40 μg/g, indicating severe exocrine pancreatic insufficiency.",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "A 48-hour fecal fat study demonstrated massive steatorrhea (total fat in 24 hours of 277 g).",
+          "evidence_ids": [
+            "E004"
+          ]
+        },
+        {
+          "claim": "Diarrhea and weight loss improved significantly 2 months after initiation of pancreatic enzyme replacement therapy (PERT).",
+          "evidence_ids": [
+            "E005"
+          ]
+        }
+      ],
+      "ruled_out_or_less_likely_alternatives": [
+        {
+          "alternative": "Acute or chronic pancreatitis",
+          "basis": "Patient's known prior history explicitly states no acute or chronic pancreatitis."
+        }
+      ],
+      "remaining_uncertainties": [],
+      "confidence_that_diagnosis_is_supported": 1.0
+    },
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T21:08:15.447513+00:00",
+    "clinician_model": "gemini-2.5-flash",
+    "report_model": "gpt-4.1-mini-test",
+    "extraction_model": "gpt-4.1-mini-test",
+    "role_contexts_separate": true
+  },
+  "evaluation": {
+    "case_id": "PMC12282292",
+    "known_final_diagnosis": "The patient presented in this case report was diagnosed with EPI based on his clinical symptoms, low fecal elastase, and improvement of symptoms with initiation of PERT.",
+    "turns_used": 4,
+    "max_turns": 15,
+    "termination": "final",
+    "final_present": true,
+    "trajectory_summary_present": true,
+    "key_supporting_evidence_count": 5,
+    "invalid_cited_evidence_ids": [],
+    "disclosed_evidence_count": 2,
+    "gold_reasoning_span_count": 3,
+    "action_counts": {
+      "ASK_HISTORY": 1,
+      "FINAL_TRAJECTORY": 1,
+      "ORDER_TEST": 1,
+      "REQUEST_RESULT": 1
+    },
+    "report_status_counts": {
+      "found": 2,
+      "ordered_but_not_documented": 1
+    },
+    "report_repair_attempted_count": 0,
+    "report_repair_failed_count": 0,
+    "report_repair_validation_error_counts": {},
+    "answer_yield": 0.6666666666666666,
+    "unavailable_turn_rate": 0.3333333333333333,
+    "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+    "created_at": "2026-07-27T21:08:15.448362+00:00"
+  },
+  "trajectory_metrics": {
+    "case_id": "PMC12282292",
+    "status": "completed",
+    "episode_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/internalmed/episodes/PMC12282292.json",
+    "case_path": "eacl_benchmark/results/setting2_model_comparison/gemini25flash_target510/internalmed/cases/PMC12282292.json",
+    "num_gold_steps": "4",
+    "num_pred_steps": "2",
+    "weighted_tversky_alignment": "0.2222222222222222",
+    "weighted_tversky_distance": "0.7777777777777778",
+    "matched_weight": "1.0",
+    "missed_weight": "2.5",
+    "extra_weight": "0.5",
+    "weighted_lcs_recall": "0.2857142857142857",
+    "weighted_lcs_weight": "1.0",
+    "weighted_pairwise_order_accuracy": "",
+    "pairwise_comparable_pairs": "0",
+    "pairwise_correct_pairs": "0",
+    "pairwise_inversions": "0",
+    "gold_sequence": "other_or_off_protocol > lab_tests > imaging > medication_or_treatment",
+    "prediction_sequence": "lab_tests > clinical_history",
+    "error": ""
+  }
+}

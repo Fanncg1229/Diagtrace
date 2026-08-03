@@ -11,7 +11,6 @@ It releases the constructed reference resources and the matched interactive reco
 - `data/model_comparison_225_summary.json`: Aggregate metrics corresponding to the matched subset.
 - `interaction_traces/`: Four-model interactive reconstruction traces on the matched 225-case subset.
 - `schemas/`: JSON schema for the released records.
-- `prompts/`: Prompt references used for construction, interaction, and audits.
 - `examples/`: A representative benchmark instance.
 
 ## Data Format
@@ -28,7 +27,7 @@ Cases are derived from articles in the PubMed Central Open Access collection. Ea
 
 ## Notes
 
-This release does not include raw PMC NXML/XML files, article PDFs, figure images, API logs, token/cost logs, or local execution artifacts.
+This release does not include raw PMC NXML/XML files, article PDFs, figure images, prompts, API logs, token/cost logs, or local execution artifacts.
 
 ## License
 

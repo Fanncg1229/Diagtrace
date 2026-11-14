@@ -1,0 +1,507 @@
+{
+  "case_id": "PMC8917650",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 11,
+  "termination": "final",
+  "known_final_diagnosis": "The results led to the diagnosis of TBE.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E006",
+    "E007"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "cerebrospinal fluid (CSF) analysis",
+        "current_trajectory_hypothesis": "Patient presents with acute neurological symptoms suggestive of meningoencephalitis. CSF analysis is needed to confirm CNS inflammation and guide further investigation towards TBE.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "CSF findings (cell count, protein, glucose)",
+          "Specific TBE diagnostic tests (serology, PCR)",
+          "Neuroimaging findings"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "CSF analysis test ordered; no immediate source result returned",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "results of the cerebrospinal fluid (CSF) analysis",
+        "current_trajectory_hypothesis": "Patient presents with acute neurological symptoms. CSF analysis is crucial to assess for CNS inflammation and guide further investigation for TBE, given the patient's exposure history and symptoms.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "CSF findings (cell count, protein, glucose, specific TBE markers)",
+          "Neuroimaging findings",
+          "TBE serology/PCR results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "The cerebrospinal fluid analysis showed lymphocytic pleocytosis (Table 1 ). High levels of IgM and IgG TBE antibodies in serum and in CSF were found (performed with: TBE IgG/IgM ELISA for serum and CSF, VIROTECH Diagnostics GmbH).",
+        "category": "serology",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "detailed cerebrospinal fluid (CSF) analysis results, including cell count, protein, and glucose, as referenced in 'Table 1'",
+        "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms. CSF analysis showed lymphocytic pleocytosis and high TBE antibodies in both serum and CSF, strongly suggesting TBE. Detailed CSF parameters are needed to complete the picture of CNS inflammation.",
+        "confirmed_evidence": [
+          "Lymphocytic pleocytosis in CSF (E002)",
+          "High levels of IgM and IgG TBE antibodies in serum (E002)",
+          "High levels of IgM and IgG TBE antibodies in CSF (E002)"
+        ],
+        "missing_key_evidence": [
+          "Specific CSF cell count, protein, and glucose values",
+          "Neuroimaging findings",
+          "Clinical course/treatment/outcome details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E002",
+        "source_text": "The cerebrospinal fluid analysis showed lymphocytic pleocytosis (Table 1 ).",
+        "category": "serology",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "brain MRI or CT scan",
+        "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms, and CSF analysis showed lymphocytic pleocytosis and high TBE antibodies in both serum and CSF, strongly supporting TBE. Neuroimaging is needed to assess the extent of CNS involvement and rule out other pathologies.",
+        "confirmed_evidence": [
+          "Lymphocytic pleocytosis in CSF (E002)",
+          "High levels of IgM and IgG TBE antibodies in serum (E002)",
+          "High levels of IgM and IgG TBE antibodies in CSF (E002)"
+        ],
+        "missing_key_evidence": [
+          "Neuroimaging findings",
+          "Clinical course/treatment/outcome details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Order for brain MRI or CT scan acknowledged; source evidence exists but not yet disclosed.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "results of the brain MRI or CT scan",
+        "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms, and CSF analysis showed lymphocytic pleocytosis and high TBE antibodies in both serum and CSF, strongly supporting TBE. Neuroimaging is needed to assess the extent of CNS involvement and rule out other pathologies.",
+        "confirmed_evidence": [
+          "Lymphocytic pleocytosis in CSF (E002)",
+          "High levels of IgM and IgG TBE antibodies in serum (E002)",
+          "High levels of IgM and IgG TBE antibodies in CSF (E002)"
+        ],
+        "missing_key_evidence": [
+          "Neuroimaging findings",
+          "Clinical course/treatment/outcome details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "The magnetic resonance image (MRI) of the head revealed numerous unspecific lesions, mainly in the thalamus, hyperintense on T2-weighted (T2) and fluid-attenuated inversion recovery (FLAIR) images, and similar lesions were presented in both cerebellar hemispheres (Fig. 1 ). What is more, the MRI of the head in axial contrast-enhanced T1-weighted subtraction maps revealed moderate bilateral, mixed pachymeningeal and leptomeningeal contrast enhancement in in selected regions (Fig. 2 ). On the MRI of cervical spinal cord, a longitudinal lesion was found with hyperintense on T2 and short tau inversion recovery (STIR) sequences (Fig. 3 ). No abnormalities were found on brain computer tomography angiography scans.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms. CSF analysis showed lymphocytic pleocytosis and high TBE antibodies in both serum and CSF. MRI revealed brain and spinal cord lesions, and meningeal enhancement. This evidence strongly supports the diagnosis of TBE. The next step is to understand the clinical course and treatment.",
+        "confirmed_evidence": [
+          "Lymphocytic pleocytosis in CSF (E002)",
+          "High levels of IgM and IgG TBE antibodies in serum (E002)",
+          "High levels of IgM and IgG TBE antibodies in CSF (E002)",
+          "MRI showed numerous unspecific lesions in thalamus and cerebellar hemispheres (E001)",
+          "MRI showed moderate bilateral, mixed pachymeningeal and leptomeningeal contrast enhancement (E001)",
+          "MRI of cervical spinal cord showed a longitudinal lesion (E001)"
+        ],
+        "missing_key_evidence": [
+          "Clinical course/treatment/outcome details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "The cerebrospinal fluid was tested with polymerase chain reaction (PCR) with a negative result for Escherichia coli, Haemophilus influenzae, Listeria monocytogenes, Neisseria meningitidis, Streptococcus agalactiae, Streptoccocus pneumoniae, Cytomegalovirus, Enterovirus, Herpes simplex viruses 1 and 2, Human herpesvirus 6, Human parechovirus, Varicella zoster virus, and Cryptococcus neoformans/gattii. Testing for the presence of Borrelia burgdorferi in serum and cerebrospinal fluid (CSF) showed negative results. Microbiological testing on bacterial cultures from blood and CSF were negative.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms. CSF analysis showed lymphocytic pleocytosis and high TBE antibodies in both serum and CSF. MRI revealed brain and spinal cord lesions, and meningeal enhancement. Other common pathogens were ruled out. This evidence strongly supports the diagnosis of TBE. The next step is to understand the clinical course, treatment, and outcome.",
+        "confirmed_evidence": [
+          "Lymphocytic pleocytosis in CSF (E002)",
+          "High levels of IgM and IgG TBE antibodies in serum (E002)",
+          "High levels of IgM and IgG TBE antibodies in CSF (E002)",
+          "MRI showed numerous unspecific lesions in thalamus and cerebellar hemispheres (E001)",
+          "MRI showed moderate bilateral, mixed pachymeningeal and leptomeningeal contrast enhancement (E001)",
+          "MRI of cervical spinal cord showed a longitudinal lesion (E001)",
+          "CSF PCR negative for various bacterial and viral pathogens (E003)",
+          "Negative Borrelia testing in serum and CSF (E003)",
+          "Negative bacterial cultures from blood and CSF (E003)"
+        ],
+        "missing_key_evidence": [
+          "Clinical course/treatment/outcome details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "In addition, diagnostic tests for autoimmune diseases were performed, i.e. Neuromyelitis optica spectrum disorders (NMOSD). Tests for presence of anti-aquaporin-4 antibody (AQP4-Ab), antibodies to myelin oligodendrocyte glycoprotein (anti-MOG), and myelin basic protein antibodies (anti-MBP) were negative. We performed two electroneurographic examinations which did not show any pathological changes of motor and sensory nerves compatible with demyelinating and axonal dysfunction. Further research excluded connective tissue diseases and paraneoplastic syndromes. The serum was negative for rheumatoid factor, anti-prothrombin, antiphospholipid, and anti-neutrophil cytoplasmic antibodies and antigens against dsDNA, nucleosome, histosome, SS-A, Ro-52, SS-B, nRNP/Sm, Sm, Mi-2alfa, Mi-2beta, Ku, A and B centromeres, Sp100, PML, PM-Scl100, PM-Scl75, Scl-70, RP155, gp210, PCNA, and DFS70.",
+        "category": "serology",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms. CSF analysis showed lymphocytic pleocytosis and high TBE antibodies in both serum and CSF. MRI revealed brain and spinal cord lesions, and meningeal enhancement. Multiple alternative diagnoses have been ruled out. This evidence strongly supports the diagnosis of TBE. The next step is to understand the clinical course, treatment, and outcome.",
+        "confirmed_evidence": [
+          "Lymphocytic pleocytosis in CSF (E002)",
+          "High levels of IgM and IgG TBE antibodies in serum (E002)",
+          "High levels of IgM and IgG TBE antibodies in CSF (E002)",
+          "MRI showed numerous unspecific lesions in thalamus and cerebellar hemispheres (E001)",
+          "MRI showed moderate bilateral, mixed pachymeningeal and leptomeningeal contrast enhancement (E001)",
+          "MRI of cervical spinal cord showed a longitudinal lesion (E001)",
+          "CSF PCR negative for various bacterial and viral pathogens (E003)",
+          "Negative Borrelia testing in serum and CSF (E003)",
+          "Negative bacterial cultures from blood and CSF (E003)",
+          "Negative tests for autoimmune diseases (NMOSD, anti-MOG, anti-MBP, connective tissue diseases, paraneoplastic syndromes) (E004)"
+        ],
+        "missing_key_evidence": [
+          "Clinical course/treatment/outcome details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "During hospitalization, the patient's clinical condition stabilized and began to gradually improve.",
+        "category": "treatment_response",
+        "temporal_cue": "during hospitalization",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "specific values for CSF cell count, protein, and glucose, as referenced in 'Table 1' in E002",
+        "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms. CSF analysis showed lymphocytic pleocytosis and high TBE antibodies in both serum and CSF. MRI revealed brain and spinal cord lesions, and meningeal enhancement. Multiple alternative diagnoses have been ruled out. The clinical condition stabilized and improved. Specific CSF parameters are needed to complete the diagnostic picture.",
+        "confirmed_evidence": [
+          "Lymphocytic pleocytosis in CSF (E002)",
+          "High levels of IgM and IgG TBE antibodies in serum (E002)",
+          "High levels of IgM and IgG TBE antibodies in CSF (E002)",
+          "MRI showed numerous unspecific lesions in thalamus and cerebellar hemispheres (E001)",
+          "MRI showed moderate bilateral, mixed pachymeningeal and leptomeningeal contrast enhancement (E001)",
+          "MRI of cervical spinal cord showed a longitudinal lesion (E001)",
+          "CSF PCR negative for various bacterial and viral pathogens (E003)",
+          "Negative Borrelia testing in serum and CSF (E003)",
+          "Negative bacterial cultures from blood and CSF (E003)",
+          "Negative tests for autoimmune diseases (NMOSD, anti-MOG, anti-MBP, connective tissue diseases, paraneoplastic syndromes) (E004)",
+          "Clinical condition stabilized and began to gradually improve during hospitalization (E006)"
+        ],
+        "missing_key_evidence": [
+          "Specific CSF cell count, protein, and glucose values",
+          "Details on treatment administered",
+          "Long-term outcome/follow-up"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E002",
+        "source_text": "The cerebrospinal fluid analysis showed lymphocytic pleocytosis (Table 1 ).",
+        "category": "serology",
+        "temporal_cue": "on admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms. CSF analysis showed lymphocytic pleocytosis and high TBE antibodies in both serum and CSF. MRI revealed brain and spinal cord lesions, and meningeal enhancement. Multiple alternative diagnoses have been ruled out. The clinical condition stabilized and improved. The diagnosis of TBE is strongly supported. Now seeking information on treatment and long-term outcome.",
+        "confirmed_evidence": [
+          "Lymphocytic pleocytosis in CSF (E002)",
+          "High levels of IgM and IgG TBE antibodies in serum (E002)",
+          "High levels of IgM and IgG TBE antibodies in CSF (E002)",
+          "MRI showed numerous unspecific lesions in thalamus and cerebellar hemispheres (E001)",
+          "MRI showed moderate bilateral, mixed pachymeningeal and leptomeningeal contrast enhancement (E001)",
+          "MRI of cervical spinal cord showed a longitudinal lesion (E001)",
+          "CSF PCR negative for various bacterial and viral pathogens (E003)",
+          "Negative Borrelia testing in serum and CSF (E003)",
+          "Negative bacterial cultures from blood and CSF (E003)",
+          "Negative tests for autoimmune diseases (NMOSD, anti-MOG, anti-MBP, connective tissue diseases, paraneoplastic syndromes) (E004)",
+          "Clinical condition stabilized and began to gradually improve during hospitalization (E006)"
+        ],
+        "missing_key_evidence": [
+          "Details on treatment administered",
+          "Long-term outcome/follow-up"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "On the control MRI performed after 6 months, a complete resolution of the previously seen signal alteration within the cerebrum, cerebellum and spinal cord lesions was seen (Fig. 4 ).",
+        "category": "imaging_report",
+        "temporal_cue": "6 months after initial admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "TBE",
+        "trajectory_summary": "A 24-year-old female presented with fever, dizziness, progressive left-sided hemiparesis, neck stiffness, weakness, dysarthria, and right six cranial nerve palsy. Initial workup included CSF analysis which showed lymphocytic pleocytosis and high levels of IgM and IgG TBE antibodies in both serum and CSF. Brain and spinal cord MRI revealed numerous lesions in the thalamus, cerebellar hemispheres, meningeal enhancement, and a longitudinal lesion in the cervical spinal cord. Extensive testing ruled out common bacterial and viral pathogens, Borrelia, autoimmune diseases, connective tissue diseases, and paraneoplastic syndromes. During hospitalization, the patient's clinical condition stabilized and gradually improved. A control MRI performed after 6 months showed complete resolution of the previously seen lesions.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with acute neurological symptoms including fever, dizziness, progressive left-sided hemiparesis, neck stiffness, weakness, dysarthria, and right six cranial nerve palsy.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Cerebrospinal fluid analysis showed lymphocytic pleocytosis.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "High levels of IgM and IgG TBE antibodies were found in both serum and CSF.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Brain MRI revealed numerous unspecific lesions in the thalamus and cerebellar hemispheres, hyperintense on T2 and FLAIR images.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Brain MRI showed moderate bilateral, mixed pachymeningeal and leptomeningeal contrast enhancement.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "MRI of the cervical spinal cord showed a longitudinal lesion.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "During hospitalization, the patient's clinical condition stabilized and began to gradually improve.",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Control MRI after 6 months showed complete resolution of brain, cerebellar, and spinal cord lesions.",
+            "evidence_ids": [
+              "E007"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Bacterial meningitis/encephalitis",
+            "basis": "CSF PCR negative for common bacterial pathogens, negative bacterial cultures from blood and CSF (E003)"
+          },
+          {
+            "alternative": "Viral meningitis/encephalitis (other than TBE)",
+            "basis": "CSF PCR negative for Cytomegalovirus, Enterovirus, Herpes simplex viruses 1 and 2, Human herpesvirus 6, Human parechovirus, Varicella zoster virus (E003)"
+          },
+          {
+            "alternative": "Neuroborreliosis",
+            "basis": "Testing for Borrelia burgdorferi in serum and CSF showed negative results (E003)"
+          },
+          {
+            "alternative": "Autoimmune neurological disorders (e.g., NMOSD, MOGAD)",
+            "basis": "Negative tests for anti-aquaporin-4 antibody (AQP4-Ab), antibodies to myelin oligodendrocyte glycoprotein (anti-MOG), and myelin basic protein antibodies (anti-MBP) (E004)"
+          },
+          {
+            "alternative": "Connective tissue diseases or paraneoplastic syndromes",
+            "basis": "Negative tests for rheumatoid factor, anti-prothrombin, antiphospholipid, anti-neutrophil cytoplasmic antibodies, and various antigens against dsDNA, nucleosome, histosome, SS-A, Ro-52, SS-B, nRNP/Sm, Sm, Mi-2alfa, Mi-2beta, Ku, A and B centromeres, Sp100, PML, PM-Scl100, PM-Scl75, Scl-70, RP155, gp210, PCNA, and DFS70 (E004)"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Specific details of symptomatic treatment administered during hospitalization"
+        ],
+        "confidence_that_diagnosis_is_supported": 1.0
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "TBE",
+    "trajectory_summary": "A 24-year-old female presented with fever, dizziness, progressive left-sided hemiparesis, neck stiffness, weakness, dysarthria, and right six cranial nerve palsy. Initial workup included CSF analysis which showed lymphocytic pleocytosis and high levels of IgM and IgG TBE antibodies in both serum and CSF. Brain and spinal cord MRI revealed numerous lesions in the thalamus, cerebellar hemispheres, meningeal enhancement, and a longitudinal lesion in the cervical spinal cord. Extensive testing ruled out common bacterial and viral pathogens, Borrelia, autoimmune diseases, connective tissue diseases, and paraneoplastic syndromes. During hospitalization, the patient's clinical condition stabilized and gradually improved. A control MRI performed after 6 months showed complete resolution of the previously seen lesions.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with acute neurological symptoms including fever, dizziness, progressive left-sided hemiparesis, neck stiffness, weakness, dysarthria, and right six cranial nerve palsy.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Cerebrospinal fluid analysis showed lymphocytic pleocytosis.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "High levels of IgM and IgG TBE antibodies were found in both serum and CSF.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Brain MRI revealed numerous unspecific lesions in the thalamus and cerebellar hemispheres, hyperintense on T2 and FLAIR images.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Brain MRI showed moderate bilateral, mixed pachymeningeal and leptomeningeal contrast enhancement.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "MRI of the cervical spinal cord showed a longitudinal lesion.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "During hospitalization, the patient's clinical condition stabilized and began to gradually improve.",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Control MRI after 6 months showed complete resolution of brain, cerebellar, and spinal cord lesions.",
+        "evidence_ids": [
+          "E007"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Bacterial meningitis/encephalitis",
+        "basis": "CSF PCR negative for common bacterial pathogens, negative bacterial cultures from blood and CSF (E003)"
+      },
+      {
+        "alternative": "Viral meningitis/encephalitis (other than TBE)",
+        "basis": "CSF PCR negative for Cytomegalovirus, Enterovirus, Herpes simplex viruses 1 and 2, Human herpesvirus 6, Human parechovirus, Varicella zoster virus (E003)"
+      },
+      {
+        "alternative": "Neuroborreliosis",
+        "basis": "Testing for Borrelia burgdorferi in serum and CSF showed negative results (E003)"
+      },
+      {
+        "alternative": "Autoimmune neurological disorders (e.g., NMOSD, MOGAD)",
+        "basis": "Negative tests for anti-aquaporin-4 antibody (AQP4-Ab), antibodies to myelin oligodendrocyte glycoprotein (anti-MOG), and myelin basic protein antibodies (anti-MBP) (E004)"
+      },
+      {
+        "alternative": "Connective tissue diseases or paraneoplastic syndromes",
+        "basis": "Negative tests for rheumatoid factor, anti-prothrombin, antiphospholipid, anti-neutrophil cytoplasmic antibodies, and various antigens against dsDNA, nucleosome, histosome, SS-A, Ro-52, SS-B, nRNP/Sm, Sm, Mi-2alfa, Mi-2beta, Ku, A and B centromeres, Sp100, PML, PM-Scl100, PM-Scl75, Scl-70, RP155, gp210, PCNA, and DFS70 (E004)"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Specific details of symptomatic treatment administered during hospitalization"
+    ],
+    "confidence_that_diagnosis_is_supported": 1.0
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T17:29:19.177768+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

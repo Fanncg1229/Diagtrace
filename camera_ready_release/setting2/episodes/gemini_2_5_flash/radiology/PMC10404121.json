@@ -1,0 +1,623 @@
+{
+  "case_id": "PMC10404121",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "The patient was referred to interventional radiology (IR) for the treatment of his symptomatic AVM.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E004",
+    "E005",
+    "E006",
+    "E007"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "What were the findings of the initial vascular imaging studies (e.g., duplex ultrasound, angiography) performed for the left lower extremity?",
+        "current_trajectory_hypothesis": "The patient presented with toe pain, numbness, and gangrene, initially misdiagnosed as mild PAD. The known final diagnosis is AVM, suggesting that initial vascular workup might have revealed findings inconsistent with typical PAD or pointed towards an AVM.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Detailed vascular assessment findings",
+          "Evidence leading to the AVM diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order placed for initial vascular imaging studies; no direct source result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "What were the findings of the diagnostic imaging study that identified the arteriovenous malformation (AVM)?",
+        "current_trajectory_hypothesis": "The patient presented with toe pain, numbness, and gangrene, initially misdiagnosed as mild PAD. The known final diagnosis is AVM. I need to identify the specific imaging that led to the AVM diagnosis, as the initial vascular imaging was not documented.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Specific diagnostic imaging findings for AVM",
+          "Details of the AVM (location, size, characteristics)",
+          "Clinical course leading to the AVM diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "The diagnostic imaging study was ordered; no direct source evidence yet disclosed for the result.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with toe pain, numbness, and gangrene, initially misdiagnosed as mild PAD. The known final diagnosis is AVM. Previous attempts to get specific imaging results were not documented. I need to understand the sequence of events that led to the AVM diagnosis.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Specific diagnostic imaging findings for AVM",
+          "Details of the AVM (location, size, characteristics)",
+          "Clinical course leading to the AVM diagnosis",
+          "Initial vascular assessment findings"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "Evaluation at our vascular clinic included pulse volume recordings (PVRs), ankle brachial index (ABI) and toe brachial index (TBI), computed tomography angiography (CTA) of the abdomen with runoff to evaluate for sources of atherosclerotic embolization, and magnetic resonance imaging (MRI) of the left foot to evaluate for osteomyelitis in the setting of gangrene.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of the computed tomography angiography (CTA) of the abdomen with runoff and the magnetic resonance imaging (MRI) of the left foot?",
+        "current_trajectory_hypothesis": "The patient presented with toe pain, numbness, and gangrene. Initial workup included PVRs, ABI, TBI, CTA of the abdomen with runoff, and MRI of the left foot. I need to understand the results of these imaging studies to see how they contributed to the diagnosis of AVM or ruled out other conditions like osteomyelitis.",
+        "confirmed_evidence": [
+          "Patient presented with left second toe pain, numbness, tingling, burning sensation, continued pain, dry gangrene, and non-healing wounds.",
+          "Initial workup at the vascular clinic included PVRs, ABI, TBI, CTA of the abdomen with runoff, and MRI of the left foot."
+        ],
+        "missing_key_evidence": [
+          "Results of PVRs, ABI, TBI",
+          "Findings of CTA of the abdomen with runoff",
+          "Findings of MRI of the left foot",
+          "Specific diagnostic imaging findings for AVM",
+          "Details of the AVM (location, size, characteristics)",
+          "Clinical course leading to the AVM diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "The CTA of the patient’s abdomen, pelvis, and lower extremities showed a normal abdominal aorta and patent iliac, femoral, and popliteal arteries. However, the CTA also revealed a vascular malformation overlying the midshaft of the fibula and within the left fibularis brevis and longus muscles, measuring 3.4 cm x 2.7 cm x 10.8 cm (Figures 1A, 1B).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of the magnetic resonance imaging (MRI) of the left foot?",
+        "current_trajectory_hypothesis": "The patient presented with toe pain, numbness, and gangrene. Initial workup included PVRs, ABI, TBI, CTA of the abdomen with runoff, and MRI of the left foot. The CTA revealed a vascular malformation. I need to understand the MRI findings to rule out osteomyelitis and further characterize the patient's condition.",
+        "confirmed_evidence": [
+          "Patient presented with left second toe pain, numbness, tingling, burning sensation, continued pain, dry gangrene, and non-healing wounds.",
+          "Initial workup at the vascular clinic included PVRs, ABI, TBI, CTA of the abdomen with runoff, and MRI of the left foot.",
+          "CTA showed normal abdominal aorta and patent iliac, femoral, and popliteal arteries.",
+          "CTA revealed a vascular malformation overlying the midshaft of the fibula and within the left fibularis brevis and longus muscles, measuring 3.4 cm x 2.7 cm x 10.8 cm."
+        ],
+        "missing_key_evidence": [
+          "Results of PVRs, ABI, TBI",
+          "Findings of MRI of the left foot",
+          "Confirmation that the vascular malformation is an AVM",
+          "Details of the AVM (location, size, characteristics beyond CTA)",
+          "Clinical course leading to the AVM diagnosis and treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "No evidence record contains specific findings of the MRI of the left foot.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "What further diagnostic tests or imaging were performed to confirm the nature of the vascular malformation identified on CTA as an AVM?",
+        "current_trajectory_hypothesis": "The patient presented with toe pain, numbness, and gangrene. CTA revealed a vascular malformation. I need to understand how this malformation was confirmed to be an AVM and what further characterization was done.",
+        "confirmed_evidence": [
+          "Patient presented with left second toe pain, numbness, tingling, burning sensation, continued pain, dry gangrene, and non-healing wounds.",
+          "Initial workup at the vascular clinic included PVRs, ABI, TBI, CTA of the abdomen with runoff, and MRI of the left foot.",
+          "CTA showed normal abdominal aorta and patent iliac, femoral, and popliteal arteries.",
+          "CTA revealed a vascular malformation overlying the midshaft of the fibula and within the left fibularis brevis and longus muscles, measuring 3.4 cm x 2.7 cm x 10.8 cm."
+        ],
+        "missing_key_evidence": [
+          "Results of PVRs, ABI, TBI",
+          "Confirmation that the vascular malformation is an AVM",
+          "Details of the AVM (location, size, characteristics beyond CTA)",
+          "Clinical course leading to the AVM diagnosis and treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Duplex ultrasound ordered to further characterize the vascular malformation.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of the duplex ultrasound performed to characterize the vascular malformation?",
+        "current_trajectory_hypothesis": "The patient presented with toe pain, numbness, and gangrene. CTA revealed a vascular malformation. A duplex ultrasound was ordered to further characterize this malformation and confirm if it is an AVM.",
+        "confirmed_evidence": [
+          "Patient presented with left second toe pain, numbness, tingling, burning sensation, continued pain, dry gangrene, and non-healing wounds.",
+          "Initial workup at the vascular clinic included PVRs, ABI, TBI, CTA of the abdomen with runoff, and MRI of the left foot.",
+          "CTA showed normal abdominal aorta and patent iliac, femoral, and popliteal arteries.",
+          "CTA revealed a vascular malformation overlying the midshaft of the fibula and within the left fibularis brevis and longus muscles, measuring 3.4 cm x 2.7 cm x 10.8 cm."
+        ],
+        "missing_key_evidence": [
+          "Results of PVRs, ABI, TBI",
+          "Findings of MRI of the left foot",
+          "Confirmation that the vascular malformation is an AVM",
+          "Details of the AVM (location, size, characteristics beyond CTA)",
+          "Clinical course leading to the AVM diagnosis and treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Duplex imaging was ordered to further characterize the vascular malformation's flow quality. Ultrasound revealed triphasic flow throughout the lower left extremity and low-resistance arterial flow within the AVM (Figure 2).",
+        "category": "imaging_report",
+        "temporal_cue": "post admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of the pulse volume recordings (PVRs), ankle brachial index (ABI), and toe brachial index (TBI)?",
+        "current_trajectory_hypothesis": "The patient presented with toe pain, numbness, and gangrene. Initial workup included PVRs, ABI, TBI, CTA, and MRI. CTA revealed a vascular malformation, and duplex ultrasound showed low-resistance arterial flow within it, suggesting an AVM. I need to understand the PVRs, ABI, and TBI results to clarify the initial 'mild PAD' diagnosis and rule out alternative causes for the patient's symptoms.",
+        "confirmed_evidence": [
+          "Patient presented with left second toe pain, numbness, tingling, burning sensation, continued pain, dry gangrene, and non-healing wounds.",
+          "Initial workup at the vascular clinic included PVRs, ABI, TBI, CTA of the abdomen with runoff, and MRI of the left foot.",
+          "CTA showed normal abdominal aorta and patent iliac, femoral, and popliteal arteries.",
+          "CTA revealed a vascular malformation overlying the midshaft of the fibula and within the left fibularis brevis and longus muscles, measuring 3.4 cm x 2.7 cm x 10.8 cm.",
+          "Duplex ultrasound revealed triphasic flow throughout the lower left extremity and low-resistance arterial flow within the AVM."
+        ],
+        "missing_key_evidence": [
+          "Results of PVRs, ABI, TBI",
+          "Findings of MRI of the left foot",
+          "Details of the AVM (location, size, characteristics beyond CTA and duplex)",
+          "Clinical course leading to the AVM diagnosis and treatment, including referral to IR"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "The patient’s PVRs showed normal waveforms to the ankle and mild waveforms of the left first and second toes. The left posterior tibial artery Doppler was biphasic, and the left dorsalis pedis artery Doppler was biphasic to triphasic. Bilateral ABIs were within normal limits (right ABI: 1.14; left ABI: 1.03). By contrast, the left toe brachial index was suggestive of mild distal PAD (left TBI: 0.69; right TBI: 0.90).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Was a diagnostic angiography performed to confirm the arteriovenous malformation (AVM) and further characterize its anatomy?",
+        "current_trajectory_hypothesis": "The patient presented with toe pain, numbness, and gangrene. Initial workup included PVRs, ABI, TBI, CTA, and MRI. CTA revealed a vascular malformation, and duplex ultrasound showed low-resistance arterial flow within it. PVRs/ABI/TBI showed normal ABIs but mild waveforms and TBI suggestive of mild distal PAD. I need to confirm the AVM diagnosis and understand how it was linked to the patient's symptoms and led to referral to IR.",
+        "confirmed_evidence": [
+          "Patient presented with left second toe pain, numbness, tingling, burning sensation, continued pain, dry gangrene, and non-healing wounds.",
+          "Initial workup at the vascular clinic included PVRs, ABI, TBI, CTA of the abdomen with runoff, and MRI of the left foot.",
+          "CTA showed normal abdominal aorta and patent iliac, femoral, and popliteal arteries.",
+          "CTA revealed a vascular malformation overlying the midshaft of the fibula and within the left fibularis brevis and longus muscles, measuring 3.4 cm x 2.7 cm x 10.8 cm.",
+          "Duplex ultrasound revealed triphasic flow throughout the lower left extremity and low-resistance arterial flow within the AVM.",
+          "PVRs showed normal waveforms to the ankle and mild waveforms of the left first and second toes.",
+          "Left posterior tibial artery Doppler was biphasic, and left dorsalis pedis artery Doppler was biphasic to triphasic.",
+          "Bilateral ABIs were within normal limits (right ABI: 1.14; left ABI: 1.03).",
+          "Left toe brachial index was suggestive of mild distal PAD (left TBI: 0.69; right TBI: 0.90)."
+        ],
+        "missing_key_evidence": [
+          "Confirmation that the vascular malformation is an AVM (e.g., by angiography)",
+          "Details of the AVM (location, size, characteristics beyond CTA and duplex)",
+          "Findings of MRI of the left foot",
+          "Clinical course leading to the AVM diagnosis and treatment, including referral to IR",
+          "Evidence linking the AVM to the patient's symptoms"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "The order for diagnostic angiography is noted; source results are not yet documented.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of the diagnostic angiography performed to confirm and characterize the arteriovenous malformation (AVM)?",
+        "current_trajectory_hypothesis": "The patient presented with toe pain, numbness, and gangrene. Initial workup included PVRs, ABI, TBI, CTA, and MRI. CTA revealed a vascular malformation, and duplex ultrasound showed low-resistance arterial flow within it. PVRs/ABI/TBI showed normal ABIs but mild waveforms and TBI suggestive of mild distal PAD. A diagnostic angiography was ordered to confirm the AVM and further characterize its anatomy, which is crucial for the known final diagnosis and subsequent referral to IR.",
+        "confirmed_evidence": [
+          "Patient presented with left second toe pain, numbness, tingling, burning sensation, continued pain, dry gangrene, and non-healing wounds.",
+          "Initial workup at the vascular clinic included PVRs, ABI, TBI, CTA of the abdomen with runoff, and MRI of the left foot.",
+          "CTA showed normal abdominal aorta and patent iliac, femoral, and popliteal arteries.",
+          "CTA revealed a vascular malformation overlying the midshaft of the fibula and within the left fibularis brevis and longus muscles, measuring 3.4 cm x 2.7 cm x 10.8 cm.",
+          "Duplex ultrasound revealed triphasic flow throughout the lower left extremity and low-resistance arterial flow within the AVM.",
+          "PVRs showed normal waveforms to the ankle and mild waveforms of the left first and second toes.",
+          "Left posterior tibial artery Doppler was biphasic, and left dorsalis pedis artery Doppler was biphasic to triphasic.",
+          "Bilateral ABIs were within normal limits (right ABI: 1.14; left ABI: 1.03).",
+          "Left toe brachial index was suggestive of mild distal PAD (left TBI: 0.69; right TBI: 0.90)."
+        ],
+        "missing_key_evidence": [
+          "Confirmation that the vascular malformation is an AVM (e.g., by angiography)",
+          "Details of the AVM (location, size, characteristics beyond CTA and duplex)",
+          "Findings of MRI of the left foot",
+          "Clinical course leading to the AVM diagnosis and treatment, including referral to IR",
+          "Evidence linking the AVM to the patient's symptoms"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "Angiography findings included a large, complex left lower-extremity AVM with most of its feeding vessels derived from the anterior tibial, peroneal, and posterior tibial arteries (Figure 3).",
+        "category": "procedure",
+        "temporal_cue": "post diagnosis",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of the magnetic resonance imaging (MRI) of the left foot, specifically regarding osteomyelitis?",
+        "current_trajectory_hypothesis": "The patient presented with toe pain, numbness, and gangrene. Initial workup included PVRs, ABI, TBI, CTA, and MRI. CTA revealed a vascular malformation, duplex ultrasound showed low-resistance arterial flow within it, and angiography confirmed a large, complex AVM. PVRs/ABI/TBI showed normal ABIs but mild distal PAD based on TBI. I need to understand the MRI findings to rule out osteomyelitis, which was a differential diagnosis given the gangrene, and to complete the initial diagnostic picture.",
+        "confirmed_evidence": [
+          "Patient presented with left second toe pain, numbness, tingling, burning sensation, continued pain, dry gangrene, and non-healing wounds.",
+          "Initial workup at the vascular clinic included PVRs, ABI, TBI, CTA of the abdomen with runoff, and MRI of the left foot.",
+          "CTA showed normal abdominal aorta and patent iliac, femoral, and popliteal arteries.",
+          "CTA revealed a vascular malformation overlying the midshaft of the fibula and within the left fibularis brevis and longus muscles, measuring 3.4 cm x 2.7 cm x 10.8 cm (E004).",
+          "Duplex ultrasound revealed triphasic flow throughout the lower left extremity and low-resistance arterial flow within the AVM (E005).",
+          "PVRs showed normal waveforms to the ankle and mild waveforms of the left first and second toes.",
+          "Left posterior tibial artery Doppler was biphasic, and left dorsalis pedis artery Doppler was biphasic to triphasic.",
+          "Bilateral ABIs were within normal limits (right ABI: 1.14; left ABI: 1.03).",
+          "Left toe brachial index was suggestive of mild distal PAD (left TBI: 0.69; right TBI: 0.90) (E002).",
+          "Angiography findings included a large, complex left lower-extremity AVM with most of its feeding vessels derived from the anterior tibial, peroneal, and posterior tibial arteries (E006)."
+        ],
+        "missing_key_evidence": [
+          "Findings of MRI of the left foot (specifically regarding osteomyelitis)",
+          "Evidence linking the AVM to the patient's symptoms (e.g., steal phenomenon, high-output heart failure, or direct compression)",
+          "Clinical course leading to the AVM diagnosis and treatment, including referral to IR"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No imaging report with MRI findings specifically describing osteomyelitis of the left foot is documented in the source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with toe pain, numbness, and gangrene. Initial workup included PVRs, ABI, TBI, CTA, and MRI. CTA revealed a vascular malformation, duplex ultrasound showed low-resistance arterial flow within it, and angiography confirmed a large, complex AVM. PVRs/ABI/TBI showed normal ABIs but mild distal PAD based on TBI. I have confirmed the AVM diagnosis and its characteristics. I need to understand the clinical reasoning that connected the AVM to the patient's symptoms and prompted the referral to IR for treatment.",
+        "confirmed_evidence": [
+          "Patient presented with left second toe pain, numbness, tingling, burning sensation, continued pain, dry gangrene, and non-healing wounds.",
+          "Initial workup at the vascular clinic included PVRs, ABI, TBI, CTA of the abdomen with runoff, and MRI of the left foot.",
+          "CTA showed normal abdominal aorta and patent iliac, femoral, and popliteal arteries.",
+          "CTA revealed a vascular malformation overlying the midshaft of the fibula and within the left fibularis brevis and longus muscles, measuring 3.4 cm x 2.7 cm x 10.8 cm (E004).",
+          "Duplex ultrasound revealed triphasic flow throughout the lower left extremity and low-resistance arterial flow within the AVM (E005).",
+          "PVRs showed normal waveforms to the ankle and mild waveforms of the left first and second toes.",
+          "Left posterior tibial artery Doppler was biphasic, and left dorsalis pedis artery Doppler was biphasic to triphasic.",
+          "Bilateral ABIs were within normal limits (right ABI: 1.14; left ABI: 1.03).",
+          "Left toe brachial index was suggestive of mild distal PAD (left TBI: 0.69; right TBI: 0.90) (E002).",
+          "Angiography findings included a large, complex left lower-extremity AVM with most of its feeding vessels derived from the anterior tibial, peroneal, and posterior tibial arteries (E006)."
+        ],
+        "missing_key_evidence": [
+          "Evidence linking the AVM to the patient's symptoms (e.g., steal phenomenon, high-output heart failure, or direct compression)",
+          "Explicit documentation of the referral to Interventional Radiology (IR)",
+          "Findings of MRI of the left foot (specifically regarding osteomyelitis, if available)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "A final angiogram showed significantly reduced flow to the AVM (Figures 4A, 4B).",
+        "category": "imaging_report",
+        "temporal_cue": "post embolization",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the treatment performed by interventional radiology (IR) for the arteriovenous malformation (AVM)?",
+        "current_trajectory_hypothesis": "The patient presented with toe pain, numbness, and gangrene. Initial workup included PVRs, ABI, TBI, CTA, and MRI. CTA revealed a vascular malformation, duplex ultrasound showed low-resistance arterial flow within it, and angiography confirmed a large, complex AVM. PVRs/ABI/TBI showed normal ABIs but mild distal PAD based on TBI. A final angiogram showed significantly reduced flow to the AVM, implying treatment. I need to confirm the specific treatment performed by IR.",
+        "confirmed_evidence": [
+          "Patient presented with left second toe pain, numbness, tingling, burning sensation, continued pain, dry gangrene, and non-healing wounds.",
+          "Initial workup at the vascular clinic included PVRs, ABI, TBI, CTA of the abdomen with runoff, and MRI of the left foot.",
+          "CTA showed normal abdominal aorta and patent iliac, femoral, and popliteal arteries.",
+          "CTA revealed a vascular malformation overlying the midshaft of the fibula and within the left fibularis brevis and longus muscles, measuring 3.4 cm x 2.7 cm x 10.8 cm (E004).",
+          "Duplex ultrasound revealed triphasic flow throughout the lower left extremity and low-resistance arterial flow within the AVM (E005).",
+          "PVRs showed normal waveforms to the ankle and mild waveforms of the left first and second toes.",
+          "Left posterior tibial artery Doppler was biphasic, and left dorsalis pedis artery Doppler was biphasic to triphasic.",
+          "Bilateral ABIs were within normal limits (right ABI: 1.14; left ABI: 1.03).",
+          "Left toe brachial index was suggestive of mild distal PAD (left TBI: 0.69; right TBI: 0.90) (E002).",
+          "Angiography findings included a large, complex left lower-extremity AVM with most of its feeding vessels derived from the anterior tibial, peroneal, and posterior tibial arteries (E006).",
+          "A final angiogram showed significantly reduced flow to the AVM (E007)."
+        ],
+        "missing_key_evidence": [
+          "Specific details of the treatment performed by IR (e.g., embolization technique, agents used)",
+          "Explicit documentation of the referral to Interventional Radiology (IR)",
+          "Evidence linking the AVM to the patient's symptoms (e.g., steal phenomenon, high-output heart failure, or direct compression)",
+          "Findings of MRI of the left foot (specifically regarding osteomyelitis, if available)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E006",
+        "source_text": "The patient underwent transarterial embolization with ethylene-vinyl alcohol copolymer (Onyx Liquid Embolization System) and embolization coils via a microcatheter.",
+        "category": "procedure",
+        "temporal_cue": "post diagnosis",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with toe pain, numbness, and gangrene. Initial workup included PVRs, ABI, TBI, CTA, and MRI. CTA revealed a vascular malformation, duplex ultrasound showed low-resistance arterial flow within it, and angiography confirmed a large, complex AVM. PVRs/ABI/TBI showed normal ABIs but mild distal PAD based on TBI. The patient underwent transarterial embolization, and a final angiogram showed significantly reduced flow to the AVM. I need to understand the patient's clinical response to treatment and the overall outcome.",
+        "confirmed_evidence": [
+          "Patient presented with left second toe pain, numbness, tingling, burning sensation, continued pain, dry gangrene, and non-healing wounds.",
+          "Initial workup at the vascular clinic included PVRs, ABI, TBI, CTA of the abdomen with runoff, and MRI of the left foot.",
+          "CTA showed normal abdominal aorta and patent iliac, femoral, and popliteal arteries.",
+          "CTA revealed a vascular malformation overlying the midshaft of the fibula and within the left fibularis brevis and longus muscles, measuring 3.4 cm x 2.7 cm x 10.8 cm (E004).",
+          "Duplex ultrasound revealed triphasic flow throughout the lower left extremity and low-resistance arterial flow within the AVM (E005).",
+          "PVRs showed normal waveforms to the ankle and mild waveforms of the left first and second toes.",
+          "Left posterior tibial artery Doppler was biphasic, and left dorsalis pedis artery Doppler was biphasic to triphasic.",
+          "Bilateral ABIs were within normal limits (right ABI: 1.14; left ABI: 1.03).",
+          "Left toe brachial index was suggestive of mild distal PAD (left TBI: 0.69; right TBI: 0.90) (E002).",
+          "Angiography findings included a large, complex left lower-extremity AVM with most of its feeding vessels derived from the anterior tibial, peroneal, and posterior tibial arteries (E006).",
+          "The patient underwent transarterial embolization with ethylene-vinyl alcohol copolymer (Onyx Liquid Embolization System) and embolization coils via a microcatheter (E006).",
+          "A final angiogram showed significantly reduced flow to the AVM (E007)."
+        ],
+        "missing_key_evidence": [
+          "Patient's clinical course or outcome following embolization (e.g., symptom resolution, wound healing)",
+          "Explicit documentation of the referral to Interventional Radiology (IR)",
+          "Evidence explicitly linking the AVM to the patient's symptoms (e.g., steal phenomenon)",
+          "Findings of MRI of the left foot (specifically regarding osteomyelitis, if available)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No pending orders and no undisclosed clinical course updates after the current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "The patient was referred to interventional radiology (IR) for the treatment of his symptomatic AVM.",
+        "trajectory_summary": "A 43-year-old male presented with a five-month history of left second toe pain, numbness, tingling, burning sensation, continued pain, dry gangrene, and non-healing wounds, initially misdiagnosed as mild PAD. Initial workup at a vascular clinic included PVRs, ABI, TBI, CTA of the abdomen with runoff, and MRI of the left foot. CTA (E004) revealed a vascular malformation measuring 3.4 cm x 2.7 cm x 10.8 cm overlying the midshaft of the fibula and within the left fibularis brevis and longus muscles, while showing normal abdominal aorta and patent iliac, femoral, and popliteal arteries. Duplex ultrasound (E005) further characterized this as having low-resistance arterial flow within the malformation, and PVRs/ABI/TBI (E002) showed normal ABIs but mild distal PAD based on TBI. Diagnostic angiography (E006) definitively confirmed a large, complex left lower-extremity arteriovenous malformation (AVM) with feeding vessels from the anterior tibial, peroneal, and posterior tibial arteries. The patient subsequently underwent transarterial embolization with ethylene-vinyl alcohol copolymer and embolization coils (E006), with a final angiogram (E007) showing significantly reduced flow to the AVM.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with left second toe pain, numbness, tingling, burning sensation, continued pain, dry gangrene, and non-healing wounds.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "CTA revealed a vascular malformation overlying the midshaft of the fibula and within the left fibularis brevis and longus muscles, measuring 3.4 cm x 2.7 cm x 10.8 cm.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Duplex ultrasound revealed low-resistance arterial flow within the vascular malformation, consistent with an AVM.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Diagnostic angiography confirmed a large, complex left lower-extremity AVM with feeding vessels from the anterior tibial, peroneal, and posterior tibial arteries.",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "The patient underwent transarterial embolization with ethylene-vinyl alcohol copolymer and embolization coils.",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "A final angiogram showed significantly reduced flow to the AVM post-embolization.",
+            "evidence_ids": [
+              "E007"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Significant Peripheral Artery Disease (PAD)",
+            "basis": "CTA showed normal abdominal aorta and patent iliac, femoral, and popliteal arteries (E004). Bilateral ABIs were within normal limits (E002)."
+          },
+          {
+            "alternative": "Osteomyelitis",
+            "basis": "MRI of the left foot was performed to evaluate for osteomyelitis, but specific findings were not reported, so it cannot be definitively ruled out by documented evidence, but it was a considered alternative."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Specific findings of the MRI of the left foot, particularly regarding osteomyelitis.",
+          "Explicit documentation of the referral to Interventional Radiology (IR).",
+          "Explicit evidence linking the AVM to the patient's symptoms (e.g., steal phenomenon).",
+          "Patient's clinical course or outcome following embolization (e.g., symptom resolution, wound healing)."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "The patient was referred to interventional radiology (IR) for the treatment of his symptomatic AVM.",
+    "trajectory_summary": "A 43-year-old male presented with a five-month history of left second toe pain, numbness, tingling, burning sensation, continued pain, dry gangrene, and non-healing wounds, initially misdiagnosed as mild PAD. Initial workup at a vascular clinic included PVRs, ABI, TBI, CTA of the abdomen with runoff, and MRI of the left foot. CTA (E004) revealed a vascular malformation measuring 3.4 cm x 2.7 cm x 10.8 cm overlying the midshaft of the fibula and within the left fibularis brevis and longus muscles, while showing normal abdominal aorta and patent iliac, femoral, and popliteal arteries. Duplex ultrasound (E005) further characterized this as having low-resistance arterial flow within the malformation, and PVRs/ABI/TBI (E002) showed normal ABIs but mild distal PAD based on TBI. Diagnostic angiography (E006) definitively confirmed a large, complex left lower-extremity arteriovenous malformation (AVM) with feeding vessels from the anterior tibial, peroneal, and posterior tibial arteries. The patient subsequently underwent transarterial embolization with ethylene-vinyl alcohol copolymer and embolization coils (E006), with a final angiogram (E007) showing significantly reduced flow to the AVM.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with left second toe pain, numbness, tingling, burning sensation, continued pain, dry gangrene, and non-healing wounds.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "CTA revealed a vascular malformation overlying the midshaft of the fibula and within the left fibularis brevis and longus muscles, measuring 3.4 cm x 2.7 cm x 10.8 cm.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Duplex ultrasound revealed low-resistance arterial flow within the vascular malformation, consistent with an AVM.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Diagnostic angiography confirmed a large, complex left lower-extremity AVM with feeding vessels from the anterior tibial, peroneal, and posterior tibial arteries.",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "The patient underwent transarterial embolization with ethylene-vinyl alcohol copolymer and embolization coils.",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "A final angiogram showed significantly reduced flow to the AVM post-embolization.",
+        "evidence_ids": [
+          "E007"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Significant Peripheral Artery Disease (PAD)",
+        "basis": "CTA showed normal abdominal aorta and patent iliac, femoral, and popliteal arteries (E004). Bilateral ABIs were within normal limits (E002)."
+      },
+      {
+        "alternative": "Osteomyelitis",
+        "basis": "MRI of the left foot was performed to evaluate for osteomyelitis, but specific findings were not reported, so it cannot be definitively ruled out by documented evidence, but it was a considered alternative."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Specific findings of the MRI of the left foot, particularly regarding osteomyelitis.",
+      "Explicit documentation of the referral to Interventional Radiology (IR).",
+      "Explicit evidence linking the AVM to the patient's symptoms (e.g., steal phenomenon).",
+      "Patient's clinical course or outcome following embolization (e.g., symptom resolution, wound healing)."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T00:32:15.055726+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

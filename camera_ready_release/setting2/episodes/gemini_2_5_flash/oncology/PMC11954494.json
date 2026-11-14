@@ -1,0 +1,654 @@
+{
+  "case_id": "PMC11954494",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "The final diagnosis was BRAF-wildtype PA, WHO grade 1.",
+  "disclosed_evidence_ids": [
+    "E002",
+    "E003",
+    "E004",
+    "E007",
+    "E009",
+    "E011",
+    "E012"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "What diagnostic procedure was performed after the initial MRI, and what were its findings?",
+        "current_trajectory_hypothesis": "Initial MRI showed a large brain tumor. The next step would likely be a biopsy or surgical resection for histopathological diagnosis to confirm the tumor type and grade.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Histopathological diagnosis of the tumor",
+          "WHO grade of the tumor",
+          "Molecular characteristics (BRAF status)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for pathology procedure acknowledged; no direct source record of the procedure performed at this phase.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "Status found is not valid for clinician action ORDER_PROCEDURE.",
+        "validation_errors": [
+          "Status found is not valid for clinician action ORDER_PROCEDURE."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the histopathological findings from the tumor tissue obtained after the initial MRI, including tumor type, WHO grade, and BRAF mutation status?",
+        "current_trajectory_hypothesis": "Following the initial MRI showing a large brain tumor, a diagnostic procedure (likely biopsy or resection) was performed to obtain tissue for histopathological and molecular analysis, which should confirm the tumor type (Pilocytic Astrocytoma), WHO grade (1), and BRAF status (wildtype).",
+        "confirmed_evidence": [
+          "Initial MRI showed a 5x5x7 cm intraventricular tumor with growth into the temporal lobe, hypothalamus, and basal ganglia."
+        ],
+        "missing_key_evidence": [
+          "Histopathological diagnosis (tumor type and WHO grade)",
+          "Molecular characteristics (BRAF mutation status)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Classification with the latest Molecular Neuropathology Brain classifier v.12.5 resulted in a calibrated match score of 0.99 with PA, and the same result was obtained with the clinically validated v.11b4 (score: 0.93; www.molecularneuropathology.org/mnp). The final diagnosis was BRAF-wildtype PA, WHO grade 1.",
+        "category": "molecular_test",
+        "temporal_cue": "post surgery",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "What surgical procedure was performed to obtain the tumor tissue for diagnosis, and what were its immediate findings or goals?",
+        "current_trajectory_hypothesis": "After initial MRI revealed a large brain tumor, a surgical procedure was likely performed to obtain tissue for histopathological and molecular diagnosis, which confirmed BRAF-wildtype PA, WHO grade 1. I need to confirm the details of this procedure.",
+        "confirmed_evidence": [
+          "Initial MRI showed a 5x5x7 cm intraventricular tumor with growth into the temporal lobe, hypothalamus, and basal ganglia.",
+          "Molecular Neuropathology Brain classifier resulted in a calibrated match score of 0.99 with PA, and the final diagnosis was BRAF-wildtype PA, WHO grade 1."
+        ],
+        "missing_key_evidence": [
+          "Details of the surgical procedure (type, extent, immediate findings)",
+          "Post-operative clinical course or treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Order for surgical procedure has been placed; no surgical procedure details documented yet in source.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "Status found is not valid for clinician action ORDER_PROCEDURE.",
+        "validation_errors": [
+          "Status found is not valid for clinician action ORDER_PROCEDURE."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the surgical report detailing the tumor resection or biopsy, including the extent of removal and any immediate post-operative findings?",
+        "current_trajectory_hypothesis": "After initial MRI revealed a large brain tumor, a surgical procedure (resection or biopsy) was performed to obtain tissue for histopathological and molecular diagnosis, which confirmed BRAF-wildtype PA, WHO grade 1. I need to confirm the details of this procedure.",
+        "confirmed_evidence": [
+          "Initial MRI showed a 5x5x7 cm intraventricular tumor with growth into the temporal lobe, hypothalamus, and basal ganglia.",
+          "Molecular Neuropathology Brain classifier resulted in a calibrated match score of 0.99 with PA, and the final diagnosis was BRAF-wildtype PA, WHO grade 1."
+        ],
+        "missing_key_evidence": [
+          "Details of the surgical procedure (type, extent, immediate findings)",
+          "Post-operative clinical course or treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "Clinical routine pathological investigation of the resected tissue showed relatively small cell nuclei, few Rosenthal fibers, occasional mitosis (1 mitosis per 2 mm2), positivity for GFAP and synaptophysin, and a low Ki-67 proliferation rate (4.5% in hot spot areas), suggesting a LGG (Figure 1B). The tumor had normal TP53 expression, preserved expression of ATRX, and was negative for H3K27 mutation (H3 p.K28me3 assay) by immunohistochemistry (IHC), excluding other common brain tumor entities.",
+        "category": "pathology_report",
+        "temporal_cue": "post surgery",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the specific surgical procedure performed to obtain the resected tissue, including the extent of tumor removal and any immediate post-operative complications or findings?",
+        "current_trajectory_hypothesis": "After initial MRI revealed a large brain tumor, a surgical procedure was performed, leading to the resection of tissue. This tissue was then analyzed, confirming BRAF-wildtype PA, WHO grade 1. I need to understand the details of the surgical intervention itself.",
+        "confirmed_evidence": [
+          "Initial MRI showed a 5x5x7 cm intraventricular tumor with growth into the temporal lobe, hypothalamus, and basal ganglia.",
+          "Molecular Neuropathology Brain classifier resulted in a calibrated match score of 0.99 with PA, and the final diagnosis was BRAF-wildtype PA, WHO grade 1.",
+          "Clinical routine pathological investigation of the resected tissue showed features suggesting a LGG (relatively small cell nuclei, few Rosenthal fibers, occasional mitosis, GFAP and synaptophysin positivity, low Ki-67 proliferation rate), and ruled out other common brain tumor entities based on IHC (normal TP53, preserved ATRX, negative H3K27 mutation)."
+        ],
+        "missing_key_evidence": [
+          "Specific type of surgical procedure (e.g., gross total resection, subtotal resection, biopsy)",
+          "Extent of tumor removal",
+          "Immediate post-operative course or complications",
+          "Any subsequent treatment or follow-up"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "No specific source record describes the surgical procedure, extent of tumor removal, or immediate post-operative complications or findings.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "After initial MRI and subsequent surgical intervention leading to the diagnosis of BRAF-wildtype PA, WHO grade 1, I need to understand the patient's clinical course, any further treatments, and long-term outcomes.",
+        "confirmed_evidence": [
+          "Initial MRI showed a 5x5x7 cm intraventricular tumor with growth into the temporal lobe, hypothalamus, and basal ganglia.",
+          "Molecular Neuropathology Brain classifier resulted in a calibrated match score of 0.99 with PA, and the final diagnosis was BRAF-wildtype PA, WHO grade 1.",
+          "Clinical routine pathological investigation of the resected tissue showed features suggesting a LGG (relatively small cell nuclei, few Rosenthal fibers, occasional mitosis, GFAP and synaptophysin positivity, low Ki-67 proliferation rate), and ruled out other common brain tumor entities based on IHC (normal TP53, preserved ATRX, negative H3K27 mutation)."
+        ],
+        "missing_key_evidence": [
+          "Specific type of surgical procedure (e.g., gross total resection, subtotal resection, biopsy)",
+          "Extent of tumor removal",
+          "Immediate post-operative course or complications",
+          "Subsequent treatment (e.g., chemotherapy, radiation)",
+          "Follow-up imaging results",
+          "Patient outcome or long-term clinical status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "The targeted RNA sequencing by Archer FusionPlex identified an NTRK2 rearrangement joined with the novel 5' fusion partner ATG16L1. The genomic breakpoints were located in introns of the two genes, resulting in an ATG16L1 (exon 9)::NTRK2 (exon 16) in-frame fusion transcript (Figure 2A). Reinspection of the copy number alteration (CNA) plot inferred from the methylation data showed an evident loss in chromosome band 2q37.1 with a breakpoint within the ATG16L1 gene, resulting in the loss of the 3ʹ end. No apparent CNA could be seen in chromosome band 9q21.33 (NTRK2). However, zooming in on the gene level of NTRK2 hints at an copy number imbalance between the 5ʹ and 3ʹ ends, with lower levels of the 5ʹ end of NTRK2 (Figure 2B). To confirm the results, interphase fluorescent in situ hybridization (FISH) analysis with an NTRK2 break-apart probe was performed, verifying a DNA rearrangement of NTRK2 (Figure 2C).",
+        "category": "molecular_test",
+        "temporal_cue": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the clinical significance or impact of the identified ATG16L1::NTRK2 fusion and NTRK2 rearrangement on the patient's diagnosis, prognosis, or treatment plan?",
+        "current_trajectory_hypothesis": "After initial MRI and surgical tissue analysis confirming BRAF-wildtype PA, WHO grade 1, further molecular testing revealed an ATG16L1::NTRK2 fusion. I need to understand how this molecular finding influenced the clinical trajectory, especially regarding treatment or prognosis.",
+        "confirmed_evidence": [
+          "Initial MRI showed a 5x5x7 cm intraventricular tumor with growth into the temporal lobe, hypothalamus, and basal ganglia.",
+          "Molecular Neuropathology Brain classifier resulted in a calibrated match score of 0.99 with PA, and the final diagnosis was BRAF-wildtype PA, WHO grade 1.",
+          "Clinical routine pathological investigation of the resected tissue showed features suggesting a LGG (relatively small cell nuclei, few Rosenthal fibers, occasional mitosis, GFAP and synaptophysin positivity, low Ki-67 proliferation rate), and ruled out other common brain tumor entities based on IHC (normal TP53, preserved ATRX, negative H3K27 mutation).",
+          "Targeted RNA sequencing and FISH analysis identified an ATG16L1::NTRK2 fusion transcript and a DNA rearrangement of NTRK2."
+        ],
+        "missing_key_evidence": [
+          "Specific type of surgical procedure (e.g., gross total resection, subtotal resection, biopsy)",
+          "Extent of tumor removal",
+          "Immediate post-operative course or complications",
+          "Impact of NTRK2 fusion on treatment or prognosis",
+          "Subsequent treatment (e.g., chemotherapy, radiation)",
+          "Follow-up imaging results",
+          "Patient outcome or long-term clinical status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "Following the discovery of the ATG16L1::NTRK2 fusion, the patient was referred to the early phase clinical trials unit for potential entry into the phase I/II clinical trial SCOUT (NCT02637687). The SCOUT trial is for patients up to 21 years old with tumors harboring any NTRK gene fusion. A minimum of at least one measurable contrast-enhancing tumor lesion by MRI is usually required to enroll a subject into clinical trials to follow the efficacy of investigational drug therapy.",
+        "category": "imaging_report",
+        "temporal_cue": "June 2022",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Was the patient enrolled in the SCOUT clinical trial, and what was the treatment administered and its outcome?",
+        "current_trajectory_hypothesis": "After initial MRI and surgical tissue analysis confirming BRAF-wildtype PA, WHO grade 1, further molecular testing revealed an ATG16L1::NTRK2 fusion, leading to referral to the SCOUT clinical trial. I need to confirm if the patient was enrolled and what treatment was given, along with its efficacy or outcome.",
+        "confirmed_evidence": [
+          "Initial MRI showed a 5x5x7 cm intraventricular tumor with growth into the temporal lobe, hypothalamus, and basal ganglia.",
+          "Molecular Neuropathology Brain classifier resulted in a calibrated match score of 0.99 with PA, and the final diagnosis was BRAF-wildtype PA, WHO grade 1.",
+          "Clinical routine pathological investigation of the resected tissue showed features suggesting a LGG (relatively small cell nuclei, few Rosenthal fibers, occasional mitosis, GFAP and synaptophysin positivity, low Ki-67 proliferation rate), and ruled out other common brain tumor entities based on IHC (normal TP53, preserved ATRX, negative H3K27 mutation).",
+          "Targeted RNA sequencing and FISH analysis identified an ATG16L1::NTRK2 fusion transcript and a DNA rearrangement of NTRK2.",
+          "The ATG16L1::NTRK2 fusion led to referral to the SCOUT phase I/II clinical trial (NCT02637687) for patients with NTRK gene fusions."
+        ],
+        "missing_key_evidence": [
+          "Specific type of surgical procedure (e.g., gross total resection, subtotal resection, biopsy)",
+          "Extent of tumor removal",
+          "Immediate post-operative course or complications",
+          "Patient enrollment status in SCOUT trial",
+          "Treatment administered (if any) and its response/outcome",
+          "Follow-up imaging results",
+          "Patient outcome or long-term clinical status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E007",
+        "source_text": "Following the discovery of the ATG16L1::NTRK2 fusion, the patient was referred to the early phase clinical trials unit for potential entry into the phase I/II clinical trial SCOUT (NCT02637687). The SCOUT trial is for patients up to 21 years old with tumors harboring any NTRK gene fusion. A minimum of at least one measurable contrast-enhancing tumor lesion by MRI is usually required to enroll a subject into clinical trials to follow the efficacy of investigational drug therapy.",
+        "category": "imaging_report",
+        "temporal_cue": "June 2022",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the outcome of the referral to the SCOUT clinical trial, specifically regarding patient enrollment, the treatment received, and the patient's response or clinical course following this intervention?",
+        "current_trajectory_hypothesis": "After initial MRI and surgical tissue analysis confirming BRAF-wildtype PA, WHO grade 1, further molecular testing revealed an ATG16L1::NTRK2 fusion, leading to referral to the SCOUT clinical trial. I need to confirm if the patient was enrolled, what treatment was given, and the efficacy or outcome of that treatment.",
+        "confirmed_evidence": [
+          "Initial MRI showed a 5x5x7 cm intraventricular tumor with growth into the temporal lobe, hypothalamus, and basal ganglia.",
+          "Molecular Neuropathology Brain classifier resulted in a calibrated match score of 0.99 with PA, and the final diagnosis was BRAF-wildtype PA, WHO grade 1.",
+          "Clinical routine pathological investigation of the resected tissue showed features suggesting a LGG (relatively small cell nuclei, few Rosenthal fibers, occasional mitosis, GFAP and synaptophysin positivity, low Ki-67 proliferation rate), and ruled out other common brain tumor entities based on IHC (normal TP53, preserved ATRX, negative H3K27 mutation).",
+          "Targeted RNA sequencing and FISH analysis identified an ATG16L1::NTRK2 fusion transcript and a DNA rearrangement of NTRK2.",
+          "The ATG16L1::NTRK2 fusion led to referral to the SCOUT phase I/II clinical trial (NCT02637687) for patients with NTRK gene fusions."
+        ],
+        "missing_key_evidence": [
+          "Specific type of surgical procedure (e.g., gross total resection, subtotal resection, biopsy)",
+          "Extent of tumor removal",
+          "Immediate post-operative course or complications",
+          "Patient enrollment status in SCOUT trial",
+          "Treatment administered (if any) and its response/outcome",
+          "Follow-up imaging results",
+          "Patient outcome or long-term clinical status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E009",
+        "source_text": "Oral treatment with larotrectenib (Vitravki, BAY2757556) 100 mg BD was started in June 2022.",
+        "category": "treatment_response",
+        "temporal_cue": "June 2022",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the patient's response to larotrectenib treatment, and what was the clinical course or outcome following the initiation of this therapy?",
+        "current_trajectory_hypothesis": "After initial MRI and surgical tissue analysis confirming BRAF-wildtype PA, WHO grade 1, further molecular testing revealed an ATG16L1::NTRK2 fusion, leading to referral for a clinical trial. The patient started larotrectenib treatment in June 2022. I need to understand the efficacy and clinical outcome of this targeted therapy.",
+        "confirmed_evidence": [
+          "Initial MRI showed a 5x5x7 cm intraventricular tumor with growth into the temporal lobe, hypothalamus, and basal ganglia.",
+          "Molecular Neuropathology Brain classifier resulted in a calibrated match score of 0.99 with PA, and the final diagnosis was BRAF-wildtype PA, WHO grade 1.",
+          "Clinical routine pathological investigation of the resected tissue showed features suggesting a LGG (relatively small cell nuclei, few Rosenthal fibers, occasional mitosis, GFAP and synaptophysin positivity, low Ki-67 proliferation rate), and ruled out other common brain tumor entities based on IHC (normal TP53, preserved ATRX, negative H3K27 mutation).",
+          "Targeted RNA sequencing and FISH analysis identified an ATG16L1::NTRK2 fusion transcript and a DNA rearrangement of NTRK2.",
+          "The ATG16L1::NTRK2 fusion led to referral to the SCOUT phase I/II clinical trial (NCT02637687) for patients with NTRK gene fusions.",
+          "Oral treatment with larotrectenib (Vitravki, BAY2757556) 100 mg BD was started in June 2022."
+        ],
+        "missing_key_evidence": [
+          "Specific type of surgical procedure (e.g., gross total resection, subtotal resection, biopsy)",
+          "Extent of tumor removal",
+          "Immediate post-operative course or complications",
+          "Patient enrollment status in SCOUT trial (explicit confirmation)",
+          "Response to larotrectenib treatment",
+          "Follow-up imaging results post-treatment",
+          "Patient outcome or long-term clinical status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E011",
+        "source_text": "After 8 months of larotrectenib, the target measurable contrast-enhancing lesion and the 3 nonmeasurable contrast-enhancing lesions were no longer detectable, consistent with complete response (Figure 4A, III).",
+        "category": "imaging_report",
+        "temporal_cue": "February 2023",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the specific surgical procedure performed to obtain the resected tissue, including the extent of tumor removal and any immediate post-operative findings or complications?",
+        "current_trajectory_hypothesis": "After initial MRI and surgical tissue analysis confirming BRAF-wildtype PA, WHO grade 1, further molecular testing revealed an ATG16L1::NTRK2 fusion, leading to targeted therapy with larotrectenib, which resulted in a complete response. I still need to understand the details of the initial surgical intervention.",
+        "confirmed_evidence": [
+          "Initial MRI showed a 5x5x7 cm intraventricular tumor with growth into the temporal lobe, hypothalamus, and basal ganglia.",
+          "Molecular Neuropathology Brain classifier resulted in a calibrated match score of 0.99 with PA, and the final diagnosis was BRAF-wildtype PA, WHO grade 1.",
+          "Clinical routine pathological investigation of the resected tissue showed features suggesting a LGG (relatively small cell nuclei, few Rosenthal fibers, occasional mitosis, GFAP and synaptophysin positivity, low Ki-67 proliferation rate), and ruled out other common brain tumor entities based on IHC (normal TP53, preserved ATRX, negative H3K27 mutation).",
+          "Targeted RNA sequencing and FISH analysis identified an ATG16L1::NTRK2 fusion transcript and a DNA rearrangement of NTRK2.",
+          "The ATG16L1::NTRK2 fusion led to referral to the SCOUT phase I/II clinical trial (NCT02637687) for patients with NTRK gene fusions.",
+          "Oral treatment with larotrectenib (Vitravki, BAY2757556) 100 mg BD was started in June 2022.",
+          "After 8 months of larotrectenib, the target measurable contrast-enhancing lesion and the 3 nonmeasurable contrast-enhancing lesions were no longer detectable, consistent with complete response."
+        ],
+        "missing_key_evidence": [
+          "Specific type of surgical procedure (e.g., gross total resection, subtotal resection, biopsy)",
+          "Extent of tumor removal",
+          "Immediate post-operative course or complications",
+          "Patient enrollment status in SCOUT trial (explicit confirmation)",
+          "Long-term patient outcome or clinical status beyond 8 months post-treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No source record contains specific surgical procedure details or immediate post-operative findings or complications.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the patient's long-term clinical status or outcome beyond the 8-month mark after starting larotrectenib treatment?",
+        "current_trajectory_hypothesis": "After initial MRI and surgical tissue analysis confirming BRAF-wildtype PA, WHO grade 1, further molecular testing revealed an ATG16L1::NTRK2 fusion, leading to targeted therapy with larotrectenib, which resulted in a complete response after 8 months. I need to understand the long-term clinical outcome following this complete response.",
+        "confirmed_evidence": [
+          "Initial MRI showed a 5x5x7 cm intraventricular tumor with growth into the temporal lobe, hypothalamus, and basal ganglia.",
+          "Molecular Neuropathology Brain classifier resulted in a calibrated match score of 0.99 with PA, and the final diagnosis was BRAF-wildtype PA, WHO grade 1.",
+          "Clinical routine pathological investigation of the resected tissue showed features suggesting a LGG (relatively small cell nuclei, few Rosenthal fibers, occasional mitosis, GFAP and synaptophysin positivity, low Ki-67 proliferation rate), and ruled out other common brain tumor entities based on IHC (normal TP53, preserved ATRX, negative H3K27 mutation).",
+          "Targeted RNA sequencing and FISH analysis identified an ATG16L1::NTRK2 fusion transcript and a DNA rearrangement of NTRK2.",
+          "The ATG16L1::NTRK2 fusion led to referral to the SCOUT phase I/II clinical trial (NCT02637687) for patients with NTRK gene fusions.",
+          "Oral treatment with larotrectenib (Vitravki, BAY2757556) 100 mg BD was started in June 2022.",
+          "After 8 months of larotrectenib, the target measurable contrast-enhancing lesion and the 3 nonmeasurable contrast-enhancing lesions were no longer detectable, consistent with complete response."
+        ],
+        "missing_key_evidence": [
+          "Specific type of surgical procedure (e.g., gross total resection, subtotal resection, biopsy)",
+          "Extent of tumor removal",
+          "Immediate post-operative course or complications",
+          "Patient enrollment status in SCOUT trial (explicit confirmation)",
+          "Long-term patient outcome or clinical status beyond 8 months post-treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E012",
+        "source_text": "The complete response was sustained at the last follow-up after one year and 10 months of treatment in April 2024 (Figure 4A, IV).",
+        "category": "imaging_report",
+        "temporal_cue": "April 2024",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Was the patient explicitly enrolled in the SCOUT clinical trial, and if so, was larotrectenib administered as part of this trial?",
+        "current_trajectory_hypothesis": "After initial MRI and surgical tissue analysis confirming BRAF-wildtype PA, WHO grade 1, further molecular testing revealed an ATG16L1::NTRK2 fusion, leading to referral for a clinical trial. The patient started larotrectenib treatment in June 2022, which resulted in a complete response sustained for over a year. I need to explicitly confirm the patient's enrollment in the SCOUT trial and if the treatment was administered within that context.",
+        "confirmed_evidence": [
+          "Initial MRI showed a 5x5x7 cm intraventricular tumor with growth into the temporal lobe, hypothalamus, and basal ganglia.",
+          "Molecular Neuropathology Brain classifier resulted in a calibrated match score of 0.99 with PA, and the final diagnosis was BRAF-wildtype PA, WHO grade 1.",
+          "Clinical routine pathological investigation of the resected tissue showed features suggesting a LGG (relatively small cell nuclei, few Rosenthal fibers, occasional mitosis, GFAP and synaptophysin positivity, low Ki-67 proliferation rate), and ruled out other common brain tumor entities based on IHC (normal TP53, preserved ATRX, negative H3K27 mutation).",
+          "Targeted RNA sequencing and FISH analysis identified an ATG16L1::NTRK2 fusion transcript and a DNA rearrangement of NTRK2.",
+          "The ATG16L1::NTRK2 fusion led to referral to the SCOUT phase I/II clinical trial (NCT02637687) for patients with NTRK gene fusions.",
+          "Oral treatment with larotrectenib (Vitravki, BAY2757556) 100 mg BD was started in June 2022.",
+          "After 8 months of larotrectenib, the target measurable contrast-enhancing lesion and the 3 nonmeasurable contrast-enhancing lesions were no longer detectable, consistent with complete response.",
+          "The complete response was sustained at the last follow-up after one year and 10 months of treatment in April 2024."
+        ],
+        "missing_key_evidence": [
+          "Specific type of surgical procedure (e.g., gross total resection, subtotal resection, biopsy)",
+          "Extent of tumor removal",
+          "Immediate post-operative course or complications",
+          "Explicit confirmation of patient enrollment status in SCOUT trial"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E007",
+        "source_text": "Following the discovery of the ATG16L1::NTRK2 fusion, the patient was referred to the early phase clinical trials unit for potential entry into the phase I/II clinical trial SCOUT (NCT02637687). The SCOUT trial is for patients up to 21 years old with tumors harboring any NTRK gene fusion. A minimum of at least one measurable contrast-enhancing tumor lesion by MRI is usually required to enroll a subject into clinical trials to follow the efficacy of investigational drug therapy.",
+        "category": "imaging_report",
+        "temporal_cue": "June 2022",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the specific context of larotrectenib administration? Was it administered as part of the SCOUT clinical trial, or through another mechanism?",
+        "current_trajectory_hypothesis": "After initial MRI and surgical tissue analysis confirming BRAF-wildtype PA, WHO grade 1, further molecular testing revealed an ATG16L1::NTRK2 fusion, leading to referral for a clinical trial. The patient started larotrectenib treatment in June 2022, which resulted in a complete response sustained for over a year. I need to explicitly confirm the patient's enrollment in the SCOUT trial and if the treatment was administered within that context, or if it was administered through another pathway.",
+        "confirmed_evidence": [
+          "Initial MRI showed a 5x5x7 cm intraventricular tumor with growth into the temporal lobe, hypothalamus, and basal ganglia.",
+          "Molecular Neuropathology Brain classifier resulted in a calibrated match score of 0.99 with PA, and the final diagnosis was BRAF-wildtype PA, WHO grade 1.",
+          "Clinical routine pathological investigation of the resected tissue showed features suggesting a LGG (relatively small cell nuclei, few Rosenthal fibers, occasional mitosis, GFAP and synaptophysin positivity, low Ki-67 proliferation rate), and ruled out other common brain tumor entities based on IHC (normal TP53, preserved ATRX, negative H3K27 mutation).",
+          "Targeted RNA sequencing and FISH analysis identified an ATG16L1::NTRK2 fusion transcript and a DNA rearrangement of NTRK2.",
+          "The ATG16L1::NTRK2 fusion led to referral to the SCOUT phase I/II clinical trial (NCT02637687) for patients with NTRK gene fusions.",
+          "Oral treatment with larotrectenib (Vitravki, BAY2757556) 100 mg BD was started in June 2022.",
+          "After 8 months of larotrectenib, the target measurable contrast-enhancing lesion and the 3 nonmeasurable contrast-enhancing lesions were no longer detectable, consistent with complete response.",
+          "The complete response was sustained at the last follow-up after one year and 10 months of treatment in April 2024."
+        ],
+        "missing_key_evidence": [
+          "Specific type of surgical procedure (e.g., gross total resection, subtotal resection, biopsy)",
+          "Extent of tumor removal",
+          "Immediate post-operative course or complications",
+          "Explicit confirmation of patient enrollment status in SCOUT trial and the context of larotrectenib administration"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E007",
+        "source_text": "Following the discovery of the ATG16L1::NTRK2 fusion, the patient was referred to the early phase clinical trials unit for potential entry into the phase I/II clinical trial SCOUT (NCT02637687). The SCOUT trial is for patients up to 21 years old with tumors harboring any NTRK gene fusion. A minimum of at least one measurable contrast-enhancing tumor lesion by MRI is usually required to enroll a subject into clinical trials to follow the efficacy of investigational drug therapy.",
+        "category": "imaging_report",
+        "temporal_cue": "June 2022",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "BRAF-wildtype PA, WHO grade 1",
+        "trajectory_summary": "A 7-year-old boy presented with personality change, visual disturbance, and vomiting. Initial MRI in September 2019 revealed a 5x5x7 cm intraventricular tumor with growth into the temporal lobe, hypothalamus, and basal ganglia. Resected tissue pathology showed features suggesting a low-grade glioma (LGG), including relatively small cell nuclei, few Rosenthal fibers, occasional mitosis, GFAP and synaptophysin positivity, and a low Ki-67 proliferation rate. Immunohistochemistry ruled out other common brain tumor entities (normal TP53, preserved ATRX, negative H3K27 mutation). Molecular Neuropathology Brain classifier confirmed the diagnosis as BRAF-wildtype Pilocytic Astrocytoma (PA), WHO grade 1. Further molecular testing identified an ATG16L1::NTRK2 fusion transcript and NTRK2 rearrangement, leading to referral for the SCOUT clinical trial. Oral treatment with larotrectenib was initiated in June 2022. After 8 months of treatment (February 2023), the patient achieved a complete response, with all measurable and non-measurable lesions no longer detectable. This complete response was sustained at the last follow-up in April 2024, after one year and 10 months of treatment.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial MRI showed a 5x5x7 cm intraventricular tumor with growth into the temporal lobe, hypothalamus, and basal ganglia.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Clinical routine pathological investigation of resected tissue showed features suggesting a LGG (relatively small cell nuclei, few Rosenthal fibers, occasional mitosis, GFAP and synaptophysin positivity, low Ki-67 proliferation rate).",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Immunohistochemistry ruled out other common brain tumor entities (normal TP53 expression, preserved ATRX, negative H3K27 mutation).",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Molecular Neuropathology Brain classifier confirmed the final diagnosis as BRAF-wildtype PA, WHO grade 1.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Targeted RNA sequencing and FISH analysis identified an ATG16L1::NTRK2 fusion transcript and a DNA rearrangement of NTRK2.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "The ATG16L1::NTRK2 fusion led to referral to the SCOUT phase I/II clinical trial.",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Oral treatment with larotrectenib (Vitravki, BAY2757556) 100 mg BD was started in June 2022.",
+            "evidence_ids": [
+              "E009"
+            ]
+          },
+          {
+            "claim": "After 8 months of larotrectenib, the target measurable contrast-enhancing lesion and the 3 nonmeasurable contrast-enhancing lesions were no longer detectable, consistent with complete response.",
+            "evidence_ids": [
+              "E011"
+            ]
+          },
+          {
+            "claim": "The complete response was sustained at the last follow-up after one year and 10 months of treatment in April 2024.",
+            "evidence_ids": [
+              "E012"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Other common brain tumor entities",
+            "basis": "Normal TP53 expression, preserved expression of ATRX, and negative for H3K27 mutation by immunohistochemistry (E002)."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Specific type of surgical procedure (e.g., gross total resection, subtotal resection, biopsy)",
+          "Extent of tumor removal",
+          "Immediate post-operative course or complications",
+          "Explicit confirmation of patient enrollment status in the SCOUT trial and whether larotrectenib was administered as part of this trial or through another mechanism."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "BRAF-wildtype PA, WHO grade 1",
+    "trajectory_summary": "A 7-year-old boy presented with personality change, visual disturbance, and vomiting. Initial MRI in September 2019 revealed a 5x5x7 cm intraventricular tumor with growth into the temporal lobe, hypothalamus, and basal ganglia. Resected tissue pathology showed features suggesting a low-grade glioma (LGG), including relatively small cell nuclei, few Rosenthal fibers, occasional mitosis, GFAP and synaptophysin positivity, and a low Ki-67 proliferation rate. Immunohistochemistry ruled out other common brain tumor entities (normal TP53, preserved ATRX, negative H3K27 mutation). Molecular Neuropathology Brain classifier confirmed the diagnosis as BRAF-wildtype Pilocytic Astrocytoma (PA), WHO grade 1. Further molecular testing identified an ATG16L1::NTRK2 fusion transcript and NTRK2 rearrangement, leading to referral for the SCOUT clinical trial. Oral treatment with larotrectenib was initiated in June 2022. After 8 months of treatment (February 2023), the patient achieved a complete response, with all measurable and non-measurable lesions no longer detectable. This complete response was sustained at the last follow-up in April 2024, after one year and 10 months of treatment.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial MRI showed a 5x5x7 cm intraventricular tumor with growth into the temporal lobe, hypothalamus, and basal ganglia.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Clinical routine pathological investigation of resected tissue showed features suggesting a LGG (relatively small cell nuclei, few Rosenthal fibers, occasional mitosis, GFAP and synaptophysin positivity, low Ki-67 proliferation rate).",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Immunohistochemistry ruled out other common brain tumor entities (normal TP53 expression, preserved ATRX, negative H3K27 mutation).",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Molecular Neuropathology Brain classifier confirmed the final diagnosis as BRAF-wildtype PA, WHO grade 1.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Targeted RNA sequencing and FISH analysis identified an ATG16L1::NTRK2 fusion transcript and a DNA rearrangement of NTRK2.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "The ATG16L1::NTRK2 fusion led to referral to the SCOUT phase I/II clinical trial.",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Oral treatment with larotrectenib (Vitravki, BAY2757556) 100 mg BD was started in June 2022.",
+        "evidence_ids": [
+          "E009"
+        ]
+      },
+      {
+        "claim": "After 8 months of larotrectenib, the target measurable contrast-enhancing lesion and the 3 nonmeasurable contrast-enhancing lesions were no longer detectable, consistent with complete response.",
+        "evidence_ids": [
+          "E011"
+        ]
+      },
+      {
+        "claim": "The complete response was sustained at the last follow-up after one year and 10 months of treatment in April 2024.",
+        "evidence_ids": [
+          "E012"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Other common brain tumor entities",
+        "basis": "Normal TP53 expression, preserved expression of ATRX, and negative for H3K27 mutation by immunohistochemistry (E002)."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Specific type of surgical procedure (e.g., gross total resection, subtotal resection, biopsy)",
+      "Extent of tumor removal",
+      "Immediate post-operative course or complications",
+      "Explicit confirmation of patient enrollment status in the SCOUT trial and whether larotrectenib was administered as part of this trial or through another mechanism."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T22:54:49.483393+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

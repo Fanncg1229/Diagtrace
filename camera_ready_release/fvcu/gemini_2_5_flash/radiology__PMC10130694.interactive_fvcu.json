@@ -1,0 +1,51 @@
+{
+  "prompt_version": "2026-07-31-interactive-fvcu-v1",
+  "judge_deployment": "gpt-4.1-mini-test",
+  "judge_input_file": "eacl_benchmark/results/interactive_fvcu_quality/matched225_100case_gemini25flash/judge_inputs/radiology__PMC10130694.json",
+  "judge_output": {
+    "case_id": "PMC10130694",
+    "judge_status": "completed",
+    "interactive_fvcu": {
+      "factuality": {
+        "score": 4,
+        "major_issues": [],
+        "rationale": "The clinician agent's claims and final reconstruction are well grounded in the disclosed report-agent responses (E001, E002, E003, E004, E005). There are no fabricated findings or unsupported evidence citations. The agent correctly notes the absence of molecular testing results as these were not reported in the source events."
+      },
+      "validity": {
+        "score": 4,
+        "major_issues": [],
+        "rationale": "The clinician agent's requests and interpretations are clinically reasonable and appropriate given the known diagnosis and evidence. The agent correctly prioritized biopsy and immunohistochemistry, requested molecular testing for confirmation, and sought further imaging and clinical course updates. The agent avoided overly diagnostic or irrelevant requests."
+      },
+      "coherence": {
+        "score": 4,
+        "major_issues": [],
+        "rationale": "The working reconstruction and confidence evolved logically with each turn. Confirmed evidence and missing evidence were updated consistently. The final reconstruction aligns with the interaction trace and disclosed evidence. Minor issues include repeated WAIT_REASSESS turns without new evidence, but these reflect the lack of further source data rather than agent inconsistency."
+      },
+      "utility": {
+        "score": 3,
+        "major_issues": [
+          "Molecular testing report for SYT-SSX translocation was ordered but never obtained or found in the source, limiting diagnostic completeness.",
+          "Multiple WAIT_REASSESS turns were used without new evidence, reducing efficiency.",
+          "No treatment or clinical outcome data were pursued or found, leaving the trajectory incomplete."
+        ],
+        "rationale": "The agent effectively acquired key high-yield evidence (imaging, pathology, immunohistochemistry, PET-CT) but was unable to obtain molecular confirmation or treatment details due to source limitations. The agent's use of the turn budget included many reassessments without new data, which lowered utility."
+      },
+      "overall_quality": {
+        "score": 4,
+        "rationale": "The clinician agent demonstrated strong factual grounding, clinical validity, and coherent reasoning. The final reconstruction is well supported by released evidence. The main limitation is incomplete molecular confirmation and clinical course details, which reflect source data gaps rather than agent error. The agent's request strategy was generally sound but could be more efficient."
+      }
+    },
+    "trajectory_flags": {
+      "unsupported_or_unreleased_claims": false,
+      "request_strategy_problem": false,
+      "final_reconstruction_grounded": true
+    },
+    "episode_notes": "The clinician agent successfully reconstructed the diagnostic trajectory for primary synovial sarcoma of the lung using available imaging and pathology reports. Molecular testing was appropriately requested but not documented in the source, and the agent acknowledged this uncertainty. The agent's repeated WAIT_REASSESS actions reflect the absence of further source data rather than poor strategy. Overall, the episode is a good example of diagnosis-aware interactive reconstruction with minor limitations due to source data incompleteness."
+  },
+  "usage": {
+    "prompt_tokens": 10657,
+    "completion_tokens": 662,
+    "total_tokens": 11319
+  },
+  "created_at": "2026-08-01T03:17:31.990602+00:00"
+}

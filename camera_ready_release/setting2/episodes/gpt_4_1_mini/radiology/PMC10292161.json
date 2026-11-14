@@ -1,0 +1,377 @@
+{
+  "case_id": "PMC10292161",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 9,
+  "termination": "final",
+  "known_final_diagnosis": "we diagnosed our patient with post-streptococcal glomerulonephritis. Furthermore, the MRI findings of the brain and the history of elevated blood pressure were confluent with the diagnosis of PRES.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E005",
+    "E007"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "Ask about any recent sore throat, skin infections, or signs of streptococcal infections prior to onset of current symptoms.",
+        "current_trajectory_hypothesis": "Patient presents with fever, headache, vomiting, blurry vision, seizures; possible infection-related neurological syndrome; history suggestive of possible post-infectious complication.",
+        "confirmed_evidence": [
+          "Initial presenting symptoms: fever, headache, vomiting, blurry vision, involuntary movements/seizures."
+        ],
+        "missing_key_evidence": [
+          "Evidence of prior streptococcal infection or exposure",
+          "Blood pressure measurements",
+          "Brain imaging findings",
+          "Laboratory evidence of glomerulonephritis",
+          "Confirmation of PRES diagnosis via MRI"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Investigations were significant for leukocytosis, positive IgM antibodies for Dengue, decreased complement 3, elevated anti-streptolysin (ASO) titers, uremia, hematuria, and proteinuria (Table 1).",
+        "category": "serology",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order blood pressure measurement and renal function panel including serum creatinine and blood urea nitrogen",
+        "current_trajectory_hypothesis": "Patient has evidence of infection with positive ASO titers and symptoms consistent with a post-infectious syndrome; probable glomerulonephritis causing hypertension, which may contribute to neurological symptoms.",
+        "confirmed_evidence": [
+          "Initial symptoms: fever, headache, vomiting, blurry vision, seizures",
+          "Positive ASO titers indicating recent streptococcal infection",
+          "Leukocytosis, decreased complement 3, uremia, hematuria, and proteinuria suggestive of glomerulonephritis"
+        ],
+        "missing_key_evidence": [
+          "Blood pressure measurements to document hypertension",
+          "Brain imaging (MRI) findings confirming PRES",
+          "Further renal function tests",
+          "Clinical examination details, especially neurological and fundus exam"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order placed matching clinician request; no direct result yet in source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request blood pressure measurement and renal function panel results including serum creatinine and blood urea nitrogen",
+        "current_trajectory_hypothesis": "Patient shows signs of post-streptococcal glomerulonephritis with positive ASO titers, decreased complement, and renal involvement; hypertension from renal impairment could cause PRES; confirming blood pressure and renal parameters is critical.",
+        "confirmed_evidence": [
+          "Initial symptoms consistent with neurological involvement and infection",
+          "Positive ASO titers, decreased complement 3, leukocytosis, uremia, hematuria, and proteinuria indicate glomerulonephritis"
+        ],
+        "missing_key_evidence": [
+          "Blood pressure measurement",
+          "Renal function panel results (creatinine, BUN)",
+          "Brain MRI findings confirming PRES",
+          "Neurological examination and funduscopy findings"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "On examination, the boy was found to have a blood pressure of 150/100 mmHg (99th percentile as per the Indian Pediatric Association) and a heart rate of 82 beats/minute.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request the brain MRI report describing findings consistent with posterior reversible encephalopathy syndrome (PRES)",
+        "current_trajectory_hypothesis": "Patient with post-streptococcal glomerulonephritis demonstrated by positive ASO titers, decreased complement, hematuria, proteinuria, uremia, and hypertension; neurological symptoms likely due to PRES as suggested by MRI findings.",
+        "confirmed_evidence": [
+          "Positive ASO titers, decreased complement 3, leukocytosis, hematuria, proteinuria, and uremia suggesting glomerulonephritis (E003)",
+          "Hypertension documented with BP 150/100 mmHg on admission (E001)"
+        ],
+        "missing_key_evidence": [
+          "Brain MRI findings confirming PRES",
+          "Detailed renal function test results (creatinine, BUN)",
+          "Neurological and fundoscopic examination findings"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "MRI findings were remarkable for the symmetrical enhancement of superficial and deep watershed areas, predominantly in the occipital and temporal regions (Figure 1).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request renal function test results including serum creatinine and blood urea nitrogen values",
+        "current_trajectory_hypothesis": "Patient shows clinical and laboratory evidence of post-streptococcal glomerulonephritis with hypertension contributing to neurological symptoms consistent with PRES seen on brain MRI.",
+        "confirmed_evidence": [
+          "Positive ASO titers, decreased complement 3, leukocytosis, hematuria, proteinuria, and uremia suggest glomerulonephritis (E003)",
+          "Hypertension documented on admission with blood pressure 150/100 mmHg (E001)",
+          "MRI showing symmetrical enhancement in watershed areas of occipital and temporal lobes consistent with PRES (E004)"
+        ],
+        "missing_key_evidence": [
+          "Exact renal function panel values (creatinine, BUN) to assess renal impairment severity",
+          "Neurological examination and fundoscopic findings"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E003",
+        "source_text": "Investigations were significant for leukocytosis, positive IgM antibodies for Dengue, decreased complement 3, elevated anti-streptolysin (ASO) titers, uremia, hematuria, and proteinuria (Table 1).",
+        "category": "serology",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "Ask about neurological examination findings including mental status, focal neurological deficits, and detailed description of involuntary movements observed.",
+        "current_trajectory_hypothesis": "Patient has evidence of post-streptococcal glomerulonephritis with hypertension driving neurological symptoms; brain MRI consistent with PRES explains vision changes and seizures. Neurological exam details needed to further correlate clinical manifestations with imaging findings.",
+        "confirmed_evidence": [
+          "Initial symptoms: fever, headache, vomiting, blurry vision, involuntary movements/seizures",
+          "Positive ASO titers, decreased complement 3, leukocytosis, uremia, hematuria, and proteinuria indicating post-streptococcal glomerulonephritis (E003)",
+          "Blood pressure on admission elevated at 150/100 mmHg (E001)",
+          "Brain MRI showing symmetrical enhancement in occipital and temporal watershed areas consistent with PRES (E004)"
+        ],
+        "missing_key_evidence": [
+          "Detailed neurological examination and funduscopy findings",
+          "Exact renal function panel values",
+          "Documentation of treatment given and clinical course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "Neurological examination was unremarkable except for decreased visual acuity of the left eye. Fundoscopy was unremarkable.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with symptoms and laboratory evidence of post-streptococcal glomerulonephritis causing hypertension, which likely precipitated PRES as evidenced by MRI and neurological findings. Confirming treatment and response will help complete the clinical trajectory.",
+        "confirmed_evidence": [
+          "Initial symptoms: fever, headache, vomiting, blurry vision, seizures",
+          "Laboratory: positive ASO titers, decreased C3, leukocytosis, uremia, hematuria, proteinuria indicating post-streptococcal glomerulonephritis (E003)",
+          "Hypertension documented at 150/100 mmHg on admission (E001)",
+          "Brain MRI shows symmetrical occipital and temporal watershed area enhancement consistent with PRES (E004)",
+          "Neurological exam showed decreased visual acuity in left eye, otherwise unremarkable (E002)"
+        ],
+        "missing_key_evidence": [
+          "Treatment regimen and clinical course",
+          "Outcome and any follow-up imaging or labs",
+          "Further assessment of renal impairment severity with exact creatinine/BUN values"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "The results of 72 hours of blood pressure (BP) monitoring revealed elevated blood pressure with systolic readings > 140mmHg with the highest recorded blood pressure of 150/100 mmHg (99th percentile as per the Indian Pediatric Association).",
+        "category": "molecular_test",
+        "temporal_cue": "72 hours after admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient’s trajectory so far is consistent with post-streptococcal glomerulonephritis causing hypertension, which precipitated PRES confirmed by brain MRI and neurological exam; treatment and clinical course will complete the evidence-based trajectory.",
+        "confirmed_evidence": [
+          "Patient presented with fever, headache, vomiting, blurry vision, seizures",
+          "Laboratory evidence including positive ASO titers, decreased complement 3, leukocytosis, uremia, hematuria, and proteinuria (E003)",
+          "Blood pressure consistently elevated >140/90 mmHg on admission and during 72-hour monitoring (E001, E005)",
+          "Brain MRI showing symmetrical enhancement in occipital and temporal watershed areas consistent with PRES (E004)",
+          "Neurological exam showing decreased visual acuity in left eye, otherwise unremarkable (E002)"
+        ],
+        "missing_key_evidence": [
+          "Details on treatment given (antihypertensives, supportive measures, etc.)",
+          "Clinical course and patient outcome",
+          "Follow-up imaging or lab data to assess resolution or progression"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "Our patient was treated conservatively with ceftriaxone for antimicrobial coverage and amlodipine for blood pressure management. Six days after admission and treatment, the boy was asymptomatic, however, with minimal hematuria.",
+        "category": "other",
+        "temporal_cue": "six days after admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "post-streptococcal glomerulonephritis with PRES",
+        "trajectory_summary": "A 15-year-old male presented with fever, headache, vomiting, blurry vision, and seizures. Initial labs showed leukocytosis, decreased complement 3, elevated ASO titers, uremia, hematuria, and proteinuria indicating post-streptococcal glomerulonephritis. Blood pressure was elevated at 150/100 mmHg on admission and remained high during 72-hour monitoring. Brain MRI demonstrated symmetrical enhancement in occipital and temporal watershed regions consistent with posterior reversible encephalopathy syndrome (PRES). Neurological exam showed decreased left eye visual acuity but was otherwise unremarkable. The patient was treated with ceftriaxone and amlodipine, leading to symptom resolution by six days, with minimal residual hematuria.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Positive ASO titers, decreased C3, leukocytosis, uremia, hematuria, and proteinuria indicating post-streptococcal glomerulonephritis",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Elevated blood pressure 150/100 mmHg on admission and persistent hypertension over 72 hours",
+            "evidence_ids": [
+              "E001",
+              "E005"
+            ]
+          },
+          {
+            "claim": "Brain MRI showing symmetrical enhancement in occipital and temporal watershed areas consistent with PRES",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Neurological exam showing decreased left eye visual acuity with otherwise unremarkable findings",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Treatment with ceftriaxone and amlodipine resulting in symptom resolution by six days with minimal residual hematuria",
+            "evidence_ids": [
+              "E007"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "primary neurological disorder or direct CNS infection",
+            "basis": "Absent clinical or laboratory evidence; MRI findings consistent with PRES secondary to hypertension"
+          },
+          {
+            "alternative": "non-streptococcal glomerulonephritis or nephropathy",
+            "basis": "Elevated ASO titers and decreased complement consistent with post-streptococcal etiology"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Exact quantitative renal function values (serum creatinine, BUN) were not separately documented beyond uremia mention",
+          "No follow-up imaging post-treatment was reported to confirm resolution of PRES"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "post-streptococcal glomerulonephritis with PRES",
+    "trajectory_summary": "A 15-year-old male presented with fever, headache, vomiting, blurry vision, and seizures. Initial labs showed leukocytosis, decreased complement 3, elevated ASO titers, uremia, hematuria, and proteinuria indicating post-streptococcal glomerulonephritis. Blood pressure was elevated at 150/100 mmHg on admission and remained high during 72-hour monitoring. Brain MRI demonstrated symmetrical enhancement in occipital and temporal watershed regions consistent with posterior reversible encephalopathy syndrome (PRES). Neurological exam showed decreased left eye visual acuity but was otherwise unremarkable. The patient was treated with ceftriaxone and amlodipine, leading to symptom resolution by six days, with minimal residual hematuria.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Positive ASO titers, decreased C3, leukocytosis, uremia, hematuria, and proteinuria indicating post-streptococcal glomerulonephritis",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Elevated blood pressure 150/100 mmHg on admission and persistent hypertension over 72 hours",
+        "evidence_ids": [
+          "E001",
+          "E005"
+        ]
+      },
+      {
+        "claim": "Brain MRI showing symmetrical enhancement in occipital and temporal watershed areas consistent with PRES",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Neurological exam showing decreased left eye visual acuity with otherwise unremarkable findings",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Treatment with ceftriaxone and amlodipine resulting in symptom resolution by six days with minimal residual hematuria",
+        "evidence_ids": [
+          "E007"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "primary neurological disorder or direct CNS infection",
+        "basis": "Absent clinical or laboratory evidence; MRI findings consistent with PRES secondary to hypertension"
+      },
+      {
+        "alternative": "non-streptococcal glomerulonephritis or nephropathy",
+        "basis": "Elevated ASO titers and decreased complement consistent with post-streptococcal etiology"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Exact quantitative renal function values (serum creatinine, BUN) were not separately documented beyond uremia mention",
+      "No follow-up imaging post-treatment was reported to confirm resolution of PRES"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-26T07:53:30.753788+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

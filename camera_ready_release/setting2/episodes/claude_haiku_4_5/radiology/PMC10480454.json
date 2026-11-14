@@ -1,0 +1,583 @@
+{
+  "case_id": "PMC10480454",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 11,
+  "termination": "final",
+  "known_final_diagnosis": "the patient was admitted to the surgical service for the management of a liver abscess, presumed to be secondary to perforation of the stomach by an ingested foreign body",
+  "disclosed_evidence_ids": [
+    "E003",
+    "E004",
+    "E005",
+    "E006",
+    "E007",
+    "E009"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "Did the patient report any history of ingesting foreign bodies, swallowing objects, or any abdominal trauma or injury in the days or weeks before symptom onset? Also, did he report any recent abdominal pain, even if mild or intermittent?",
+        "current_trajectory_hypothesis": "43-year-old male with 5 days of fever and headache, elevated inflammatory markers (WBC 12,600, elevated transaminases), and mild right hemidiaphragm elevation on CXR. Known final diagnosis is liver abscess secondary to gastric perforation from foreign body ingestion. Need to establish the inciting event and timeline of foreign body ingestion.",
+        "confirmed_evidence": [
+          "5-day fever and headache",
+          "Febrile (38.2°C), tachycardic (121 bpm), hypertensive (168/101)",
+          "WBC 12,600/mm3 (elevated)",
+          "AST 48 U/L, ALT 83 U/L (both elevated)",
+          "Mild right hemidiaphragm elevation on CXR",
+          "Discharged pending blood culture results"
+        ],
+        "missing_key_evidence": [
+          "History of foreign body ingestion or abdominal trauma",
+          "Timeline of foreign body ingestion relative to symptom onset",
+          "Any abdominal pain or GI symptoms prior to fever/headache",
+          "Blood culture results and organism identification",
+          "Imaging confirming liver abscess (ultrasound, CT, or MRI)",
+          "Surgical findings and confirmation of gastric perforation",
+          "Treatment course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.15
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "No evidence in the source documents patient history of foreign body ingestion, abdominal trauma, or recent abdominal pain before symptom onset.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the blood culture results from the initial ED presentation, including organism identification and antimicrobial susceptibilities.",
+        "current_trajectory_hypothesis": "43-year-old male with 5-day fever and headache, elevated inflammatory markers, and right hemidiaphragm elevation. Known final diagnosis is liver abscess secondary to gastric perforation from foreign body. Foreign body ingestion history not documented in available records. Blood culture results would help identify the causative organism and support the diagnosis of bacteremia/abscess.",
+        "confirmed_evidence": [
+          "5-day fever and headache",
+          "Febrile (38.2°C), tachycardic (121 bpm), hypertensive (168/101)",
+          "WBC 12,600/mm3 (elevated)",
+          "AST 48 U/L, ALT 83 U/L (both elevated)",
+          "Mild right hemidiaphragm elevation on CXR",
+          "Patient discharged pending blood culture results"
+        ],
+        "missing_key_evidence": [
+          "Blood culture organism and susceptibilities",
+          "Imaging confirming liver abscess (ultrasound, CT, or MRI)",
+          "Surgical findings and confirmation of gastric perforation and foreign body",
+          "Timeline of readmission and surgical intervention",
+          "Treatment course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "No source record reports blood culture results or antimicrobial susceptibilities from initial ED presentation.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "43-year-old male with 5-day fever, headache, elevated WBC and transaminases, and right hemidiaphragm elevation on CXR. Discharged from ED pending blood cultures. Known final diagnosis is liver abscess secondary to gastric perforation from foreign body ingestion. Need to establish the documented clinical course: readmission trigger, imaging confirmation of abscess, and surgical findings confirming the mechanism (gastric perforation from foreign body).",
+        "confirmed_evidence": [
+          "5-day fever and headache at presentation",
+          "Febrile (38.2°C), tachycardic (121 bpm), hypertensive (168/101)",
+          "WBC 12,600/mm3 (elevated)",
+          "AST 48 U/L, ALT 83 U/L (both elevated)",
+          "Mild right hemidiaphragm elevation on CXR",
+          "Patient discharged from ED pending blood culture results"
+        ],
+        "missing_key_evidence": [
+          "Readmission circumstances and timing",
+          "Imaging study (ultrasound, CT, or MRI) confirming liver abscess location and characteristics",
+          "Blood culture organism identification",
+          "Surgical findings: confirmation of gastric perforation, foreign body identification and description",
+          "Surgical intervention details and outcome",
+          "Treatment course and clinical response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.25
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "During laparoscopy, the greater curvature of the stomach and the anterior surface of the liver appeared grossly normal. There were dense inflammatory adhesions between the anterior gastric wall and the undersurface of the left lobe of the liver, and careful dissection revealed a large amount of purulent fluid which was aspirated and sent for bacterial culture.",
+        "category": "image_finding",
+        "temporal_cue": "during laparoscopic surgery",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the imaging study (CT, ultrasound, or MRI) report that confirmed the liver abscess diagnosis and led to surgical intervention.",
+        "current_trajectory_hypothesis": "43-year-old male with 5-day fever and headache, elevated inflammatory markers, and right hemidiaphragm elevation. Discharged from ED, then readmitted. Laparoscopy revealed dense inflammatory adhesions between anterior gastric wall and left lobe liver with purulent fluid collection. Known final diagnosis is liver abscess secondary to gastric perforation from foreign body. Need to establish the imaging confirmation of abscess and the documented foreign body finding.",
+        "confirmed_evidence": [
+          "5-day fever and headache at presentation",
+          "Febrile (38.2°C), tachycardic (121 bpm), hypertensive (168/101)",
+          "WBC 12,600/mm3 (elevated)",
+          "AST 48 U/L, ALT 83 U/L (both elevated)",
+          "Mild right hemidiaphragm elevation on CXR",
+          "Laparoscopy findings: dense inflammatory adhesions between anterior gastric wall and undersurface of left lobe liver, large amount of purulent fluid aspirated and cultured"
+        ],
+        "missing_key_evidence": [
+          "Imaging study (CT, ultrasound, or MRI) confirming liver abscess location, size, and characteristics",
+          "Readmission trigger and timing after initial ED discharge",
+          "Foreign body identification, description, and location during surgery",
+          "Bacterial culture results from purulent fluid",
+          "Confirmation of gastric perforation site and repair method",
+          "Postoperative course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.35
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Contrast-enhanced CT of the abdomen was performed which revealed a 5.1 × 7.5 × 3.9 cm heterogeneous hypoattenuating lesion in the left hepatic lobe extending up to the lesser curvature of the stomach with and centered over gastro-hepatic recess. There was a rim of peripheral enhancement around the lesion. A hypodense ring paralleling the rim of enhancement was seen around the lesion in the liver often referred to as a double target sign, which is characteristically seen in hepatic abscess.",
+        "category": "image_finding",
+        "temporal_cue": "3 days after initial discharge, on return admission",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the surgical findings documenting the foreign body, its location, description, and the site and extent of gastric perforation that was repaired.",
+        "current_trajectory_hypothesis": "43-year-old male with 5-day fever and headache, elevated inflammatory markers, and right hemidiaphragm elevation on CXR. Discharged from ED, readmitted 3 days later. CT abdomen confirmed 5.1 × 7.5 × 3.9 cm hepatic abscess in left lobe with double target sign, extending to gastro-hepatic recess near lesser curvature of stomach. Laparoscopy revealed dense inflammatory adhesions between anterior gastric wall and left lobe liver with purulent fluid collection. Known final diagnosis is liver abscess secondary to gastric perforation from foreign body ingestion. Need to document the foreign body identification and gastric perforation details from surgical report.",
+        "confirmed_evidence": [
+          "5-day fever and headache at presentation",
+          "Febrile (38.2°C), tachycardic (121 bpm), hypertensive (168/101)",
+          "WBC 12,600/mm3 (elevated)",
+          "AST 48 U/L, ALT 83 U/L (both elevated)",
+          "Mild right hemidiaphragm elevation on CXR",
+          "CT abdomen: 5.1 × 7.5 × 3.9 cm heterogeneous hypoattenuating lesion in left hepatic lobe with rim enhancement and double target sign, extending to gastro-hepatic recess near lesser curvature of stomach",
+          "Laparoscopy: dense inflammatory adhesions between anterior gastric wall and undersurface of left lobe liver, large amount of purulent fluid aspirated and cultured"
+        ],
+        "missing_key_evidence": [
+          "Foreign body identification, description, material, and exact location",
+          "Gastric perforation site, size, and repair method",
+          "Bacterial culture results from purulent fluid",
+          "Readmission trigger and clinical course between discharge and readmission",
+          "Postoperative course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.55
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E007",
+        "source_text": "There were dense inflammatory adhesions between the anterior gastric wall and the undersurface of the left lobe of the liver, and careful dissection revealed a large amount of purulent fluid which was aspirated and sent for bacterial culture. A moderate amount of fibrinous material adhering the liver surface to the stomach wall was debrided and indicated the abscess had been unroofed. As dissection progressed, an approximately 3 cm white foreign body consistent with a fish bone was removed under direct visualization and sent to pathology (Fig. 3). The stomach was insufflated with air via a nasogastric tube which did not show any obvious leak. The upper abdomen was irrigated, and a drain was placed with the tip in the hepatic abscess cavity and coursing along the anterior wall of the stomach.",
+        "category": "image_finding",
+        "temporal_cue": "during laparoscopic surgery",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the bacterial culture results from the purulent fluid aspirated during laparoscopy, including organism identification and antimicrobial susceptibilities.",
+        "current_trajectory_hypothesis": "43-year-old male with 5-day fever and headache, elevated inflammatory markers, and right hemidiaphragm elevation on CXR. Discharged from ED, readmitted 3 days later. CT abdomen confirmed 5.1 × 7.5 × 3.9 cm hepatic abscess in left lobe with double target sign. Laparoscopy revealed dense inflammatory adhesions between anterior gastric wall and left lobe liver with purulent fluid collection. A 3 cm white fish bone foreign body was removed under direct visualization. Stomach insufflation showed no obvious leak. Drain placed in hepatic abscess cavity. Need to document the bacterial culture results to complete the microbiological confirmation of the abscess etiology.",
+        "confirmed_evidence": [
+          "5-day fever and headache at presentation",
+          "Febrile (38.2°C), tachycardic (121 bpm), hypertensive (168/101)",
+          "WBC 12,600/mm3 (elevated)",
+          "AST 48 U/L, ALT 83 U/L (both elevated)",
+          "Mild right hemidiaphragm elevation on CXR",
+          "CT abdomen: 5.1 × 7.5 × 3.9 cm heterogeneous hypoattenuating lesion in left hepatic lobe with rim enhancement and double target sign, extending to gastro-hepatic recess near lesser curvature of stomach",
+          "Laparoscopy: dense inflammatory adhesions between anterior gastric wall and undersurface of left lobe liver, large amount of purulent fluid aspirated and cultured",
+          "Approximately 3 cm white foreign body consistent with fish bone removed under direct visualization",
+          "Stomach insufflation via nasogastric tube showed no obvious leak",
+          "Drain placed in hepatic abscess cavity"
+        ],
+        "missing_key_evidence": [
+          "Bacterial culture results from purulent fluid (organism identification and susceptibilities)",
+          "Readmission trigger and clinical course between initial ED discharge and readmission",
+          "Postoperative course, antibiotic therapy, and clinical outcome",
+          "Timeline of symptom resolution and drain removal"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "The abscess grew Streptococcus anginosus and Actinomyces odontolyticus on culture.",
+        "category": "microbiology",
+        "temporal_cue": "postoperative",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the clinical course after laparoscopic surgery, including antibiotic therapy administered, drain management, postoperative complications if any, and the patient's clinical outcome and discharge status.",
+        "current_trajectory_hypothesis": "43-year-old male with 5-day fever and headache, elevated inflammatory markers, and right hemidiaphragm elevation on CXR. Discharged from ED, readmitted 3 days later. CT abdomen confirmed 5.1 × 7.5 × 3.9 cm hepatic abscess in left lobe with double target sign. Laparoscopy revealed dense inflammatory adhesions between anterior gastric wall and left lobe liver with purulent fluid collection. A 3 cm white fish bone foreign body was removed. Bacterial culture grew Streptococcus anginosus and Actinomyces odontolyticus. Need to document postoperative management and clinical outcome to complete the trajectory.",
+        "confirmed_evidence": [
+          "5-day fever and headache at presentation",
+          "Febrile (38.2°C), tachycardic (121 bpm), hypertensive (168/101)",
+          "WBC 12,600/mm3 (elevated)",
+          "AST 48 U/L, ALT 83 U/L (both elevated)",
+          "Mild right hemidiaphragm elevation on CXR",
+          "CT abdomen: 5.1 × 7.5 × 3.9 cm heterogeneous hypoattenuating lesion in left hepatic lobe with rim enhancement and double target sign, extending to gastro-hepatic recess near lesser curvature of stomach",
+          "Laparoscopy: dense inflammatory adhesions between anterior gastric wall and undersurface of left lobe liver, large amount of purulent fluid aspirated",
+          "Approximately 3 cm white foreign body consistent with fish bone removed under direct visualization",
+          "Stomach insufflation via nasogastric tube showed no obvious leak",
+          "Drain placed in hepatic abscess cavity",
+          "Bacterial culture: Streptococcus anginosus and Actinomyces odontolyticus"
+        ],
+        "missing_key_evidence": [
+          "Antibiotic therapy regimen and duration",
+          "Drain management and removal timing",
+          "Postoperative complications or clinical course",
+          "Patient discharge status and follow-up",
+          "Readmission trigger and clinical presentation on return (fever, headache duration, vital signs at readmission)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E009",
+        "source_text": "After a noneventful postoperative course, the patient was discharged with a drain in place and treated with oral Cefdinir and Metronidazole for 1 week. At the patient's follow-up visit, the patient was recovering well without adverse sequelae from treatment.",
+        "category": "other",
+        "temporal_cue": "post-discharge follow-up",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the clinical presentation and vital signs at the time of readmission (3 days after initial ED discharge), including the trigger for readmission and any documented symptoms or examination findings that prompted the imaging workup.",
+        "current_trajectory_hypothesis": "43-year-old male with 5-day fever and headache at initial ED presentation. Discharged pending blood cultures. Readmitted 3 days later with imaging confirmation of 5.1 × 7.5 × 3.9 cm hepatic abscess in left lobe with double target sign. Laparoscopy revealed dense inflammatory adhesions, purulent fluid, and a 3 cm fish bone foreign body. Bacterial culture grew Streptococcus anginosus and Actinomyces odontolyticus. Postoperative course noneventful; discharged with drain and oral antibiotics (Cefdinir and Metronidazole for 1 week). Need to document the readmission clinical presentation to establish the complete temporal trajectory from initial presentation through diagnosis and treatment.",
+        "confirmed_evidence": [
+          "5-day fever and headache at initial ED presentation",
+          "Febrile (38.2°C), tachycardic (121 bpm), hypertensive (168/101)",
+          "WBC 12,600/mm3 (elevated)",
+          "AST 48 U/L, ALT 83 U/L (both elevated)",
+          "Mild right hemidiaphragm elevation on CXR",
+          "Discharged from ED pending blood culture results",
+          "Readmitted 3 days after initial discharge",
+          "CT abdomen: 5.1 × 7.5 × 3.9 cm heterogeneous hypoattenuating lesion in left hepatic lobe with rim enhancement and double target sign, extending to gastro-hepatic recess near lesser curvature of stomach",
+          "Laparoscopy: dense inflammatory adhesions between anterior gastric wall and undersurface of left lobe liver, large amount of purulent fluid aspirated",
+          "Approximately 3 cm white foreign body consistent with fish bone removed under direct visualization",
+          "Stomach insufflation via nasogastric tube showed no obvious leak",
+          "Drain placed in hepatic abscess cavity",
+          "Bacterial culture: Streptococcus anginosus and Actinomyces odontolyticus",
+          "Noneventful postoperative course",
+          "Discharged with drain in place and treated with oral Cefdinir and Metronidazole for 1 week",
+          "Patient recovering well at follow-up without adverse sequelae"
+        ],
+        "missing_key_evidence": [
+          "Readmission clinical presentation: symptoms, vital signs, and trigger for imaging workup",
+          "Blood culture results from initial ED presentation",
+          "Timeline of symptom progression between initial discharge and readmission"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.88
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Physical examination demonstrated tenderness in the right upper quadrant and epigastrium.",
+        "category": "other",
+        "temporal_cue": "3 days after initial discharge, on return admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the vital signs and any documented symptoms at the time of readmission (3 days after initial ED discharge), including fever status, heart rate, blood pressure, and the specific clinical reason that prompted the CT imaging workup.",
+        "current_trajectory_hypothesis": "43-year-old male with 5-day fever and headache at initial ED presentation (38.2°C, HR 121, BP 168/101, WBC 12,600, elevated transaminases, right hemidiaphragm elevation on CXR). Discharged pending blood cultures. Readmitted 3 days later with right upper quadrant and epigastric tenderness on examination. CT abdomen confirmed 5.1 × 7.5 × 3.9 cm hepatic abscess in left lobe with double target sign. Laparoscopy revealed dense inflammatory adhesions between anterior gastric wall and left lobe liver with purulent fluid collection and a 3 cm fish bone foreign body. Bacterial culture grew Streptococcus anginosus and Actinomyces odontolyticus. Noneventful postoperative course; discharged with drain and oral antibiotics. Need to document readmission vital signs and clinical trigger to complete the temporal trajectory.",
+        "confirmed_evidence": [
+          "5-day fever and headache at initial ED presentation",
+          "Febrile (38.2°C), tachycardic (121 bpm), hypertensive (168/101) at initial presentation",
+          "WBC 12,600/mm3 (elevated)",
+          "AST 48 U/L, ALT 83 U/L (both elevated)",
+          "Mild right hemidiaphragm elevation on CXR",
+          "Discharged from ED pending blood culture results",
+          "Readmitted 3 days after initial discharge",
+          "Right upper quadrant and epigastric tenderness on readmission examination",
+          "CT abdomen: 5.1 × 7.5 × 3.9 cm heterogeneous hypoattenuating lesion in left hepatic lobe with rim enhancement and double target sign",
+          "Laparoscopy: dense inflammatory adhesions between anterior gastric wall and undersurface of left lobe liver, purulent fluid aspirated",
+          "Approximately 3 cm white foreign body consistent with fish bone removed",
+          "Stomach insufflation showed no obvious leak",
+          "Drain placed in hepatic abscess cavity",
+          "Bacterial culture: Streptococcus anginosus and Actinomyces odontolyticus",
+          "Noneventful postoperative course; discharged with drain and oral Cefdinir and Metronidazole for 1 week",
+          "Patient recovering well at follow-up without adverse sequelae"
+        ],
+        "missing_key_evidence": [
+          "Vital signs at readmission (fever status, heart rate, blood pressure)",
+          "Specific clinical symptoms or laboratory findings that triggered CT imaging at readmission",
+          "Blood culture results from initial ED presentation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E004",
+        "source_text": "Physical examination demonstrated tenderness in the right upper quadrant and epigastrium.",
+        "category": "other",
+        "temporal_cue": "3 days after initial discharge, on return admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the vital signs documented at readmission (3 days after initial ED discharge), specifically fever status, heart rate, blood pressure, and any laboratory values obtained at that time.",
+        "current_trajectory_hypothesis": "43-year-old male with 5-day fever and headache at initial ED presentation (38.2°C, HR 121, BP 168/101, WBC 12,600, elevated transaminases). Discharged pending blood cultures. Readmitted 3 days later with right upper quadrant and epigastric tenderness. CT confirmed 5.1 × 7.5 × 3.9 cm hepatic abscess in left lobe with double target sign. Laparoscopy revealed dense inflammatory adhesions between anterior gastric wall and left lobe liver with purulent fluid and a 3 cm fish bone foreign body. Bacterial culture grew Streptococcus anginosus and Actinomyces odontolyticus. Noneventful postoperative course; discharged with drain and oral antibiotics. Need readmission vital signs to establish complete temporal progression.",
+        "confirmed_evidence": [
+          "5-day fever and headache at initial ED presentation",
+          "Febrile (38.2°C), tachycardic (121 bpm), hypertensive (168/101) at initial presentation",
+          "WBC 12,600/mm3, AST 48 U/L, ALT 83 U/L (elevated)",
+          "Mild right hemidiaphragm elevation on CXR",
+          "Discharged pending blood culture results",
+          "Readmitted 3 days after initial discharge with right upper quadrant and epigastric tenderness",
+          "CT abdomen: 5.1 × 7.5 × 3.9 cm heterogeneous hypoattenuating lesion in left hepatic lobe with rim enhancement and double target sign",
+          "Laparoscopy: dense inflammatory adhesions between anterior gastric wall and left lobe liver, purulent fluid aspirated",
+          "Approximately 3 cm white foreign body consistent with fish bone removed under direct visualization",
+          "Stomach insufflation showed no obvious leak",
+          "Drain placed in hepatic abscess cavity",
+          "Bacterial culture: Streptococcus anginosus and Actinomyces odontolyticus",
+          "Noneventful postoperative course; discharged with drain and oral Cefdinir and Metronidazole for 1 week",
+          "Patient recovering well at follow-up without adverse sequelae"
+        ],
+        "missing_key_evidence": [
+          "Vital signs at readmission (fever, heart rate, blood pressure)",
+          "Laboratory values at readmission",
+          "Blood culture results from initial ED presentation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Labs showed an interval increase of leukocytosis to 16,500/mm3, AST 52 U/L, and ALT 105 U/L.",
+        "category": "other",
+        "temporal_cue": "3 days after initial discharge, on return admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Liver abscess secondary to gastric perforation from ingested fish bone foreign body",
+        "trajectory_summary": "A 43-year-old male with no prior medical history presented to the ED with a 5-day history of fever (38.2°C) and headache, accompanied by tachycardia (121 bpm), hypertension (168/101 mmHg), elevated WBC (12,600/mm³), elevated transaminases (AST 48 U/L, ALT 83 U/L), and mild right hemidiaphragm elevation on chest X-ray. He was treated with intravenous fluids and acetaminophen, with normalization of vital signs, and discharged pending blood culture results. Three days after discharge, he returned with right upper quadrant and epigastric tenderness on examination. Laboratory studies showed interval increase in leukocytosis (16,500/mm³), AST (52 U/L), and ALT (105 U/L). Contrast-enhanced CT of the abdomen revealed a 5.1 × 7.5 × 3.9 cm heterogeneous hypoattenuating lesion in the left hepatic lobe with rim enhancement and characteristic double target sign, extending to the gastro-hepatic recess near the lesser curvature of the stomach, consistent with hepatic abscess. Laparoscopic exploration revealed dense inflammatory adhesions between the anterior gastric wall and the undersurface of the left lobe of the liver. After careful dissection and unroofing of the abscess, a large amount of purulent fluid was aspirated and cultured. A 3 cm white foreign body consistent with a fish bone was removed under direct visualization. Stomach insufflation via nasogastric tube showed no obvious leak. A drain was placed in the hepatic abscess cavity. Bacterial culture of the purulent fluid grew Streptococcus anginosus and Actinomyces odontolyticus. The postoperative course was noneventful. The patient was discharged with the drain in place and treated with oral Cefdinir and Metronidazole for 1 week. At follow-up, the patient was recovering well without adverse sequelae.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial presentation with fever and headache for 5 days with systemic inflammatory response",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Imaging confirmation of hepatic abscess with characteristic features",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Surgical confirmation of abscess with dense inflammatory adhesions between anterior gastric wall and left lobe liver",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Identification and removal of fish bone foreign body as the inciting cause",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Microbiological confirmation of abscess with identification of causative organisms",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Readmission with worsening inflammatory markers and localized abdominal tenderness",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Successful surgical management with drain placement and appropriate antimicrobial therapy",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Favorable clinical outcome with complete recovery",
+            "evidence_ids": [
+              "E009"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Primary hepatic abscess from hematogenous seeding",
+            "basis": "Surgical findings of dense inflammatory adhesions between anterior gastric wall and liver with direct communication to abscess, combined with identification of fish bone foreign body, establish the abscess as secondary to gastric perforation rather than primary or hematogenous origin"
+          },
+          {
+            "alternative": "Gastric perforation without abscess formation",
+            "basis": "CT imaging and laparoscopic findings definitively demonstrated a large hepatic abscess (5.1 × 7.5 × 3.9 cm) with characteristic imaging features and purulent fluid culture, indicating established abscess formation"
+          },
+          {
+            "alternative": "Uncomplicated gastroenteritis or viral syndrome",
+            "basis": "Persistent fever and headache for 5 days with significant elevation of inflammatory markers (WBC 12,600/mm³, elevated transaminases), right hemidiaphragm elevation on CXR, and imaging/surgical confirmation of hepatic abscess rule out simple viral illness"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Exact timing of fish bone ingestion relative to symptom onset (not documented in available records)",
+          "Blood culture results from initial ED presentation (ordered but not reported in available records)",
+          "Specific clinical trigger or symptoms that prompted CT imaging at readmission (only physical examination findings documented)",
+          "Vital signs at readmission (fever status, heart rate, blood pressure not explicitly documented, though laboratory worsening and abdominal tenderness are documented)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Liver abscess secondary to gastric perforation from ingested fish bone foreign body",
+    "trajectory_summary": "A 43-year-old male with no prior medical history presented to the ED with a 5-day history of fever (38.2°C) and headache, accompanied by tachycardia (121 bpm), hypertension (168/101 mmHg), elevated WBC (12,600/mm³), elevated transaminases (AST 48 U/L, ALT 83 U/L), and mild right hemidiaphragm elevation on chest X-ray. He was treated with intravenous fluids and acetaminophen, with normalization of vital signs, and discharged pending blood culture results. Three days after discharge, he returned with right upper quadrant and epigastric tenderness on examination. Laboratory studies showed interval increase in leukocytosis (16,500/mm³), AST (52 U/L), and ALT (105 U/L). Contrast-enhanced CT of the abdomen revealed a 5.1 × 7.5 × 3.9 cm heterogeneous hypoattenuating lesion in the left hepatic lobe with rim enhancement and characteristic double target sign, extending to the gastro-hepatic recess near the lesser curvature of the stomach, consistent with hepatic abscess. Laparoscopic exploration revealed dense inflammatory adhesions between the anterior gastric wall and the undersurface of the left lobe of the liver. After careful dissection and unroofing of the abscess, a large amount of purulent fluid was aspirated and cultured. A 3 cm white foreign body consistent with a fish bone was removed under direct visualization. Stomach insufflation via nasogastric tube showed no obvious leak. A drain was placed in the hepatic abscess cavity. Bacterial culture of the purulent fluid grew Streptococcus anginosus and Actinomyces odontolyticus. The postoperative course was noneventful. The patient was discharged with the drain in place and treated with oral Cefdinir and Metronidazole for 1 week. At follow-up, the patient was recovering well without adverse sequelae.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial presentation with fever and headache for 5 days with systemic inflammatory response",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Imaging confirmation of hepatic abscess with characteristic features",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Surgical confirmation of abscess with dense inflammatory adhesions between anterior gastric wall and left lobe liver",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Identification and removal of fish bone foreign body as the inciting cause",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Microbiological confirmation of abscess with identification of causative organisms",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Readmission with worsening inflammatory markers and localized abdominal tenderness",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Successful surgical management with drain placement and appropriate antimicrobial therapy",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Favorable clinical outcome with complete recovery",
+        "evidence_ids": [
+          "E009"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Primary hepatic abscess from hematogenous seeding",
+        "basis": "Surgical findings of dense inflammatory adhesions between anterior gastric wall and liver with direct communication to abscess, combined with identification of fish bone foreign body, establish the abscess as secondary to gastric perforation rather than primary or hematogenous origin"
+      },
+      {
+        "alternative": "Gastric perforation without abscess formation",
+        "basis": "CT imaging and laparoscopic findings definitively demonstrated a large hepatic abscess (5.1 × 7.5 × 3.9 cm) with characteristic imaging features and purulent fluid culture, indicating established abscess formation"
+      },
+      {
+        "alternative": "Uncomplicated gastroenteritis or viral syndrome",
+        "basis": "Persistent fever and headache for 5 days with significant elevation of inflammatory markers (WBC 12,600/mm³, elevated transaminases), right hemidiaphragm elevation on CXR, and imaging/surgical confirmation of hepatic abscess rule out simple viral illness"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Exact timing of fish bone ingestion relative to symptom onset (not documented in available records)",
+      "Blood culture results from initial ED presentation (ordered but not reported in available records)",
+      "Specific clinical trigger or symptoms that prompted CT imaging at readmission (only physical examination findings documented)",
+      "Vital signs at readmission (fever status, heart rate, blood pressure not explicitly documented, though laboratory worsening and abdominal tenderness are documented)"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T11:27:09.400860+00:00",
+  "clinician_model": "claude-haiku-4-5",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

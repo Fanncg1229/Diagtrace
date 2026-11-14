@@ -1,0 +1,239 @@
+{
+  "case_id": "PMC10602628",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 6,
+  "termination": "final",
+  "known_final_diagnosis": "Results from tissue samples were characterized as a spindle cell tumor, suggestive of a GIST.",
+  "disclosed_evidence_ids": [
+    "E005",
+    "E006",
+    "E007"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order abdominal imaging such as an abdominal CT scan to evaluate abdominal distention, pain, and any masses or lesions.",
+        "current_trajectory_hypothesis": "The patient presents with edema, abdominal distention, and systemic symptoms suggestive of a possible intra-abdominal pathology including a tumor.",
+        "confirmed_evidence": [
+          "Elderly female with lower extremity edema, dyspnea, orthopnea, early satiety, abdominal pain, and weight loss",
+          "Physical exam noted bilateral pitting edema and diffuse abdominal distention with tenderness"
+        ],
+        "missing_key_evidence": [
+          "Imaging evidence of abdominal mass or lesion consistent with a spindle cell tumor or GIST",
+          "Additional information on tumor location, size, and characteristics",
+          "Histopathological evidence from tissue samples"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Abdominal CT scan ordered but not yet documented in source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request abdominal CT scan report",
+        "current_trajectory_hypothesis": "Imaging will characterize abdominal distention and potentially reveal a mass lesion relevant for spindle cell tumor diagnosis.",
+        "confirmed_evidence": [
+          "Elderly female with lower extremity edema, dyspnea, orthopnea, early satiety, abdominal pain, and weight loss",
+          "Physical exam noted bilateral pitting edema and diffuse abdominal distention with tenderness"
+        ],
+        "missing_key_evidence": [
+          "Abdominal CT scan findings confirming presence of mass or lesion",
+          "Details on size, location, and characteristics of any tumor",
+          "Histopathological confirmation of spindle cell tumor suggestive of GIST"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Imaging demonstrated a large solid and cystic appearing intraperitoneal supra colic mass measuring 15 cm x 22 cm x 23 cm (AP x TV x CC) with cystic necrosis and significant mass effect on the greater curvature of the stomach, porta hepatis, and duodenum (Figures 3-5). Additionally, the radiology report detailed heterogeneous enhancement of the peripheral solid components of the mass.",
+        "category": "image_finding",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "Order image-guided biopsy of the large intraperitoneal supra colic mass for histopathology to obtain tissue diagnosis.",
+        "current_trajectory_hypothesis": "Abdominal CT shows a large intra-abdominal mass with cystic necrosis and heterogeneous enhancement, suspicious for a tumor requiring tissue biopsy to characterize spindle cell tumor and confirm GIST.",
+        "confirmed_evidence": [
+          "Abdominal CT scan demonstrated a large solid and cystic supra colic intraperitoneal mass measuring 15 cm x 22 cm x 23 cm with cystic necrosis and significant mass effect (E005)."
+        ],
+        "missing_key_evidence": [
+          "Histopathological results from tissue biopsy to confirm spindle cell tumor consistent with GIST",
+          "Additional immunohistochemical or molecular characterization confirming tumor origin"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Procedure order placed; no matching source result yet",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request histopathology report from the image-guided biopsy of the intraperitoneal mass",
+        "current_trajectory_hypothesis": "Histopathology from biopsy will confirm spindle cell tumor and features supportive of GIST diagnosis.",
+        "confirmed_evidence": [
+          "Abdominal CT scan showed large intra-abdominal mass with cystic necrosis and heterogeneous enhancement (E005).",
+          "Image-guided biopsy ordered for tissue diagnosis."
+        ],
+        "missing_key_evidence": [
+          "Histopathological and immunohistochemical findings confirming spindle cell tumor suggestive of GIST"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "Results from tissue samples were characterized as a spindle cell tumor, suggestive of a GIST.",
+        "category": "pathology_report",
+        "temporal_cue": "during hospitalization",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with symptoms and exam findings indicative of an intra-abdominal mass; imaging revealed a large cystic and solid mass; biopsy histopathology confirmed spindle cell tumor suggestive of GIST; awaiting further clinical progression or treatment response documentation.",
+        "confirmed_evidence": [
+          "Presentation included lower extremity edema, dyspnea, orthopnea, early satiety, abdominal pain, and weight loss",
+          "Physical exam showed bilateral pitting edema and diffuse abdominal distention with tenderness",
+          "Abdominal CT scan showed a large 15x22x23 cm solid and cystic supra colic mass with necrosis and significant mass effect (E005)",
+          "Image-guided biopsy performed",
+          "Histopathology characterized tissue samples as spindle cell tumor, suggestive of GIST (E006)"
+        ],
+        "missing_key_evidence": [
+          "Further immunohistochemical or molecular studies to confirm GIST definitively",
+          "Details on treatment approach, response, or clinical outcome",
+          "Additional diagnostic exclusion or supportive evidence"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "The patient deferred treatment options during her hospital stay and was discharged in stable condition after receiving diuretics with the improvement of her lower extremity edema, shortness of breath, and orthopnea. Upon follow-up with the patient’s primary care provider, the patient endorsed continued improvement of her functional status while on maintenance diuretics. The patient decided against bulk resection of her tumor with the surgical team; however, she started targeted molecular therapy with imatinib 100 mg twice daily.",
+        "category": "treatment_response",
+        "temporal_cue": "post-discharge",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Spindle cell tumor suggestive of a GIST",
+        "trajectory_summary": "An 89-year-old female presented with worsening lower extremity edema, dyspnea, orthopnea, early satiety, generalized abdominal pain, and weight loss. Physical exam revealed bilateral pitting edema and diffuse abdominal distention with tenderness. An abdominal CT scan showed a large 15x22x23 cm solid and cystic supracolic intraperitoneal mass with cystic necrosis and significant mass effect. An image-guided biopsy of the mass was performed, and histopathological analysis characterized the tissue as a spindle cell tumor suggestive of a GIST. The patient declined surgical resection, was treated with diuretics leading to symptomatic improvement, and later started targeted molecular therapy with imatinib. She was discharged in stable condition and showed functional improvement on follow-up.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Presentation with lower extremity edema, dyspnea, orthopnea, early satiety, abdominal pain, and weight loss with physical findings of bilateral pitting edema and abdominal tenderness",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Abdominal CT scan showed a large solid and cystic supracolic intraperitoneal mass measuring 15x22x23 cm with cystic necrosis and mass effect",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Histopathology of biopsy tissue identified spindle cell tumor, suggestive of GIST",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Patient improved symptomatically with diuretics and started imatinib molecular targeted therapy post-discharge",
+            "evidence_ids": [
+              "E007"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [
+          "No immunohistochemical or molecular genetic confirmation of GIST beyond spindle cell tumor report",
+          "No detailed documentation of alternative diagnostic exclusions or additional tumor markers",
+          "Limited detail on long-term treatment response or survival outcomes"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Spindle cell tumor suggestive of a GIST",
+    "trajectory_summary": "An 89-year-old female presented with worsening lower extremity edema, dyspnea, orthopnea, early satiety, generalized abdominal pain, and weight loss. Physical exam revealed bilateral pitting edema and diffuse abdominal distention with tenderness. An abdominal CT scan showed a large 15x22x23 cm solid and cystic supracolic intraperitoneal mass with cystic necrosis and significant mass effect. An image-guided biopsy of the mass was performed, and histopathological analysis characterized the tissue as a spindle cell tumor suggestive of a GIST. The patient declined surgical resection, was treated with diuretics leading to symptomatic improvement, and later started targeted molecular therapy with imatinib. She was discharged in stable condition and showed functional improvement on follow-up.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Presentation with lower extremity edema, dyspnea, orthopnea, early satiety, abdominal pain, and weight loss with physical findings of bilateral pitting edema and abdominal tenderness",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Abdominal CT scan showed a large solid and cystic supracolic intraperitoneal mass measuring 15x22x23 cm with cystic necrosis and mass effect",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Histopathology of biopsy tissue identified spindle cell tumor, suggestive of GIST",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Patient improved symptomatically with diuretics and started imatinib molecular targeted therapy post-discharge",
+        "evidence_ids": [
+          "E007"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [
+      "No immunohistochemical or molecular genetic confirmation of GIST beyond spindle cell tumor report",
+      "No detailed documentation of alternative diagnostic exclusions or additional tumor markers",
+      "Limited detail on long-term treatment response or survival outcomes"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T23:51:00.147927+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

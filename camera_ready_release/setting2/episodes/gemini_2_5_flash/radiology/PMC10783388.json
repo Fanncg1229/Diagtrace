@@ -1,0 +1,315 @@
+{
+  "case_id": "PMC10783388",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 8,
+  "termination": "final",
+  "known_final_diagnosis": "The patient underwent an FNAC on the right hemithorax in a prone position, which suggested the presence of an HC (Fig. 2). Thereafter, a thoracotomy was performed, and the abscess was removed. Histopathological results confirmed the previous diagnosis.",
+  "disclosed_evidence_ids": [
+    "E002",
+    "E003"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "What were the findings of the initial chest imaging (e.g., X-ray or CT scan) performed for the persistent respiratory symptoms?",
+        "current_trajectory_hypothesis": "Patient presented with persistent respiratory symptoms. Initial imaging is expected to reveal findings related to the lung pathology, potentially leading to further investigation.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Initial imaging findings",
+          "Details of FNAC",
+          "Details of thoracotomy and abscess removal",
+          "Histopathology results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for initial chest imaging test documented, awaiting result.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of the initial chest imaging (e.g., X-ray or CT scan) that was previously ordered?",
+        "current_trajectory_hypothesis": "Patient presented with persistent respiratory symptoms. Initial imaging is expected to reveal findings related to the lung pathology, potentially leading to further investigation.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Initial imaging findings",
+          "Details of FNAC",
+          "Details of thoracotomy and abscess removal",
+          "Histopathology results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "Due to the persistence of the patient’s symptoms, a high-resolution computed tomography (HR-CT) scan of the chest was performed and revealed an irregular pulmonary opacity in the right lower lobe with central fluid attenuation (Fig. 1). It was suspected to be an abscess or, less likely, a pulmonary neoplasm.",
+        "category": "image_finding",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "What were the details and findings of the Fine Needle Aspiration Cytology (FNAC) performed on the right hemithorax?",
+        "current_trajectory_hypothesis": "Persistent respiratory symptoms led to HR-CT showing a pulmonary opacity. Given the suspicion of abscess or neoplasm, an FNAC was likely performed to further characterize the lesion, as indicated by the final diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with intermittent respiratory symptoms, mild cough, and sputum for two years, with a history of COVID-19.",
+          "HR-CT of the chest revealed an irregular pulmonary opacity in the right lower lobe with central fluid attenuation, suspected to be an abscess or, less likely, a pulmonary neoplasm."
+        ],
+        "missing_key_evidence": [
+          "FNAC details and findings",
+          "Details of thoracotomy and abscess removal",
+          "Histopathology results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [
+          "Fine Needle Aspiration Cytology (FNAC)"
+        ],
+        "explanation": "Procedure order acknowledged; results not yet provided.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "Status found is not valid for clinician action ORDER_PROCEDURE.",
+        "validation_errors": [
+          "Status found is not valid for clinician action ORDER_PROCEDURE."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of the Fine Needle Aspiration Cytology (FNAC) performed on the right hemithorax?",
+        "current_trajectory_hypothesis": "Persistent respiratory symptoms led to HR-CT showing a pulmonary opacity. An FNAC was performed to characterize the lesion, and the final diagnosis indicates it suggested a hydatid cyst (HC).",
+        "confirmed_evidence": [
+          "Patient presented with intermittent respiratory symptoms, mild cough, and sputum for two years, with a history of COVID-19.",
+          "HR-CT of the chest revealed an irregular pulmonary opacity in the right lower lobe with central fluid attenuation, suspected to be an abscess or, less likely, a pulmonary neoplasm."
+        ],
+        "missing_key_evidence": [
+          "FNAC findings",
+          "Details of thoracotomy and abscess removal",
+          "Histopathology results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "The patient underwent an FNAC on the right hemithorax in a prone position, which suggested the presence of an HC (Fig. 2).",
+        "category": "image_finding",
+        "temporal_cue": "after CT scan",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "What were the details and findings of the thoracotomy and abscess removal procedure?",
+        "current_trajectory_hypothesis": "Persistent respiratory symptoms led to HR-CT showing a pulmonary opacity. FNAC suggested a hydatid cyst. The next step, as per the final diagnosis, was a thoracotomy to remove the abscess.",
+        "confirmed_evidence": [
+          "Patient presented with intermittent respiratory symptoms, mild cough, and sputum for two years, with a history of COVID-19.",
+          "HR-CT of the chest revealed an irregular pulmonary opacity in the right lower lobe with central fluid attenuation, suspected to be an abscess or, less likely, a pulmonary neoplasm.",
+          "FNAC on the right hemithorax suggested the presence of an HC."
+        ],
+        "missing_key_evidence": [
+          "Details of thoracotomy and abscess removal",
+          "Histopathology results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "Procedure ordered but details not yet disclosed",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings and details of the thoracotomy and abscess removal procedure?",
+        "current_trajectory_hypothesis": "Persistent respiratory symptoms led to HR-CT showing a pulmonary opacity. FNAC suggested a hydatid cyst. A thoracotomy was performed to remove the lesion, which is expected to provide further details about the cyst/abscess.",
+        "confirmed_evidence": [
+          "Patient presented with intermittent respiratory symptoms, mild cough, and sputum for two years, with a history of COVID-19.",
+          "HR-CT of the chest revealed an irregular pulmonary opacity in the right lower lobe with central fluid attenuation, suspected to be an abscess or, less likely, a pulmonary neoplasm.",
+          "FNAC on the right hemithorax suggested the presence of an HC."
+        ],
+        "missing_key_evidence": [
+          "Details of thoracotomy and abscess removal",
+          "Histopathology results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E003",
+        "source_text": "Thereafter, a thoracotomy was performed, and the abscess was removed.",
+        "category": "image_finding",
+        "temporal_cue": "after CT scan",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the histopathological results of the removed abscess?",
+        "current_trajectory_hypothesis": "Persistent respiratory symptoms led to HR-CT showing a pulmonary opacity. FNAC suggested a hydatid cyst. A thoracotomy was performed to remove the abscess. Histopathology is expected to confirm the diagnosis of hydatid cyst.",
+        "confirmed_evidence": [
+          "Patient presented with intermittent respiratory symptoms, mild cough, and sputum for two years, with a history of COVID-19.",
+          "HR-CT of the chest revealed an irregular pulmonary opacity in the right lower lobe with central fluid attenuation, suspected to be an abscess or, less likely, a pulmonary neoplasm.",
+          "FNAC on the right hemithorax suggested the presence of an HC.",
+          "A thoracotomy was performed, and the abscess was removed."
+        ],
+        "missing_key_evidence": [
+          "Histopathology results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "The source states histopathological results confirmed the diagnosis but does not detail the histopathological findings.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Pulmonary Hydatid Cyst (HC)",
+        "trajectory_summary": "A 29-year-old female presented with two years of intermittent respiratory symptoms, including mild cough and sputum, following a COVID-19 infection. A high-resolution computed tomography (HR-CT) scan of the chest revealed an irregular pulmonary opacity in the right lower lobe with central fluid attenuation, suspected to be an abscess or, less likely, a pulmonary neoplasm. Fine Needle Aspiration Cytology (FNAC) on the right hemithorax suggested the presence of a hydatid cyst (HC). Subsequently, a thoracotomy was performed, and the abscess was removed. Histopathological results confirmed the diagnosis of HC.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with intermittent respiratory symptoms, mild cough, and sputum for two years, with a history of COVID-19.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "HR-CT of the chest revealed an irregular pulmonary opacity in the right lower lobe with central fluid attenuation, suspected to be an abscess or, less likely, a pulmonary neoplasm.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "FNAC on the right hemithorax suggested the presence of a hydatid cyst (HC).",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "A thoracotomy was performed, and the abscess was removed.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Histopathological results confirmed the diagnosis.",
+            "evidence_ids": []
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Pulmonary neoplasm",
+            "basis": "Initially considered less likely based on HR-CT findings (E002), and implicitly ruled out by FNAC suggesting HC (E003) and confirmed histopathology."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Specific detailed findings of the histopathological examination were not reported, only the fact of confirmation."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Pulmonary Hydatid Cyst (HC)",
+    "trajectory_summary": "A 29-year-old female presented with two years of intermittent respiratory symptoms, including mild cough and sputum, following a COVID-19 infection. A high-resolution computed tomography (HR-CT) scan of the chest revealed an irregular pulmonary opacity in the right lower lobe with central fluid attenuation, suspected to be an abscess or, less likely, a pulmonary neoplasm. Fine Needle Aspiration Cytology (FNAC) on the right hemithorax suggested the presence of a hydatid cyst (HC). Subsequently, a thoracotomy was performed, and the abscess was removed. Histopathological results confirmed the diagnosis of HC.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with intermittent respiratory symptoms, mild cough, and sputum for two years, with a history of COVID-19.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "HR-CT of the chest revealed an irregular pulmonary opacity in the right lower lobe with central fluid attenuation, suspected to be an abscess or, less likely, a pulmonary neoplasm.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "FNAC on the right hemithorax suggested the presence of a hydatid cyst (HC).",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "A thoracotomy was performed, and the abscess was removed.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Histopathological results confirmed the diagnosis.",
+        "evidence_ids": []
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Pulmonary neoplasm",
+        "basis": "Initially considered less likely based on HR-CT findings (E002), and implicitly ruled out by FNAC suggesting HC (E003) and confirmed histopathology."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Specific detailed findings of the histopathological examination were not reported, only the fact of confirmation."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T19:01:03.952674+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

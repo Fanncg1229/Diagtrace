@@ -1,0 +1,482 @@
+{
+  "case_id": "PMC8454435",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 12,
+  "termination": "final",
+  "known_final_diagnosis": "the formation of fungal brain abscess following COVID-19 ... Aspergillus ... The culture of the pus had grown Aspergillus organism.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E004"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "brain imaging (e.g., CT or MRI) to investigate neurological symptoms",
+        "current_trajectory_hypothesis": "Patient presenting with new neurological symptoms post-COVID-19, suspecting a central nervous system pathology, likely an abscess given the final diagnosis.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Brain imaging findings",
+          "Confirmation of brain abscess",
+          "Identification of fungal etiology",
+          "Details of abscess drainage/biopsy",
+          "Culture results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.0
+      },
+      "report": {
+        "status": "ordered",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [
+          "brain imaging"
+        ],
+        "explanation": "Brain imaging test order matches documented source record E001, order recorded and evidence will be released upon result request.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "results of the brain imaging (CT or MRI)",
+        "current_trajectory_hypothesis": "Patient presenting with new neurological symptoms post-COVID-19, likely a CNS pathology such as an abscess. Brain imaging is expected to show lesions consistent with this.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Brain imaging findings",
+          "Confirmation of brain abscess",
+          "Identification of fungal etiology",
+          "Details of abscess drainage/biopsy",
+          "Culture results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "MRI of the brain (figure 1) was done, which revealed a thick-walled peripherally enhancing lesion of size ~45×43×37 mm in the right parietal lobe in the peritrigonal location. The lesion wall had crenulated margins with intracavitary projections, which showed blooming on susceptibility-weighted imaging (SWI) and diffusion restriction on diffusion-weighted imaging (DWI). The core of the lesion was hyperintense, which was suppressed on a fluid-attenuated inversion recovery (FLAIR) sequence. Marked perilesional oedema was also seen on T2-weighted/FLAIR imaging with surrounding mass effect. On magnetic resonance spectroscopy (MRS), raised lipid lactates and trehalose were seen.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "biopsy or drainage of the brain lesion for histopathological and microbiological analysis",
+        "current_trajectory_hypothesis": "MRI revealed a brain lesion highly suggestive of an abscess. To confirm the fungal etiology and identify the specific organism (Aspergillus, as per final diagnosis), a biopsy or drainage of the lesion is necessary for culture and histopathology.",
+        "confirmed_evidence": [
+          "Patient presented with altered behavior, slurring of speech, and left-side weakness post-COVID-19.",
+          "MRI brain showed a thick-walled, peripherally enhancing lesion (~45x43x37 mm) in the right parietal lobe with features suggestive of an abscess (crenulated margins, intracavitary projections, blooming on SWI, diffusion restriction on DWI, perilesional edema, mass effect).",
+          "MRS showed raised lipid lactates and trehalose, which can be indicative of fungal infection."
+        ],
+        "missing_key_evidence": [
+          "Histopathology results of the lesion",
+          "Microbiological culture results of the lesion (specifically Aspergillus)",
+          "Details of abscess drainage/biopsy procedure",
+          "Treatment initiated and response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "The procedure order matches no documented source result; thus marked ordered_but_not_documented.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "microbiological culture results from the brain lesion/pus",
+        "current_trajectory_hypothesis": "The patient has a brain abscess, likely fungal given the MRI and MRS findings. The next step is to confirm the specific organism, which the final diagnosis states is Aspergillus from pus culture.",
+        "confirmed_evidence": [
+          "Patient presented with altered behavior, slurring of speech, and left-side weakness post-COVID-19.",
+          "MRI brain showed a thick-walled, peripherally enhancing lesion (~45x43x37 mm) in the right parietal lobe with features suggestive of an abscess (crenulated margins, intracavitary projections, blooming on SWI, diffusion restriction on DWI, perilesional edema, mass effect).",
+          "MRS showed raised lipid lactates and trehalose, which can be indicative of fungal infection."
+        ],
+        "missing_key_evidence": [
+          "Microbiological culture results of the lesion (specifically Aspergillus)",
+          "Histopathology results of the lesion",
+          "Details of abscess drainage/biopsy procedure",
+          "Treatment initiated and response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "The culture of the pus had grown Aspergillus organism.",
+        "category": "clinical_course",
+        "temporal_cue": "clinical progression",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "details of the procedure (e.g., drainage or biopsy) that obtained the pus for culture",
+        "current_trajectory_hypothesis": "The patient presented with neurological symptoms post-COVID-19. MRI revealed a brain abscess, and culture of pus from this lesion confirmed Aspergillus. I need to verify the details of the procedure that obtained this pus.",
+        "confirmed_evidence": [
+          "Patient presented with altered behavior, slurring of speech, and left-side weakness post-COVID-19.",
+          "MRI brain showed a thick-walled, peripherally enhancing lesion (~45x43x37 mm) in the right parietal lobe with features suggestive of an abscess (crenulated margins, intracavitary projections, blooming on SWI, diffusion restriction on DWI, perilesional edema, mass effect). (E001)",
+          "MRS showed raised lipid lactates and trehalose, which can be indicative of fungal infection. (E001)",
+          "Culture of the pus from the lesion grew Aspergillus organism. (E004)"
+        ],
+        "missing_key_evidence": [
+          "Details of abscess drainage/biopsy procedure",
+          "Histopathology results of the lesion",
+          "Treatment initiated and response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E004",
+        "source_text": "craniotomy with excision of the brain abscess was done. The culture of the pus had grown Aspergillus organism.",
+        "category": "clinical_course",
+        "temporal_cue": "clinical progression",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "histopathology results of the excised brain abscess",
+        "current_trajectory_hypothesis": "The patient developed a fungal brain abscess (Aspergillus) post-COVID-19, confirmed by MRI, craniotomy, and pus culture. Histopathology would provide further details and confirmation of the fungal infection.",
+        "confirmed_evidence": [
+          "Patient presented with altered behavior, slurring of speech, and left-side weakness post-COVID-19.",
+          "MRI brain showed a thick-walled, peripherally enhancing lesion (~45x43x37 mm) in the right parietal lobe with features suggestive of an abscess (crenulated margins, intracavitary projections, blooming on SWI, diffusion restriction on DWI, perilesional edema, mass effect). (E001)",
+          "MRS showed raised lipid lactates and trehalose, which can be indicative of fungal infection. (E001)",
+          "Craniotomy with excision of the brain abscess was performed. (E004)",
+          "Culture of the pus from the lesion grew Aspergillus organism. (E004)"
+        ],
+        "missing_key_evidence": [
+          "Histopathology results of the lesion",
+          "Treatment initiated and response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E004",
+        "source_text": "craniotomy with excision of the brain abscess was done. The culture of the pus had grown Aspergillus organism.",
+        "category": "clinical_course",
+        "temporal_cue": "clinical progression",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "histopathology report of the excised brain abscess tissue",
+        "current_trajectory_hypothesis": "The patient developed a fungal brain abscess (Aspergillus) post-COVID-19, confirmed by MRI, craniotomy, and pus culture. Histopathology would provide microscopic confirmation of fungal elements and inflammatory changes, further solidifying the diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with altered behavior, slurring of speech, and left-side weakness post-COVID-19.",
+          "MRI brain showed a thick-walled, peripherally enhancing lesion (~45x43x37 mm) in the right parietal lobe with features suggestive of an abscess (crenulated margins, intracavitary projections, blooming on SWI, diffusion restriction on DWI, perilesional edema, mass effect). (E001)",
+          "MRS showed raised lipid lactates and trehalose, which can be indicative of fungal infection. (E001)",
+          "Craniotomy with excision of the brain abscess was performed. (E004)",
+          "Culture of the pus from the lesion grew Aspergillus organism. (E004)"
+        ],
+        "missing_key_evidence": [
+          "Histopathology results of the lesion",
+          "Treatment initiated and response/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "explanation": "The source records do not contain a histopathology report of the excised brain abscess tissue.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient developed a fungal brain abscess (Aspergillus) post-COVID-19, confirmed by MRI, craniotomy, and pus culture. I need to understand the subsequent clinical course and treatment to complete the trajectory.",
+        "confirmed_evidence": [
+          "Patient presented with altered behavior, slurring of speech, and left-side weakness post-COVID-19. (Initial presentation)",
+          "MRI brain showed a thick-walled, peripherally enhancing lesion (~45x43x37 mm) in the right parietal lobe with features suggestive of an abscess (crenulated margins, intracavitary projections, blooming on SWI, diffusion restriction on DWI, perilesional edema, mass effect). (E001)",
+          "MRS showed raised lipid lactates and trehalose, which can be indicative of fungal infection. (E001)",
+          "Craniotomy with excision of the brain abscess was performed. (E004)",
+          "Culture of the pus from the lesion grew Aspergillus organism. (E004)"
+        ],
+        "missing_key_evidence": [
+          "Treatment initiated (antifungal therapy)",
+          "Patient's response to treatment",
+          "Overall outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "Contrast-enhanced CT of the thorax was also done, which showed few peripheral pulmonary cavities, segmental right pulmonary artery thrombus and diffuse parenchymal fibrosis (figure 2).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "What antifungal treatment was initiated for the Aspergillus infection?",
+        "current_trajectory_hypothesis": "The patient developed a fungal brain abscess (Aspergillus) post-COVID-19, confirmed by MRI, craniotomy, and pus culture. Pulmonary findings on CT thorax suggest a potential source or concurrent infection. I need to verify the treatment initiated and the patient's response.",
+        "confirmed_evidence": [
+          "Patient presented with altered behavior, slurring of speech, and left-side weakness post-COVID-19. (Initial presentation)",
+          "MRI brain showed a thick-walled, peripherally enhancing lesion (~45x43x37 mm) in the right parietal lobe with features suggestive of an abscess (crenulated margins, intracavitary projections, blooming on SWI, diffusion restriction on DWI, perilesional edema, mass effect). (E001)",
+          "MRS showed raised lipid lactates and trehalose, which can be indicative of fungal infection. (E001)",
+          "Craniotomy with excision of the brain abscess was performed. (E004)",
+          "Culture of the pus from the lesion grew Aspergillus organism. (E004)",
+          "CT of the thorax showed peripheral pulmonary cavities, segmental right pulmonary artery thrombus, and diffuse parenchymal fibrosis. (E002)"
+        ],
+        "missing_key_evidence": [
+          "Antifungal treatment initiated",
+          "Patient's response to treatment",
+          "Overall outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "explanation": "The source records do not specify the antifungal treatment initiated for Aspergillus infection.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient developed a fungal brain abscess (Aspergillus) post-COVID-19, confirmed by MRI, craniotomy, and pus culture. Pulmonary findings on CT thorax suggest a potential source or concurrent infection. I need to verify the patient's clinical course and outcome after the intervention and diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with altered behavior, slurring of speech, and left-side weakness post-COVID-19. (Initial presentation)",
+          "MRI brain showed a thick-walled, peripherally enhancing lesion (~45x43x37 mm) in the right parietal lobe with features suggestive of an abscess (crenulated margins, intracavitary projections, blooming on SWI, diffusion restriction on DWI, perilesional edema, mass effect). (E001)",
+          "MRS showed raised lipid lactates and trehalose, which can be indicative of fungal infection. (E001)",
+          "Craniotomy with excision of the brain abscess was performed. (E004)",
+          "Culture of the pus from the lesion grew Aspergillus organism. (E004)",
+          "CT of the thorax showed peripheral pulmonary cavities, segmental right pulmonary artery thrombus, and diffuse parenchymal fibrosis. (E002)"
+        ],
+        "missing_key_evidence": [
+          "Patient's response to treatment/clinical course",
+          "Overall outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient developed a fungal brain abscess (Aspergillus) post-COVID-19, confirmed by MRI, craniotomy, and pus culture. Pulmonary findings on CT thorax suggest a potential source or concurrent infection. I need to verify the patient's clinical course and outcome after the intervention and diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with altered behavior, slurring of speech, and left-side weakness post-COVID-19. (Initial presentation)",
+          "MRI brain showed a thick-walled, peripherally enhancing lesion (~45x43x37 mm) in the right parietal lobe with features suggestive of an abscess (crenulated margins, intracavitary projections, blooming on SWI, diffusion restriction on DWI, perilesional edema, mass effect). (E001)",
+          "MRS showed raised lipid lactates and trehalose, which can be indicative of fungal infection. (E001)",
+          "Craniotomy with excision of the brain abscess was performed. (E004)",
+          "Culture of the pus from the lesion grew Aspergillus organism. (E004)",
+          "CT of the thorax showed peripheral pulmonary cavities, segmental right pulmonary artery thrombus, and diffuse parenchymal fibrosis. (E002)"
+        ],
+        "missing_key_evidence": [
+          "Patient's response to treatment/clinical course",
+          "Overall outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "explanation": "No pending orders and no additional undisclosed clinical trajectory updates after the current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "the formation of fungal brain abscess following COVID-19 ... Aspergillus ... The culture of the pus had grown Aspergillus organism.",
+        "trajectory_summary": "A 62-year-old man, recently discharged post-COVID-19 pneumonia, presented with altered behavior, slurring of speech, and left-side weakness. MRI of the brain revealed a thick-walled, peripherally enhancing lesion in the right parietal lobe consistent with an abscess, with MRS findings suggestive of fungal infection. A craniotomy with excision of the brain abscess was performed, and culture of the pus grew Aspergillus organism. CT of the thorax showed peripheral pulmonary cavities, segmental right pulmonary artery thrombus, and diffuse parenchymal fibrosis.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with neurological symptoms (altered behavior, slurring of speech, left-side weakness) after recent COVID-19 pneumonia hospitalization.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "MRI brain showed a thick-walled, peripherally enhancing lesion in the right parietal lobe, consistent with an abscess, with features like crenulated margins, intracavitary projections, blooming on SWI, diffusion restriction on DWI, perilesional edema, and mass effect.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Magnetic resonance spectroscopy (MRS) showed raised lipid lactates and trehalose, indicative of fungal infection.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Craniotomy with excision of the brain abscess was performed.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Culture of the pus from the excised lesion grew Aspergillus organism, confirming the fungal etiology.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "CT of the thorax showed peripheral pulmonary cavities, segmental right pulmonary artery thrombus, and diffuse parenchymal fibrosis, suggesting potential pulmonary involvement or source.",
+            "evidence_ids": [
+              "E002"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [
+          "Specific antifungal treatment regimen initiated",
+          "Patient's detailed clinical response to treatment",
+          "Long-term outcome of the patient"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "the formation of fungal brain abscess following COVID-19 ... Aspergillus ... The culture of the pus had grown Aspergillus organism.",
+    "trajectory_summary": "A 62-year-old man, recently discharged post-COVID-19 pneumonia, presented with altered behavior, slurring of speech, and left-side weakness. MRI of the brain revealed a thick-walled, peripherally enhancing lesion in the right parietal lobe consistent with an abscess, with MRS findings suggestive of fungal infection. A craniotomy with excision of the brain abscess was performed, and culture of the pus grew Aspergillus organism. CT of the thorax showed peripheral pulmonary cavities, segmental right pulmonary artery thrombus, and diffuse parenchymal fibrosis.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with neurological symptoms (altered behavior, slurring of speech, left-side weakness) after recent COVID-19 pneumonia hospitalization.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "MRI brain showed a thick-walled, peripherally enhancing lesion in the right parietal lobe, consistent with an abscess, with features like crenulated margins, intracavitary projections, blooming on SWI, diffusion restriction on DWI, perilesional edema, and mass effect.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Magnetic resonance spectroscopy (MRS) showed raised lipid lactates and trehalose, indicative of fungal infection.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Craniotomy with excision of the brain abscess was performed.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Culture of the pus from the excised lesion grew Aspergillus organism, confirming the fungal etiology.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "CT of the thorax showed peripheral pulmonary cavities, segmental right pulmonary artery thrombus, and diffuse parenchymal fibrosis, suggesting potential pulmonary involvement or source.",
+        "evidence_ids": [
+          "E002"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [
+      "Specific antifungal treatment regimen initiated",
+      "Patient's detailed clinical response to treatment",
+      "Long-term outcome of the patient"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T17:26:52.769546+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

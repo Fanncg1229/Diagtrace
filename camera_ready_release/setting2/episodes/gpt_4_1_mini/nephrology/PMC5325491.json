@@ -1,0 +1,357 @@
+{
+  "case_id": "PMC5325491",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 9,
+  "termination": "final",
+  "known_final_diagnosis": "After a diagnosis of multiple myeloma and Evan's syndrome was made...",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E003",
+    "E004",
+    "E006",
+    "E007"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "serum protein electrophoresis and immunofixation",
+        "current_trajectory_hypothesis": "Patient presents with fatigue, acute renal failure, anemia, thrombocytopenia, hemolysis (jaundice, high LDH, positive Coombs test with warm IgG), suggesting possible Evan's syndrome; multiple myeloma suspected given renal failure and hematologic abnormalities needing confirmatory protein studies",
+        "confirmed_evidence": [
+          "52-year-old man with 2 months of fatigue, dizziness, acute renal failure (creatinine 330 µmol/l, clearance 14 ml/min)",
+          "Physical exam: conjunctival jaundice; labs: anemia (Hb 86g/L), thrombocytopenia (platelets 36x10^9/L), elevated LDH (451 UI/L), indirect hyperbilirubinemia",
+          "Direct Coombs test positive for warm IgG antibody"
+        ],
+        "missing_key_evidence": [
+          "Evidence of monoclonal gammopathy to support multiple myeloma diagnosis",
+          "Bone marrow or imaging data to confirm multiple myeloma",
+          "Further hemolysis workup and possible Evan's syndrome confirmatory tests"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for serum protein electrophoresis and immunofixation recorded; no result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "serum protein electrophoresis and immunofixation test results",
+        "current_trajectory_hypothesis": "Suspected Evan's syndrome with autoimmune hemolytic anemia and multiple myeloma to be confirmed by monoclonal gammopathy on serum protein electrophoresis and immunofixation",
+        "confirmed_evidence": [
+          "52-year-old man with fatigue, dizziness, acute renal failure (creatinine 330 µmol/l, clearance 14 ml/min)",
+          "Physical exam: conjunctival jaundice; lab evidence of anemia (Hb 86g/L), thrombocytopenia, elevated LDH, indirect hyperbilirubinemia, positive direct Coombs test with warm IgG antibody"
+        ],
+        "missing_key_evidence": [
+          "Serum electrophoresis/immunofixation results showing monoclonal protein",
+          "Bone marrow examination or imaging for multiple myeloma confirmation",
+          "Further clinical course or other lab/imaging findings supporting diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "total serum protein 113 g/L and a spike in gamma globulin estimated to 69 g/l. Serum immune electrophoresis showed that the M protein was the IgG kappa chain. Urinary M protein was 2g/day.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "bone marrow biopsy and aspirate",
+        "current_trajectory_hypothesis": "Serum protein electrophoresis showed an IgG kappa monoclonal spike, supporting multiple myeloma; bone marrow biopsy needed to confirm plasma cell infiltration and support diagnosis",
+        "confirmed_evidence": [
+          "Monoclonal spike in gamma globulin (69 g/L) with IgG kappa M protein in serum electrophoresis",
+          "Urinary M protein 2g/day"
+        ],
+        "missing_key_evidence": [
+          "Bone marrow biopsy findings confirming plasma cell proliferation diagnostic of multiple myeloma",
+          "Further clinical or laboratory evidence confirming Evan's syndrome and autoimmune hemolysis progression"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for bone marrow biopsy and aspirate acknowledged without a source-backed result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "bone marrow biopsy and aspirate report",
+        "current_trajectory_hypothesis": "Bone marrow biopsy awaited to confirm plasma cell proliferation for multiple myeloma; initial serology and urinary protein electrophoresis strongly suggest multiple myeloma with Evan's syndrome related autoimmune hemolytic anemia",
+        "confirmed_evidence": [
+          "Monoclonal spike in gamma globulin (69 g/L) with IgG kappa M protein in serum electrophoresis",
+          "Urinary M protein 2g/day",
+          "Direct Coombs test positive for warm IgG antibody indicating autoimmune hemolysis"
+        ],
+        "missing_key_evidence": [
+          "Bone marrow biopsy findings confirming multiple myeloma plasma cell infiltration",
+          "Additional lab or clinical findings confirming Evan's syndrome diagnosis",
+          "Information on clinical course, therapy response or complications"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Bone marrow aspirates showed infiltration by 78% of plasma cells (Figure 1).",
+        "category": "pathology_report",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "complete autoimmune hemolysis panel including reticulocyte count, haptoglobin, and peripheral blood smear review",
+        "current_trajectory_hypothesis": "Multiple myeloma confirmed by IgG kappa monoclonal protein spike and bone marrow plasma cell infiltration; warm IgG autoimmune hemolysis supported by positive direct Coombs test but further confirmatory hemolysis markers and peripheral smear needed to fully characterize Evan's syndrome",
+        "confirmed_evidence": [
+          "Monoclonal spike in gamma globulin (69 g/L) with IgG kappa M protein in serum electrophoresis",
+          "Urinary M protein 2g/day",
+          "Bone marrow aspirate with 78% plasma cell infiltration",
+          "Direct Coombs test positive for warm IgG antibody indicating autoimmune hemolysis"
+        ],
+        "missing_key_evidence": [
+          "Complete hemolysis panel with reticulocytes, haptoglobin, peripheral blood smear to document Evan's syndrome",
+          "Clinical course and treatment response",
+          "Additional data on platelet count etiology and progression"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order acknowledged; no direct source evidence for complete panel results yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "results of complete autoimmune hemolysis panel including reticulocyte count, haptoglobin, and peripheral blood smear",
+        "current_trajectory_hypothesis": "Multiple myeloma diagnosis confirmed by IgG kappa monoclonal protein spike and bone marrow plasma cell infiltration. Warm antibody autoimmune hemolytic anemia (Evan's syndrome) strongly suspected given positive Coombs and hemolysis markers, needing full hemolysis panel and peripheral smear confirmation.",
+        "confirmed_evidence": [
+          "Monoclonal spike in gamma globulin (69 g/L) with IgG kappa M protein in serum electrophoresis",
+          "Urinary M protein 2g/day",
+          "Bone marrow aspirate with 78% plasma cells infiltration",
+          "Direct Coombs test positive for warm IgG antibody indicating autoimmune hemolysis"
+        ],
+        "missing_key_evidence": [
+          "Complete hemolysis panel with reticulocytes, haptoglobin, and peripheral blood smear confirming hemolytic anemia and platelet abnormalities",
+          "Clinical course and treatment response data"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "Laboratory investigation showed: hemoglobin 86g/L, red blood cell (RBC) 3.67*1012/L, reticulocytes count of 5.2%, white blood cells (WBC) 12.3*109/L, platelet count 36*109/L, lactate dehydrogenase (LDH) was 451UI/L, indirect bilirubin 49 mmol/L and total bilirubin 96 mmol/L.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "clinical course update including treatment administered, complications, and patient outcome",
+        "current_trajectory_hypothesis": "Initial presentation and confirmatory tests support diagnosis of multiple myeloma with Evan's syndrome characterized by anemia, positive Coombs test, monoclonal IgG kappa spike, and bone marrow plasma cell infiltration; clinical course and response to treatment needed for full trajectory",
+        "confirmed_evidence": [
+          "Fatigue, dizziness, acute renal failure, conjunctival jaundice at presentation",
+          "Anemia (Hb 86g/L), thrombocytopenia (platelets 36x10^9/L), elevated LDH (451 UI/L), indirect hyperbilirubinemia",
+          "Positive direct Coombs test with warm IgG antibody indicating autoimmune hemolysis",
+          "Serum protein electrophoresis showing IgG kappa M protein spike (69 g/L) and urinary M protein 2g/day",
+          "Bone marrow aspirates showed 78% plasma cell infiltration",
+          "Lab hemolysis markers (reticulocytes 5.2%, hemoglobin 86g/L, low platelets)"
+        ],
+        "missing_key_evidence": [
+          "Clinical course including treatment details, response, complications, and final outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "chemotherapy was rapidly initiated by BTD (bortezomib-thalidomide-dexamethasone) and continuous corticosteroid therapy.",
+        "category": "treatment_response",
+        "temporal_cue": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial presentation and confirmatory tests support diagnosis of multiple myeloma with Evan's syndrome. Chemotherapy with BTD and corticosteroids was initiated. Awaiting clinical course and outcome to complete trajectory.",
+        "confirmed_evidence": [
+          "Fatigue, dizziness, acute renal failure, conjunctival jaundice at presentation",
+          "Anemia (Hb 86g/L), thrombocytopenia (platelets 36x10^9/L), elevated LDH (451 UI/L), indirect hyperbilirubinemia",
+          "Positive direct Coombs test with warm IgG antibody indicating autoimmune hemolysis",
+          "Serum protein electrophoresis showing IgG kappa M protein spike (69 g/L) and urinary M protein 2g/day",
+          "Bone marrow aspirates showed 78% plasma cell infiltration",
+          "Lab hemolysis markers (reticulocytes 5.2%, hemoglobin 86g/L, low platelets)",
+          "Chemotherapy initiated with BTD (bortezomib-thalidomide-dexamethasone) and corticosteroids"
+        ],
+        "missing_key_evidence": [
+          "Clinical course details including treatment efficacy, complications, hematologic and renal response, and final patient outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "Evolution was marked by deterioration of the hematological and renal state along with the occurrence of hemorrhagic symptoms such as echymosis and haematemesis. The patient died secondary of a lactic acidosis.",
+        "category": "other",
+        "temporal_cue": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Multiple myeloma and Evan's syndrome",
+        "trajectory_summary": "A 52-year-old man presented with fatigue, dizziness, conjunctival jaundice, acute renal failure, and cytopenias. Laboratory studies confirmed autoimmune hemolytic anemia with positive direct Coombs test for warm IgG antibody and hemolysis markers. Serum protein electrophoresis and immunofixation revealed a large monoclonal IgG kappa spike with urinary M protein excretion. Bone marrow biopsy demonstrated 78% plasma cell infiltration consistent with multiple myeloma. Hemolysis labs supported Evan's syndrome diagnosis. Chemotherapy with BTD and corticosteroids was initiated but the patient's clinical course worsened with hematologic and renal deterioration, hemorrhagic symptoms, and death from lactic acidosis.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Positive direct Coombs test for warm IgG antibody indicating autoimmune hemolysis",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Serum protein electrophoresis showed IgG kappa monoclonal spike (69 g/L); urinary M protein 2g/day",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Bone marrow aspirates showed 78% plasma cell infiltration confirming multiple myeloma",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Laboratory hemolysis markers (anemia, reticulocytosis, elevated LDH, indirect hyperbilirubinemia) supporting Evan's syndrome",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Chemotherapy was initiated with BTD regimen and corticosteroids",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Clinical deterioration with hematological and renal worsening, hemorrhagic symptoms, and death due to lactic acidosis",
+            "evidence_ids": [
+              "E007"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Multiple myeloma and Evan's syndrome",
+    "trajectory_summary": "A 52-year-old man presented with fatigue, dizziness, conjunctival jaundice, acute renal failure, and cytopenias. Laboratory studies confirmed autoimmune hemolytic anemia with positive direct Coombs test for warm IgG antibody and hemolysis markers. Serum protein electrophoresis and immunofixation revealed a large monoclonal IgG kappa spike with urinary M protein excretion. Bone marrow biopsy demonstrated 78% plasma cell infiltration consistent with multiple myeloma. Hemolysis labs supported Evan's syndrome diagnosis. Chemotherapy with BTD and corticosteroids was initiated but the patient's clinical course worsened with hematologic and renal deterioration, hemorrhagic symptoms, and death from lactic acidosis.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Positive direct Coombs test for warm IgG antibody indicating autoimmune hemolysis",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Serum protein electrophoresis showed IgG kappa monoclonal spike (69 g/L); urinary M protein 2g/day",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Bone marrow aspirates showed 78% plasma cell infiltration confirming multiple myeloma",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Laboratory hemolysis markers (anemia, reticulocytosis, elevated LDH, indirect hyperbilirubinemia) supporting Evan's syndrome",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Chemotherapy was initiated with BTD regimen and corticosteroids",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Clinical deterioration with hematological and renal worsening, hemorrhagic symptoms, and death due to lactic acidosis",
+        "evidence_ids": [
+          "E007"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-23T22:47:58.293432+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

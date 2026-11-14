@@ -1,0 +1,295 @@
+{
+  "case_id": "PMC10924890",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 8,
+  "termination": "final",
+  "known_final_diagnosis": "Takayasu Vasculitis",
+  "disclosed_evidence_ids": [
+    "E002",
+    "E007",
+    "E009"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order an imaging study to visualize the large vessels, such as CT angiography or MR angiography of the aorta and its major branches.",
+        "current_trajectory_hypothesis": "The patient's differential blood pressure and pulse discrepancy suggest a large vessel vasculopathy, potentially Takayasu Vasculitis. Imaging is needed to confirm and characterize the vascular involvement.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Confirmation of large vessel inflammation/stenosis",
+          "Extent of vascular involvement",
+          "Inflammatory markers"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Imaging study order placed for visualization of large vessels; no corresponding source evidence for immediate result.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request the report for the CT angiography or MR angiography of the aorta and its major branches.",
+        "current_trajectory_hypothesis": "The patient's differential blood pressure and pulse discrepancy strongly suggest a large vessel vasculopathy. Imaging is crucial to identify the location and extent of vascular involvement, which would support Takayasu Vasculitis.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Detailed findings from large vessel imaging",
+          "Inflammatory markers",
+          "Confirmation of active inflammation or stenosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "Subsequently, MR angiography revealed complete thrombosis of the left subclavian and left common carotid arteries. There was also about 80-90% luminal narrowing of the long segmental lower thoracic and abdominal aorta.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order inflammatory markers such as ESR and CRP.",
+        "current_trajectory_hypothesis": "MR angiography has revealed significant large vessel involvement consistent with Takayasu Vasculitis. Now, inflammatory markers are needed to assess disease activity and further support the diagnosis.",
+        "confirmed_evidence": [
+          "Complete thrombosis of the left subclavian and left common carotid arteries",
+          "80-90% luminal narrowing of the long segmental lower thoracic and abdominal aorta"
+        ],
+        "missing_key_evidence": [
+          "Inflammatory marker levels (ESR, CRP)",
+          "Histopathological confirmation (if available/needed)",
+          "Treatment and response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Inflammatory markers ordered at the targeted_workup phase; no direct source result yet",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request the results for ESR and CRP.",
+        "current_trajectory_hypothesis": "Significant large vessel involvement has been identified via MRA, consistent with Takayasu Vasculitis. Inflammatory markers are needed to assess disease activity and further support the diagnosis.",
+        "confirmed_evidence": [
+          "Complete thrombosis of the left subclavian and left common carotid arteries (E007)",
+          "80-90% luminal narrowing of the long segmental lower thoracic and abdominal aorta (E007)"
+        ],
+        "missing_key_evidence": [
+          "Inflammatory marker levels (ESR, CRP)",
+          "Histopathological confirmation (if available/needed)",
+          "Treatment and response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "Her white blood cells were within the normal range, whereas CRP and ESR were elevated.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "What treatment was initiated for the patient's condition?",
+        "current_trajectory_hypothesis": "The patient's presentation, MRA findings of large vessel involvement (thrombosis and narrowing), and elevated inflammatory markers (ESR, CRP) are highly suggestive of Takayasu Vasculitis. I need to understand the treatment initiated and the patient's response to further reconstruct the clinical trajectory.",
+        "confirmed_evidence": [
+          "Uncontrolled hypertension, angina, malaise, fatigue, differential blood pressure and pulse discrepancy at presentation",
+          "Complete thrombosis of the left subclavian and left common carotid arteries (E007)",
+          "80-90% luminal narrowing of the long segmental lower thoracic and abdominal aorta (E007)",
+          "Elevated CRP and ESR (E002)"
+        ],
+        "missing_key_evidence": [
+          "Specific treatment initiated for Takayasu Vasculitis",
+          "Patient's response to treatment",
+          "Further clinical course or outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E009",
+        "source_text": "The patient subsequently underwent percutaneous angioplasty with drug-eluting stents in the LAD and LCX coronaries and was put on dual antiplatelet therapy.",
+        "category": "treatment_response",
+        "temporal_cue": "after diagnosis",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "What medical treatment was initiated for the Takayasu Vasculitis itself, beyond the coronary intervention?",
+        "current_trajectory_hypothesis": "The patient's presentation, MRA findings of large vessel involvement, and elevated inflammatory markers strongly support Takayasu Vasculitis. Coronary intervention addressed a complication. I need to identify the specific treatment for the underlying vasculitis and its response to complete the trajectory.",
+        "confirmed_evidence": [
+          "Uncontrolled hypertension, angina, malaise, fatigue, differential blood pressure and pulse discrepancy at presentation",
+          "Complete thrombosis of the left subclavian and left common carotid arteries (E007)",
+          "80-90% luminal narrowing of the long segmental lower thoracic and abdominal aorta (E007)",
+          "Elevated CRP and ESR (E002)",
+          "Percutaneous angioplasty with drug-eluting stents in LAD and LCX coronaries and dual antiplatelet therapy (E009)"
+        ],
+        "missing_key_evidence": [
+          "Specific immunosuppressive treatment for Takayasu Vasculitis",
+          "Patient's response to vasculitis treatment",
+          "Further clinical course or outcome related to vasculitis activity"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No reported medical treatment specifically initiated for Takayasu Vasculitis beyond coronary intervention in the provided evidence.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient's presentation, MRA findings, and elevated inflammatory markers strongly support Takayasu Vasculitis. Coronary intervention addressed a complication. While specific immunosuppressive treatment for vasculitis was not reported, understanding the overall clinical course or outcome is crucial to complete the trajectory.",
+        "confirmed_evidence": [
+          "Uncontrolled hypertension, angina, malaise, fatigue, differential blood pressure and pulse discrepancy at presentation",
+          "Complete thrombosis of the left subclavian and left common carotid arteries (E007)",
+          "80-90% luminal narrowing of the long segmental lower thoracic and abdominal aorta (E007)",
+          "Elevated CRP and ESR (E002)",
+          "Percutaneous angioplasty with drug-eluting stents in LAD and LCX coronaries and dual antiplatelet therapy (E009)"
+        ],
+        "missing_key_evidence": [
+          "Overall clinical course or outcome related to Takayasu Vasculitis activity",
+          "Long-term management or follow-up"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No pending orders and no undisclosed clinical course updates after the current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Takayasu Vasculitis",
+        "trajectory_summary": "A 37-year-old female presented with uncontrolled hypertension, angina, malaise, and fatigue, along with a significant differential blood pressure and pulse discrepancy. MR angiography revealed complete thrombosis of the left subclavian and left common carotid arteries, and severe luminal narrowing of the lower thoracic and abdominal aorta. Inflammatory markers (ESR and CRP) were elevated. The patient underwent percutaneous angioplasty for coronary artery disease, a complication likely related to the vasculitis.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial presentation with uncontrolled hypertension, angina, malaise, fatigue, and differential blood pressure and pulse discrepancy (150/77 mm Hg in left arm vs 179/95 mm Hg in right arm; weak left radial pulse vs full right radial pulse).",
+            "evidence_ids": []
+          },
+          {
+            "claim": "MR angiography showed complete thrombosis of the left subclavian and left common carotid arteries, and 80-90% luminal narrowing of the long segmental lower thoracic and abdominal aorta.",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Elevated CRP and ESR.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Patient underwent percutaneous angioplasty with drug-eluting stents in LAD and LCX coronaries and was put on dual antiplatelet therapy.",
+            "evidence_ids": [
+              "E009"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [
+          "Specific immunosuppressive treatment initiated for Takayasu Vasculitis was not reported.",
+          "Long-term clinical course or outcome related to the vasculitis activity."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Takayasu Vasculitis",
+    "trajectory_summary": "A 37-year-old female presented with uncontrolled hypertension, angina, malaise, and fatigue, along with a significant differential blood pressure and pulse discrepancy. MR angiography revealed complete thrombosis of the left subclavian and left common carotid arteries, and severe luminal narrowing of the lower thoracic and abdominal aorta. Inflammatory markers (ESR and CRP) were elevated. The patient underwent percutaneous angioplasty for coronary artery disease, a complication likely related to the vasculitis.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial presentation with uncontrolled hypertension, angina, malaise, fatigue, and differential blood pressure and pulse discrepancy (150/77 mm Hg in left arm vs 179/95 mm Hg in right arm; weak left radial pulse vs full right radial pulse).",
+        "evidence_ids": []
+      },
+      {
+        "claim": "MR angiography showed complete thrombosis of the left subclavian and left common carotid arteries, and 80-90% luminal narrowing of the long segmental lower thoracic and abdominal aorta.",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Elevated CRP and ESR.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Patient underwent percutaneous angioplasty with drug-eluting stents in LAD and LCX coronaries and was put on dual antiplatelet therapy.",
+        "evidence_ids": [
+          "E009"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [
+      "Specific immunosuppressive treatment initiated for Takayasu Vasculitis was not reported.",
+      "Long-term clinical course or outcome related to the vasculitis activity."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T19:14:57.175801+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

@@ -1,0 +1,358 @@
+{
+  "case_id": "PMC5794364",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 9,
+  "termination": "final",
+  "known_final_diagnosis": "CT confirmed the absence of lymphoma foci in other organs, which led to the definitive diagnosis of C-ALCL.",
+  "disclosed_evidence_ids": [
+    "E003",
+    "E004",
+    "E005",
+    "E006"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "pathology report of the initial biopsy that suggested discoid lupus erythematosus",
+        "current_trajectory_hypothesis": "Patient presented with a skin tumor, initially biopsied and diagnosed as DLE, but the tumor progressed rapidly, suggesting a different underlying pathology.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Detailed pathology findings of the initial biopsy",
+          "Subsequent diagnostic steps that led to C-ALCL diagnosis",
+          "Imaging findings (CT mentioned in final diagnosis)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "No source evidence reports pathology report indicating discoid lupus erythematosus.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "CT scan findings of the parotideomasseteric region and other organs mentioned in the final diagnosis",
+        "current_trajectory_hypothesis": "The patient presented with a rapidly progressing skin tumor, initially misdiagnosed as DLE. A CT scan was performed to assess the extent of the tumor and rule out systemic involvement, which was crucial for the definitive diagnosis of C-ALCL.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Detailed findings of the CT scan",
+          "Pathology report confirming C-ALCL",
+          "Details of the biopsy that led to the C-ALCL diagnosis (if different from initial)",
+          "Clinical course after diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "pathology report of the biopsy that led to the diagnosis of C-ALCL",
+        "current_trajectory_hypothesis": "The patient presented with a rapidly progressing skin tumor, initially misdiagnosed as DLE. A subsequent biopsy was likely performed to investigate the progression, leading to the diagnosis of C-ALCL. A CT scan then confirmed the absence of systemic involvement.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Detailed pathology findings confirming C-ALCL",
+          "Specific findings of the CT scan (without revealing the diagnosis directly)",
+          "Clinical course after diagnosis and treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "the biopsy material was submitted to another facility, wherein microscopic imaging clearly indicated the presence of anaplastic large cells in the dermis and subcutaneous tissue, characterized by the following immunohistochemistry: LCA+, CD30+, ALK-, CD3+ (weak membrane reaction), CD5-, CKAE1/3, MELAN A-, S100-, and Ki67+++ in about 90% of cells.",
+        "category": "pathology_report",
+        "temporal_cue": "after initial biopsy",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "CT scan findings regarding the tumor in the parotideomasseteric region and assessment for lymphoma foci in other organs",
+        "current_trajectory_hypothesis": "The patient presented with a rapidly progressing skin tumor. An initial biopsy was inconclusive or misleading. A subsequent biopsy confirmed C-ALCL. A CT scan was then performed to assess the local tumor extent and rule out systemic involvement, which is crucial for the definitive diagnosis of C-ALCL.",
+        "confirmed_evidence": [
+          "Pathology report (E003) showed anaplastic large cells in the dermis and subcutaneous tissue with LCA+, CD30+, ALK-, CD3+ (weak), CD5-, CKAE1/3, MELAN A-, S100-, and Ki67+++, consistent with C-ALCL."
+        ],
+        "missing_key_evidence": [
+          "Detailed findings of the CT scan, especially regarding systemic involvement and local tumor characteristics",
+          "Clinical course after diagnosis and treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Diagnosis of potential lymphoma infiltration was further performed with computed tomography (CT) scans of the chest, abdominal cavity, and neck and detailed assessment of the nasopharynx (Fig. 2). CT confirmed the absence of lymphoma foci in other organs,",
+        "category": "imaging_report",
+        "temporal_cue": "after bone marrow biopsy",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "bone marrow biopsy findings mentioned in the context of the CT scan (E005)",
+        "current_trajectory_hypothesis": "The patient presented with a rapidly progressing skin tumor. An initial biopsy was inconclusive or misleading. A subsequent biopsy confirmed C-ALCL. A CT scan and likely a bone marrow biopsy were performed to assess for systemic involvement, which is crucial for the definitive diagnosis of C-ALCL.",
+        "confirmed_evidence": [
+          "Pathology report (E003) showed anaplastic large cells in the dermis and subcutaneous tissue with LCA+, CD30+, ALK-, CD3+ (weak), CD5-, CKAE1/3, MELAN A-, S100-, and Ki67+++, consistent with C-ALCL.",
+          "CT scan (E005) confirmed the absence of lymphoma foci in other organs, supporting the cutaneous nature of the lymphoma."
+        ],
+        "missing_key_evidence": [
+          "Findings of the bone marrow biopsy",
+          "Details of the initial biopsy that suggested DLE",
+          "Clinical course after diagnosis and treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "To rule out systemic anaplastic large-cell lymphoma, which involves locations other than the skin, trepanobiopsy of bone marrow was performed, and the image indicated no lymphoma infiltration.",
+        "category": "pathology_report",
+        "temporal_cue": "after immunohistochemistry",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "detailed findings of the initial biopsy that suggested discoid lupus erythematosus, including any specific microscopic or immunohistochemical features",
+        "current_trajectory_hypothesis": "The patient presented with a rapidly progressing skin tumor, initially misdiagnosed as DLE based on an initial biopsy. A subsequent biopsy confirmed C-ALCL, and systemic involvement was ruled out by CT and bone marrow biopsy, leading to the definitive diagnosis.",
+        "confirmed_evidence": [
+          "Pathology report (E003) showed anaplastic large cells in the dermis and subcutaneous tissue with LCA+, CD30+, ALK-, CD3+ (weak), CD5-, CKAE1/3, MELAN A-, S100-, and Ki67+++, consistent with C-ALCL.",
+          "CT scan (E005) confirmed the absence of lymphoma foci in other organs, supporting the cutaneous nature of the lymphoma.",
+          "Bone marrow biopsy (E004) indicated no lymphoma infiltration, further ruling out systemic involvement."
+        ],
+        "missing_key_evidence": [
+          "Detailed findings of the initial biopsy that suggested DLE",
+          "Clinical course after diagnosis and treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "No evidence in the supplied records reports detailed biopsy findings indicative of discoid lupus erythematosus, including microscopic or immunohistochemical features.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with a rapidly progressing skin tumor. An initial biopsy was inconclusive or misleading, suggesting DLE. A subsequent biopsy confirmed C-ALCL, and systemic involvement was ruled out by CT and bone marrow biopsy, leading to the definitive diagnosis. Now, the focus is on the subsequent clinical course and treatment.",
+        "confirmed_evidence": [
+          "Pathology report (E003) showed anaplastic large cells in the dermis and subcutaneous tissue with LCA+, CD30+, ALK-, CD3+ (weak), CD5-, CKAE1/3, MELAN A-, S100-, and Ki67+++, consistent with C-ALCL.",
+          "CT scan (E005) confirmed the absence of lymphoma foci in other organs, supporting the cutaneous nature of the lymphoma.",
+          "Bone marrow biopsy (E004) indicated no lymphoma infiltration, further ruling out systemic involvement."
+        ],
+        "missing_key_evidence": [
+          "Details of the initial biopsy that suggested DLE (not reported)",
+          "Clinical course after diagnosis and treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "No pending orders; no undisclosed clinical course updates at or after current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with a rapidly progressing skin tumor. An initial biopsy was inconclusive or misleading, suggesting DLE. A subsequent biopsy confirmed C-ALCL, and systemic involvement was ruled out by CT and bone marrow biopsy, leading to the definitive diagnosis. Now, the focus is on the subsequent clinical course, treatment, and outcome.",
+        "confirmed_evidence": [
+          "Pathology report (E003) showed anaplastic large cells in the dermis and subcutaneous tissue with LCA+, CD30+, ALK-, CD3+ (weak), CD5-, CKAE1/3, MELAN A-, S100-, and Ki67+++, consistent with C-ALCL.",
+          "CT scan (E005) confirmed the absence of lymphoma foci in other organs, supporting the cutaneous nature of the lymphoma.",
+          "Bone marrow biopsy (E004) indicated no lymphoma infiltration, further ruling out systemic involvement."
+        ],
+        "missing_key_evidence": [
+          "Clinical course after diagnosis and treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "The patient underwent 4 chemotherapy cycles consisting of intravenous vincristine 2 mg, doxorubicin 90 mg, endoxan 1400 mg, Dexaven 18 mg, and Zofran 8 mg. Blood parameters were monitored throughout the treatment period. During chemotherapy, gradual tumor regression was observed (Fig. 3A and B), and 1 year after the first cycle of chemotherapy, complete remission was achieved.",
+        "category": "treatment_response",
+        "temporal_cue": "during and after chemotherapy",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "C-ALCL",
+        "trajectory_summary": "A 73-year-old man presented with a rapidly progressing skin tumor in the right parotideomasseteric region, initially misdiagnosed as discoid lupus erythematosus. A subsequent biopsy revealed anaplastic large cells in the dermis and subcutaneous tissue, characterized by LCA+, CD30+, ALK-, CD3+ (weak), CD5-, CKAE1/3, MELAN A-, S100-, and Ki67+++, confirming cutaneous anaplastic large-cell lymphoma (C-ALCL). Systemic involvement was ruled out by CT scans of the chest, abdominal cavity, and neck, and a bone marrow trepanobiopsy, which indicated no lymphoma infiltration. The patient underwent 4 cycles of chemotherapy, leading to gradual tumor regression and complete remission after one year.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with a rapidly progressing skin tumor in the right parotideomasseteric region.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Biopsy revealed anaplastic large cells in the dermis and subcutaneous tissue with specific immunohistochemical markers (LCA+, CD30+, ALK-, CD3+ weak, Ki67+++), consistent with C-ALCL.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "CT scan confirmed the absence of lymphoma foci in other organs.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Bone marrow trepanobiopsy indicated no lymphoma infiltration.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Patient underwent 4 cycles of chemotherapy, resulting in gradual tumor regression and complete remission.",
+            "evidence_ids": [
+              "E006"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Systemic Anaplastic Large Cell Lymphoma",
+            "basis": "CT scan (E005) confirmed absence of lymphoma foci in other organs; bone marrow biopsy (E004) indicated no lymphoma infiltration."
+          },
+          {
+            "alternative": "Discoid Lupus Erythematosus",
+            "basis": "Initial diagnosis based on biopsy, but significant progression and dynamic tumor growth occurred, and subsequent biopsy confirmed C-ALCL (E003)."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Detailed findings of the initial biopsy that suggested discoid lupus erythematosus are not available in the provided records."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "C-ALCL",
+    "trajectory_summary": "A 73-year-old man presented with a rapidly progressing skin tumor in the right parotideomasseteric region, initially misdiagnosed as discoid lupus erythematosus. A subsequent biopsy revealed anaplastic large cells in the dermis and subcutaneous tissue, characterized by LCA+, CD30+, ALK-, CD3+ (weak), CD5-, CKAE1/3, MELAN A-, S100-, and Ki67+++, confirming cutaneous anaplastic large-cell lymphoma (C-ALCL). Systemic involvement was ruled out by CT scans of the chest, abdominal cavity, and neck, and a bone marrow trepanobiopsy, which indicated no lymphoma infiltration. The patient underwent 4 cycles of chemotherapy, leading to gradual tumor regression and complete remission after one year.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with a rapidly progressing skin tumor in the right parotideomasseteric region.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Biopsy revealed anaplastic large cells in the dermis and subcutaneous tissue with specific immunohistochemical markers (LCA+, CD30+, ALK-, CD3+ weak, Ki67+++), consistent with C-ALCL.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "CT scan confirmed the absence of lymphoma foci in other organs.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Bone marrow trepanobiopsy indicated no lymphoma infiltration.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Patient underwent 4 cycles of chemotherapy, resulting in gradual tumor regression and complete remission.",
+        "evidence_ids": [
+          "E006"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Systemic Anaplastic Large Cell Lymphoma",
+        "basis": "CT scan (E005) confirmed absence of lymphoma foci in other organs; bone marrow biopsy (E004) indicated no lymphoma infiltration."
+      },
+      {
+        "alternative": "Discoid Lupus Erythematosus",
+        "basis": "Initial diagnosis based on biopsy, but significant progression and dynamic tumor growth occurred, and subsequent biopsy confirmed C-ALCL (E003)."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Detailed findings of the initial biopsy that suggested discoid lupus erythematosus are not available in the provided records."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T23:09:24.807488+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

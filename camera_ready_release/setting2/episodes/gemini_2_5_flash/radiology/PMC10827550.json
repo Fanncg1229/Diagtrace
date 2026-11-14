@@ -1,0 +1,554 @@
+{
+  "case_id": "PMC10827550",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "CT Abdomen done on the day of admission showed a 6 mm cystic artery pseudo aneurysm.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E006"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "complete blood count (CBC) and coagulation profile",
+        "current_trajectory_hypothesis": "Patient presented with acute PR bleed and syncope. Initial workup would involve assessing blood loss and coagulation status. The known final diagnosis is a cystic artery pseudoaneurysm, which needs to be linked to the presentation.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "initial lab results (CBC, coagulation)",
+          "source of PR bleed investigation",
+          "reason for CT Abdomen",
+          "details of CT Abdomen findings"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "The test has been ordered but the source evidence results are not yet reported.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "results of complete blood count (CBC) and coagulation profile",
+        "current_trajectory_hypothesis": "Patient presented with acute PR bleed and syncope. Initial workup includes assessing blood loss and coagulation status. The known final diagnosis is a cystic artery pseudoaneurysm, which needs to be linked to the presentation. We need to see the initial lab results to understand the patient's condition.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "initial lab results (CBC, coagulation)",
+          "source of PR bleed investigation",
+          "reason for CT Abdomen",
+          "details of CT Abdomen findings"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "On admission, a complete blood count, renal function tests, liver function tests, electrolytes, clotting panel, D-dimer and Troponin were ordered. His CBC showed an initial Hb of 11.9 mg/dL which decreased to 10.2 mg/dL within 24 hours. All other labs requested were unremarkable.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "CT Abdomen report",
+        "current_trajectory_hypothesis": "Patient presented with acute PR bleed and syncope, with evidence of blood loss (Hb drop). The known final diagnosis is a cystic artery pseudoaneurysm found on CT Abdomen. I need to obtain the CT Abdomen report to confirm the diagnosis and understand its findings, and then link it to the initial presentation.",
+        "confirmed_evidence": [
+          "Patient presented with acute PR bleed and syncope",
+          "Initial Hb was 11.9 mg/dL, decreased to 10.2 mg/dL within 24 hours",
+          "Other initial labs (renal, liver, electrolytes, clotting panel, D-dimer, Troponin) were unremarkable"
+        ],
+        "missing_key_evidence": [
+          "CT Abdomen report details",
+          "Reason for ordering CT Abdomen",
+          "Link between cystic artery pseudoaneurysm and PR bleed",
+          "Further investigation into the source of PR bleed"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "CT Abdomen done on the day of admission showed a 6 mm cystic artery pseudo aneurysm. The gallbladder was thick walled and the surrounding inflammatory changes makes the gallbladder inseparable from the hepatic flexure of the colon",
+        "category": "image_finding",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "angiography to investigate the source of bleeding",
+        "current_trajectory_hypothesis": "Patient presented with acute PR bleed and syncope, with a drop in Hb. CT Abdomen revealed a cystic artery pseudoaneurysm and thick-walled gallbladder. The connection between the pseudoaneurysm and the PR bleed needs to be established. Angiography could confirm the pseudoaneurysm and potentially identify active bleeding or its communication with the GI tract.",
+        "confirmed_evidence": [
+          "Patient presented with acute PR bleed and syncope",
+          "Initial Hb was 11.9 mg/dL, decreased to 10.2 mg/dL within 24 hours",
+          "Other initial labs (renal, liver, electrolytes, clotting panel, D-dimer, Troponin) were unremarkable",
+          "CT Abdomen showed a 6 mm cystic artery pseudoaneurysm and thick-walled gallbladder with surrounding inflammatory changes"
+        ],
+        "missing_key_evidence": [
+          "Direct evidence linking the cystic artery pseudoaneurysm to the PR bleed",
+          "Further investigation into the source of PR bleed beyond CT",
+          "Clinical course following CT findings"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "The angiography test was ordered; no matching result is documented in the source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with acute PR bleed and syncope, with a drop in Hb. CT Abdomen revealed a cystic artery pseudoaneurysm and thick-walled gallbladder. Angiography was ordered but not documented. I need to understand the subsequent clinical course, how the pseudoaneurysm was managed, and if its connection to the PR bleed was established or if other sources of bleeding were investigated.",
+        "confirmed_evidence": [
+          "Patient presented with acute PR bleed and syncope",
+          "Initial Hb was 11.9 mg/dL, decreased to 10.2 mg/dL within 24 hours (E001)",
+          "Other initial labs (renal, liver, electrolytes, clotting panel, D-dimer, Troponin) were unremarkable (E001)",
+          "CT Abdomen showed a 6 mm cystic artery pseudoaneurysm and thick-walled gallbladder with surrounding inflammatory changes (E002)"
+        ],
+        "missing_key_evidence": [
+          "Direct evidence linking the cystic artery pseudoaneurysm to the PR bleed",
+          "Management plan for the pseudoaneurysm",
+          "Outcome of the PR bleed",
+          "Whether angiography was performed or other investigations for bleeding were pursued"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "No pending orders and no new clinical course updates after current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "endoscopy (colonoscopy or EGD) to investigate the source of PR bleed",
+        "current_trajectory_hypothesis": "Patient presented with acute PR bleed and syncope, with a drop in Hb. CT Abdomen revealed a cystic artery pseudoaneurysm and thick-walled gallbladder inseparable from the hepatic flexure. The connection between the pseudoaneurysm and the PR bleed is not yet established. Endoscopy could directly visualize the source of bleeding in the GI tract.",
+        "confirmed_evidence": [
+          "Patient presented with acute PR bleed and syncope",
+          "Initial Hb was 11.9 mg/dL, decreased to 10.2 mg/dL within 24 hours (E001)",
+          "Other initial labs (renal, liver, electrolytes, clotting panel, D-dimer, Troponin) were unremarkable (E001)",
+          "CT Abdomen showed a 6 mm cystic artery pseudoaneurysm and thick-walled gallbladder with surrounding inflammatory changes, inseparable from the hepatic flexure (E002)"
+        ],
+        "missing_key_evidence": [
+          "Direct evidence linking the cystic artery pseudoaneurysm to the PR bleed",
+          "Findings from investigation of the PR bleed (e.g., endoscopy)",
+          "Management plan for the pseudoaneurysm",
+          "Outcome of the PR bleed"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "The source records do not document performance or results of an endoscopy procedure.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with acute PR bleed and syncope, with a drop in Hb. CT Abdomen revealed a cystic artery pseudoaneurysm and thick-walled gallbladder inseparable from the hepatic flexure. The direct link between the pseudoaneurysm and the PR bleed is not yet established, and previous attempts to find documentation of angiography or endoscopy were unsuccessful. I need to understand how the pseudoaneurysm and the PR bleed were managed and if a connection was made.",
+        "confirmed_evidence": [
+          "Patient presented with acute PR bleed and syncope",
+          "Initial Hb was 11.9 mg/dL, decreased to 10.2 mg/dL within 24 hours (E001)",
+          "Other initial labs (renal, liver, electrolytes, clotting panel, D-dimer, Troponin) were unremarkable (E001)",
+          "CT Abdomen showed a 6 mm cystic artery pseudoaneurysm and thick-walled gallbladder with surrounding inflammatory changes, inseparable from the hepatic flexure (E002)"
+        ],
+        "missing_key_evidence": [
+          "Direct evidence linking the cystic artery pseudoaneurysm to the PR bleed",
+          "Management plan or intervention for the pseudoaneurysm",
+          "Resolution or outcome of the PR bleed",
+          "Further investigations or procedures performed"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "No pending orders and no undisclosed clinical trajectory update after current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with acute PR bleed and syncope, with a drop in Hb. CT Abdomen revealed a cystic artery pseudoaneurysm and thick-walled gallbladder inseparable from the hepatic flexure. The direct link between the pseudoaneurysm and the PR bleed is not yet established, and previous attempts to find documentation of angiography or endoscopy were unsuccessful. I need to understand how the pseudoaneurysm and the PR bleed were managed and if a connection was made, or if other sources of bleeding were identified.",
+        "confirmed_evidence": [
+          "Patient presented with acute PR bleed and syncope",
+          "Initial Hb was 11.9 mg/dL, decreased to 10.2 mg/dL within 24 hours (E001)",
+          "Other initial labs (renal, liver, electrolytes, clotting panel, D-dimer, Troponin) were unremarkable (E001)",
+          "CT Abdomen showed a 6 mm cystic artery pseudoaneurysm and thick-walled gallbladder with surrounding inflammatory changes, inseparable from the hepatic flexure (E002)"
+        ],
+        "missing_key_evidence": [
+          "Direct evidence linking the cystic artery pseudoaneurysm to the PR bleed",
+          "Management plan or intervention for the pseudoaneurysm",
+          "Resolution or outcome of the PR bleed",
+          "Further investigations or procedures performed to identify the source of PR bleed"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "No pending orders and no new clinical course updates after current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with acute PR bleed and syncope, with a drop in Hb. CT Abdomen revealed a cystic artery pseudoaneurysm and thick-walled gallbladder inseparable from the hepatic flexure. The direct link between the pseudoaneurysm and the PR bleed is not yet established, and previous attempts to find documentation of angiography or endoscopy were unsuccessful. I need to understand how the pseudoaneurysm and the PR bleed were managed, if a connection was made, or if other sources of bleeding were identified.",
+        "confirmed_evidence": [
+          "Patient presented with acute PR bleed and syncope",
+          "Initial Hb was 11.9 mg/dL, decreased to 10.2 mg/dL within 24 hours (E001)",
+          "Other initial labs (renal, liver, electrolytes, clotting panel, D-dimer, Troponin) were unremarkable (E001)",
+          "CT Abdomen showed a 6 mm cystic artery pseudoaneurysm and thick-walled gallbladder with surrounding inflammatory changes, inseparable from the hepatic flexure (E002)"
+        ],
+        "missing_key_evidence": [
+          "Direct evidence linking the cystic artery pseudoaneurysm to the PR bleed",
+          "Management plan or intervention for the pseudoaneurysm",
+          "Resolution or outcome of the PR bleed",
+          "Further investigations or procedures performed to identify the source of PR bleed"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "No pending orders with source-backed results and no undisclosed clinical trajectory update after current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with acute PR bleed and syncope, with a drop in Hb. CT Abdomen revealed a cystic artery pseudoaneurysm and thick-walled gallbladder inseparable from the hepatic flexure. The direct link between the pseudoaneurysm and the PR bleed is not yet established, and previous attempts to find documentation of angiography or endoscopy were unsuccessful. I need to understand how the pseudoaneurysm and the PR bleed were managed, if a connection was made, or if other sources of bleeding were identified.",
+        "confirmed_evidence": [
+          "Patient presented with acute PR bleed and syncope",
+          "Initial Hb was 11.9 mg/dL, decreased to 10.2 mg/dL within 24 hours (E001)",
+          "Other initial labs (renal, liver, electrolytes, clotting panel, D-dimer, Troponin) were unremarkable (E001)",
+          "CT Abdomen showed a 6 mm cystic artery pseudoaneurysm and thick-walled gallbladder with surrounding inflammatory changes, inseparable from the hepatic flexure (E002)"
+        ],
+        "missing_key_evidence": [
+          "Direct evidence linking the cystic artery pseudoaneurysm to the PR bleed",
+          "Management plan or intervention for the pseudoaneurysm",
+          "Resolution or outcome of the PR bleed",
+          "Further investigations or procedures performed to identify the source of PR bleed"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "No pending orders and no undisclosed clinical course updates available after current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with acute PR bleed and syncope, with a drop in Hb. CT Abdomen revealed a cystic artery pseudoaneurysm and thick-walled gallbladder inseparable from the hepatic flexure. The direct link between the pseudoaneurysm and the PR bleed is not yet established, and previous attempts to find documentation of angiography or endoscopy were unsuccessful. I need to understand how the pseudoaneurysm and the PR bleed were managed, if a connection was made, or if other sources of bleeding were identified.",
+        "confirmed_evidence": [
+          "Patient presented with acute PR bleed and syncope",
+          "Initial Hb was 11.9 mg/dL, decreased to 10.2 mg/dL within 24 hours (E001)",
+          "Other initial labs (renal, liver, electrolytes, clotting panel, D-dimer, Troponin) were unremarkable (E001)",
+          "CT Abdomen showed a 6 mm cystic artery pseudoaneurysm and thick-walled gallbladder with surrounding inflammatory changes, inseparable from the hepatic flexure (E002)"
+        ],
+        "missing_key_evidence": [
+          "Direct evidence linking the cystic artery pseudoaneurysm to the PR bleed",
+          "Management plan or intervention for the pseudoaneurysm",
+          "Resolution or outcome of the PR bleed",
+          "Further investigations or procedures performed to identify the source of PR bleed"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "No pending results and no undisclosed clinical trajectory updates available at or after current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with acute PR bleed and syncope, with a drop in Hb. CT Abdomen revealed a cystic artery pseudoaneurysm and thick-walled gallbladder inseparable from the hepatic flexure. The direct link between the pseudoaneurysm and the PR bleed is not yet explicitly established, and previous attempts to find documentation of angiography or endoscopy were unsuccessful. I need to understand how the pseudoaneurysm and the PR bleed were managed, if a connection was made, or if other sources of bleeding were identified, and the overall clinical course.",
+        "confirmed_evidence": [
+          "Patient presented with acute PR bleed and syncope",
+          "Initial Hb was 11.9 mg/dL, decreased to 10.2 mg/dL within 24 hours (E001)",
+          "Other initial labs (renal, liver, electrolytes, clotting panel, D-dimer, Troponin) were unremarkable (E001)",
+          "CT Abdomen showed a 6 mm cystic artery pseudoaneurysm and thick-walled gallbladder with surrounding inflammatory changes, inseparable from the hepatic flexure (E002)"
+        ],
+        "missing_key_evidence": [
+          "Direct evidence linking the cystic artery pseudoaneurysm to the PR bleed",
+          "Management plan or intervention for the pseudoaneurysm",
+          "Resolution or outcome of the PR bleed",
+          "Further investigations or procedures performed to identify the source of PR bleed",
+          "Overall clinical course following the CT findings"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "No pending orders and no undisclosed clinical course update at or after the current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "report of any interventional radiology procedure or surgery performed for the cystic artery pseudoaneurysm",
+        "current_trajectory_hypothesis": "Patient presented with acute PR bleed and syncope, with a drop in Hb. CT Abdomen revealed a cystic artery pseudoaneurysm and thick-walled gallbladder inseparable from the hepatic flexure. The direct link between the pseudoaneurysm and the PR bleed is not yet explicitly established. I need to determine if any intervention was performed for the pseudoaneurysm, which would be a key part of the clinical trajectory.",
+        "confirmed_evidence": [
+          "Patient presented with acute PR bleed and syncope",
+          "Initial Hb was 11.9 mg/dL, decreased to 10.2 mg/dL within 24 hours (E001)",
+          "Other initial labs (renal, liver, electrolytes, clotting panel, D-dimer, Troponin) were unremarkable (E001)",
+          "CT Abdomen showed a 6 mm cystic artery pseudoaneurysm and thick-walled gallbladder with surrounding inflammatory changes, inseparable from the hepatic flexure (E002)"
+        ],
+        "missing_key_evidence": [
+          "Direct evidence linking the cystic artery pseudoaneurysm to the PR bleed",
+          "Management plan or intervention for the pseudoaneurysm",
+          "Resolution or outcome of the PR bleed",
+          "Further investigations or procedures performed to identify the source of PR bleed",
+          "Overall clinical course following the CT findings"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "A decision was made by the attending surgeon and interventional radiologist to utilize an endovascular approach with a view to perform an elective cholecystectomy another date in order to allow sufficient recovery from the acute presentation. The endovascular approach performed was a coil embolization of the cystic artery.",
+        "category": "procedure",
+        "temporal_cue": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "clinical course and resolution of the PR bleed following the coil embolization",
+        "current_trajectory_hypothesis": "Patient presented with acute PR bleed and syncope, with a drop in Hb. CT Abdomen revealed a cystic artery pseudoaneurysm and thick-walled gallbladder inseparable from the hepatic flexure. The pseudoaneurysm was treated with coil embolization. I need to understand if the PR bleed resolved after this intervention, which would strongly link the pseudoaneurysm to the presenting symptom.",
+        "confirmed_evidence": [
+          "Patient presented with acute PR bleed and syncope",
+          "Initial Hb was 11.9 mg/dL, decreased to 10.2 mg/dL within 24 hours (E001)",
+          "Other initial labs (renal, liver, electrolytes, clotting panel, D-dimer, Troponin) were unremarkable (E001)",
+          "CT Abdomen showed a 6 mm cystic artery pseudoaneurysm and thick-walled gallbladder with surrounding inflammatory changes, inseparable from the hepatic flexure (E002)",
+          "Cystic artery pseudoaneurysm was treated with coil embolization via an endovascular approach (E003)"
+        ],
+        "missing_key_evidence": [
+          "Direct evidence explicitly linking the cystic artery pseudoaneurysm to the PR bleed",
+          "Resolution or outcome of the PR bleed after embolization",
+          "Further investigations or procedures performed to identify the source of PR bleed (if not the pseudoaneurysm)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "The procedure was well tolerated and the patient had an unremarkable post procedure recovery. He remained pain free with no further PR bleeds during his hospital admission and was discharged home 24 hours post embolization. The following week at home was also unremarkable.",
+        "category": "clinical_course",
+        "temporal_cue": "postembolization",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "CT Abdomen done on the day of admission showed a 6 mm cystic artery pseudo aneurysm.",
+        "trajectory_summary": "An 83-year-old male presented with acute PR bleed and syncope. Initial labs showed a drop in hemoglobin from 11.9 to 10.2 mg/dL within 24 hours, indicating significant blood loss. A CT Abdomen performed on admission revealed a 6 mm cystic artery pseudoaneurysm and a thick-walled gallbladder with surrounding inflammatory changes, inseparable from the hepatic flexure. The cystic artery pseudoaneurysm was treated with coil embolization via an endovascular approach. Following the procedure, the patient had an unremarkable recovery, experienced no further PR bleeds during hospitalization, and was discharged home 24 hours post-embolization, with an unremarkable course the following week.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with acute PR bleed and syncope, with a history of acute cholecystitis 5 weeks prior.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Initial complete blood count showed a drop in hemoglobin from 11.9 mg/dL to 10.2 mg/dL within 24 hours, while other initial labs were unremarkable.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "CT Abdomen on the day of admission showed a 6 mm cystic artery pseudoaneurysm and a thick-walled gallbladder with surrounding inflammatory changes, inseparable from the hepatic flexure of the colon.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "The cystic artery pseudoaneurysm was treated with coil embolization via an endovascular approach.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Following embolization, the patient had an unremarkable recovery with no further PR bleeds and was discharged.",
+            "evidence_ids": [
+              "E006"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Other common causes of PR bleed (e.g., diverticulosis, angiodysplasia, hemorrhoids)",
+            "basis": "The resolution of PR bleed after embolization of the cystic artery pseudoaneurysm strongly implicates it as the source, making other causes less likely in this specific context."
+          }
+        ],
+        "remaining_uncertainties": [
+          "The explicit anatomical mechanism by which the cystic artery pseudoaneurysm caused a PR bleed (e.g., direct fistulization into the colon) is not detailed in the provided evidence, although the CT finding of the gallbladder being inseparable from the hepatic flexure suggests a possible connection.",
+          "The outcome of the planned elective cholecystectomy is not documented."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "CT Abdomen done on the day of admission showed a 6 mm cystic artery pseudo aneurysm.",
+    "trajectory_summary": "An 83-year-old male presented with acute PR bleed and syncope. Initial labs showed a drop in hemoglobin from 11.9 to 10.2 mg/dL within 24 hours, indicating significant blood loss. A CT Abdomen performed on admission revealed a 6 mm cystic artery pseudoaneurysm and a thick-walled gallbladder with surrounding inflammatory changes, inseparable from the hepatic flexure. The cystic artery pseudoaneurysm was treated with coil embolization via an endovascular approach. Following the procedure, the patient had an unremarkable recovery, experienced no further PR bleeds during hospitalization, and was discharged home 24 hours post-embolization, with an unremarkable course the following week.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with acute PR bleed and syncope, with a history of acute cholecystitis 5 weeks prior.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Initial complete blood count showed a drop in hemoglobin from 11.9 mg/dL to 10.2 mg/dL within 24 hours, while other initial labs were unremarkable.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "CT Abdomen on the day of admission showed a 6 mm cystic artery pseudoaneurysm and a thick-walled gallbladder with surrounding inflammatory changes, inseparable from the hepatic flexure of the colon.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "The cystic artery pseudoaneurysm was treated with coil embolization via an endovascular approach.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Following embolization, the patient had an unremarkable recovery with no further PR bleeds and was discharged.",
+        "evidence_ids": [
+          "E006"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Other common causes of PR bleed (e.g., diverticulosis, angiodysplasia, hemorrhoids)",
+        "basis": "The resolution of PR bleed after embolization of the cystic artery pseudoaneurysm strongly implicates it as the source, making other causes less likely in this specific context."
+      }
+    ],
+    "remaining_uncertainties": [
+      "The explicit anatomical mechanism by which the cystic artery pseudoaneurysm caused a PR bleed (e.g., direct fistulization into the colon) is not detailed in the provided evidence, although the CT finding of the gallbladder being inseparable from the hepatic flexure suggests a possible connection.",
+      "The outcome of the planned elective cholecystectomy is not documented."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T19:09:57.652434+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

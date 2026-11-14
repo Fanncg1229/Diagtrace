@@ -1,0 +1,476 @@
+{
+  "case_id": "PMC8638125",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 12,
+  "termination": "final",
+  "known_final_diagnosis": "This confirmed a diagnosis of widely disseminated HIV-associated KS.",
+  "disclosed_evidence_ids": [
+    "E002",
+    "E003",
+    "E006",
+    "E007",
+    "E008"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of the initial chest imaging (e.g., chest X-ray or CT)?",
+        "current_trajectory_hypothesis": "Patient presented with respiratory symptoms, rash, lymphadenopathy, and cachexia. Initial workup likely included imaging to investigate respiratory distress and systemic signs, and blood tests for infection and HIV.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Initial respiratory imaging findings",
+          "HIV status",
+          "Confirmation of Kaposi Sarcoma",
+          "Other initial lab results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "Initial radiographic examination yielded a markedly abnormal chest radiograph, with extensive airspace opacification involving the upper-mid and lower zones bilaterally, with more marked involvement of the middle zone and left base.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order an HIV test (e.g., HIV antibody/antigen test).",
+        "current_trajectory_hypothesis": "Patient presented with respiratory symptoms, rash, lymphadenopathy, and cachexia, with an abnormal chest X-ray. Given the known diagnosis of HIV-associated KS, determining the patient's HIV status is a critical next step.",
+        "confirmed_evidence": [
+          "Initial chest radiograph showed extensive airspace opacification bilaterally (E002)"
+        ],
+        "missing_key_evidence": [
+          "HIV status",
+          "Confirmation of Kaposi Sarcoma (e.g., biopsy results)",
+          "Other initial lab results (e.g., blood counts, inflammatory markers)",
+          "Specific characteristics of the rash or lymphadenopathy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "HIV test ordered; source has no documented test result for this order yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "Order a biopsy of the skin rash or lymph nodes to investigate for Kaposi Sarcoma.",
+        "current_trajectory_hypothesis": "Patient presents with respiratory symptoms, rash, lymphadenopathy, and cachexia, with an abnormal chest X-ray. HIV is suspected and a test was ordered. Given the 'disseminated pigmented rash' and 'extensive non-tender cervical lymphadenopathy', a biopsy is crucial to confirm Kaposi Sarcoma.",
+        "confirmed_evidence": [
+          "Initial chest radiograph showed extensive airspace opacification bilaterally (E002)"
+        ],
+        "missing_key_evidence": [
+          "HIV status",
+          "Histopathological confirmation of Kaposi Sarcoma",
+          "Other initial lab results (e.g., blood counts, inflammatory markers, CD4 count)",
+          "Specific characteristics of the rash or lymphadenopathy beyond initial description"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.25
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Procedure order acknowledged; no source evidence documents the biopsy order or results at this phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the initial blood test results, including complete blood count, inflammatory markers, and CD4 count?",
+        "current_trajectory_hypothesis": "Patient presented with respiratory symptoms, rash, lymphadenopathy, and cachexia, with an abnormal chest X-ray. HIV and KS are suspected. I've ordered HIV testing and biopsy, but results are not yet available. Initial blood tests are crucial to assess immune status, infection, and general health.",
+        "confirmed_evidence": [
+          "Initial chest radiograph showed extensive airspace opacification bilaterally (E002)"
+        ],
+        "missing_key_evidence": [
+          "HIV status",
+          "Histopathological confirmation of Kaposi Sarcoma",
+          "Initial blood test results (CBC, inflammatory markers, CD4 count)",
+          "Specific characteristics of the rash or lymphadenopathy beyond initial description"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.25
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Initial blood testing was notable for a low albumin level of 29 g/L, a C reactive protein level of 73 mg/L, a slightly raised ferritin of 395 μg/L and a grossly elevated D-dimer of 4.79 mg/L.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the result of the HIV test?",
+        "current_trajectory_hypothesis": "Patient presented with respiratory symptoms, rash, lymphadenopathy, and cachexia, with an abnormal chest X-ray and some abnormal initial blood tests. HIV and KS are strongly suspected. Obtaining the HIV test result is critical to confirm the 'HIV-associated' part of the diagnosis.",
+        "confirmed_evidence": [
+          "Initial chest radiograph showed extensive airspace opacification bilaterally (E002)",
+          "Initial blood tests showed low albumin, elevated CRP, ferritin, and D-dimer (E003)"
+        ],
+        "missing_key_evidence": [
+          "HIV status (result of ordered test)",
+          "Histopathological confirmation of Kaposi Sarcoma (result of ordered biopsy)",
+          "CD4 count",
+          "Further details on respiratory involvement (e.g., CT chest findings)",
+          "Other initial lab results (e.g., CBC)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "HIV serology was positive, and total CD4 +T-helper lymphocyte count was 116 cells/μL (9%). Initial viral load measured 87 272 copies/mL.",
+        "category": "serology",
+        "temporal_cue": "after admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the histopathological findings from the biopsy of the skin rash or lymph nodes?",
+        "current_trajectory_hypothesis": "Patient presented with respiratory symptoms, rash, lymphadenopathy, and cachexia. Initial workup showed abnormal chest X-ray, inflammatory markers, and confirmed HIV infection with low CD4 count. Histopathological confirmation of Kaposi Sarcoma from the rash or lymph nodes is now crucial to confirm the 'KS' part of the diagnosis.",
+        "confirmed_evidence": [
+          "Initial chest radiograph showed extensive airspace opacification bilaterally (E002)",
+          "Initial blood tests showed low albumin, elevated CRP, ferritin, and D-dimer (E003)",
+          "HIV serology was positive, CD4 count was 116 cells/μL, and viral load was 87,272 copies/mL (E008)"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of Kaposi Sarcoma",
+          "Further details on respiratory involvement (e.g., CT chest findings)",
+          "Other initial lab results (e.g., CBC)",
+          "Specific characteristics of the rash or lymphadenopathy beyond initial description"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "CT-guided biopsy of a bony lesion on his iliac crest was performed, demonstrating bone infiltrated by spindle cell proliferation, strongly positive for CD34 and HHV-8 on immunohistochemistry (figure 2).",
+        "category": "pathology_report",
+        "temporal_cue": "after admission",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of the CT chest scan?",
+        "current_trajectory_hypothesis": "Patient presented with respiratory symptoms, rash, lymphadenopathy, and cachexia. Initial workup showed abnormal chest X-ray, HIV infection with low CD4 count, and Kaposi Sarcoma confirmed by biopsy of a bony lesion. Given the initial respiratory symptoms and abnormal chest X-ray, a CT chest is crucial to assess for pulmonary involvement of KS and further establish dissemination.",
+        "confirmed_evidence": [
+          "Initial chest radiograph showed extensive airspace opacification bilaterally (E002)",
+          "Initial blood tests showed low albumin, elevated CRP, ferritin, and D-dimer (E003)",
+          "HIV serology was positive, CD4 count was 116 cells/μL, and viral load was 87,272 copies/mL (E008)",
+          "CT-guided biopsy of an iliac crest lesion demonstrated spindle cell proliferation, positive for CD34 and HHV-8, confirming Kaposi Sarcoma (E007)"
+        ],
+        "missing_key_evidence": [
+          "Findings of CT chest scan (to assess pulmonary KS and dissemination)",
+          "Histopathological confirmation of Kaposi Sarcoma from skin or lymph nodes (if performed)",
+          "Other initial lab results (e.g., CBC)",
+          "Clinical course or treatment details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "Rather than indicating the peripheral, ground-glass attenuation expected of COVID-19, the patient’s imaging demonstrated nodular interlobular and peribronchial interstitial thickening, with diffuse thickening of the major fissures, without cavitation. Additionally, innumerable, multifocal lytic bone lesions were seen on further scanning centred predominantly in the pelvis and cervical, thoracic and lumbar spine (figure 1).",
+        "category": "imaging_report",
+        "temporal_cue": "after admission",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the histopathological findings from a biopsy of the skin rash or lymph nodes, if performed?",
+        "current_trajectory_hypothesis": "Patient presented with respiratory symptoms, rash, lymphadenopathy, and cachexia. Workup confirmed HIV infection with low CD4 count, pulmonary involvement, and disseminated bony lesions due to Kaposi Sarcoma. Confirming KS in the initially described skin rash or lymph nodes would further support the 'widely disseminated' nature of the disease.",
+        "confirmed_evidence": [
+          "Initial chest radiograph showed extensive airspace opacification bilaterally (E002)",
+          "Initial blood tests showed low albumin, elevated CRP, ferritin, and D-dimer (E003)",
+          "HIV serology was positive, CD4 count was 116 cells/μL, and viral load was 87,272 copies/mL (E008)",
+          "CT-guided biopsy of an iliac crest lesion demonstrated spindle cell proliferation, positive for CD34 and HHV-8, confirming Kaposi Sarcoma (E007)",
+          "CT chest showed nodular interlobular and peribronchial interstitial thickening, diffuse thickening of major fissures, and innumerable multifocal lytic bone lesions (E006)"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of Kaposi Sarcoma from skin or lymph nodes",
+          "Other initial lab results (e.g., CBC)",
+          "Clinical course or treatment details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E007",
+        "source_text": "CT-guided biopsy of a bony lesion on his iliac crest was performed, demonstrating bone infiltrated by spindle cell proliferation, strongly positive for CD34 and HHV-8 on immunohistochemistry (figure 2).",
+        "category": "pathology_report",
+        "temporal_cue": "after admission",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the initial complete blood count (CBC) results?",
+        "current_trajectory_hypothesis": "Patient presented with respiratory symptoms, rash, lymphadenopathy, and cachexia. Workup confirmed HIV infection with low CD4 count, pulmonary involvement, and disseminated bony lesions due to Kaposi Sarcoma. I have confirmed the key diagnostic elements. I am now seeking additional initial lab results to complete the picture of the patient's initial status.",
+        "confirmed_evidence": [
+          "Initial chest radiograph showed extensive airspace opacification bilaterally (E002)",
+          "Initial blood tests showed low albumin, elevated CRP, ferritin, and D-dimer (E003)",
+          "HIV serology was positive, CD4 count was 116 cells/μL, and viral load was 87,272 copies/mL (E008)",
+          "CT-guided biopsy of an iliac crest lesion demonstrated spindle cell proliferation, positive for CD34 and HHV-8, confirming Kaposi Sarcoma (E007)",
+          "CT chest showed nodular interlobular and peribronchial interstitial thickening, diffuse thickening of major fissures, and innumerable multifocal lytic bone lesions (E006)"
+        ],
+        "missing_key_evidence": [
+          "Initial complete blood count (CBC) results",
+          "Clinical course or treatment details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.65
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No source record reports the initial complete blood count results.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Were there any biopsy results from the skin rash or lymph nodes?",
+        "current_trajectory_hypothesis": "Patient presented with respiratory symptoms, rash, lymphadenopathy, and cachexia. Workup confirmed HIV infection with low CD4 count, pulmonary involvement, and disseminated bony lesions due to Kaposi Sarcoma. While bone biopsy confirmed KS, confirmation from the initially described skin rash or lymph nodes would further support the 'widely disseminated' nature of the disease, especially as these were prominent presenting symptoms.",
+        "confirmed_evidence": [
+          "Initial chest radiograph showed extensive airspace opacification bilaterally (E002)",
+          "Initial blood tests showed low albumin, elevated CRP, ferritin, and D-dimer (E003)",
+          "HIV serology was positive, CD4 count was 116 cells/μL, and viral load was 87,272 copies/mL (E008)",
+          "CT-guided biopsy of an iliac crest lesion demonstrated spindle cell proliferation, positive for CD34 and HHV-8, confirming Kaposi Sarcoma (E007)",
+          "CT chest showed nodular interlobular and peribronchial interstitial thickening, diffuse thickening of major fissures, and innumerable multifocal lytic bone lesions (E006)"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of Kaposi Sarcoma from skin rash or lymph nodes",
+          "Clinical course or treatment details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No biopsy results specifically from skin rash or lymph nodes are reported in the source evidence.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with respiratory symptoms, rash, lymphadenopathy, and cachexia. Workup confirmed HIV infection with low CD4 count, pulmonary involvement, and widely disseminated Kaposi Sarcoma affecting bone and lungs. I have confirmed the key diagnostic elements. Now I need to understand the clinical course and treatment to complete the trajectory.",
+        "confirmed_evidence": [
+          "Initial chest radiograph showed extensive airspace opacification bilaterally (E002)",
+          "Initial blood tests showed low albumin, elevated CRP, ferritin, and D-dimer (E003)",
+          "HIV serology was positive, CD4 count was 116 cells/μL, and viral load was 87,272 copies/mL (E008)",
+          "CT-guided biopsy of an iliac crest lesion demonstrated spindle cell proliferation, positive for CD34 and HHV-8, confirming Kaposi Sarcoma (E007)",
+          "CT chest showed nodular interlobular and peribronchial interstitial thickening, diffuse thickening of major fissures, and innumerable multifocal lytic bone lesions (E006)"
+        ],
+        "missing_key_evidence": [
+          "Clinical course, treatment, and outcome after diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No pending results or new clinical trajectory update beyond phase 5 available in source.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "widely disseminated HIV-associated KS",
+        "trajectory_summary": "A 30-year-old man presented with dry cough, exertional dyspnoea, disseminated pigmented rash, extensive cervical lymphadenopathy, severe oedema, and cachexia. Initial chest radiograph showed extensive airspace opacification. Blood tests revealed low albumin, elevated CRP, ferritin, and D-dimer. HIV serology was positive with a CD4 count of 116 cells/μL and a high viral load. CT imaging showed nodular interlobular and peribronchial interstitial thickening in the lungs, diffuse thickening of major fissures, and innumerable multifocal lytic bone lesions. A CT-guided biopsy of an iliac crest lesion confirmed Kaposi Sarcoma, demonstrating spindle cell proliferation positive for CD34 and HHV-8. This evidence supports a diagnosis of widely disseminated HIV-associated Kaposi Sarcoma.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with respiratory symptoms (dry cough, exertional dyspnoea), disseminated pigmented rash, extensive non-tender cervical lymphadenopathy, severe lower limb and scrotal oedema, and marked cachexia.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Initial chest radiograph showed extensive airspace opacification involving upper-mid and lower zones bilaterally.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Initial blood tests showed low albumin, elevated C-reactive protein, slightly raised ferritin, and grossly elevated D-dimer.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "HIV serology was positive, with a total CD4+ T-helper lymphocyte count of 116 cells/μL and a viral load of 87,272 copies/mL.",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "CT imaging demonstrated nodular interlobular and peribronchial interstitial thickening, diffuse thickening of the major fissures, and innumerable, multifocal lytic bone lesions.",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "CT-guided biopsy of an iliac crest bony lesion demonstrated bone infiltrated by spindle cell proliferation, strongly positive for CD34 and HHV-8 on immunohistochemistry, confirming Kaposi Sarcoma.",
+            "evidence_ids": [
+              "E007"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "COVID-19",
+            "basis": "CT imaging findings were not indicative of the peripheral, ground-glass attenuation expected of COVID-19 (E006)."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Initial complete blood count (CBC) results were not reported.",
+          "Histopathological confirmation of Kaposi Sarcoma from the skin rash or lymph nodes was not reported.",
+          "Details regarding specific treatment regimen and long-term clinical outcome after diagnosis were not reported."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "widely disseminated HIV-associated KS",
+    "trajectory_summary": "A 30-year-old man presented with dry cough, exertional dyspnoea, disseminated pigmented rash, extensive cervical lymphadenopathy, severe oedema, and cachexia. Initial chest radiograph showed extensive airspace opacification. Blood tests revealed low albumin, elevated CRP, ferritin, and D-dimer. HIV serology was positive with a CD4 count of 116 cells/μL and a high viral load. CT imaging showed nodular interlobular and peribronchial interstitial thickening in the lungs, diffuse thickening of major fissures, and innumerable multifocal lytic bone lesions. A CT-guided biopsy of an iliac crest lesion confirmed Kaposi Sarcoma, demonstrating spindle cell proliferation positive for CD34 and HHV-8. This evidence supports a diagnosis of widely disseminated HIV-associated Kaposi Sarcoma.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with respiratory symptoms (dry cough, exertional dyspnoea), disseminated pigmented rash, extensive non-tender cervical lymphadenopathy, severe lower limb and scrotal oedema, and marked cachexia.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Initial chest radiograph showed extensive airspace opacification involving upper-mid and lower zones bilaterally.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Initial blood tests showed low albumin, elevated C-reactive protein, slightly raised ferritin, and grossly elevated D-dimer.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "HIV serology was positive, with a total CD4+ T-helper lymphocyte count of 116 cells/μL and a viral load of 87,272 copies/mL.",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "CT imaging demonstrated nodular interlobular and peribronchial interstitial thickening, diffuse thickening of the major fissures, and innumerable, multifocal lytic bone lesions.",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "CT-guided biopsy of an iliac crest bony lesion demonstrated bone infiltrated by spindle cell proliferation, strongly positive for CD34 and HHV-8 on immunohistochemistry, confirming Kaposi Sarcoma.",
+        "evidence_ids": [
+          "E007"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "COVID-19",
+        "basis": "CT imaging findings were not indicative of the peripheral, ground-glass attenuation expected of COVID-19 (E006)."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Initial complete blood count (CBC) results were not reported.",
+      "Histopathological confirmation of Kaposi Sarcoma from the skin rash or lymph nodes was not reported.",
+      "Details regarding specific treatment regimen and long-term clinical outcome after diagnosis were not reported."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T18:07:58.720093+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

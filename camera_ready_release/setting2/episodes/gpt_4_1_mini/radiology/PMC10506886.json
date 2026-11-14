@@ -1,0 +1,359 @@
+{
+  "case_id": "PMC10506886",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 9,
+  "termination": "final",
+  "known_final_diagnosis": "Histopathological analysis confirmed the presence of a glioneuronal tumor, leading to a diagnosis of DIG.",
+  "disclosed_evidence_ids": [
+    "E003",
+    "E004",
+    "E005"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "order brain MRI to evaluate intracranial causes of recurring headaches, vomiting, and acute vision loss",
+        "current_trajectory_hypothesis": "Initial presentation with headaches, vomiting, and acute amaurosis suggests raised intracranial pressure or mass lesion; brain MRI is needed for localization and characterization.",
+        "confirmed_evidence": [
+          "seven-year-old boy with recurring headaches and vomiting, rapidly developing amaurosis",
+          "no prior medical issues"
+        ],
+        "missing_key_evidence": [
+          "imaging evidence to locate intracranial pathology",
+          "histopathological specimen to confirm tumor type"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "The order for brain MRI has been registered; no source evidence to disclose yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request brain MRI report detailing lesion location, size, characteristics, and features relevant to raised intracranial pressure or mass effect",
+        "current_trajectory_hypothesis": "Brain MRI will localize and characterize intracranial pathology causing recurring headaches, vomiting, and amaurosis.",
+        "confirmed_evidence": [
+          "seven-year-old boy with recurring headaches and vomiting, rapidly developing amaurosis",
+          "no prior medical issues",
+          "brain MRI ordered to evaluate intracranial pathology"
+        ],
+        "missing_key_evidence": [
+          "imaging evidence to locate intracranial pathology",
+          "histopathological specimen to confirm tumor type"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Axial (A) and coronal (B) T2-weighted images showing the solid-cystic component of the lesion with hyperintensity, centered in the parietal lobe, causing compression on the right lateral ventricle and midline deviation. Axial T2/FLAIR (C) reveals a decrease in signal intensity of the cystic component, which appears hyperintense compared to cerebrospinal fluid. Coronal T1 (D) demonstrates hypointense signal intensity on T1-weighted imaging. Axial post-contrast T1 (E) shows heterogeneous enhancement of the solid component (red arrow). DWI/ADC sequences (F) demonstrate iso-intensity of the ADC within the solid component, compared to the normal brain parenchyma (yellow arrow).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "order biopsy and histopathological examination of the parietal lobe lesion to confirm tumor type and diagnose DIG",
+        "current_trajectory_hypothesis": "MRI reveals a solid-cystic lesion in the parietal lobe with features suggestive of a tumor; histopathology of biopsy specimen is required to confirm the diagnosis of DIG.",
+        "confirmed_evidence": [
+          "seven-year-old boy with recurring headaches, vomiting, and acute amaurosis",
+          "brain MRI shows solid-cystic lesion centered in the parietal lobe causing mass effect and midline shift",
+          "lesion hyperintense on T2, hypointense on T1, and heterogeneously enhancing solid component"
+        ],
+        "missing_key_evidence": [
+          "histopathological specimen confirming tumor type consistent with DIG"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Order for biopsy and histopathological examination acknowledged; no direct source result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request histopathological report of the parietal lobe lesion biopsy focusing on cellular components, glial and neuronal elements, and features diagnostic of desmoplastic infantile ganglioglioma (DIG)",
+        "current_trajectory_hypothesis": "Histopathological examination is needed to confirm the presence of a glioneuronal tumor consistent with DIG after brain MRI revealed a solid-cystic lesion with mass effect.",
+        "confirmed_evidence": [
+          "seven-year-old boy with recurring headaches, vomiting, and acute amaurosis",
+          "brain MRI shows solid-cystic lesion centered in the parietal lobe causing mass effect and midline shift",
+          "lesion hyperintense on T2, hypointense on T1, and heterogeneously enhancing solid component",
+          "biopsy was ordered to obtain histopathological diagnosis"
+        ],
+        "missing_key_evidence": [
+          "histopathological confirmation of tumor type consistent with DIG"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "The source does not provide a strict contiguous excerpt describing cellular components, glial and neuronal elements, or diagnostic histopathological features of the lesion biopsy.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Histopathology biopsy report is critical to confirm presence of glioneuronal tumor and DIG diagnosis after MRI identified lesion; waiting for source-grounded histopathology result.",
+        "confirmed_evidence": [
+          "seven-year-old boy with headaches, vomiting, and acute amaurosis",
+          "brain MRI shows solid-cystic lesion in parietal lobe causing mass effect and midline shift",
+          "lesion characteristics: T2 hyperintense, T1 hypointense, heterogeneous enhancement",
+          "biopsy was ordered to confirm diagnosis"
+        ],
+        "missing_key_evidence": [
+          "histopathological confirmation of tumor type consistent with DIG",
+          "immunohistochemical or molecular findings supporting DIG"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request clinical course update or treatment note describing response to biopsy and further management steps for the glioneuronal tumor",
+        "current_trajectory_hypothesis": "After brain MRI identified solid-cystic lesion and biopsy was ordered, clinical course notes may provide evidence of tumor diagnosis, treatment decisions, and disease progression relevant to DIG confirmation.",
+        "confirmed_evidence": [
+          "seven-year-old boy with recurring headaches, vomiting, and acute amaurosis",
+          "brain MRI shows solid-cystic lesion centered in parietal lobe causing mass effect and midline shift",
+          "lesion hyperintense on T2, hypointense on T1, and heterogeneously enhancing solid component",
+          "biopsy ordered to obtain histopathological diagnosis"
+        ],
+        "missing_key_evidence": [
+          "histopathological confirmation of tumor type consistent with DIG",
+          "immunohistochemical or molecular findings supporting DIG",
+          "clinical course or management decisions confirming diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Fortunately, the patient's recovery was uncomplicated, and upon leaving the hospital, he was scheduled for follow-up imaging. Over the course of the first two years, he remained asymptomatic, with no evidence of new lesions observed in the MRI scans.",
+        "category": "clinical_course",
+        "temporal_cue": "postoperative follow-up over two years",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request the histopathological pathology report text or summary specifically describing the glioneuronal components, desmoplastic stroma, and features confirming desmoplastic infantile ganglioglioma (DIG)",
+        "current_trajectory_hypothesis": "Histopathology report documenting typical glioneuronal tumor features, desmoplastic stroma, and diagnostic criteria is definitive for confirming DIG following MRI and biopsy.",
+        "confirmed_evidence": [
+          "seven-year-old boy with recurring headaches, vomiting, and acute amaurosis",
+          "brain MRI shows solid-cystic lesion centered in parietal lobe causing mass effect and midline shift",
+          "lesion hyperintense on T2, hypointense on T1, and heterogeneously enhancing solid component",
+          "biopsy was ordered to obtain histopathological diagnosis",
+          "clinical course shows uncomplicated recovery and two years of asymptomatic status with no new lesions on MRI"
+        ],
+        "missing_key_evidence": [
+          "histopathological confirmation of glioneuronal tumor type consistent with DIG",
+          "pathology details describing tumor cell types and desmoplastic features"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Histopathological analysis confirmed the presence of a glioneuronal tumor",
+        "category": "other",
+        "temporal_cue": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request additional detailed histopathology or immunohistochemistry report specifying desmoplastic stroma, neuronal and glial components consistent with DIG diagnosis",
+        "current_trajectory_hypothesis": "The brief histopathology report confirmed a glioneuronal tumor but lacks detailed morphological and immunohistochemical features to definitively confirm DIG; such details are needed for full trajectory verification.",
+        "confirmed_evidence": [
+          "seven-year-old boy presented with recurring headaches, vomiting, and acute amaurosis",
+          "brain MRI revealed a solid-cystic lesion in the parietal lobe with mass effect and midline shift",
+          "histopathological analysis confirmed presence of a glioneuronal tumor",
+          "clinical course post-biopsy was uncomplicated with 2 years asymptomatic follow-up and no new lesions on MRI"
+        ],
+        "missing_key_evidence": [
+          "detailed histopathological description including desmoplastic stroma",
+          "immunohistochemical or morphological features diagnostic for desmoplastic infantile ganglioglioma"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No detailed histopathology or immunohistochemistry report specifying desmoplastic stroma, neuronal, and glial components is present in supplied evidence.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Desmoplastic Infantile Ganglioglioma (DIG)",
+        "trajectory_summary": "A seven-year-old boy presented with recurring headaches, vomiting, and acute amaurosis. Brain MRI revealed a solid-cystic lesion of the parietal lobe causing mass effect and midline shift, characterized by T2 hyperintensity and heterogeneous enhancement of the solid component. A biopsy was performed. Histopathological analysis confirmed the presence of a glioneuronal tumor consistent with DIG. The patient's recovery was uncomplicated with two years of asymptomatic follow-up and no new lesions on MRI.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial presentation with recurring headaches, vomiting, and acute amaurosis related to intracranial lesion",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Brain MRI shows a solid-cystic lesion centered in the parietal lobe causing mass effect and midline shift (T2 hyperintense, T1 hypointense, heterogeneous enhancement)",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Histopathological analysis confirmed the presence of a glioneuronal tumor consistent with DIG",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Clinical course showed uncomplicated recovery and two years of asymptomatic follow-up with no new lesions on serial MRI",
+            "evidence_ids": [
+              "E004"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Other intracranial tumor types",
+            "basis": "Confirmed glioneuronal tumor on histopathology with clinical and imaging features consistent with DIG"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Lack of detailed histopathological and immunohistochemical description explicitly documenting desmoplastic stroma and neuronal/glial components characteristic of DIG"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Desmoplastic Infantile Ganglioglioma (DIG)",
+    "trajectory_summary": "A seven-year-old boy presented with recurring headaches, vomiting, and acute amaurosis. Brain MRI revealed a solid-cystic lesion of the parietal lobe causing mass effect and midline shift, characterized by T2 hyperintensity and heterogeneous enhancement of the solid component. A biopsy was performed. Histopathological analysis confirmed the presence of a glioneuronal tumor consistent with DIG. The patient's recovery was uncomplicated with two years of asymptomatic follow-up and no new lesions on MRI.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial presentation with recurring headaches, vomiting, and acute amaurosis related to intracranial lesion",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Brain MRI shows a solid-cystic lesion centered in the parietal lobe causing mass effect and midline shift (T2 hyperintense, T1 hypointense, heterogeneous enhancement)",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Histopathological analysis confirmed the presence of a glioneuronal tumor consistent with DIG",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Clinical course showed uncomplicated recovery and two years of asymptomatic follow-up with no new lesions on serial MRI",
+        "evidence_ids": [
+          "E004"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Other intracranial tumor types",
+        "basis": "Confirmed glioneuronal tumor on histopathology with clinical and imaging features consistent with DIG"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Lack of detailed histopathological and immunohistochemical description explicitly documenting desmoplastic stroma and neuronal/glial components characteristic of DIG"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.85
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T18:56:59.612650+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

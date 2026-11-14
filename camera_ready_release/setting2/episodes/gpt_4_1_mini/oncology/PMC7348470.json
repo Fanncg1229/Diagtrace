@@ -1,0 +1,389 @@
+{
+  "case_id": "PMC7348470",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 10,
+  "termination": "final",
+  "known_final_diagnosis": "Histological evaluation of the mediastinal lesion confirmed an extragonadal germ cell tumour, of yolk sac origin",
+  "disclosed_evidence_ids": [
+    "E004",
+    "E005",
+    "E006",
+    "E007"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "order chest computed tomography (CT) scan to characterize the mediastinal mass",
+        "current_trajectory_hypothesis": "Young male with progressive cough, dyspnoea, pleuritic chest pain and large chest radiograph mass likely mediastinal; further imaging needed to characterize mass",
+        "confirmed_evidence": [
+          "progressive cough, dyspnoea, pleuritic chest pain over 5 weeks",
+          "large mass on chest radiograph"
+        ],
+        "missing_key_evidence": [
+          "CT features of mediastinal mass",
+          "histological diagnosis confirmation",
+          "laboratory tumor markers",
+          "exclusion of other masses or infections"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [
+          "chest computed tomography scan"
+        ],
+        "explanation": "Chest CT scan order matches source record E004 indicating CT of the thorax.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request chest computed tomography (CT) scan report",
+        "current_trajectory_hypothesis": "Progressive respiratory symptoms and large chest radiograph mass in young adult; expect CT to better define mediastinal mass size, characteristics, and involvement",
+        "confirmed_evidence": [
+          "progressive cough, dyspnoea, pleuritic chest pain over 5 weeks",
+          "large mass on chest radiograph"
+        ],
+        "missing_key_evidence": [
+          "CT features of mediastinal mass",
+          "histological diagnosis confirmation",
+          "laboratory tumor markers",
+          "exclusion of other masses or infections"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "A CT of the thorax, abdomen and pelvis showed a 10×11 cm mass arising in the anterior mediastinum with marked stenosis of the superior vena cava and the pulmonary artery trunk (figure 2). No distant metastatic disease was identified confirming clinical stage II disease.",
+        "category": "imaging_report",
+        "temporal_cue": "On admission to hospital",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "order biopsy of the anterior mediastinal mass to obtain histological diagnosis",
+        "current_trajectory_hypothesis": "Large anterior mediastinal mass with vascular compression on CT; next key step is tissue diagnosis via biopsy",
+        "confirmed_evidence": [
+          "progressive cough, dyspnoea, pleuritic chest pain over 5 weeks",
+          "large mass on chest radiograph",
+          "CT showing 10x11 cm anterior mediastinal mass with SVC and pulmonary artery trunk stenosis, no distant metastases (stage II)"
+        ],
+        "missing_key_evidence": [
+          "histological diagnosis confirmation",
+          "laboratory tumor markers (e.g., AFP, beta-HCG)",
+          "clinical exam findings to correlate mass effects",
+          "treatment response or further clinical course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Order for biopsy placed, result not yet documented in source",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request histology report of the anterior mediastinal mass biopsy",
+        "current_trajectory_hypothesis": "Biopsy performed to obtain tissue diagnosis of large anterior mediastinal mass with vascular compression; histology expected to confirm tumor type",
+        "confirmed_evidence": [
+          "progressive cough, dyspnoea, pleuritic chest pain over 5 weeks",
+          "large mass on chest radiograph",
+          "CT showing 10x11 cm anterior mediastinal mass with SVC and pulmonary artery trunk stenosis, no distant metastases (stage II)",
+          "biopsy ordered for tissue diagnosis"
+        ],
+        "missing_key_evidence": [
+          "histological diagnosis confirmation",
+          "laboratory tumor markers (e.g., AFP, beta-HCG)",
+          "clinical exam findings to correlate mass effects",
+          "treatment response or further clinical course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "Histological evaluation of the mediastinal lesion confirmed an extragonadal germ cell tumour, of yolk sac origin, with a serum alpha-fetoprotein level of 17 000 ng/mL (0.9–8.8 ng/mL).",
+        "category": "routine_lab",
+        "temporal_cue": "On admission, during hospital workup",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "order serum beta-human chorionic gonadotropin (beta-HCG) tumor marker level",
+        "current_trajectory_hypothesis": "Histology shows extragonadal germ cell tumor of yolk sac origin with elevated AFP; beta-HCG level needed to further characterize tumor subtype and guide treatment",
+        "confirmed_evidence": [
+          "large anterior mediastinal mass causing vascular compression and stage II disease (E004)",
+          "histological confirmation of extragonadal germ cell tumor, yolk sac origin, with elevated serum AFP 17,000 ng/mL (E006)"
+        ],
+        "missing_key_evidence": [
+          "serum beta-HCG tumor marker level",
+          "clinical exam findings correlating mass effect",
+          "treatment details and response or clinical course after diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "Order for serum beta-human chorionic gonadotropin (beta-HCG) tumor marker level acknowledged without existing source result.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Confirmed extragonadal germ cell tumor of yolk sac origin by biopsy, elevated AFP; awaiting further tumor marker (beta-HCG) and clinical course post-diagnosis",
+        "confirmed_evidence": [
+          "progressive respiratory symptoms with large anterior mediastinal mass on chest radiograph",
+          "chest CT showing 10x11 cm anterior mediastinal mass with SVC and pulmonary artery trunk stenosis, stage II",
+          "histological confirmation of extragonadal germ cell tumor of yolk sac origin",
+          "elevated serum AFP at 17,000 ng/mL"
+        ],
+        "missing_key_evidence": [
+          "serum beta-HCG level",
+          "clinical examination findings correlating mass effects",
+          "treatment given and patient response or outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "Urgent chemotherapy was commenced as an inpatient with the regimen VIP, a 21-day cycle consisting of etoposide (75 mg/m2, days 1–5), ifosfamide (1200 mg/m2 with mesna days 1–5) and cisplatin (20 mg/m2, days 1–5). Pegfilgrastim was administered to reduce the risk of neutropenia. He was discharged after completing the first of four cycles.",
+        "category": "treatment_response",
+        "temporal_cue": "After diagnosis",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request clinical examination findings at hospital admission, particularly signs of superior vena cava syndrome or other mass effect",
+        "current_trajectory_hypothesis": "Large anterior mediastinal mass with vascular compression likely causes clinical signs such as superior vena cava syndrome; exam findings would support clinical impact of tumor",
+        "confirmed_evidence": [
+          "large anterior mediastinal mass 10x11 cm with SVC and pulmonary artery trunk stenosis on CT (E004)",
+          "histological confirmation of extragonadal germ cell tumor of yolk sac origin with elevated AFP (E006)",
+          "urgent chemotherapy with VIP regimen started inpatient (E007)"
+        ],
+        "missing_key_evidence": [
+          "clinical examination findings correlating with mass effect or superior vena cava syndrome",
+          "serum beta-HCG level",
+          "post-treatment response or follow-up imaging"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Testicular examination and ultrasound were unremarkable.",
+        "category": "physical_exam",
+        "temporal_cue": "On admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request serum beta-human chorionic gonadotropin (beta-HCG) tumor marker level result",
+        "current_trajectory_hypothesis": "Histology confirmed extragonadal germ cell tumor of yolk sac origin with elevated AFP; beta-HCG result needed to further characterize tumor and confirm diagnosis",
+        "confirmed_evidence": [
+          "large anterior mediastinal mass causing vascular compression, stage II disease (E004)",
+          "histological confirmation of extragonadal germ cell tumor of yolk sac origin with elevated serum AFP 17,000 ng/mL (E006)",
+          "normal testicular exam and ultrasound excluding gonadal primary tumor (E005)",
+          "urgent chemotherapy started with VIP regimen after diagnosis (E007)"
+        ],
+        "missing_key_evidence": [
+          "serum beta-HCG tumor marker level result",
+          "clinical examination findings correlating mass effects (specifically SVC syndrome signs, if any)",
+          "post-treatment response or follow-up imaging"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E006",
+        "source_text": "Other blood tests included an elevated lactate dehydrogenase of 699 unit/L (220–450 unit/L) and an undetectable beta-human chorionic gonadotropin (<1 unit/L).",
+        "category": "routine_lab",
+        "temporal_cue": "On admission, during hospital workup",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request post-treatment clinical course and patient outcome after completion of chemotherapy",
+        "current_trajectory_hypothesis": "Confirmed extragonadal germ cell tumor of yolk sac origin with elevated AFP and undetectable beta-HCG; urgent chemotherapy started with VIP regimen; next key step is to verify clinical response and patient outcome",
+        "confirmed_evidence": [
+          "large anterior mediastinal mass causing vascular compression and stage II disease on CT (E004)",
+          "histological confirmation of extragonadal germ cell tumor, yolk sac origin, with elevated serum AFP (E006)",
+          "normal testicular exam and ultrasound excluding gonadal primary tumor (E005)",
+          "undetectable serum beta-HCG (<1 unit/L) (E006)",
+          "urgent chemotherapy with VIP regimen started inpatient (E007)"
+        ],
+        "missing_key_evidence": [
+          "post-treatment clinical response and patient outcome",
+          "follow-up imaging to assess tumor response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No source record reports post-treatment clinical course or patient outcome after completion of chemotherapy.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "extragonadal germ cell tumour, of yolk sac origin",
+        "trajectory_summary": "A 23-year-old male presented with progressive cough, dyspnoea, pleuritic chest pain, and a large mediastinal mass on chest radiograph. Chest CT revealed a 10x11 cm anterior mediastinal mass causing superior vena cava and pulmonary artery trunk stenosis, staged as II with no metastases. Testicular examination and ultrasound were normal, excluding gonadal primary. Biopsy histology confirmed an extragonadal germ cell tumor of yolk sac origin with markedly elevated serum alpha-fetoprotein (17,000 ng/mL) and undetectable beta-human chorionic gonadotropin. Urgent chemotherapy with the VIP regimen was initiated. Post-treatment clinical outcome was not documented.",
+        "key_supporting_evidence": [
+          {
+            "claim": "progressive respiratory symptoms and large anterior mediastinal mass (10x11 cm) with vascular compression on CT, stage II disease",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "testicular examination and ultrasound unremarkable excluding gonadal primary",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "histology confirmed extragonadal germ cell tumour, yolk sac origin with elevated serum alpha-fetoprotein (17,000 ng/mL) and undetectable beta-HCG",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "urgent chemotherapy with the VIP regimen commenced inpatient",
+            "evidence_ids": [
+              "E007"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "gonadal germ cell tumor",
+            "basis": "normal testicular exam and ultrasound with no gonadal lesions"
+          }
+        ],
+        "remaining_uncertainties": [
+          "lack of documented post-treatment clinical response and follow-up imaging to assess tumor regression or outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "extragonadal germ cell tumour, of yolk sac origin",
+    "trajectory_summary": "A 23-year-old male presented with progressive cough, dyspnoea, pleuritic chest pain, and a large mediastinal mass on chest radiograph. Chest CT revealed a 10x11 cm anterior mediastinal mass causing superior vena cava and pulmonary artery trunk stenosis, staged as II with no metastases. Testicular examination and ultrasound were normal, excluding gonadal primary. Biopsy histology confirmed an extragonadal germ cell tumor of yolk sac origin with markedly elevated serum alpha-fetoprotein (17,000 ng/mL) and undetectable beta-human chorionic gonadotropin. Urgent chemotherapy with the VIP regimen was initiated. Post-treatment clinical outcome was not documented.",
+    "key_supporting_evidence": [
+      {
+        "claim": "progressive respiratory symptoms and large anterior mediastinal mass (10x11 cm) with vascular compression on CT, stage II disease",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "testicular examination and ultrasound unremarkable excluding gonadal primary",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "histology confirmed extragonadal germ cell tumour, yolk sac origin with elevated serum alpha-fetoprotein (17,000 ng/mL) and undetectable beta-HCG",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "urgent chemotherapy with the VIP regimen commenced inpatient",
+        "evidence_ids": [
+          "E007"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "gonadal germ cell tumor",
+        "basis": "normal testicular exam and ultrasound with no gonadal lesions"
+      }
+    ],
+    "remaining_uncertainties": [
+      "lack of documented post-treatment clinical response and follow-up imaging to assess tumor regression or outcome"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T23:07:57.534394+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

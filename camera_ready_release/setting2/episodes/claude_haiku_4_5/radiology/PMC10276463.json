@@ -1,0 +1,634 @@
+{
+  "case_id": "PMC10276463",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 12,
+  "termination": "final",
+  "known_final_diagnosis": "The patient was diagnosed with PPT",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E008",
+    "E009"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "What was the initial symptom that started 24 days before admission? Was there any upper respiratory infection, sinusitis, or nasal symptoms preceding the headache?",
+        "current_trajectory_hypothesis": "9-year-old previously healthy boy with progressive headache, fever, and frontal/periorbital swelling over 24 days. Initial symptoms ~10 days in, worsened at day 10 with fever, treated with penicillin for 7 days, relapsed 4 days after completion with increased swelling and right periorbital pain. Clinical picture suggests possible frontal sinusitis with complications (PPT likely refers to Pott's puffy tumor or similar frontal bone/sinus pathology). Need to establish initial trigger and progression.",
+        "confirmed_evidence": [
+          "24-day symptom duration from onset to ORL admission",
+          "Initial headache, worsened at ~10 days with fever",
+          "Penicillin treatment for 7 days with relapse 4 days after completion",
+          "Frontal swelling and right periorbital pain on relapse",
+          "Fever up to 40°C"
+        ],
+        "missing_key_evidence": [
+          "Initial triggering event or preceding upper respiratory/sinus symptoms",
+          "Specific location and character of initial headache",
+          "Imaging findings (CT/MRI of sinuses and frontal bone)",
+          "Physical examination findings at admission",
+          "Laboratory findings (CBC, inflammatory markers)",
+          "Confirmation of PPT diagnosis (imaging or clinical findings)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.25
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "On physical examination, there was swelling and pain at pressure on the right side of the forehead delimited to both eyebrows down to os nasale. There was no fluctuation, redness, or softness of the skin corresponding to the bone.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "What were the complete physical examination findings at admission, specifically: any signs of meningismus (neck stiffness, Kernig sign, Brudzinski sign), proptosis or eye movement abnormalities, visual acuity changes, and any other neurological findings?",
+        "current_trajectory_hypothesis": "9-year-old previously healthy boy with 24-day progressive illness: initial headache → worsening at day 10 with fever → penicillin treatment for 7 days → relapse 4 days post-treatment with increased frontal swelling, right periorbital pain, and fever to 40°C. On admission exam: localized right forehead swelling and tenderness from eyebrows to nasal bridge, no fluctuance or skin changes. Clinical picture consistent with frontal bone/sinus infection (PPT = Pott's puffy tumor, a subperiosteal abscess of frontal bone). Need to assess for intracranial extension (meningitis) or orbital involvement.",
+        "confirmed_evidence": [
+          "24-day symptom duration",
+          "Initial headache worsening at ~10 days with fever",
+          "Penicillin 7-day course with relapse 4 days after completion",
+          "Right forehead swelling and tenderness from eyebrows to nasal bridge on admission",
+          "No fluctuance, redness, or skin softness on exam",
+          "Right periorbital pain reported"
+        ],
+        "missing_key_evidence": [
+          "Meningeal signs (neck stiffness, Kernig, Brudzinski)",
+          "Orbital signs (proptosis, ophthalmoplegia, visual changes)",
+          "Complete neurological examination",
+          "Imaging findings (CT/MRI of frontal bone, sinuses, brain)",
+          "Laboratory findings (CBC, CRP, ESR, blood cultures)",
+          "Microbiology/culture results",
+          "Confirmation of PPT diagnosis and extent"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.35
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E001",
+        "source_text": "On physical examination, there was swelling and pain at pressure on the right side of the forehead delimited to both eyebrows down to os nasale. There was no fluctuation, redness, or softness of the skin corresponding to the bone. Neurological examination was normal.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "What imaging studies were performed (CT or MRI of the frontal bone, sinuses, and brain)? Please provide the imaging findings, particularly regarding frontal bone involvement, subperiosteal collection, sinus involvement, and any intracranial extension.",
+        "current_trajectory_hypothesis": "9-year-old previously healthy boy with 24-day progressive frontal bone infection (PPT - Pott's puffy tumor). Timeline: initial headache → worsening at day 10 with fever → penicillin 7 days → relapse 4 days post-treatment with increased swelling and right periorbital pain (fever 40°C). On admission: localized right forehead swelling/tenderness from eyebrows to nasal bridge, no fluctuance or skin changes, normal neurological exam. Clinical presentation consistent with subperiosteal abscess of frontal bone secondary to frontal sinusitis. Imaging is critical to confirm PPT diagnosis and assess extent of disease.",
+        "confirmed_evidence": [
+          "24-day symptom duration from onset to ORL admission",
+          "Initial headache worsening at ~10 days with fever",
+          "Penicillin treatment for 7 days with relapse 4 days after completion",
+          "Right forehead swelling and tenderness from eyebrows to nasal bridge on admission",
+          "No fluctuance, redness, or skin softness on exam",
+          "Right periorbital pain",
+          "Fever up to 40°C",
+          "Normal neurological examination (no meningeal signs)"
+        ],
+        "missing_key_evidence": [
+          "Imaging confirmation of frontal bone involvement and subperiosteal collection (PPT)",
+          "Extent of sinus involvement and source of infection",
+          "Presence or absence of intracranial extension",
+          "Laboratory findings (CBC, inflammatory markers, blood cultures)",
+          "Microbiology/culture results identifying causative organism",
+          "Treatment course and outcome after diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.45
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Ordered imaging study corresponding to CT scan of the sinuses; source results exist but will be released upon request or order fulfillment.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the CT scan findings of the sinuses and frontal bone. What were the specific imaging findings regarding frontal bone involvement, subperiosteal collection, frontal sinus involvement, and any intracranial extension?",
+        "current_trajectory_hypothesis": "9-year-old previously healthy boy with 24-day progressive frontal bone infection (PPT - Pott's puffy tumor). Timeline: initial headache → worsening at day 10 with fever → penicillin 7 days → relapse 4 days post-treatment with increased swelling and right periorbital pain (fever 40°C). On admission: localized right forehead swelling/tenderness from eyebrows to nasal bridge, no fluctuance or skin changes, normal neurological exam. CT imaging is critical to confirm PPT diagnosis and assess extent of disease.",
+        "confirmed_evidence": [
+          "24-day symptom duration from onset to ORL admission",
+          "Initial headache worsening at ~10 days with fever",
+          "Penicillin treatment for 7 days with relapse 4 days after completion",
+          "Right forehead swelling and tenderness from eyebrows to nasal bridge on admission",
+          "No fluctuance, redness, or skin softness on exam",
+          "Right periorbital pain",
+          "Fever up to 40°C",
+          "Normal neurological examination (no meningeal signs)"
+        ],
+        "missing_key_evidence": [
+          "CT imaging findings confirming frontal bone involvement and subperiosteal collection (PPT)",
+          "Extent of frontal sinus involvement and source of infection",
+          "Presence or absence of intracranial extension",
+          "Laboratory findings (CBC, inflammatory markers, blood cultures)",
+          "Microbiology/culture results identifying causative organism",
+          "Treatment course and outcome after diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.45
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "a computed tomography (CT) scan of the sinuses (CTDI 1.44 mGy) was performed showing signs of bone erosions in relation to the frontal sinuses, although not visualized in its entirety.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the complete CT scan findings regarding the frontal bone defect, subperiosteal collection or abscess, extent of frontal sinus involvement, and any intracranial complications such as epidural abscess or meningitis?",
+        "current_trajectory_hypothesis": "9-year-old previously healthy boy with 24-day progressive frontal bone infection (Pott's puffy tumor - PPT). Timeline: initial headache → worsening at day 10 with fever → penicillin 7 days → relapse 4 days post-treatment with increased swelling and right periorbital pain (fever 40°C). On admission: localized right forehead swelling/tenderness from eyebrows to nasal bridge, no fluctuance or skin changes, normal neurological exam. CT shows bone erosions in relation to frontal sinuses. Need complete imaging details to confirm PPT diagnosis (subperiosteal abscess) and assess extent of disease.",
+        "confirmed_evidence": [
+          "24-day symptom duration from onset to ORL admission",
+          "Initial headache worsening at ~10 days with fever",
+          "Penicillin treatment for 7 days with relapse 4 days after completion",
+          "Right forehead swelling and tenderness from eyebrows to nasal bridge on admission",
+          "No fluctuance, redness, or skin softness on exam",
+          "Right periorbital pain",
+          "Fever up to 40°C",
+          "Normal neurological examination",
+          "CT scan showing bone erosions in relation to frontal sinuses"
+        ],
+        "missing_key_evidence": [
+          "Complete CT description of subperiosteal collection/abscess (defining feature of PPT)",
+          "Extent of frontal sinus involvement and source of infection",
+          "Presence or absence of intracranial extension (epidural abscess, meningitis)",
+          "Laboratory findings (CBC, inflammatory markers, blood cultures)",
+          "Microbiology/culture results identifying causative organism",
+          "Treatment approach (antibiotics, surgical drainage) and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.55
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Gadolinium-enhanced MRI scan (Fig. 1) was performed, showing slight maxillary, ethmoidal and frontal sinusitis on the left side, osteomyelitis of the frontal bone, and in communication herewith an epidural and periosteal mass with capsular contrast-enhancement compatible with an abscess. Additionally, the contrast-enhanced MR venogram revealed partial obstruction in the anterior third part of the superior sagittal sinus in close relation to the abscesses due to reactive phlebitis without thrombosis.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What laboratory findings were obtained at admission or during the workup? Please provide CBC results (WBC, hemoglobin, platelets), inflammatory markers (CRP, ESR), blood culture results, and any other microbiology or culture findings identifying the causative organism.",
+        "current_trajectory_hypothesis": "9-year-old previously healthy boy with 24-day progressive Pott's puffy tumor (PPT). Timeline: initial headache → worsening at day 10 with fever → penicillin 7 days → relapse 4 days post-treatment with increased swelling and right periorbial pain (fever 40°C). On admission: localized right forehead swelling/tenderness from eyebrows to nasal bridge, no fluctuance or skin changes, normal neurological exam. Imaging (MRI) confirms: left-sided maxillary/ethmoidal/frontal sinusitis, frontal bone osteomyelitis, epidural and periosteal abscess with capsular enhancement, and partial superior sagittal sinus obstruction with reactive phlebitis. Need laboratory confirmation of infection and organism identification to complete trajectory.",
+        "confirmed_evidence": [
+          "24-day symptom duration from onset to ORL admission",
+          "Initial headache worsening at ~10 days with fever",
+          "Penicillin treatment for 7 days with relapse 4 days after completion",
+          "Right forehead swelling and tenderness from eyebrows to nasal bridge on admission",
+          "No fluctuance, redness, or skin softness on exam",
+          "Right periorbital pain",
+          "Fever up to 40°C",
+          "Normal neurological examination",
+          "MRI showing left-sided sinusitis (maxillary, ethmoidal, frontal), frontal bone osteomyelitis, epidural and periosteal abscess with capsular enhancement, and partial superior sagittal sinus obstruction with reactive phlebitis"
+        ],
+        "missing_key_evidence": [
+          "Laboratory findings (CBC, CRP, ESR) confirming systemic infection",
+          "Blood culture or culture results identifying causative organism",
+          "Reason for left-sided imaging findings when clinical swelling was right-sided (clarification needed)",
+          "Treatment approach after diagnosis (antibiotics, surgical drainage) and clinical outcome",
+          "Response to treatment and final resolution"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the laboratory findings at admission, including white blood cell count, C-reactive protein (CRP), erythrocyte sedimentation rate (ESR), and any blood culture or culture results that identified the causative organism?",
+        "current_trajectory_hypothesis": "9-year-old previously healthy boy with 24-day progressive Pott's puffy tumor (PPT). Timeline: initial headache → worsening at day 10 with fever → penicillin 7 days → relapse 4 days post-treatment with increased swelling and right periorbital pain (fever 40°C). On admission: localized right forehead swelling/tenderness from eyebrows to nasal bridge, no fluctuance or skin changes, normal neurological exam. MRI confirms: left-sided maxillary/ethmoidal/frontal sinusitis, frontal bone osteomyelitis, epidural and periosteal abscess with capsular enhancement, and partial superior sagittal sinus obstruction with reactive phlebitis. Need laboratory confirmation of infection and organism identification.",
+        "confirmed_evidence": [
+          "24-day symptom duration from onset to ORL admission",
+          "Initial headache worsening at ~10 days with fever",
+          "Penicillin treatment for 7 days with relapse 4 days after completion",
+          "Right forehead swelling and tenderness from eyebrows to nasal bridge on admission",
+          "No fluctuance, redness, or skin softness on exam",
+          "Right periorbital pain",
+          "Fever up to 40°C",
+          "Normal neurological examination",
+          "MRI showing left-sided sinusitis (maxillary, ethmoidal, frontal), frontal bone osteomyelitis, epidural and periosteal abscess with capsular enhancement, and partial superior sagittal sinus obstruction with reactive phlebitis"
+        ],
+        "missing_key_evidence": [
+          "Laboratory findings (CBC, CRP, ESR) confirming systemic infection",
+          "Blood culture or culture results identifying causative organism",
+          "Treatment approach after diagnosis (antibiotics, surgical drainage) and clinical outcome",
+          "Response to treatment and final resolution"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.78
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "9-year-old previously healthy boy with 24-day progressive Pott's puffy tumor (PPT). Timeline: initial headache → worsening at day 10 with fever → penicillin 7 days → relapse 4 days post-treatment with increased swelling and right periorbital pain (fever 40°C). On admission: localized right forehead swelling/tenderness from eyebrows to nasal bridge, no fluctuance or skin changes, normal neurological exam. MRI confirms: left-sided maxillary/ethmoidal/frontal sinusitis, frontal bone osteomyelitis, epidural and periosteal abscess with capsular enhancement, and partial superior sagittal sinus obstruction with reactive phlebitis. Need to document treatment approach and clinical outcome to complete the trajectory.",
+        "confirmed_evidence": [
+          "24-day symptom duration from onset to ORL admission",
+          "Initial headache worsening at ~10 days with fever",
+          "Penicillin treatment for 7 days with relapse 4 days after completion",
+          "Right forehead swelling and tenderness from eyebrows to nasal bridge on admission",
+          "No fluctuance, redness, or skin softness on exam",
+          "Right periorbital pain",
+          "Fever up to 40°C",
+          "Normal neurological examination",
+          "MRI showing left-sided sinusitis (maxillary, ethmoidal, frontal), frontal bone osteomyelitis, epidural and periosteal abscess with capsular enhancement, and partial superior sagittal sinus obstruction with reactive phlebitis"
+        ],
+        "missing_key_evidence": [
+          "Treatment approach after diagnosis (antibiotics, surgical drainage/procedure)",
+          "Response to treatment and clinical course",
+          "Final outcome or resolution of infection",
+          "Laboratory findings (CBC, CRP, ESR) confirming systemic infection",
+          "Causative organism identification from culture"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "A subsequent CT scan of the cerebrum (Fig. 2, CTDI 24.30, mGy) gave a full visualization of the frontal bone erosion internally on the right side.",
+        "category": "imaging_report",
+        "temporal_cue": "after MRI scan",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the treatment plan after diagnosis? Was surgical drainage or debridement of the frontal bone abscess performed? What antibiotics were used, and what was the clinical response and outcome?",
+        "current_trajectory_hypothesis": "9-year-old previously healthy boy with 24-day progressive Pott's puffy tumor (PPT). Timeline: initial headache → worsening at day 10 with fever → penicillin 7 days → relapse 4 days post-treatment with increased swelling and right periorbital pain (fever 40°C). On admission: localized right forehead swelling/tenderness from eyebrows to nasal bridge, no fluctuance or skin changes, normal neurological exam. Imaging (MRI and CT) confirms: frontal bone osteomyelitis with epidural and periosteal abscess, sinusitis, and partial superior sagittal sinus obstruction with reactive phlebitis. Need to document treatment approach (surgical vs. medical) and clinical outcome to complete the trajectory.",
+        "confirmed_evidence": [
+          "24-day symptom duration from onset to ORL admission",
+          "Initial headache worsening at ~10 days with fever",
+          "Penicillin treatment for 7 days with relapse 4 days after completion",
+          "Right forehead swelling and tenderness from eyebrows to nasal bridge on admission",
+          "No fluctuance, redness, or skin softness on exam",
+          "Right periorbital pain",
+          "Fever up to 40°C",
+          "Normal neurological examination",
+          "MRI showing left-sided sinusitis (maxillary, ethmoidal, frontal), frontal bone osteomyelitis, epidural and periosteal abscess with capsular enhancement, and partial superior sagittal sinus obstruction with reactive phlebitis",
+          "CT scan showing frontal bone erosion internally on the right side"
+        ],
+        "missing_key_evidence": [
+          "Treatment approach after diagnosis (antibiotics, surgical drainage/procedure)",
+          "Response to treatment and clinical course",
+          "Final outcome or resolution of infection",
+          "Laboratory findings (CBC, CRP, ESR) confirming systemic infection",
+          "Causative organism identification from culture"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.82
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "The patient was consulted with the neurosurgery department finding no indication for surgical intervention due to no neurological deficits and the patient’s well-being.",
+        "category": "other",
+        "temporal_cue": "after diagnosis",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the antibiotic treatment regimen prescribed after diagnosis, and what was the clinical response and outcome? Did the patient's symptoms resolve, fever decrease, and swelling improve with medical management alone?",
+        "current_trajectory_hypothesis": "9-year-old previously healthy boy with 24-day progressive Pott's puffy tumor (PPT). Timeline: initial headache → worsening at day 10 with fever → penicillin 7 days → relapse 4 days post-treatment with increased swelling and right periorbital pain (fever 40°C). On admission: localized right forehead swelling/tenderness from eyebrows to nasal bridge, no fluctuance or skin changes, normal neurological exam. Imaging confirms: frontal bone osteomyelitis with epidural and periosteal abscess, sinusitis, and partial superior sagittal sinus obstruction with reactive phlebitis. Neurosurgery consultation found no indication for surgical intervention. Need to document antibiotic treatment and clinical outcome to complete the trajectory.",
+        "confirmed_evidence": [
+          "24-day symptom duration from onset to ORL admission",
+          "Initial headache worsening at ~10 days with fever",
+          "Penicillin treatment for 7 days with relapse 4 days after completion",
+          "Right forehead swelling and tenderness from eyebrows to nasal bridge on admission",
+          "No fluctuance, redness, or skin softness on exam",
+          "Right periorbital pain",
+          "Fever up to 40°C",
+          "Normal neurological examination",
+          "MRI showing left-sided sinusitis (maxillary, ethmoidal, frontal), frontal bone osteomyelitis, epidural and periosteal abscess with capsular enhancement, and partial superior sagittal sinus obstruction with reactive phlebitis",
+          "CT scan showing frontal bone erosion internally on the right side",
+          "Neurosurgery consultation found no indication for surgical intervention due to no neurological deficits and patient's well-being"
+        ],
+        "missing_key_evidence": [
+          "Antibiotic regimen prescribed after diagnosis",
+          "Clinical response to treatment (fever resolution, swelling improvement)",
+          "Final outcome and resolution of infection",
+          "Laboratory findings (CBC, CRP, ESR) confirming systemic infection",
+          "Causative organism identification from culture"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E009",
+        "source_text": "After one week of hospitalization the patient went home to continue the intravenous antibiotic treatment for six weeks in total with frequent consultations. On follow-up for two months, the patient was in complete remission, both clinical and radiological.",
+        "category": "other",
+        "temporal_cue": "follow-up",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What specific antibiotic agents were used in the intravenous treatment regimen during the six-week course? Were there any blood culture results or organism identification that guided the antibiotic selection?",
+        "current_trajectory_hypothesis": "9-year-old previously healthy boy with 24-day progressive Pott's puffy tumor (PPT). Timeline: initial headache → worsening at day 10 with fever → penicillin 7 days → relapse 4 days post-treatment with increased swelling and right periorbital pain (fever 40°C). On admission: localized right forehead swelling/tenderness from eyebrows to nasal bridge, no fluctuance or skin changes, normal neurological exam. Imaging confirms: frontal bone osteomyelitis with epidural and periosteal abscess, sinusitis, and partial superior sagittal sinus obstruction with reactive phlebitis. Neurosurgery found no indication for surgical intervention. Treatment: 1 week hospitalization followed by 6 weeks total IV antibiotics with frequent consultations. Complete clinical and radiological remission at 2-month follow-up.",
+        "confirmed_evidence": [
+          "24-day symptom duration from onset to ORL admission",
+          "Initial headache worsening at ~10 days with fever",
+          "Penicillin treatment for 7 days with relapse 4 days after completion",
+          "Right forehead swelling and tenderness from eyebrows to nasal bridge on admission",
+          "No fluctuance, redness, or skin softness on exam",
+          "Right periorbital pain",
+          "Fever up to 40°C",
+          "Normal neurological examination",
+          "MRI showing left-sided sinusitis (maxillary, ethmoidal, frontal), frontal bone osteomyelitis, epidural and periosteal abscess with capsular enhancement, and partial superior sagittal sinus obstruction with reactive phlebitis",
+          "CT scan showing frontal bone erosion internally on the right side",
+          "Neurosurgery consultation found no indication for surgical intervention",
+          "One week hospitalization followed by 6 weeks total IV antibiotic treatment with frequent consultations",
+          "Complete clinical and radiological remission at 2-month follow-up"
+        ],
+        "missing_key_evidence": [
+          "Specific antibiotic agents used in the IV regimen",
+          "Blood culture results or organism identification",
+          "Laboratory findings (CBC, CRP, ESR) confirming systemic infection"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Pott's puffy tumor (PPT) - frontal bone osteomyelitis with epidural and periosteal abscess secondary to frontal sinusitis",
+        "trajectory_summary": "A previously healthy 9-year-old boy presented with a 24-day progressive illness characterized by initial headache that worsened at approximately day 10 with fever. He was treated with penicillin for 7 days but relapsed 4 days after completion with increased frontal swelling, right periorbital pain, and fever up to 40°C. On admission to otorhinolaryngology (day 24), physical examination revealed localized swelling and tenderness on the right forehead from eyebrows to nasal bridge, without fluctuance, redness, or skin softness. Neurological examination was normal. Imaging studies (MRI and CT) confirmed left-sided maxillary, ethmoidal, and frontal sinusitis with frontal bone osteomyelitis, epidural and periosteal abscess with capsular enhancement, and partial superior sagittal sinus obstruction with reactive phlebitis. CT also showed frontal bone erosion internally on the right side. Neurosurgery consultation found no indication for surgical intervention due to absence of neurological deficits and patient's clinical well-being. The patient was treated with intravenous antibiotics for 6 weeks total (1 week hospitalization followed by outpatient continuation with frequent consultations). At 2-month follow-up, the patient achieved complete clinical and radiological remission.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial presentation with progressive headache and fever over 24 days with relapse after initial penicillin treatment",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Physical examination findings of localized right forehead swelling and tenderness from eyebrows to nasal bridge without fluctuance or skin changes",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Normal neurological examination excluding meningeal involvement",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "CT scan showing bone erosions in relation to frontal sinuses",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "MRI demonstrating left-sided sinusitis (maxillary, ethmoidal, frontal), frontal bone osteomyelitis, epidural and periosteal abscess with capsular enhancement, and partial superior sagittal sinus obstruction with reactive phlebitis",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Follow-up CT scan showing full visualization of frontal bone erosion internally on the right side",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Neurosurgery consultation found no indication for surgical intervention due to no neurological deficits and patient's well-being",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "Treatment with intravenous antibiotics for 6 weeks total (1 week hospitalization plus outpatient continuation) with complete clinical and radiological remission at 2-month follow-up",
+            "evidence_ids": [
+              "E009"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Acute bacterial meningitis",
+            "basis": "Normal neurological examination with no meningeal signs (neck stiffness, Kernig sign, Brudzinski sign)"
+          },
+          {
+            "alternative": "Orbital cellulitis or abscess",
+            "basis": "No proptosis, ophthalmoplegia, or visual acuity changes documented; swelling localized to forehead without orbital involvement"
+          },
+          {
+            "alternative": "Simple frontal sinusitis without bone involvement",
+            "basis": "Imaging clearly demonstrates frontal bone osteomyelitis with erosion and subperiosteal abscess formation, defining features of PPT"
+          },
+          {
+            "alternative": "Intracranial epidural abscess requiring surgical drainage",
+            "basis": "Neurosurgery consultation found no indication for surgical intervention despite epidural abscess presence, due to absence of neurological deficits and clinical well-being"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Specific causative organism not documented in available evidence (blood culture or culture results not disclosed)",
+          "Specific antibiotic agents used in the 6-week IV regimen not documented",
+          "Laboratory findings (CBC, CRP, ESR) confirming systemic infection not disclosed",
+          "Discrepancy between clinical right-sided swelling and left-sided imaging findings not explicitly explained in available evidence"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.92
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Pott's puffy tumor (PPT) - frontal bone osteomyelitis with epidural and periosteal abscess secondary to frontal sinusitis",
+    "trajectory_summary": "A previously healthy 9-year-old boy presented with a 24-day progressive illness characterized by initial headache that worsened at approximately day 10 with fever. He was treated with penicillin for 7 days but relapsed 4 days after completion with increased frontal swelling, right periorbital pain, and fever up to 40°C. On admission to otorhinolaryngology (day 24), physical examination revealed localized swelling and tenderness on the right forehead from eyebrows to nasal bridge, without fluctuance, redness, or skin softness. Neurological examination was normal. Imaging studies (MRI and CT) confirmed left-sided maxillary, ethmoidal, and frontal sinusitis with frontal bone osteomyelitis, epidural and periosteal abscess with capsular enhancement, and partial superior sagittal sinus obstruction with reactive phlebitis. CT also showed frontal bone erosion internally on the right side. Neurosurgery consultation found no indication for surgical intervention due to absence of neurological deficits and patient's clinical well-being. The patient was treated with intravenous antibiotics for 6 weeks total (1 week hospitalization followed by outpatient continuation with frequent consultations). At 2-month follow-up, the patient achieved complete clinical and radiological remission.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial presentation with progressive headache and fever over 24 days with relapse after initial penicillin treatment",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Physical examination findings of localized right forehead swelling and tenderness from eyebrows to nasal bridge without fluctuance or skin changes",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Normal neurological examination excluding meningeal involvement",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "CT scan showing bone erosions in relation to frontal sinuses",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "MRI demonstrating left-sided sinusitis (maxillary, ethmoidal, frontal), frontal bone osteomyelitis, epidural and periosteal abscess with capsular enhancement, and partial superior sagittal sinus obstruction with reactive phlebitis",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Follow-up CT scan showing full visualization of frontal bone erosion internally on the right side",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Neurosurgery consultation found no indication for surgical intervention due to no neurological deficits and patient's well-being",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "Treatment with intravenous antibiotics for 6 weeks total (1 week hospitalization plus outpatient continuation) with complete clinical and radiological remission at 2-month follow-up",
+        "evidence_ids": [
+          "E009"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Acute bacterial meningitis",
+        "basis": "Normal neurological examination with no meningeal signs (neck stiffness, Kernig sign, Brudzinski sign)"
+      },
+      {
+        "alternative": "Orbital cellulitis or abscess",
+        "basis": "No proptosis, ophthalmoplegia, or visual acuity changes documented; swelling localized to forehead without orbital involvement"
+      },
+      {
+        "alternative": "Simple frontal sinusitis without bone involvement",
+        "basis": "Imaging clearly demonstrates frontal bone osteomyelitis with erosion and subperiosteal abscess formation, defining features of PPT"
+      },
+      {
+        "alternative": "Intracranial epidural abscess requiring surgical drainage",
+        "basis": "Neurosurgery consultation found no indication for surgical intervention despite epidural abscess presence, due to absence of neurological deficits and clinical well-being"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Specific causative organism not documented in available evidence (blood culture or culture results not disclosed)",
+      "Specific antibiotic agents used in the 6-week IV regimen not documented",
+      "Laboratory findings (CBC, CRP, ESR) confirming systemic infection not disclosed",
+      "Discrepancy between clinical right-sided swelling and left-sided imaging findings not explicitly explained in available evidence"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.92
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T05:45:17.808196+00:00",
+  "clinician_model": "claude-haiku-4-5",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

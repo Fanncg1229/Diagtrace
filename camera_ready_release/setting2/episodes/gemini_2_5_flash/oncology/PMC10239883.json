@@ -1,0 +1,319 @@
+{
+  "case_id": "PMC10239883",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 8,
+  "termination": "final",
+  "known_final_diagnosis": "Overall the findings were consistent with Hairy Cell Leukemia.",
+  "disclosed_evidence_ids": [
+    "E003",
+    "E004"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "physical examination findings, specifically for splenomegaly or hepatomegaly",
+        "current_trajectory_hypothesis": "Patient presents with thrombocytopenia. Hairy Cell Leukemia often presents with splenomegaly and cytopenias. Investigating initial physical exam findings for organomegaly.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "presence or absence of splenomegaly",
+          "other cytopenias (e.g., leukopenia, neutropenia, monocytopenia)",
+          "presence of hairy cells"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "No physical examination findings for splenomegaly or hepatomegaly are reported in the source at the initial presentation phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "peripheral blood smear findings, specifically for abnormal lymphocytes or hairy cells",
+        "current_trajectory_hypothesis": "Patient presents with thrombocytopenia and borderline leukopenia. Hairy Cell Leukemia is suspected. A peripheral blood smear review is a crucial next step to identify characteristic hairy cells.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "presence or absence of hairy cells on peripheral smear",
+          "absolute monocyte count",
+          "splenomegaly",
+          "bone marrow findings",
+          "immunophenotyping results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Review of the bone marrow morphology demonstrated normocellular marrow with B-cell infiltrate representing 30-40% of the marrow cellularity that were predominantly medium sized mature forms with oval-shaped nuclei and appreciable cytoplasm with cytoplasmic projections.",
+        "category": "pathology_report",
+        "temporal_cue": "3 weeks after initial study",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "immunophenotyping results from the bone marrow biopsy, specifically looking for CD103, CD123, CD25, and CD20 expression",
+        "current_trajectory_hypothesis": "The patient presents with thrombocytopenia. Bone marrow morphology shows B-cell infiltrate with cytoplasmic projections, highly suggestive of Hairy Cell Leukemia. Immunophenotyping is crucial for confirming the diagnosis.",
+        "confirmed_evidence": [
+          "Bone marrow morphology shows normocellular marrow with 30-40% B-cell infiltrate, predominantly medium-sized mature forms with oval-shaped nuclei and appreciable cytoplasm with cytoplasmic projections (E004)"
+        ],
+        "missing_key_evidence": [
+          "peripheral blood smear findings for hairy cells",
+          "immunophenotyping results",
+          "presence or absence of splenomegaly",
+          "absolute monocyte count"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Order for immunophenotyping test placed; no direct resulting evidence in sources yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "immunophenotyping results from the bone marrow, specifically for CD103, CD123, CD25, and CD20 expression",
+        "current_trajectory_hypothesis": "The patient presents with thrombocytopenia. Bone marrow morphology shows B-cell infiltrate with cytoplasmic projections, highly suggestive of Hairy Cell Leukemia. Immunophenotyping results are crucial for confirming the diagnosis.",
+        "confirmed_evidence": [
+          "Initial presentation with thrombocytopenia (from initial presentation)",
+          "Bone marrow morphology shows normocellular marrow with 30-40% B-cell infiltrate, predominantly medium-sized mature forms with oval-shaped nuclei and appreciable cytoplasm with cytoplasmic projections (E004)"
+        ],
+        "missing_key_evidence": [
+          "peripheral blood smear findings for hairy cells",
+          "immunophenotyping results",
+          "presence or absence of splenomegaly",
+          "absolute monocyte count"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "A bone marrow aspirate was submitted after about 3 weeks of the initial study on the peripheral blood and now revealed a lymphocyte population of 34% of the total with B-cells approximately 41% of the lymphocytes and the entire population was positive for CD19, CD20, CD22, HLA-DR, FMC7, and kappa monoclonal ( Figure 2 ). The population also appeared to be partially positive for CD25 and CD103.",
+        "category": "pathology_report",
+        "temporal_cue": "3 weeks after initial study",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "peripheral blood smear findings, specifically for the presence of hairy cells or other abnormal lymphocytes",
+        "current_trajectory_hypothesis": "The patient presents with thrombocytopenia and monocytopenia. Bone marrow morphology and immunophenotyping are highly suggestive of Hairy Cell Leukemia. Peripheral blood smear findings are crucial to identify characteristic hairy cells in circulation.",
+        "confirmed_evidence": [
+          "Initial presentation with thrombocytopenia (from initial presentation)",
+          "Initial CBC shows monocytopenia (calculated from initial presentation)",
+          "Bone marrow morphology shows normocellular marrow with 30-40% B-cell infiltrate, predominantly medium-sized mature forms with oval-shaped nuclei and appreciable cytoplasm with cytoplasmic projections (E004)",
+          "Bone marrow immunophenotyping shows B-cells positive for CD19, CD20, CD22, HLA-DR, FMC7, kappa monoclonal, and partially positive for CD25 and CD103 (E003)"
+        ],
+        "missing_key_evidence": [
+          "peripheral blood smear findings for hairy cells",
+          "presence or absence of splenomegaly",
+          "CD123 expression",
+          "BRAF V600E mutation status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "No source record reports specific peripheral blood smear findings about hairy cells or abnormal lymphocytes.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "molecular testing for BRAF V600E mutation",
+        "current_trajectory_hypothesis": "The patient presents with thrombocytopenia and monocytopenia. Bone marrow morphology and immunophenotyping are highly suggestive of Hairy Cell Leukemia. Molecular testing for BRAF V600E mutation is a key diagnostic and prognostic marker for HCL.",
+        "confirmed_evidence": [
+          "Initial presentation with thrombocytopenia (from initial presentation)",
+          "Initial CBC shows monocytopenia (calculated from initial presentation)",
+          "Bone marrow morphology shows normocellular marrow with 30-40% B-cell infiltrate, predominantly medium-sized mature forms with oval-shaped nuclei and appreciable cytoplasm with cytoplasmic projections (E004)",
+          "Bone marrow immunophenotyping shows B-cells positive for CD19, CD20, CD22, HLA-DR, FMC7, kappa monoclonal, and partially positive for CD25 and CD103 (E003)"
+        ],
+        "missing_key_evidence": [
+          "BRAF V600E mutation status",
+          "peripheral blood smear findings for hairy cells",
+          "presence or absence of splenomegaly",
+          "CD123 expression"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "The requested molecular test order for BRAF V600E is acknowledged, but no source record documents the result.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "molecular testing results for BRAF V600E mutation",
+        "current_trajectory_hypothesis": "The patient presents with thrombocytopenia and monocytopenia. Bone marrow morphology and immunophenotyping are highly suggestive of Hairy Cell Leukemia. Molecular testing for BRAF V600E mutation is a key diagnostic and prognostic marker for HCL, and its result is pending.",
+        "confirmed_evidence": [
+          "Initial presentation with thrombocytopenia (from initial presentation)",
+          "Initial CBC shows monocytopenia (calculated from initial presentation)",
+          "Bone marrow morphology shows normocellular marrow with 30-40% B-cell infiltrate, predominantly medium-sized mature forms with oval-shaped nuclei and appreciable cytoplasm with cytoplasmic projections (E004)",
+          "Bone marrow immunophenotyping shows B-cells positive for CD19, CD20, CD22, HLA-DR, FMC7, kappa monoclonal, and partially positive for CD25 and CD103 (E003)"
+        ],
+        "missing_key_evidence": [
+          "BRAF V600E mutation status",
+          "peripheral blood smear findings for hairy cells",
+          "presence or absence of splenomegaly",
+          "CD123 expression"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E004",
+        "source_text": "The B cells were positive for CD20, Annexin A1, DBA44, BCL1, BCL2, TRAP and BRAF V600E, but negative for CD5, CD10, LEF1 or BCL6.",
+        "category": "pathology_report",
+        "temporal_cue": "3 weeks after initial study",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Hairy Cell Leukemia",
+        "trajectory_summary": "A 41-year-old male presented with thrombocytopenia. Initial CBC also revealed monocytopenia. Bone marrow biopsy and aspirate showed a normocellular marrow with a B-cell infiltrate (30-40% cellularity) composed of medium-sized mature forms with oval nuclei and cytoplasmic projections. Immunophenotyping of these B-cells demonstrated positivity for CD19, CD20, CD22, HLA-DR, FMC7, kappa monoclonal, partial CD25, CD103, Annexin A1, DBA44, BCL1, BCL2, and TRAP, while being negative for CD5, CD10, LEF1, and BCL6. Molecular testing confirmed the presence of a BRAF V600E mutation. These findings are highly characteristic and diagnostic of Hairy Cell Leukemia.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial presentation with thrombocytopenia.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Initial CBC showed monocytopenia (absolute monocyte count 0.1596 K/μL).",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Bone marrow morphology revealed normocellular marrow with a 30-40% B-cell infiltrate, consisting of medium-sized mature forms with oval-shaped nuclei and appreciable cytoplasm with cytoplasmic projections.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Bone marrow immunophenotyping showed B-cells positive for CD19, CD20, CD22, HLA-DR, FMC7, kappa monoclonal, and partially positive for CD25 and CD103.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Bone marrow immunophenotyping further showed B-cells positive for CD20, Annexin A1, DBA44, BCL1, BCL2, and TRAP, and negative for CD5, CD10, LEF1, or BCL6.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Molecular testing confirmed the presence of a BRAF V600E mutation.",
+            "evidence_ids": [
+              "E004"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [
+          "Specific peripheral blood smear findings for hairy cells were not documented.",
+          "Presence or absence of splenomegaly on physical examination was not documented."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Hairy Cell Leukemia",
+    "trajectory_summary": "A 41-year-old male presented with thrombocytopenia. Initial CBC also revealed monocytopenia. Bone marrow biopsy and aspirate showed a normocellular marrow with a B-cell infiltrate (30-40% cellularity) composed of medium-sized mature forms with oval nuclei and cytoplasmic projections. Immunophenotyping of these B-cells demonstrated positivity for CD19, CD20, CD22, HLA-DR, FMC7, kappa monoclonal, partial CD25, CD103, Annexin A1, DBA44, BCL1, BCL2, and TRAP, while being negative for CD5, CD10, LEF1, and BCL6. Molecular testing confirmed the presence of a BRAF V600E mutation. These findings are highly characteristic and diagnostic of Hairy Cell Leukemia.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial presentation with thrombocytopenia.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Initial CBC showed monocytopenia (absolute monocyte count 0.1596 K/μL).",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Bone marrow morphology revealed normocellular marrow with a 30-40% B-cell infiltrate, consisting of medium-sized mature forms with oval-shaped nuclei and appreciable cytoplasm with cytoplasmic projections.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Bone marrow immunophenotyping showed B-cells positive for CD19, CD20, CD22, HLA-DR, FMC7, kappa monoclonal, and partially positive for CD25 and CD103.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Bone marrow immunophenotyping further showed B-cells positive for CD20, Annexin A1, DBA44, BCL1, BCL2, and TRAP, and negative for CD5, CD10, LEF1, or BCL6.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Molecular testing confirmed the presence of a BRAF V600E mutation.",
+        "evidence_ids": [
+          "E004"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [
+      "Specific peripheral blood smear findings for hairy cells were not documented.",
+      "Presence or absence of splenomegaly on physical examination was not documented."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T22:31:17.119962+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

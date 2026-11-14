@@ -1,0 +1,538 @@
+{
+  "case_id": "PMC10981278",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "the histopathology results confirmed the final diagnosis as choriocarcinoma renal metastasis",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E003",
+    "E004",
+    "E005"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "serum beta-hCG level",
+        "current_trajectory_hypothesis": "Patient with history of molar pregnancy presents with symptoms suggesting possible metastatic choriocarcinoma; serum beta-hCG is key to support active trophoblastic disease.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "serum beta-hCG level to indicate trophoblastic activity",
+          "imaging results to identify renal or other metastases",
+          "histopathology to confirm diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "The serum beta-hCG level test order is acknowledged; no prior matching result returned.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "abdominal CT scan with contrast focusing on kidneys and pelvis",
+        "current_trajectory_hypothesis": "Suspected metastatic choriocarcinoma with renal involvement; imaging needed to localize mass lesions supporting metastasis.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "serum beta-hCG level to indicate trophoblastic activity",
+          "imaging results to identify renal or other metastases",
+          "histopathology to confirm diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for abdominal CT scan with contrast noted; no direct matching source record at ordering phase",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "serum beta-hCG level result",
+        "current_trajectory_hypothesis": "Blood test results for beta-hCG are necessary to confirm ongoing trophoblastic activity indicating possible choriocarcinoma metastasis.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "serum beta-hCG level to indicate trophoblastic activity",
+          "imaging results to identify renal or other metastases",
+          "histopathology to confirm diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Pending key diagnostic results including beta-hCG to confirm trophoblastic activity and abdominal CT to localize renal metastasis.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "serum beta-hCG level result",
+          "abdominal CT scan imaging report",
+          "histopathology results confirming renal metastasis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "Upon admission, the patient was pale and moderately distressed due to severe pain, and the following vital signs were recorded: heart rate of 95 beats/minute, respiratory rate of 24 breaths/minute, blood pressure of 110/80 mmHg, and temperature of 39 °C.",
+        "category": "molecular_test",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "abdominal CT scan report with focus on kidneys and pelvis",
+        "current_trajectory_hypothesis": "Awaiting imaging findings to identify renal or pelvic masses indicating metastatic choriocarcinoma; this will support the diagnosis by anatomical localization of metastasis.",
+        "confirmed_evidence": [
+          "On admission, vital signs documented with fever and distress (E001)"
+        ],
+        "missing_key_evidence": [
+          "serum beta-hCG level result to indicate trophoblastic activity",
+          "abdominal CT scan imaging report to confirm renal metastasis",
+          "histopathology results confirming renal metastatic choriocarcinoma"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Considering the patient’s clinical presentation, an abdominopelvic ultrasound was conducted in the emergency department. The results demonstrated an empty uterine cavity, accompanied by a hypoechoic lesion within the lower pole of the left kidney. Furthermore, moderate fluid collection was identified in the left pararenal and perisplenic spaces. Subsequently, an abdominopelvic computed tomography (CT) scan with intravenous contrast (arterial phase) identified a hypodense lesion (30 × 25 × 20 mm3) with mild heterogeneous enhancement in the lower pole of the left kidney. Hyperdense foci within the renal mass with CT number of 160 Hounsfield Units (HU) on arterial phase images were suggestive of active bleeding. In addition, a hematoma (130 × 108 × 90 mm3) was observed in the subcapsular, perinephric, and anterior and posterior pararenal spaces. This hematoma caused anterior displacement of the left kidney, attributed to pressure effects (Fig. 2). Moreover, findings regarding the endometrial cavity and myometrium were unremarkable except for a defect in the superior segment of the uterine anterior wall. Furthermore, owing to the observation of pleural effusion in the limited view of the thorax in the abdominopelvic CT scan, the patient underwent a chest CT scan, which disclosed bilateral pleural effusion, more prominent on the left side, with adjacent passive lung collapse. No evidence of pulmonary nodules or masses was detected.",
+        "category": "image_finding",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "serum beta-hCG level test to confirm trophoblastic activity",
+        "current_trajectory_hypothesis": "Imaging confirmed left renal mass and hemorrhagic hematoma suggesting metastatic lesion; need serum beta-hCG level to support active choriocarcinoma diagnosis.",
+        "confirmed_evidence": [
+          "Abdominopelvic CT scan showed hypodense lesion with hemorrhage in left lower pole kidney and large hematoma causing displacement (E003)",
+          "Chest CT showed bilateral pleural effusions without nodules (E003)"
+        ],
+        "missing_key_evidence": [
+          "serum beta-hCG level result to indicate trophoblastic activity",
+          "histopathology results confirming renal choriocarcinoma metastasis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Order for serum beta-hCG level test recorded; no source record documents the test order result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "serum beta-hCG level test result",
+        "current_trajectory_hypothesis": "Serum beta-hCG level is critical for confirming active trophoblastic disease suggestive of choriocarcinoma metastasis in the context of renal mass and hemorrhage.",
+        "confirmed_evidence": [
+          "Abdominopelvic CT scan showed hypodense lesion with hemorrhage in left lower pole kidney and large hematoma causing displacement (E003)",
+          "Chest CT showed bilateral pleural effusions without nodules (E003)"
+        ],
+        "missing_key_evidence": [
+          "serum beta-hCG level result to indicate trophoblastic activity",
+          "histopathology results confirming renal metastatic choriocarcinoma"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Imaging reveals left renal lesion with hemorrhage and pleural effusion consistent with metastasis; definitive diagnosis depends on serum beta-hCG confirmation and histopathology results of renal mass.",
+        "confirmed_evidence": [
+          "Abdominopelvic CT scan with contrast showed a hypodense lesion with hemorrhage in the lower pole of left kidney, large hematoma displacing kidney, and bilateral pleural effusion without nodules (E003)"
+        ],
+        "missing_key_evidence": [
+          "serum beta-hCG level result confirming active trophoblastic disease",
+          "histopathology confirming metastatic choriocarcinoma in the renal lesion"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "During the laparotomy, an extensive left retroperitoneal hematoma was discovered. Additionally, a lacerated mass was actively bleeding at the lower pole of the left kidney. Consequently, a partial nephrectomy was performed using the wedge resection technique with a 5-mm margin. Further exploration of the intraperitoneal cavity revealed a left para-ovarian cyst without evidence of an ectopic pregnancy. Thus, a cystectomy was carried out. The patient also underwent endometrial curettage. Throughout the surgery, all specimens were documented for pathology evaluation.",
+        "category": "other",
+        "temporal_cue": "during laparotomy",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "histopathology report of left kidney mass and other surgical specimens",
+        "current_trajectory_hypothesis": "Surgical resection of left renal mass and cystectomy performed; histopathology is necessary to confirm diagnosis of metastatic choriocarcinoma.",
+        "confirmed_evidence": [
+          "Abdominopelvic CT scan with contrast showed a hypodense lesion with hemorrhage in the lower pole of left kidney, large hematoma displacing kidney, and bilateral pleural effusion without nodules (E003)",
+          "Intraoperative findings of left retroperitoneal hematoma and bleeding lacerated renal mass; partial nephrectomy and cystectomy performed with specimens sent to pathology (E004)"
+        ],
+        "missing_key_evidence": [
+          "serum beta-hCG level result confirming active trophoblastic disease",
+          "histopathology results confirming metastatic choriocarcinoma in the left kidney"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Imaging and intraoperative findings strongly support a left renal mass consistent with metastasis and hemorrhage; pathological confirmation and serologic beta-hCG data remain the final key evidence for diagnosis.",
+        "confirmed_evidence": [
+          "Abdominopelvic CT scan with contrast showed hypodense hemorrhagic lesion in lower pole of left kidney and large hematoma displacing the kidney; bilateral pleural effusions without nodules detected (E003).",
+          "Intraoperative findings: extensive left retroperitoneal hematoma, bleeding lacerated left kidney mass; partial nephrectomy and cystectomy performed with specimens sent for pathology (E004)."
+        ],
+        "missing_key_evidence": [
+          "Serum beta-hCG level results documenting trophoblastic activity",
+          "Histopathology report confirming diagnosis of metastatic choriocarcinoma from renal mass"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "serum beta-hCG test with results report to confirm trophoblastic activity",
+        "current_trajectory_hypothesis": "After imaging and surgery revealing renal mass and hemorrhage suspicious for metastasis, serum beta-hCG is crucial to biologically confirm active choriocarcinoma.",
+        "confirmed_evidence": [
+          "Abdominopelvic CT showed hypodense lesion with hemorrhage in left lower pole kidney and large hematoma (E003)",
+          "Surgical exploration found bleeding renal mass and partial nephrectomy performed (E004)"
+        ],
+        "missing_key_evidence": [
+          "Serum beta-hCG level result to confirm trophoblastic activity",
+          "Histopathology report confirming renal metastatic choriocarcinoma"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Order for serum beta-hCG test recorded; no direct source result yet reported",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Imaging and surgery revealed left renal hemorrhagic mass suspicious for metastasis; awaiting serum beta-hCG and histopathology results which are crucial for confirming diagnosis of choriocarcinoma renal metastasis.",
+        "confirmed_evidence": [
+          "Abdominopelvic CT scan with contrast showed hypodense lesion with hemorrhage in left lower pole kidney and large hematoma displacing kidney, bilateral pleural effusion without nodules (E003)",
+          "Surgical findings: extensive retroperitoneal hematoma, bleeding left kidney mass; partial nephrectomy and cystectomy performed with specimens sent for pathology (E004)"
+        ],
+        "missing_key_evidence": [
+          "Serum beta-hCG level test result confirming trophoblastic activity",
+          "Histopathology report confirming metastatic choriocarcinoma diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient with left renal hemorrhagic mass found on imaging and confirmed intraoperatively; awaiting serum beta-hCG level to confirm trophoblastic activity and histopathology for definitive diagnosis of metastatic choriocarcinoma.",
+        "confirmed_evidence": [
+          "Abdominopelvic CT scan with contrast showed hypodense lesion with hemorrhage in left lower pole kidney and large hematoma displacing kidney, bilateral pleural effusion without nodules (E003)",
+          "Surgical findings: extensive retroperitoneal hematoma, bleeding left kidney mass; partial nephrectomy and cystectomy performed with specimens sent for pathology (E004)"
+        ],
+        "missing_key_evidence": [
+          "Serum beta-hCG level results confirming trophoblastic activity",
+          "Histopathology report confirming metastatic choriocarcinoma diagnosis from renal mass"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "The histopathological findings of the renal mass strongly aligned with characteristic features of choriocarcinoma, including a disorganized mixture of various types of trophoblast cells, significant cytologic pleomorphism, nuclear enlargement, extensive mitotic activity, a hemorrhagic or necrotic background along with viable tumor cells at the periphery, and lymphovascular tumor thrombi [15].",
+        "category": "image_finding",
+        "temporal_cue": "postoperative histopathology",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Histopathology confirms choriocarcinoma renal metastasis; serum beta-hCG result is still needed to biologically confirm active trophoblastic disease and complete diagnostic trajectory.",
+        "confirmed_evidence": [
+          "Abdominopelvic CT scan with contrast showed hypodense lesion with hemorrhage in left lower pole kidney and large hematoma displacing kidney, bilateral pleural effusion without nodules (E003)",
+          "Surgical findings: extensive retroperitoneal hematoma, bleeding left kidney mass; partial nephrectomy and cystectomy performed with specimens sent for pathology (E004)",
+          "Histopathology of renal mass shows typical features of choriocarcinoma including trophoblast mixture, cytologic pleomorphism, mitotic activity, hemorrhagic background and lymphovascular tumor thrombi (E005)"
+        ],
+        "missing_key_evidence": [
+          "Serum beta-hCG test result confirming active trophoblastic disease"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No pending results and no new clinical updates in or after confirmatory_testing phase.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "phase_index_after must equal the selected evidence phase.",
+        "validation_errors": [
+          "phase_index_after must equal the selected evidence phase."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "choriocarcinoma renal metastasis",
+        "trajectory_summary": "A 41-year-old woman with a history of molar pregnancy two years prior presented with severe left flank pain, hematuria, and vaginal bleeding. Imaging with ultrasound and abdominal CT revealed a hypodense hemorrhagic lesion in the left kidney with a large hematoma and bilateral pleural effusions. During laparotomy, a bleeding renal mass was found and partially resected. Histopathology of the renal mass confirmed features characteristic of choriocarcinoma, including trophoblastic cells with cytologic pleomorphism, mitotic activity, hemorrhagic background, and lymphovascular tumor thrombi. Serum beta-hCG levels, ordered but not reported, would biologically support active trophoblastic disease. The overall clinical, imaging, surgical, and histopathological evidence support the diagnosis of metastatic choriocarcinoma to the kidney.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Abdominopelvic CT scan with contrast showed a hypodense lesion with hemorrhage in the lower pole of the left kidney and a large hematoma causing displacement; bilateral pleural effusions without nodules were also detected.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Surgical exploration revealed an extensive left retroperitoneal hematoma and actively bleeding lacerated mass in the left kidney; partial nephrectomy and cystectomy were performed with specimens sent for pathology.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Histopathology of the left renal mass showed characteristic features of choriocarcinoma including mixed trophoblasts, cytologic pleomorphism, mitotic activity, hemorrhagic/necrotic background, and lymphovascular tumor thrombi.",
+            "evidence_ids": [
+              "E005"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "pulmonary nodules or masses",
+            "basis": "Chest CT showed bilateral pleural effusion with no evidence of pulmonary nodules or masses (E003)."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Serum beta-hCG level results to biologically confirm active trophoblastic disease were not documented."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "choriocarcinoma renal metastasis",
+    "trajectory_summary": "A 41-year-old woman with a history of molar pregnancy two years prior presented with severe left flank pain, hematuria, and vaginal bleeding. Imaging with ultrasound and abdominal CT revealed a hypodense hemorrhagic lesion in the left kidney with a large hematoma and bilateral pleural effusions. During laparotomy, a bleeding renal mass was found and partially resected. Histopathology of the renal mass confirmed features characteristic of choriocarcinoma, including trophoblastic cells with cytologic pleomorphism, mitotic activity, hemorrhagic background, and lymphovascular tumor thrombi. Serum beta-hCG levels, ordered but not reported, would biologically support active trophoblastic disease. The overall clinical, imaging, surgical, and histopathological evidence support the diagnosis of metastatic choriocarcinoma to the kidney.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Abdominopelvic CT scan with contrast showed a hypodense lesion with hemorrhage in the lower pole of the left kidney and a large hematoma causing displacement; bilateral pleural effusions without nodules were also detected.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Surgical exploration revealed an extensive left retroperitoneal hematoma and actively bleeding lacerated mass in the left kidney; partial nephrectomy and cystectomy were performed with specimens sent for pathology.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Histopathology of the left renal mass showed characteristic features of choriocarcinoma including mixed trophoblasts, cytologic pleomorphism, mitotic activity, hemorrhagic/necrotic background, and lymphovascular tumor thrombi.",
+        "evidence_ids": [
+          "E005"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "pulmonary nodules or masses",
+        "basis": "Chest CT showed bilateral pleural effusion with no evidence of pulmonary nodules or masses (E003)."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Serum beta-hCG level results to biologically confirm active trophoblastic disease were not documented."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-29T08:45:52.755765+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

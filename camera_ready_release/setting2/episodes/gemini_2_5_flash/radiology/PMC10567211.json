@@ -1,0 +1,393 @@
+{
+  "case_id": "PMC10567211",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 8,
+  "termination": "final",
+  "known_final_diagnosis": "The final diagnosis was determined to be stage IV, diffuse large B-cell non-Hodgkin’s lymphoma",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E005"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of the initial mammogram and ultrasound of the left breast?",
+        "current_trajectory_hypothesis": "The patient presented with a palpable left breast mass. Initial imaging (mammogram and ultrasound) was performed to characterize the mass.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Detailed characteristics of the breast mass from imaging",
+          "Evidence of malignancy",
+          "Biopsy results",
+          "Staging information"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "Mammography showed an oval mass with indistinct margins at the one o’clock position, located 13 centimeters from the nipple (Figure 1).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of the initial ultrasound of the left breast?",
+        "current_trajectory_hypothesis": "The patient presented with a palpable left breast mass. Initial imaging (mammogram and ultrasound) was performed to characterize the mass. Mammography showed an oval mass with indistinct margins. Ultrasound findings are still needed.",
+        "confirmed_evidence": [
+          "Patient presented with a palpable left breast mass",
+          "Mammography showed an oval mass with indistinct margins at the one o’clock position, 13 centimeters from the nipple"
+        ],
+        "missing_key_evidence": [
+          "Detailed characteristics of the breast mass from ultrasound",
+          "Biopsy results of the mass",
+          "Pathology report confirming lymphoma",
+          "Staging information for lymphoma",
+          "Treatment and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.15
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "The ultrasound demonstrated an oval mass with indistinct margins measuring 16 x 11 x 15 millimeters (Figure 2). No axillary, infraclavicular, supraclavicular, or internal mammary chain lymphadenopathy was noted.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "Was a biopsy performed on the left breast mass? If so, what type of biopsy was it?",
+        "current_trajectory_hypothesis": "The patient presented with a palpable left breast mass. Initial imaging (mammogram and ultrasound) showed an oval mass with indistinct margins, but no lymphadenopathy. A biopsy is needed to determine the nature of the mass and confirm the diagnosis of lymphoma.",
+        "confirmed_evidence": [
+          "Patient presented with a palpable left breast mass",
+          "Mammography showed an oval mass with indistinct margins at the one o’clock position, 13 centimeters from the nipple",
+          "Ultrasound demonstrated an oval mass with indistinct margins measuring 16 x 11 x 15 millimeters",
+          "No axillary, infraclavicular, supraclavicular, or internal mammary chain lymphadenopathy was noted on ultrasound"
+        ],
+        "missing_key_evidence": [
+          "Type of biopsy performed",
+          "Pathology results of the biopsy",
+          "Immunohistochemistry findings",
+          "Staging workup and results",
+          "Treatment and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Procedure order acknowledged, no direct documentation of biopsy order in source",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the pathology findings from the biopsy of the left breast mass?",
+        "current_trajectory_hypothesis": "The patient presented with a palpable left breast mass. Initial imaging showed an oval mass with indistinct margins, but no lymphadenopathy. A biopsy was likely performed, and the pathology results are crucial for diagnosing lymphoma.",
+        "confirmed_evidence": [
+          "Patient presented with a palpable left breast mass",
+          "Mammography showed an oval mass with indistinct margins at the one o’clock position, 13 centimeters from the nipple",
+          "Ultrasound demonstrated an oval mass with indistinct margins measuring 16 x 11 x 15 millimeters",
+          "No axillary, infraclavicular, supraclavicular, or internal mammary chain lymphadenopathy was noted on ultrasound"
+        ],
+        "missing_key_evidence": [
+          "Pathology results of the breast mass biopsy",
+          "Immunohistochemistry findings",
+          "Confirmation of diffuse large B-cell non-Hodgkin’s lymphoma",
+          "Staging workup and results",
+          "Treatment and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.25
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Ultrasound-guided biopsy (Figure 3) showed diffuse proliferation of large, atypical cells with clear cytoplasm, irregular nuclei, vesicular chromatin, and prominent nucleoli (Figure 4). Immunohistochemistry analysis demonstrated positive staining for CD-20, a B-cell marker (Figure 5) and Ki-67 staining showed a proliferation index of 60-70% (Figure 6). Further immunohistochemistry analysis showed atypical cells that stained positive for CD-45, BCL-6, and CD-10 but were negative for Her-2-neu, ER, PR, MUM-1, CD-30, ALK, and C-MYC.",
+        "category": "pathology_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "What were the results of the staging workup for lymphoma, specifically looking for evidence of stage IV disease?",
+        "current_trajectory_hypothesis": "The patient presented with a palpable left breast mass, which was identified as diffuse large B-cell non-Hodgkin’s lymphoma based on biopsy and immunohistochemistry. The next step is to determine the stage of the disease.",
+        "confirmed_evidence": [
+          "Patient presented with a palpable left breast mass",
+          "Mammography showed an oval mass with indistinct margins at the one o’clock position, 13 centimeters from the nipple (E001)",
+          "Ultrasound demonstrated an oval mass with indistinct margins measuring 16 x 11 x 15 millimeters (E002)",
+          "No axillary, infraclavicular, supraclavicular, or internal mammary chain lymphadenopathy was noted on initial ultrasound (E002)",
+          "Ultrasound-guided biopsy showed diffuse proliferation of large, atypical cells (E003)",
+          "Immunohistochemistry analysis demonstrated positive staining for CD-20, CD-45, BCL-6, and CD-10 (E003)",
+          "Ki-67 staining showed a proliferation index of 60-70% (E003)",
+          "Atypical cells were negative for Her-2-neu, ER, PR, MUM-1, CD-30, ALK, and C-MYC (E003)"
+        ],
+        "missing_key_evidence": [
+          "Results of staging workup (e.g., PET scan, CT scans, bone marrow biopsy)",
+          "Evidence supporting Stage IV disease",
+          "Treatment plan and response",
+          "Clinical course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "The staging FDG-PET/CT is ordered in the targeted_workup phase; results not yet disclosed",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of the staging FDG-PET/CT scan?",
+        "current_trajectory_hypothesis": "The patient presented with a palpable left breast mass, diagnosed as diffuse large B-cell non-Hodgkin’s lymphoma. Staging is crucial to confirm the Stage IV diagnosis, and an FDG-PET/CT scan is a key component of this workup.",
+        "confirmed_evidence": [
+          "Patient presented with a palpable left breast mass",
+          "Mammography showed an oval mass with indistinct margins at the one o’clock position, 13 centimeters from the nipple (E001)",
+          "Ultrasound demonstrated an oval mass with indistinct margins measuring 16 x 11 x 15 millimeters (E002)",
+          "No axillary, infraclavicular, supraclavicular, or internal mammary chain lymphadenopathy was noted on initial ultrasound (E002)",
+          "Ultrasound-guided biopsy showed diffuse proliferation of large, atypical cells (E003)",
+          "Immunohistochemistry analysis demonstrated positive staining for CD-20, CD-45, BCL-6, and CD-10 (E003)",
+          "Ki-67 staining showed a proliferation index of 60-70% (E003)",
+          "Atypical cells were negative for Her-2-neu, ER, PR, MUM-1, CD-30, ALK, and C-MYC (E003)"
+        ],
+        "missing_key_evidence": [
+          "Results of the FDG-PET/CT scan",
+          "Evidence supporting Stage IV disease (e.g., distant metastases)",
+          "Treatment plan and response",
+          "Clinical course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.65
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "A staging 18F-fluorodeoxyglucose positron emission tomography combined with computed tomography (FDG-PET/CT) (Figure 7) showed diffuse osseous involvement of the appendicular and axial skeleton, a two-centimeter mass of the left breast with ipsilateral axillary lymph node involvement, bilateral pulmonary spiculated nodules with ground-glass opacities, bilateral hilar lymphadenopathy, liver involvement, and abdominal lymph node (mesenteric, retroperitoneal, and left common iliac chain) involvement, consistent with diffuse metastatic disease.",
+        "category": "imaging_report",
+        "temporal_cue": "after biopsy",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with a palpable left breast mass, diagnosed as diffuse large B-cell non-Hodgkin’s lymphoma based on biopsy and immunohistochemistry. Staging FDG-PET/CT confirmed widespread metastatic disease, consistent with Stage IV. The next step is to understand the treatment initiated and the patient's clinical course.",
+        "confirmed_evidence": [
+          "Patient presented with a palpable left breast mass",
+          "Mammography showed an oval mass with indistinct margins at the one o’clock position, 13 centimeters from the nipple (E001)",
+          "Ultrasound demonstrated an oval mass with indistinct margins measuring 16 x 11 x 15 millimeters (E002)",
+          "No axillary, infraclavicular, supraclavicular, or internal mammary chain lymphadenopathy was noted on initial ultrasound (E002)",
+          "Ultrasound-guided biopsy showed diffuse proliferation of large, atypical cells (E003)",
+          "Immunohistochemistry analysis demonstrated positive staining for CD-20, CD-45, BCL-6, and CD-10 (E003)",
+          "Ki-67 staining showed a proliferation index of 60-70% (E003)",
+          "Atypical cells were negative for Her-2-neu, ER, PR, MUM-1, CD-30, ALK, and C-MYC (E003)",
+          "Staging FDG-PET/CT showed diffuse osseous involvement, left breast mass with ipsilateral axillary lymph node involvement, bilateral pulmonary spiculated nodules with ground-glass opacities, bilateral hilar lymphadenopathy, liver involvement, and abdominal lymph node involvement, consistent with diffuse metastatic disease (E004)"
+        ],
+        "missing_key_evidence": [
+          "Initial treatment regimen for DLBCL",
+          "Response to treatment",
+          "Overall clinical course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "The patient underwent left heme port placement and completed six cycles of Rituximab, Cyclophosphamide, Hydroxydaunorubicin, Oncovin, and Prednisone (R-CHOP) chemotherapy. Currently, the patient is in remission and continues to have no recurrence, confirmed with a normal mammogram and no suspicious lesions on FDG-PET/CT scan at a two-year follow-up appointment.",
+        "category": "treatment_response",
+        "temporal_cue": "two-year follow-up",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "stage IV, diffuse large B-cell non-Hodgkin’s lymphoma",
+        "trajectory_summary": "A 55-year-old Hispanic woman presented with a palpable left breast mass. Initial mammogram and ultrasound revealed an oval mass with indistinct margins. An ultrasound-guided biopsy confirmed diffuse large B-cell non-Hodgkin’s lymphoma (DLBCL) based on morphology and immunohistochemistry (positive for CD-20, CD-45, BCL-6, CD-10, and high Ki-67 proliferation index). Staging FDG-PET/CT demonstrated widespread metastatic disease, including diffuse osseous involvement, left breast mass with ipsilateral axillary lymph node involvement, bilateral pulmonary nodules, bilateral hilar lymphadenopathy, liver involvement, and abdominal lymph node involvement, consistent with Stage IV disease. The patient received six cycles of R-CHOP chemotherapy and achieved remission, which was sustained at a two-year follow-up.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with a palpable left breast mass.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Mammography showed an oval mass with indistinct margins at the one o’clock position, 13 centimeters from the nipple.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Ultrasound demonstrated an oval mass with indistinct margins measuring 16 x 11 x 15 millimeters.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Ultrasound-guided biopsy showed diffuse proliferation of large, atypical cells with clear cytoplasm, irregular nuclei, vesicular chromatin, and prominent nucleoli.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Immunohistochemistry analysis demonstrated positive staining for CD-20, CD-45, BCL-6, and CD-10, with a Ki-67 proliferation index of 60-70%.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Staging FDG-PET/CT showed diffuse osseous involvement, a two-centimeter mass of the left breast with ipsilateral axillary lymph node involvement, bilateral pulmonary spiculated nodules with ground-glass opacities, bilateral hilar lymphadenopathy, liver involvement, and abdominal lymph node involvement, consistent with diffuse metastatic disease (Stage IV).",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "The patient underwent left heme port placement and completed six cycles of Rituximab, Cyclophosphamide, Hydroxydaunorubicin, Oncovin, and Prednisone (R-CHOP) chemotherapy.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "The patient is in remission and continues to have no recurrence, confirmed with a normal mammogram and no suspicious lesions on FDG-PET/CT scan at a two-year follow-up appointment.",
+            "evidence_ids": [
+              "E005"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Breast carcinoma",
+            "basis": "Immunohistochemistry showed atypical cells negative for Her-2-neu, ER, and PR (E003)."
+          },
+          {
+            "alternative": "Other lymphoma subtypes",
+            "basis": "Immunohistochemistry showed atypical cells negative for MUM-1, CD-30, ALK, and C-MYC (E003)."
+          }
+        ],
+        "remaining_uncertainties": [
+          "The clinical significance or etiology of the 'yellow discoloration' overlying the breast mass noted at initial presentation was not further elaborated.",
+          "The discrepancy between initial ultrasound (no axillary lymphadenopathy) and subsequent PET/CT (ipsilateral axillary lymph node involvement) is noted, though the PET/CT findings are more definitive for staging."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "stage IV, diffuse large B-cell non-Hodgkin’s lymphoma",
+    "trajectory_summary": "A 55-year-old Hispanic woman presented with a palpable left breast mass. Initial mammogram and ultrasound revealed an oval mass with indistinct margins. An ultrasound-guided biopsy confirmed diffuse large B-cell non-Hodgkin’s lymphoma (DLBCL) based on morphology and immunohistochemistry (positive for CD-20, CD-45, BCL-6, CD-10, and high Ki-67 proliferation index). Staging FDG-PET/CT demonstrated widespread metastatic disease, including diffuse osseous involvement, left breast mass with ipsilateral axillary lymph node involvement, bilateral pulmonary nodules, bilateral hilar lymphadenopathy, liver involvement, and abdominal lymph node involvement, consistent with Stage IV disease. The patient received six cycles of R-CHOP chemotherapy and achieved remission, which was sustained at a two-year follow-up.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with a palpable left breast mass.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Mammography showed an oval mass with indistinct margins at the one o’clock position, 13 centimeters from the nipple.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Ultrasound demonstrated an oval mass with indistinct margins measuring 16 x 11 x 15 millimeters.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Ultrasound-guided biopsy showed diffuse proliferation of large, atypical cells with clear cytoplasm, irregular nuclei, vesicular chromatin, and prominent nucleoli.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Immunohistochemistry analysis demonstrated positive staining for CD-20, CD-45, BCL-6, and CD-10, with a Ki-67 proliferation index of 60-70%.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Staging FDG-PET/CT showed diffuse osseous involvement, a two-centimeter mass of the left breast with ipsilateral axillary lymph node involvement, bilateral pulmonary spiculated nodules with ground-glass opacities, bilateral hilar lymphadenopathy, liver involvement, and abdominal lymph node involvement, consistent with diffuse metastatic disease (Stage IV).",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "The patient underwent left heme port placement and completed six cycles of Rituximab, Cyclophosphamide, Hydroxydaunorubicin, Oncovin, and Prednisone (R-CHOP) chemotherapy.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "The patient is in remission and continues to have no recurrence, confirmed with a normal mammogram and no suspicious lesions on FDG-PET/CT scan at a two-year follow-up appointment.",
+        "evidence_ids": [
+          "E005"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Breast carcinoma",
+        "basis": "Immunohistochemistry showed atypical cells negative for Her-2-neu, ER, and PR (E003)."
+      },
+      {
+        "alternative": "Other lymphoma subtypes",
+        "basis": "Immunohistochemistry showed atypical cells negative for MUM-1, CD-30, ALK, and C-MYC (E003)."
+      }
+    ],
+    "remaining_uncertainties": [
+      "The clinical significance or etiology of the 'yellow discoloration' overlying the breast mass noted at initial presentation was not further elaborated.",
+      "The discrepancy between initial ultrasound (no axillary lymphadenopathy) and subsequent PET/CT (ipsilateral axillary lymph node involvement) is noted, though the PET/CT findings are more definitive for staging."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T18:40:38.025746+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

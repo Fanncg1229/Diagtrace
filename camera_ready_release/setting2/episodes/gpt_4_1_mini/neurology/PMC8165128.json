@@ -1,0 +1,415 @@
+{
+  "case_id": "PMC8165128",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 9,
+  "termination": "final",
+  "known_final_diagnosis": "PCR of the CSF was positive for SARS-CoV-2 RNA, with identification of both the E gene (CT value 35.8) and S gene (CT value 35.7) (Altona RealStar SARS-CoV-2 RT-PCR Kit, Roche Flow system).",
+  "disclosed_evidence_ids": [
+    "E003",
+    "E004",
+    "E005",
+    "E006",
+    "E007"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "order lumbar puncture for cerebrospinal fluid (CSF) analysis including PCR for SARS-CoV-2 RNA",
+        "current_trajectory_hypothesis": "Patient presented with acute neurological symptoms suggestive of stroke; initial imaging normal, treated with thrombolysis; respiratory symptoms absent and initial nasal swab negative for SARS-CoV-2; further investigation needed for central nervous system infection given final diagnosis involving CSF PCR positivity for SARS-CoV-2.",
+        "confirmed_evidence": [
+          "Initial presentation: sudden-onset expressive and receptive dysphasia, mild confusion, right arm incoordination",
+          "Negative initial nasopharyngeal swab for SARS-CoV-2",
+          "No respiratory symptoms",
+          "Brain CT normal initially",
+          "Thrombolysis administered for suspected ischemic stroke"
+        ],
+        "missing_key_evidence": [
+          "CSF analysis and PCR results for SARS-CoV-2",
+          "Other CSF parameters to support CNS infection or inflammation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [
+          "lumbar puncture for CSF analysis including PCR for SARS-CoV-2 RNA"
+        ],
+        "explanation": "Order for lumbar puncture matches a source record documented later; marked as ordered with evidence present for later result.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request lumbar puncture cerebrospinal fluid analysis results including cell counts, protein, glucose, and SARS-CoV-2 PCR",
+        "current_trajectory_hypothesis": "Lumbar puncture was ordered to evaluate for CNS infection given final diagnosis of positive SARS-CoV-2 PCR in CSF; need details on CSF parameters and PCR results to support diagnosis.",
+        "confirmed_evidence": [
+          "Patient initial presentation with acute neurological deficits treated as stroke",
+          "Nasopharyngeal swab negative for SARS-CoV-2",
+          "Lumbar puncture ordered for CSF analysis and SARS-CoV-2 PCR"
+        ],
+        "missing_key_evidence": [
+          "CSF analysis results including cell count, protein, glucose",
+          "CSF SARS-CoV-2 PCR test results confirming viral presence"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [
+          "lumbar puncture for CSF analysis including PCR for SARS-CoV-2 RNA"
+        ],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Lumbar puncture was ordered but CSF results are not yet disclosed; waiting for CSF cell counts, protein, glucose, and PCR results to confirm CNS SARS-CoV-2 infection.",
+        "confirmed_evidence": [
+          "Initial acute neurological presentation treated as stroke",
+          "Negative nasopharyngeal swab for SARS-CoV-2",
+          "Lumbar puncture ordered for CSF analysis and SARS-CoV-2 PCR"
+        ],
+        "missing_key_evidence": [
+          "CSF analysis including cell count, protein, glucose",
+          "CSF SARS-CoV-2 PCR testing results confirming viral RNA presence"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Lumbar puncture (day 4) had an opening pressure 24cm/H2O with clear CSF, white cell count 134 × 106/L(99% lymphocytes), red cell count 20 × 106/L, protein 0.52g/L and CSF:serum glucose ratio 3.7:5.1mmol/L (0.73). CSF culture was negative and polymerase chain reaction (PCR) negative for Neisseria meningitides, Streptococcus pneumoniae and several viruses including HSV, varicella zoster virus, enterovirus and parechovirus. However, PCR of the CSF was positive for SARS-CoV-2 RNA, with identification of both the E gene (CT value 35.8) and S gene (CT value 35.7)",
+        "category": "routine_lab",
+        "temporal_cue": "day 4",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "request neurological examination findings on admission and during hospitalization focusing on any focal deficits, mental status, and progression",
+        "current_trajectory_hypothesis": "Patient presented with acute neurological deficits suggestive of stroke; initial CT brain normal and thrombolysis given; lumbar puncture on day 4 showed pleocytosis with lymphocytic predominance and SARS-CoV-2 RNA detected in CSF by PCR; need neurological exam details to correlate clinical improvement or evolution with CSF findings.",
+        "confirmed_evidence": [
+          "Acute onset expressive and receptive dysphasia, mild confusion, and right arm incoordination",
+          "Negative nasal swab for SARS-CoV-2",
+          "Initial CT brain normal",
+          "Thrombolysis administered for suspected stroke",
+          "Lumbar puncture on day 4: opening pressure 24 cmH2O, lymphocytic pleocytosis, protein 0.52 g/L, normal CSF:serum glucose ratio, negative cultures and PCR for common CNS pathogens",
+          "CSF PCR positive for SARS-CoV-2 RNA (E gene CT 35.8, S gene CT 35.7)"
+        ],
+        "missing_key_evidence": [
+          "Neurological examination details on admission and during hospitalization to assess clinical features and progression"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "CSF analysis confirmed lymphocytic pleocytosis and SARS-CoV-2 RNA positivity by PCR, supporting CNS infection. Neurological exam details pending to correlate clinical progression.",
+        "confirmed_evidence": [
+          "Initial acute neurological symptoms treated as stroke",
+          "Nasopharyngeal swab negative for SARS-CoV-2",
+          "Initial brain CT normal",
+          "Thrombolysis administered",
+          "Lumbar puncture on day 4 showed opening pressure 24cm H2O, lymphocytic pleocytosis (134 × 10^6/L, 99% lymphocytes), protein 0.52 g/L, normal glucose ratio",
+          "CSF culture negative for common CNS pathogens and standard viral PCR negative (HSV, VZV, enterovirus, parechovirus)",
+          "CSF PCR positive for SARS-CoV-2 RNA (E gene CT 35.8, S gene CT 35.7)"
+        ],
+        "missing_key_evidence": [
+          "Neurological examination findings over time to assess evolution or resolution of symptoms",
+          "Clinical course and response to treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "MR angiogram brain (day 5, Fig. 1E) showed incidental congenitally hypoplastic left A1 segment of anterior cerebral artery.",
+        "category": "imaging_report",
+        "temporal_cue": "day 5",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request detailed neurological examination findings and clinical course updates including any changes in dysphasia, confusion, and incoordination from admission to day 5",
+        "current_trajectory_hypothesis": "CSF results confirmed SARS-CoV-2 CNS infection with lymphocytic pleocytosis; MRI angiogram showed an incidental vascular anomaly but no acute infarct; neurological examination and clinical progression details are needed to correlate clinical improvement or persistence of symptoms.",
+        "confirmed_evidence": [
+          "Initial presentation with sudden expressive and receptive dysphasia, mild confusion, and right arm incoordination",
+          "Negative nasopharyngeal SARS-CoV-2 test",
+          "Initial CT brain normal, thrombolysis administered",
+          "Lumbar puncture on day 4 with opening pressure 24 cmH2O, lymphocytic pleocytosis, normal glucose, negative cultures, positive SARS-CoV-2 PCR",
+          "MR angiogram brain on day 5 showing incidental hypoplastic left A1 segment"
+        ],
+        "missing_key_evidence": [
+          "Neurological examination details on admission and during hospitalization",
+          "Clinical evolution of neurological symptoms and response to treatments"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Symptoms resolved over 2 hours and post-thrombolysis CT (day 2, Fig. 1B) was reported as normal.",
+        "category": "image_finding",
+        "temporal_cue": "day 2",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "request detailed neurological examination findings from admission onwards, documenting NIH Stroke Scale scores, mental status, speech, motor coordination, and any clinical progression up to day 5",
+        "current_trajectory_hypothesis": "Neurological examination details after initial presentation and through hospitalization are needed to correlate symptom resolution and CNS SARS-CoV-2 infection confirmed by CSF PCR.",
+        "confirmed_evidence": [
+          "Sudden onset expressive and receptive dysphasia, mild confusion, and right arm incoordination at presentation",
+          "Initial CT brain normal; thrombolysis administered with symptom resolution over 2 hours",
+          "Nasopharyngeal swab negative for SARS-CoV-2",
+          "Lumbar puncture on day 4 with lymphocytic pleocytosis and positive SARS-CoV-2 RNA PCR",
+          "MR angiogram brain on day 5 showing incidental hypoplastic left A1 segment"
+        ],
+        "missing_key_evidence": [
+          "Detailed neurological examination findings over time including NIHSS and mental status",
+          "Clinical course and evolution of neurological signs and symptoms over hospitalization"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "On day 3, the patient had right arm weakness and later developed expressive and receptive dysphasia, amnesia, headache and vomiting, followed by pyrexia 39.7°C. GCS remained 15/15 without evidence of meningism.",
+        "category": "image_finding",
+        "temporal_cue": "day 3",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request clinical course and treatment details after day 5 including any interventions, symptom changes, duration of hospitalization, and final outcome",
+        "current_trajectory_hypothesis": "Patient presented with acute neurological deficits, initially treated as stroke with thrombolysis and rapid symptom resolution; later on developed neurological signs including dysphasia and fever on day 3; CSF on day 4 showed lymphocytic pleocytosis and positive SARS-CoV-2 PCR confirming CNS infection; MR angiogram on day 5 showed incidental vascular anomaly without acute infarct; clinical course and treatment details after day 5 needed to document progression or recovery.",
+        "confirmed_evidence": [
+          "Initial sudden expressive and receptive dysphasia, mild confusion, right arm incoordination",
+          "Negative nasopharyngeal swab for SARS-CoV-2",
+          "Brain CT normal initially; thrombolysis administered with symptom resolution over 2 hours",
+          "Day 3 neurological deterioration with right arm weakness, expressive/receptive dysphasia, amnesia, headache, vomiting, and fever 39.7°C",
+          "Day 4 lumbar puncture CSF with lymphocytic pleocytosis, normal glucose, negative cultures, positive SARS-CoV-2 PCR",
+          "Day 5 MR angiogram with incidental hypoplastic left A1 segment"
+        ],
+        "missing_key_evidence": [
+          "Details of clinical course post day 5 including progression or resolution of symptoms",
+          "Treatment received for CNS infection and final patient outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "Pyrexia and amnesia persisted, but by day 8, the patient was deemed to have made a full recovery and discharged.",
+        "category": "other",
+        "temporal_cue": "day 8",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "PCR of the CSF was positive for SARS-CoV-2 RNA, with identification of both the E gene (CT value 35.8) and S gene (CT value 35.7) (Altona RealStar SARS-CoV-2 RT-PCR Kit, Roche Flow system).",
+        "trajectory_summary": "A 35-year-old male presented with sudden-onset expressive and receptive dysphasia, mild confusion, and right arm incoordination, initially suspected ischemic stroke, negative nasopharyngeal swab for SARS-CoV-2, and normal initial brain CT. Thrombolysis was given with symptom resolution over 2 hours. By day 3, neurological symptoms worsened with right arm weakness, dysphasia, amnesia, headache, vomiting, and fever. Lumbar puncture on day 4 revealed lymphocytic pleocytosis with normal glucose and protein, negative cultures and PCR for common CNS pathogens, but positive PCR for SARS-CoV-2 RNA (E and S genes). MR angiogram on day 5 showed an incidental vascular anomaly without infarct. The clinical course included persistent pyrexia and amnesia, with full recovery by day 8 and discharge.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial acute neurological symptoms treated as suspected stroke with thrombolysis and symptom resolution",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Nasopharyngeal swab negative for SARS-CoV-2",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Lumbar puncture on day 4 showed opening pressure 24 cmH2O, lymphocytic pleocytosis, normal glucose, negative culture and PCR for common CNS pathogens, but positive SARS-CoV-2 RNA PCR (E gene CT 35.8, S gene CT 35.7)",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Neurological deterioration on day 3 with right arm weakness, dysphasia, amnesia, headache, vomiting, and fever",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "MR angiogram on day 5 showed incidental congenitally hypoplastic left A1 segment without infarct",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Clinical improvement with full recovery and discharge by day 8 despite prior pyrexia and amnesia",
+            "evidence_ids": [
+              "E007"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Ischemic stroke",
+            "basis": "Normal brain imaging initially and post-thrombolysis, symptom resolution over 2 hours, no infarct on MRI"
+          },
+          {
+            "alternative": "Common CNS infections (HSV, VZV, enterovirus, parechovirus, bacterial meningitis)",
+            "basis": "Negative CSF cultures and PCR for these pathogens"
+          }
+        ],
+        "remaining_uncertainties": [],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "PCR of the CSF was positive for SARS-CoV-2 RNA, with identification of both the E gene (CT value 35.8) and S gene (CT value 35.7) (Altona RealStar SARS-CoV-2 RT-PCR Kit, Roche Flow system).",
+    "trajectory_summary": "A 35-year-old male presented with sudden-onset expressive and receptive dysphasia, mild confusion, and right arm incoordination, initially suspected ischemic stroke, negative nasopharyngeal swab for SARS-CoV-2, and normal initial brain CT. Thrombolysis was given with symptom resolution over 2 hours. By day 3, neurological symptoms worsened with right arm weakness, dysphasia, amnesia, headache, vomiting, and fever. Lumbar puncture on day 4 revealed lymphocytic pleocytosis with normal glucose and protein, negative cultures and PCR for common CNS pathogens, but positive PCR for SARS-CoV-2 RNA (E and S genes). MR angiogram on day 5 showed an incidental vascular anomaly without infarct. The clinical course included persistent pyrexia and amnesia, with full recovery by day 8 and discharge.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial acute neurological symptoms treated as suspected stroke with thrombolysis and symptom resolution",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Nasopharyngeal swab negative for SARS-CoV-2",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Lumbar puncture on day 4 showed opening pressure 24 cmH2O, lymphocytic pleocytosis, normal glucose, negative culture and PCR for common CNS pathogens, but positive SARS-CoV-2 RNA PCR (E gene CT 35.8, S gene CT 35.7)",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Neurological deterioration on day 3 with right arm weakness, dysphasia, amnesia, headache, vomiting, and fever",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "MR angiogram on day 5 showed incidental congenitally hypoplastic left A1 segment without infarct",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Clinical improvement with full recovery and discharge by day 8 despite prior pyrexia and amnesia",
+        "evidence_ids": [
+          "E007"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Ischemic stroke",
+        "basis": "Normal brain imaging initially and post-thrombolysis, symptom resolution over 2 hours, no infarct on MRI"
+      },
+      {
+        "alternative": "Common CNS infections (HSV, VZV, enterovirus, parechovirus, bacterial meningitis)",
+        "basis": "Negative CSF cultures and PCR for these pathogens"
+      }
+    ],
+    "remaining_uncertainties": [],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T22:12:07.341554+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

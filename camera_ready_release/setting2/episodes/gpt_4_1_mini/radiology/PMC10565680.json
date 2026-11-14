@@ -1,0 +1,495 @@
+{
+  "case_id": "PMC10565680",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 12,
+  "termination": "final",
+  "known_final_diagnosis": "The final diagnosis is a liver abscess caused by the ingested foreign body without the sign of gastrointestinal perforation.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E005",
+    "E006",
+    "E007",
+    "E008",
+    "E010"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order an abdominal ultrasound to evaluate the liver and detect any abscess or foreign body",
+        "current_trajectory_hypothesis": "The patient with right hypochondriac dull pain and intermittent fever may have a liver abscess, possibly due to an ingested foreign body considering the final diagnosis",
+        "confirmed_evidence": [
+          "66-year-old male with right hypochondriac dull pain and intermittent low-grade fever",
+          "Resides in area with high Fasciola incidence but no vomiting or diarrhea, suggesting differential diagnosis"
+        ],
+        "missing_key_evidence": [
+          "Imaging evidence of liver abscess and foreign body presence",
+          "Physical exam details focusing on right upper quadrant tenderness and signs of infection"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order acknowledged for abdominal ultrasound; no immediate source result disclosure.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request the abdominal ultrasound report describing liver findings, specifically any abscess or foreign body",
+        "current_trajectory_hypothesis": "Liver abscess and foreign body should be visible on ultrasound in the patient with right hypochondriac pain and fever",
+        "confirmed_evidence": [
+          "66-year-old male with right hypochondriac dull pain and intermittent low-grade fever",
+          "No vomiting or diarrhea; differential includes liver abscess possibly caused by foreign body",
+          "Ultrasound ordered to detect liver abscess or foreign body"
+        ],
+        "missing_key_evidence": [
+          "Imaging evidence confirming liver abscess",
+          "Evidence of foreign body presence on imaging",
+          "Physical examination details",
+          "Laboratory results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Ultrasonography revealed a poorly demarcated, heterogeneous lesion in segment BE (Fig. 1). Centrally, the lesion had hypoechoic areas which demonstrated a liquefied necrotic process. No presence of abdominal fluid was recorded.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order contrast-enhanced abdominal CT scan to better characterize the liver lesion and to detect any foreign body or signs of gastrointestinal perforation",
+        "current_trajectory_hypothesis": "Ultrasound shows a heterogeneous liver lesion with liquefied necrotic process suggesting abscess; CT will help confirm the abscess, detect foreign body, and exclude gastrointestinal perforation",
+        "confirmed_evidence": [
+          "66-year-old male with right hypochondriac dull pain and intermittent low-grade fever",
+          "Ultrasound showed a poorly demarcated heterogeneous liver lesion with hypoechoic necrotic areas consistent with abscess"
+        ],
+        "missing_key_evidence": [
+          "More definitive imaging evidence of foreign body in the liver",
+          "Absence or presence of gastrointestinal perforation",
+          "Physical exam and lab findings supporting infection"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Ordered contrast-enhanced abdominal CT scan as requested; no immediate source result matches this order for now.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request contrast-enhanced abdominal CT scan report focusing on liver lesion characteristics, evidence of foreign body, and evaluation for gastrointestinal perforation",
+        "current_trajectory_hypothesis": "The CT scan will clarify the liver abscess characteristics, visualize any foreign body, and confirm absence of GI perforation supportive of the final diagnosis",
+        "confirmed_evidence": [
+          "66-year-old male with right hypochondriac dull pain and intermittent low-grade fever",
+          "Ultrasound showed poorly demarcated heterogeneous liver lesion with liquefied necrotic areas suggesting abscess"
+        ],
+        "missing_key_evidence": [
+          "Definitive imaging evidence of foreign body presence in the liver",
+          "Definitive CT evidence ruling out gastrointestinal perforation",
+          "Physical examination findings and relevant laboratory results consistent with infection"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "After consulting the CT scan, an abnormal high attenuation linear structure located inside the lesion in the segment by of the liver was identified, which is suspected of a foreign body. There was no intra or extraperitoneal gas or fluid.",
+        "category": "imaging_report",
+        "temporal_cue": "2 weeks later",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "Ask about any history of ingestion of sharp or indigestible foreign objects or prior abdominal trauma/surgery that may relate to the foreign body diagnosis",
+        "current_trajectory_hypothesis": "CT shows a high attenuation linear foreign body inside the liver abscess without gastrointestinal perforation; history of ingestion or trauma could support the source",
+        "confirmed_evidence": [
+          "Ultrasound shows a heterogeneous liver lesion with liquefied necrotic necrotic process consistent with abscess",
+          "Contrast-enhanced CT shows a high attenuation linear structure (foreign body) inside the liver lesion with no signs of gastrointestinal perforation or free air/fluid"
+        ],
+        "missing_key_evidence": [
+          "History of ingestion or penetrating injury enabling foreign body entrance into the liver",
+          "Physical examination findings indicating localized tenderness or defense",
+          "Laboratory markers of infection/inflammation (e.g., leukocytosis, elevated CRP)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "The patient resided in an area with a high incidence of Fasciola infection. The patient had a non-smoking history, consumed alcohol occasionally, and did not engage in recreational drug use. Their past medical history was unremarkable, except for a hernia repair performed 10 years prior in the inguinal region. The patient was immunocompetent and tested negative for hepatitis B, hepatitis C, and human immunodeficiency virus (HIV).",
+        "category": "history",
+        "temporal_cue": "before admission",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request laboratory test results including white blood cell count and C-reactive protein (CRP) levels to evaluate infection and inflammation",
+        "current_trajectory_hypothesis": "The imaging findings support a liver abscess caused by a foreign body without evidence of gastrointestinal perforation; laboratory markers will support the infectious process",
+        "confirmed_evidence": [
+          "66-year-old male with right hypochondriac pain and intermittent low-grade fever",
+          "Ultrasound showed heterogeneous liver lesion with liquefied necrotic areas consistent with abscess",
+          "Contrast-enhanced CT identified a high attenuation linear foreign body inside liver lesion with no signs of GI perforation",
+          "Patient history without notable ingestion or prior abdominal trauma, immunocompetent, negative viral hepatitis and HIV tests"
+        ],
+        "missing_key_evidence": [
+          "Laboratory markers supporting infection such as leukocytosis or elevated CRP",
+          "Physical exam findings indicating localized tenderness or signs of systemic infection",
+          "Details on treatment and clinical course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "On their first admission, laboratory results were significant for leukocytosis (12.3 G/L) with 75.3% of neutrophils, 13.8% of lymphocytes, 1.09% of eosinophils, elevated C-reactive protein level (79.8 mg/dL), and increased fibrinogen level (6.88 g/L).",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request physical examination findings focusing on right upper quadrant tenderness, guarding, or signs of systemic infection",
+        "current_trajectory_hypothesis": "Clinical examination findings will help corroborate presence of liver abscess and infectious syndrome alongside imaging and lab evidence",
+        "confirmed_evidence": [
+          "66-year-old male with right hypochondriac pain and intermittent low-grade fever",
+          "Ultrasound showed heterogeneous liver lesion with liquefied necrotic areas consistent with abscess",
+          "Contrast-enhanced CT identified high attenuation linear foreign body inside liver lesion with no signs of GI perforation",
+          "Laboratory results revealed leukocytosis, neutrophilia, and elevated CRP",
+          "No history of ingestion or prior abdominal trauma identified, immunocompetent"
+        ],
+        "missing_key_evidence": [
+          "Physical exam findings to confirm localized tenderness or systemic signs of infection",
+          "Details on treatment and clinical course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "At admission, the physical examination revealed mild tenderness in the right hypochondriac region without guarding or rebound tenderness. No signs of jaundice were observed.",
+        "category": "physical_exam",
+        "temporal_cue": "on admission",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The diagnosis of liver abscess caused by ingested foreign body without gastrointestinal perforation is supported by clinical presentation, imaging, laboratory, and physical exam; clinical course and treatment will further confirm disease management and outcome",
+        "confirmed_evidence": [
+          "66-year-old male with right hypochondriac pain and low-grade fever",
+          "Ultrasound showing heterogeneous liver lesion with liquefied necrotic areas consistent with abscess",
+          "Contrast-enhanced CT showing high attenuation linear foreign body within liver lesion without signs of GI perforation",
+          "Physical exam with right hypochondriac tenderness without guarding or rebound tenderness",
+          "Laboratory tests showing leukocytosis with neutrophilia and elevated CRP",
+          "No relevant history of ingestion or trauma; immunocompetent patient"
+        ],
+        "missing_key_evidence": [
+          "Details of therapeutic interventions (e.g., antibiotics, surgical or percutaneous drainage)",
+          "Clinical response and outcome",
+          "Any procedural confirmation or follow-up imaging"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Abdominal CT scan with intravenous contrast showed a localized lesion that spread from segment BE to segment 3 with the largest diameter of 38 mm (Fig. 2). The lesion appeared peripherally enhancing, with irregular margins, centrally hypoattenuating with incomplete septal formation, and circumferential perfusion abnormalities were visible.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The diagnosis of liver abscess caused by an ingested foreign body without gastrointestinal perforation is supported by clinical presentation, imaging, laboratory, and physical exam; therapeutic management and outcome data will complete the trajectory",
+        "confirmed_evidence": [
+          "66-year-old male with right hypochondriac pain and low-grade fever",
+          "Ultrasound showing heterogeneous liver lesion with liquefied necrotic areas consistent with abscess",
+          "Contrast-enhanced CT showing high attenuation linear foreign body within liver lesion without signs of GI perforation",
+          "Physical exam with right hypochondriac tenderness without guarding or rebound tenderness",
+          "Laboratory tests showing leukocytosis with neutrophilia and elevated CRP",
+          "Abdominal CT showing peripherally enhancing lesion with irregular margins and incomplete septal formation",
+          "No relevant history of ingestion or trauma; immunocompetent patient"
+        ],
+        "missing_key_evidence": [
+          "Details of therapeutic interventions (e.g., antibiotics, surgical or percutaneous drainage)",
+          "Clinical response and outcome",
+          "Any procedural confirmation or follow-up imaging to verify abscess resolution"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "On the follow-up visit 2 weeks later, the patient reported declining abdominal pain, but the intermittent fever persisted with shaking chills. On physical examination, the patient continued having mild right hypochondria tenderness. White blood cell count increased to 29.62 G/L with predominant neutrophils (94.8%). The procalcitonin level was 53.9 ng/mL (normal value < 0.5 ng/mL). The Hemoglobin level decreased to 107 g/L. Serum gamma-glutamyl transferase was elevated (245 U/L).",
+        "category": "routine_lab",
+        "temporal_cue": "2 weeks later",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "phase_index_after must equal the selected evidence phase.",
+        "validation_errors": [
+          "phase_index_after must equal the selected evidence phase."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request details about the therapeutic interventions used (e.g., antibiotics, percutaneous or surgical drainage) and clinical course following treatment",
+        "current_trajectory_hypothesis": "Therapeutic intervention and clinical course will show management of liver abscess caused by foreign body and patient's response to treatment",
+        "confirmed_evidence": [
+          "66-year-old male with right hypochondriac dull pain and intermittent low-grade fever",
+          "Ultrasound showed heterogeneous liver lesion with liquefied necrotic areas consistent with abscess",
+          "Contrast-enhanced CT identified high attenuation linear foreign body inside liver lesion without signs of GI perforation",
+          "Physical exam with mild right hypochondriac tenderness without guarding or rebound tenderness",
+          "Laboratory tests revealed leukocytosis with neutrophilia, elevated CRP, and follow-up labs showed worsening leukocytosis, procalcitonin elevation, anemia, and elevated GGT",
+          "Abdominal CT showed peripherally enhancing liver lesion with irregular margins and incomplete septal formation"
+        ],
+        "missing_key_evidence": [
+          "Details on antibiotics or other medical therapies administered",
+          "Details on any procedural drainage or surgery performed",
+          "Evidence of clinical outcome or follow-up imaging confirming abscess resolution or complications"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "The patient was managed with fluid infusion, anthelmintics, and antibiotics, including triclabendazole, cefixime, and metronidazole, before being discharged in stable condition on the same day.",
+        "category": "treatment_response",
+        "temporal_cue": "on admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request follow-up imaging or clinical data after discharge to evaluate abscess resolution or need for further intervention",
+        "current_trajectory_hypothesis": "Patient was treated with antibiotics and anthelmintics and discharged stable; follow-up imaging or clinical data needed to verify abscess resolution or further management",
+        "confirmed_evidence": [
+          "66-year-old male with right hypochondriac pain and fever",
+          "Ultrasound and CT confirming liver abscess with a linear foreign body and no signs of gastrointestinal perforation",
+          "Physical exam showing mild tenderness without guarding",
+          "Laboratory markers consistent with infection and inflammation, worsening at follow-up",
+          "Patient treated with antibiotics (cefixime, metronidazole) and anthelmintics (triclabendazole), discharged stable"
+        ],
+        "missing_key_evidence": [
+          "Follow-up imaging or clinical evaluation after discharge to demonstrate abscess resolution or persistence",
+          "Details of any percutaneous drainage or further surgical intervention if needed",
+          "Clinical outcome and recovery trajectory after initial medical management"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E010",
+        "source_text": "Postoperatively, the patient had no fever, white blood cell count and other inflammatory markers gradually decreased. One week later, their condition was fully resolved.",
+        "category": "routine_lab",
+        "temporal_cue": "postoperatively",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "liver abscess caused by the ingested foreign body without the sign of gastrointestinal perforation",
+        "trajectory_summary": "A 66-year-old male presented with right hypochondriac dull pain and intermittent low-grade fever. On admission, physical exam revealed mild tenderness without guarding. Laboratory findings showed leukocytosis with neutrophilia and elevated CRP. Abdominal ultrasound revealed a heterogeneous liver lesion with liquefied necrotic areas suggesting an abscess. Contrast-enhanced CT scan identified a high attenuation linear foreign body inside the abscess with no evidence of gastrointestinal perforation (no free air or fluid). The patient was treated with fluids, antibiotics (cefixime, metronidazole), and anthelmintics (triclabendazole) and discharged stable. Postoperative follow-up showed resolution of fever, normalization of inflammatory markers, and full recovery within one week.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Ultrasound showed a poorly demarcated heterogeneous liver lesion with liquefied necrotic areas consistent with an abscess",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Contrast-enhanced CT revealed a high attenuation linear foreign body inside the liver lesion with no signs of gastrointestinal perforation",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "Laboratory tests showed leukocytosis with neutrophilia and elevated C-reactive protein",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Physical examination showed mild tenderness in the right hypochondriac region without guarding or rebound tenderness",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Patient was treated with antibiotics and anthelmintics and discharged in stable condition",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Postoperative follow-up showed no fever, gradual normalization of lab inflammatory markers, and full resolution one week later",
+            "evidence_ids": [
+              "E010"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "fascioliasis",
+            "basis": "negative history of ingestion and absence of typical fasciola findings despite residing in high incidence area"
+          },
+          {
+            "alternative": "gastrointestinal perforation",
+            "basis": "absence of intra or extraperitoneal gas or fluid on CT scan"
+          }
+        ],
+        "remaining_uncertainties": [],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "liver abscess caused by the ingested foreign body without the sign of gastrointestinal perforation",
+    "trajectory_summary": "A 66-year-old male presented with right hypochondriac dull pain and intermittent low-grade fever. On admission, physical exam revealed mild tenderness without guarding. Laboratory findings showed leukocytosis with neutrophilia and elevated CRP. Abdominal ultrasound revealed a heterogeneous liver lesion with liquefied necrotic areas suggesting an abscess. Contrast-enhanced CT scan identified a high attenuation linear foreign body inside the abscess with no evidence of gastrointestinal perforation (no free air or fluid). The patient was treated with fluids, antibiotics (cefixime, metronidazole), and anthelmintics (triclabendazole) and discharged stable. Postoperative follow-up showed resolution of fever, normalization of inflammatory markers, and full recovery within one week.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Ultrasound showed a poorly demarcated heterogeneous liver lesion with liquefied necrotic areas consistent with an abscess",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Contrast-enhanced CT revealed a high attenuation linear foreign body inside the liver lesion with no signs of gastrointestinal perforation",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "Laboratory tests showed leukocytosis with neutrophilia and elevated C-reactive protein",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Physical examination showed mild tenderness in the right hypochondriac region without guarding or rebound tenderness",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Patient was treated with antibiotics and anthelmintics and discharged in stable condition",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Postoperative follow-up showed no fever, gradual normalization of lab inflammatory markers, and full resolution one week later",
+        "evidence_ids": [
+          "E010"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "fascioliasis",
+        "basis": "negative history of ingestion and absence of typical fasciola findings despite residing in high incidence area"
+      },
+      {
+        "alternative": "gastrointestinal perforation",
+        "basis": "absence of intra or extraperitoneal gas or fluid on CT scan"
+      }
+    ],
+    "remaining_uncertainties": [],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T23:50:26.253620+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

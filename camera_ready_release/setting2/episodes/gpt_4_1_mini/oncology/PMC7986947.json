@@ -1,0 +1,400 @@
+{
+  "case_id": "PMC7986947",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 10,
+  "termination": "final",
+  "known_final_diagnosis": "Suspecting lung cancer, lung biopsy was organised, which showed features of plasmablastic myeloma.",
+  "disclosed_evidence_ids": [
+    "E003",
+    "E005",
+    "E006",
+    "E007"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order a lung biopsy to obtain histopathological diagnosis of the lung lesion",
+        "current_trajectory_hypothesis": "Patient presented with chest and back pain, neurological symptoms suggestive of spinal cord compression, and abdominal distention. Lung cancer was suspected due to chest symptoms and presentation; lung biopsy was planned to confirm diagnosis.",
+        "confirmed_evidence": [
+          "Chest pain started 6 weeks earlier, sharp and mostly on left side, worse with breathing and lying down",
+          "Back pain increasing with walking",
+          "Leg weakness and numbness suggestive of spinal cord compression",
+          "Abdominal distention without palpable hepatomegaly"
+        ],
+        "missing_key_evidence": [
+          "Histopathological findings from lung biopsy to confirm diagnosis",
+          "Imaging of lungs and spine to localize lesions",
+          "Laboratory findings to assess hematological abnormalities"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "ordered",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [
+          "lung biopsy"
+        ],
+        "explanation": "The lung biopsy test has been ordered based on a documented biopsy procedure in the source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Lung biopsy ordered to confirm suspected lung cancer; results pending to clarify diagnosis",
+        "confirmed_evidence": [
+          "Clinical suspicion of lung cancer based on chest symptoms and neurological signs",
+          "Lung biopsy ordered to obtain histopathology"
+        ],
+        "missing_key_evidence": [
+          "Histopathological findings from lung biopsy",
+          "Additional imaging and lab findings to support diagnosis of plasmablastic myeloma",
+          "Clinical course following biopsy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [
+          "lung biopsy"
+        ],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request the lung biopsy histopathological report to obtain diagnostic findings",
+        "current_trajectory_hypothesis": "Lung biopsy was performed to investigate suspected lung cancer; awaiting histopathological report which revealed plasmablastic myeloma features.",
+        "confirmed_evidence": [
+          "Chest pain on left side, worse on breathing and lying down",
+          "Back pain increasing with walking",
+          "Leg weakness and numbness suggesting spinal cord compression",
+          "Abdominal distention without palpable hepatomegaly",
+          "Lung biopsy ordered"
+        ],
+        "missing_key_evidence": [
+          "Histopathology result of lung biopsy showing plasmablastic myeloma",
+          "Imaging to document lung lesion and spinal involvement",
+          "Laboratory evaluations for myeloma and systemic involvement",
+          "Clinical course after diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "The biopsy showed infiltration by sheets of atypical plasmacytoid cells with some multinucleated forms. Skeletal muscle was also seen. There was no lung parenchyma. Immunohistochemical staining demonstrated that this population was positive for CD138 and MUM1 and weakly positive for CD56. TTF1, p63, S100, AE1/AE3, CD3, CD20 and CD79a were negative. Ki67 was remarkably high (90%). Further immunostains performed at King’s College Hospital reference laboratory revealed that CD38 was strongly positive, there was lambda light chain restriction seen on the immunostaining as well as ISH. Cyclin d1, CD45, pancytokeratin and kappa were negative. Epstein-Barr virus encoded small nuclear RNAs was negative.",
+        "category": "pathology_report",
+        "temporal_cue": "after lung biopsy",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order imaging studies such as chest CT and spinal MRI to localize lung lesion and assess spinal cord compression",
+        "current_trajectory_hypothesis": "Histopathology from lung biopsy revealed plasmablastic myeloma features; imaging needed to localize lesions and evaluate extent of spinal involvement.",
+        "confirmed_evidence": [
+          "Lung biopsy showed sheets of atypical plasmacytoid cells positive for CD138, MUM1, CD38, and lambda light chain restriction, consistent with plasmablastic myeloma"
+        ],
+        "missing_key_evidence": [
+          "Chest CT and spinal MRI imaging to document pulmonary lesion and spinal cord compression",
+          "Laboratory tests for myeloma markers and systemic involvement",
+          "Clinical course after diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Order for chest CT and spinal MRI noted; awaiting results or source documentation.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request chest CT and spinal MRI imaging reports to document lung lesion and spinal cord compression",
+        "current_trajectory_hypothesis": "Histopathology confirms plasmablastic myeloma from lung biopsy; imaging needed to localize lesions and confirm spinal involvement corresponding to neurological symptoms.",
+        "confirmed_evidence": [
+          "Lung biopsy showed sheets of atypical plasmacytoid cells positive for CD138, MUM1, CD38, and lambda light chain restriction consistent with plasmablastic myeloma",
+          "Chest pain, back pain, leg weakness and numbness, and abdominal distention suggest multi-site disease",
+          "Chest CT and spinal MRI ordered for lesion localization and assessment of spinal cord compression"
+        ],
+        "missing_key_evidence": [
+          "Imaging reports documenting lung lesion characteristics",
+          "Imaging reports confirming spinal cord compression",
+          "Laboratory findings for myeloma markers and systemic involvement",
+          "Clinical course after diagnostic confirmation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "A contrast CT scan was done which showed a large lobular mass with chest wall invasion particularly involving the left third rib, measuring up to 75 mm in maximum diameter with adjacent chest wall muscular invasion (figure 2). A mild to moderate left-sided pleural effusion was noted. CT evidence of lumbar vertebral and pelvic bony metastatic appearances was also seen.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request spinal MRI report to evaluate spinal cord compression and vertebral involvement",
+        "current_trajectory_hypothesis": "Chest CT shows large lobular mass invading chest wall and evidence of bony metastases; spinal MRI will clarify spinal cord compression corresponding to neurological symptoms and extent of vertebral involvement in plasmablastic myeloma.",
+        "confirmed_evidence": [
+          "Lung biopsy showing plasmablastic myeloma features (E006)",
+          "Chest CT revealing large lung mass with chest wall invasion and bony metastatic appearances (E005)",
+          "Clinical presentation of chest pain, back pain, leg weakness/numbness indicating possible spinal cord involvement"
+        ],
+        "missing_key_evidence": [
+          "Spinal MRI findings to confirm spinal cord compression and vertebral lesions",
+          "Laboratory test results for myeloma markers and systemic involvement",
+          "Clinical course and response to treatment following diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "A contrast MRI scan of his spine showed widespread features of skeletal metastatic disease. At least three large soft-tissue deposits in the thoracic paraspinal space were noted, the largest on the left at level T2/T3. An intervertebral deposit at level T4/T5 was seen to be causing significant compression of the adjacent thoracic cord.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order laboratory tests including serum protein electrophoresis, serum free light chains, and bone marrow biopsy to evaluate systemic involvement of plasmablastic myeloma",
+        "current_trajectory_hypothesis": "Lung biopsy confirmed plasmablastic myeloma; imaging shows lung mass with chest wall invasion and spinal metastases with cord compression; systemic laboratory workup needed to establish full extent of disease and myeloma involvement.",
+        "confirmed_evidence": [
+          "Lung biopsy shows plasmablastic myeloma features with CD138, MUM1, CD38 positivity and lambda light chain restriction (E006)",
+          "Chest CT shows large lobular lung mass with chest wall invasion and bony metastases (E005)",
+          "Spinal MRI shows widespread skeletal metastatic disease with thoracic spinal cord compression (E003)",
+          "Clinical presentation includes chest pain, back pain, leg weakness and numbness consistent with spinal cord involvement"
+        ],
+        "missing_key_evidence": [
+          "Laboratory findings including serum protein electrophoresis, serum free light chains, and bone marrow biopsy findings to support diagnosis of systemic plasmablastic myeloma",
+          "Documentation of clinical course and treatment response following diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Laboratory tests including serum protein electrophoresis, serum free light chains, and bone marrow biopsy have been ordered for evaluation of systemic involvement.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request laboratory test results of serum protein electrophoresis, serum free light chains, and bone marrow biopsy to evaluate systemic plasmablastic myeloma involvement",
+        "current_trajectory_hypothesis": "Lung biopsy confirmed plasmablastic myeloma; imaging showed lung mass with chest wall invasion and spinal metastases causing cord compression; laboratory and bone marrow tests are needed to confirm systemic involvement and typical myeloma features.",
+        "confirmed_evidence": [
+          "Lung biopsy shows plasmablastic myeloma features (E006)",
+          "Chest CT shows lung mass with chest wall invasion and bony metastases (E005)",
+          "Spinal MRI shows skeletal metastatic disease and thoracic spinal cord compression (E003)",
+          "Clinical presentation consistent with systemic disease including neurological symptoms",
+          "Laboratory tests including serum protein electrophoresis, serum free light chains, and bone marrow biopsy ordered"
+        ],
+        "missing_key_evidence": [
+          "Results of serum protein electrophoresis, serum free light chains, and bone marrow biopsy showing systemic plasmablastic myeloma",
+          "Documentation of clinical course and treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "In light of the results of lung biopsy, myeloma screen and bone marrow aspirate and trephine were carried out. Immunoglobulin studies showed a slightly low IgA level of 0.62 g/L with a normal IgM level. Protein electrophoresis demonstrated the presence of 2 g/L of paraprotein consisting of IgG lambda paraprotein and lambda light chains. Light chain studies showed a normal free kappa concentration of 6.12 mg/L and an elevated free lambda concentration of 1178.1. His kappa/lambda ratio was reduced at 0.01. Bone marrow aspirate, trephine and immunophenotyping showed no evidence of infiltration by myeloma. Routine viral serology was negative for hepatitis B, hepatitis C and HIV 1/2.",
+        "category": "pathology_report",
+        "temporal_cue": "after lung biopsy",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with symptoms suggestive of lung malignancy and spinal cord compression; lung biopsy revealed plasmablastic myeloma; imaging showed lung mass with invasion and vertebral metastases causing cord compression; laboratory studies confirmed monoclonal IgG lambda paraprotein and light chain abnormalities, but no bone marrow infiltration; clinical course and treatment response not yet documented.",
+        "confirmed_evidence": [
+          "Lung biopsy showing plasmablastic myeloma with CD138, MUM1, CD38 positivity and lambda light chain restriction (E006)",
+          "Chest CT showing large lobular lung mass with chest wall invasion and bony metastases (E005)",
+          "Spinal MRI revealing widespread skeletal metastases and thoracic spinal cord compression (E003)",
+          "Serum studies demonstrating IgG lambda paraprotein and abnormal free lambda light chains, but normal bone marrow aspirate and trephine (E007)",
+          "Clinical presentation with chest pain, back pain, leg weakness and numbness consistent with spinal cord compression"
+        ],
+        "missing_key_evidence": [
+          "Documentation of treatment initiated, clinical response, and clinical outcome",
+          "Further follow-up imaging or clinical assessments post diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "No pending orders and no undisclosed source-grounded clinical course update at or after the current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "plasmablastic myeloma",
+        "trajectory_summary": "A 60-year-old man presented with chest pain, back pain, abdominal distention, and neurological symptoms indicative of spinal cord compression. Initial clinical suspicion was lung cancer. Lung biopsy revealed sheets of atypical plasmacytoid cells positive for CD138, MUM1, CD38, with lambda light chain restriction, consistent with plasmablastic myeloma (E006). Imaging showed a large lung mass invading the chest wall, with bony metastatic lesions including vertebral involvement and thoracic spinal cord compression (E005, E003). Laboratory studies demonstrated IgG lambda paraprotein and abnormal serum free lambda light chains, but no bone marrow infiltration was found (E007).",
+        "key_supporting_evidence": [
+          {
+            "claim": "Lung biopsy shows plasmablastic myeloma with immunophenotypic positivity for CD138, MUM1, CD38, and lambda light chain restriction",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Chest CT shows a large lobular lung mass with chest wall invasion and bony metastases",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Spinal MRI reveals widespread skeletal metastases and thoracic spinal cord compression",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Serum studies demonstrate IgG lambda paraprotein and elevated free lambda light chains; bone marrow biopsy negative for infiltration",
+            "evidence_ids": [
+              "E007"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "primary lung carcinoma",
+            "basis": "Histopathology did not show epithelial markers, was negative for TTF1 and pancytokeratin; features consistent with plasmablastic myeloma instead"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Clinical treatment details and course post diagnosis",
+          "Follow-up imaging and assessment of response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "plasmablastic myeloma",
+    "trajectory_summary": "A 60-year-old man presented with chest pain, back pain, abdominal distention, and neurological symptoms indicative of spinal cord compression. Initial clinical suspicion was lung cancer. Lung biopsy revealed sheets of atypical plasmacytoid cells positive for CD138, MUM1, CD38, with lambda light chain restriction, consistent with plasmablastic myeloma (E006). Imaging showed a large lung mass invading the chest wall, with bony metastatic lesions including vertebral involvement and thoracic spinal cord compression (E005, E003). Laboratory studies demonstrated IgG lambda paraprotein and abnormal serum free lambda light chains, but no bone marrow infiltration was found (E007).",
+    "key_supporting_evidence": [
+      {
+        "claim": "Lung biopsy shows plasmablastic myeloma with immunophenotypic positivity for CD138, MUM1, CD38, and lambda light chain restriction",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Chest CT shows a large lobular lung mass with chest wall invasion and bony metastases",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Spinal MRI reveals widespread skeletal metastases and thoracic spinal cord compression",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Serum studies demonstrate IgG lambda paraprotein and elevated free lambda light chains; bone marrow biopsy negative for infiltration",
+        "evidence_ids": [
+          "E007"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "primary lung carcinoma",
+        "basis": "Histopathology did not show epithelial markers, was negative for TTF1 and pancytokeratin; features consistent with plasmablastic myeloma instead"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Clinical treatment details and course post diagnosis",
+      "Follow-up imaging and assessment of response"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-29T08:37:53.832338+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

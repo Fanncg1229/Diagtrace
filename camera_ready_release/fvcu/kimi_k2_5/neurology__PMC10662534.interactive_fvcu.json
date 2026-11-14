@@ -1,0 +1,50 @@
+{
+  "prompt_version": "2026-07-31-interactive-fvcu-v1",
+  "judge_deployment": "gpt-4.1-mini-test",
+  "judge_input_file": "eacl_benchmark/results/interactive_fvcu_quality/matched225_100case_kimi_k25/judge_inputs/neurology__PMC10662534.json",
+  "judge_output": {
+    "case_id": "PMC10662534",
+    "judge_status": "completed",
+    "interactive_fvcu": {
+      "factuality": {
+        "score": 4,
+        "major_issues": [],
+        "rationale": "The clinician agent's claims and final reconstruction are well grounded in the disclosed evidence (E002, E003, E004). There are no fabricated or unsupported claims. The agent correctly refrains from asserting unavailable diabetes screening results and treatment details, noting these as missing evidence."
+      },
+      "validity": {
+        "score": 4,
+        "major_issues": [],
+        "rationale": "The clinician's requests and interpretations are clinically reasonable and focused on confirming the diagnosis of nondiabetic LRPN. The agent appropriately prioritizes electrophysiological, imaging, and CSF evidence, and attempts to confirm nondiabetic status despite lack of available data. The one history query is relevant. Some repeated requests for EMG/NCS results yielded invalid report selections, but the overall strategy is sound."
+      },
+      "coherence": {
+        "score": 5,
+        "major_issues": [],
+        "rationale": "The working reconstruction and confidence evolve logically with each turn, integrating newly acquired evidence. Missing evidence is consistently acknowledged. The final reconstruction is coherent, consistent with the interaction trace, and clearly states remaining uncertainties."
+      },
+      "utility": {
+        "score": 3,
+        "major_issues": [
+          "Multiple requests for unavailable diabetes screening results and repeated EMG/NCS queries resulted in invalid or not reported responses, reducing efficiency.",
+          "Treatment and outcome evidence requests were not fulfilled due to excerpt constraints."
+        ],
+        "rationale": "The agent successfully acquires key high-yield evidence (MRI, CSF, electrophysiology) supporting the diagnosis. However, the episode includes several unsuccessful or redundant requests, limiting the overall utility of the fixed turn budget."
+      },
+      "overall_quality": {
+        "score": 4,
+        "rationale": "The clinician agent demonstrates strong factual grounding, clinical validity, and coherence in reconstructing the diagnostic trajectory of nondiabetic LRPN. The main limitation is suboptimal request efficiency with repeated or unavailable queries, and incomplete retrieval of treatment/outcome data. Nonetheless, the final reconstruction is well supported and clinically meaningful."
+      }
+    },
+    "trajectory_flags": {
+      "unsupported_or_unreleased_claims": false,
+      "request_strategy_problem": true,
+      "final_reconstruction_grounded": true
+    },
+    "episode_notes": "The clinician agent effectively integrates available evidence to reconstruct the diagnosis of nondiabetic LRPN. The agent appropriately notes missing diabetes screening and treatment data without fabricating claims. However, the request strategy shows some inefficiency with repeated and unavailable queries, which could be optimized to improve evidence yield within the fixed turn budget."
+  },
+  "usage": {
+    "prompt_tokens": 10731,
+    "completion_tokens": 594,
+    "total_tokens": 11325
+  },
+  "created_at": "2026-08-01T03:21:59.668214+00:00"
+}

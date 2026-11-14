@@ -1,0 +1,531 @@
+{
+  "case_id": "PMC8719127",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 13,
+  "termination": "final",
+  "known_final_diagnosis": "Based on the above findings, the pathologist diagnosed the lesion as a mixture of adenocarcinoma and LCNEC.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E005",
+    "E006"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "MRI brain report from initial hospital admission describing the brain tumor",
+        "current_trajectory_hypothesis": "Patient presented with progressive headache, vomiting, and balance issues; initial MRI revealed a large brain tumor requiring further characterization",
+        "confirmed_evidence": [
+          "One-month history of progressive headache and vomiting",
+          "Initial head MRI showed a large brain tumor"
+        ],
+        "missing_key_evidence": [
+          "Details of the brain tumor's size, location, and characteristics from MRI report",
+          "Histopathologic confirmation of tumor type",
+          "Evidence linking tumor to the final diagnosis of mixed adenocarcinoma and LCNEC"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "The head MRI revealed a 45 mm cystic mass in her right cerebellum (figure 1B).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "MRI brain report details about the lesion’s radiologic characteristics such as enhancement pattern, surrounding edema, and mass effect",
+        "current_trajectory_hypothesis": "A large 45 mm cystic mass was found in the right cerebellum on MRI, needing further radiologic details to characterize tumor type and brain involvement",
+        "confirmed_evidence": [
+          "One-month history of progressive headache and vomiting",
+          "Initial head MRI showed a large 45 mm cystic mass in right cerebellum"
+        ],
+        "missing_key_evidence": [
+          "Detailed radiologic descriptors of the brain lesion (enhancement, edema, mass effect)",
+          "Histopathologic confirmation of tumor type",
+          "Link between brain tumor features and the final diagnosis of mixed adenocarcinoma and LCNEC"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E001",
+        "source_text": "The head MRI revealed a 45 mm cystic mass in her right cerebellum (figure 1B).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order histopathological examination and immunohistochemistry analysis of the cerebellar lesion biopsy",
+        "current_trajectory_hypothesis": "Large cystic mass in right cerebellum on MRI requires biopsy and histopathology for definitive diagnosis, to confirm mixture of adenocarcinoma and LCNEC",
+        "confirmed_evidence": [
+          "45 mm cystic mass in right cerebellum on MRI",
+          "Symptomatic patient with headache, vomiting, balance loss"
+        ],
+        "missing_key_evidence": [
+          "Histopathological and immunohistochemical confirmation of the tumor as mixed adenocarcinoma and LCNEC",
+          "Radiologic tumor characteristics such as enhancement, edema, mass effect",
+          "Clinical course, response to treatment, or further imaging follow-up"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Order placed; awaiting source documentation of results",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Histopathology and immunohistochemistry results of the cerebellar lesion biopsy demonstrating tumor type",
+        "current_trajectory_hypothesis": "Patient had brain biopsy of the right cerebellar mass to determine histopathologic tumor type; results are critical to confirm mixed adenocarcinoma and LCNEC as diagnosis",
+        "confirmed_evidence": [
+          "Large 45 mm cystic mass in right cerebellum on MRI",
+          "Symptoms of headache, vomiting, and balance loss",
+          "Biopsy and histopathology ordered for definitive diagnosis"
+        ],
+        "missing_key_evidence": [
+          "Histopathology and immunohistochemistry details confirming mixed adenocarcinoma and LCNEC",
+          "Radiologic descriptors of the lesion beyond size and cystic nature",
+          "Further clinical course details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "The pathological specimens of the cerebral tumour contained a mixture of adenocarcinoma-like area with atypical cells forming small ducts and nests and an area with abundant eosinophilic cytoplasm and prominent nucleoli (figure 2A). On immunohistochemical analysis showed that CK AE1/3, CK7 and synaptophysin were diffusely positive in all regions (figure 2B). TTF-1 was diffusely positive in the former, but focal positive in the latter. Chromogranin A and CD56 were both focal positive, but the former showed stronger positive. In addition, p40, Napsin A and CK20 showed negative results.",
+        "category": "pathology_report",
+        "temporal_cue": "postoperative",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order chest CT scan to evaluate for primary lung tumor given smoking history and immunohistochemical findings suggestive of TTF-1 positivity",
+        "current_trajectory_hypothesis": "Histopathology of cerebellar lesion showed mixed adenocarcinoma and LCNEC components with TTF-1 positivity, suggesting lung origin; chest CT scan is needed to identify primary lung tumor",
+        "confirmed_evidence": [
+          "45 mm cystic mass in right cerebellum on MRI",
+          "Biopsy showing mixture of adenocarcinoma and LCNEC with positive TTF-1",
+          "Smoking history and typical immunohistochemical profile suggesting lung primary"
+        ],
+        "missing_key_evidence": [
+          "Imaging of chest to locate primary tumor",
+          "Further clinical course and treatment response",
+          "More detailed radiologic features of brain lesion"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Chest CT scan order is acknowledged but this specific order's result is not documented in the provided evidence.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request chest CT scan report to identify any lung tumors or lesions that could represent primary cancer",
+        "current_trajectory_hypothesis": "Biopsy of cerebellar lesion confirmed mixed adenocarcinoma and LCNEC with TTF-1 positivity, indicating likely lung primary; chest CT needed to locate primary lung tumor supporting diagnosis",
+        "confirmed_evidence": [
+          "Large 45 mm cystic mass in right cerebellum on MRI",
+          "Histopathology of lesion showing mixed adenocarcinoma and LCNEC with positive TTF-1",
+          "Smoking history consistent with lung primary tumor"
+        ],
+        "missing_key_evidence": [
+          "Chest CT imaging to confirm and locate primary lung tumor",
+          "Further radiologic characterization of brain lesion",
+          "Clinical course and treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E001",
+        "source_text": "The whole-body CT revealed a tumour in the right pulmonary hilum and mediastinal lymphadenopathies (figure 1A).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Details of the whole-body CT report, especially size, characteristics of the right pulmonary hilum tumor and mediastinal lymphadenopathies, to link primary lung tumor characteristics with brain metastasis",
+        "current_trajectory_hypothesis": "Whole-body CT identified a tumor in the right pulmonary hilum and mediastinal lymphadenopathy, likely representing the primary lung cancer causing cerebellar metastasis; detailed CT findings will support this diagnosis",
+        "confirmed_evidence": [
+          "Large 45 mm cystic mass in right cerebellum on MRI",
+          "Histopathology of cerebellar lesion showed mixed adenocarcinoma and LCNEC with positive TTF-1",
+          "Smoking history consistent with lung primary tumor",
+          "Whole-body CT revealed tumor in right pulmonary hilum and mediastinal lymphadenopathies"
+        ],
+        "missing_key_evidence": [
+          "Detailed description of lung tumor size and nature on CT",
+          "Further clinical course, treatment, or response details",
+          "More detailed brain lesion imaging beyond size and cystic nature"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E001",
+        "source_text": "The whole-body CT revealed a tumour in the right pulmonary hilum and mediastinal lymphadenopathies (figure 1A).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request pathological staging or cytology results of mediastinal lymph nodes if biopsy performed to confirm metastatic spread",
+        "current_trajectory_hypothesis": "Imaging has identified lung primary tumor and mediastinal lymphadenopathy with brain metastasis biopsy showing mixed adenocarcinoma and LCNEC; lymph node pathology would confirm metastatic involvement supporting staging",
+        "confirmed_evidence": [
+          "MRI brain showed 45 mm cystic mass in right cerebellum",
+          "Biopsy of cerebellar lesion demonstrated mixed adenocarcinoma and LCNEC with TTF-1 positivity",
+          "Whole-body CT showed right pulmonary hilum tumor and mediastinal lymphadenopathies",
+          "History of smoking and immunohistochemical profile links cerebral tumor to lung primary"
+        ],
+        "missing_key_evidence": [
+          "Pathological confirmation of mediastinal lymph node metastases",
+          "Detailed chest CT tumor characteristics and size",
+          "Clinical course, treatment regimens, and response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "In addition, we performed endobronchial ultrasound-guided transbronchial needle aspiration on the mediastinal lymph nodes. Adenocarcinoma-like atypical cells were not found, and they were occupied by atypical cells considered to be LCNEC.",
+        "category": "pathology_report",
+        "temporal_cue": "postoperative",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Brain MRI showed a 45 mm cystic cerebellar mass; biopsy confirmed mixed adenocarcinoma and LCNEC with TTF-1 positivity indicating lung origin; chest CT showed right hilum tumor with mediastinal lymphadenopathy; lymph node biopsy confirmed LCNEC without adenocarcinoma component.",
+        "confirmed_evidence": [
+          "45 mm cystic mass in right cerebellum on MRI, symptomatic with headache, vomiting, and balance loss",
+          "Histopathology confirmed mixed adenocarcinoma and LCNEC in brain lesion with TTF-1 positivity",
+          "Whole-body CT showed right pulmonary hilum tumor and mediastinal lymphadenopathies",
+          "Mediastinal lymph node biopsy showed LCNEC cells without adenocarcinoma cells"
+        ],
+        "missing_key_evidence": [
+          "Clinical course after diagnosis including treatments administered",
+          "Response to treatment or progression details",
+          "More detailed radiologic brain lesion characteristics"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Gene analysis using this sample detected a BRAF V600E mutation.",
+        "category": "molecular_test",
+        "temporal_cue": "postoperative",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with progressive headache and vomiting; MRI showed a 45 mm cystic brain mass; biopsy demonstrated mixed adenocarcinoma and LCNEC with TTF-1 positivity suggesting lung origin; chest CT showed right pulmonary hilum tumor and mediastinal lymphadenopathy; mediastinal lymph node biopsy confirmed LCNEC; molecular testing detected BRAF V600E mutation indicating molecular profiling was done; awaiting treatment and clinical course details to complete trajectory",
+        "confirmed_evidence": [
+          "Head MRI showed a 45 mm cystic mass in right cerebellum",
+          "Histopathology of cerebellar lesion showed mixed adenocarcinoma and LCNEC with TTF-1 positivity",
+          "Whole-body CT identified a tumor in right pulmonary hilum and mediastinal lymphadenopathies",
+          "Endobronchial ultrasound-guided biopsy of mediastinal lymph nodes found LCNEC cells without adenocarcinoma component",
+          "Gene analysis detected BRAF V600E mutation in tumor sample"
+        ],
+        "missing_key_evidence": [
+          "Treatment regimens administered and response to treatment",
+          "Clinical progression or outcome details",
+          "More detailed radiologic description of brain tumor lesion beyond size and cystic nature"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Immunostaining of BRAF V600E (anti-BRAF V600E rabbit monoclonal antibody clones: RM8, RevMAb Biosciences) with cerebellar tumours tested positive in both adenocarcinoma and LCNEC (figure 2C). The results indicated that both the adenocarcinoma cells and LCNEC cells likely harboured BRAF V600E mutation.",
+        "category": "image_finding",
+        "temporal_cue": "postoperative",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient diagnosed with cerebellar metastasis from a primary lung tumor showing mixed adenocarcinoma and LCNEC with BRAF V600E mutation; awaiting post-diagnostic clinical management and outcome documentation",
+        "confirmed_evidence": [
+          "Patient presented with progressive headache, vomiting, and balance loss",
+          "MRI showed 45 mm cystic mass in right cerebellum",
+          "Biopsy of brain lesion showed mixed adenocarcinoma and LCNEC with TTF-1 positivity",
+          "Whole-body CT showed right pulmonary hilum tumor and mediastinal lymphadenopathies",
+          "Mediastinal lymph node biopsy revealed LCNEC cells",
+          "Molecular testing detected BRAF V600E mutation in tumor",
+          "Immunostaining confirmed BRAF V600E positivity in both adenocarcinoma and LCNEC components"
+        ],
+        "missing_key_evidence": [
+          "Post-diagnostic treatment regimens administered",
+          "Response to treatment or clinical progression data",
+          "More detailed brain lesion radiologic descriptors"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "Based on the NGS results (Oncomine Comprehensive Assay, Thermo Fisher Scientific), the tumour had two major somatic mutations, BRAF V600E and TP53 H179Q mutation. TP53 H179 is known as a missense mutation that worsens prognosis.1 The mutation allele frequency (MAF) of BRAF was 0.483 and that of TP53 was 0.916. The MAF values showed that this mutation in TP53 caused mutations in both alleles of DNA. On the other hand, BRAF V600E mutation is known to cause deletion of one allele, loss of heterozygosity, and the BRAF MAF value close to 0.5 indicated that most of the cells had the BRAF V600E mutation.",
+        "category": "molecular_test",
+        "temporal_cue": "postoperative",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient has confirmed cerebellar metastasis from lung primary tumor with mixed adenocarcinoma and LCNEC with key molecular mutations; awaiting clinical management and outcome data to complete diagnostic and therapeutic trajectory",
+        "confirmed_evidence": [
+          "Initial presentation with headache, vomiting, balance loss",
+          "MRI revealed 45 mm cystic mass in right cerebellum",
+          "Biopsy showed mixture of adenocarcinoma and LCNEC with TTF-1 positivity",
+          "Whole-body CT identified tumor in right pulmonary hilum and mediastinal lymphadenopathies",
+          "Mediastinal lymph node biopsy revealed LCNEC cells only",
+          "Molecular testing detected BRAF V600E and TP53 H179Q mutations",
+          "Immunostaining confirmed BRAF V600E in both adenocarcinoma and LCNEC components"
+        ],
+        "missing_key_evidence": [
+          "Post-diagnostic clinical course details including treatments and response",
+          "More detailed radiologic characterization or progression data of brain lesion"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Mixed adenocarcinoma and large cell neuroendocrine carcinoma (LCNEC) of lung origin with cerebellar metastasis",
+        "trajectory_summary": "A 57-year-old woman with a smoking history presented with progressive headache, vomiting, and balance loss. Brain MRI identified a 45 mm cystic mass in the right cerebellum. Biopsy of the cerebellar lesion showed a mixture of adenocarcinoma and LCNEC components with positive TTF-1 staining, suggesting lung origin. Whole-body CT revealed a right pulmonary hilum tumor and mediastinal lymphadenopathy. Mediastinal lymph node biopsy found LCNEC cells without adenocarcinoma. Molecular analysis detected BRAF V600E and TP53 H179Q mutations, with immunostaining confirming BRAF V600E mutation in both tumor components. These findings confirmed the diagnosis of mixed adenocarcinoma and LCNEC metastasizing to the cerebellum from a primary lung cancer.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Brain MRI showed a 45 mm cystic mass in the right cerebellum",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Biopsy of cerebellar lesion revealed mixed adenocarcinoma and LCNEC with TTF-1 positivity",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Whole-body CT showed a tumor in the right pulmonary hilum and mediastinal lymphadenopathies",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Mediastinal lymph node biopsy demonstrated presence of LCNEC cells only",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Molecular testing detected BRAF V600E and TP53 H179Q mutations",
+            "evidence_ids": [
+              "E004",
+              "E006"
+            ]
+          },
+          {
+            "claim": "Immunostaining confirmed BRAF V600E positivity in both adenocarcinoma and LCNEC tumor components",
+            "evidence_ids": [
+              "E005"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Brain primary tumor",
+            "basis": "Histopathology and immunohistochemical profile demonstrated TTF-1 positivity linking brain lesion to lung origin"
+          },
+          {
+            "alternative": "Other primary cancers",
+            "basis": "Presence of lung tumor on CT and typical immunohistochemical markers and molecular mutations indicate lung primary"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Details of treatment regimens administered after diagnosis",
+          "Clinical progression, treatment response, and outcome data",
+          "More detailed radiologic descriptors of brain lesion beyond size and cystic nature"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Mixed adenocarcinoma and large cell neuroendocrine carcinoma (LCNEC) of lung origin with cerebellar metastasis",
+    "trajectory_summary": "A 57-year-old woman with a smoking history presented with progressive headache, vomiting, and balance loss. Brain MRI identified a 45 mm cystic mass in the right cerebellum. Biopsy of the cerebellar lesion showed a mixture of adenocarcinoma and LCNEC components with positive TTF-1 staining, suggesting lung origin. Whole-body CT revealed a right pulmonary hilum tumor and mediastinal lymphadenopathy. Mediastinal lymph node biopsy found LCNEC cells without adenocarcinoma. Molecular analysis detected BRAF V600E and TP53 H179Q mutations, with immunostaining confirming BRAF V600E mutation in both tumor components. These findings confirmed the diagnosis of mixed adenocarcinoma and LCNEC metastasizing to the cerebellum from a primary lung cancer.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Brain MRI showed a 45 mm cystic mass in the right cerebellum",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Biopsy of cerebellar lesion revealed mixed adenocarcinoma and LCNEC with TTF-1 positivity",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Whole-body CT showed a tumor in the right pulmonary hilum and mediastinal lymphadenopathies",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Mediastinal lymph node biopsy demonstrated presence of LCNEC cells only",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Molecular testing detected BRAF V600E and TP53 H179Q mutations",
+        "evidence_ids": [
+          "E004",
+          "E006"
+        ]
+      },
+      {
+        "claim": "Immunostaining confirmed BRAF V600E positivity in both adenocarcinoma and LCNEC tumor components",
+        "evidence_ids": [
+          "E005"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Brain primary tumor",
+        "basis": "Histopathology and immunohistochemical profile demonstrated TTF-1 positivity linking brain lesion to lung origin"
+      },
+      {
+        "alternative": "Other primary cancers",
+        "basis": "Presence of lung tumor on CT and typical immunohistochemical markers and molecular mutations indicate lung primary"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Details of treatment regimens administered after diagnosis",
+      "Clinical progression, treatment response, and outcome data",
+      "More detailed radiologic descriptors of brain lesion beyond size and cystic nature"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-29T08:48:29.331080+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

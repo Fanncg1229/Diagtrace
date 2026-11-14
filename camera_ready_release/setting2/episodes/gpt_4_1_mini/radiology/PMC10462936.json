@@ -1,0 +1,224 @@
+{
+  "case_id": "PMC10462936",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 6,
+  "termination": "final",
+  "known_final_diagnosis": "Multiple liver abscesses secondary to Listeria monocytogenes complicated by hepatic artery mycotic aneurysm",
+  "disclosed_evidence_ids": [
+    "E002",
+    "E008",
+    "E009"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order abdominal imaging, specifically an abdominal ultrasound or CT scan, to evaluate for liver lesions or abscesses given the right upper quadrant pain and leukocytosis",
+        "current_trajectory_hypothesis": "Initial presentation of right upper quadrant pain, nausea, vomiting, leukocytosis, and elevated HbA1c suggest possible infectious or inflammatory liver process; need imaging to identify liver abscesses",
+        "confirmed_evidence": [
+          "Patient presented with 5 days of right upper quadrant pain, nausea, vomiting with yellow emesis and one haematemesis",
+          "Afebrile vital signs with leukocytosis (15.0 × 10^9/L) and neutrophilia (78%)",
+          "No significant transaminitis on labs",
+          "Hemoglobin A1c elevated at 14.2%"
+        ],
+        "missing_key_evidence": [
+          "Imaging evidence of liver lesions or abscesses",
+          "Microbiological evidence to confirm Listeria monocytogenes infection",
+          "Evidence to support mycotic hepatic artery aneurysm"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for abdominal imaging (CT) acknowledged; source evidence shows CT done later",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request abdominal CT scan report to identify any liver lesions, abscesses, or vascular abnormalities such as mycotic aneurysm",
+        "current_trajectory_hypothesis": "Right upper quadrant pain, leukocytosis, and elevated HbA1c suggest infectious liver process, CT imaging needed to confirm multiple liver abscesses and detect possible mycotic hepatic artery aneurysm",
+        "confirmed_evidence": [
+          "Presentation with right upper quadrant pain, nausea, vomiting, leukocytosis, and elevated HbA1c"
+        ],
+        "missing_key_evidence": [
+          "Imaging evidence of multiple liver abscesses",
+          "Imaging evidence of hepatic artery mycotic aneurysm",
+          "Microbiological confirmation of Listeria monocytogenes"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "CT of the chest, abdomen and pelvis, and CT liver multiphase protocol were obtained and revealed three peripherally enhancing, cystic lesions in the hepatic parenchyma in segments VI (5.4×7.0×4.4 cm), VII (5.1×5.8× 4.2 cm) and VIII (4.3×3.8×4.0 cm) (figure 1). The hepatic vein was nearly completely effaced due to mass effect. CT also demonstrated a large, arterially enhancing, vascular lesion in the porta hepatis measuring up to 3.2 cm which followed blood pool on arterial, portal venous and delayed phases, concerning for a hepatic artery aneurysm (figure 2).",
+        "category": "imaging_report",
+        "temporal_cue": "on presentation",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order blood cultures and microbiological studies to identify the causative organism, focusing on Listeria monocytogenes given the liver abscesses and clinical context",
+        "current_trajectory_hypothesis": "Abdominal CT shows multiple liver abscesses and a hepatic artery aneurysm; microbiological confirmation with blood cultures is needed to identify Listeria monocytogenes as the pathogen",
+        "confirmed_evidence": [
+          "CT imaging demonstrated three peripherally enhancing cystic liver lesions consistent with abscesses",
+          "CT identified a hepatic artery aneurysm in the porta hepatis region"
+        ],
+        "missing_key_evidence": [
+          "Microbiological confirmation of Listeria monocytogenes infection",
+          "Clinical course or procedure details confirming aneurysm complication"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Blood cultures and microbiological studies ordered; no matching source result at this phase yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request blood culture results and microbiological findings to identify the causative organism, specifically looking for Listeria monocytogenes",
+        "current_trajectory_hypothesis": "Multiple liver abscesses and hepatic artery aneurysm diagnosed on imaging; microbiological confirmation with blood cultures is needed to confirm Listeria monocytogenes infection",
+        "confirmed_evidence": [
+          "CT imaging showed three cystic liver lesions consistent with abscesses in segments VI, VII, and VIII",
+          "CT showed a hepatic artery aneurysm in the porta hepatis",
+          "Blood cultures and microbiological studies were ordered"
+        ],
+        "missing_key_evidence": [
+          "Microbiological confirmation of Listeria monocytogenes",
+          "Clinical progress or procedure details related to hepatic artery mycotic aneurysm"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "On HOD 12, L. monocytogenes grew from two hepatic abscess cultures. Blood cultures remained without growth.",
+        "category": "microbiology",
+        "temporal_cue": "hospital day 12",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial presentation with liver abscesses and hepatic artery aneurysm identified on imaging; microbiological confirmation of Listeria monocytogenes from hepatic abscess culture on hospital day 12; seeking course details and management of aneurysm and abscesses",
+        "confirmed_evidence": [
+          "CT imaging showed multiple liver abscesses in right hepatic segments and a hepatic artery aneurysm",
+          "Hepatic abscess cultures grew Listeria monocytogenes on hospital day 12; blood cultures were negative",
+          "Blood cultures and imaging ordered as part of early workup"
+        ],
+        "missing_key_evidence": [
+          "Clinical course updates including any treatment or intervention of hepatic artery mycotic aneurysm",
+          "Details on abscess drainage or medical treatment and patient outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E009",
+        "source_text": "All abscesses decreased in size on repeat liver CTs on HOD 13 and HOD 20, and the hepatic artery aneurysm remained thrombosed. Percutaneous drains were removed due to minimal drainage, and the patient was discharged in good condition on HOD 23 with outpatient intravenous ampicillin until the resolution of undrained liver abscess on imaging. A repeat CT of her liver done at 5 weeks of treatment demonstrated ongoing improvement in abscess size. She was switched to oral amoxicillin with a plan for repeat imaging. The patient remained in good condition without abdominal pain, nausea or vomiting.",
+        "category": "imaging_report",
+        "temporal_cue": "hospital day 13 to discharge and 5 weeks follow-up",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Multiple liver abscesses secondary to Listeria monocytogenes complicated by hepatic artery mycotic aneurysm",
+        "trajectory_summary": "A woman in her 50s presented with 5 days of right upper quadrant abdominal pain, nausea, vomiting, and leukocytosis without fever. Abdominal CT on presentation revealed multiple peripherally enhancing cystic liver lesions consistent with abscesses and a large hepatic artery aneurysm in the porta hepatis. Blood cultures were negative, but hepatic abscess cultures grew Listeria monocytogenes on hospital day 12, confirming the pathogen. Repeat imaging on hospital days 13 and 20 showed decreased abscess size and thrombosis of the hepatic artery aneurysm. Percutaneous drains were removed; the patient was discharged on intravenous ampicillin with continued outpatient treatment and switched to oral amoxicillin with ongoing radiographic improvement and clinical resolution by 5 weeks.",
+        "key_supporting_evidence": [
+          {
+            "claim": "CT imaging demonstrated multiple peripherally enhancing cystic liver lesions consistent with abscesses in segments VI, VII, and VIII and a hepatic artery aneurysm in the porta hepatis",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Hepatic abscess cultures grew Listeria monocytogenes on hospital day 12; blood cultures remained negative",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "Repeat CT imaging showed decreased abscess size, thrombosis of the hepatic artery aneurysm, removal of percutaneous drains, and clinical improvement leading to discharge and continued outpatient antibiotic treatment with subsequent resolution of symptoms and abscess size",
+            "evidence_ids": [
+              "E009"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [],
+        "confidence_that_diagnosis_is_supported": 1.0
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Multiple liver abscesses secondary to Listeria monocytogenes complicated by hepatic artery mycotic aneurysm",
+    "trajectory_summary": "A woman in her 50s presented with 5 days of right upper quadrant abdominal pain, nausea, vomiting, and leukocytosis without fever. Abdominal CT on presentation revealed multiple peripherally enhancing cystic liver lesions consistent with abscesses and a large hepatic artery aneurysm in the porta hepatis. Blood cultures were negative, but hepatic abscess cultures grew Listeria monocytogenes on hospital day 12, confirming the pathogen. Repeat imaging on hospital days 13 and 20 showed decreased abscess size and thrombosis of the hepatic artery aneurysm. Percutaneous drains were removed; the patient was discharged on intravenous ampicillin with continued outpatient treatment and switched to oral amoxicillin with ongoing radiographic improvement and clinical resolution by 5 weeks.",
+    "key_supporting_evidence": [
+      {
+        "claim": "CT imaging demonstrated multiple peripherally enhancing cystic liver lesions consistent with abscesses in segments VI, VII, and VIII and a hepatic artery aneurysm in the porta hepatis",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Hepatic abscess cultures grew Listeria monocytogenes on hospital day 12; blood cultures remained negative",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "Repeat CT imaging showed decreased abscess size, thrombosis of the hepatic artery aneurysm, removal of percutaneous drains, and clinical improvement leading to discharge and continued outpatient antibiotic treatment with subsequent resolution of symptoms and abscess size",
+        "evidence_ids": [
+          "E009"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [],
+    "confidence_that_diagnosis_is_supported": 1.0
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T18:40:30.417248+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

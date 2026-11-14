@@ -1,0 +1,705 @@
+{
+  "case_id": "PMC5994130",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "Because of thrombosis of vasculature in more than three organs within a short period of time, the diagnosis of catastrophic antiphospholipid syndrome was made.",
+  "disclosed_evidence_ids": [
+    "E002",
+    "E003",
+    "E005",
+    "E006",
+    "E007",
+    "E009",
+    "E012",
+    "E014"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Renal biopsy pathology report",
+        "current_trajectory_hypothesis": "35-year-old woman with established antiphospholipid syndrome (positive lupus anticoagulant, anti-β2GP1 IgG, anticardiolipin antibodies) presents with rapidly progressive renal insufficiency following recent fetal death, with clinical evidence suggesting multi-organ thrombotic involvement including kidneys, brain (stroke), lungs (pleural effusion), and peripheral vasculature, consistent with catastrophic antiphospholipid syndrome.",
+        "confirmed_evidence": [
+          "History of APS with positive lupus anticoagulant, anti-β2GP1 IgG, and anticardiolipin IgM/IgG antibodies",
+          "Recent fetal death triggering event",
+          "Rapidly progressive renal insufficiency with elevated creatinine and urea",
+          "Systemic coagulopathy evidenced by thrombocytopenia, elevated D-dimer, and prolonged APTT",
+          "Clinical diagnoses of stroke, pleural effusion, and venous/arterial thrombosis documented"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of thrombotic microangiopathy in renal tissue",
+          "Specific imaging reports confirming thrombosis in multiple organs (brain, lungs, kidneys)",
+          "Documented timeline confirming thrombosis in ≥3 organs within <1 week",
+          "Exclusion of alternative diagnoses (DIC, TTP/HUS, sepsis)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "Histopathological examination showed thrombotic microangiopathy (TMA) secondary to APS",
+        "category": "pathology_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Brain imaging report (CT or MRI) documenting stroke or cerebral thrombosis",
+        "current_trajectory_hypothesis": "35-year-old woman with established APS presents with rapidly progressive renal failure (biopsy-confirmed TMA secondary to APS) following fetal death, with suspected catastrophic APS involving brain (stroke), kidneys (TMA), and lungs (pleural effusion). Need imaging confirmation of cerebral thrombosis to verify multi-organ involvement criteria for CAPS.",
+        "confirmed_evidence": [
+          "Renal biopsy E007: Thrombotic microangiopathy secondary to APS",
+          "History of APS with positive lupus anticoagulant, anti-β2GP1 IgG, anticardiolipin IgM/IgG",
+          "Recent fetal death as triggering event",
+          "Laboratory evidence of coagulopathy: thrombocytopenia, elevated D-dimer, prolonged APTT",
+          "Clinical documentation of stroke, pleural effusion, and peripheral edema"
+        ],
+        "missing_key_evidence": [
+          "Imaging confirmation of cerebral thrombosis/stroke",
+          "Imaging confirmation of pulmonary/pleural thrombosis",
+          "Explicit timeline documenting thrombosis in ≥3 organs within <1 week",
+          "Exclusion of TTP/HUS (ADAMTS13 activity) and DIC",
+          "Treatment response documentation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "The computer tomography (CT) scan of the head presented an ischemic stroke in the right temporal lobe.",
+        "category": "imaging_report",
+        "temporal_cue": "before admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Chest imaging report (CT or X-ray) documenting pleural effusion or pulmonary thrombosis",
+        "current_trajectory_hypothesis": "35-year-old woman with established APS presents with rapidly progressive renal failure (biopsy-confirmed TMA secondary to APS) and cerebral ischemia (CT-confirmed right temporal lobe stroke) following fetal death, with suspected catastrophic APS involving lungs (pleural effusion mentioned). Need imaging confirmation of pulmonary/pleural involvement to verify thrombosis in ≥3 organs within short timeframe.",
+        "confirmed_evidence": [
+          "Renal biopsy E007: Thrombotic microangiopathy secondary to APS",
+          "Brain CT E002: Ischemic stroke in right temporal lobe",
+          "History of APS with positive lupus anticoagulant, anti-β2GP1 IgG, anticardiolipin IgM/IgG",
+          "Recent fetal death as triggering event",
+          "Laboratory evidence of coagulopathy: thrombocytopenia, elevated D-dimer, prolonged APTT"
+        ],
+        "missing_key_evidence": [
+          "Imaging confirmation of pulmonary/pleural thrombosis or effusion (third organ)",
+          "Explicit timeline documenting thrombosis in ≥3 organs within <1 week",
+          "Exclusion of TTP/HUS (ADAMTS13 activity)",
+          "Exclusion of DIC",
+          "Treatment response documentation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "ADAMTS13 metalloproteinase activity test result",
+        "current_trajectory_hypothesis": "35-year-old woman with established APS presents with rapidly progressive renal failure (biopsy-confirmed TMA secondary to APS) and cerebral ischemia (CT-confirmed right temporal lobe stroke) following fetal death. Catastrophic APS is suspected with involvement of kidneys and brain confirmed, requiring exclusion of TTP/HUS as alternative cause of thrombotic microangiopathy and verification of third organ involvement.",
+        "confirmed_evidence": [
+          "Renal biopsy E007: Thrombotic microangiopathy secondary to APS",
+          "Brain CT E002: Ischemic stroke in right temporal lobe",
+          "History of APS with positive lupus anticoagulant, anti-β2GP1 IgG, anticardiolipin IgM/IgG",
+          "Recent fetal death as triggering event",
+          "Laboratory evidence of coagulopathy: thrombocytopenia, elevated D-dimer, prolonged APTT"
+        ],
+        "missing_key_evidence": [
+          "Exclusion of TTP/HUS via ADAMTS13 activity testing",
+          "Confirmation of third organ thrombosis (pleural effusion/venous thrombosis) with source documentation",
+          "Explicit timeline documenting thrombosis in ≥3 organs within <1 week",
+          "Exclusion of DIC",
+          "Treatment response documentation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "ADAMTS 13 and its inhibitor were normal.",
+        "category": "molecular_test",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Duplex Doppler ultrasound report of lower extremities documenting deep venous thrombosis",
+        "current_trajectory_hypothesis": "35-year-old woman with established APS presents with rapidly progressive renal failure (biopsy-confirmed TMA secondary to APS), cerebral ischemia (CT-confirmed right temporal lobe stroke), and suspected peripheral venous thrombosis following recent fetal death. ADAMTS13 activity is normal, excluding TTP/HUS. Catastrophic APS is suspected but requires confirmation of thrombosis in a third organ and verification of the temporal criterion (thrombosis in ≥3 organs within <1 week).",
+        "confirmed_evidence": [
+          "Renal biopsy E007: Thrombotic microangiopathy secondary to APS confirming renal involvement",
+          "Brain CT E002: Ischemic stroke in right temporal lobe confirming cerebral involvement",
+          "ADAMTS13 E005: Normal activity effectively excluding thrombotic thrombocytopenic purpura",
+          "History of APS with positive lupus anticoagulant, anti-β2GP1 IgG, and anticardiolipin IgM/IgG",
+          "Recent fetal death as documented triggering event",
+          "Laboratory evidence of coagulopathy: thrombocytopenia, elevated D-dimer, prolonged APTT"
+        ],
+        "missing_key_evidence": [
+          "Source documentation of third organ thrombosis (venous thrombosis or pleural effusion)",
+          "Explicit timeline confirming thrombosis in ≥3 organs developing within <1 week",
+          "Exclusion of disseminated intravascular coagulation (DIC)",
+          "Treatment response and clinical outcome documentation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E002",
+        "source_text": "Ultrasounds with power Doppler of the lower limbs revealed deep vein thrombosis.",
+        "category": "imaging_report",
+        "temporal_cue": "before admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Clinical timeline or admission documentation establishing the temporal sequence and interval between onset of thrombosis in kidneys, brain, and lower limbs",
+        "current_trajectory_hypothesis": "35-year-old woman with established APS presents with rapidly progressive renal failure (biopsy-confirmed TMA secondary to APS), cerebral ischemia (CT-confirmed right temporal lobe stroke), and lower extremity deep vein thrombosis following recent fetal death. ADAMTS13 activity is normal, excluding TTP/HUS. Three-organ thrombosis is confirmed, but catastrophic APS requires documentation that thrombosis in ≥3 organs developed within <1 week.",
+        "confirmed_evidence": [
+          "Renal biopsy E007: Thrombotic microangiopathy secondary to APS confirming renal involvement",
+          "Brain CT E002: Ischemic stroke in right temporal lobe confirming cerebral involvement",
+          "Lower limb ultrasound E002: Deep vein thrombosis confirming peripheral venous involvement",
+          "ADAMTS13 E005: Normal activity excluding thrombotic thrombocytopenic purpura",
+          "History of APS with positive lupus anticoagulant, anti-β2GP1 IgG, and anticardiolipin IgM/IgG",
+          "Recent fetal death as documented triggering event",
+          "Laboratory evidence of coagulopathy: thrombocytopenia, elevated D-dimer, prolonged APTT"
+        ],
+        "missing_key_evidence": [
+          "Explicit timeline confirming thrombosis in ≥3 organs developed within <1 week (required for CAPS criteria)",
+          "Exclusion of disseminated intravascular coagulation (DIC)",
+          "Treatment response and clinical outcome documentation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E002",
+        "source_text": "Despite this treatment, in 22 hbd ultrasound no heart function of the morphological normal fetus was revealed. After the dead fetus was delivered, there appeared edema of the legs, a reduction in the amount of urine and blurred vision. Ultrasounds with power Doppler of the lower limbs revealed deep vein thrombosis. The ophthalmic examination revealed the right central retinal artery thrombosis. The computer tomography (CT) scan of the head presented an ischemic stroke in the right temporal lobe.",
+        "category": "imaging_report",
+        "temporal_cue": "before admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Coagulation studies documenting exclusion of disseminated intravascular coagulation (DIC), including fibrinogen levels, prothrombin time/INR, and fibrin degradation products",
+        "current_trajectory_hypothesis": "35-year-old woman with established APS presents with rapidly progressive renal failure (biopsy-confirmed TMA), cerebral ischemia (CT-confirmed stroke), lower extremity DVT, and retinal artery thrombosis following recent fetal death. ADAMTS13 is normal excluding TTP/HUS. Four-organ thrombosis is documented, but catastrophic APS requires confirmation of development within <1 week and exclusion of DIC as alternative cause for multi-organ thrombosis.",
+        "confirmed_evidence": [
+          "Renal biopsy E007: Thrombotic microangiopathy secondary to APS confirming renal involvement",
+          "Brain CT E002: Ischemic stroke in right temporal lobe confirming cerebral involvement",
+          "Lower limb ultrasound E002: Deep vein thrombosis confirming peripheral venous involvement",
+          "Ophthalmic examination E002: Right central retinal artery thrombosis confirming fourth organ involvement",
+          "ADAMTS13 E005: Normal activity excluding thrombotic thrombocytopenic purpura",
+          "History of APS with positive lupus anticoagulant, anti-β2GP1 IgG, and anticardiolipin IgM/IgG",
+          "Recent fetal death at 22 hbd as documented triggering event",
+          "Laboratory evidence of coagulopathy: thrombocytopenia, elevated D-dimer, prolonged APTT"
+        ],
+        "missing_key_evidence": [
+          "Explicit documentation that thrombosis in ≥3 organs developed within <1 week (required temporal criterion for CAPS)",
+          "Exclusion of disseminated intravascular coagulation (DIC) via fibrinogen, PT/INR, FDPs",
+          "Treatment response and clinical outcome documentation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "The clinical symptoms were accompanied by the following laboratory abnormalities: anaemia (Hgb - 7 g/dl), thrombocytopenia 134 G/l, leucocytosis (WBC) 14.36 G/l, elongate activated partial thromboplastin time (APTT) 69.7 s (reference range 23–35 s), elevated D-dimer level (4.33 μg/ml, reference range 0–0.5), elevated serum creatinine (4.8 mg/dl) and urea (79 mg/dl) levels. Fibrinogen level (247 mg/dl) and antithrombin activity (101%) were within the reference range.",
+        "category": "routine_lab",
+        "temporal_cue": "before admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Treatment records and clinical outcome documentation including anticoagulation therapy, immunosuppressive treatment, and patient response or survival outcome",
+        "current_trajectory_hypothesis": "35-year-old woman with established APS presents with rapidly progressive renal failure (biopsy-confirmed TMA), cerebral ischemia (CT-confirmed stroke), lower extremity DVT, and retinal artery thrombosis following recent fetal death. ADAMTS13 is normal excluding TTP/HUS, and fibrinogen is normal making DIC unlikely. Four-organ thrombosis is documented developing in close temporal proximity after the triggering event. Catastrophic APS is strongly suspected but requires confirmation of the <1 week temporal criterion and documentation of treatment response.",
+        "confirmed_evidence": [
+          "Renal biopsy E007: Thrombotic microangiopathy secondary to APS",
+          "Brain CT E002: Ischemic stroke in right temporal lobe",
+          "Lower limb ultrasound E002: Deep vein thrombosis",
+          "Ophthalmic examination E002: Right central retinal artery thrombosis",
+          "ADAMTS13 E005: Normal activity excluding TTP",
+          "Fibrinogen E003: Normal (247 mg/dl) arguing against DIC",
+          "History of APS with positive lupus anticoagulant, anti-β2GP1 IgG, anticardiolipin IgM/IgG",
+          "Recent fetal death at 22 hbd as documented triggering event"
+        ],
+        "missing_key_evidence": [
+          "Explicit documentation that thrombosis in ≥3 organs developed within <1 week",
+          "Treatment administered and clinical outcome",
+          "Formal confirmation of CAPS diagnosis in medical record"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E009",
+        "source_text": "Anticoagulation treatment with infusion of high molecular weight heparin was introduced. The dosage was modified according to APPT with a target level of 70–85 s. Glucocorticoids: methyprednisolon 1 g i.v. for three consecutive days, followed by prednisone 1 mg/kg/day (60 mg/day) were also used. Therapeutic plasma exchanges were added to remove antiphospholipid antibodies. Because of severe renal insufficiency with anuria, fluid overload with respiratory failure, daily hemodialysis treatment was introduced. Systemic antibiotic therapy with piperacyllin/tazobactam was also added.",
+        "category": "treatment_response",
+        "temporal_cue": "after diagnosis",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Clinical outcome documentation and survival status, including explicit medical record confirmation that thrombosis in three or more organs developed within less than one week satisfying catastrophic APS diagnostic criteria",
+        "current_trajectory_hypothesis": "35-year-old woman with established APS presents with rapidly progressive renal failure (biopsy-confirmed TMA), cerebral ischemia (CT-confirmed stroke), lower extremity DVT, and retinal artery thrombosis following recent fetal death at 22 hbd. ADAMTS13 is normal excluding TTP, fibrinogen is normal arguing against DIC, and four-organ thrombosis is documented developing in rapid succession after the triggering event. Treatment included heparin, high-dose steroids, plasma exchange, and dialysis. Catastrophic APS is strongly supported but requires explicit confirmation of the <1 week temporal criterion and patient outcome.",
+        "confirmed_evidence": [
+          "Renal biopsy E007: Thrombotic microangiopathy secondary to APS",
+          "Brain CT E002: Ischemic stroke in right temporal lobe",
+          "Lower limb ultrasound E002: Deep vein thrombosis",
+          "Ophthalmic examination E002: Right central retinal artery thrombosis",
+          "ADAMTS13 E005: Normal activity excluding TTP",
+          "Fibrinogen E003: Normal (247 mg/dl) arguing against DIC",
+          "Treatment E009: Heparin, methylprednisolone, plasma exchange, hemodialysis",
+          "History of APS with positive lupus anticoagulant, anti-β2GP1 IgG, anticardiolipin IgM/IgG",
+          "Recent fetal death at 22 hbd as documented triggering event"
+        ],
+        "missing_key_evidence": [
+          "Explicit documentation that thrombosis in ≥3 organs developed within <1 week (required temporal criterion for CAPS)",
+          "Patient survival outcome and final clinical status",
+          "Formal medical record statement confirming catastrophic APS diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Clinical outcome and survival status at discharge or final follow-up",
+        "current_trajectory_hypothesis": "35-year-old woman with established APS presents with rapidly progressive renal failure (biopsy-confirmed TMA), cerebral ischemia (CT-confirmed stroke), lower extremity DVT, and retinal artery thrombosis following recent fetal death at 22 hbd. ADAMTS13 is normal excluding TTP, fibrinogen is normal arguing against DIC. Four-organ thrombosis documented in rapid temporal succession after triggering event. Treatment included heparin, high-dose steroids, plasma exchange, and dialysis. Catastrophic APS is supported by multi-organ thrombosis but requires confirmation of patient outcome.",
+        "confirmed_evidence": [
+          "Renal biopsy E007: Thrombotic microangiopathy secondary to APS",
+          "Brain CT E002: Ischemic stroke in right temporal lobe",
+          "Lower limb ultrasound E002: Deep vein thrombosis",
+          "Ophthalmic examination E002: Right central retinal artery thrombosis",
+          "ADAMTS13 E005: Normal activity excluding TTP",
+          "Fibrinogen E003: Normal (247 mg/dl) arguing against DIC",
+          "Treatment E009: Heparin, methylprednisolone, plasma exchange, hemodialysis",
+          "History of APS with positive lupus anticoagulant, anti-β2GP1 IgG, anticardiolipin IgM/IgG",
+          "Recent fetal death at 22 hbd as documented triggering event with rapid sequential development of thromboses"
+        ],
+        "missing_key_evidence": [
+          "Explicit documentation of <1 week interval between thromboses (required CAPS temporal criterion)",
+          "Patient survival outcome and final clinical status",
+          "Confirmation of pleural effusion as documented in initial presentation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E012",
+        "source_text": "Three weeks after immunoglobulin treatment, a gradual increase in the amount of urine and a decrease in serum creatinine and urea levels were observed. Renal replacement therapy could be discontinued after 5 weeks of treatment. The patient was discharged from the hospital with the creatinine level 3.2 mg/dl, urea level 157 mg/dl, concomitant erytrocyturia 250 cells/μl, daily proteinuria 0.5 g. All antiphospholipid antibodies were negative. The treatment at the discharge from the hospital was: oral anticoagulant (warfarin), prednisolon (20 mg/day), ASA and antihypertensive drugs.",
+        "category": "treatment_response",
+        "temporal_cue": "discharge",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Chest imaging report (X-ray or CT scan) documenting pleural effusion",
+        "current_trajectory_hypothesis": "35-year-old woman with established APS presents with rapidly progressive renal failure (biopsy-confirmed TMA), cerebral ischemia (CT-confirmed stroke), lower extremity DVT, and retinal artery thrombosis following recent fetal death at 22 hbd. ADAMTS13 is normal excluding TTP, fibrinogen is normal arguing against DIC. Four-organ thrombosis is documented developing in rapid temporal succession after the triggering event. Treatment included heparin, high-dose steroids, plasma exchange, and dialysis with subsequent recovery. Pleural effusion was mentioned in the initial presentation but requires source confirmation.",
+        "confirmed_evidence": [
+          "Renal biopsy E007: Thrombotic microangiopathy secondary to APS",
+          "Brain CT E002: Ischemic stroke in right temporal lobe",
+          "Lower limb ultrasound E002: Deep vein thrombosis",
+          "Ophthalmic examination E002: Right central retinal artery thrombosis",
+          "ADAMTS13 E005: Normal activity excluding TTP",
+          "Fibrinogen E003: Normal (247 mg/dl) arguing against DIC",
+          "Treatment E009: Heparin, methylprednisolone, plasma exchange, hemodialysis",
+          "Outcome E012: Recovery with dialysis discontinuation, creatinine improvement, discharge on warfarin/prednisolone/ASA",
+          "History of APS with positive lupus anticoagulant, anti-β2GP1 IgG, anticardiolipin IgM/IgG",
+          "Recent fetal death at 22 hbd as documented triggering event with rapid sequential development of thromboses"
+        ],
+        "missing_key_evidence": [
+          "Source documentation of pleural effusion mentioned in initial presentation",
+          "Explicit documentation that thrombosis in ≥3 organs developed within <1 week (required temporal criterion for CAPS)",
+          "Formal medical record statement confirming catastrophic APS diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "An X-ray of the chest demonstrated a high amount of fluid in both pleural cavities.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Discharge summary report documenting final diagnosis and clinical course",
+        "current_trajectory_hypothesis": "35-year-old woman with established APS presents with rapidly progressive renal failure (biopsy-confirmed TMA), cerebral ischemia (CT-confirmed stroke), lower extremity DVT, retinal artery thrombosis, and bilateral pleural effusions following recent fetal death at 22 hbd. ADAMTS13 is normal excluding TTP, fibrinogen is normal arguing against DIC. Multi-organ thrombosis documented in rapid temporal succession after the triggering event. Treatment included heparin, high-dose steroids, plasma exchange, and dialysis with subsequent recovery and discharge on warfarin. Catastrophic APS is supported by thrombosis in >3 organs developing over a short period following a triggering event.",
+        "confirmed_evidence": [
+          "Renal biopsy E007: Thrombotic microangiopathy secondary to APS",
+          "Brain CT E002: Ischemic stroke in right temporal lobe",
+          "Lower limb ultrasound E002: Deep vein thrombosis",
+          "Ophthalmic examination E002: Right central retinal artery thrombosis",
+          "Chest X-ray E006: Bilateral pleural effusions",
+          "ADAMTS13 E005: Normal activity excluding TTP",
+          "Fibrinogen E003: Normal (247 mg/dl) arguing against DIC",
+          "Treatment E009: Heparin, methylprednisolone, plasma exchange, hemodialysis",
+          "Outcome E012: Recovery with dialysis discontinuation, discharge on warfarin/prednisolone/ASA",
+          "History of APS with positive lupus anticoagulant, anti-β2GP1 IgG, anticardiolipin IgM/IgG",
+          "Recent fetal death at 22 hbd as documented triggering event with rapid sequential development of thromboses per E002"
+        ],
+        "missing_key_evidence": [
+          "Explicit documentation that thrombosis in ≥3 organs developed within <1 week (required temporal criterion for CAPS)",
+          "Formal medical record statement confirming catastrophic APS diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E012",
+        "source_text": "Three weeks after immunoglobulin treatment, a gradual increase in the amount of urine and a decrease in serum creatinine and urea levels were observed. Renal replacement therapy could be discontinued after 5 weeks of treatment. The patient was discharged from the hospital with the creatinine level 3.2 mg/dl, urea level 157 mg/dl, concomitant erytrocyturia 250 cells/μl, daily proteinuria 0.5 g. All antiphospholipid antibodies were negative. The treatment at the discharge from the hospital was: oral anticoagulant (warfarin), prednisolon (20 mg/day), ASA and antihypertensive drugs.",
+        "category": "treatment_response",
+        "temporal_cue": "discharge",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Clinical assessment or diagnostic statement documenting catastrophic antiphospholipid syndrome diagnosis based on multi-organ thrombosis",
+        "current_trajectory_hypothesis": "35-year-old woman with established APS presents with rapidly progressive renal failure (biopsy-confirmed TMA), cerebral ischemia (CT-confirmed stroke), lower extremity DVT, retinal artery thrombosis, and bilateral pleural effusions following recent fetal death at 22 hbd. ADAMTS13 is normal excluding TTP, fibrinogen is normal arguing against DIC. Multi-organ thrombosis documented in rapid temporal succession after the triggering event (E002). Treatment included heparin, high-dose steroids, plasma exchange, and dialysis with subsequent recovery. The clinical picture satisfies criteria for catastrophic APS with thrombosis in >3 organs developing over a short period following a triggering event.",
+        "confirmed_evidence": [
+          "Renal biopsy E007: Thrombotic microangiopathy secondary to APS",
+          "Brain CT E002: Ischemic stroke in right temporal lobe",
+          "Lower limb ultrasound E002: Deep vein thrombosis",
+          "Ophthalmic examination E002: Right central retinal artery thrombosis",
+          "Chest X-ray E006: Bilateral pleural effusions",
+          "ADAMTS13 E005: Normal activity excluding TTP",
+          "Fibrinogen E003: Normal (247 mg/dl) arguing against DIC",
+          "Treatment E009: Heparin, methylprednisolone, plasma exchange, hemodialysis",
+          "Outcome E012: Recovery with dialysis discontinuation, discharge on warfarin/prednisolone/ASA",
+          "History of APS with positive lupus anticoagulant, anti-β2GP1 IgG, anticardiolipin IgM/IgG",
+          "Recent fetal death at 22 hbd as documented triggering event with rapid sequential development of thromboses per E002"
+        ],
+        "missing_key_evidence": [
+          "Explicit medical record statement confirming the diagnosis of catastrophic antiphospholipid syndrome",
+          "Formal documentation of the <1 week interval criterion"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Blood culture results to exclude sepsis as an alternative cause of multi-organ thrombosis and coagulopathy",
+        "current_trajectory_hypothesis": "35-year-old woman with established APS presents with rapidly progressive renal failure (biopsy-confirmed TMA), cerebral ischemia (CT-confirmed stroke), lower extremity DVT, retinal artery thrombosis, and bilateral pleural effusions following recent fetal death at 22 hbd. ADAMTS13 is normal excluding TTP, fibrinogen is normal arguing against DIC. Multi-organ thrombosis documented in rapid temporal succession after the triggering event. Treatment included heparin, high-dose steroids, plasma exchange, and dialysis with subsequent recovery. Catastrophic APS is supported by thrombosis in >3 organs developing over a short period following a triggering event, with exclusion of alternative diagnoses.",
+        "confirmed_evidence": [
+          "Renal biopsy E007: Thrombotic microangiopathy secondary to APS",
+          "Brain CT E002: Ischemic stroke in right temporal lobe",
+          "Lower limb ultrasound E002: Deep vein thrombosis",
+          "Ophthalmic examination E002: Right central retinal artery thrombosis",
+          "Chest X-ray E006: Bilateral pleural effusions",
+          "ADAMTS13 E005: Normal activity excluding TTP",
+          "Fibrinogen E003: Normal (247 mg/dl) arguing against DIC",
+          "Treatment E009: Heparin, methylprednisolone, plasma exchange, hemodialysis, antibiotics",
+          "Outcome E012: Recovery with dialysis discontinuation, discharge on warfarin/prednisolone/ASA",
+          "History of APS with positive lupus anticoagulant, anti-β2GP1 IgG, anticardiolipin IgM/IgG",
+          "Recent fetal death at 22 hbd as documented triggering event with rapid sequential development of thromboses per E002"
+        ],
+        "missing_key_evidence": [
+          "Explicit documentation that thrombosis in ≥3 organs developed within <1 week (required temporal criterion for CAPS)",
+          "Formal medical record statement confirming catastrophic APS diagnosis",
+          "Exclusion of sepsis as alternative diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E014",
+        "source_text": "Blood and urine cultures were also negative.",
+        "category": "treatment_response",
+        "temporal_cue": "4 weeks after discharge",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "catastrophic antiphospholipid syndrome",
+        "trajectory_summary": "A 35-year-old woman with established antiphospholipid syndrome (positive lupus anticoagulant, anti-β2GP1 IgG, anticardiolipin IgM/IgG) and history of autoimmunohemolytic anemia presented with rapidly progressive renal insufficiency following fetal death at 22 hbd. Within a short period after this triggering event, she developed thrombosis in multiple organs: renal (biopsy-confirmed thrombotic microangiopathy secondary to APS), cerebral (ischemic stroke in right temporal lobe), peripheral venous (deep vein thrombosis of lower limbs), ocular (right central retinal artery thrombosis), and pulmonary (bilateral pleural effusions). Laboratory evaluation showed anemia, thrombocytopenia, elevated creatinine/urea, prolonged APTT, and elevated D-dimer, with normal fibrinogen (247 mg/dl) and antithrombin arguing against DIC. ADAMTS13 activity was normal, excluding thrombotic thrombocytopenic purpura. Blood cultures were negative, excluding sepsis. She was treated with high-dose heparin, methylprednisolone, therapeutic plasma exchange, and hemodialysis, with gradual recovery allowing discontinuation of dialysis after 5 weeks and discharge on warfarin, prednisolone, and aspirin.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Histopathological confirmation of thrombotic microangiopathy secondary to APS in renal tissue",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Ischemic stroke in right temporal lobe documented by head CT",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Deep vein thrombosis of lower limbs documented by power Doppler ultrasound",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Right central retinal artery thrombosis documented by ophthalmic examination",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Bilateral pleural effusions documented by chest X-ray",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Normal ADAMTS13 activity excluding thrombotic thrombocytopenic purpura",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Normal fibrinogen (247 mg/dl) and antithrombin (101%) arguing against disseminated intravascular coagulation",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Negative blood and urine cultures excluding sepsis",
+            "evidence_ids": [
+              "E014"
+            ]
+          },
+          {
+            "claim": "Treatment with high-dose heparin, methylprednisolone, plasma exchange, and hemodialysis",
+            "evidence_ids": [
+              "E009"
+            ]
+          },
+          {
+            "claim": "Clinical recovery with discontinuation of dialysis after 5 weeks and discharge on warfarin, prednisolone, and ASA",
+            "evidence_ids": [
+              "E012"
+            ]
+          },
+          {
+            "claim": "Rapid sequential development of multi-organ thrombosis following fetal death at 22 hbd",
+            "evidence_ids": [
+              "E002"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Thrombotic thrombocytopenic purpura (TTP/HUS)",
+            "basis": "Normal ADAMTS13 metalloproteinase activity and inhibitor (E005)"
+          },
+          {
+            "alternative": "Disseminated intravascular coagulation (DIC)",
+            "basis": "Normal fibrinogen level (247 mg/dl) and normal antithrombin activity (101%) despite elevated D-dimer and prolonged APTT (E003)"
+          },
+          {
+            "alternative": "Sepsis-induced coagulopathy",
+            "basis": "Negative blood and urine cultures (E014)"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Explicit medical record statement formally diagnosing 'catastrophic antiphospholipid syndrome' (diagnosis-revealing records were restricted)",
+          "Explicit documentation stating the interval between thromboses was less than one week (though E002 describes rapid sequential development after the triggering event)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "catastrophic antiphospholipid syndrome",
+    "trajectory_summary": "A 35-year-old woman with established antiphospholipid syndrome (positive lupus anticoagulant, anti-β2GP1 IgG, anticardiolipin IgM/IgG) and history of autoimmunohemolytic anemia presented with rapidly progressive renal insufficiency following fetal death at 22 hbd. Within a short period after this triggering event, she developed thrombosis in multiple organs: renal (biopsy-confirmed thrombotic microangiopathy secondary to APS), cerebral (ischemic stroke in right temporal lobe), peripheral venous (deep vein thrombosis of lower limbs), ocular (right central retinal artery thrombosis), and pulmonary (bilateral pleural effusions). Laboratory evaluation showed anemia, thrombocytopenia, elevated creatinine/urea, prolonged APTT, and elevated D-dimer, with normal fibrinogen (247 mg/dl) and antithrombin arguing against DIC. ADAMTS13 activity was normal, excluding thrombotic thrombocytopenic purpura. Blood cultures were negative, excluding sepsis. She was treated with high-dose heparin, methylprednisolone, therapeutic plasma exchange, and hemodialysis, with gradual recovery allowing discontinuation of dialysis after 5 weeks and discharge on warfarin, prednisolone, and aspirin.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Histopathological confirmation of thrombotic microangiopathy secondary to APS in renal tissue",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Ischemic stroke in right temporal lobe documented by head CT",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Deep vein thrombosis of lower limbs documented by power Doppler ultrasound",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Right central retinal artery thrombosis documented by ophthalmic examination",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Bilateral pleural effusions documented by chest X-ray",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Normal ADAMTS13 activity excluding thrombotic thrombocytopenic purpura",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Normal fibrinogen (247 mg/dl) and antithrombin (101%) arguing against disseminated intravascular coagulation",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Negative blood and urine cultures excluding sepsis",
+        "evidence_ids": [
+          "E014"
+        ]
+      },
+      {
+        "claim": "Treatment with high-dose heparin, methylprednisolone, plasma exchange, and hemodialysis",
+        "evidence_ids": [
+          "E009"
+        ]
+      },
+      {
+        "claim": "Clinical recovery with discontinuation of dialysis after 5 weeks and discharge on warfarin, prednisolone, and ASA",
+        "evidence_ids": [
+          "E012"
+        ]
+      },
+      {
+        "claim": "Rapid sequential development of multi-organ thrombosis following fetal death at 22 hbd",
+        "evidence_ids": [
+          "E002"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Thrombotic thrombocytopenic purpura (TTP/HUS)",
+        "basis": "Normal ADAMTS13 metalloproteinase activity and inhibitor (E005)"
+      },
+      {
+        "alternative": "Disseminated intravascular coagulation (DIC)",
+        "basis": "Normal fibrinogen level (247 mg/dl) and normal antithrombin activity (101%) despite elevated D-dimer and prolonged APTT (E003)"
+      },
+      {
+        "alternative": "Sepsis-induced coagulopathy",
+        "basis": "Negative blood and urine cultures (E014)"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Explicit medical record statement formally diagnosing 'catastrophic antiphospholipid syndrome' (diagnosis-revealing records were restricted)",
+      "Explicit documentation stating the interval between thromboses was less than one week (though E002 describes rapid sequential development after the triggering event)"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-24T23:00:24.620618+00:00",
+  "clinician_model": "Kimi-K2.5",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

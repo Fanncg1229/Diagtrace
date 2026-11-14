@@ -1,0 +1,515 @@
+{
+  "case_id": "PMC7302682",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 12,
+  "termination": "final",
+  "known_final_diagnosis": "the patient was initially diagnosed with FES",
+  "disclosed_evidence_ids": [
+    "E003",
+    "E004",
+    "E005",
+    "E006",
+    "E007"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "Request the detailed physical examination findings and vital signs upon arrival and at the time when the patient became sleepy.",
+        "current_trajectory_hypothesis": "The patient with femur fracture developed sleepiness about 5 hours post injury, suggestive of possible fat embolism syndrome (FES), but physical signs supporting this are not yet known.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "physical exam findings especially respiratory, neurological and skin signs supporting FES",
+          "vital signs trend including oxygenation status",
+          "timeline of clinical deterioration"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Immediate physical examination on arrival revealed a Glasgow Coma Scale score of 4, a positive bilateral Babinski sign, a positive Kernig sign, and neck stiffness. The patients left thigh presented bruising and swelling and had been fixed with external fixation with restrained movement in the previous hospital (Fig. 1A). She presented an arterial pressure of 148/80 mm Hg, heart rate of 124 bpm, and partial pressure of oxygen (PO2) of 64 mm Hg. Her blood gas analysis revealed a pH value of 7.4.",
+        "category": "physical_exam",
+        "temporal_cue": "on arrival to neurology department after 2 days",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "Request the physical examination findings and vital signs at the time approximately 5 hours after the accident when the patient developed sleepiness.",
+        "current_trajectory_hypothesis": "Initial exam on arrival shows neurological signs and hypoxia; sleepiness onset at 5 hours post injury suggests progression possibly consistent with fat embolism syndrome (FES).",
+        "confirmed_evidence": [
+          "Glasgow Coma Scale score of 4 on arrival",
+          "positive bilateral Babinski sign, Kernig sign, and neck stiffness",
+          "left thigh bruising and swelling with external fixation",
+          "arterial pressure 148/80 mm Hg, heart rate 124 bpm",
+          "partial pressure of oxygen (PO2) 64 mm Hg",
+          "blood gas pH 7.4"
+        ],
+        "missing_key_evidence": [
+          "physical and neurological exam findings and vital signs at 5 hours post-injury when sleepiness developed to ascertain clinical progression",
+          "oxygen saturation and respiratory status over time",
+          "presence of petechiae or other skin signs typical of FES"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "No source record contains physical examination findings and vital signs approximately 5 hours after the accident when the patient developed sleepiness.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order a chest CT scan report to assess for signs of fat embolism syndrome such as diffuse ground-glass opacities or other characteristic lung findings.",
+        "current_trajectory_hypothesis": "The patient with femur fracture developed neurological signs and hypoxia soon after admission, consistent with fat embolism syndrome; radiological confirmation by chest CT may provide supporting evidence.",
+        "confirmed_evidence": [
+          "Glasgow Coma Scale score of 4 on arrival",
+          "positive bilateral Babinski and Kernig signs with neck stiffness",
+          "left thigh bruising and fixation",
+          "arterial pressure 148/80 mm Hg, heart rate 124 bpm",
+          "PO2 64 mm Hg indicating hypoxia",
+          "blood gas analysis showing normal pH"
+        ],
+        "missing_key_evidence": [
+          "early post-accident physical exam and vital signs at time of sleepiness onset",
+          "radiological imaging findings characteristic of FES",
+          "laboratory or microbiological test results supporting diagnosis",
+          "temporal course following initial deterioration"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.35
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Chest CT scan order registered, result not yet documented from source",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request the chest CT scan report results for lung findings suggestive of fat embolism syndrome.",
+        "current_trajectory_hypothesis": "Given the hypoxia and neurological signs soon after femur fracture, chest CT findings with typical lung involvement would support the diagnosis of FES.",
+        "confirmed_evidence": [
+          "Glasgow Coma Scale score of 4 on arrival",
+          "positive bilateral Babinski and Kernig signs with neck stiffness",
+          "left thigh bruising and fixation",
+          "arterial pressure 148/80 mm Hg, heart rate 124 bpm",
+          "PO2 64 mm Hg indicating hypoxia",
+          "blood gas analysis showing normal pH"
+        ],
+        "missing_key_evidence": [
+          "chest CT scan findings characteristic of FES",
+          "physical and neurological exam and vital signs at time of sleepiness onset",
+          "laboratory or microbiological test results supporting diagnosis",
+          "temporal course following initial neurological deterioration"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.35
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Her bilateral lung presented an exudative lesion as well as pleural effusion (Fig. 2A).",
+        "category": "image_finding",
+        "temporal_cue": "on arrival to neurology department after 2 days",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order brain MRI report to identify cerebral microinfarcts or embolic phenomena that could explain neurological manifestations consistent with fat embolism syndrome.",
+        "current_trajectory_hypothesis": "Initial neurological signs and hypoxia with femur fracture suggest fat embolism syndrome; chest CT shows lung exudative lesions and effusion; brain MRI may provide additional neurological diagnostic evidence.",
+        "confirmed_evidence": [
+          "Glasgow Coma Scale score of 4 on arrival",
+          "positive bilateral Babinski and Kernig signs with neck stiffness",
+          "left thigh bruising and fixation",
+          "arterial pressure 148/80 mm Hg, heart rate 124 bpm",
+          "PO2 64 mm Hg indicating hypoxia",
+          "blood gas analysis showing normal pH",
+          "Chest CT showing bilateral lung exudative lesions and pleural effusion"
+        ],
+        "missing_key_evidence": [
+          "physical and neurological exam findings at time of sleepiness onset",
+          "brain imaging results consistent with cerebral fat embolism",
+          "laboratory test results including blood counts and coagulation",
+          "clinical course after initial neurological deterioration"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "The brain MRI test order has been registered without an immediate matching source result to report.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request the brain MRI report results to identify signs of cerebral fat embolism such as microinfarcts, embolic lesions, or other characteristic findings.",
+        "current_trajectory_hypothesis": "Brain MRI results are needed to confirm neurological involvement from fat embolism syndrome in this patient with femur fracture, initial neurological signs, and lung involvement.",
+        "confirmed_evidence": [
+          "Glasgow Coma Scale score of 4 on arrival",
+          "positive bilateral Babinski and Kernig signs with neck stiffness",
+          "left thigh bruising and fixation",
+          "arterial pressure 148/80 mm Hg, heart rate 124 bpm",
+          "PO2 64 mm Hg indicating hypoxia",
+          "blood gas analysis showing normal pH",
+          "Chest CT showing bilateral lung exudative lesions and pleural effusion"
+        ],
+        "missing_key_evidence": [
+          "brain MRI findings characteristic of cerebral fat embolism",
+          "physical and neurological exam at time of sleepiness onset",
+          "laboratory test results including blood counts and coagulation",
+          "clinical course after initial neurological deterioration"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E003",
+        "source_text": "Brain magnetic resonance imaging (MRI) revealed diffuse abnormal signals in the bilateral cerebral hemisphere, brainstem, and cerebellum, which were suggestive of embolization (Fig. 3).",
+        "category": "image_finding",
+        "temporal_cue": "on arrival to neurology department after 2 days",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order laboratory tests including full blood count, coagulation studies, and inflammatory markers to identify any abnormalities consistent with fat embolism syndrome such as anemia, thrombocytopenia, or elevated inflammatory markers.",
+        "current_trajectory_hypothesis": "The patient has multiple clinical and imaging findings suggestive of fat embolism syndrome including neurological signs, hypoxia, lung exudates and cerebral embolic signals; laboratory data will help support systemic involvement.",
+        "confirmed_evidence": [
+          "Glasgow Coma Scale score of 4 on arrival",
+          "positive bilateral Babinski and Kernig signs with neck stiffness",
+          "left thigh bruising and fixation",
+          "arterial pressure 148/80 mm Hg, heart rate 124 bpm",
+          "PO2 64 mm Hg indicating hypoxia",
+          "blood gas analysis showing normal pH",
+          "Chest CT showing bilateral lung exudative lesions and pleural effusion",
+          "Brain MRI showing diffuse abnormal embolic signals in cerebral hemisphere, brainstem, and cerebellum"
+        ],
+        "missing_key_evidence": [
+          "laboratory test results including blood counts and coagulation parameters",
+          "physical and neurological exam at time of sleepiness onset and clinical progression",
+          "clinical course following initial neurological deterioration"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Order acknowledged; no source evidence document reports results of these specific laboratory tests.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request laboratory test results including full blood count, coagulation studies, and inflammatory markers to support evidence of systemic involvement consistent with fat embolism syndrome.",
+        "current_trajectory_hypothesis": "The clinical picture, lung CT, and brain MRI strongly suggest fat embolism syndrome; laboratory abnormalities such as anemia, thrombocytopenia, or coagulopathy would support systemic involvement and solidify the diagnosis.",
+        "confirmed_evidence": [
+          "Glasgow Coma Scale score of 4 on arrival",
+          "positive bilateral Babinski and Kernig signs with neck stiffness",
+          "left thigh bruising and fixation",
+          "arterial pressure 148/80 mm Hg, heart rate 124 bpm",
+          "PO2 64 mm Hg indicating hypoxia",
+          "blood gas analysis showing normal pH",
+          "Chest CT showing bilateral lung exudative lesions and pleural effusion",
+          "Brain MRI showing diffuse abnormal embolic signals in cerebral hemisphere, brainstem, and cerebellum"
+        ],
+        "missing_key_evidence": [
+          "laboratory test results including blood counts and coagulation parameters",
+          "physical and neurological exam at time of sleepiness onset",
+          "clinical course after initial neurological deterioration"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "No laboratory test results including full blood count, coagulation studies, or inflammatory markers are documented in the source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial physical exam after femur fracture showed neurological deficits and hypoxia; imaging (chest CT and brain MRI) reveals findings consistent with fat embolism syndrome; laboratory tests are unavailable; clinical course and treatment response remain undocumented.",
+        "confirmed_evidence": [
+          "Initial Glasgow Coma Scale 4 with neurological signs (positive bilateral Babinski, Kernig sign, neck stiffness)",
+          "Left thigh bruising and fixation after femur fracture",
+          "Arterial pressure 148/80 mm Hg, heart rate 124 bpm, PO2 64 mm Hg indicating hypoxia",
+          "Chest CT showing bilateral lung exudative lesions and pleural effusion",
+          "Brain MRI showing diffuse abnormal embolic signals in cerebral hemisphere, brainstem, and cerebellum"
+        ],
+        "missing_key_evidence": [
+          "Physical and neurological examination findings at time of sleepiness onset",
+          "Laboratory test results including blood counts and coagulation parameters",
+          "Temporal clinical course including treatment and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Fourteen days after the fracture, both the lung symptoms and lung CT findings were considerably improved (Fig. 2B).",
+        "category": "image_finding",
+        "temporal_cue": "14 days after the fracture",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial neurological deterioration and hypoxia with femur fracture was followed by imaging findings consistent with fat embolism syndrome; subsequent clinical course including neurological improvement or further deterioration and treatment details remain undocumented.",
+        "confirmed_evidence": [
+          "Initial Glasgow Coma Scale of 4 with neurological signs and hypoxia",
+          "Left thigh bruising and external fixation confirming femur fracture",
+          "Chest CT showing bilateral lung exudative lesions and pleural effusion",
+          "Brain MRI showing diffuse embolic lesions in cerebral hemispheres, brainstem, and cerebellum",
+          "Improvement in lung symptoms and CT findings at 14 days post fracture"
+        ],
+        "missing_key_evidence": [
+          "Neurological exam and mental status progression after initial sleepiness onset",
+          "Treatment and supportive care details",
+          "Laboratory tests results including blood count and coagulation",
+          "Clinical outcome and resolution of neurological symptoms"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "Transthoracic echocardiography ultrasound was performed again, and shunts through a PFO were observed (Fig. 4).",
+        "category": "image_finding",
+        "temporal_cue": "15 days after the fracture (the following day after lung CT improvement)",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The clinical presentation, imaging findings, and subsequent echocardiographic evidence of PFO shunt support fat embolism syndrome diagnosis; clinical course and neurological outcome details are still pending for a complete trajectory.",
+        "confirmed_evidence": [
+          "Initial Glasgow Coma Scale of 4 and neurological signs with hypoxia shortly after femur fracture",
+          "Chest CT showing bilateral exudative lung lesions and pleural effusion",
+          "Brain MRI showing diffuse embolic signals in cerebral hemispheres, brainstem, and cerebellum",
+          "Improvement in lung symptoms and CT findings at 14 days post fracture",
+          "Echocardiography showing PFO with shunt at 15 days post fracture"
+        ],
+        "missing_key_evidence": [
+          "Neurological exam and mental status progression after sleepiness onset",
+          "Treatment and supportive measures details",
+          "Clinical outcome including neurological recovery or complications",
+          "Laboratory test results including hematologic parameters"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "Under active supportive care and hormone therapy, the patient was finally discharged with dysphasia and an untreated closed fracture.",
+        "category": "clinical_course",
+        "temporal_cue": "at discharge",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Fat Embolism Syndrome (FES)",
+        "trajectory_summary": "A 46-year-old woman with femur fracture from an accident was initially assessed with neurological signs (GCS 4, positive Babinski, Kernig sign, neck stiffness), hypoxia (PO2 64 mm Hg), and local thigh bruising. Chest CT showed bilateral lung exudative lesions and pleural effusion, and brain MRI revealed diffuse embolic signals in multiple brain areas. Transthoracic echocardiography detected a patent foramen ovale (PFO) shunt. Lung imaging improved by day 14, and after supportive care and hormone therapy, she was discharged with dysphasia and a closed fracture. Laboratory tests were not reported. This temporal progression with clinical, radiologic, and echocardiographic evidence supports the diagnosis of fat embolism syndrome following femur fracture.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial neurological signs (GCS score 4, positive Babinski and Kernig sign, neck stiffness) and hypoxia on arrival",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Chest CT revealed bilateral lung exudative lesions and pleural effusion",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Brain MRI showed diffuse abnormal embolic signals in cerebral hemisphere, brainstem, and cerebellum",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Improvement of lung symptoms and lung CT findings 14 days after fracture",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Transthoracic echocardiography demonstrated patent foramen ovale (PFO) shunt at 15 days post fracture",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Discharged with dysphasia under active supportive care and hormone therapy",
+            "evidence_ids": [
+              "E007"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "isolated pulmonary embolism without fat embolism syndrome",
+            "basis": "absence of evidence describing deep vein thrombosis or other thrombotic embolism; brain MRI embolic signals suggest cerebral involvement consistent with fat embolism"
+          },
+          {
+            "alternative": "traumatic brain injury",
+            "basis": "lack of imaging evidence of traumatic intracranial hemorrhage and clinical signs consistent with embolic phenomena"
+          },
+          {
+            "alternative": "infectious meningitis",
+            "basis": "absence of fever, infectious markers, or CSF findings; positive Kernig sign may be due to meningeal irritation from embolism-related inflammation"
+          }
+        ],
+        "remaining_uncertainties": [
+          "No documented laboratory test results including blood counts, coagulation profiles, or inflammatory markers",
+          "No detailed neurological exam findings or vital signs precisely at time of sleepiness onset (5 hours post-accident)",
+          "Incomplete documentation of neurological outcome and functional recovery beyond discharge",
+          "Limited details on specific treatment regimens beyond hormone therapy and supportive care"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Fat Embolism Syndrome (FES)",
+    "trajectory_summary": "A 46-year-old woman with femur fracture from an accident was initially assessed with neurological signs (GCS 4, positive Babinski, Kernig sign, neck stiffness), hypoxia (PO2 64 mm Hg), and local thigh bruising. Chest CT showed bilateral lung exudative lesions and pleural effusion, and brain MRI revealed diffuse embolic signals in multiple brain areas. Transthoracic echocardiography detected a patent foramen ovale (PFO) shunt. Lung imaging improved by day 14, and after supportive care and hormone therapy, she was discharged with dysphasia and a closed fracture. Laboratory tests were not reported. This temporal progression with clinical, radiologic, and echocardiographic evidence supports the diagnosis of fat embolism syndrome following femur fracture.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial neurological signs (GCS score 4, positive Babinski and Kernig sign, neck stiffness) and hypoxia on arrival",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Chest CT revealed bilateral lung exudative lesions and pleural effusion",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Brain MRI showed diffuse abnormal embolic signals in cerebral hemisphere, brainstem, and cerebellum",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Improvement of lung symptoms and lung CT findings 14 days after fracture",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Transthoracic echocardiography demonstrated patent foramen ovale (PFO) shunt at 15 days post fracture",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Discharged with dysphasia under active supportive care and hormone therapy",
+        "evidence_ids": [
+          "E007"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "isolated pulmonary embolism without fat embolism syndrome",
+        "basis": "absence of evidence describing deep vein thrombosis or other thrombotic embolism; brain MRI embolic signals suggest cerebral involvement consistent with fat embolism"
+      },
+      {
+        "alternative": "traumatic brain injury",
+        "basis": "lack of imaging evidence of traumatic intracranial hemorrhage and clinical signs consistent with embolic phenomena"
+      },
+      {
+        "alternative": "infectious meningitis",
+        "basis": "absence of fever, infectious markers, or CSF findings; positive Kernig sign may be due to meningeal irritation from embolism-related inflammation"
+      }
+    ],
+    "remaining_uncertainties": [
+      "No documented laboratory test results including blood counts, coagulation profiles, or inflammatory markers",
+      "No detailed neurological exam findings or vital signs precisely at time of sleepiness onset (5 hours post-accident)",
+      "Incomplete documentation of neurological outcome and functional recovery beyond discharge",
+      "Limited details on specific treatment regimens beyond hormone therapy and supportive care"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T16:17:43.975128+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

@@ -1,0 +1,373 @@
+{
+  "case_id": "PMC10909596",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 10,
+  "termination": "final",
+  "known_final_diagnosis": "Histopathology revealed a completely excised low-grade appendiceal mucinous neoplasm with fifteen negative lymph nodes.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E005",
+    "E007"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "order abdominal imaging study (CT scan) to evaluate the palpable mass and characterize it",
+        "current_trajectory_hypothesis": "Patient presented with lower abdominal pain and fullness after abdominal trauma; a palpable mass was found in the right lower quadrant, suggesting an abdominal lesion needing imaging characterization.",
+        "confirmed_evidence": [
+          "palpable mass in right lower quadrant after trauma"
+        ],
+        "missing_key_evidence": [
+          "imaging findings to characterize the mass",
+          "laboratory studies",
+          "histopathological confirmation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "The order for an abdominal CT scan is acknowledged but no source evidence documents the CT scan result.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request abdominal CT scan report findings",
+        "current_trajectory_hypothesis": "A palpable mass in the right lower quadrant after trauma suggests a lesion that needs characterization by CT imaging to aid diagnosis.",
+        "confirmed_evidence": [
+          "palpable mass in right lower quadrant after trauma",
+          "ordered abdominal CT scan"
+        ],
+        "missing_key_evidence": [
+          "abdominal CT scan findings including size, location, characteristics of the mass",
+          "laboratory studies",
+          "histopathological confirmation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "No abdominal CT scan report findings are documented in the source records.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "order laboratory testing including complete blood count, inflammatory markers, and tumor markers relevant for abdominal mass",
+        "current_trajectory_hypothesis": "There is a right lower quadrant palpable mass after trauma; imaging confirmation is lacking. Laboratory testing is needed to provide additional clinical context and possible tumor markers for neoplasia evaluation.",
+        "confirmed_evidence": [
+          "palpable mass in right lower quadrant after trauma",
+          "abdominal CT scan was ordered but no report available"
+        ],
+        "missing_key_evidence": [
+          "imaging findings characterizing the mass",
+          "laboratory tests results",
+          "histopathological confirmation of the mass"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Laboratory tests ordered based on clinician request; no specific source record documents the order",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Need source-grounded imaging, laboratory, surgical, and histopathology evidence to support diagnosis of low-grade appendiceal mucinous neoplasm after presentation with RLQ mass and trauma.",
+        "confirmed_evidence": [
+          "palpable mass in right lower quadrant after trauma",
+          "abdominal CT scan was ordered but no report available",
+          "laboratory tests ordered but no report available"
+        ],
+        "missing_key_evidence": [
+          "abdominal CT scan findings",
+          "laboratory test results",
+          "surgical procedure details and specimen",
+          "histopathology report confirming low-grade appendiceal mucinous neoplasm"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "An abdominal MRI was conducted, revealing a 58 × 52 × 109 mm intraperitoneal cystic lesion in the right mid to lower abdomen. The inferior margin of the lesion was in close proximity to the caecal pole, thin walled and entirely simple. The interior of the lesion demonstrated T2 hyperintensity but minimal T1 hyperintensity on weighted imaging. The appendix was not identified separate to this lesion as displayed in Fig. 1, Fig. 2.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request surgical operation report describing the approach, findings, and specimen details for removal of the abdominal mass",
+        "current_trajectory_hypothesis": "Imaging shows a large, thin-walled, cystic lesion near the cecal pole with appendix not separately visualized, raising suspicion of appendiceal mucinous neoplasm; surgical removal and operative details should clarify diagnosis.",
+        "confirmed_evidence": [
+          "palpable mass in right lower quadrant after trauma",
+          "abdominal MRI showing large intraperitoneal cystic lesion near cecal pole with appendix not separately identified (E001)"
+        ],
+        "missing_key_evidence": [
+          "surgical procedure details and specimen",
+          "histopathology report confirming low-grade appendiceal mucinous neoplasm"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "A large inflammatory abdominal lesion with associated enlarged lymph nodes was visualized within the mesentery of the ascending colon, shown in Fig. 4, Fig. 5. The appendix was not visualized. A right hemicolectomy with primary anastomosis was performed.",
+        "category": "other",
+        "temporal_cue": "intraoperative",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request histopathology report of the resected specimen after right hemicolectomy",
+        "current_trajectory_hypothesis": "Surgical excision via right hemicolectomy was performed for the large inflammatory lesion near the cecum; histopathology is needed to confirm diagnosis of low-grade appendiceal mucinous neoplasm.",
+        "confirmed_evidence": [
+          "palpable mass in right lower quadrant after trauma",
+          "abdominal MRI showing large intraperitoneal cystic lesion near cecal pole with appendix not separately identified (E001)",
+          "intraoperative report of right hemicolectomy for large inflammatory lesion with enlarged lymph nodes (E005)"
+        ],
+        "missing_key_evidence": [
+          "histopathology report confirming low-grade appendiceal mucinous neoplasm with lymph node status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient had a large cystic lesion near the cecum on imaging and underwent right hemicolectomy; awaiting histopathology confirmation of low-grade appendiceal mucinous neoplasm and lymph node status.",
+        "confirmed_evidence": [
+          "palpable mass in right lower quadrant after trauma",
+          "abdominal MRI showing large intraperitoneal cystic lesion near cecal pole with appendix not separately identified (E001)",
+          "intraoperative report of right hemicolectomy for large inflammatory lesion with enlarged lymph nodes (E005)"
+        ],
+        "missing_key_evidence": [
+          "histopathology report confirming low-grade appendiceal mucinous neoplasm with lymph node status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "The patient had an unremarkable long term postoperative course, with full return to baseline functioning.",
+        "category": "clinical_course",
+        "temporal_cue": "follow-up",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request the histopathology report specifying the diagnosis and lymph node status after right hemicolectomy",
+        "current_trajectory_hypothesis": "The right hemicolectomy specimen was obtained due to a large cystic lesion near the cecum; histopathology report is the key evidence to confirm the diagnosis of low-grade appendiceal mucinous neoplasm and lymph node involvement.",
+        "confirmed_evidence": [
+          "palpable mass in right lower quadrant after trauma",
+          "abdominal MRI showing large intraperitoneal cystic lesion near cecal pole with appendix not separately identified (E001)",
+          "right hemicolectomy performed for large inflammatory lesion with enlarged lymph nodes (E005)",
+          "unremarkable long term postoperative course with full return to baseline functioning (E007)"
+        ],
+        "missing_key_evidence": [
+          "histopathology report confirming low-grade appendiceal mucinous neoplasm with fifteen negative lymph nodes"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with RLQ mass after trauma; imaging showed a large cystic lesion at cecal pole; right hemicolectomy performed to remove lesion; awaiting histopathology confirmation of diagnosis and lymph node status.",
+        "confirmed_evidence": [
+          "palpable mass in right lower quadrant after trauma",
+          "abdominal MRI showing large cystic lesion adjacent to cecum with non-visualized appendix (E001)",
+          "right hemicolectomy performed for large inflammatory lesion with enlarged lymph nodes (E005)",
+          "unremarkable postoperative course with full functional recovery (E007)"
+        ],
+        "missing_key_evidence": [
+          "histopathology report confirming low-grade appendiceal mucinous neoplasm with fifteen negative lymph nodes"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "low-grade appendiceal mucinous neoplasm with fifteen negative lymph nodes",
+        "trajectory_summary": "A 33-year-old man presented with lower abdominal pain and fullness after abdominal trauma and a palpable mass in the right lower quadrant. Abdominal MRI revealed a large, thin-walled, intraperitoneal cystic lesion adjacent to the cecal pole with the appendix not separately identified (E001). Intraoperatively, a large inflammatory lesion with enlarged lymph nodes was found in the mesentery of the ascending colon and a right hemicolectomy with primary anastomosis was performed (E005). The patient's postoperative course was unremarkable with full recovery (E007). Although histopathology report is not directly documented in the source, the known final diagnosis states it revealed a completely excised low-grade appendiceal mucinous neoplasm with fifteen negative lymph nodes.",
+        "key_supporting_evidence": [
+          {
+            "claim": "presence of a large thin-walled cystic lesion near the cecal pole with appendix not separately identified on abdominal MRI",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "right hemicolectomy performed for large inflammatory lesion with enlarged lymph nodes in mesentery",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "the patient had an unremarkable post-operative course with return to baseline functioning",
+            "evidence_ids": [
+              "E007"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [
+          "Direct source-documented histopathology report confirming low-grade appendiceal mucinous neoplasm with fifteen negative lymph nodes is not explicitly documented in the source records."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "low-grade appendiceal mucinous neoplasm with fifteen negative lymph nodes",
+    "trajectory_summary": "A 33-year-old man presented with lower abdominal pain and fullness after abdominal trauma and a palpable mass in the right lower quadrant. Abdominal MRI revealed a large, thin-walled, intraperitoneal cystic lesion adjacent to the cecal pole with the appendix not separately identified (E001). Intraoperatively, a large inflammatory lesion with enlarged lymph nodes was found in the mesentery of the ascending colon and a right hemicolectomy with primary anastomosis was performed (E005). The patient's postoperative course was unremarkable with full recovery (E007). Although histopathology report is not directly documented in the source, the known final diagnosis states it revealed a completely excised low-grade appendiceal mucinous neoplasm with fifteen negative lymph nodes.",
+    "key_supporting_evidence": [
+      {
+        "claim": "presence of a large thin-walled cystic lesion near the cecal pole with appendix not separately identified on abdominal MRI",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "right hemicolectomy performed for large inflammatory lesion with enlarged lymph nodes in mesentery",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "the patient had an unremarkable post-operative course with return to baseline functioning",
+        "evidence_ids": [
+          "E007"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [
+      "Direct source-documented histopathology report confirming low-grade appendiceal mucinous neoplasm with fifteen negative lymph nodes is not explicitly documented in the source records."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.7
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-29T11:20:12.518545+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

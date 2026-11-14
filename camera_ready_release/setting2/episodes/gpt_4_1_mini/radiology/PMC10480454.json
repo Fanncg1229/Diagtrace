@@ -1,0 +1,588 @@
+{
+  "case_id": "PMC10480454",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "the patient was admitted to the surgical service for the management of a liver abscess, presumed to be secondary to perforation of the stomach by an ingested foreign body",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E005",
+    "E006"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order blood culture results",
+        "current_trajectory_hypothesis": "Patient presented with fever and headache, with mild leukocytosis and elevated liver enzymes, possibly infectious; rule in bacteremia that might suggest a liver abscess source",
+        "confirmed_evidence": [
+          "leukocytosis 12,600/mm3",
+          "elevated AST and ALT",
+          "fever 38.2°C",
+          "tachycardia and hypertension at presentation"
+        ],
+        "missing_key_evidence": [
+          "blood culture results",
+          "imaging of the liver or abdomen",
+          "clinical progression after initial discharge"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Blood culture test ordered but no blood culture result is documented in the source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order abdominal imaging report focusing on the liver (e.g., ultrasound or CT abdomen)",
+        "current_trajectory_hypothesis": "To confirm suspected liver abscess as source of fever and elevated liver enzymes, and correlate with possible perforated stomach by foreign body",
+        "confirmed_evidence": [
+          "fever 38.2°C",
+          "leukocytosis 12,600/mm3",
+          "elevated AST 48 U/L and ALT 83 U/L at presentation",
+          "tachycardia and hypertension at presentation"
+        ],
+        "missing_key_evidence": [
+          "blood culture results",
+          "abdominal imaging showing liver abscess or foreign body",
+          "clinical progression after discharge",
+          "direct evidence of stomach perforation by foreign body"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Test ordered but imaging result not yet documented at this phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Await further clinical information, test results, and possible hospital course documentation to confirm liver abscess and stomach perforation by foreign body",
+        "confirmed_evidence": [
+          "fever 38.2°C",
+          "leukocytosis 12,600/mm3",
+          "elevated AST and ALT",
+          "tachycardia and hypertension at presentation",
+          "no documented blood culture or abdominal imaging results yet"
+        ],
+        "missing_key_evidence": [
+          "blood culture results",
+          "abdominal imaging showing liver abscess or foreign body",
+          "clinical progression details supporting admission and surgery decision",
+          "direct evidence of stomach perforation by foreign body"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "The patient was febrile at 38.2°C, tachycardic to 121 beats per minute (bpm), and hypertensive with systolic blood pressure of 168 and diastolic blood pressure of 101 mm Hg.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial presentation with fever, leukocytosis, and elevated liver enzymes likely progressed to revealing liver abscess and stomach perforation by foreign body through imaging and clinical course",
+        "confirmed_evidence": [
+          "fever 38.2°C, tachycardia 121 bpm, hypertension 168/101 mm Hg on admission",
+          "leukocytosis 12,600/mm3",
+          "elevated AST 48 U/L and ALT 83 U/L",
+          "no blood culture or imaging results documented yet"
+        ],
+        "missing_key_evidence": [
+          "blood culture or microbiology results",
+          "abdominal imaging confirming liver abscess and foreign body",
+          "clinical course leading to admission and surgery",
+          "direct evidence of stomach perforation by foreign body"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "Laboratory assessment showed a white blood cell count of 12,600/mm3 (normal range 4000-11,000/mm3), Aspartate transferase (AST) 48 U/L (normal range <34 U/L), and Alanine transferase (ALT) 83 U/L (normal range 10-49 U/L).",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presents with fever, headache, leukocytosis, and elevated liver enzymes; clinical course and abdominal imaging likely reveal liver abscess and stomach perforation by foreign body leading to surgical admission",
+        "confirmed_evidence": [
+          "fever 38.2°C, tachycardia 121 bpm, hypertension 168/101 mm Hg on admission",
+          "leukocytosis 12,600/mm3",
+          "elevated AST 48 U/L and ALT 83 U/L"
+        ],
+        "missing_key_evidence": [
+          "blood culture or microbiology results",
+          "abdominal imaging confirming liver abscess and foreign body",
+          "clinical course leading to admission and surgery",
+          "direct evidence of stomach perforation by foreign body"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Contrast-enhanced CT of the abdomen was performed which revealed a 5.1 × 7.5 × 3.9 cm heterogeneous hypoattenuating lesion in the left hepatic lobe extending up to the lesser curvature of the stomach with and centered over gastro-hepatic recess.",
+        "category": "image_finding",
+        "temporal_cue": "3 days after initial discharge, on return admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request detailed findings from abdominal CT describing any foreign body, stomach perforation, and further characterization of the liver lesion",
+        "current_trajectory_hypothesis": "Abdominal CT shows a heterogeneous lesion in the left hepatic lobe contiguous with the lesser curvature of the stomach, potentially indicating a liver abscess secondary to stomach perforation by foreign body",
+        "confirmed_evidence": [
+          "CT abdomen shows 5.1 × 7.5 × 3.9 cm heterogeneous hypoattenuating lesion in left hepatic lobe extending to lesser curvature of stomach at gastro-hepatic recess (E003)",
+          "patient initially presented with fever, leukocytosis, elevated liver enzymes (E001, E002)"
+        ],
+        "missing_key_evidence": [
+          "confirmation of foreign body presence on imaging or procedure",
+          "clinical course justifying surgical admission",
+          "direct evidence of stomach perforation",
+          "microbiological culture results supporting infectious abscess"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial presentation with fever and elevated liver enzymes followed by CT evidence of hepatic lesion contiguous with stomach; awaiting surgical and microbiology details to confirm liver abscess and stomach perforation by ingested foreign body",
+        "confirmed_evidence": [
+          "fever 38.2°C, leukocytosis 12,600/mm3, elevated AST 48 U/L and ALT 83 U/L at initial presentation (E001, E002)",
+          "CT abdomen 3 days after discharge shows 5.1 × 7.5 × 3.9 cm heterogeneous hypoattenuating liver lesion in left lobe extending to lesser curvature of stomach (E003)"
+        ],
+        "missing_key_evidence": [
+          "direct evidence of foreign body on imaging or procedure",
+          "operative findings confirming stomach perforation",
+          "microbiological culture results confirming infectious abscess",
+          "clinical course details leading to surgical admission"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Physical examination demonstrated tenderness in the right upper quadrant and epigastrium.",
+        "category": "other",
+        "temporal_cue": "3 days after initial discharge, on return admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Request surgical operative report or procedure notes documenting findings of stomach perforation and foreign body, as well as confirmation of liver abscess",
+        "current_trajectory_hypothesis": "The patient initially presented with fever, leukocytosis, and elevated liver enzymes; imaging showed a liver lesion contiguous with the stomach; physical exam revealed abdominal tenderness; likely surgical exploration confirmed diagnosis of liver abscess due to stomach perforation by foreign body",
+        "confirmed_evidence": [
+          "initial fever, leukocytosis 12,600/mm3, elevated AST 48 and ALT 83 (E001, E002)",
+          "CT abdomen showing 5.1 × 7.5 × 3.9 cm heterogeneous hypoattenuating liver lesion contiguous with lesser curvature of stomach (E003)",
+          "physical exam tenderness in right upper quadrant and epigastrium on readmission (E004)"
+        ],
+        "missing_key_evidence": [
+          "operative/surgical findings documenting stomach perforation and foreign body",
+          "microbiology culture results of abscess material",
+          "clinical progression details and justification for surgical admission"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Order for surgical operative report or procedure notes related to stomach perforation, foreign body, and liver abscess documented.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial fever, leukocytosis, elevated liver enzymes with imaging showing liver lesion contiguous to stomach; abdominal tenderness and subsequent surgical admission likely confirmed liver abscess due to stomach perforation by foreign body",
+        "confirmed_evidence": [
+          "fever 38.2°C, leukocytosis 12,600/mm3, elevated AST 48 and ALT 83 at presentation (E001, E002)",
+          "CT abdomen showing 5.1 × 7.5 × 3.9 cm heterogeneous hypoattenuating lesion in left hepatic lobe contiguous with stomach (E003)",
+          "physical exam tenderness in RUQ and epigastrium on return admission (E004)"
+        ],
+        "missing_key_evidence": [
+          "operative findings documenting stomach perforation and foreign body",
+          "microbiological culture results of abscess",
+          "detailed clinical progression and surgical admission justification"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Labs showed an interval increase of leukocytosis to 16,500/mm3, AST 52 U/L, and ALT 105 U/L.",
+        "category": "other",
+        "temporal_cue": "3 days after initial discharge, on return admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order surgical operative report documenting findings of stomach perforation by foreign body and confirmation of liver abscess",
+        "current_trajectory_hypothesis": "Patient progressed from initial fever and elevated liver enzymes to imaging evidence of liver lesion adjacent to stomach and physical tenderness; surgical exploration is expected to confirm stomach perforation by foreign body and liver abscess diagnosis",
+        "confirmed_evidence": [
+          "fever 38.2°C, leukocytosis 12,600/mm3, elevated AST 48 and ALT 83 at presentation (E001, E002)",
+          "CT abdomen showing 5.1 × 7.5 × 3.9 cm heterogeneous hypoattenuating liver lesion contiguous with stomach lesser curvature (E003)",
+          "physical exam tenderness in RUQ and epigastrium on return admission (E004)",
+          "leukocytosis increased to 16,500/mm3, AST 52 U/L, ALT 105 U/L on readmission (E005)"
+        ],
+        "missing_key_evidence": [
+          "operative findings confirming stomach perforation and presence of foreign body",
+          "microbiological culture results from abscess",
+          "clinical course details supporting surgical admission and management"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Surgical operative report order recorded, no direct source result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial presentation with fever, elevated liver enzymes and leukocytosis progressed to CT evidence of liver lesion adjacent to stomach and abdominal tenderness; expectation that surgical exploration confirmed stomach perforation by foreign body and liver abscess with microbiological correlation",
+        "confirmed_evidence": [
+          "initial fever 38.2°C, leukocytosis 12,600/mm3, elevated AST 48 and ALT 83 (E001, E002)",
+          "CT abdomen showing 5.1 × 7.5 × 3.9 cm heterogeneous hypoattenuating liver lesion contiguous with lesser curvature of stomach (E003)",
+          "physical examination tenderness in right upper quadrant and epigastrium on readmission (E004)",
+          "leukocytosis increased to 16,500/mm3, AST 52, ALT 105 on readmission (E005)"
+        ],
+        "missing_key_evidence": [
+          "operative findings documenting stomach perforation and foreign body presence",
+          "microbiological culture results from abscess fluid",
+          "detailed clinical progression and justification for surgical admission and management"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "The abscess grew Streptococcus anginosus and Actinomyces odontolyticus on culture.",
+        "category": "microbiology",
+        "temporal_cue": "postoperative",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial presentation with fever, leukocytosis, and elevated liver enzymes followed by CT evidence of a liver abscess contiguous with the stomach; physical exam tenderness and post-op abscess culture indicating infection; pending operative report will confirm stomach perforation by foreign body and clinical course",
+        "confirmed_evidence": [
+          "Initial fever 38.2°C, leukocytosis 12,600/mm3, elevated AST 48 and ALT 83 at presentation (E001, E002)",
+          "CT abdomen showing 5.1 × 7.5 × 3.9 cm heterogeneous hypoattenuating lesion in left hepatic lobe contiguous with lesser curvature of stomach (E003)",
+          "Physical exam tenderness in RUQ and epigastrium on readmission (E004)",
+          "Leukocytosis increased to 16,500/mm3, AST 52, ALT 105 on readmission (E005)",
+          "Abscess culture grew Streptococcus anginosus and Actinomyces odontolyticus (E006)"
+        ],
+        "missing_key_evidence": [
+          "operative findings explicitly documenting stomach perforation and foreign body presence",
+          "detailed clinical course and justification for surgical admission and management"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient initially presented with fever, leukocytosis, elevated liver enzymes; CT imaging showed liver abscess contiguous with stomach; physical exam confirmed abdominal tenderness; abscess culture grew pathogenic organisms; awaiting operative report to confirm stomach perforation by foreign body and surgical management.",
+        "confirmed_evidence": [
+          "Initial fever 38.2°C, leukocytosis 12,600/mm3, elevated AST and ALT (E001, E002)",
+          "CT abdomen shows 5.1 × 7.5 × 3.9 cm hypoattenuating liver lesion contiguous with lesser curvature of stomach (E003)",
+          "Physical exam tenderness in RUQ and epigastrium on readmission (E004)",
+          "Leukocytosis increased to 16,500/mm3, AST 52, ALT 105 on readmission (E005)",
+          "Abscess culture grew Streptococcus anginosus and Actinomyces odontolyticus (E006)"
+        ],
+        "missing_key_evidence": [
+          "operative surgical report documenting stomach perforation and foreign body",
+          "detailed clinical course justifying surgical admission and intervention"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient initially presented with fever, leukocytosis, elevated liver enzymes; progressed to CT imaging showing a liver abscess contiguous with stomach; physical exam showed abdominal tenderness; abscess cultures positive for Streptococcus anginosus and Actinomyces odontolyticus; awaiting surgical report to definitively confirm stomach perforation by foreign body and details of surgical management.",
+        "confirmed_evidence": [
+          "Initial fever 38.2°C, leukocytosis 12,600/mm3, elevated AST 48 and ALT 83 (E001, E002)",
+          "CT abdomen showing 5.1 × 7.5 × 3.9 cm heterogeneous hypoattenuating liver lesion contiguous with lesser curvature of stomach (E003)",
+          "Physical exam tenderness in right upper quadrant and epigastrium on return admission (E004)",
+          "Leukocytosis increased to 16,500/mm3, AST 52, ALT 105 on readmission (E005)",
+          "Abscess culture grew Streptococcus anginosus and Actinomyces odontolyticus (E006)"
+        ],
+        "missing_key_evidence": [
+          "operative findings explicitly documenting stomach perforation and presence of foreign body",
+          "detailed clinical progression and justification for surgical admission and management"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "the patient was admitted to the surgical service for the management of a liver abscess, presumed to be secondary to perforation of the stomach by an ingested foreign body",
+        "trajectory_summary": "A 43-year-old male presented with 5 days of fever and headache, febrile at 38.2°C, tachycardic and hypertensive, with leukocytosis (12,600/mm3) and mild elevation of liver enzymes (AST 48, ALT 83). Initial chest X-ray was unremarkable except mild right hemidiaphragm elevation. After discharge, the patient returned 3 days later with abdominal tenderness localized to the right upper quadrant and epigastrium. Repeat labs showed worsening leukocytosis (16,500/mm3) and elevated transaminases (AST 52, ALT 105). Contrast-enhanced abdominal CT revealed a 5.1 × 7.5 × 3.9 cm heterogenous hypoattenuating lesion in the left hepatic lobe contiguous with the lesser curvature of the stomach at the gastro-hepatic recess, consistent with a liver abscess. Abscess cultures grew Streptococcus anginosus and Actinomyces odontolyticus. The patient was subsequently admitted to surgery for management of the liver abscess, presumed secondary to stomach perforation by an ingested foreign body, although explicit operative findings documenting stomach perforation and foreign body were not provided.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial presentation with fever, leukocytosis, and elevated liver enzymes (AST, ALT)",
+            "evidence_ids": [
+              "E001",
+              "E002"
+            ]
+          },
+          {
+            "claim": "Abdominal CT demonstrated a heterogenous hypoattenuating lesion in left hepatic lobe contiguous with stomach suggestive of liver abscess",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Physical examination on readmission revealed right upper quadrant and epigastric tenderness",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Laboratory values showed increasing leukocytosis and transaminases on readmission",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Microbiological culture of abscess fluid grew Streptococcus anginosus and Actinomyces odontolyticus",
+            "evidence_ids": [
+              "E006"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [
+          "Operative/surgical report explicitly documenting stomach perforation by ingested foreign body",
+          "Detailed clinical course information justifying surgical admission and clinical management",
+          "Microbiological blood culture results from initial admission"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "the patient was admitted to the surgical service for the management of a liver abscess, presumed to be secondary to perforation of the stomach by an ingested foreign body",
+    "trajectory_summary": "A 43-year-old male presented with 5 days of fever and headache, febrile at 38.2°C, tachycardic and hypertensive, with leukocytosis (12,600/mm3) and mild elevation of liver enzymes (AST 48, ALT 83). Initial chest X-ray was unremarkable except mild right hemidiaphragm elevation. After discharge, the patient returned 3 days later with abdominal tenderness localized to the right upper quadrant and epigastrium. Repeat labs showed worsening leukocytosis (16,500/mm3) and elevated transaminases (AST 52, ALT 105). Contrast-enhanced abdominal CT revealed a 5.1 × 7.5 × 3.9 cm heterogenous hypoattenuating lesion in the left hepatic lobe contiguous with the lesser curvature of the stomach at the gastro-hepatic recess, consistent with a liver abscess. Abscess cultures grew Streptococcus anginosus and Actinomyces odontolyticus. The patient was subsequently admitted to surgery for management of the liver abscess, presumed secondary to stomach perforation by an ingested foreign body, although explicit operative findings documenting stomach perforation and foreign body were not provided.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial presentation with fever, leukocytosis, and elevated liver enzymes (AST, ALT)",
+        "evidence_ids": [
+          "E001",
+          "E002"
+        ]
+      },
+      {
+        "claim": "Abdominal CT demonstrated a heterogenous hypoattenuating lesion in left hepatic lobe contiguous with stomach suggestive of liver abscess",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Physical examination on readmission revealed right upper quadrant and epigastric tenderness",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Laboratory values showed increasing leukocytosis and transaminases on readmission",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Microbiological culture of abscess fluid grew Streptococcus anginosus and Actinomyces odontolyticus",
+        "evidence_ids": [
+          "E006"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [
+      "Operative/surgical report explicitly documenting stomach perforation by ingested foreign body",
+      "Detailed clinical course information justifying surgical admission and clinical management",
+      "Microbiological blood culture results from initial admission"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.75
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T18:43:10.715737+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

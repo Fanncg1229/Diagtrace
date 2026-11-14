@@ -1,0 +1,471 @@
+{
+  "case_id": "PMC11937883",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 13,
+  "termination": "final",
+  "known_final_diagnosis": "The biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, as observed in the H&E histological section (figure 1). ... These findings, along with previous imaging, supported the diagnosis of PCACC ... Histopathological examination of the excised tissue confirmed the diagnosis of PCACC",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "order biopsy of the right parieto-occipital scalp lesions",
+        "current_trajectory_hypothesis": "Initial presentation of scalp lesions with pruritus and swelling; biopsy needed to investigate lesion pathology",
+        "confirmed_evidence": [
+          "persistent swelling, pruritus, progressive enlargement, and physical exam revealing two scalp lesions (mobile cystic and erythematous irregular lesion)"
+        ],
+        "missing_key_evidence": [
+          "histopathological findings from biopsy to confirm diagnosis",
+          "imaging results to assess lesion extent and characteristics"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [
+          "biopsy of the right parieto-occipital scalp lesions"
+        ],
+        "explanation": "Biopsy order is matched to existing source record E002; order confirmed and pending result.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request histopathological report of the biopsy from the right parieto-occipital scalp lesions",
+        "current_trajectory_hypothesis": "Biopsy of scalp lesions performed to determine lesion type; histopathological report will confirm diagnosis of adenoid cystic carcinoma",
+        "confirmed_evidence": [
+          "persistent swelling, pruritus, progressive enlargement, and physical exam revealing two scalp lesions"
+        ],
+        "missing_key_evidence": [
+          "histopathological findings from biopsy to confirm PCACC",
+          "imaging results to assess lesion extent and support diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "The biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, as observed in the H&E histological section (figure 1). Immunohistochemistry was performed, revealing that the lesion exhibited patchy infiltrates positively staining for epithelial membrane antigen, specifically staining the apical aspect of the pseudo glandular cyst (figure 2A). Additionally, there was diffuse positive staining for pan-cytokeratin (AE1/AE3) (figure 2B).",
+        "category": "pathology_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "order imaging of the right posterior scalp (MRI or CT) to assess lesion extent and characteristics",
+        "current_trajectory_hypothesis": "Biopsy confirmed adenoid cystic carcinoma; imaging needed to assess lesion extent and support diagnosis of PCACC",
+        "confirmed_evidence": [
+          "persistent swelling, pruritus, progressive enlargement, and physical exam revealing two scalp lesions",
+          "biopsy showed basaloid cutaneous lesion consistent with adenoid cystic carcinoma with specific immunohistochemistry staining"
+        ],
+        "missing_key_evidence": [
+          "imaging results to assess lesion extent and support diagnosis",
+          "clinical course or surgical excision pathology confirming diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Test order for imaging of right posterior scalp recorded; no direct source evidence result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request imaging report (e.g. MRI or CT) of the right posterior scalp lesion",
+        "current_trajectory_hypothesis": "Imaging was ordered to assess lesion extent and characteristics after biopsy confirmed adenoid cystic carcinoma; imaging findings will support diagnosis of PCACC.",
+        "confirmed_evidence": [
+          "persistent swelling, pruritus, progressive enlargement, and physical exam revealing two scalp lesions",
+          "biopsy showed basaloid cutaneous lesion consistent with adenoid cystic carcinoma with specific immunohistochemistry staining",
+          "imaging ordered but result not yet documented"
+        ],
+        "missing_key_evidence": [
+          "imaging results to assess lesion extent and characteristics supporting PCACC diagnosis",
+          "clinical course or surgical excision histopathology confirming diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "Sonographic evaluation of the scalp revealed two adjacent hypoechoic lesions located in the parietal region, with the largest measuring 10×8 mm, resembling epidermoid cysts.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial presentation of scalp lesions with pruritus and swelling; biopsy confirmed adenoid cystic carcinoma; imaging showed hypoechoic lesions resembling epidermoid cysts; need surgical excision pathology to confirm PCACC and observe clinical course",
+        "confirmed_evidence": [
+          "persistent swelling, pruritus, progressive enlargement, and physical exam revealing two scalp lesions",
+          "biopsy showed basaloid cutaneous lesion consistent with adenoid cystic carcinoma with specific immunohistochemistry staining",
+          "sonographic imaging showed two hypoechoic lesions resembling epidermoid cysts"
+        ],
+        "missing_key_evidence": [
+          "surgical excision histopathology confirming diagnosis of PCACC",
+          "clinical course including treatment and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "The PET-CT scan revealed the absence of fluorodeoxyglucose (FDG) uptake or hypermetabolic activity, with normal physiological FDG distribution in the lymph nodes, organs and bone marrow.",
+        "category": "imaging_report",
+        "temporal_cue": "after biopsy",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "order surgical excision of the right parieto-occipital scalp lesions",
+        "current_trajectory_hypothesis": "Biopsy confirmed adenoid cystic carcinoma and imaging shows hypoechoic lesions; surgical excision needed to obtain histopathology confirming primary cutaneous adenoid cystic carcinoma (PCACC) and assist diagnosis confirmation",
+        "confirmed_evidence": [
+          "persistent swelling, pruritus, progressive enlargement, and physical exam revealing two scalp lesions",
+          "biopsy showed basaloid cutaneous lesion consistent with adenoid cystic carcinoma with specific immunohistochemistry staining",
+          "sonographic imaging showed two hypoechoic lesions resembling epidermoid cysts",
+          "PET-CT showed no hypermetabolic activity or FDG uptake, no signs of metastasis"
+        ],
+        "missing_key_evidence": [
+          "histopathological examination of excised tissue confirming PCACC diagnosis",
+          "clinical course or treatment response after excision"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "ordered",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [
+          "surgical excision of right parieto-occipital scalp lesions"
+        ],
+        "explanation": "Procedure order matches documented surgical excision evidence",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request histopathological report of the surgical excision of the right parieto-occipital scalp lesions",
+        "current_trajectory_hypothesis": "Surgical excision performed after biopsy and imaging; histopathology of excised tissue needed to confirm diagnosis of primary cutaneous adenoid cystic carcinoma (PCACC)",
+        "confirmed_evidence": [
+          "persistent swelling, pruritus, progressive enlargement, and physical exam revealing two scalp lesions",
+          "biopsy showed basaloid cutaneous lesion consistent with adenoid cystic carcinoma with specific immunohistochemistry staining",
+          "sonographic imaging showed two hypoechoic lesions resembling epidermoid cysts",
+          "PET-CT showed no hypermetabolic activity or FDG uptake, no signs of metastasis",
+          "surgical excision of right parieto-occipital scalp lesions was ordered"
+        ],
+        "missing_key_evidence": [
+          "histopathological examination of excised tissue confirming primary cutaneous adenoid cystic carcinoma diagnosis",
+          "clinical course or treatment response after excision"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [
+          "surgical excision of right parieto-occipital scalp lesions"
+        ],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Persistent scalp lesions confirmed by biopsy as adenoid cystic carcinoma; imaging showed no metastasis; surgical excision ordered but histopathology results pending to confirm PCACC diagnosis",
+        "confirmed_evidence": [
+          "persistent swelling, pruritus, progressive enlargement, and physical exam revealing two scalp lesions",
+          "biopsy showed basaloid cutaneous lesion consistent with adenoid cystic carcinoma with specific immunohistochemistry staining",
+          "sonographic imaging showed two hypoechoic lesions resembling epidermoid cysts",
+          "PET-CT showed no hypermetabolic activity or FDG uptake, no signs of metastasis",
+          "surgical excision of right parieto-occipital scalp lesions was ordered"
+        ],
+        "missing_key_evidence": [
+          "histopathological examination of excised tissue confirming primary cutaneous adenoid cystic carcinoma diagnosis",
+          "clinical course or treatment response after excision"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Under local anaesthesia, the two lesions were completely excised surgically. Subsequent reconstruction of the operative site involved the use of a local flap using adjacent skin to reconstruct and fill the defect created by the surgical excision on the scalp. A rotational flap was used, repositioning surrounding scalp tissue in an arc to effectively cover the excision site.",
+        "category": "treatment_response",
+        "temporal_cue": "after workup",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request histopathological report of the surgically excised right parieto-occipital scalp lesions tissue",
+        "current_trajectory_hypothesis": "Surgical excision of lesions performed with local flap reconstruction; histopathology of excised tissue will confirm diagnosis of primary cutaneous adenoid cystic carcinoma (PCACC)",
+        "confirmed_evidence": [
+          "presentation with persistent scalp swelling and pruritus",
+          "biopsy showing basaloid cutaneous lesion consistent with adenoid cystic carcinoma with immunohistochemistry data",
+          "imaging showing two adjacent hypoechoic scalp lesions resembling epidermoid cysts and PET-CT excluding metastasis",
+          "surgical excision of lesions with local flap reconstruction"
+        ],
+        "missing_key_evidence": [
+          "histopathological examination of excised tissue confirming the diagnosis of PCACC",
+          "clinical course or treatment response post excision"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Presentation with scalp lesion and pruritus; biopsy confirmed adenoid cystic carcinoma; imaging showed hypoechoic lesions and no metastasis; surgical excision completed with reconstruction; awaiting histopathological confirmation from excised tissue and clinical course follow-up.",
+        "confirmed_evidence": [
+          "persistent swelling, pruritus, and progressive scalp lesion",
+          "biopsy showing basaloid cutaneous lesion consistent with adenoid cystic carcinoma with immunohistochemistry",
+          "sonographic imaging showing hypoechoic lesions resembling epidermoid cysts",
+          "PET-CT excluding metastasis",
+          "surgical excision with local flap reconstruction completed"
+        ],
+        "missing_key_evidence": [
+          "histopathological report of excised tissue confirming PCACC",
+          "clinical course or treatment outcome documentation post excision"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Persistent scalp lesions with pruritus confirmed as adenoid cystic carcinoma by biopsy; imaging showed no metastasis; surgical excision performed with reconstruction; awaiting histopathological confirmation of PCACC from excised tissue and clinical follow-up.",
+        "confirmed_evidence": [
+          "Clinical presentation with persistent swelling, pruritus, and progressive scalp lesion",
+          "Histopathological biopsy showing basaloid cutaneous lesion consistent with adenoid cystic carcinoma with immunohistochemistry findings",
+          "Sonographic imaging revealing two adjacent hypoechoic scalp lesions resembling epidermoid cysts",
+          "PET-CT scan excluding metastasis with no FDG uptake",
+          "Surgical excision of lesions with local flap reconstruction completed"
+        ],
+        "missing_key_evidence": [
+          "Histopathological report of excised tissue confirming primary cutaneous adenoid cystic carcinoma (PCACC)",
+          "Clinical course or treatment response documentation post excision"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request clinical follow-up or treatment response notes after surgical excision of the right parieto-occipital scalp lesions",
+        "current_trajectory_hypothesis": "Surgical excision of scalp lesions with local flap reconstruction completed; awaiting histopathological confirmation from excised tissue and clinical course/treatment response documentation to confirm diagnosis of PCACC",
+        "confirmed_evidence": [
+          "persistent swelling, pruritus, progressive enlargement of scalp lesions",
+          "biopsy showing basaloid cutaneous lesion consistent with adenoid cystic carcinoma with immunohistochemistry staining",
+          "sonographic imaging showing two hypoechoic scalp lesions resembling epidermoid cysts",
+          "PET-CT scan excluding metastasis with no FDG uptake",
+          "surgical excision of lesions with local flap reconstruction completed"
+        ],
+        "missing_key_evidence": [
+          "histopathological examination of the excised tissue confirming primary cutaneous adenoid cystic carcinoma (PCACC)",
+          "clinical course or detailed treatment response documentation after excision"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Primary cutaneous adenoid cystic carcinoma (PCACC)",
+        "trajectory_summary": "A woman in her 20s presented with a 4-month history of a persistent swelling and pruritic lesions on the right posterior scalp. Initial clinical exam found two distinct scalp lesions. Biopsy of the lesions revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma with supportive immunohistochemical staining. Imaging including sonographic evaluation showed two hypoechoic lesions resembling epidermoid cysts and PET-CT excluded metastatic disease with no abnormal FDG uptake. Surgical excision of the lesions with local flap reconstruction was performed. Although direct histopathological examination of the excised tissue was not fully documented, the diagnosis of PCACC was supported by the initial biopsy, imaging, absence of metastasis, and documented surgical management, consistent with the final diagnosis.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Biopsy revealed basaloid cutaneous lesion consistent with adenoid cystic carcinoma with specific immunohistochemical staining",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Sonographic imaging showed two adjacent hypoechoic scalp lesions resembling epidermoid cysts",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "PET-CT scan excluded metastatic disease with no FDG uptake",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Surgical excision of lesions with local flap reconstruction was performed",
+            "evidence_ids": [
+              "E004"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "epidermoid cyst",
+            "basis": "Imaging suggested epidermoid cysts but biopsy confirmed adenoid cystic carcinoma"
+          },
+          {
+            "alternative": "metastatic disease",
+            "basis": "PET-CT showed no metastatic activity or FDG uptake"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Lack of accessible histopathology report from the surgical excision confirming PCACC",
+          "Detailed clinical course and treatment response post excision not documented"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Primary cutaneous adenoid cystic carcinoma (PCACC)",
+    "trajectory_summary": "A woman in her 20s presented with a 4-month history of a persistent swelling and pruritic lesions on the right posterior scalp. Initial clinical exam found two distinct scalp lesions. Biopsy of the lesions revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma with supportive immunohistochemical staining. Imaging including sonographic evaluation showed two hypoechoic lesions resembling epidermoid cysts and PET-CT excluded metastatic disease with no abnormal FDG uptake. Surgical excision of the lesions with local flap reconstruction was performed. Although direct histopathological examination of the excised tissue was not fully documented, the diagnosis of PCACC was supported by the initial biopsy, imaging, absence of metastasis, and documented surgical management, consistent with the final diagnosis.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Biopsy revealed basaloid cutaneous lesion consistent with adenoid cystic carcinoma with specific immunohistochemical staining",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Sonographic imaging showed two adjacent hypoechoic scalp lesions resembling epidermoid cysts",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "PET-CT scan excluded metastatic disease with no FDG uptake",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Surgical excision of lesions with local flap reconstruction was performed",
+        "evidence_ids": [
+          "E004"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "epidermoid cyst",
+        "basis": "Imaging suggested epidermoid cysts but biopsy confirmed adenoid cystic carcinoma"
+      },
+      {
+        "alternative": "metastatic disease",
+        "basis": "PET-CT showed no metastatic activity or FDG uptake"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Lack of accessible histopathology report from the surgical excision confirming PCACC",
+      "Detailed clinical course and treatment response post excision not documented"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.85
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-23T17:20:18.340867+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

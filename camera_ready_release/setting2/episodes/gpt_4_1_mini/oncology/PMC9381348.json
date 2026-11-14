@@ -1,0 +1,340 @@
+{
+  "case_id": "PMC9381348",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 8,
+  "termination": "final",
+  "known_final_diagnosis": "we concluded that the sinus node damage had most likely been caused by ICI-induced myocarditis",
+  "disclosed_evidence_ids": [
+    "E004",
+    "E007",
+    "E008"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order cardiac biomarkers (troponin levels, CK-MB) to evaluate for myocarditis",
+        "current_trajectory_hypothesis": "Patient developed high fever and sinus node dysfunction after pembrolizumab; suspect ICI-induced myocarditis causing sinus node damage",
+        "confirmed_evidence": [
+          "High fever after pembrolizumab",
+          "Worsening kidney function",
+          "ECG showing sinus pauses and paroxysmal atrial fibrillation",
+          "No prior cardiovascular history or other causes of bradycardia"
+        ],
+        "missing_key_evidence": [
+          "Objective markers of myocardial injury (cardiac biomarkers)",
+          "Additional imaging or biopsy evidence of myocarditis",
+          "Timeline and response to treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Cardiac biomarker test ordered but result not yet requested",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request troponin and CK-MB test results",
+        "current_trajectory_hypothesis": "Cardiac biomarkers will confirm myocardial injury supporting ICI-induced myocarditis as the cause of sinus node dysfunction",
+        "confirmed_evidence": [
+          "High fever after pembrolizumab",
+          "Worsening kidney function",
+          "ECG showing sinus pauses and paroxysmal atrial fibrillation",
+          "No prior cardiovascular history or other causes of bradycardia",
+          "Cardiac biomarker test ordered"
+        ],
+        "missing_key_evidence": [
+          "Cardiac biomarker results (troponin, CK-MB)",
+          "Imaging or biopsy evidence for myocarditis",
+          "Clinical course and response to treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request available cardiac biomarker results (troponin I or T, CK-MB) from the hospitalization",
+        "current_trajectory_hypothesis": "Cardiac biomarker elevation would support the diagnosis of ICI-induced myocarditis explaining sinus node dysfunction and arrhythmias",
+        "confirmed_evidence": [
+          "High fever after pembrolizumab",
+          "Worsening kidney function",
+          "ECG showing sinus pauses and paroxysmal atrial fibrillation",
+          "No prior cardiovascular history or bradycardia-causing drugs"
+        ],
+        "missing_key_evidence": [
+          "Actual troponin and CK-MB results to confirm myocardial injury",
+          "Cardiac imaging or biopsy results for myocarditis confirmation",
+          "Clinical course and treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "At this point, the levels of cardiac biomarkers, such as troponin I (0.032 ng/mL; normal range ≤0.026 ng/mL) and NT-proBNP (1,724 pg/mL; normal range ≤125 pg/mL), were found to be elevated above the normal ranges, although no suspected ischemic changes in the electrocardiography or typical chest pain were observed.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order cardiac MRI to assess for myocarditis and characterize myocardial inflammation or fibrosis",
+        "current_trajectory_hypothesis": "Elevated cardiac biomarkers support myocardial injury; cardiac MRI can provide imaging evidence of myocarditis to confirm diagnosis",
+        "confirmed_evidence": [
+          "High fever after pembrolizumab",
+          "Worsening kidney function",
+          "ECG showing sinus pauses and paroxysmal atrial fibrillation",
+          "No prior cardiovascular history or bradycardia-causing drugs",
+          "Elevated troponin I (0.032 ng/mL) and NT-proBNP (1,724 pg/mL) on admission"
+        ],
+        "missing_key_evidence": [
+          "Cardiac MRI imaging or biopsy results to confirm myocarditis",
+          "Details on clinical course, treatment, and response",
+          "Exclusion of other causes of sinus node dysfunction via imaging or biopsy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "No source record documents the result of a cardiac MRI; order acknowledged without documentation.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order endomyocardial biopsy to confirm histopathologic evidence of ICI-induced myocarditis and sinus node damage",
+        "current_trajectory_hypothesis": "Histopathologic confirmation of myocarditis from biopsy will definitively support ICI-induced myocarditis causing sinus node dysfunction",
+        "confirmed_evidence": [
+          "High fever after pembrolizumab",
+          "Worsening kidney function",
+          "ECG showing sinus pauses and paroxysmal atrial fibrillation",
+          "No prior cardiovascular history or bradycardia-causing drugs",
+          "Elevated troponin I (0.032 ng/mL) and NT-proBNP (1,724 pg/mL) on admission"
+        ],
+        "missing_key_evidence": [
+          "Histopathology from myocardium or sinus node biopsy confirming immune cell infiltration and myocarditis",
+          "Cardiac imaging results confirming myocarditis",
+          "Details on treatment and response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Ordered test matches request, no source result yet",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request the results of the endomyocardial biopsy if available, to confirm myocarditis and sinus node damage",
+        "current_trajectory_hypothesis": "Histopathologic findings demonstrating myocardial inflammation and sinus node damage would definitively support ICI-induced myocarditis as cause of sinus node dysfunction",
+        "confirmed_evidence": [
+          "High fever after pembrolizumab",
+          "Worsening kidney function",
+          "ECG showing sinus pauses and paroxysmal atrial fibrillation",
+          "No prior cardiovascular history or bradycardia-causing drugs",
+          "Elevated troponin I (0.032 ng/mL) and NT-proBNP (1,724 pg/mL) on admission"
+        ],
+        "missing_key_evidence": [
+          "Histopathology from myocardium or sinus node biopsy confirming immune cell infiltration and myocarditis",
+          "Cardiac imaging results confirming myocarditis",
+          "Details on treatment and response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "This revealed that CD3-positive lymphocytes and CD163-positive macrophages had infiltrated the interstitium adjacent to the degenerated and necrotic myocytes, which showed localized immunopositivity for programmed death-ligand 1 (PD-L1) (Fig. 3). In addition, immunostaining for tenascin-C, a known marker for inflammation, was positive in the interstitium adjacent to the necrotic myocytes (Fig. 3).",
+        "category": "pathology_report",
+        "temporal_cue": "day 4 after steroid start",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request clinical course and treatment response details after steroid therapy started for myocarditis",
+        "current_trajectory_hypothesis": "Endomyocardial biopsy confirmed myocarditis with immune cell infiltration; clinical course and response to steroid treatment will support diagnosis of ICI-induced myocarditis causing sinus node dysfunction",
+        "confirmed_evidence": [
+          "High fever and worsening kidney function after pembrolizumab",
+          "ECG showed sinus pauses and paroxysmal atrial fibrillation",
+          "No prior cardiovascular history or bradycardia-causing drugs",
+          "Elevated cardiac biomarkers: troponin I 0.032 ng/mL and NT-proBNP 1724 pg/mL on admission",
+          "Endomyocardial biopsy showed CD3-positive lymphocytes and CD163-positive macrophages infiltrating myocardium with PD-L1 positivity and tenascin-C inflammation marker"
+        ],
+        "missing_key_evidence": [
+          "Clinical course and response to steroid treatment for myocarditis",
+          "Cardiac imaging findings if available",
+          "Confirmation of sinus node dysfunction improvement or persistent damage"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "From the second day of pulse steroid therapy, an increase in the eGFR, a decrease in the troponin I and NT-proBNP levels, and a reduction in the frequency of sinus pauses were observed. In addition, AF disappeared completely and never recurred.",
+        "category": "routine_lab",
+        "temporal_cue": "ICU day 2",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "ICI-induced myocarditis causing sinus node dysfunction",
+        "trajectory_summary": "A 71-year-old woman with squamous cell lung carcinoma treated with pembrolizumab monotherapy developed high fever, worsening kidney function, and symptomatic sinus node dysfunction with pauses and atrial fibrillation. Cardiac biomarkers troponin I and NT-proBNP were elevated on admission, indicating myocardial injury. Endomyocardial biopsy performed on day 4 after steroid initiation revealed infiltration of CD3-positive lymphocytes and CD163-positive macrophages, PD-L1 positivity, and tenascin-C expression consistent with myocarditis. Treatment with pulse steroids led to improvement in kidney function, reduction in cardiac biomarkers, resolution of atrial fibrillation, and decreased sinus pauses, confirming the diagnosis of immune checkpoint inhibitor-induced myocarditis as the cause of sinus node damage.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Elevated troponin I (0.032 ng/mL) and NT-proBNP (1,724 pg/mL) on admission indicating myocardial injury",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Endomyocardial biopsy showed CD3-positive lymphocytes and CD163-positive macrophages infiltrating myocardium with PD-L1 positivity and tenascin-C inflammation marker",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "Improvement in eGFR, decreased troponin I and NT-proBNP, reduction of sinus pauses, and disappearance of atrial fibrillation after pulse steroid therapy",
+            "evidence_ids": [
+              "E007"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Ischemic heart disease",
+            "basis": "No ischemic ECG changes or typical chest pain were observed despite elevated cardiac biomarkers"
+          },
+          {
+            "alternative": "Thyroid or adrenal dysfunction causing bradycardia",
+            "basis": "Normal thyroid and adrenal function tests documented"
+          },
+          {
+            "alternative": "Medication-induced bradycardia",
+            "basis": "No bradycardia-causing drugs administered"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Absence of documented cardiac MRI imaging findings",
+          "Long-term cardiac outcome and sinus node function status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "ICI-induced myocarditis causing sinus node dysfunction",
+    "trajectory_summary": "A 71-year-old woman with squamous cell lung carcinoma treated with pembrolizumab monotherapy developed high fever, worsening kidney function, and symptomatic sinus node dysfunction with pauses and atrial fibrillation. Cardiac biomarkers troponin I and NT-proBNP were elevated on admission, indicating myocardial injury. Endomyocardial biopsy performed on day 4 after steroid initiation revealed infiltration of CD3-positive lymphocytes and CD163-positive macrophages, PD-L1 positivity, and tenascin-C expression consistent with myocarditis. Treatment with pulse steroids led to improvement in kidney function, reduction in cardiac biomarkers, resolution of atrial fibrillation, and decreased sinus pauses, confirming the diagnosis of immune checkpoint inhibitor-induced myocarditis as the cause of sinus node damage.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Elevated troponin I (0.032 ng/mL) and NT-proBNP (1,724 pg/mL) on admission indicating myocardial injury",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Endomyocardial biopsy showed CD3-positive lymphocytes and CD163-positive macrophages infiltrating myocardium with PD-L1 positivity and tenascin-C inflammation marker",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "Improvement in eGFR, decreased troponin I and NT-proBNP, reduction of sinus pauses, and disappearance of atrial fibrillation after pulse steroid therapy",
+        "evidence_ids": [
+          "E007"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Ischemic heart disease",
+        "basis": "No ischemic ECG changes or typical chest pain were observed despite elevated cardiac biomarkers"
+      },
+      {
+        "alternative": "Thyroid or adrenal dysfunction causing bradycardia",
+        "basis": "Normal thyroid and adrenal function tests documented"
+      },
+      {
+        "alternative": "Medication-induced bradycardia",
+        "basis": "No bradycardia-causing drugs administered"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Absence of documented cardiac MRI imaging findings",
+      "Long-term cardiac outcome and sinus node function status"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-29T08:56:50.378450+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

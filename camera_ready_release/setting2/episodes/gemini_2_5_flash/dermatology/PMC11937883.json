@@ -1,0 +1,581 @@
+{
+  "case_id": "PMC11937883",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "The biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, as observed in the H&E histological section (figure 1). ... These findings, along with previous imaging, supported the diagnosis of PCACC ... Histopathological examination of the excised tissue confirmed the diagnosis of PCACC",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "What were the findings of the biopsy mentioned in the final diagnosis?",
+        "current_trajectory_hypothesis": "Patient presented with scalp lesions. A biopsy was performed to investigate the nature of these lesions, leading to the diagnosis.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Details of the biopsy procedure and results",
+          "Details of any imaging performed",
+          "Clinical course after diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Procedure order registered; no direct source report for biopsy findings yet disclosed.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the histopathological findings from the biopsy of the scalp lesion?",
+        "current_trajectory_hypothesis": "Patient presented with scalp lesions. A biopsy was performed to investigate the nature of these lesions, and the histopathological findings are expected to confirm the diagnosis of adenoid cystic carcinoma.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Histopathological findings from the biopsy",
+          "Details of any imaging performed",
+          "Clinical course after diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "The biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, as observed in the H&E histological section (figure 1). Immunohistochemistry was performed, revealing that the lesion exhibited patchy infiltrates positively staining for epithelial membrane antigen, specifically staining the apical aspect of the pseudo glandular cyst (figure 2A). Additionally, there was diffuse positive staining for pan-cytokeratin (AE1/AE3) (figure 2B).",
+        "category": "pathology_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of the 'previous imaging' mentioned in the final diagnosis that supported the diagnosis of PCACC?",
+        "current_trajectory_hypothesis": "Patient presented with scalp lesions. A biopsy revealed adenoid cystic carcinoma. Imaging was also performed and contributed to the diagnosis. The next step is to understand the imaging findings.",
+        "confirmed_evidence": [
+          "Patient presented with persistent swelling and pruritus on the right posterior scalp with two lesions: a 12 mm subcutaneous cystic lesion and an 11 mm erythematous lesion.",
+          "Biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, with positive staining for epithelial membrane antigen and pan-cytokeratin."
+        ],
+        "missing_key_evidence": [
+          "Details of previous imaging findings",
+          "Details of surgical excision (if distinct from biopsy) and its histopathology",
+          "Clinical course after diagnosis/treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "Sonographic evaluation of the scalp revealed two adjacent hypoechoic lesions located in the parietal region, with the largest measuring 10×8 mm, resembling epidermoid cysts.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the histopathological findings from the excised tissue that confirmed the diagnosis of PCACC?",
+        "current_trajectory_hypothesis": "Patient presented with scalp lesions. Initial sonographic evaluation showed hypoechoic lesions. A biopsy revealed adenoid cystic carcinoma. A subsequent surgical excision was performed, and its histopathological findings are expected to confirm the diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with persistent swelling and pruritus on the right posterior scalp with two lesions: a 12 mm subcutaneous cystic lesion and an 11 mm erythematous lesion.",
+          "Sonographic evaluation revealed two adjacent hypoechoic lesions in the parietal region, resembling epidermoid cysts (largest 10x8 mm).",
+          "Biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, with positive staining for epithelial membrane antigen and pan-cytokeratin."
+        ],
+        "missing_key_evidence": [
+          "Histopathological findings from the excised tissue (if distinct from initial biopsy)",
+          "Details of the surgical excision procedure",
+          "Clinical course after diagnosis/treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the histopathological findings from the surgical excision specimen that confirmed the diagnosis of PCACC?",
+        "current_trajectory_hypothesis": "Patient presented with scalp lesions. Initial sonographic evaluation showed hypoechoic lesions. A biopsy revealed adenoid cystic carcinoma. A subsequent surgical excision was performed, and its histopathological findings are expected to provide the definitive confirmation of the diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with persistent swelling and pruritus on the right posterior scalp with two lesions: a 12 mm subcutaneous cystic lesion and an 11 mm erythematous lesion.",
+          "Sonographic evaluation revealed two adjacent hypoechoic lesions in the parietal region, resembling epidermoid cysts (largest 10x8 mm).",
+          "Biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, with positive staining for epithelial membrane antigen and pan-cytokeratin."
+        ],
+        "missing_key_evidence": [
+          "Histopathological findings from the surgical excision specimen",
+          "Details of the surgical excision procedure itself",
+          "Clinical course after diagnosis/treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the histopathological description of the excised tissue?",
+        "current_trajectory_hypothesis": "Patient presented with scalp lesions. Initial sonographic evaluation showed hypoechoic lesions. A biopsy revealed adenoid cystic carcinoma. A subsequent surgical excision was performed, and its histopathological findings are crucial for understanding the definitive diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with persistent swelling and pruritus on the right posterior scalp with two lesions: a 12 mm subcutaneous cystic lesion and an 11 mm erythematous lesion.",
+          "Sonographic evaluation revealed two adjacent hypoechoic lesions in the parietal region, resembling epidermoid cysts (largest 10x8 mm).",
+          "Biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, with positive staining for epithelial membrane antigen and pan-cytokeratin."
+        ],
+        "missing_key_evidence": [
+          "Histopathological description of the surgical excision specimen",
+          "Details of the surgical excision procedure itself",
+          "Clinical course after diagnosis/treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the histopathology report of the excised tissue?",
+        "current_trajectory_hypothesis": "Patient presented with scalp lesions. Initial sonographic evaluation showed hypoechoic lesions. A biopsy revealed adenoid cystic carcinoma. A subsequent surgical excision was performed, and its histopathology report is expected to provide the definitive confirmation of the diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with persistent swelling and pruritus on the right posterior scalp with two lesions: a 12 mm subcutaneous cystic lesion and an 11 mm erythematous lesion.",
+          "Sonographic evaluation revealed two adjacent hypoechoic lesions in the parietal region, resembling epidermoid cysts (largest 10x8 mm).",
+          "Biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, with positive staining for epithelial membrane antigen and pan-cytokeratin."
+        ],
+        "missing_key_evidence": [
+          "Histopathology report of the surgical excision specimen",
+          "Details of the surgical excision procedure itself",
+          "Clinical course after diagnosis/treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "What was the surgical procedure performed to obtain the excised tissue?",
+        "current_trajectory_hypothesis": "Patient presented with scalp lesions. Initial sonographic evaluation showed hypoechoic lesions. A biopsy revealed adenoid cystic carcinoma. A surgical excision was performed, and its histopathological findings are expected to provide definitive confirmation of the diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with persistent swelling and pruritus on the right posterior scalp with two lesions: a 12 mm subcutaneous cystic lesion and an 11 mm erythematous lesion.",
+          "Sonographic evaluation revealed two adjacent hypoechoic lesions in the parietal region, resembling epidermoid cysts (largest 10x8 mm).",
+          "Biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, with positive staining for epithelial membrane antigen and pan-cytokeratin."
+        ],
+        "missing_key_evidence": [
+          "Details of the surgical excision procedure",
+          "Histopathology report of the surgical excision specimen",
+          "Clinical course after diagnosis/treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "The surgical excision was ordered based on clinician action; the source document details for the procedure exist but are in a later phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of the histopathological examination of the excised tissue that confirmed the diagnosis of PCACC?",
+        "current_trajectory_hypothesis": "Patient presented with scalp lesions. Initial sonographic evaluation showed hypoechoic lesions. A biopsy revealed adenoid cystic carcinoma. A subsequent surgical excision was performed, and its histopathological findings are expected to provide the definitive confirmation of the diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with persistent swelling and pruritus on the right posterior scalp with two lesions: a 12 mm subcutaneous cystic lesion and an 11 mm erythematous lesion.",
+          "Sonographic evaluation revealed two adjacent hypoechoic lesions in the parietal region, resembling epidermoid cysts (largest 10x8 mm).",
+          "Biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, with positive staining for epithelial membrane antigen and pan-cytokeratin."
+        ],
+        "missing_key_evidence": [
+          "Histopathological findings from the surgical excision specimen confirming PCACC",
+          "Details of the surgical excision procedure itself",
+          "Clinical course after diagnosis/treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the histopathological confirmation of PCACC from the excised tissue?",
+        "current_trajectory_hypothesis": "Patient presented with scalp lesions. Initial sonographic evaluation showed hypoechoic lesions. A biopsy revealed adenoid cystic carcinoma. A subsequent surgical excision was performed, and its histopathological findings are expected to provide the definitive confirmation of the diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with persistent swelling and pruritus on the right posterior scalp with two lesions: a 12 mm subcutaneous cystic lesion and an 11 mm erythematous lesion.",
+          "Sonographic evaluation revealed two adjacent hypoechoic lesions in the parietal region, resembling epidermoid cysts (largest 10x8 mm).",
+          "Biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, with positive staining for epithelial membrane antigen and pan-cytokeratin."
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of PCACC from the surgical excision specimen",
+          "Details of the surgical excision procedure itself",
+          "Clinical course after diagnosis/treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of the histopathological examination of the excised tissue?",
+        "current_trajectory_hypothesis": "Patient presented with scalp lesions. Initial sonographic evaluation showed hypoechoic lesions. A biopsy revealed adenoid cystic carcinoma. A subsequent surgical excision was performed, and its histopathological findings are expected to provide the definitive confirmation of the diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with persistent swelling and pruritus on the right posterior scalp with two lesions: a 12 mm subcutaneous cystic lesion and an 11 mm erythematous lesion.",
+          "Sonographic evaluation revealed two adjacent hypoechoic lesions in the parietal region, resembling epidermoid cysts (largest 10x8 mm).",
+          "Biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, with positive staining for epithelial membrane antigen and pan-cytokeratin."
+        ],
+        "missing_key_evidence": [
+          "Histopathological findings from the surgical excision specimen confirming PCACC",
+          "Details of the surgical excision procedure itself",
+          "Clinical course after diagnosis/treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of the histopathological examination of the excised tissue that confirmed the diagnosis of PCACC?",
+        "current_trajectory_hypothesis": "Patient presented with scalp lesions. Initial sonographic evaluation showed hypoechoic lesions. A biopsy revealed adenoid cystic carcinoma. A subsequent surgical excision was performed, and its histopathological findings are expected to provide the definitive confirmation of the diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with persistent swelling and pruritus on the right posterior scalp with two lesions: a 12 mm subcutaneous cystic lesion and an 11 mm erythematous lesion.",
+          "Sonographic evaluation revealed two adjacent hypoechoic lesions in the parietal region, resembling epidermoid cysts (largest 10x8 mm).",
+          "Biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, with positive staining for epithelial membrane antigen and pan-cytokeratin."
+        ],
+        "missing_key_evidence": [
+          "Histopathological findings from the surgical excision specimen confirming PCACC",
+          "Details of the surgical excision procedure itself",
+          "Clinical course after diagnosis/treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of the histopathological examination of the excised tissue?",
+        "current_trajectory_hypothesis": "Patient presented with scalp lesions. Initial sonographic evaluation showed hypoechoic lesions. A biopsy revealed adenoid cystic carcinoma. A subsequent surgical excision was performed, and its histopathological findings are expected to provide the definitive confirmation of the diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with persistent swelling and pruritus on the right posterior scalp with two lesions: a 12 mm subcutaneous cystic lesion and an 11 mm erythematous lesion.",
+          "Sonographic evaluation revealed two adjacent hypoechoic lesions in the parietal region, resembling epidermoid cysts (largest 10x8 mm).",
+          "Biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, with positive staining for epithelial membrane antigen and pan-cytokeratin."
+        ],
+        "missing_key_evidence": [
+          "Histopathological findings from the surgical excision specimen confirming PCACC",
+          "Details of the surgical excision procedure itself",
+          "Clinical course after diagnosis/treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the report of the histopathological examination of the excised tissue confirming PCACC?",
+        "current_trajectory_hypothesis": "Patient presented with scalp lesions. Initial sonographic evaluation showed hypoechoic lesions. A biopsy revealed adenoid cystic carcinoma. A subsequent surgical excision was performed, and its histopathological findings are expected to provide the definitive confirmation of the diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with persistent swelling and pruritus on the right posterior scalp with two lesions: a 12 mm subcutaneous cystic lesion and an 11 mm erythematous lesion.",
+          "Sonographic evaluation revealed two adjacent hypoechoic lesions in the parietal region, resembling epidermoid cysts (largest 10x8 mm).",
+          "Biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, with positive staining for epithelial membrane antigen and pan-cytokeratin."
+        ],
+        "missing_key_evidence": [
+          "Report of the histopathological examination of the surgical excision specimen confirming PCACC",
+          "Details of the surgical excision procedure itself",
+          "Clinical course after diagnosis/treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Primary Cutaneous Adenoid Cystic Carcinoma (PCACC)",
+        "trajectory_summary": "A woman in her 20s presented with a 4-month history of persistent, progressively enlarging, and intermittently uncomfortable swelling with pruritus on her right posterior scalp. Dermatological examination revealed two lesions. Sonographic evaluation showed two adjacent hypoechoic lesions in the parietal region, resembling epidermoid cysts. An initial biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, with immunohistochemistry showing positive staining for epithelial membrane antigen and pan-cytokeratin. The final diagnosis states that histopathological examination of excised tissue confirmed PCACC, but the specific report for this excised tissue was not provided.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with persistent swelling and pruritus on the right posterior scalp with two lesions: a 12 mm subcutaneous cystic lesion and an 11 mm erythematous lesion.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Sonographic evaluation revealed two adjacent hypoechoic lesions in the parietal region, resembling epidermoid cysts (largest 10x8 mm).",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, with positive staining for epithelial membrane antigen and pan-cytokeratin.",
+            "evidence_ids": [
+              "E002"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Epidermoid cysts",
+            "basis": "Initial sonographic evaluation suggested epidermoid cysts, but subsequent biopsy findings of adenoid cystic carcinoma superseded this."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Specific histopathological report of the excised tissue that definitively confirmed the diagnosis of PCACC.",
+          "Details of the surgical excision procedure itself."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Primary Cutaneous Adenoid Cystic Carcinoma (PCACC)",
+    "trajectory_summary": "A woman in her 20s presented with a 4-month history of persistent, progressively enlarging, and intermittently uncomfortable swelling with pruritus on her right posterior scalp. Dermatological examination revealed two lesions. Sonographic evaluation showed two adjacent hypoechoic lesions in the parietal region, resembling epidermoid cysts. An initial biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, with immunohistochemistry showing positive staining for epithelial membrane antigen and pan-cytokeratin. The final diagnosis states that histopathological examination of excised tissue confirmed PCACC, but the specific report for this excised tissue was not provided.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with persistent swelling and pruritus on the right posterior scalp with two lesions: a 12 mm subcutaneous cystic lesion and an 11 mm erythematous lesion.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Sonographic evaluation revealed two adjacent hypoechoic lesions in the parietal region, resembling epidermoid cysts (largest 10x8 mm).",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Biopsy revealed a basaloid cutaneous lesion consistent with adenoid cystic carcinoma, with positive staining for epithelial membrane antigen and pan-cytokeratin.",
+        "evidence_ids": [
+          "E002"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Epidermoid cysts",
+        "basis": "Initial sonographic evaluation suggested epidermoid cysts, but subsequent biopsy findings of adenoid cystic carcinoma superseded this."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Specific histopathological report of the excised tissue that definitively confirmed the diagnosis of PCACC.",
+      "Details of the surgical excision procedure itself."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.8
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T20:00:58.307537+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

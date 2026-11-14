@@ -1,0 +1,545 @@
+{
+  "case_id": "PMC8286872",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 14,
+  "termination": "final",
+  "known_final_diagnosis": "Considering all of the evidence, post–COVID-19 encephalitis diagnosis was considered for the patient.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E005",
+    "E006",
+    "E007"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "brain MRI with and without contrast",
+        "current_trajectory_hypothesis": "Patient presented with acute vision loss and headache post-COVID-19. Initial workup for vision loss and headache, especially given normal fundoscopy, would involve neuroimaging to investigate potential neurological causes like encephalitis.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Neuroimaging findings",
+          "Lumbar puncture results",
+          "EEG findings",
+          "Specific markers for encephalitis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order placed for brain MRI consistent with clinician request; no direct source result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "brain MRI report with and without contrast",
+        "current_trajectory_hypothesis": "Patient presented with acute vision loss and headache post-COVID-19. Brain MRI is a key diagnostic step to evaluate for neurological causes like encephalitis, especially given normal fundoscopy and the known final diagnosis.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Neuroimaging findings",
+          "Lumbar puncture results",
+          "EEG findings",
+          "Specific markers for encephalitis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "Brain magnetic resonance imaging (MRI) indicated diffuse restricted bilateral foci in both parietal and occipital lobes in favor of acute infarction. Diffuse weighted imaging demonstrated restricted bilateral hyperintense signals in parietal and occipital region (Figure 1 ).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "lumbar puncture for CSF analysis",
+        "current_trajectory_hypothesis": "Patient presented with acute vision loss and headache post-COVID-19. Brain MRI showed diffuse restricted bilateral foci in parietal and occipital lobes, suggestive of acute infarction. Given the known final diagnosis of post-COVID-19 encephalitis, further investigation for inflammation or infection of the central nervous system is warranted, and CSF analysis via lumbar puncture is a key diagnostic step for encephalitis.",
+        "confirmed_evidence": [
+          "Patient presented with abrupt complete vision loss in right eye and visual impairment in left eye, and moderate headache, three weeks after confirmed COVID-19 infection.",
+          "Brain MRI showed diffuse restricted bilateral foci in both parietal and occipital lobes, suggestive of acute infarction."
+        ],
+        "missing_key_evidence": [
+          "Lumbar puncture results (CSF analysis)",
+          "EEG findings",
+          "Specific markers for encephalitis",
+          "Clinical course/treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Order for lumbar puncture for CSF analysis recorded; no direct source result to report yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "CSF analysis results from lumbar puncture",
+        "current_trajectory_hypothesis": "Patient presented with acute vision loss and headache post-COVID-19. Brain MRI showed diffuse restricted bilateral foci in parietal and occipital lobes, suggestive of acute infarction. Lumbar puncture was ordered to investigate for encephalitis, which is the known final diagnosis. CSF analysis is critical for confirming CNS inflammation or infection.",
+        "confirmed_evidence": [
+          "Patient presented with abrupt complete vision loss in right eye and visual impairment in left eye, and moderate headache, three weeks after confirmed COVID-19 infection.",
+          "Brain MRI showed diffuse restricted bilateral foci in both parietal and occipital lobes, suggestive of acute infarction."
+        ],
+        "missing_key_evidence": [
+          "Lumbar puncture results (CSF analysis)",
+          "EEG findings",
+          "Specific markers for encephalitis",
+          "Clinical course/treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "Lumbar puncture was performed and the results showed negative anti–herpes simplex virus 1 and 2, varicella zoster IgM antibodies, and SARS-CoV-2 PCR in the cerebrospinal fluid (CSF).",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "full CSF analysis results including cell count, protein, and glucose",
+        "current_trajectory_hypothesis": "Patient presented with acute vision loss and headache post-COVID-19. Brain MRI showed diffuse restricted bilateral foci in parietal and occipital lobes, suggestive of acute infarction. Initial CSF analysis was negative for specific viral pathogens. To support the diagnosis of encephalitis, general inflammatory markers in the CSF (cell count, protein, glucose) are crucial.",
+        "confirmed_evidence": [
+          "Patient presented with abrupt complete vision loss in right eye and visual impairment in left eye, and moderate headache, three weeks after confirmed COVID-19 infection.",
+          "Brain MRI showed diffuse restricted bilateral foci in both parietal and occipital lobes, suggestive of acute infarction (E001).",
+          "CSF analysis was negative for anti–herpes simplex virus 1 and 2, varicella zoster IgM antibodies, and SARS-CoV-2 PCR (E002)."
+        ],
+        "missing_key_evidence": [
+          "Full CSF analysis results (cell count, protein, glucose)",
+          "EEG findings",
+          "Specific markers for encephalitis (e.g., autoimmune antibodies if tested)",
+          "Clinical course/treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "The source records do not provide full CSF analysis results including cell count, protein, and glucose.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "electroencephalogram (EEG)",
+        "current_trajectory_hypothesis": "Patient presented with acute vision loss and headache post-COVID-19. Brain MRI showed diffuse restricted bilateral foci in parietal and occipital lobes, suggestive of acute infarction. Initial CSF analysis was negative for specific viral pathogens, and full CSF parameters are not available. Given the known final diagnosis of post-COVID-19 encephalitis, an EEG is a standard diagnostic test to assess for abnormal brain activity associated with encephalitis.",
+        "confirmed_evidence": [
+          "Patient presented with abrupt complete vision loss in right eye and visual impairment in left eye, and moderate headache, three weeks after confirmed COVID-19 infection.",
+          "Brain MRI showed diffuse restricted bilateral foci in both parietal and occipital lobes, suggestive of acute infarction (E001).",
+          "CSF analysis was negative for anti–herpes simplex virus 1 and 2, varicella zoster IgM antibodies, and SARS-CoV-2 PCR (E002)."
+        ],
+        "missing_key_evidence": [
+          "EEG findings",
+          "Specific markers for encephalitis (e.g., autoimmune antibodies if tested)",
+          "Clinical course/treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "EEG test ordered but no corresponding source evidence found for result.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "electroencephalogram (EEG) findings",
+        "current_trajectory_hypothesis": "Patient presented with acute vision loss and headache post-COVID-19. Brain MRI showed diffuse restricted bilateral foci in parietal and occipital lobes, suggestive of acute infarction. Initial CSF analysis was negative for specific viral pathogens, and full CSF parameters are not available. An EEG was ordered to assess for abnormal brain activity consistent with encephalitis, which is the known final diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with abrupt complete vision loss in right eye and visual impairment in left eye, and moderate headache, three weeks after confirmed COVID-19 infection.",
+          "Brain MRI showed diffuse restricted bilateral foci in both parietal and occipital lobes, suggestive of acute infarction (E001).",
+          "CSF analysis was negative for anti–herpes simplex virus 1 and 2, varicella zoster IgM antibodies, and SARS-CoV-2 PCR (E002)."
+        ],
+        "missing_key_evidence": [
+          "EEG findings",
+          "Specific markers for encephalitis (e.g., autoimmune antibodies if tested)",
+          "Clinical course/treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "No electroencephalogram (EEG) findings are reported in the supplied evidence.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "blood tests for inflammatory markers (e.g., CRP, ESR) and autoimmune antibodies",
+        "current_trajectory_hypothesis": "Patient presented with acute vision loss and headache post-COVID-19. Brain MRI showed diffuse restricted bilateral foci in parietal and occipital lobes, suggestive of acute infarction. Initial CSF analysis was negative for specific viral pathogens, and full CSF parameters and EEG findings are not available. Given the known final diagnosis of post-COVID-19 encephalitis, further investigation for systemic inflammation or autoimmune processes, which can be associated with post-infectious encephalitis, is warranted.",
+        "confirmed_evidence": [
+          "Patient presented with abrupt complete vision loss in right eye and visual impairment in left eye, and moderate headache, three weeks after confirmed COVID-19 infection.",
+          "Brain MRI showed diffuse restricted bilateral foci in both parietal and occipital lobes, suggestive of acute infarction (E001).",
+          "CSF analysis was negative for anti–herpes simplex virus 1 and 2, varicella zoster IgM antibodies, and SARS-CoV-2 PCR (E002)."
+        ],
+        "missing_key_evidence": [
+          "Blood inflammatory markers or autoimmune panel results",
+          "Further CSF analysis details (cell count, protein, glucose)",
+          "EEG findings",
+          "Clinical course/treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "The requested blood tests order is acknowledged, but no source record documents their results or presence.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with acute vision loss and headache post-COVID-19. Brain MRI showed diffuse restricted bilateral foci in parietal and occipital lobes, suggestive of acute infarction. Initial CSF analysis was negative for specific viral pathogens, and full CSF parameters, EEG, and blood inflammatory/autoimmune markers were not reported. Given the known final diagnosis of post-COVID-19 encephalitis, I need to understand the subsequent clinical course, any empirical treatment initiated, and the patient's response to further reconstruct the diagnostic trajectory.",
+        "confirmed_evidence": [
+          "Patient presented with abrupt complete vision loss in right eye and visual impairment in left eye, and moderate headache, three weeks after confirmed COVID-19 infection.",
+          "Brain MRI showed diffuse restricted bilateral foci in both parietal and occipital lobes, suggestive of acute infarction (E001).",
+          "CSF analysis was negative for anti–herpes simplex virus 1 and 2, varicella zoster IgM antibodies, and SARS-CoV-2 PCR (E002)."
+        ],
+        "missing_key_evidence": [
+          "Full CSF analysis results (cell count, protein, glucose)",
+          "EEG findings",
+          "Blood inflammatory markers or autoimmune panel results",
+          "Clinical course/treatment response/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Two days after admission, visual acuity of the left eye deteriorated into complete vision loss, similar to the right eye (no light perception).",
+        "category": "other",
+        "temporal_cue": "ICU day 2",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with acute vision loss and headache post-COVID-19. Brain MRI showed diffuse restricted bilateral foci in parietal and occipital lobes, suggestive of acute infarction. Initial CSF analysis was negative for specific viral pathogens, and full CSF parameters, EEG, and blood inflammatory/autoimmune markers were not reported. The patient's condition deteriorated with complete vision loss in the left eye. I need to understand the subsequent clinical management or diagnostic workup in light of this progression and the known final diagnosis of post-COVID-19 encephalitis.",
+        "confirmed_evidence": [
+          "Patient presented with abrupt complete vision loss in right eye and visual impairment in left eye, and moderate headache, three weeks after confirmed COVID-19 infection.",
+          "Brain MRI showed diffuse restricted bilateral foci in both parietal and occipital lobes, suggestive of acute infarction (E001).",
+          "CSF analysis was negative for anti–herpes simplex virus 1 and 2, varicella zoster IgM antibodies, and SARS-CoV-2 PCR (E002).",
+          "Two days after admission, visual acuity of the left eye deteriorated into complete vision loss, similar to the right eye (no light perception) (E003)."
+        ],
+        "missing_key_evidence": [
+          "Full CSF analysis results (cell count, protein, glucose)",
+          "EEG findings",
+          "Blood inflammatory markers or autoimmune panel results",
+          "Treatment initiated and response",
+          "Further diagnostic steps after clinical deterioration"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Brain MRI after deterioration revealed extension of infarct lesions to the left cerebellar hemisphere, bilateral frontoparietal lobes, splenium of corpus callosum, and anterior aspect of the pons.",
+        "category": "imaging_report",
+        "temporal_cue": "after deterioration",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with acute vision loss and headache post-COVID-19, with initial MRI showing acute infarction. Clinical deterioration with complete vision loss in the left eye was followed by a repeat MRI showing widespread new infarct lesions. Given the known final diagnosis of post-COVID-19 encephalitis, understanding the treatment initiated and the patient's response is crucial to reconstruct the clinical trajectory and confirm the diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with abrupt complete vision loss in right eye and visual impairment in left eye, and moderate headache, three weeks after confirmed COVID-19 infection.",
+          "Brain MRI showed diffuse restricted bilateral foci in both parietal and occipital lobes, suggestive of acute infarction (E001).",
+          "CSF analysis was negative for anti–herpes simplex virus 1 and 2, varicella zoster IgM antibodies, and SARS-CoV-2 PCR (E002).",
+          "Two days after admission, visual acuity of the left eye deteriorated into complete vision loss, similar to the right eye (no light perception) (E003).",
+          "Brain MRI after deterioration revealed extension of infarct lesions to the left cerebellar hemisphere, bilateral frontoparietal lobes, splenium of corpus callosum, and anterior aspect of the pons (E004)."
+        ],
+        "missing_key_evidence": [
+          "Full CSF analysis results (cell count, protein, glucose)",
+          "EEG findings",
+          "Blood inflammatory markers or autoimmune panel results",
+          "Treatment initiated and response/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Occipital cortex biopsy showed brain tissue with focal infiltration of foamy macrophages mixed with reactive astrocytes and no plasma cell infiltration (Figure 1). No evidence of vasculitis or granuloma were detected. The immunohistochemistry study demonstrated positivity of CD68 and scattered CD3+ cells.",
+        "category": "pathology_report",
+        "temporal_cue": "after deterioration",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with acute vision loss and headache post-COVID-19, with initial MRI showing acute infarction. Clinical deterioration with complete vision loss in the left eye was followed by a repeat MRI showing widespread new infarct lesions. Occipital cortex biopsy showed inflammatory changes (macrophages, reactive astrocytes, CD3+ cells) consistent with an inflammatory process in the brain. Given the known final diagnosis of post-COVID-19 encephalitis, understanding the treatment initiated and the patient's response is crucial to reconstruct the clinical trajectory and confirm the diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with abrupt complete vision loss in right eye and visual impairment in left eye, and moderate headache, three weeks after confirmed COVID-19 infection.",
+          "Brain MRI showed diffuse restricted bilateral foci in both parietal and occipital lobes, suggestive of acute infarction (E001).",
+          "CSF analysis was negative for anti–herpes simplex virus 1 and 2, varicella zoster IgM antibodies, and SARS-CoV-2 PCR (E002).",
+          "Two days after admission, visual acuity of the left eye deteriorated into complete vision loss, similar to the right eye (no light perception) (E003).",
+          "Brain MRI after deterioration revealed extension of infarct lesions to the left cerebellar hemisphere, bilateral frontoparietal lobes, splenium of corpus callosum, and anterior aspect of the pons (E004).",
+          "Occipital cortex biopsy showed brain tissue with focal infiltration of foamy macrophages mixed with reactive astrocytes and no plasma cell infiltration, with positivity of CD68 and scattered CD3+ cells (E005)."
+        ],
+        "missing_key_evidence": [
+          "Full CSF analysis results (cell count, protein, glucose)",
+          "EEG findings",
+          "Blood inflammatory markers or autoimmune panel results",
+          "Treatment initiated and response/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "In accordance with infectious disease consult, our patient underwent methyl prednisolone pulse therapy (1 g/d) for 3 days, and then prednisolone (1 mg/kg/d) as a maintenance therapy was initiated. Later, the patient was confused with right hemiparesis. Therefore, intravenous immunoglobulin (IVIg) (25 g/d for 5 days) was initiated for the patient, which resulted in the improvement of both mental state and clinical symptoms.",
+        "category": "treatment_response",
+        "temporal_cue": "after deterioration",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with acute vision loss and headache post-COVID-19, with initial MRI showing acute infarction. Clinical deterioration with complete vision loss in the left eye was followed by a repeat MRI showing widespread new infarct lesions. Occipital cortex biopsy showed inflammatory changes (macrophages, reactive astrocytes, CD3+ cells) consistent with an inflammatory process in the brain. Treatment with methylprednisolone, prednisolone, and intravenous immunoglobulin (IVIg) led to improvement in mental state and clinical symptoms. Understanding the patient's outcome or follow-up will help complete the trajectory for post-COVID-19 encephalitis.",
+        "confirmed_evidence": [
+          "Patient presented with abrupt complete vision loss in right eye and visual impairment in left eye, and moderate headache, three weeks after confirmed COVID-19 infection.",
+          "Brain MRI showed diffuse restricted bilateral foci in both parietal and occipital lobes, suggestive of acute infarction (E001).",
+          "CSF analysis was negative for anti–herpes simplex virus 1 and 2, varicella zoster IgM antibodies, and SARS-CoV-2 PCR (E002).",
+          "Two days after admission, visual acuity of the left eye deteriorated into complete vision loss, similar to the right eye (no light perception) (E003).",
+          "Brain MRI after deterioration revealed extension of infarct lesions to the left cerebellar hemisphere, bilateral frontoparietal lobes, splenium of corpus callosum, and anterior aspect of the pons (E004).",
+          "Occipital cortex biopsy showed brain tissue with focal infiltration of foamy macrophages mixed with reactive astrocytes and no plasma cell infiltration, with positivity of CD68 and scattered CD3+ cells (E005).",
+          "Patient underwent methyl prednisolone pulse therapy, then prednisolone, and later intravenous immunoglobulin (IVIg), which resulted in improvement of both mental state and clinical symptoms (E006)."
+        ],
+        "missing_key_evidence": [
+          "Full CSF analysis results (cell count, protein, glucose)",
+          "EEG findings",
+          "Blood inflammatory markers or autoimmune panel results",
+          "Patient outcome or long-term follow-up"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "After 3 months of clinical follow-up, the patient was still blind (no light perception) without pupillary light reflex. Muscle forces returned to normal; nevertheless, a wide-based gait was still observed (which was not reliable due to blindness). MRI also showed no new lesions. Prednisolone was tapered (10 mg/d) and patient received warfarin (international normalized ratio 2.2).",
+        "category": "imaging_report",
+        "temporal_cue": "3 months after admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "post–COVID-19 encephalitis",
+        "trajectory_summary": "A 49-year-old man presented with abrupt complete vision loss in his right eye and visual impairment in his left eye, along with moderate headache, three weeks after a confirmed COVID-19 infection. Initial brain MRI showed diffuse restricted bilateral foci in both parietal and occipital lobes, suggestive of acute infarction. CSF analysis was negative for common viral pathogens (HSV, VZV, SARS-CoV-2 PCR). The patient's vision deteriorated to complete loss in the left eye, and a repeat MRI revealed extension of infarct lesions. An occipital cortex biopsy showed brain tissue with focal infiltration of foamy macrophages, reactive astrocytes, and scattered CD3+ cells, without evidence of vasculitis or granuloma, indicating an inflammatory process. Treatment with methylprednisolone, prednisolone, and intravenous immunoglobulin (IVIg) led to improvement in mental state and other clinical symptoms, although blindness persisted. Follow-up MRI showed no new lesions.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with acute vision loss and headache following a confirmed COVID-19 infection.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Brain MRI showed diffuse restricted bilateral foci in parietal and occipital lobes, suggestive of acute infarction, which later extended to other brain regions.",
+            "evidence_ids": [
+              "E001",
+              "E004"
+            ]
+          },
+          {
+            "claim": "CSF analysis ruled out common viral causes of encephalitis (HSV, VZV, SARS-CoV-2 PCR).",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Occipital cortex biopsy revealed inflammatory changes in brain tissue, including focal infiltration of foamy macrophages, reactive astrocytes, and CD3+ cells, consistent with an inflammatory process.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Patient's clinical symptoms (mental state, hemiparesis) improved following immunomodulatory treatment with corticosteroids and intravenous immunoglobulin (IVIg).",
+            "evidence_ids": [
+              "E006"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Herpes Simplex Virus (HSV) encephalitis",
+            "basis": "CSF negative for HSV-1 and HSV-2 IgM antibodies (E002)"
+          },
+          {
+            "alternative": "Varicella Zoster Virus (VZV) encephalitis",
+            "basis": "CSF negative for VZV IgM antibodies (E002)"
+          },
+          {
+            "alternative": "Direct SARS-CoV-2 viral encephalitis",
+            "basis": "CSF negative for SARS-CoV-2 PCR (E002)"
+          },
+          {
+            "alternative": "Vasculitis or granulomatous disease",
+            "basis": "Occipital cortex biopsy showed no evidence of vasculitis or granuloma (E005)"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Full CSF analysis results (cell count, protein, glucose)",
+          "Electroencephalogram (EEG) findings",
+          "Blood inflammatory markers or autoimmune panel results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "post–COVID-19 encephalitis",
+    "trajectory_summary": "A 49-year-old man presented with abrupt complete vision loss in his right eye and visual impairment in his left eye, along with moderate headache, three weeks after a confirmed COVID-19 infection. Initial brain MRI showed diffuse restricted bilateral foci in both parietal and occipital lobes, suggestive of acute infarction. CSF analysis was negative for common viral pathogens (HSV, VZV, SARS-CoV-2 PCR). The patient's vision deteriorated to complete loss in the left eye, and a repeat MRI revealed extension of infarct lesions. An occipital cortex biopsy showed brain tissue with focal infiltration of foamy macrophages, reactive astrocytes, and scattered CD3+ cells, without evidence of vasculitis or granuloma, indicating an inflammatory process. Treatment with methylprednisolone, prednisolone, and intravenous immunoglobulin (IVIg) led to improvement in mental state and other clinical symptoms, although blindness persisted. Follow-up MRI showed no new lesions.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with acute vision loss and headache following a confirmed COVID-19 infection.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Brain MRI showed diffuse restricted bilateral foci in parietal and occipital lobes, suggestive of acute infarction, which later extended to other brain regions.",
+        "evidence_ids": [
+          "E001",
+          "E004"
+        ]
+      },
+      {
+        "claim": "CSF analysis ruled out common viral causes of encephalitis (HSV, VZV, SARS-CoV-2 PCR).",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Occipital cortex biopsy revealed inflammatory changes in brain tissue, including focal infiltration of foamy macrophages, reactive astrocytes, and CD3+ cells, consistent with an inflammatory process.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Patient's clinical symptoms (mental state, hemiparesis) improved following immunomodulatory treatment with corticosteroids and intravenous immunoglobulin (IVIg).",
+        "evidence_ids": [
+          "E006"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Herpes Simplex Virus (HSV) encephalitis",
+        "basis": "CSF negative for HSV-1 and HSV-2 IgM antibodies (E002)"
+      },
+      {
+        "alternative": "Varicella Zoster Virus (VZV) encephalitis",
+        "basis": "CSF negative for VZV IgM antibodies (E002)"
+      },
+      {
+        "alternative": "Direct SARS-CoV-2 viral encephalitis",
+        "basis": "CSF negative for SARS-CoV-2 PCR (E002)"
+      },
+      {
+        "alternative": "Vasculitis or granulomatous disease",
+        "basis": "Occipital cortex biopsy showed no evidence of vasculitis or granuloma (E005)"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Full CSF analysis results (cell count, protein, glucose)",
+      "Electroencephalogram (EEG) findings",
+      "Blood inflammatory markers or autoimmune panel results"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T17:18:50.843598+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

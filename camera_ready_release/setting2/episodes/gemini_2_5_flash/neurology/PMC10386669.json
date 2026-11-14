@@ -1,0 +1,518 @@
+{
+  "case_id": "PMC10386669",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 14,
+  "termination": "final",
+  "known_final_diagnosis": "histology revealed a pattern consistent with autoimmune gastritis (as demonstrated in Fig. 1)",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E004",
+    "E005"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "What were the results of initial laboratory investigations, particularly those related to gastrointestinal symptoms or autoimmune conditions?",
+        "current_trajectory_hypothesis": "The patient presented with chronic GI symptoms and T1DM. The known diagnosis is autoimmune gastritis, which requires histological confirmation. I need to identify the initial workup that led to an endoscopy and biopsy.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Initial GI lab results",
+          "Endoscopy findings",
+          "Biopsy results (histology)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Initial laboratory investigation ordered; results not yet disclosed from source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "Was an upper endoscopy performed, and if so, what were the macroscopic findings?",
+        "current_trajectory_hypothesis": "The patient has chronic GI symptoms and T1DM, with a known final diagnosis of autoimmune gastritis. Given the need for histological confirmation, an endoscopy with biopsy is a crucial step. I need to determine if an endoscopy was performed and what it showed.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Initial GI lab results",
+          "Endoscopy findings",
+          "Biopsy results (histology)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Upper endoscopy ordered, no source evidence documents result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the histological findings from any gastric biopsies taken during the endoscopy?",
+        "current_trajectory_hypothesis": "The patient presented with chronic GI symptoms and T1DM. The known final diagnosis is autoimmune gastritis, which is confirmed by histology. I need to verify the biopsy results that led to this diagnosis.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Initial GI lab results",
+          "Endoscopy macroscopic findings",
+          "Gastric biopsy histological findings"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "histology revealed a pattern consistent with autoimmune gastritis",
+        "category": "pathology_report",
+        "temporal_cue": "after initial workup",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the results of initial laboratory investigations, particularly those related to gastrointestinal symptoms or autoimmune conditions, that were performed?",
+        "current_trajectory_hypothesis": "The patient presented with chronic GI symptoms and T1DM. The known final diagnosis is autoimmune gastritis, confirmed by histology (E002). I need to reconstruct the initial workup that led to the endoscopy and biopsy, starting with initial lab results.",
+        "confirmed_evidence": [
+          "Histology revealed a pattern consistent with autoimmune gastritis (E002)"
+        ],
+        "missing_key_evidence": [
+          "Initial GI lab results",
+          "Endoscopy macroscopic findings"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "The patient’s initial lab-workup was remarkable for a low total IgA of < 6.7 mg/dL (Table 1).",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the macroscopic findings from the upper endoscopy?",
+        "current_trajectory_hypothesis": "The patient presented with chronic GI symptoms and T1DM. Initial labs showed low total IgA (E001). Histology confirmed autoimmune gastritis (E002). I need to understand the macroscopic appearance of the gastric mucosa during endoscopy, which would have prompted the biopsy.",
+        "confirmed_evidence": [
+          "Histology revealed a pattern consistent with autoimmune gastritis (E002)",
+          "Initial lab-workup was remarkable for a low total IgA of < 6.7 mg/dL (E001)"
+        ],
+        "missing_key_evidence": [
+          "Endoscopy macroscopic findings",
+          "Other initial GI/autoimmune lab results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E002",
+        "source_text": "The patient underwent upper and lower endoscopy which was grossly unremarkable;",
+        "category": "pathology_report",
+        "temporal_cue": "after initial workup",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "What were the results of other autoimmune markers or celiac disease serologies, such as anti-parietal cell antibodies, intrinsic factor antibodies, or tissue transglutaminase antibodies?",
+        "current_trajectory_hypothesis": "The patient presented with chronic GI symptoms and T1DM. Initial labs showed low total IgA (E001). Endoscopy was grossly unremarkable, but histology confirmed autoimmune gastritis (E002). Given the IgA deficiency and risk for celiac disease, I need to check if other autoimmune or celiac-related serologies were performed and what their results were, as these might have prompted the biopsy despite a normal-appearing endoscopy.",
+        "confirmed_evidence": [
+          "Histology revealed a pattern consistent with autoimmune gastritis (E002)",
+          "Initial lab-workup was remarkable for a low total IgA of < 6.7 mg/dL (E001)",
+          "Upper and lower endoscopy was grossly unremarkable (E002)"
+        ],
+        "missing_key_evidence": [
+          "Other initial GI/autoimmune lab results (e.g., parietal cell antibodies, intrinsic factor antibodies, celiac serologies)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Order for other autoimmune markers or celiac disease serologies registered; no direct result available yet in source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "What were the results of vitamin B12 levels, folate, and complete blood count (CBC) to assess for anemia or macrocytosis?",
+        "current_trajectory_hypothesis": "The patient presented with chronic GI symptoms, T1DM, and neurological symptoms (lower extremity pains with numbness). Initial labs showed low total IgA (E001). Endoscopy was grossly unremarkable, but histology confirmed autoimmune gastritis (E002). Autoimmune gastritis is often associated with vitamin B12 deficiency and pernicious anemia, which could explain the neurological symptoms. I need to check for evidence of B12 deficiency or anemia.",
+        "confirmed_evidence": [
+          "Histology revealed a pattern consistent with autoimmune gastritis (E002)",
+          "Initial lab-workup was remarkable for a low total IgA of < 6.7 mg/dL (E001)",
+          "Upper and lower endoscopy was grossly unremarkable (E002)"
+        ],
+        "missing_key_evidence": [
+          "Vitamin B12 levels",
+          "Folate levels",
+          "CBC results (especially MCV, hemoglobin)",
+          "Other autoimmune markers (e.g., parietal cell antibodies, intrinsic factor antibodies)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Test order acknowledged; results not yet available in source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "What was the clinical rationale or specific findings that led to the decision to perform gastric biopsies during the upper endoscopy, especially given that the endoscopy was grossly unremarkable?",
+        "current_trajectory_hypothesis": "The patient presented with chronic GI symptoms, T1DM, and neurological symptoms. Initial labs showed low total IgA (E001). Histology confirmed autoimmune gastritis (E002), but the endoscopy itself was grossly unremarkable (E002). I need to understand what prompted the biopsy despite the normal macroscopic appearance, as this might reveal other key diagnostic findings or clinical considerations.",
+        "confirmed_evidence": [
+          "Histology revealed a pattern consistent with autoimmune gastritis (E002)",
+          "Initial lab-workup was remarkable for a low total IgA of < 6.7 mg/dL (E001)",
+          "Upper and lower endoscopy was grossly unremarkable (E002)"
+        ],
+        "missing_key_evidence": [
+          "Clinical rationale for biopsy despite unremarkable endoscopy",
+          "Other initial GI/autoimmune lab results (e.g., parietal cell antibodies, intrinsic factor antibodies, celiac serologies)",
+          "Vitamin B12 levels, Folate levels, CBC results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "request_too_diagnostic",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "The request is for clinical rationale or diagnostic reasoning, which is a meta-diagnostic question. Please specify a clinical evidence type, such as symptoms, lab values, imaging, pathology, or clinical course, for a grounded excerpt.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "What were the results of celiac disease serologies (e.g., IgG-gliadin, IgG-deamidated gliadin peptide, or IgG-tissue transglutaminase) and any findings from duodenal biopsies, if performed?",
+        "current_trajectory_hypothesis": "The patient presented with chronic GI symptoms, T1DM, and neurological symptoms. Initial labs showed low total IgA (E001). Endoscopy was grossly unremarkable, but histology confirmed autoimmune gastritis (E002). Given the patient's IgA deficiency and high risk for celiac disease, I need to check for celiac-related findings that might have prompted the endoscopy and subsequent biopsies, even if the gastric mucosa appeared normal.",
+        "confirmed_evidence": [
+          "Histology revealed a pattern consistent with autoimmune gastritis (E002)",
+          "Initial lab-workup was remarkable for a low total IgA of < 6.7 mg/dL (E001)",
+          "Upper and lower endoscopy was grossly unremarkable (E002)"
+        ],
+        "missing_key_evidence": [
+          "Celiac disease serology results (IgG-based)",
+          "Duodenal biopsy findings",
+          "Other autoimmune markers (e.g., parietal cell antibodies, intrinsic factor antibodies)",
+          "Vitamin B12 levels, Folate levels, CBC results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Order acknowledged; no test result available yet in source.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "Status found is not valid for clinician action ORDER_TEST.",
+        "validation_errors": [
+          "Status found is not valid for clinician action ORDER_TEST."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the results of anti-parietal cell antibodies (PCA) and intrinsic factor antibodies (IFA)?",
+        "current_trajectory_hypothesis": "The patient presented with chronic GI symptoms, T1DM, and neurological symptoms. Initial labs showed low total IgA (E001). Endoscopy was grossly unremarkable, but histology confirmed autoimmune gastritis (E002). Given the autoimmune nature of the diagnosis and the patient's T1DM, I need to check for specific autoantibodies associated with autoimmune gastritis.",
+        "confirmed_evidence": [
+          "Histology revealed a pattern consistent with autoimmune gastritis (E002)",
+          "Initial lab-workup was remarkable for a low total IgA of < 6.7 mg/dL (E001)",
+          "Upper and lower endoscopy was grossly unremarkable (E002)"
+        ],
+        "missing_key_evidence": [
+          "Anti-parietal cell antibodies (PCA) results",
+          "Intrinsic factor antibodies (IFA) results",
+          "Vitamin B12 levels, Folate levels, CBC results",
+          "Celiac disease serology results (IgG-based)",
+          "Duodenal biopsy findings"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Subsequent serum evaluation was consistent with pathologic diagnosis, demonstrating an elevated fasting gastrin level and an elevated parietal cell antibody level without macrocytic anemia or vitamin B12 depletion",
+        "category": "serology",
+        "temporal_cue": "after endoscopy and biopsy",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the results of intrinsic factor antibodies (IFA)?",
+        "current_trajectory_hypothesis": "The patient presented with chronic GI symptoms, T1DM, and neurological symptoms. Initial labs showed low total IgA (E001). Endoscopy was grossly unremarkable, but histology confirmed autoimmune gastritis (E002). Subsequent serology showed elevated fasting gastrin and parietal cell antibodies, without macrocytic anemia or vitamin B12 depletion (E004). I need to check for intrinsic factor antibodies, which are often associated with autoimmune gastritis and pernicious anemia, to further characterize the autoimmune profile.",
+        "confirmed_evidence": [
+          "Histology revealed a pattern consistent with autoimmune gastritis (E002)",
+          "Initial lab-workup was remarkable for a low total IgA of < 6.7 mg/dL (E001)",
+          "Upper and lower endoscopy was grossly unremarkable (E002)",
+          "Subsequent serum evaluation demonstrated an elevated fasting gastrin level and an elevated parietal cell antibody level without macrocytic anemia or vitamin B12 depletion (E004)"
+        ],
+        "missing_key_evidence": [
+          "Intrinsic factor antibodies (IFA) results",
+          "Celiac disease serology results (IgG-based)",
+          "Duodenal biopsy findings",
+          "Specific values for vitamin B12, folate, and CBC"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "The source records do not report results for intrinsic factor antibodies (IFA).",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the specific values for vitamin B12, folate, and complete blood count (CBC) results, including hemoglobin, MCV, and MCH?",
+        "current_trajectory_hypothesis": "The patient presented with chronic GI symptoms, T1DM, and neurological symptoms. Initial labs showed low total IgA (E001). Endoscopy was grossly unremarkable, but histology confirmed autoimmune gastritis (E002). Subsequent serology showed elevated fasting gastrin and parietal cell antibodies, without macrocytic anemia or vitamin B12 depletion (E004). I need to obtain the specific values for B12, folate, and CBC to fully characterize the hematological status and confirm the absence of deficiency.",
+        "confirmed_evidence": [
+          "Histology revealed a pattern consistent with autoimmune gastritis (E002)",
+          "Initial lab-workup was remarkable for a low total IgA of < 6.7 mg/dL (E001)",
+          "Upper and lower endoscopy was grossly unremarkable (E002)",
+          "Subsequent serum evaluation demonstrated an elevated fasting gastrin level and an elevated parietal cell antibody level without macrocytic anemia or vitamin B12 depletion (E004)"
+        ],
+        "missing_key_evidence": [
+          "Specific values for vitamin B12, folate, and CBC results",
+          "Celiac disease serology results (IgG-based)",
+          "Duodenal biopsy findings"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Specific numeric values for vitamin B12, folate, and CBC components (hemoglobin, MCV, MCH) are not reported in the supplied evidence.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the results of celiac disease serologies (e.g., IgG-gliadin, IgG-deamidated gliadin peptide, or IgG-tissue transglutaminase) and any findings from duodenal biopsies, if performed?",
+        "current_trajectory_hypothesis": "The patient presented with chronic GI symptoms, T1DM, and neurological symptoms. Initial labs showed low total IgA (E001). Endoscopy was grossly unremarkable, but histology confirmed autoimmune gastritis (E002). Subsequent serology showed elevated fasting gastrin and parietal cell antibodies, without macrocytic anemia or vitamin B12 depletion (E004). Given the patient's IgA deficiency and high risk for celiac disease, I need to check for celiac-related findings that might have prompted the endoscopy and subsequent biopsies, even if the gastric mucosa appeared normal, or to rule out a significant differential.",
+        "confirmed_evidence": [
+          "Histology revealed a pattern consistent with autoimmune gastritis (E002)",
+          "Initial lab-workup was remarkable for a low total IgA of < 6.7 mg/dL (E001)",
+          "Upper and lower endoscopy was grossly unremarkable (E002)",
+          "Subsequent serum evaluation demonstrated an elevated fasting gastrin level and an elevated parietal cell antibody level without macrocytic anemia or vitamin B12 depletion (E004)"
+        ],
+        "missing_key_evidence": [
+          "Celiac disease serology results (IgG-based)",
+          "Duodenal biopsy findings",
+          "Intrinsic factor antibodies (IFA) results",
+          "Specific values for vitamin B12, folate, and CBC results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Celiac disease was excluded based on gold standard diagnostics, to include upper endoscopy with small bowel biopsies, which did not demonstrate the typical pathologic pattern of celiac disease (i.e. damage to or flattening of villi, increased intraepithelial lymphocytes, crypt hyperplasia).",
+        "category": "other",
+        "temporal_cue": "after endoscopy and biopsy",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "histology revealed a pattern consistent with autoimmune gastritis",
+        "trajectory_summary": "A 20-year-old female with T1DM presented with chronic nocturnal diarrhea, left lower quadrant pain, nausea, and lower extremity pains with numbness. Initial lab workup revealed a low total IgA. An upper endoscopy was performed and was grossly unremarkable, but gastric biopsies revealed a pattern consistent with autoimmune gastritis. Subsequent serum evaluation showed an elevated fasting gastrin level and an elevated parietal cell antibody level, without macrocytic anemia or vitamin B12 depletion. Celiac disease was excluded by upper endoscopy with small bowel biopsies, which did not show typical pathological patterns.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Histology revealed a pattern consistent with autoimmune gastritis.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Initial lab-workup was remarkable for a low total IgA of < 6.7 mg/dL.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Upper and lower endoscopy was grossly unremarkable.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Subsequent serum evaluation demonstrated an elevated fasting gastrin level and an elevated parietal cell antibody level.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Patient did not have macrocytic anemia or vitamin B12 depletion.",
+            "evidence_ids": [
+              "E004"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Celiac disease",
+            "basis": "Excluded based on upper endoscopy with small bowel biopsies, which did not demonstrate typical pathologic patterns (i.e., damage to or flattening of villi, increased intraepithelial lymphocytes, crypt hyperplasia) (E005)."
+          },
+          {
+            "alternative": "Pernicious anemia/significant B12 deficiency",
+            "basis": "Subsequent serum evaluation was without macrocytic anemia or vitamin B12 depletion (E004)."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Specific numeric values for vitamin B12, folate, and CBC components (hemoglobin, MCV, MCH) were not reported.",
+          "Intrinsic factor antibody results were not reported."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "histology revealed a pattern consistent with autoimmune gastritis",
+    "trajectory_summary": "A 20-year-old female with T1DM presented with chronic nocturnal diarrhea, left lower quadrant pain, nausea, and lower extremity pains with numbness. Initial lab workup revealed a low total IgA. An upper endoscopy was performed and was grossly unremarkable, but gastric biopsies revealed a pattern consistent with autoimmune gastritis. Subsequent serum evaluation showed an elevated fasting gastrin level and an elevated parietal cell antibody level, without macrocytic anemia or vitamin B12 depletion. Celiac disease was excluded by upper endoscopy with small bowel biopsies, which did not show typical pathological patterns.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Histology revealed a pattern consistent with autoimmune gastritis.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Initial lab-workup was remarkable for a low total IgA of < 6.7 mg/dL.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Upper and lower endoscopy was grossly unremarkable.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Subsequent serum evaluation demonstrated an elevated fasting gastrin level and an elevated parietal cell antibody level.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Patient did not have macrocytic anemia or vitamin B12 depletion.",
+        "evidence_ids": [
+          "E004"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Celiac disease",
+        "basis": "Excluded based on upper endoscopy with small bowel biopsies, which did not demonstrate typical pathologic patterns (i.e., damage to or flattening of villi, increased intraepithelial lymphocytes, crypt hyperplasia) (E005)."
+      },
+      {
+        "alternative": "Pernicious anemia/significant B12 deficiency",
+        "basis": "Subsequent serum evaluation was without macrocytic anemia or vitamin B12 depletion (E004)."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Specific numeric values for vitamin B12, folate, and CBC components (hemoglobin, MCV, MCH) were not reported.",
+      "Intrinsic factor antibody results were not reported."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T21:54:29.722638+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

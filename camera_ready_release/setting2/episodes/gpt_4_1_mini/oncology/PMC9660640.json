@@ -1,0 +1,356 @@
+{
+  "case_id": "PMC9660640",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 8,
+  "termination": "final",
+  "known_final_diagnosis": "the presence of a gain-of-function fusion between LMNA (exon2) and NTRK1 (exon11) on chromosome 1",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "order a CT scan of the abdomen and pelvis with contrast",
+        "current_trajectory_hypothesis": "Acute abdominal pain with atypical presentation for appendicitis necessitates imaging to identify possible causes including masses or lesions that could relate to genetic abnormalities",
+        "confirmed_evidence": [
+          "presentation with severe abdominal pain and atypical appendicitis features"
+        ],
+        "missing_key_evidence": [
+          "imaging findings that might reveal neoplastic or structural abnormalities prompting genetic testing"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for CT abdomen and pelvis with contrast recorded; no result yet",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "CT scan of the abdomen and pelvis with contrast report",
+        "current_trajectory_hypothesis": "Investigating atypical abdominal pain via contrast-enhanced CT to detect abnormalities indicating a neoplasm or lesion that could require further molecular genetic testing",
+        "confirmed_evidence": [
+          "presentation of severe abdominal pain with atypical appendicitis features",
+          "CT scan ordered to investigate abdominal and pelvic structures"
+        ],
+        "missing_key_evidence": [
+          "imaging findings that identify tumor or abnormal mass",
+          "evidence for biopsy or molecular testing leading to identifying LMNA-NTRK1 fusion"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "The CT scan (figure 1A, B) revealed a relatively defined mass located in the terminal ileum, measuring 2.7 × 2.6 × 1.8 cm, that was isodense on plain images and hyperenhanced postcontrast.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "order a biopsy of the mass in the terminal ileum for histopathological and molecular genetic analysis",
+        "current_trajectory_hypothesis": "The CT shows a mass in the terminal ileum; confirmatory biopsy and molecular analysis are necessary to identify the presence of the LMNA-NTRK1 fusion and establish the diagnosis.",
+        "confirmed_evidence": [
+          "presentation of severe abdominal pain with atypical appendicitis features",
+          "CT scan reveals a defined mass in the terminal ileum measuring 2.7 x 2.6 x 1.8 cm with hyperenhancement postcontrast"
+        ],
+        "missing_key_evidence": [
+          "histopathology and molecular genetic results confirming the presence of LMNA-NTRK1 gene fusion"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Procedure order acknowledged without documented result in source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "histopathological and molecular genetic analysis report of the biopsy from the terminal ileum mass",
+        "current_trajectory_hypothesis": "Histopathology and molecular genetic analysis on the biopsy specimen will confirm the diagnosis by demonstrating the LMNA-NTRK1 fusion.",
+        "confirmed_evidence": [
+          "presentation of severe abdominal pain with atypical appendicitis features",
+          "CT scan reveals a defined mass in the terminal ileum measuring 2.7 x 2.6 x 1.8 cm with hyperenhancement postcontrast",
+          "biopsy of the mass was ordered"
+        ],
+        "missing_key_evidence": [
+          "histopathological and molecular genetic confirmation of LMNA-NTRK1 fusion"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The clinical picture with abdominal pain, imaging showing a terminal ileum mass, and an ordered biopsy suggests subsequent molecular confirmation will establish the LMNA-NTRK1 fusion diagnosis",
+        "confirmed_evidence": [
+          "severe abdominal pain with atypical appendicitis presentation",
+          "CT scan identifying a terminal ileum mass",
+          "biopsy ordered of the identified mass"
+        ],
+        "missing_key_evidence": [
+          "histopathological and molecular genetic confirmation of LMNA-NTRK1 fusion fusion from the biopsy specimen"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "Gross pathological examination revealed a circumscribed firm grey-white mass in the bowel wall measuring 2.0 × 1.9 × 1.0 cm (figure 2A, B). Microscopically, however, the tumour borders were highly irregular traversing the muscularis propria and the muscularis mucosae and splaying the muscle fibres apart (figure 3A, B). The deep edge of the tumour showed infiltration through mesenteric fat resembling the honeycomb infiltration of dermatofibrosarcoma protuberans (figure 3C). Prominent vascularity was noted with ectatic thin-walled haemangiopericytoma (HPC)-like vessels as well as thick-walled blood vessels. A distinctive feature was the presence of perivascular rings of keloid-like hyalinised collagen as well as band-like stromal collagen (figure 3D). The tumour was composed of haphazardly arranged monomorphic spindle cells in a variably collagenous stroma with a storiform pattern in some foci (figure 3E). The cells were ovoid to spindle showing bland nuclei, inconspicuous nucleoli and scant pale eosinophilic cytoplasm with indistinct cytoplasmic borders. Despite the overall bland appearance, interspersed pleomorphic multinucleated cells were identified on closer inspection (figure 3F). Mitotic count was low with a maximum of 2 mitoses per 10 high power field. Scattered lymphocytes and occasional lymphoid aggregates were seen in the background. Necrosis was absent.",
+        "category": "pathology_report",
+        "temporal_cue": "after surgery",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "molecular genetic testing report confirming the presence of LMNA (exon2)-NTRK1 (exon11) fusion on the biopsy specimen",
+        "current_trajectory_hypothesis": "The histopathology demonstrates a spindle cell tumor in the ileum mass, and molecular genetic testing would confirm the diagnosis by identifying the LMNA-NTRK1 fusion.",
+        "confirmed_evidence": [
+          "presentation of severe abdominal pain with atypical appendicitis features",
+          "CT scan shows a terminal ileum mass measuring 2.7x2.6x1.8 cm",
+          "pathology report describes a circumscribed firm grey-white spindle cell tumor with irregular borders and specific vascular and stromal features"
+        ],
+        "missing_key_evidence": [
+          "molecular genetic confirmation of the LMNA-NTRK1 fusion on the tumor biopsy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Molecular testing was performed using a targeted DNA-based next generation sequencing (NGS) panel, namely the Oncomine Comprehensive Assay v3, which showed no mutations in the KIT, PDGFRA, RAS, BRAF or NF1 genes excluding the diagnosis of GIST. The RNA-based gene fusion assay, on the other hand, revealed the presence of a gain-of-function fusion between LMNA (exon2) and NTRK1 (exon11) on chromosome 1.",
+        "category": "image_finding",
+        "temporal_cue": "after surgery",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Abdominal pain presentation revealed a terminal ileum spindle cell tumor on imaging and pathology, confirmed by molecular testing to harbor LMNA (exon2)-NTRK1 (exon11) fusion, establishing the diagnosis; clinical course or treatment outcome data would complete the trajectory.",
+        "confirmed_evidence": [
+          "presentation of severe abdominal pain with atypical appendicitis features",
+          "CT scan identified a terminal ileum mass (2.7x2.6x1.8 cm)",
+          "pathological examination described a circumscribed firm spindle cell tumor infiltrating muscular layers",
+          "molecular genetic testing confirmed LMNA (exon2)-NTRK1 (exon11) gene fusion on biopsy"
+        ],
+        "missing_key_evidence": [
+          "clinical course, treatment approach, or outcomes post-diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "On immunohistochemistry, tumour cells were unexpectedly found to be negative for expression of GIST markers CD117 and DOG1 but were positive for CD34 (figure 4A). This prompted a repeat of the CD117/DOG1 stains which again came back negative. Solitary fibrous tumor was second in line due to the ectatic vascularity and CD34 positivity; however, STAT6 was negative excluding this possibility. In addition to CD34, tumour cells only expressed S100 (figure 4B), so at this point, the differential diagnosis of a nerve sheath tumour was rekindled and SOX10 was requested for confirmation but came back negative. On the other hand, all the following markers were negative: pan-cytokeratin/EMA (arguing against epithelial differentiation and synovial sarcoma), desmin/SMA (arguing against smooth muscle differentiation), HMB45/Melan-A (arguing against melanocytic lesions), ALK1 protein (arguing against inflammatory myofibroblastic tumour), beta-catenin (excluding desmoid fibromatosis) and synaptophysin/chromogranin (excluding neuroendocrine tumours). Ki-67 showed a low proliferation index corresponding to the low mitotic count. Immunostaining for H3K27me3 showed intact nuclear expression further excluding a low-grade malignant nerve sheath tumour.",
+        "category": "image_finding",
+        "temporal_cue": "after surgery",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "the presence of a gain-of-function fusion between LMNA (exon2) and NTRK1 (exon11) on chromosome 1",
+        "trajectory_summary": "A previously healthy woman in her 20s presented acutely with severe abdominal pain atypical for appendicitis. CT imaging identified a defined mass in the terminal ileum. Biopsy and pathological exam revealed a spindle cell tumor with distinct histologic features infiltrating the bowel wall and mesenteric fat. Immunohistochemistry excluded GIST and other differential diagnoses, showing CD34 and S100 positivity but negativity for multiple markers including CD117, DOG1, and STAT6. Molecular genetic testing confirmed the presence of a gain-of-function LMNA (exon2)-NTRK1 (exon11) fusion, establishing the final diagnosis.",
+        "key_supporting_evidence": [
+          {
+            "claim": "CT scan revealed a defined mass in the terminal ileum measuring 2.7 × 2.6 × 1.8 cm with hyperenhancement postcontrast",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Pathology showed a circumscribed firm grey-white spindle cell tumor infiltrating muscular layers and mesenteric fat with characteristic vessel patterns and collagen rings",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Immunohistochemistry: tumor cells positive for CD34 and S100; negative for CD117, DOG1, STAT6, SOX10, and other markers, excluding several differential diagnoses",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Molecular genetic testing identified a gain-of-function fusion between LMNA (exon2) and NTRK1 (exon11) on chromosome 1, with negative GIST-associated mutations",
+            "evidence_ids": [
+              "E004"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Gastrointestinal stromal tumor (GIST)",
+            "basis": "No mutations in KIT, PDGFRA and negative CD117/DOG1 immunostains (E003, E004)"
+          },
+          {
+            "alternative": "Solitary fibrous tumor",
+            "basis": "Negative STAT6 immunohistochemistry excluded this possibility (E003)"
+          },
+          {
+            "alternative": "Low-grade malignant nerve sheath tumor",
+            "basis": "Intact H3K27me3 nuclear expression and negative SOX10 immunostains excluded this diagnosis (E003)"
+          },
+          {
+            "alternative": "Epithelial malignancies, melanocytic lesions, inflammatory myofibroblastic tumor, desmoid fibromatosis, neuroendocrine tumors",
+            "basis": "Negative immunostains for pan-cytokeratin/EMA, HMB45/Melan-A, ALK1, beta-catenin, synaptophysin, chromogranin (E003)"
+          }
+        ],
+        "remaining_uncertainties": [
+          "No clinical course, treatment, or outcome data documented to complete the trajectory"
+        ],
+        "confidence_that_diagnosis_is_supported": 1.0
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "the presence of a gain-of-function fusion between LMNA (exon2) and NTRK1 (exon11) on chromosome 1",
+    "trajectory_summary": "A previously healthy woman in her 20s presented acutely with severe abdominal pain atypical for appendicitis. CT imaging identified a defined mass in the terminal ileum. Biopsy and pathological exam revealed a spindle cell tumor with distinct histologic features infiltrating the bowel wall and mesenteric fat. Immunohistochemistry excluded GIST and other differential diagnoses, showing CD34 and S100 positivity but negativity for multiple markers including CD117, DOG1, and STAT6. Molecular genetic testing confirmed the presence of a gain-of-function LMNA (exon2)-NTRK1 (exon11) fusion, establishing the final diagnosis.",
+    "key_supporting_evidence": [
+      {
+        "claim": "CT scan revealed a defined mass in the terminal ileum measuring 2.7 × 2.6 × 1.8 cm with hyperenhancement postcontrast",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Pathology showed a circumscribed firm grey-white spindle cell tumor infiltrating muscular layers and mesenteric fat with characteristic vessel patterns and collagen rings",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Immunohistochemistry: tumor cells positive for CD34 and S100; negative for CD117, DOG1, STAT6, SOX10, and other markers, excluding several differential diagnoses",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Molecular genetic testing identified a gain-of-function fusion between LMNA (exon2) and NTRK1 (exon11) on chromosome 1, with negative GIST-associated mutations",
+        "evidence_ids": [
+          "E004"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Gastrointestinal stromal tumor (GIST)",
+        "basis": "No mutations in KIT, PDGFRA and negative CD117/DOG1 immunostains (E003, E004)"
+      },
+      {
+        "alternative": "Solitary fibrous tumor",
+        "basis": "Negative STAT6 immunohistochemistry excluded this possibility (E003)"
+      },
+      {
+        "alternative": "Low-grade malignant nerve sheath tumor",
+        "basis": "Intact H3K27me3 nuclear expression and negative SOX10 immunostains excluded this diagnosis (E003)"
+      },
+      {
+        "alternative": "Epithelial malignancies, melanocytic lesions, inflammatory myofibroblastic tumor, desmoid fibromatosis, neuroendocrine tumors",
+        "basis": "Negative immunostains for pan-cytokeratin/EMA, HMB45/Melan-A, ALK1, beta-catenin, synaptophysin, chromogranin (E003)"
+      }
+    ],
+    "remaining_uncertainties": [
+      "No clinical course, treatment, or outcome data documented to complete the trajectory"
+    ],
+    "confidence_that_diagnosis_is_supported": 1.0
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-29T09:03:51.550207+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

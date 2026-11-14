@@ -1,0 +1,581 @@
+{
+  "case_id": "PMC6540360",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "The patient was considered to be infected with Spirometra mansoni",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E008",
+    "E011"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "detailed report of the initial head CT scan (2016-1-1) and any subsequent brain imaging, such as MRI, if performed",
+        "current_trajectory_hypothesis": "Initial presentation suggests stroke, but the final diagnosis is parasitic infection. I need to understand the imaging findings better to see how they relate to either diagnosis or if they prompted further investigation.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Detailed characteristics of brain lesions",
+          "Evidence of parasitic infection (e.g., serology, CSF, specific imaging signs)",
+          "Clinical course beyond initial presentation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "Emergency head CT scan (2016-1-1) showed lower density in the left parietal lobe.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "report of any brain MRI performed, including sequences and specific lesion characteristics",
+        "current_trajectory_hypothesis": "Initial CT showed non-specific low density. Given the final diagnosis of Spirometra mansoni, a parasitic infection, more detailed imaging like MRI is crucial to characterize the lesion and look for features suggestive of parasitic etiology, which might have prompted further investigation away from stroke.",
+        "confirmed_evidence": [
+          "Patient presented with right limb numbness, instability, and convulsive seizures.",
+          "Initial head CT showed lower density in the left parietal lobe (E001)."
+        ],
+        "missing_key_evidence": [
+          "Detailed characteristics of brain lesions (e.g., location, size, enhancement patterns, edema, specific signs of parasitic infection)",
+          "Evidence of parasitic infection (e.g., serology, CSF, specific imaging signs, biopsy)",
+          "Clinical course beyond initial presentation",
+          "How the stroke diagnosis was ruled out or revised"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "After hospitalisation, head MRI scan (2016-1-4) displayed a lesion in the left parietal lobe of unknown nature. After enhancement in the magnetic field, a larger area of oedema was found around the lesion in the left parietal lobe which could indicate glioma or other inflammatory diseases.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "serological tests for parasitic infections or other relevant infectious disease markers",
+        "current_trajectory_hypothesis": "The initial CT and MRI showed a non-specific lesion in the left parietal lobe with edema, raising suspicion for glioma or inflammatory disease. Given the final diagnosis of Spirometra mansoni, I need to investigate what led to the suspicion of a parasitic infection. Serological tests are a common and less invasive step to screen for parasitic infections.",
+        "confirmed_evidence": [
+          "Patient presented with right limb numbness, instability, and convulsive seizures.",
+          "Initial head CT showed lower density in the left parietal lobe (E001).",
+          "Head MRI showed a lesion in the left parietal lobe of unknown nature with surrounding edema, suggesting glioma or inflammatory diseases (E002)."
+        ],
+        "missing_key_evidence": [
+          "Specific evidence for parasitic infection (e.g., serology, CSF, specific imaging signs, biopsy)",
+          "How the stroke diagnosis was ruled out or revised",
+          "Clinical course beyond initial presentation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.25
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Ordering requested serological tests; no direct source record documents the test ordering.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "brain biopsy of the left parietal lobe lesion",
+        "current_trajectory_hypothesis": "The MRI showed a lesion of unknown nature, with edema, suggesting glioma or inflammatory disease. Given the final diagnosis of Spirometra mansoni, a brain biopsy would be a definitive diagnostic step to differentiate between tumor, inflammation, or parasitic infection.",
+        "confirmed_evidence": [
+          "Patient presented with right limb numbness, instability, and convulsive seizures.",
+          "Initial head CT showed lower density in the left parietal lobe (E001).",
+          "Head MRI showed a lesion in the left parietal lobe of unknown nature with surrounding edema, suggesting glioma or inflammatory diseases (E002)."
+        ],
+        "missing_key_evidence": [
+          "Specific evidence for parasitic infection (e.g., serology, CSF, specific imaging signs, biopsy results)",
+          "How the stroke diagnosis was ruled out or revised",
+          "Clinical course beyond initial presentation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Procedure order acknowledged; no documented source evidence of brain biopsy result for this lesion.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "surgical resection or biopsy of the left parietal lobe lesion and its pathological findings",
+        "current_trajectory_hypothesis": "The initial CT and MRI showed a non-specific lesion with edema, raising suspicion for glioma or inflammatory disease. Given the final diagnosis of Spirometra mansoni, a definitive diagnosis would likely come from tissue examination. Surgical resection or biopsy with subsequent pathological analysis is a common and definitive method to diagnose brain lesions, especially when imaging is inconclusive.",
+        "confirmed_evidence": [
+          "Patient presented with right limb numbness, instability, and convulsive seizures.",
+          "Initial head CT showed lower density in the left parietal lobe (E001).",
+          "Head MRI showed a lesion in the left parietal lobe of unknown nature with surrounding edema, suggesting glioma or inflammatory diseases (E002)."
+        ],
+        "missing_key_evidence": [
+          "Specific evidence for parasitic infection (e.g., characteristic imaging signs, serology, CSF, biopsy results)",
+          "How the stroke diagnosis was ruled out or revised",
+          "Clinical course beyond initial presentation",
+          "Pathological confirmation of the diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.35
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Order for surgical resection or biopsy documented; no source evidence of procedure or pathology result exists",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "results of any surgical intervention or pathological examination of the brain lesion",
+        "current_trajectory_hypothesis": "Initial imaging (CT, MRI) showed a non-specific lesion in the left parietal lobe. Given the final diagnosis of Spirometra mansoni, a parasitic infection, a definitive diagnosis would likely involve surgical removal of the lesion and pathological identification of the parasite. I need to find evidence of this key diagnostic step.",
+        "confirmed_evidence": [
+          "Patient presented with right limb numbness, instability, and convulsive seizures.",
+          "Initial head CT showed lower density in the left parietal lobe (E001).",
+          "Head MRI showed a lesion in the left parietal lobe of unknown nature with surrounding edema, suggesting glioma or inflammatory diseases (E002)."
+        ],
+        "missing_key_evidence": [
+          "Definitive diagnostic evidence for Spirometra mansoni (e.g., identification of parasite, specific pathological findings from surgery)",
+          "How the initial stroke diagnosis was ruled out or revised",
+          "Clinical course beyond initial workup"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.35
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "No source record reports results of surgical intervention or pathological examination.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial imaging (CT, MRI) showed a non-specific brain lesion. Previous attempts to find specific serological or pathological evidence for Spirometra mansoni were unsuccessful. I need to understand the clinical progression and any subsequent diagnostic steps or procedures that led to the definitive diagnosis of Spirometra mansoni, especially how the initial stroke diagnosis was ruled out or revised.",
+        "confirmed_evidence": [
+          "Patient presented with right limb numbness, instability, and convulsive seizures.",
+          "Initial head CT showed lower density in the left parietal lobe (E001).",
+          "Head MRI showed a lesion in the left parietal lobe of unknown nature with surrounding edema, suggesting glioma or inflammatory diseases (E002)."
+        ],
+        "missing_key_evidence": [
+          "Definitive diagnostic evidence for Spirometra mansoni (e.g., identification of parasite, specific pathological findings, serology, or molecular tests)",
+          "How the initial stroke diagnosis was ruled out or revised",
+          "Clinical course beyond initial workup and imaging"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.35
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Since the nature of the brain lesion did not match the characteristics of common cerebrovascular diseases, intracranial angiography DSA was used but found no obvious vascular abnormalities or stenosis.",
+        "category": "imaging_report",
+        "temporal_cue": "early after admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "results of any further diagnostic tests or procedures performed to investigate the nature of the left parietal lobe lesion, particularly after cerebrovascular disease was ruled out, focusing on differentiating between inflammatory, neoplastic, or infectious etiologies",
+        "current_trajectory_hypothesis": "Initial imaging (CT, MRI) showed a non-specific brain lesion with edema, and DSA ruled out cerebrovascular disease. Given the final diagnosis of Spirometra mansoni, I need to identify the specific diagnostic step or finding that led to the identification of a parasitic infection, especially after other common causes were considered.",
+        "confirmed_evidence": [
+          "Patient presented with right limb numbness, instability, and convulsive seizures.",
+          "Initial head CT showed lower density in the left parietal lobe (E001).",
+          "Head MRI showed a lesion in the left parietal lobe of unknown nature with surrounding edema, suggesting glioma or inflammatory diseases (E002).",
+          "Intracranial angiography DSA found no obvious vascular abnormalities or stenosis, ruling out common cerebrovascular diseases (E003)."
+        ],
+        "missing_key_evidence": [
+          "Definitive diagnostic evidence for Spirometra mansoni (e.g., identification of parasite, specific pathological findings, serology, or molecular tests)",
+          "Specific imaging characteristics that pointed to parasitic infection",
+          "Clinical course beyond initial workup and imaging"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "A raised cerebrospinal fluid pressure was found to (215 mm H2O) with no red or white blood cells present.",
+        "category": "routine_lab",
+        "temporal_cue": "early after admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "detailed cerebrospinal fluid (CSF) analysis results, including protein, glucose, and any specific markers for infection or inflammation, if performed",
+        "current_trajectory_hypothesis": "Initial imaging (CT, MRI) showed a non-specific brain lesion with edema, and DSA ruled out cerebrovascular disease. CSF showed raised pressure but no red or white blood cells. I need to see if further CSF analysis provided clues towards the parasitic infection, as this could help differentiate between inflammatory, neoplastic, or infectious etiologies.",
+        "confirmed_evidence": [
+          "Patient presented with right limb numbness, instability, and convulsive seizures.",
+          "Initial head CT showed lower density in the left parietal lobe (E001).",
+          "Head MRI showed a lesion in the left parietal lobe of unknown nature with surrounding edema, suggesting glioma or inflammatory diseases (E002).",
+          "Intracranial angiography DSA found no obvious vascular abnormalities or stenosis, ruling out common cerebrovascular diseases (E003).",
+          "CSF showed raised pressure (215 mm H2O) with no red or white blood cells (E004)."
+        ],
+        "missing_key_evidence": [
+          "Definitive diagnostic evidence for Spirometra mansoni (e.g., identification of parasite, specific pathological findings, serology, or molecular tests)",
+          "Specific imaging characteristics that pointed to parasitic infection",
+          "Clinical course beyond initial workup and imaging",
+          "Detailed CSF findings (protein, glucose, specific markers)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E004",
+        "source_text": "A raised cerebrospinal fluid pressure was found to (215 mm H2O) with no red or white blood cells present.",
+        "category": "routine_lab",
+        "temporal_cue": "early after admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "results of any further brain imaging (e.g., follow-up MRI) or a re-evaluation of previous imaging with specific attention to features suggestive of parasitic infection, such as the 'wandering sign' or characteristic enhancement patterns",
+        "current_trajectory_hypothesis": "Initial imaging (CT, MRI) showed a non-specific brain lesion with edema, and DSA ruled out cerebrovascular disease. CSF analysis was limited. Given the final diagnosis of Spirometra mansoni, I need to identify specific imaging characteristics that might have led to the suspicion or diagnosis of a parasitic infection, as previous attempts to find serological or pathological confirmation were not documented.",
+        "confirmed_evidence": [
+          "Patient presented with right limb numbness, instability, and convulsive seizures.",
+          "Initial head CT showed lower density in the left parietal lobe (E001).",
+          "Head MRI showed a lesion in the left parietal lobe of unknown nature with surrounding edema, suggesting glioma or inflammatory diseases (E002).",
+          "Intracranial angiography DSA found no obvious vascular abnormalities or stenosis, ruling out common cerebrovascular diseases (E003).",
+          "CSF showed raised pressure (215 mm H2O) with no red or white blood cells (E004)."
+        ],
+        "missing_key_evidence": [
+          "Definitive diagnostic evidence for Spirometra mansoni (e.g., identification of parasite, specific pathological findings, serology, or molecular tests)",
+          "Specific imaging characteristics that pointed to parasitic infection",
+          "Clinical course beyond initial workup and imaging"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E011",
+        "source_text": "During the second hospital stay, the MRI scan carried out on 17th March showed abnormal small stripes of signal shadow in the left parietal lobe with a decreased range. It also showed clearer abnormal veil-like signal shadow in the left parietal lobe as compared to the previous MRI scan. These results may indicatethe presence of Spirometra within this area of the brain.",
+        "category": "imaging_report",
+        "temporal_cue": "March 2016",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "results of any definitive diagnostic tests (e.g., biopsy, serology, molecular tests, or direct parasite identification) that confirmed the presence of Spirometra mansoni, especially following the suggestive MRI findings in March 2016",
+        "current_trajectory_hypothesis": "Initial imaging (CT, MRI) showed a non-specific brain lesion with edema. DSA ruled out cerebrovascular disease, and CSF was non-specific. A follow-up MRI in March 2016 showed features suggestive of Spirometra. I need to find the definitive evidence that confirmed the diagnosis of Spirometra mansoni.",
+        "confirmed_evidence": [
+          "Patient presented with right limb numbness, instability, and convulsive seizures.",
+          "Initial head CT showed lower density in the left parietal lobe (E001).",
+          "Head MRI showed a lesion in the left parietal lobe of unknown nature with surrounding edema, suggesting glioma or inflammatory diseases (E002).",
+          "Intracranial angiography DSA found no obvious vascular abnormalities or stenosis, ruling out common cerebrovascular diseases (E003).",
+          "CSF showed raised pressure (215 mm H2O) with no red or white blood cells (E004).",
+          "Follow-up MRI (March 2016) showed abnormal small stripes and clearer veil-like signal shadow in the left parietal lobe, which may indicate the presence of Spirometra (E011)."
+        ],
+        "missing_key_evidence": [
+          "Definitive diagnostic evidence for Spirometra mansoni (e.g., identification of parasite, specific pathological findings, serology, or molecular tests)",
+          "Clinical course and treatment following the suggestive MRI findings"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "pathological findings from any surgical intervention or biopsy of the left parietal lobe lesion performed after the March 2016 MRI",
+        "current_trajectory_hypothesis": "Initial imaging (CT, MRI) showed a non-specific brain lesion with edema. DSA ruled out cerebrovascular disease, and CSF was non-specific. A follow-up MRI in March 2016 showed features suggestive of Spirometra. I need to find the definitive pathological evidence that confirmed the diagnosis of Spirometra mansoni, likely obtained after the suggestive MRI.",
+        "confirmed_evidence": [
+          "Patient presented with right limb numbness, instability, and convulsive seizures.",
+          "Initial head CT showed lower density in the left parietal lobe (E001).",
+          "Head MRI showed a lesion in the left parietal lobe of unknown nature with surrounding edema, suggesting glioma or inflammatory diseases (E002).",
+          "Intracranial angiography DSA found no obvious vascular abnormalities or stenosis, ruling out common cerebrovascular diseases (E003).",
+          "CSF showed raised pressure (215 mm H2O) with no red or white blood cells (E004).",
+          "Follow-up MRI (March 2016) showed abnormal small stripes and clearer veil-like signal shadow in the left parietal lobe, which may indicate the presence of Spirometra (E011)."
+        ],
+        "missing_key_evidence": [
+          "Definitive diagnostic evidence for Spirometra mansoni (e.g., identification of parasite, specific pathological findings, serology, or molecular tests)",
+          "Clinical course and treatment following the suggestive MRI findings"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "explanation": "No pathological findings from surgical intervention or biopsy of the left parietal lobe lesion are documented in the source after the March 2016 MRI.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial imaging (CT, MRI) showed a non-specific brain lesion with edema. DSA ruled out cerebrovascular disease, and CSF was non-specific. A follow-up MRI in March 2016 showed features suggestive of Spirometra. Since direct pathological or serological confirmation has not been documented, I need to understand the subsequent clinical management and treatment response, which could provide further evidence for the diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with right limb numbness, instability, and convulsive seizures.",
+          "Initial head CT showed lower density in the left parietal lobe (E001).",
+          "Head MRI showed a lesion in the left parietal lobe of unknown nature with surrounding edema, suggesting glioma or inflammatory diseases (E002).",
+          "Intracranial angiography DSA found no obvious vascular abnormalities or stenosis, ruling out common cerebrovascular diseases (E003).",
+          "CSF showed raised pressure (215 mm H2O) with no red or white blood cells (E004).",
+          "Follow-up MRI (March 2016) showed abnormal small stripes and clearer veil-like signal shadow in the left parietal lobe, which may indicate the presence of Spirometra (E011)."
+        ],
+        "missing_key_evidence": [
+          "Definitive diagnostic evidence for Spirometra mansoni (e.g., identification of parasite, specific pathological findings, serology, or molecular tests)",
+          "Clinical course and treatment following the suggestive MRI findings",
+          "Treatment response and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "CSF analysis showed normal results except for a few white and red blood cells during his second hospital stay most likely resulting from the procedure itself.",
+        "category": "routine_lab",
+        "temporal_cue": "multiple times January, March, July 2016",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "results of any serological tests for parasitic infections, specifically Spirometra mansoni, or any other definitive diagnostic tests performed to confirm the diagnosis after the suggestive MRI findings in March 2016",
+        "current_trajectory_hypothesis": "Initial imaging (CT, MRI) showed a non-specific brain lesion with edema. DSA ruled out cerebrovascular disease, and CSF was non-specific. A follow-up MRI in March 2016 showed features suggestive of Spirometra. I need to find the definitive evidence that confirmed the diagnosis of Spirometra mansoni, which could be serology, molecular tests, or other specific diagnostic findings.",
+        "confirmed_evidence": [
+          "Patient presented with right limb numbness, instability, and convulsive seizures.",
+          "Initial head CT showed lower density in the left parietal lobe (E001).",
+          "Head MRI showed a lesion in the left parietal lobe of unknown nature with surrounding edema, suggesting glioma or inflammatory diseases (E002).",
+          "Intracranial angiography DSA found no obvious vascular abnormalities or stenosis, ruling out common cerebrovascular diseases (E003).",
+          "CSF showed raised pressure (215 mm H2O) with no red or white blood cells (E004).",
+          "Follow-up MRI (March 2016) showed abnormal small stripes and clearer veil-like signal shadow in the left parietal lobe, which may indicate the presence of Spirometra (E011).",
+          "CSF analysis during the second hospital stay showed normal results except for a few white and red blood cells, likely procedural (E008)."
+        ],
+        "missing_key_evidence": [
+          "Definitive diagnostic evidence for Spirometra mansoni (e.g., identification of parasite, specific pathological findings, serology, or molecular tests)",
+          "Clinical course and treatment following the suggestive MRI findings",
+          "Treatment response and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "The patient was considered to be infected with Spirometra mansoni",
+        "trajectory_summary": "A 45-year-old male presented with right limb numbness and convulsive seizures, initially diagnosed as acute stroke and secondary epilepsy. Initial head CT showed a low-density lesion in the left parietal lobe. Subsequent MRI revealed a lesion of unknown nature with surrounding edema, raising suspicion for glioma or inflammatory disease. Intracranial angiography (DSA) ruled out common cerebrovascular diseases. CSF analysis showed raised pressure but no significant cellular abnormalities. A follow-up MRI in March 2016 showed abnormal signal characteristics in the left parietal lobe, described as small stripes and veil-like shadows, which were noted to 'may indicate the presence of Spirometra'. The definitive diagnostic step (e.g., pathological confirmation, specific serology) and subsequent clinical course or treatment response are not explicitly documented in the provided reports.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with right limb numbness, instability, and convulsive seizures, leading to initial suspicion of acute stroke and secondary epilepsy.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Initial head CT showed lower density in the left parietal lobe.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Head MRI showed a lesion in the left parietal lobe of unknown nature with surrounding edema, suggesting glioma or inflammatory diseases.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Intracranial angiography DSA found no obvious vascular abnormalities or stenosis, ruling out common cerebrovascular diseases.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "CSF showed raised pressure (215 mm H2O) with no red or white blood cells.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Follow-up MRI (March 2016) showed abnormal small stripes and clearer veil-like signal shadow in the left parietal lobe, which may indicate the presence of Spirometra.",
+            "evidence_ids": [
+              "E011"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Acute stroke (cerebrovascular disease)",
+            "basis": "Intracranial angiography DSA found no obvious vascular abnormalities or stenosis (E003)."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Direct pathological confirmation (e.g., biopsy results) of Spirometra mansoni.",
+          "Specific serological or molecular test results for Spirometra mansoni.",
+          "Detailed clinical course and treatment administered after the suggestive MRI findings.",
+          "Patient's response to treatment and long-term outcome."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "The patient was considered to be infected with Spirometra mansoni",
+    "trajectory_summary": "A 45-year-old male presented with right limb numbness and convulsive seizures, initially diagnosed as acute stroke and secondary epilepsy. Initial head CT showed a low-density lesion in the left parietal lobe. Subsequent MRI revealed a lesion of unknown nature with surrounding edema, raising suspicion for glioma or inflammatory disease. Intracranial angiography (DSA) ruled out common cerebrovascular diseases. CSF analysis showed raised pressure but no significant cellular abnormalities. A follow-up MRI in March 2016 showed abnormal signal characteristics in the left parietal lobe, described as small stripes and veil-like shadows, which were noted to 'may indicate the presence of Spirometra'. The definitive diagnostic step (e.g., pathological confirmation, specific serology) and subsequent clinical course or treatment response are not explicitly documented in the provided reports.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with right limb numbness, instability, and convulsive seizures, leading to initial suspicion of acute stroke and secondary epilepsy.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Initial head CT showed lower density in the left parietal lobe.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Head MRI showed a lesion in the left parietal lobe of unknown nature with surrounding edema, suggesting glioma or inflammatory diseases.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Intracranial angiography DSA found no obvious vascular abnormalities or stenosis, ruling out common cerebrovascular diseases.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "CSF showed raised pressure (215 mm H2O) with no red or white blood cells.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Follow-up MRI (March 2016) showed abnormal small stripes and clearer veil-like signal shadow in the left parietal lobe, which may indicate the presence of Spirometra.",
+        "evidence_ids": [
+          "E011"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Acute stroke (cerebrovascular disease)",
+        "basis": "Intracranial angiography DSA found no obvious vascular abnormalities or stenosis (E003)."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Direct pathological confirmation (e.g., biopsy results) of Spirometra mansoni.",
+      "Specific serological or molecular test results for Spirometra mansoni.",
+      "Detailed clinical course and treatment administered after the suggestive MRI findings.",
+      "Patient's response to treatment and long-term outcome."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.6
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T22:23:25.425045+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

@@ -1,0 +1,572 @@
+{
+  "case_id": "PMC10508920",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "a final diagnosis of metastatic epithelial-myoepithelial carcinoma was given.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E004",
+    "E006",
+    "E007"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "What were the findings of the physical examination of the cervical lymph node?",
+        "current_trajectory_hypothesis": "The patient presented with low backache and a long-standing cervical lymph node. The cervical lymph node is a potential site of metastatic disease, and its characteristics on physical exam are important for guiding further workup.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Detailed characteristics of the cervical lymph node",
+          "Workup for low backache",
+          "Primary tumor site identification",
+          "Biopsy and pathology results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "No explicit physical examination findings of the cervical lymph node are reported in the source evidence.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "What were the findings of the biopsy and histopathological examination of the cervical lymph node?",
+        "current_trajectory_hypothesis": "The patient presented with a long-standing cervical lymph node and low backache. Given the final diagnosis of metastatic epithelial-myoepithelial carcinoma, a biopsy of the cervical lymph node is a critical step to confirm the metastatic nature and specific pathology.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Histopathological diagnosis of the cervical lymph node",
+          "Identification of the primary tumor site",
+          "Imaging findings (e.g., neck, chest, abdomen, pelvis)",
+          "Workup for low backache",
+          "Treatment and clinical course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.15
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Test order registered based on clinician request; results to be provided when available.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the histopathological findings from the biopsy of the cervical lymph node?",
+        "current_trajectory_hypothesis": "The patient presented with a long-standing cervical lymph node and low backache. A biopsy of the cervical lymph node is crucial to confirm the metastatic nature and specific pathology, especially given the known final diagnosis of metastatic epithelial-myoepithelial carcinoma.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Histopathological diagnosis of the cervical lymph node",
+          "Identification of the primary tumor site",
+          "Imaging findings (e.g., neck, chest, abdomen, pelvis)",
+          "Workup for low backache",
+          "Treatment and clinical course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "The H&E stained section from the cell-block revealed tumor cells arranged in the form of tubules lined by a dual layer of tumor cells. The luminal cells showed a scant to moderate amount of pale to eosinophilic cytoplasm and the basally placed cells showed a moderate amount of clear to vacuolated cytoplasm. A few scattered mitotic figures and occasional lymphoid aggregates were also noted.",
+        "category": "other",
+        "temporal_cue": "from cell-block from FNAC sample",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the final diagnosis from the histopathological examination of the cervical lymph node, including any immunohistochemistry results?",
+        "current_trajectory_hypothesis": "The patient presented with a long-standing cervical lymph node and low backache. Initial histopathological findings from the cervical lymph node biopsy described tumor cells with a dual layer arrangement. I need the definitive pathological diagnosis, likely including immunohistochemistry, to confirm metastatic epithelial-myoepithelial carcinoma.",
+        "confirmed_evidence": [
+          "Patient presented with low-backache and a palpable right lower cervical lymph node (2x2.5 cm), mobile, non-tender, firm, present for >20 years.",
+          "Histopathological examination of the cervical lymph node cell-block revealed tumor cells arranged in tubules with a dual layer of cells (luminal and basal), scattered mitotic figures, and occasional lymphoid aggregates (E006)."
+        ],
+        "missing_key_evidence": [
+          "Definitive histopathological diagnosis of the cervical lymph node, including IHC.",
+          "Identification of the primary tumor site.",
+          "Imaging findings (e.g., neck, chest, abdomen, pelvis).",
+          "Workup for low backache.",
+          "Treatment and clinical course."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the immunohistochemical staining results for the dual cell population observed in the cervical lymph node biopsy?",
+        "current_trajectory_hypothesis": "The patient presented with a long-standing cervical lymph node and low backache. Initial histopathological findings from the cervical lymph node biopsy (E006) described tumor cells arranged in tubules with a dual layer. To further characterize these cells and support the diagnosis of metastatic epithelial-myoepithelial carcinoma, specific immunohistochemical markers are needed.",
+        "confirmed_evidence": [
+          "Patient presented with low-backache and a palpable right lower cervical lymph node (2x2.5 cm), mobile, non-tender, firm, present for >20 years.",
+          "Histopathological examination of the cervical lymph node cell-block revealed tumor cells arranged in tubules with a dual layer of cells (luminal and basal), scattered mitotic figures, and occasional lymphoid aggregates (E006)."
+        ],
+        "missing_key_evidence": [
+          "Specific immunohistochemical profile of the tumor cells.",
+          "Definitive histopathological diagnosis of the cervical lymph node.",
+          "Identification of the primary tumor site.",
+          "Imaging findings (e.g., neck, chest, abdomen, pelvis).",
+          "Workup for low backache.",
+          "Treatment and clinical course."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.35
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "On performing IHC, the luminal cells showed strong diffuse membranous positivity for CK7 (epithelial marker) and the abluminal cells showed strong nuclear positivity for p63 (myoepithelial marker). Less than 10% of tumor cells showed nuclear positivity for GATA3 (Figure 3).",
+        "category": "image_finding",
+        "temporal_cue": "after immunocytochemistry on cell-block",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the final histopathological diagnosis of the cervical lymph node based on the H&E and immunohistochemistry findings?",
+        "current_trajectory_hypothesis": "The patient presented with a long-standing cervical lymph node and low backache. Histopathological examination (E006) showed tumor cells in tubules with a dual layer, and immunohistochemistry (E007) confirmed epithelial (CK7+) and myoepithelial (p63+) differentiation. I need the explicit final diagnosis for the cervical lymph node to confirm the metastatic nature and specific tumor type.",
+        "confirmed_evidence": [
+          "Patient presented with low-backache and a palpable right lower cervical lymph node (2x2.5 cm), mobile, non-tender, firm, present for >20 years.",
+          "Histopathological examination of the cervical lymph node cell-block revealed tumor cells arranged in tubules with a dual layer of cells (luminal and basal), scattered mitotic figures, and occasional lymphoid aggregates (E006).",
+          "Immunohistochemistry showed luminal cells positive for CK7 (epithelial marker) and abluminal cells positive for p63 (myoepithelial marker). Less than 10% of tumor cells showed nuclear positivity for GATA3 (E007)."
+        ],
+        "missing_key_evidence": [
+          "Definitive histopathological diagnosis of the cervical lymph node.",
+          "Identification of the primary tumor site.",
+          "Imaging findings (e.g., neck, chest, abdomen, pelvis).",
+          "Workup for low backache.",
+          "Treatment and clinical course."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E007",
+        "source_text": "On performing IHC, the luminal cells showed strong diffuse membranous positivity for CK7 (epithelial marker) and the abluminal cells showed strong nuclear positivity for p63 (myoepithelial marker). Less than 10% of tumor cells showed nuclear positivity for GATA3 (Figure 3).",
+        "category": "image_finding",
+        "temporal_cue": "after immunocytochemistry on cell-block",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the final diagnostic conclusion or impression from the pathology report of the cervical lymph node?",
+        "current_trajectory_hypothesis": "The patient presented with a long-standing cervical lymph node and low backache. Histopathological examination (E006) showed tumor cells in tubules with a dual layer, and immunohistochemistry (E007) confirmed epithelial (CK7+) and myoepithelial (p63+) differentiation. I need the explicit final diagnostic statement for the cervical lymph node to confirm the metastatic nature and specific tumor type.",
+        "confirmed_evidence": [
+          "Patient presented with low-backache and a palpable right lower cervical lymph node (2x2.5 cm), mobile, non-tender, firm, present for >20 years.",
+          "Histopathological examination of the cervical lymph node cell-block revealed tumor cells arranged in tubules with a dual layer of cells (luminal and basal), scattered mitotic figures, and occasional lymphoid aggregates (E006).",
+          "Immunohistochemistry showed luminal cells positive for CK7 (epithelial marker) and abluminal cells positive for p63 (myoepithelial marker). Less than 10% of tumor cells showed nuclear positivity for GATA3 (E007)."
+        ],
+        "missing_key_evidence": [
+          "Definitive histopathological diagnosis of the cervical lymph node.",
+          "Identification of the primary tumor site.",
+          "Imaging findings (e.g., neck, chest, abdomen, pelvis).",
+          "Workup for low backache.",
+          "Treatment and clinical course."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E007",
+        "source_text": "Based on the cytomorphological features on smears and cell-block and the immunocytochemistry, a final diagnosis of metastatic epithelial-myoepithelial carcinoma was given.",
+        "category": "image_finding",
+        "temporal_cue": "after immunocytochemistry on cell-block",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "What were the findings of imaging studies (e.g., CT, MRI, PET) performed to identify the primary site of the metastatic epithelial-myoepithelial carcinoma?",
+        "current_trajectory_hypothesis": "The patient presented with low backache and a long-standing cervical lymph node. Histopathological examination and immunohistochemistry of the cervical lymph node confirmed metastatic epithelial-myoepithelial carcinoma. The next step is to identify the primary tumor site, which is crucial for staging and treatment planning.",
+        "confirmed_evidence": [
+          "Patient presented with low-backache and a palpable right lower cervical lymph node (2x2.5 cm), mobile, non-tender, firm, present for >20 years.",
+          "Histopathological examination of the cervical lymph node cell-block revealed tumor cells arranged in tubules with a dual layer of cells (luminal and basal), scattered mitotic figures, and occasional lymphoid aggregates (E006).",
+          "Immunohistochemistry showed luminal cells positive for CK7 (epithelial marker) and abluminal cells positive for p63 (myoepithelial marker). Less than 10% of tumor cells showed nuclear positivity for GATA3 (E007).",
+          "A final diagnosis of metastatic epithelial-myoepithelial carcinoma was given based on cytomorphological features and immunocytochemistry of the cervical lymph node (E007)."
+        ],
+        "missing_key_evidence": [
+          "Identification of the primary tumor site.",
+          "Imaging findings (e.g., neck, chest, abdomen, pelvis).",
+          "Workup for low backache.",
+          "Treatment and clinical course."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "Imaging studies requested; no corresponding result documented in source yet",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of the imaging studies (e.g., CT, MRI, PET) performed to identify the primary site of the metastatic epithelial-myoepithelial carcinoma?",
+        "current_trajectory_hypothesis": "The patient presented with low backache and a long-standing cervical lymph node. Histopathological examination and immunohistochemistry of the cervical lymph node confirmed metastatic epithelial-myoepithelial carcinoma. Imaging studies are crucial to identify the primary tumor site, which is essential for staging and treatment planning.",
+        "confirmed_evidence": [
+          "Patient presented with low-backache and a palpable right lower cervical lymph node (2x2.5 cm), mobile, non-tender, firm, present for >20 years.",
+          "Histopathological examination of the cervical lymph node cell-block revealed tumor cells arranged in tubules with a dual layer of cells (luminal and basal), scattered mitotic figures, and occasional lymphoid aggregates (E006).",
+          "Immunohistochemistry showed luminal cells positive for CK7 (epithelial marker) and abluminal cells positive for p63 (myoepithelial marker). Less than 10% of tumor cells showed nuclear positivity for GATA3 (E007).",
+          "A final diagnosis of metastatic epithelial-myoepithelial carcinoma was given based on cytomorphological features and immunocytochemistry of the cervical lymph node (E007)."
+        ],
+        "missing_key_evidence": [
+          "Identification of the primary tumor site.",
+          "Imaging findings (e.g., neck, chest, abdomen, pelvis).",
+          "Workup for low backache.",
+          "Treatment and clinical course."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "clinical examination, mammography and positron emission tomography (PET) all failed to identify any lesion in the breast or lungs.",
+        "category": "molecular_test",
+        "temporal_cue": "after initial suggestion of breast primary",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "What were the findings of imaging studies (e.g., CT, MRI) of the head and neck region to identify a primary tumor site?",
+        "current_trajectory_hypothesis": "The patient presented with low backache and a long-standing cervical lymph node, which was diagnosed as metastatic epithelial-myoepithelial carcinoma. Initial imaging ruled out breast and lung primaries. I need to investigate other common primary sites for this type of carcinoma, particularly in the head and neck region (e.g., salivary glands), to identify the origin of the metastasis.",
+        "confirmed_evidence": [
+          "Patient presented with low-backache and a palpable right lower cervical lymph node (2x2.5 cm), mobile, non-tender, firm, present for >20 years.",
+          "Histopathological examination of the cervical lymph node cell-block revealed tumor cells arranged in tubules with a dual layer of cells (luminal and basal), scattered mitotic figures, and occasional lymphoid aggregates (E006).",
+          "Immunohistochemistry showed luminal cells positive for CK7 (epithelial marker) and abluminal cells positive for p63 (myoepithelial marker). Less than 10% of tumor cells showed nuclear positivity for GATA3 (E007).",
+          "A final diagnosis of metastatic epithelial-myoepithelial carcinoma was given based on cytomorphological features and immunocytochemistry of the cervical lymph node (E007).",
+          "Clinical examination, mammography, and PET failed to identify any lesion in the breast or lungs (E004)."
+        ],
+        "missing_key_evidence": [
+          "Identification of the primary tumor site (especially head/neck/salivary glands).",
+          "Imaging findings related to the low backache.",
+          "Treatment and clinical course."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.55
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "Order for imaging studies of the head and neck region placed; no direct source record matches an imaging result for primary tumor site at this phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of imaging studies (e.g., CT, MRI) of the head and neck region, specifically focusing on salivary glands or other potential primary sites for epithelial-myoepithelial carcinoma?",
+        "current_trajectory_hypothesis": "The patient presented with low backache and a long-standing cervical lymph node, which was diagnosed as metastatic epithelial-myoepithelial carcinoma. Initial imaging ruled out breast and lung primaries. I am now seeking imaging evidence for a primary tumor in the head and neck region, such as salivary glands, which are common sites for this type of carcinoma.",
+        "confirmed_evidence": [
+          "Patient presented with low-backache and a palpable right lower cervical lymph node (2x2.5 cm), mobile, non-tender, firm, present for >20 years.",
+          "Histopathological examination of the cervical lymph node cell-block revealed tumor cells arranged in tubules with a dual layer of cells (luminal and basal), scattered mitotic figures, and occasional lymphoid aggregates (E006).",
+          "Immunohistochemistry showed luminal cells positive for CK7 (epithelial marker) and abluminal cells positive for p63 (myoepithelial marker). Less than 10% of tumor cells showed nuclear positivity for GATA3 (E007).",
+          "A final diagnosis of metastatic epithelial-myoepithelial carcinoma was given based on cytomorphological features and immunocytochemistry of the cervical lymph node (E007).",
+          "Clinical examination, mammography, and PET failed to identify any lesion in the breast or lungs (E004)."
+        ],
+        "missing_key_evidence": [
+          "Identification of the primary tumor site (especially head/neck/salivary glands).",
+          "Imaging findings related to the low backache.",
+          "Treatment and clinical course."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No imaging study results of the head and neck region, specifically on salivary glands or possible primary sites for epithelial-myoepithelial carcinoma, are documented in the supplied evidence.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "Was the primary site of the metastatic epithelial-myoepithelial carcinoma ever identified, and if so, what was it?",
+        "current_trajectory_hypothesis": "The patient presented with low backache and a long-standing cervical lymph node, which was diagnosed as metastatic epithelial-myoepithelial carcinoma. Initial imaging ruled out breast and lung primaries, and specific head and neck imaging results were not reported. I need to determine if the primary tumor site was ultimately identified, which is crucial for understanding the full disease trajectory.",
+        "confirmed_evidence": [
+          "Patient presented with low-backache and a palpable right lower cervical lymph node (2x2.5 cm), mobile, non-tender, firm, present for >20 years.",
+          "Histopathological examination of the cervical lymph node cell-block revealed tumor cells arranged in tubules with a dual layer of cells (luminal and basal), scattered mitotic figures, and occasional lymphoid aggregates (E006).",
+          "Immunohistochemistry showed luminal cells positive for CK7 (epithelial marker) and abluminal cells positive for p63 (myoepithelial marker). Less than 10% of tumor cells showed nuclear positivity for GATA3 (E007).",
+          "A final diagnosis of metastatic epithelial-myoepithelial carcinoma was given based on cytomorphological features and immunocytochemistry of the cervical lymph node (E007).",
+          "Clinical examination, mammography, and PET failed to identify any lesion in the breast or lungs (E004)."
+        ],
+        "missing_key_evidence": [
+          "Identification of the primary tumor site (if found).",
+          "Imaging findings related to the low backache.",
+          "Treatment and clinical course."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E004",
+        "source_text": "clinical examination, mammography and positron emission tomography (PET) all failed to identify any lesion in the breast or lungs.",
+        "category": "molecular_test",
+        "temporal_cue": "after initial suggestion of breast primary",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "What were the findings of imaging studies (e.g., X-ray, CT, MRI) performed to investigate the patient's low backache?",
+        "current_trajectory_hypothesis": "The patient presented with low backache and a long-standing cervical lymph node, which was diagnosed as metastatic epithelial-myoepithelial carcinoma. While the primary site remains unidentified after ruling out breast and lung, the low backache is an important presenting symptom that needs to be investigated, as it could indicate metastatic disease to the spine or other causes.",
+        "confirmed_evidence": [
+          "Patient presented with low-backache and a palpable right lower cervical lymph node (2x2.5 cm), mobile, non-tender, firm, present for >20 years.",
+          "Histopathological examination of the cervical lymph node cell-block revealed tumor cells arranged in tubules with a dual layer of cells (luminal and basal), scattered mitotic figures, and occasional lymphoid aggregates (E006).",
+          "Immunohistochemistry showed luminal cells positive for CK7 (epithelial marker) and abluminal cells positive for p63 (myoepithelial marker). Less than 10% of tumor cells showed nuclear positivity for GATA3 (E007).",
+          "A final diagnosis of metastatic epithelial-myoepithelial carcinoma was given based on cytomorphological features and immunocytochemistry of the cervical lymph node (E007).",
+          "Clinical examination, mammography, and PET failed to identify any lesion in the breast or lungs (E004)."
+        ],
+        "missing_key_evidence": [
+          "Identification of the primary tumor site (if found).",
+          "Imaging findings related to the low backache.",
+          "Treatment and clinical course."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "The clinician ordered imaging studies for investigation; no result yet in source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of imaging studies (e.g., X-ray, CT, MRI) performed to investigate the patient's low backache?",
+        "current_trajectory_hypothesis": "The patient presented with low backache and a long-standing cervical lymph node, which was diagnosed as metastatic epithelial-myoepithelial carcinoma. While the primary site remains unidentified after ruling out breast and lung, the low backache is an important presenting symptom that needs to be investigated, as it could indicate metastatic disease to the spine or other causes. I am now requesting the results of imaging studies for the low backache.",
+        "confirmed_evidence": [
+          "Patient presented with low-backache and a palpable right lower cervical lymph node (2x2.5 cm), mobile, non-tender, firm, present for >20 years.",
+          "Histopathological examination of the cervical lymph node cell-block revealed tumor cells arranged in tubules with a dual layer of cells (luminal and basal), scattered mitotic figures, and occasional lymphoid aggregates (E006).",
+          "Immunohistochemistry showed luminal cells positive for CK7 (epithelial marker) and abluminal cells positive for p63 (myoepithelial marker). Less than 10% of tumor cells showed nuclear positivity for GATA3 (E007).",
+          "A final diagnosis of metastatic epithelial-myoepithelial carcinoma was given based on cytomorphological features and immunocytochemistry of the cervical lymph node (E007).",
+          "Clinical examination, mammography, and PET failed to identify any lesion in the breast or lungs (E004)."
+        ],
+        "missing_key_evidence": [
+          "Identification of the primary tumor site (if found).",
+          "Imaging findings related to the low backache.",
+          "Treatment and clinical course."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "Radiological investigations revealed a lytic lesion in the left acetabulum.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "metastatic epithelial-myoepithelial carcinoma",
+        "trajectory_summary": "A 58-year-old female presented with low-backache and a long-standing right lower cervical lymph node. Histopathological examination of the cervical lymph node revealed tumor cells arranged in tubules with a dual layer (E006). Immunohistochemistry confirmed epithelial (CK7+) and myoepithelial (p63+) differentiation (E007), leading to a diagnosis of metastatic epithelial-myoepithelial carcinoma. Investigations to identify the primary site ruled out breast and lung lesions (E004). Radiological investigations for the low-backache revealed a lytic lesion in the left acetabulum (E001), consistent with metastatic disease.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with a palpable right lower cervical lymph node (2x2.5 cm), mobile, non-tender, firm, present for >20 years.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Histopathological examination of the cervical lymph node cell-block revealed tumor cells arranged in tubules with a dual layer of cells (luminal and basal), scattered mitotic figures, and occasional lymphoid aggregates.",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Immunohistochemistry showed luminal cells positive for CK7 (epithelial marker) and abluminal cells positive for p63 (myoepithelial marker), with less than 10% of tumor cells showing nuclear positivity for GATA3.",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "A final diagnosis of metastatic epithelial-myoepithelial carcinoma was given based on cytomorphological features and immunocytochemistry of the cervical lymph node.",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Radiological investigations revealed a lytic lesion in the left acetabulum, consistent with metastatic disease.",
+            "evidence_ids": [
+              "E001"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Primary breast cancer",
+            "basis": "Clinical examination, mammography, and PET failed to identify any lesion in the breast (E004)."
+          },
+          {
+            "alternative": "Primary lung cancer",
+            "basis": "PET failed to identify any lesion in the lungs (E004)."
+          }
+        ],
+        "remaining_uncertainties": [
+          "The primary site of the metastatic epithelial-myoepithelial carcinoma was not identified.",
+          "The specific nature of the lytic lesion in the acetabulum (e.g., biopsy results) is not documented.",
+          "The clinical course, treatment, and outcome of the patient are not documented."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "metastatic epithelial-myoepithelial carcinoma",
+    "trajectory_summary": "A 58-year-old female presented with low-backache and a long-standing right lower cervical lymph node. Histopathological examination of the cervical lymph node revealed tumor cells arranged in tubules with a dual layer (E006). Immunohistochemistry confirmed epithelial (CK7+) and myoepithelial (p63+) differentiation (E007), leading to a diagnosis of metastatic epithelial-myoepithelial carcinoma. Investigations to identify the primary site ruled out breast and lung lesions (E004). Radiological investigations for the low-backache revealed a lytic lesion in the left acetabulum (E001), consistent with metastatic disease.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with a palpable right lower cervical lymph node (2x2.5 cm), mobile, non-tender, firm, present for >20 years.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Histopathological examination of the cervical lymph node cell-block revealed tumor cells arranged in tubules with a dual layer of cells (luminal and basal), scattered mitotic figures, and occasional lymphoid aggregates.",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Immunohistochemistry showed luminal cells positive for CK7 (epithelial marker) and abluminal cells positive for p63 (myoepithelial marker), with less than 10% of tumor cells showing nuclear positivity for GATA3.",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "A final diagnosis of metastatic epithelial-myoepithelial carcinoma was given based on cytomorphological features and immunocytochemistry of the cervical lymph node.",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Radiological investigations revealed a lytic lesion in the left acetabulum, consistent with metastatic disease.",
+        "evidence_ids": [
+          "E001"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Primary breast cancer",
+        "basis": "Clinical examination, mammography, and PET failed to identify any lesion in the breast (E004)."
+      },
+      {
+        "alternative": "Primary lung cancer",
+        "basis": "PET failed to identify any lesion in the lungs (E004)."
+      }
+    ],
+    "remaining_uncertainties": [
+      "The primary site of the metastatic epithelial-myoepithelial carcinoma was not identified.",
+      "The specific nature of the lytic lesion in the acetabulum (e.g., biopsy results) is not documented.",
+      "The clinical course, treatment, and outcome of the patient are not documented."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T00:44:37.987537+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

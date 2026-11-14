@@ -1,0 +1,392 @@
+{
+  "case_id": "PMC10608514",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 10,
+  "termination": "final",
+  "known_final_diagnosis": "the definitive histopathological diagnosis was serous cystadenofibroma of the ovary (ICD-O 9014/0)",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E003",
+    "E004",
+    "E008",
+    "E009"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "order pelvic ultrasound imaging report to characterize the adnexal mass and ovarian morphology",
+        "current_trajectory_hypothesis": "Initial evaluation for ovarian mass causing abdominal enlargement, pain, menstrual irregularity, and infertility with obesity as a comorbidity",
+        "confirmed_evidence": [
+          "patient is a 23-year-old woman presenting with abdominal enlargement, left-sided abdominal pain, irregular menses, infertility, and obesity since childhood"
+        ],
+        "missing_key_evidence": [
+          "imaging findings to localize and characterize the ovarian mass",
+          "laboratory or tumor marker tests to support differential diagnosis",
+          "histopathological confirmation of the mass"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for pelvic ultrasound imaging to characterize adnexal mass and ovarian morphology recorded; no result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request pelvic ultrasound imaging report for adnexal mass characterization and ovarian morphology",
+        "current_trajectory_hypothesis": "Awaiting imaging results to characterize the ovarian mass in relation to symptoms of abdominal enlargement, pain, and menstrual changes.",
+        "confirmed_evidence": [
+          "pelvic ultrasound imaging was ordered to characterize adnexal mass and ovarian morphology"
+        ],
+        "missing_key_evidence": [
+          "actual pelvic ultrasound report findings",
+          "laboratory tumor markers or other tests",
+          "histopathological diagnosis to confirm serous cystadenofibroma"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "An abdominal and pelvic ultrasound showed a massive, fluid-filled tumor mass with segmentally visible solid components; however, the origin of the neoplasm could not be reliably identified due to the size of the abdomen of the patient, which was the limiting factor. The ultrasound transducer gave us an insight into the tumor, maximally up to 24–25 cm, which was a small percentage in relation to the diameter of the neoplasm we were dealing with.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "order serum tumor markers relevant for ovarian masses such as CA-125, HE4, and possibly others (CEA, AFP) to aid in differential diagnosis",
+        "current_trajectory_hypothesis": "Large adnexal mass with mixed cystic and solid features on ultrasound with obscured origin due to size and obesity; tumor markers will help differentiate between benign and malignant ovarian pathology.",
+        "confirmed_evidence": [
+          "Ultrasound shows a massive fluid-filled tumor with segmental solid components, but origin unclear due to patient body habitus and tumor size."
+        ],
+        "missing_key_evidence": [
+          "tumor marker test results",
+          "histopathological diagnosis of ovarian mass",
+          "physical examination findings",
+          "additional imaging if needed for surgical planning"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Order for relevant serum tumor marker tests recorded; no direct source evidence for result yet",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request laboratory results for ovarian tumor markers including CA-125, HE4, CEA, and AFP",
+        "current_trajectory_hypothesis": "Awaiting tumor marker levels to differentiate between benign and malignant ovarian neoplasm in patient with a large adnexal mass seen on ultrasound.",
+        "confirmed_evidence": [
+          "Ultrasound revealed a massive fluid-filled tumor with segmentally visible solid components but could not localize origin due to patient's obesity and size of mass.",
+          "Tumor marker tests were ordered to assist in differential diagnosis of ovarian mass."
+        ],
+        "missing_key_evidence": [
+          "actual tumor marker laboratory results",
+          "histopathological diagnosis confirming serous cystadenofibroma",
+          "physical examination findings",
+          "further imaging or procedural findings for precise localization and characterization"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Tumor markers routinely performed in such cases in our clinic (CA-125, HE4, ROMA algorithm, CA-19.9, CA-15.3, AFP, and CEA) were within the normal range.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "order surgical exploration with tumor resection and histopathological biopsy to confirm the nature of the adnexal mass",
+        "current_trajectory_hypothesis": "With inconclusive imaging due to obesity and size, normal tumor markers, and strong clinical suspicion for an ovarian tumor, surgical biopsy and resection are needed for definitive diagnosis confirming serous cystadenofibroma.",
+        "confirmed_evidence": [
+          "Ultrasound shows a massive fluid-filled tumor with solid components but origin not confidently identified due to size and obesity",
+          "Serum tumor markers including CA-125, HE4, CEA, AFP are all within normal limits",
+          "Patient presents with abdominal distension, left-sided pain, irregular menses and infertility",
+          "No significant prior medical history except childhood obesity"
+        ],
+        "missing_key_evidence": [
+          "histopathological diagnosis confirmation from biopsy or surgical specimen",
+          "surgical and pathological findings to clarify tumor origin and nature",
+          "physical examination findings and postoperative course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "The surgical exploration procedure has been ordered; awaiting documentation of results.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request histopathological examination report from surgical biopsy or tumor resection confirming the diagnosis of serous cystadenofibroma of the ovary",
+        "current_trajectory_hypothesis": "Surgical resection performed to obtain definitive diagnosis of adnexal mass; histopathology will confirm serous cystadenofibroma.",
+        "confirmed_evidence": [
+          "Pelvic ultrasound showed a massive fluid-filled tumor with segmental solid components but origin not clearly identified due to size and obesity",
+          "Tumor markers CA-125, HE4, CEA, AFP were within normal limits",
+          "Surgical exploration with tumor resection has been ordered"
+        ],
+        "missing_key_evidence": [
+          "histopathological confirmation of serous cystadenofibroma from surgical specimen",
+          "physical examination and postoperative clinical course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "After the fixation of the cyst in 10% neutral buffered formalin, numerous sections of the tumor were cut for paraffin blocks, and the definitive histopathological diagnosis was serous cystadenofibroma of the ovary (ICD-O 9014/0).",
+        "category": "other",
+        "temporal_cue": "postoperative period",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "request physical examination findings on admission including abdominal exam, presence of edema, peripheral pulses, and any relevant systemic signs",
+        "current_trajectory_hypothesis": "Patient presented with abdominal enlargement, left-sided pain, irregular menses, infertility, obesity, and clinical signs such as lower extremity and sacral edema; imaging and tumor markers supported a large benign ovarian mass, confirmed by histopathology as serous cystadenofibroma post-surgery.",
+        "confirmed_evidence": [
+          "23-year-old woman with abdominal enlargement, abdominal left-sided pain, menstrual irregularity, and infertility",
+          "Pelvic ultrasound showed a massive cystic tumor with solid parts but unclear origin",
+          "Tumor markers CA-125, HE4, CEA, AFP were normal",
+          "Histopathological diagnosis after surgical resection confirmed serous cystadenofibroma of the ovary",
+          "Clinical presentation included significant edema of lower extremities and sacral region with slightly weakened peripheral pulses"
+        ],
+        "missing_key_evidence": [
+          "detailed physical examination findings to correlate with imaging and clinical complaints",
+          "postoperative clinical course and outcomes",
+          "any additional imaging or intraoperative findings relevant to tumor origin and surgical management"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "At the time of admission to the hospital, in the physical examination, the patient was afebrile and in moderately good general condition. Vital signs were as follows: HR—110/min, RR 25/min, BP—180/96 mmHg.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "request detailed abdominal physical examination findings including palpation, masses, tenderness, and findings related to peripheral edema and pulses",
+        "current_trajectory_hypothesis": "Patient admitted with abdominal enlargement, left-sided pain, irregular menses and infertility; large adnexal mass found on ultrasound with normal tumor markers; diagnosis confirmed post-surgery as serous cystadenofibroma; detailed physical exam needed to correlate clinical signs with imaging and symptoms.",
+        "confirmed_evidence": [
+          "Patient had vital signs at admission: HR 110/min, RR 25/min, BP 180/96 mmHg",
+          "Significant edema of lower extremities and sacral region with slightly weakened peripheral pulses noted in history",
+          "Large fluid-filled tumor with segmentally solid components on ultrasound",
+          "Normal tumor markers including CA-125, HE4, CEA, AFP",
+          "Histopathological diagnosis of serous cystadenofibroma of the ovary after surgical resection"
+        ],
+        "missing_key_evidence": [
+          "Detailed abdominal exam findings including palpable mass characteristics, tenderness, signs of ascites or organomegaly",
+          "Documentation of pulses in legs and extent of edema",
+          "Postoperative clinical course and any complications"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No source record contains detailed abdominal physical examination findings related to palpation, masses, tenderness, peripheral edema, or pulses.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial presentation with abdominal enlargement and pain; imaging showed massive cystic mass with solid areas; normal tumor markers; surgical resection performed; histopathology confirmed serous cystadenofibroma; awaiting postoperative clinical course and outcome details.",
+        "confirmed_evidence": [
+          "23-year-old woman with abdominal enlargement, left-sided pain, irregular menses, infertility, and obesity",
+          "Pelvic ultrasound showed massive fluid-filled tumor with segmental solid components; origin unclear due to size and obesity (E003)",
+          "Serum tumor markers CA-125, HE4, CEA, AFP within normal range (E004)",
+          "Surgical exploration performed, specimen histology confirmed serous cystadenofibroma (E008)",
+          "Admission vital signs: HR 110, RR 25, BP 180/96 mmHg (E001)"
+        ],
+        "missing_key_evidence": [
+          "postoperative clinical outcome and treatment response",
+          "detailed physical examination findings during admission",
+          "any intraoperative findings relevant to tumor origin and surgical management"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E009",
+        "source_text": "In addition to the tumor itself, a sample of the fluid from the cyst and peritoneal washing was sent to the department of pathology for examination. Both were fixated with 10% neutral buffered formalin and preserved from clotting with heparin. No malignant cells were found in either of them. In peritoneal washing, mesothelial cells, inflammatory cells and numerous erythrocytes were reported.",
+        "category": "pathology_report",
+        "temporal_cue": "postoperative period",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "serous cystadenofibroma of the ovary (ICD-O 9014/0)",
+        "trajectory_summary": "A 23-year-old woman presented with significant abdominal enlargement, left-sided abdominal pain, menstrual irregularity, and infertility. Pelvic ultrasound revealed a massive fluid-filled tumor with segmental solid components, though the precise origin was obscured by the tumor size and patient obesity. Serum tumor markers (CA-125, HE4, CEA, AFP, and others) were within normal ranges, arguing against malignancy. Surgical exploration with tumor resection was performed. Histopathological examination of the tumor confirmed the diagnosis of serous cystadenofibroma of the ovary. Peritoneal washing and cyst fluid showed no malignant cells, supporting a benign diagnosis. Admission physical exam showed the patient was afebrile with mildly elevated vital signs but was otherwise in moderate condition.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Ultrasound showed a massive, fluid-filled tumor mass with segmentally visible solid components but unable to identify origin reliably due to size and obesity.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Serum tumor markers (CA-125, HE4, ROMA, CA-19.9, CA-15.3, AFP, CEA) were within normal limits.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Histopathological sections of the tumor confirmed serous cystadenofibroma of the ovary (ICD-O 9014/0).",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "No malignant cells found in cyst fluid and peritoneal washing; inflammatory and mesothelial cells noted.",
+            "evidence_ids": [
+              "E009"
+            ]
+          },
+          {
+            "claim": "On admission, patient was afebrile, in moderate condition, with HR 110/min, RR 25/min, BP 180/96 mmHg.",
+            "evidence_ids": [
+              "E001"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "malignant ovarian tumor",
+            "basis": "Normal tumor markers and absence of malignant cells in cyst fluid and peritoneal washing; histopathology showed benign serous cystadenofibroma"
+          }
+        ],
+        "remaining_uncertainties": [
+          "No detailed abdominal physical examination findings reported",
+          "No documented postoperative clinical course or treatment outcome details",
+          "Limited imaging characterization due to tumor size and patient body habitus"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "serous cystadenofibroma of the ovary (ICD-O 9014/0)",
+    "trajectory_summary": "A 23-year-old woman presented with significant abdominal enlargement, left-sided abdominal pain, menstrual irregularity, and infertility. Pelvic ultrasound revealed a massive fluid-filled tumor with segmental solid components, though the precise origin was obscured by the tumor size and patient obesity. Serum tumor markers (CA-125, HE4, CEA, AFP, and others) were within normal ranges, arguing against malignancy. Surgical exploration with tumor resection was performed. Histopathological examination of the tumor confirmed the diagnosis of serous cystadenofibroma of the ovary. Peritoneal washing and cyst fluid showed no malignant cells, supporting a benign diagnosis. Admission physical exam showed the patient was afebrile with mildly elevated vital signs but was otherwise in moderate condition.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Ultrasound showed a massive, fluid-filled tumor mass with segmentally visible solid components but unable to identify origin reliably due to size and obesity.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Serum tumor markers (CA-125, HE4, ROMA, CA-19.9, CA-15.3, AFP, CEA) were within normal limits.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Histopathological sections of the tumor confirmed serous cystadenofibroma of the ovary (ICD-O 9014/0).",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "No malignant cells found in cyst fluid and peritoneal washing; inflammatory and mesothelial cells noted.",
+        "evidence_ids": [
+          "E009"
+        ]
+      },
+      {
+        "claim": "On admission, patient was afebrile, in moderate condition, with HR 110/min, RR 25/min, BP 180/96 mmHg.",
+        "evidence_ids": [
+          "E001"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "malignant ovarian tumor",
+        "basis": "Normal tumor markers and absence of malignant cells in cyst fluid and peritoneal washing; histopathology showed benign serous cystadenofibroma"
+      }
+    ],
+    "remaining_uncertainties": [
+      "No detailed abdominal physical examination findings reported",
+      "No documented postoperative clinical course or treatment outcome details",
+      "Limited imaging characterization due to tumor size and patient body habitus"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-23T18:31:30.402536+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

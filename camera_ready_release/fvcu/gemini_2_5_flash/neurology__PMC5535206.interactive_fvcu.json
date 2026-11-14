@@ -1,0 +1,62 @@
+{
+  "prompt_version": "2026-07-31-interactive-fvcu-v1",
+  "judge_deployment": "gpt-4.1-mini-test",
+  "judge_input_file": "eacl_benchmark/results/interactive_fvcu_quality/matched225_100case_gemini25flash/judge_inputs/neurology__PMC5535206.json",
+  "judge_output": {
+    "case_id": "PMC5535206",
+    "judge_status": "completed",
+    "interactive_fvcu": {
+      "factuality": {
+        "score": 2,
+        "major_issues": [
+          "The clinician agent only obtained one piece of confirmed evidence (E003: CSF pleocytosis) despite multiple requests for diagnosis-revealing evidence (serology E007) which was never retrieved.",
+          "No fabricated or unsupported claims were made, but the final reconstruction lacks direct laboratory confirmation of TBEV infection from released evidence."
+        ],
+        "rationale": "The clinician agent's claims about symptoms and CSF findings are supported by released evidence. However, the key confirmatory evidence for TBEV infection (E007) was never obtained or cited, limiting factual completeness."
+      },
+      "validity": {
+        "score": 3,
+        "major_issues": [
+          "The clinician agent's requests were clinically reasonable and focused on relevant diagnostic tests for TBEV infection given the known diagnosis and evidence.",
+          "However, repeated requests for diagnosis-revealing reports were unsuccessful, and the agent did not adapt strategy to explore other evidence categories or alternative approaches."
+        ],
+        "rationale": "The diagnostic strategy was appropriate and focused on high-yield evidence (CSF analysis, serology). The single history question was relevant. The agent did not make invalid or irrelevant requests."
+      },
+      "coherence": {
+        "score": 3,
+        "major_issues": [
+          "The working reconstruction evolved logically with incorporation of confirmed CSF pleocytosis evidence.",
+          "Confidence increased modestly but the agent did not update the reconstruction with confirmatory serology evidence due to lack of report retrieval.",
+          "No contradictions or unexplained shifts were noted."
+        ],
+        "rationale": "The reconstruction and confidence evolved consistently with the evidence obtained. The final reconstruction is coherent with the interaction trace but incomplete."
+      },
+      "utility": {
+        "score": 2,
+        "major_issues": [
+          "The agent used the full turn budget but only obtained one piece of relevant evidence (CSF pleocytosis).",
+          "Repeated requests for serology results were invalid report selections, indicating inefficient use of turns.",
+          "No attempts to explore imaging or other supportive evidence were made.",
+          "Final reconstruction lacks key confirmatory evidence and epidemiological context."
+        ],
+        "rationale": "The episode had low answer yield and high invalid report selection rate, limiting utility for reconstructing the diagnostic trajectory."
+      },
+      "overall_quality": {
+        "score": 2,
+        "rationale": "While the clinician agent demonstrated a valid and coherent diagnostic approach, the failure to obtain key confirmatory evidence and inefficient request strategy significantly reduced the factual completeness and utility of the episode."
+      }
+    },
+    "trajectory_flags": {
+      "unsupported_or_unreleased_claims": false,
+      "request_strategy_problem": true,
+      "final_reconstruction_grounded": true
+    },
+    "episode_notes": "The clinician agent appropriately ordered and requested relevant tests but repeatedly failed to retrieve diagnosis-revealing serology evidence (E007). The final reconstruction is grounded in released evidence but incomplete without confirmatory TBEV testing. The request strategy was dominated by repeated, unsuccessful requests for unavailable reports, reducing episode efficiency."
+  },
+  "usage": {
+    "prompt_tokens": 6775,
+    "completion_tokens": 693,
+    "total_tokens": 7468
+  },
+  "created_at": "2026-08-01T03:15:16.004298+00:00"
+}

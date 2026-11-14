@@ -1,0 +1,51 @@
+{
+  "prompt_version": "2026-07-31-interactive-fvcu-v1",
+  "judge_deployment": "gpt-4.1-mini-test",
+  "judge_input_file": "eacl_benchmark/results/interactive_fvcu_quality/matched225_100case_gemini25flash/judge_inputs/nephrology__PMC10775661.json",
+  "judge_output": {
+    "case_id": "PMC10775661",
+    "judge_status": "completed",
+    "interactive_fvcu": {
+      "factuality": {
+        "score": 4,
+        "major_issues": [],
+        "rationale": "The clinician agent's claims and final reconstruction are well grounded in the released report-agent responses and disclosed evidence. No fabricated or unsupported claims were made. The agent correctly noted the absence of explicit evidence for the 'autosomal dominant' inheritance pattern and the specific 'multicystic' characterization of the right ectopic kidney, reflecting the limitations of the source data."
+      },
+      "validity": {
+        "score": 4,
+        "major_issues": [],
+        "rationale": "The clinician's requests and interpretations were clinically reasonable and focused on confirming key diagnostic features relevant to the known final diagnosis. The agent appropriately sought imaging details, renal function, family history, genetic testing, and pathology reports. Some requests for unavailable evidence (e.g., genetic testing results) were necessary given the diagnostic gaps."
+      },
+      "coherence": {
+        "score": 4,
+        "major_issues": [],
+        "rationale": "The working reconstruction and confidence evolved logically with each turn, reflecting newly acquired evidence. The agent consistently updated the confirmed and missing evidence lists without contradictions. The final reconstruction aligns with the interaction trace and acknowledges remaining uncertainties."
+      },
+      "utility": {
+        "score": 3,
+        "major_issues": [
+          "Repeated requests for renal function test results (turns 6 and 8) yielded invalid report selections, indicating some inefficiency.",
+          "Ordering genetic testing without documented results limited evidence yield.",
+          "No evidence was found for family history or genetic testing results despite multiple requests."
+        ],
+        "rationale": "The agent prioritized high-yield evidence such as imaging and renal function tests early, which were critical. However, half of the requests returned no new evidence or invalid reports, and some ordered tests were not documented, reducing overall utility."
+      },
+      "overall_quality": {
+        "score": 4,
+        "rationale": "The clinician agent demonstrated a factually grounded, clinically valid, and coherent diagnostic reconstruction strategy. While some inefficiencies and evidence gaps limited utility, the final reconstruction was well supported by released evidence and transparently acknowledged uncertainties, making the episode useful and reliable."
+      }
+    },
+    "trajectory_flags": {
+      "unsupported_or_unreleased_claims": false,
+      "request_strategy_problem": false,
+      "final_reconstruction_grounded": true
+    },
+    "episode_notes": "The clinician agent effectively used available evidence to reconstruct the diagnostic trajectory for ADPKD with right pelvic ectopic multicystic kidney. The agent correctly identified missing evidence and did not fabricate unsupported claims. Some inefficiencies in repeated or unavailable requests slightly reduced utility but did not compromise overall quality."
+  },
+  "usage": {
+    "prompt_tokens": 9576,
+    "completion_tokens": 597,
+    "total_tokens": 10173
+  },
+  "created_at": "2026-08-01T03:13:39.950941+00:00"
+}

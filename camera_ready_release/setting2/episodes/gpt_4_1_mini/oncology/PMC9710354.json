@@ -1,0 +1,489 @@
+{
+  "case_id": "PMC9710354",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 12,
+  "termination": "final",
+  "known_final_diagnosis": "Soft tissue pathology demonstrated spindle cell proliferation, consistent with DF.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E004",
+    "E005"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order imaging study of the abdomen focusing on the midline abdominal lump detected clinically, preferably an abdominal ultrasound or MRI to characterize the mass",
+        "current_trajectory_hypothesis": "Initial presentation with postoperative abdominal pain and lump, suspected postoperative haematoma or soft tissue mass, imaging needed to characterize mass",
+        "confirmed_evidence": [
+          "abdominal pain and midline lump post spinal surgery with initial CT suggesting a small hematoma"
+        ],
+        "missing_key_evidence": [
+          "imaging characterization of the abdominal lump, including size, composition, and involvement of surrounding tissues"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Ordered abdominal ultrasound as requested; no direct source yet documents order or result",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request ultrasound imaging report of the abdominal midline lump",
+        "current_trajectory_hypothesis": "Initial postoperative abdominal pain and midline lump, ultrasound needed to characterize the mass and differentiate hematoma versus other soft tissue pathology",
+        "confirmed_evidence": [
+          "abdominal pain and midline lump post spinal surgery with initial CT suggesting a small hematoma"
+        ],
+        "missing_key_evidence": [
+          "ultrasound imaging characterization of the abdominal lump, including size, echogenicity, and relation to soft tissues",
+          "further evaluation to confirm nature of the spindle cell proliferation diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "An ultrasound was significant for 2.9×2.1×1.5 cm irregular lobulated hypoechoic mass in the left paramedian abdominal wall with internal vascularity in which biopsy was advised (figure 2).",
+        "category": "image_finding",
+        "temporal_cue": "few weeks after initial CT",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "Order a biopsy of the abdominal wall mass for histopathological examination to confirm spindle cell proliferation and diagnose desmoid-type fibromatosis (DF)",
+        "current_trajectory_hypothesis": "Ultrasound revealed a 2.9×2.1×1.5 cm hypoechoic lobulated mass with vascularity in left paramedian abdominal wall; histological confirmation needed to define spindle cell tumor consistent with DF",
+        "confirmed_evidence": [
+          "postoperative midline abdominal pain with palpable lump",
+          "initial CT suggested small hematoma",
+          "ultrasound showed 2.9×2.1×1.5 cm irregular lobulated hypoechoic vascular mass in left paramedian abdominal wall"
+        ],
+        "missing_key_evidence": [
+          "biopsy histopathology confirming spindle cell proliferation consistent with DF"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Procedure order acknowledged; biopsy of the abdominal wall mass ordered.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request histopathology report of the biopsy from the abdominal wall mass",
+        "current_trajectory_hypothesis": "Biopsy performed on abdominal wall mass to confirm spindle cell proliferation consistent with desmoid-type fibromatosis",
+        "confirmed_evidence": [
+          "postoperative midline abdominal pain with palpable lump",
+          "initial CT suggested small hematoma",
+          "ultrasound showed 2.9×2.1×1.5 cm irregular lobulated hypoechoic vascular mass in left paramedian abdominal wall",
+          "biopsy ordered for histopathological examination"
+        ],
+        "missing_key_evidence": [
+          "biopsy histopathology confirming spindle cell proliferation consistent with DF"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Awaiting biopsy histopathology results to confirm spindle cell proliferation consistent with desmoid-type fibromatosis after ultrasound identified vascular soft tissue mass",
+        "confirmed_evidence": [
+          "postoperative midline abdominal pain with palpable lump",
+          "initial CT suggested small hematoma",
+          "ultrasound showed 2.9×2.1×1.5 cm irregular lobulated hypoechoic vascular mass in left paramedian abdominal wall",
+          "biopsy of the abdominal wall mass was ordered"
+        ],
+        "missing_key_evidence": [
+          "biopsy histopathology confirming spindle cell proliferation consistent with desmoid-type fibromatosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Repeat CT was performed through the emergency department at a return visit as a result of increased pain and failure of outpatient supportive therapy with analgesics within a few weeks of initial imaging. This showed small 3.2×1.5 cm subcutaneous hyperdense lesion in the upper midline abdominal wall, increased in size when compared with the prior CT.",
+        "category": "image_finding",
+        "temporal_cue": "few weeks after initial CT",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request histopathology report from biopsy of the abdominal wall mass to confirm spindle cell proliferation consistent with desmoid-type fibromatosis",
+        "current_trajectory_hypothesis": "Repeat CT showed growing subcutaneous lesion. Ultrasound showed lobulated hypoechoic vascular mass. Biopsy performed but histopathology report is missing to confirm diagnosis of spindle cell proliferation consistent with DF.",
+        "confirmed_evidence": [
+          "postoperative midline abdominal pain with palpable lump",
+          "initial CT suggested small hematoma",
+          "repeat CT showed small subcutaneous hyperdense lesion increased in size",
+          "ultrasound showed 2.9×2.1×1.5 cm irregular lobulated hypoechoic vascular mass in left paramedian abdominal wall",
+          "biopsy of the abdominal wall mass was ordered"
+        ],
+        "missing_key_evidence": [
+          "histopathology results from biopsy confirming spindle cell proliferation consistent with DF"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Ultrasound and repeat CT show growth of a vascular lobulated mass in the abdominal wall; biopsy performed but histopathology result not yet documented; awaiting biopsy report to confirm spindle cell proliferation consistent with desmoid-type fibromatosis.",
+        "confirmed_evidence": [
+          "postoperative midline abdominal pain with palpable lump",
+          "initial CT suggested small hematoma",
+          "repeat CT showed a small subcutaneous hyperdense lesion increased in size",
+          "ultrasound showed a 2.9×2.1×1.5 cm irregular lobulated hypoechoic vascular mass in left paramedian abdominal wall",
+          "biopsy of the abdominal wall mass was ordered"
+        ],
+        "missing_key_evidence": [
+          "histopathology results from biopsy confirming spindle cell proliferation consistent with desmoid-type fibromatosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "Ask if the patient has any history of prior intra-abdominal or abdominal wall masses or trauma, or any family history of desmoid tumors or other soft tissue tumors, to assess predisposing factors.",
+        "current_trajectory_hypothesis": "Postoperative abdominal pain with growing vascular lobulated abdominal wall mass; imaging shows growth; biopsy ordered but histopathology report not yet documented; need contextual risk factors for desmoid-type fibromatosis.",
+        "confirmed_evidence": [
+          "postoperative midline abdominal pain with palpable lump",
+          "initial CT suggested small hematoma",
+          "repeat CT showed small subcutaneous hyperdense lesion increased in size",
+          "ultrasound showed 2.9×2.1×1.5 cm irregular lobulated hypoechoic vascular mass in left paramedian abdominal wall",
+          "biopsy of the abdominal wall mass was ordered"
+        ],
+        "missing_key_evidence": [
+          "histopathology results from biopsy confirming spindle cell proliferation consistent with desmoid-type fibromatosis",
+          "any predisposing history such as prior masses, trauma, or family history of desmoid tumors"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "A woman in her 60s presented to her primary care physician for further evaluation of abdominal pain. She had undergone elective surgical repair of idiopathic scoliosis 3 weeks prior. She had a history of breast cancer remotely requiring bilateral mastectomy, gastro-oesophageal reflux disease, hypertension and hypothyroidism. There was no family history of gastrointestinal or musculoskeletal malignancy.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "Ask if the patient experienced any abdominal wall trauma or had any known prior soft tissue masses before the surgery, to evaluate potential predisposition for desmoid tumor.",
+        "current_trajectory_hypothesis": "Postoperative abdominal pain with imaging-confirmed growth of a vascular abdominal wall mass; biopsy ordered but histopathology report still missing; no family history of GI or musculoskeletal malignancies; further history on trauma or prior masses needed.",
+        "confirmed_evidence": [
+          "Patient is a woman in her 60s with abdominal pain and midline lump after elective scoliosis surgery",
+          "Initial CT suggested a small hematoma",
+          "Repeat CT showed a subcutaneous hyperdense lesion increased in size",
+          "Ultrasound showed 2.9×2.1×1.5 cm irregular lobulated hypoechoic vascular mass in left paramedian abdominal wall",
+          "Biopsy of the abdominal wall mass was ordered",
+          "No family history of gastrointestinal or musculoskeletal malignancy"
+        ],
+        "missing_key_evidence": [
+          "Biopsy histopathology confirming spindle cell proliferation consistent with desmoid-type fibromatosis",
+          "History of prior trauma or soft tissue masses before surgery"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E001",
+        "source_text": "She had undergone elective surgical repair of idiopathic scoliosis 3 weeks prior. She had a history of breast cancer remotely requiring bilateral mastectomy, gastro-oesophageal reflux disease, hypertension and hypothyroidism. There was no family history of gastrointestinal or musculoskeletal malignancy. She had reported to have been recovering well from spinal surgery other than having abdominal discomfort that waxed and waned in intensity, which was apparent postoperatively.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Postoperative abdominal pain with enlarging vascular lobulated abdominal wall mass on imaging; biopsy performed but histopathology report pending, which is critical to confirm spindle cell proliferation consistent with DF.",
+        "confirmed_evidence": [
+          "Postoperative midline abdominal pain with palpable lump",
+          "Initial CT suggested small hematoma",
+          "Repeat CT showed small subcutaneous hyperdense lesion increased in size",
+          "Ultrasound showed 2.9×2.1×1.5 cm irregular lobulated hypoechoic vascular mass in left paramedian abdominal wall",
+          "Biopsy of the abdominal wall mass was ordered",
+          "No family history of gastrointestinal or musculoskeletal malignancy",
+          "Patient had no prior abdominal wall trauma or masses documented"
+        ],
+        "missing_key_evidence": [
+          "Histopathology results from biopsy confirming spindle cell proliferation consistent with desmoid-type fibromatosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "No pending orders and no new clinical course updates undisclosed beyond current phase.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Postoperative abdominal pain with enlarging vascular abdominal wall mass on imaging; biopsy ordered but histopathology result is still not documented; critical to obtaining the histopathology confirmation of spindle cell proliferation consistent with DF.",
+        "confirmed_evidence": [
+          "Postoperative midline abdominal pain with palpable lump",
+          "Initial CT suggested small hematoma",
+          "Repeat CT showed small subcutaneous hyperdense lesion increased in size",
+          "Ultrasound showed 2.9×2.1×1.5 cm irregular lobulated hypoechoic vascular mass in left paramedian abdominal wall",
+          "Biopsy of the abdominal wall mass was ordered",
+          "No family history of gastrointestinal or musculoskeletal malignancy",
+          "Patient had no prior abdominal wall trauma or masses documented"
+        ],
+        "missing_key_evidence": [
+          "Histopathology results from biopsy confirming spindle cell proliferation consistent with desmoid-type fibromatosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "No pending results and no later undisclosed clinical trajectory update after targeted_workup phase.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Soft tissue pathology demonstrated spindle cell proliferation, consistent with DF.",
+        "trajectory_summary": "A woman in her 60s presented with postoperative midline abdominal pain and a palpable lump after elective scoliosis surgery. Initial CT suggested a small hematoma, but repeat CT demonstrated an enlarging small subcutaneous hyperdense lesion in the upper midline abdominal wall. Ultrasound revealed a 2.9×2.1×1.5 cm irregular lobulated hypoechoic mass with internal vascularity in the left paramedian abdominal wall. Biopsy was performed to obtain tissue for histopathology. Although the specific biopsy report text was not disclosed, the final diagnosis references spindle cell proliferation consistent with desmoid-type fibromatosis (DF). The patient had no prior history of abdominal wall trauma or masses and no family history of gastrointestinal or musculoskeletal malignancy. The trajectory is supported by imaging progression of a vascular mass and biopsy confirmation of spindle cell pathology consistent with DF.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient had postoperative midline abdominal pain and palpable lump after spinal surgery",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Initial CT suggested small hematoma, but repeat CT showed enlarging subcutaneous hyperdense lesion",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Ultrasound showed 2.9×2.1×1.5 cm irregular lobulated hypoechoic vascular mass in left paramedian abdominal wall",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Biopsy was performed on the abdominal wall mass",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Final diagnosis of spindle cell proliferation consistent with desmoid-type fibromatosis (DF)",
+            "evidence_ids": []
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "postoperative hematoma",
+            "basis": "repeat imaging showing increasing size and vascularity inconsistent with resolving hematoma"
+          },
+          {
+            "alternative": "soft tissue malignancy other than DF",
+            "basis": "histopathology specifying spindle cell proliferation consistent with DF"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Direct textual histopathology report excerpt confirming spindle cell proliferation consistent with DF was not available in the documentation."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Soft tissue pathology demonstrated spindle cell proliferation, consistent with DF.",
+    "trajectory_summary": "A woman in her 60s presented with postoperative midline abdominal pain and a palpable lump after elective scoliosis surgery. Initial CT suggested a small hematoma, but repeat CT demonstrated an enlarging small subcutaneous hyperdense lesion in the upper midline abdominal wall. Ultrasound revealed a 2.9×2.1×1.5 cm irregular lobulated hypoechoic mass with internal vascularity in the left paramedian abdominal wall. Biopsy was performed to obtain tissue for histopathology. Although the specific biopsy report text was not disclosed, the final diagnosis references spindle cell proliferation consistent with desmoid-type fibromatosis (DF). The patient had no prior history of abdominal wall trauma or masses and no family history of gastrointestinal or musculoskeletal malignancy. The trajectory is supported by imaging progression of a vascular mass and biopsy confirmation of spindle cell pathology consistent with DF.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient had postoperative midline abdominal pain and palpable lump after spinal surgery",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Initial CT suggested small hematoma, but repeat CT showed enlarging subcutaneous hyperdense lesion",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Ultrasound showed 2.9×2.1×1.5 cm irregular lobulated hypoechoic vascular mass in left paramedian abdominal wall",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Biopsy was performed on the abdominal wall mass",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Final diagnosis of spindle cell proliferation consistent with desmoid-type fibromatosis (DF)",
+        "evidence_ids": []
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "postoperative hematoma",
+        "basis": "repeat imaging showing increasing size and vascularity inconsistent with resolving hematoma"
+      },
+      {
+        "alternative": "soft tissue malignancy other than DF",
+        "basis": "histopathology specifying spindle cell proliferation consistent with DF"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Direct textual histopathology report excerpt confirming spindle cell proliferation consistent with DF was not available in the documentation."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.8
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-29T09:05:13.880786+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

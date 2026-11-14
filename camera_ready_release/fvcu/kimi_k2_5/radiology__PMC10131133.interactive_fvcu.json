@@ -1,0 +1,51 @@
+{
+  "prompt_version": "2026-07-31-interactive-fvcu-v1",
+  "judge_deployment": "gpt-4.1-mini-test",
+  "judge_input_file": "eacl_benchmark/results/interactive_fvcu_quality/matched225_100case_kimi_k25/judge_inputs/radiology__PMC10131133.json",
+  "judge_output": {
+    "case_id": "PMC10131133",
+    "judge_status": "completed",
+    "interactive_fvcu": {
+      "factuality": {
+        "score": 4,
+        "major_issues": [],
+        "rationale": "The clinician agent's claims and final reconstruction are well grounded in the disclosed report-agent responses and released evidence (E002, E003, E006, E008, E010). There are no fabricated or unsupported claims. However, some requested evidence such as detailed neurological exam findings, family history, medication exposure, and EEG results were not reported in the source and thus remain missing, which limits completeness but does not reduce factual accuracy of presented claims."
+      },
+      "validity": {
+        "score": 4,
+        "major_issues": [],
+        "rationale": "The clinician agent's requests and interpretations are clinically reasonable and appropriate given the known diagnosis and evidence. The agent systematically sought neurological exam details, neuroimaging, CSF analysis, metabolic labs, and clinical course to exclude alternative diagnoses and support hemiplegic migraine. Some requests (e.g., EEG, family history, medication exposure) were not fruitful but remain valid given differential considerations."
+      },
+      "coherence": {
+        "score": 4,
+        "major_issues": [],
+        "rationale": "The working reconstruction, confirmed evidence, missing evidence, and confidence evolve logically and consistently across turns. The final reconstruction aligns with the interaction trace and disclosed evidence. Minor gaps exist due to unavailable evidence, but no contradictions or unexplained shifts are present."
+      },
+      "utility": {
+        "score": 3,
+        "major_issues": [
+          "High proportion of unavailable or not reported evidence requests (7/15 turns) reduced answer yield to ~36%",
+          "Repeated requests for neurological exam details and trigger documentation were not fulfilled by source evidence",
+          "EEG was ordered but no results were available, limiting exclusion of seizure disorders"
+        ],
+        "rationale": "The clinician agent used the full turn budget and prioritized high-yield evidence categories relevant to the diagnosis. However, many requests yielded no new evidence due to source limitations, reducing overall utility. The final reconstruction is well supported by available evidence but lacks some confirmatory details (e.g., trigger exposure, family history, EEG)."
+      },
+      "overall_quality": {
+        "score": 4,
+        "rationale": "The episode demonstrates a clinically valid, factually accurate, and coherent diagnostic reconstruction grounded in released evidence. The main limitation is the incomplete evidence base from the source, which constrained utility and prevented full confirmation of all diagnostic elements. Despite this, the clinician agent effectively synthesized available data to produce a plausible and well-supported final diagnosis."
+      }
+    },
+    "trajectory_flags": {
+      "unsupported_or_unreleased_claims": false,
+      "request_strategy_problem": false,
+      "final_reconstruction_grounded": true
+    },
+    "episode_notes": "The clinician agent appropriately requested and integrated key evidence to exclude alternative diagnoses and support hemiplegic migraine. Missing evidence was due to source limitations rather than clinician error. The final reconstruction is well grounded in disclosed evidence and consistent with the known diagnosis."
+  },
+  "usage": {
+    "prompt_tokens": 11518,
+    "completion_tokens": 663,
+    "total_tokens": 12181
+  },
+  "created_at": "2026-08-01T03:24:54.876073+00:00"
+}

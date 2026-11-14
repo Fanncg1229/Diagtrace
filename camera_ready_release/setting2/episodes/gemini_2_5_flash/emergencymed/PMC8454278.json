@@ -1,0 +1,647 @@
+{
+  "case_id": "PMC8454278",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "Parkes-Weber was then proposed as the diagnosis, and a genetic analysis revealing a RASA1 variant (Chr5(GRCh37)g.86659154_86659158del) confirmed the diagnosis.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E005",
+    "E006",
+    "E007",
+    "E008",
+    "E009"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Doppler ultrasound of the left lower extremity",
+        "current_trajectory_hypothesis": "Patient presented with acute worsening of chronic left thigh swelling. Initial workup likely involved imaging to assess for DVT and characterize the underlying chronic asymmetry, potentially leading to suspicion of a vascular malformation.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Initial imaging findings (e.g., DVT rule-out, vascular malformation characteristics)",
+          "Further diagnostic tests for vascular malformation",
+          "Genetic testing results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for Doppler ultrasound placed; no direct test result yet available in source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Doppler ultrasound report of the left lower extremity",
+        "current_trajectory_hypothesis": "The initial presentation of acute worsening of chronic left thigh swelling necessitates ruling out acute causes like DVT and characterizing the chronic swelling. Doppler ultrasound is a primary tool for this, and its findings will guide further investigation into a potential vascular malformation.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Doppler ultrasound findings (DVT status, vascular characteristics)",
+          "Further diagnostic tests for vascular malformation",
+          "Genetic testing results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "The lower extremity ultrasound revealed patent, compressible, bilaterally symmetric femoral and popliteal veins. It also showed soft tissue oedema in the medial left thigh.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "MRI of the left lower extremity",
+        "current_trajectory_hypothesis": "Initial workup ruled out DVT. Given the chronic thigh asymmetry, acute worsening, and the known diagnosis of Parkes-Weber syndrome, further imaging like MRI is needed to characterize the vascular malformation and soft tissue involvement.",
+        "confirmed_evidence": [
+          "Patient presented with painful acute worsening of chronic left thigh swelling.",
+          "Doppler ultrasound ruled out DVT in the left lower extremity.",
+          "Doppler ultrasound showed soft tissue oedema in the medial left thigh."
+        ],
+        "missing_key_evidence": [
+          "Detailed characterization of the vascular malformation (e.g., type, extent, presence of AV fistulas)",
+          "Genetic testing results (RASA1 variant)",
+          "Clinical course/treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [
+          "MRI of the left lower extremity"
+        ],
+        "explanation": "The ordered MRI test matches source evidence E004; order acknowledged with source grounding.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "MRI report of the left lower extremity",
+        "current_trajectory_hypothesis": "Following the rule-out of DVT, MRI is crucial to characterize the chronic left thigh swelling and identify features consistent with a vascular malformation, such as arteriovenous fistulas, which are characteristic of Parkes-Weber syndrome.",
+        "confirmed_evidence": [
+          "Patient presented with painful acute worsening of chronic left thigh swelling.",
+          "Doppler ultrasound ruled out DVT in the left lower extremity.",
+          "Doppler ultrasound showed soft tissue oedema in the medial left thigh."
+        ],
+        "missing_key_evidence": [
+          "Detailed characterization of the vascular malformation (e.g., type, extent, presence of AV fistulas) from MRI",
+          "Genetic testing results (RASA1 variant)",
+          "Clinical course/treatment response",
+          "Confirmation of Parkes-Weber diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "MRI results showed left thigh subcutaneous and fascial oedema with biceps femoris and semitendinosus muscle hyperintensity (figure 2). There were no fluid collections or mass lesions and the neurovascular bundle was intact. None of the studies was noted to show evidence of arteriovenous (AV) malformation on the radiologist’s read.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The initial workup ruled out DVT and showed soft tissue edema, but the MRI did not identify an AV malformation. Given the known final diagnosis of Parkes-Weber syndrome, there must have been further clinical assessment or investigation that led to the diagnosis being proposed despite the initial MRI findings.",
+        "confirmed_evidence": [
+          "Patient presented with painful acute worsening of chronic left thigh swelling.",
+          "Doppler ultrasound ruled out DVT in the left lower extremity (E002).",
+          "Doppler ultrasound showed soft tissue oedema in the medial left thigh (E002).",
+          "MRI showed left thigh subcutaneous and fascial oedema with muscle hyperintensity (E004).",
+          "MRI did not show evidence of arteriovenous (AV) malformation on the radiologist’s read (E004)."
+        ],
+        "missing_key_evidence": [
+          "Clinical reasoning or further investigation that led to the proposal of Parkes-Weber syndrome.",
+          "Evidence of AV malformation (if any was later found).",
+          "Genetic testing results (RASA1 variant).",
+          "Clinical course/treatment response."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial workup ruled out DVT and showed soft tissue edema, but the MRI did not identify an AV malformation. Given the known final diagnosis of Parkes-Weber syndrome, there must have been further clinical assessment, specialist consultation, or investigation that led to the diagnosis being proposed.",
+        "confirmed_evidence": [
+          "Patient presented with painful acute worsening of chronic left thigh swelling.",
+          "Doppler ultrasound ruled out DVT in the left lower extremity (E002).",
+          "Doppler ultrasound showed soft tissue oedema in the medial left thigh (E002).",
+          "MRI showed left thigh subcutaneous and fascial oedema with muscle hyperintensity (E004).",
+          "MRI did not show evidence of arteriovenous (AV) malformation on the radiologist’s read (E004)."
+        ],
+        "missing_key_evidence": [
+          "Clinical reasoning or further investigation that led to the proposal of Parkes-Weber syndrome.",
+          "Evidence of AV malformation (if any was later found or re-interpreted).",
+          "Genetic testing results (RASA1 variant).",
+          "Clinical course/treatment response."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "The initial workup revealed a normal complete blood count, normal basic metabolic panel (including calcium, magnesium and phosphate), negative pregnancy test (qualitative human chorionic gonadotropin), elevated d-dimer at 3.25 μg/mL (normal <0.49 μg/mL) and creatine kinase at 7697 U/L (normal <200 U/L).",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial workup ruled out DVT and showed soft tissue edema, but the MRI did not identify an AV malformation. Despite this, the known final diagnosis is Parkes-Weber syndrome. I need to find out what clinical assessment, specialist input, or further investigation led to the diagnosis being proposed.",
+        "confirmed_evidence": [
+          "Patient presented with painful acute worsening of chronic left thigh swelling.",
+          "Doppler ultrasound ruled out DVT in the left lower extremity (E002).",
+          "Doppler ultrasound showed soft tissue oedema in the medial left thigh (E002).",
+          "MRI showed left thigh subcutaneous and fascial oedema with muscle hyperintensity (E004).",
+          "MRI did not show evidence of arteriovenous (AV) malformation on the radiologist’s read (E004).",
+          "Initial labs showed elevated d-dimer and creatine kinase (E001)."
+        ],
+        "missing_key_evidence": [
+          "Clinical reasoning or further investigation that led to the proposal of Parkes-Weber syndrome despite initial MRI findings.",
+          "Evidence of AV malformation (if any was later found or re-interpreted).",
+          "Genetic testing results (RASA1 variant).",
+          "Clinical course/treatment response."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "The radiograph showed no acute fracture with normal femur morphology.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial workup ruled out DVT and fracture, and showed soft tissue edema and elevated CK/d-dimer. However, the MRI did not identify an AV malformation, which is a key feature of Parkes-Weber syndrome. I need to understand what clinical assessment, specialist input, or further investigation led to the diagnosis being proposed despite the initial MRI findings.",
+        "confirmed_evidence": [
+          "Patient presented with painful acute worsening of chronic left thigh swelling.",
+          "Doppler ultrasound ruled out DVT in the left lower extremity (E002).",
+          "Doppler ultrasound showed soft tissue oedema in the medial left thigh (E002).",
+          "MRI showed left thigh subcutaneous and fascial oedema with muscle hyperintensity (E004).",
+          "MRI did not show evidence of arteriovenous (AV) malformation on the radiologist’s read (E004).",
+          "Initial labs showed elevated d-dimer and creatine kinase (E001).",
+          "Radiograph showed no acute fracture with normal femur morphology (E003)."
+        ],
+        "missing_key_evidence": [
+          "Clinical reasoning or further investigation that led to the proposal of Parkes-Weber syndrome despite initial MRI findings.",
+          "Evidence of AV malformation (if any was later found or re-interpreted).",
+          "Genetic testing results (RASA1 variant).",
+          "Clinical course/treatment response."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "The treating clinician’s differential diagnosis included rhabdomyolysis, deep venous thrombosis, compartment syndrome, necrotising fasciitis and cellulitis. Given that the patient had no known history of chronic medical conditions, no congenital conditions were considered in the differential diagnosis.",
+        "category": "other",
+        "temporal_cue": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial workup ruled out DVT and fracture, and showed soft tissue edema and elevated CK/d-dimer. However, the MRI did not identify an AV malformation, which is a key feature of Parkes-Weber syndrome. I need to understand what clinical assessment, specialist input, or further investigation led to the diagnosis being proposed despite the initial MRI findings.",
+        "confirmed_evidence": [
+          "Patient presented with painful acute worsening of chronic left thigh swelling.",
+          "Doppler ultrasound ruled out DVT in the left lower extremity (E002).",
+          "Doppler ultrasound showed soft tissue oedema in the medial left thigh (E002).",
+          "MRI showed left thigh subcutaneous and fascial oedema with muscle hyperintensity (E004).",
+          "MRI did not show evidence of arteriovenous (AV) malformation on the radiologist’s read (E004).",
+          "Initial labs showed elevated d-dimer and creatine kinase (E001).",
+          "Radiograph showed no acute fracture with normal femur morphology (E003).",
+          "Initial differential diagnosis did not include congenital conditions (E005)."
+        ],
+        "missing_key_evidence": [
+          "Clinical reasoning or further investigation that led to the proposal of Parkes-Weber syndrome despite initial MRI findings.",
+          "Evidence of AV malformation (if any was later found or re-interpreted).",
+          "Genetic testing results (RASA1 variant).",
+          "Clinical course/treatment response."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "Rhabdomyolysis was considered the most likely diagnosis due to elevated creatine kinase levels, acute onset symptoms and recent exercise. Deep venous thrombosis was ruled out with venous Doppler ultrasound. Compartment syndrome was ruled out with a normal femur radiograph. Necrotising fasciitis and cellulitis were ruled out by physical examination and lack of fluid collections on MRI.",
+        "category": "imaging_report",
+        "temporal_cue": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial workup ruled out several acute conditions, and rhabdomyolysis was considered the most likely diagnosis. However, the MRI did not identify an AV malformation, which is a key feature of Parkes-Weber syndrome. I need to understand how the diagnosis evolved from rhabdomyolysis to Parkes-Weber syndrome, especially what led to the suspicion of a vascular malformation despite the initial MRI findings, and how the genetic confirmation was pursued.",
+        "confirmed_evidence": [
+          "Patient presented with painful acute worsening of chronic left thigh swelling.",
+          "Doppler ultrasound ruled out DVT in the left lower extremity (E002).",
+          "Doppler ultrasound showed soft tissue oedema in the medial left thigh (E002).",
+          "MRI showed left thigh subcutaneous and fascial oedema with muscle hyperintensity (E004).",
+          "MRI did not show evidence of arteriovenous (AV) malformation on the radiologist’s read (E004).",
+          "Initial labs showed elevated d-dimer and creatine kinase (E001).",
+          "Radiograph showed no acute fracture with normal femur morphology (E003).",
+          "Initial differential diagnosis did not include congenital conditions (E005).",
+          "Rhabdomyolysis was considered the most likely diagnosis (E006)."
+        ],
+        "missing_key_evidence": [
+          "Clinical course related to rhabdomyolysis management or resolution.",
+          "Clinical reasoning or further investigation that led to the proposal of Parkes-Weber syndrome despite initial MRI findings.",
+          "Evidence of AV malformation (if any was later found or re-interpreted).",
+          "Genetic testing results (RASA1 variant).",
+          "Clinical course/treatment response."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "The patient was then received a 30 mL/kg bolus of normal saline to prevent acute kidney injury and 1000 mg IV acetaminophen. Adequate pain control was achieved with 4 mg IV morphine.",
+        "category": "treatment_response",
+        "temporal_cue": "on admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial workup ruled out several acute conditions, and rhabdomyolysis was considered the most likely diagnosis, with initial treatment provided. However, the known final diagnosis is Parkes-Weber syndrome, which implies a significant diagnostic shift. I need to understand how the diagnosis evolved, especially what led to the suspicion of a vascular malformation despite the initial MRI findings, and how the genetic confirmation was pursued.",
+        "confirmed_evidence": [
+          "Patient presented with painful acute worsening of chronic left thigh swelling.",
+          "Doppler ultrasound ruled out DVT in the left lower extremity (E002).",
+          "Doppler ultrasound showed soft tissue oedema in the medial left thigh (E002).",
+          "MRI showed left thigh subcutaneous and fascial oedema with muscle hyperintensity (E004).",
+          "MRI did not show evidence of arteriovenous (AV) malformation on the radiologist’s read (E004).",
+          "Initial labs showed elevated d-dimer and creatine kinase (E001).",
+          "Radiograph showed no acute fracture with normal femur morphology (E003).",
+          "Initial differential diagnosis did not include congenital conditions (E005).",
+          "Rhabdomyolysis was considered the most likely diagnosis (E006).",
+          "Patient received initial treatment for rhabdomyolysis (saline, acetaminophen, morphine) (E007)."
+        ],
+        "missing_key_evidence": [
+          "Clinical course related to rhabdomyolysis management or resolution.",
+          "Clinical reasoning or further investigation that led to the proposal of Parkes-Weber syndrome despite initial MRI findings.",
+          "Evidence of AV malformation (if any was later found or re-interpreted).",
+          "Genetic testing results (RASA1 variant).",
+          "Specialist consultation or re-evaluation of initial findings."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "After discussion with orthopaedics and nephrology and an extended stay in the ED, the emergency physician and consultants determined that the patient was safe for discharge home with the diagnosis of rhabdomyolysis and a plan to follow-up with internal medicine. The reasoning included definitive exclusion of life-threatening alternative diagnoses, stable patient presentation for greater than 11 hours with improvement in swelling and pain, creatine kinase level downtrend from 7697 U/L to 1800 U/L and the ability to reliably follow-up within 2–3 days.",
+        "category": "other",
+        "temporal_cue": "after extended stay in ED",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial workup ruled out several acute conditions, and rhabdomyolysis was considered the most likely diagnosis, leading to discharge. However, the known final diagnosis is Parkes-Weber syndrome, implying a significant diagnostic shift occurred post-discharge. I need to understand how the diagnosis evolved, what prompted further investigation into a vascular malformation, and how the genetic confirmation was pursued.",
+        "confirmed_evidence": [
+          "Patient presented with painful acute worsening of chronic left thigh swelling.",
+          "Doppler ultrasound ruled out DVT in the left lower extremity (E002).",
+          "Doppler ultrasound showed soft tissue oedema in the medial left thigh (E002).",
+          "MRI showed left thigh subcutaneous and fascial oedema with muscle hyperintensity (E004).",
+          "MRI did not show evidence of arteriovenous (AV) malformation on the radiologist’s read (E004).",
+          "Initial labs showed elevated d-dimer and creatine kinase (E001).",
+          "Radiograph showed no acute fracture with normal femur morphology (E003).",
+          "Initial differential diagnosis did not include congenital conditions (E005).",
+          "Rhabdomyolysis was considered the most likely diagnosis (E006).",
+          "Patient received initial treatment for rhabdomyolysis (saline, acetaminophen, morphine) (E007).",
+          "Patient was discharged with a diagnosis of rhabdomyolysis after improvement in symptoms and CK levels (E008)."
+        ],
+        "missing_key_evidence": [
+          "Clinical course after discharge.",
+          "Clinical reasoning or further investigation that led to the proposal of Parkes-Weber syndrome despite initial MRI findings.",
+          "Evidence of AV malformation (if any was later found or re-interpreted).",
+          "Genetic testing results (RASA1 variant).",
+          "Specialist consultation or re-evaluation of initial findings."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E009",
+        "source_text": "Over the next 6 months, she presented to the ED three times with similar reports while intermittently being seen by multiple specialists as an outpatient. In rheumatology, autoimmune diseases including myositis were ruled out. Dermatology assessed large ‘birthmarks’ on her left leg (figure 3) and referred her to interventional radiology for suspected vascular malformations. The venogram performed by interventional radiology revealed arteriovenous fistulas in the left thigh (figure 4).",
+        "category": "image_finding",
+        "temporal_cue": "over the next 6 months",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Genetic analysis for RASA1 variant",
+        "current_trajectory_hypothesis": "After initial misdiagnosis of rhabdomyolysis, recurrent symptoms and dermatology consultation led to suspicion of vascular malformation. Interventional radiology confirmed arteriovenous fistulas, which is a key feature of Parkes-Weber syndrome. The next step is to confirm the genetic basis of the diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with painful acute worsening of chronic left thigh swelling.",
+          "Doppler ultrasound ruled out DVT in the left lower extremity (E002).",
+          "Doppler ultrasound showed soft tissue oedema in the medial left thigh (E002).",
+          "MRI showed left thigh subcutaneous and fascial oedema with muscle hyperintensity (E004).",
+          "MRI did not show evidence of arteriovenous (AV) malformation on the radiologist’s read (E004).",
+          "Initial labs showed elevated d-dimer and creatine kinase (E001).",
+          "Radiograph showed no acute fracture with normal femur morphology (E003).",
+          "Initial differential diagnosis did not include congenital conditions (E005).",
+          "Rhabdomyolysis was considered the most likely diagnosis (E006).",
+          "Patient received initial treatment for rhabdomyolysis (saline, acetaminophen, morphine) (E007).",
+          "Patient was discharged with a diagnosis of rhabdomyolysis after improvement in symptoms and CK levels (E008).",
+          "Over 6 months, patient had recurrent ED visits; rheumatology ruled out autoimmune diseases (E009).",
+          "Dermatology assessed 'birthmarks' and referred for suspected vascular malformations (E009).",
+          "Interventional radiology venogram revealed arteriovenous fistulas in the left thigh (E009)."
+        ],
+        "missing_key_evidence": [
+          "Formal proposal of Parkes-Weber diagnosis.",
+          "Genetic testing results (RASA1 variant).",
+          "Clinical course/treatment response after diagnosis."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "Order for genetic analysis for RASA1 variant placed; no direct result reported yet in source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Genetic analysis report for RASA1 variant",
+        "current_trajectory_hypothesis": "After initial misdiagnosis of rhabdomyolysis, recurrent symptoms and specialist consultations led to the identification of arteriovenous fistulas. This strongly suggested Parkes-Weber syndrome, and genetic analysis is needed to confirm the diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with painful acute worsening of chronic left thigh swelling.",
+          "Doppler ultrasound ruled out DVT in the left lower extremity (E002).",
+          "Doppler ultrasound showed soft tissue oedema in the medial left thigh (E002).",
+          "MRI showed left thigh subcutaneous and fascial oedema with muscle hyperintensity (E004).",
+          "MRI did not show evidence of arteriovenous (AV) malformation on the radiologist’s read (E004).",
+          "Initial labs showed elevated d-dimer and creatine kinase (E001).",
+          "Radiograph showed no acute fracture with normal femur morphology (E003).",
+          "Initial differential diagnosis did not include congenital conditions (E005).",
+          "Rhabdomyolysis was considered the most likely diagnosis (E006).",
+          "Patient received initial treatment for rhabdomyolysis (saline, acetaminophen, morphine) (E007).",
+          "Patient was discharged with a diagnosis of rhabdomyolysis after improvement in symptoms and CK levels (E008).",
+          "Over 6 months, patient had recurrent ED visits; rheumatology ruled out autoimmune diseases (E009).",
+          "Dermatology assessed 'birthmarks' and referred for suspected vascular malformations (E009).",
+          "Interventional radiology venogram revealed arteriovenous fistulas in the left thigh (E009)."
+        ],
+        "missing_key_evidence": [
+          "Formal proposal of Parkes-Weber diagnosis.",
+          "Genetic testing results (RASA1 variant).",
+          "Clinical course/treatment response after diagnosis."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E009",
+        "source_text": "a genetic analysis revealing a RASA1 variant (Chr5(GRCh37)g.86659154_86659158del)",
+        "category": "image_finding",
+        "temporal_cue": "over the next 6 months",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Parkes-Weber syndrome",
+        "trajectory_summary": "A 20-year-old woman presented with acute worsening of chronic left thigh swelling and pain, a condition present since childhood with associated capillary malformations. Initial workup in the ED ruled out DVT (E002), fracture (E003), compartment syndrome, necrotizing fasciitis, and cellulitis (E006). Labs showed elevated d-dimer and creatine kinase (E001). MRI showed soft tissue edema but no arteriovenous (AV) malformation (E004). Rhabdomyolysis was considered the most likely diagnosis (E006), and the patient was treated and discharged after improvement (E007, E008). Over the next 6 months, she experienced recurrent symptoms. Rheumatology ruled out autoimmune diseases. Dermatology assessed her 'birthmarks' and referred her for suspected vascular malformations. An interventional radiology venogram subsequently revealed arteriovenous fistulas in the left thigh (E009). Finally, a genetic analysis revealing a RASA1 variant confirmed the diagnosis of Parkes-Weber syndrome (E009).",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with chronic left thigh asymmetry and capillary malformations since birth, with acute worsening of swelling and pain.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Interventional radiology venogram revealed arteriovenous fistulas in the left thigh.",
+            "evidence_ids": [
+              "E009"
+            ]
+          },
+          {
+            "claim": "Genetic analysis revealed a RASA1 variant (Chr5(GRCh37)g.86659154_86659158del).",
+            "evidence_ids": [
+              "E009"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Deep venous thrombosis (DVT)",
+            "basis": "Lower extremity ultrasound revealed patent, compressible, bilaterally symmetric femoral and popliteal veins (E002)."
+          },
+          {
+            "alternative": "Acute fracture",
+            "basis": "Radiograph showed no acute fracture with normal femur morphology (E003)."
+          },
+          {
+            "alternative": "Compartment syndrome",
+            "basis": "Ruled out with a normal femur radiograph (E006)."
+          },
+          {
+            "alternative": "Necrotising fasciitis and cellulitis",
+            "basis": "Ruled out by physical examination and lack of fluid collections on MRI (E006)."
+          },
+          {
+            "alternative": "Rhabdomyolysis",
+            "basis": "Initially considered most likely due to elevated CK, acute symptoms, and recent exercise (E006), but the persistence of symptoms, identification of AV fistulas, and genetic confirmation of Parkes-Weber syndrome indicate it was not the primary underlying diagnosis, though it may have been an acute exacerbation."
+          },
+          {
+            "alternative": "Autoimmune diseases including myositis",
+            "basis": "Ruled out by rheumatology (E009)."
+          }
+        ],
+        "remaining_uncertainties": [
+          "The specific clinical reasoning or trigger that led to the dermatology referral for suspected vascular malformations, especially after the initial MRI did not identify AV malformations.",
+          "The exact timing of the formal proposal of Parkes-Weber diagnosis relative to the venogram and genetic testing.",
+          "Long-term clinical course or treatment response after the confirmed diagnosis."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Parkes-Weber syndrome",
+    "trajectory_summary": "A 20-year-old woman presented with acute worsening of chronic left thigh swelling and pain, a condition present since childhood with associated capillary malformations. Initial workup in the ED ruled out DVT (E002), fracture (E003), compartment syndrome, necrotizing fasciitis, and cellulitis (E006). Labs showed elevated d-dimer and creatine kinase (E001). MRI showed soft tissue edema but no arteriovenous (AV) malformation (E004). Rhabdomyolysis was considered the most likely diagnosis (E006), and the patient was treated and discharged after improvement (E007, E008). Over the next 6 months, she experienced recurrent symptoms. Rheumatology ruled out autoimmune diseases. Dermatology assessed her 'birthmarks' and referred her for suspected vascular malformations. An interventional radiology venogram subsequently revealed arteriovenous fistulas in the left thigh (E009). Finally, a genetic analysis revealing a RASA1 variant confirmed the diagnosis of Parkes-Weber syndrome (E009).",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with chronic left thigh asymmetry and capillary malformations since birth, with acute worsening of swelling and pain.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Interventional radiology venogram revealed arteriovenous fistulas in the left thigh.",
+        "evidence_ids": [
+          "E009"
+        ]
+      },
+      {
+        "claim": "Genetic analysis revealed a RASA1 variant (Chr5(GRCh37)g.86659154_86659158del).",
+        "evidence_ids": [
+          "E009"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Deep venous thrombosis (DVT)",
+        "basis": "Lower extremity ultrasound revealed patent, compressible, bilaterally symmetric femoral and popliteal veins (E002)."
+      },
+      {
+        "alternative": "Acute fracture",
+        "basis": "Radiograph showed no acute fracture with normal femur morphology (E003)."
+      },
+      {
+        "alternative": "Compartment syndrome",
+        "basis": "Ruled out with a normal femur radiograph (E006)."
+      },
+      {
+        "alternative": "Necrotising fasciitis and cellulitis",
+        "basis": "Ruled out by physical examination and lack of fluid collections on MRI (E006)."
+      },
+      {
+        "alternative": "Rhabdomyolysis",
+        "basis": "Initially considered most likely due to elevated CK, acute symptoms, and recent exercise (E006), but the persistence of symptoms, identification of AV fistulas, and genetic confirmation of Parkes-Weber syndrome indicate it was not the primary underlying diagnosis, though it may have been an acute exacerbation."
+      },
+      {
+        "alternative": "Autoimmune diseases including myositis",
+        "basis": "Ruled out by rheumatology (E009)."
+      }
+    ],
+    "remaining_uncertainties": [
+      "The specific clinical reasoning or trigger that led to the dermatology referral for suspected vascular malformations, especially after the initial MRI did not identify AV malformations.",
+      "The exact timing of the formal proposal of Parkes-Weber diagnosis relative to the venogram and genetic testing.",
+      "Long-term clinical course or treatment response after the confirmed diagnosis."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T20:58:37.289091+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

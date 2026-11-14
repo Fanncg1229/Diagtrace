@@ -1,0 +1,699 @@
+{
+  "case_id": "PMC7302682",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "the patient was initially diagnosed with FES",
+  "disclosed_evidence_ids": [
+    "E003",
+    "E004",
+    "E005",
+    "E006",
+    "E007"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "What were the patient's vital signs, respiratory status, and neurological examination findings upon arrival and when sleepiness began?",
+        "current_trajectory_hypothesis": "Patient presented with femur fracture and later developed sleepiness. Investigating for other signs of Fat Embolism Syndrome (FES) such as respiratory or neurological changes.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Detailed neurological exam findings",
+          "Respiratory status (e.g., dyspnea, tachypnea, oxygen saturation)",
+          "Vital signs (heart rate, blood pressure, temperature)",
+          "Skin examination for petechiae"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Immediate physical examination on arrival revealed a Glasgow Coma Scale score of 4, a positive bilateral Babinski sign, a positive Kernig sign, and neck stiffness. The patients left thigh presented bruising and swelling and had been fixed with external fixation with restrained movement in the previous hospital (Fig. 1A). She presented an arterial pressure of 148/80 mm Hg, heart rate of 124 bpm, and partial pressure of oxygen (PO2) of 64 mm Hg. Her blood gas analysis revealed a pH value of 7.4.",
+        "category": "physical_exam",
+        "temporal_cue": "on arrival to neurology department after 2 days",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "What were the patient's vital signs, respiratory status, neurological examination findings, and presence of petechiae at the time of initial presentation and when sleepiness began (approximately 5 hours later)?",
+        "current_trajectory_hypothesis": "The patient presented with a femur fracture and developed sleepiness 5 hours later. I am looking for initial signs of FES, specifically respiratory distress, neurological changes, or petechiae, to understand the early clinical course.",
+        "confirmed_evidence": [
+          "Patient presented with femur fracture due to an accident",
+          "Patient developed sleepiness approximately 5 hours after arrival",
+          "Two days after initial presentation, patient had severe neurological deficits (GCS 4, positive Babinski, Kernig, neck stiffness), tachycardia (HR 124 bpm), hypoxemia (PO2 64 mm Hg), and elevated blood pressure (148/80 mm Hg)."
+        ],
+        "missing_key_evidence": [
+          "Initial vital signs at presentation and onset of sleepiness",
+          "Initial respiratory status at presentation and onset of sleepiness",
+          "Initial neurological exam findings at presentation and onset of sleepiness",
+          "Presence or absence of petechiae at any point"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E004",
+        "source_text": "Immediate physical examination on arrival revealed a Glasgow Coma Scale score of 4, a positive bilateral Babinski sign, a positive Kernig sign, and neck stiffness. The patients left thigh presented bruising and swelling and had been fixed with external fixation with restrained movement in the previous hospital (Fig. 1A). She presented an arterial pressure of 148/80 mm Hg, heart rate of 124 bpm, and partial pressure of oxygen (PO2) of 64 mm Hg. Her blood gas analysis revealed a pH value of 7.4.",
+        "category": "physical_exam",
+        "temporal_cue": "on arrival to neurology department after 2 days",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "What were the patient's vital signs, respiratory status, neurological examination findings, and presence of petechiae upon initial arrival to the hospital (before sleepiness began)?",
+        "current_trajectory_hypothesis": "The patient presented with a femur fracture and developed sleepiness 5 hours later. I am looking for initial signs of FES, specifically respiratory distress, neurological changes, or petechiae, to understand the early clinical course and differentiate from the later severe presentation.",
+        "confirmed_evidence": [
+          "Patient presented with femur fracture due to an accident",
+          "Patient developed sleepiness approximately 5 hours after arrival",
+          "Two days after initial presentation, patient had severe neurological deficits (GCS 4, positive Babinski, Kernig, neck stiffness), tachycardia (HR 124 bpm), hypoxemia (PO2 64 mm Hg), and elevated blood pressure (148/80 mm Hg)."
+        ],
+        "missing_key_evidence": [
+          "Initial vital signs at presentation",
+          "Initial respiratory status at presentation",
+          "Initial neurological exam findings at presentation (beyond 'alert')",
+          "Presence or absence of petechiae at any point",
+          "Clinical status at the 5-hour mark when sleepiness began"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E004",
+        "source_text": "Immediate physical examination on arrival revealed a Glasgow Coma Scale score of 4, a positive bilateral Babinski sign, a positive Kernig sign, and neck stiffness. The patients left thigh presented bruising and swelling and had been fixed with external fixation with restrained movement in the previous hospital (Fig. 1A). She presented an arterial pressure of 148/80 mm Hg, heart rate of 124 bpm, and partial pressure of oxygen (PO2) of 64 mm Hg. Her blood gas analysis revealed a pH value of 7.4.",
+        "category": "physical_exam",
+        "temporal_cue": "on arrival to neurology department after 2 days",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with a femur fracture and developed sleepiness 5 hours later. I am trying to reconstruct the clinical trajectory from initial presentation, through the onset of sleepiness, and the progression of symptoms that led to the severe neurological and respiratory findings observed 2 days later, which are suggestive of FES.",
+        "confirmed_evidence": [
+          "Patient presented with femur fracture due to an accident",
+          "Patient developed sleepiness approximately 5 hours after arrival",
+          "Two days after initial presentation, patient had severe neurological deficits (GCS 4, positive Babinski, Kernig, neck stiffness), tachycardia (HR 124 bpm), hypoxemia (PO2 64 mm Hg), and elevated blood pressure (148/80 mm Hg)."
+        ],
+        "missing_key_evidence": [
+          "Initial vital signs at presentation",
+          "Initial respiratory status at presentation",
+          "Initial neurological exam findings at presentation (beyond 'alert')",
+          "Presence or absence of petechiae at any point",
+          "Clinical status (vital signs, neurological, respiratory, petechiae) at the 5-hour mark when sleepiness began",
+          "Details of clinical progression between onset of sleepiness and transfer to neurology department"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Total body CT revealed a left femoral comminuted fracture with dislocation (Fig. 1B). Her bilateral lung presented an exudative lesion as well as pleural effusion (Fig. 2A). Brain magnetic resonance imaging (MRI) revealed diffuse abnormal signals in the bilateral cerebral hemisphere, brainstem, and cerebellum, which were suggestive of embolization (Fig. 3).",
+        "category": "image_finding",
+        "temporal_cue": "on arrival to neurology department after 2 days",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "Was petechiae observed at any point during the patient's clinical course, especially around the time of sleepiness onset or later?",
+        "current_trajectory_hypothesis": "The patient presented with a femur fracture, developed sleepiness 5 hours later, and 2 days later showed severe neurological and respiratory compromise with imaging consistent with FES. I am looking for the presence of petechiae, a key diagnostic sign of FES, to further support the diagnosis and understand its temporal manifestation.",
+        "confirmed_evidence": [
+          "Patient presented with femur fracture due to an accident",
+          "Patient developed sleepiness approximately 5 hours after arrival",
+          "Two days after initial presentation, patient had severe neurological deficits (GCS 4, positive Babinski, Kernig, neck stiffness), tachycardia (HR 124 bpm), hypoxemia (PO2 64 mm Hg), and elevated blood pressure (148/80 mm Hg).",
+          "Two days after initial presentation, CT showed left femoral comminuted fracture with dislocation, bilateral lung exudative lesion, and pleural effusion.",
+          "Two days after initial presentation, brain MRI showed diffuse abnormal signals in bilateral cerebral hemisphere, brainstem, and cerebellum, suggestive of embolization."
+        ],
+        "missing_key_evidence": [
+          "Initial vital signs at presentation",
+          "Initial respiratory status at presentation",
+          "Initial neurological exam findings at presentation (beyond 'alert')",
+          "Clinical status (vital signs, neurological, respiratory) at the 5-hour mark when sleepiness began",
+          "Presence or absence of petechiae at any point",
+          "Details of clinical progression between onset of sleepiness and transfer to neurology department"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "No source record reported petechiae at any time during the clinical course.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "What were the patient's vital signs and respiratory status upon initial arrival to the hospital, before the onset of sleepiness?",
+        "current_trajectory_hypothesis": "The patient presented with a femur fracture and developed sleepiness 5 hours later. I am trying to establish the baseline clinical status at initial presentation to understand the progression of symptoms towards FES, which is supported by later neurological, respiratory, and imaging findings.",
+        "confirmed_evidence": [
+          "Patient presented with femur fracture due to an accident",
+          "Patient developed sleepiness approximately 5 hours after arrival",
+          "Two days after initial presentation, patient had severe neurological deficits (GCS 4, positive Babinski, Kernig, neck stiffness), tachycardia (HR 124 bpm), hypoxemia (PO2 64 mm Hg), and elevated blood pressure (148/80 mm Hg).",
+          "Two days after initial presentation, CT showed left femoral comminuted fracture with dislocation, bilateral lung exudative lesion, and pleural effusion.",
+          "Two days after initial presentation, brain MRI showed diffuse abnormal signals in bilateral cerebral hemisphere, brainstem, and cerebellum, suggestive of embolization.",
+          "Petechiae was not reported at any point during the clinical course."
+        ],
+        "missing_key_evidence": [
+          "Initial vital signs at presentation (before sleepiness)",
+          "Initial respiratory status at presentation (before sleepiness)",
+          "Initial neurological exam findings at presentation (beyond 'alert')",
+          "Clinical status (vital signs, neurological, respiratory) at the 5-hour mark when sleepiness began",
+          "Details of clinical progression between onset of sleepiness and transfer to neurology department",
+          "Relevant laboratory test results (e.g., ABG, CBC, D-dimer, fat globules)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "No source record reports vital signs or respiratory status on initial hospital arrival before sleepiness.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "What were the results of any laboratory tests performed, particularly complete blood count (CBC), arterial blood gas (ABG), D-dimer, or tests for fat globules, at any point during the patient's hospitalization?",
+        "current_trajectory_hypothesis": "The patient presented with a femur fracture, developed sleepiness 5 hours later, and 2 days later showed severe neurological and respiratory compromise with imaging consistent with FES. I am now seeking laboratory evidence to support the diagnosis of FES, such as hypoxemia, thrombocytopenia, or evidence of fat emboli.",
+        "confirmed_evidence": [
+          "Patient presented with femur fracture due to an accident",
+          "Patient developed sleepiness approximately 5 hours after arrival",
+          "Two days after initial presentation, patient had severe neurological deficits (GCS 4, positive Babinski, Kernig, neck stiffness), tachycardia (HR 124 bpm), hypoxemia (PO2 64 mm Hg), and elevated blood pressure (148/80 mm Hg).",
+          "Two days after initial presentation, CT showed left femoral comminuted fracture with dislocation, bilateral lung exudative lesion, and pleural effusion.",
+          "Two days after initial presentation, brain MRI showed diffuse abnormal signals in bilateral cerebral hemisphere, brainstem, and cerebellum, suggestive of embolization.",
+          "Petechiae was not reported at any point during the clinical course.",
+          "Initial vital signs, respiratory status, and neurological exam (beyond 'alert') at presentation and at 5 hours (onset of sleepiness) are not reported."
+        ],
+        "missing_key_evidence": [
+          "Initial vital signs at presentation (before sleepiness)",
+          "Initial respiratory status at presentation (before sleepiness)",
+          "Initial neurological exam findings at presentation (beyond 'alert')",
+          "Clinical status (vital signs, neurological, respiratory) at the 5-hour mark when sleepiness began",
+          "Details of clinical progression between onset of sleepiness and transfer to neurology department",
+          "Relevant laboratory test results (e.g., full ABG, CBC, D-dimer, fat globules)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Order for laboratory tests placed; no corresponding results documented in source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with a femur fracture, developed sleepiness 5 hours later, and 2 days later showed severe neurological and respiratory compromise with imaging consistent with FES. I am trying to reconstruct the temporal progression of symptoms and any interventions during this critical period to fully understand the FES trajectory.",
+        "confirmed_evidence": [
+          "Patient presented with femur fracture due to an accident",
+          "Patient developed sleepiness approximately 5 hours after arrival",
+          "Two days after initial presentation, patient had severe neurological deficits (GCS 4, positive Babinski, Kernig, neck stiffness), tachycardia (HR 124 bpm), hypoxemia (PO2 64 mm Hg), and elevated blood pressure (148/80 mm Hg).",
+          "Two days after initial presentation, CT showed left femoral comminuted fracture with dislocation, bilateral lung exudative lesion, and pleural effusion.",
+          "Two days after initial presentation, brain MRI showed diffuse abnormal signals in bilateral cerebral hemisphere, brainstem, and cerebellum, suggestive of embolization.",
+          "Petechiae was not reported at any point during the clinical course.",
+          "Initial vital signs, respiratory status, and neurological exam (beyond 'alert') at presentation and at 5 hours (onset of sleepiness) are not reported.",
+          "Laboratory tests (CBC, ABG, D-dimer, fat globules) were ordered but no results were documented in the source."
+        ],
+        "missing_key_evidence": [
+          "Details of clinical progression between onset of sleepiness and transfer to neurology department",
+          "Any treatment or management initiated during this period",
+          "Specific details of initial neurological status beyond 'alert'"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Fourteen days after the fracture, both the lung symptoms and lung CT findings were considerably improved (Fig. 2B).",
+        "category": "image_finding",
+        "temporal_cue": "14 days after the fracture",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with a femur fracture, developed sleepiness 5 hours later, and 2 days later showed severe neurological and respiratory compromise with imaging consistent with FES. Lung symptoms improved after 14 days. I am now seeking details on the management of FES-related symptoms, the progression of neurological findings, and the overall outcome.",
+        "confirmed_evidence": [
+          "Patient presented with femur fracture due to an accident",
+          "Patient developed sleepiness approximately 5 hours after arrival",
+          "Two days after initial presentation, patient had severe neurological deficits (GCS 4, positive Babinski, Kernig, neck stiffness), tachycardia (HR 124 bpm), hypoxemia (PO2 64 mm Hg), and elevated blood pressure (148/80 mm Hg).",
+          "Two days after initial presentation, CT showed left femoral comminuted fracture with dislocation, bilateral lung exudative lesion, and pleural effusion.",
+          "Two days after initial presentation, brain MRI showed diffuse abnormal signals in bilateral cerebral hemisphere, brainstem, and cerebellum, suggestive of embolization.",
+          "Petechiae was not reported at any point during the clinical course.",
+          "Initial vital signs, respiratory status, and neurological exam (beyond 'alert') at presentation and at 5 hours (onset of sleepiness) are not reported.",
+          "Laboratory tests (CBC, ABG, D-dimer, fat globules) were ordered but no results were documented in the source.",
+          "Fourteen days after the fracture, both the lung symptoms and lung CT findings were considerably improved."
+        ],
+        "missing_key_evidence": [
+          "Initial vital signs at presentation (before sleepiness)",
+          "Initial respiratory status at presentation (before sleepiness)",
+          "Initial neurological exam findings at presentation (beyond 'alert')",
+          "Clinical status (vital signs, neurological, respiratory) at the 5-hour mark when sleepiness began",
+          "Details of clinical progression between onset of sleepiness and transfer to neurology department",
+          "Specific treatment or management for FES or its symptoms",
+          "Progression and outcome of neurological symptoms"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "Transthoracic echocardiography ultrasound was performed again, and shunts through a PFO were observed (Fig. 4).",
+        "category": "image_finding",
+        "temporal_cue": "15 days after the fracture (the following day after lung CT improvement)",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the clinical interpretation of the patent foramen ovale (PFO) finding in relation to the brain MRI results and the patient's neurological symptoms? What was the neurological outcome?",
+        "current_trajectory_hypothesis": "The patient presented with a femur fracture, developed sleepiness 5 hours later, and 2 days later showed severe neurological and respiratory compromise with imaging consistent with FES. A PFO was identified 15 days after the fracture. I am seeking to understand the clinical significance of the PFO in the context of the brain embolization and the patient's neurological trajectory and outcome.",
+        "confirmed_evidence": [
+          "Patient presented with femur fracture due to an accident",
+          "Patient developed sleepiness approximately 5 hours after arrival",
+          "Two days after initial presentation, patient had severe neurological deficits (GCS 4, positive Babinski, Kernig, neck stiffness), tachycardia (HR 124 bpm), hypoxemia (PO2 64 mm Hg), and elevated blood pressure (148/80 mm Hg).",
+          "Two days after initial presentation, CT showed left femoral comminuted fracture with dislocation, bilateral lung exudative lesion, and pleural effusion.",
+          "Two days after initial presentation, brain MRI showed diffuse abnormal signals in bilateral cerebral hemisphere, brainstem, and cerebellum, suggestive of embolization.",
+          "Petechiae was not reported at any point during the clinical course.",
+          "Initial vital signs, respiratory status, and neurological exam (beyond 'alert') at presentation and at 5 hours (onset of sleepiness) are not reported.",
+          "Laboratory tests (CBC, ABG, D-dimer, fat globules) were ordered but no results were documented in the source.",
+          "Fourteen days after the fracture, both the lung symptoms and lung CT findings were considerably improved.",
+          "Fifteen days after the fracture, transthoracic echocardiography ultrasound revealed shunts through a PFO."
+        ],
+        "missing_key_evidence": [
+          "Initial vital signs at presentation (before sleepiness)",
+          "Initial respiratory status at presentation (before sleepiness)",
+          "Initial neurological exam findings at presentation (beyond 'alert')",
+          "Clinical status (vital signs, neurological, respiratory) at the 5-hour mark when sleepiness began",
+          "Details of clinical progression between onset of sleepiness and transfer to neurology department",
+          "Specific treatment or management for FES or its symptoms",
+          "Clinical interpretation of PFO in relation to brain MRI and neurological symptoms",
+          "Neurological outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "Under active supportive care and hormone therapy, the patient was finally discharged with dysphasia and an untreated closed fracture.",
+        "category": "clinical_course",
+        "temporal_cue": "at discharge",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the clinical interpretation of the patent foramen ovale (PFO) finding in relation to the brain MRI results and the patient's neurological symptoms, specifically regarding paradoxical embolization?",
+        "current_trajectory_hypothesis": "The patient presented with a femur fracture, developed sleepiness 5 hours later, and 2 days later showed severe neurological and respiratory compromise with imaging consistent with FES. A PFO was identified 15 days after the fracture. I am seeking to understand the clinical significance of the PFO as a potential mechanism for paradoxical embolization, explaining the brain MRI findings and the patient's neurological symptoms and outcome.",
+        "confirmed_evidence": [
+          "Patient presented with femur fracture due to an accident",
+          "Patient developed sleepiness approximately 5 hours after arrival",
+          "Two days after initial presentation, patient had severe neurological deficits (GCS 4, positive Babinski, Kernig, neck stiffness), tachycardia (HR 124 bpm), hypoxemia (PO2 64 mm Hg), and elevated blood pressure (148/80 mm Hg).",
+          "Two days after initial presentation, CT showed left femoral comminuted fracture with dislocation, bilateral lung exudative lesion, and pleural effusion.",
+          "Two days after initial presentation, brain MRI showed diffuse abnormal signals in bilateral cerebral hemisphere, brainstem, and cerebellum, suggestive of embolization.",
+          "Petechiae was not reported at any point during the clinical course.",
+          "Initial vital signs, respiratory status, and neurological exam (beyond 'alert') at presentation and at 5 hours (onset of sleepiness) are not reported.",
+          "Laboratory tests (CBC, ABG, D-dimer, fat globules) were ordered but no results were documented in the source.",
+          "Fourteen days after the fracture, both the lung symptoms and lung CT findings were considerably improved.",
+          "Fifteen days after the fracture, transthoracic echocardiography ultrasound revealed shunts through a PFO.",
+          "At discharge, the patient had dysphasia and an untreated closed fracture, after receiving active supportive care and hormone therapy."
+        ],
+        "missing_key_evidence": [
+          "Initial vital signs at presentation (before sleepiness)",
+          "Initial respiratory status at presentation (before sleepiness)",
+          "Initial neurological exam findings at presentation (beyond 'alert')",
+          "Clinical status (vital signs, neurological, respiratory) at the 5-hour mark when sleepiness began",
+          "Details of clinical progression between onset of sleepiness and transfer to neurology department",
+          "Specific treatment or management for FES or its symptoms (beyond 'active supportive care and hormone therapy')",
+          "Clinical interpretation of PFO in relation to brain MRI and neurological symptoms, specifically regarding paradoxical embolization",
+          "Details of 'hormone therapy'",
+          "Reason for 'untreated closed fracture' at discharge"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E006",
+        "source_text": "Transthoracic echocardiography ultrasound was performed again, and shunts through a PFO were observed (Fig. 4).",
+        "category": "image_finding",
+        "temporal_cue": "15 days after the fracture (the following day after lung CT improvement)",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What specific treatments or management strategies were employed for the patient's respiratory and neurological symptoms related to Fat Embolism Syndrome, and what was the rationale for 'hormone therapy'?",
+        "current_trajectory_hypothesis": "The patient presented with a femur fracture, developed sleepiness 5 hours later, and 2 days later showed severe neurological and respiratory compromise with imaging consistent with FES. A PFO was identified 15 days after the fracture, potentially explaining paradoxical embolization. Lung symptoms improved, but neurological sequelae (dysphasia) remained. I am now seeking details on the specific management of FES symptoms and the rationale for the mentioned 'hormone therapy' to complete the treatment trajectory.",
+        "confirmed_evidence": [
+          "Patient presented with femur fracture due to an accident",
+          "Patient developed sleepiness approximately 5 hours after arrival",
+          "Two days after initial presentation, patient had severe neurological deficits (GCS 4, positive Babinski, Kernig, neck stiffness), tachycardia (HR 124 bpm), hypoxemia (PO2 64 mm Hg), and elevated blood pressure (148/80 mm Hg).",
+          "Two days after initial presentation, CT showed left femoral comminuted fracture with dislocation, bilateral lung exudative lesion, and pleural effusion.",
+          "Two days after initial presentation, brain MRI showed diffuse abnormal signals in bilateral cerebral hemisphere, brainstem, and cerebellum, suggestive of embolization.",
+          "Petechiae was not reported at any point during the clinical course.",
+          "Initial vital signs, respiratory status, and neurological exam (beyond 'alert') at presentation and at 5 hours (onset of sleepiness) are not reported.",
+          "Laboratory tests (CBC, ABG, D-dimer, fat globules) were ordered but no results were documented in the source.",
+          "Fourteen days after the fracture, both the lung symptoms and lung CT findings were considerably improved.",
+          "Fifteen days after the fracture, transthoracic echocardiography ultrasound revealed shunts through a PFO.",
+          "At discharge, the patient had dysphasia and an untreated closed fracture, after receiving active supportive care and hormone therapy."
+        ],
+        "missing_key_evidence": [
+          "Initial vital signs at presentation (before sleepiness)",
+          "Initial respiratory status at presentation (before sleepiness)",
+          "Initial neurological exam findings at presentation (beyond 'alert')",
+          "Clinical status (vital signs, neurological, respiratory) at the 5-hour mark when sleepiness began",
+          "Details of clinical progression between onset of sleepiness and transfer to neurology department",
+          "Specific treatment or management for FES or its symptoms (beyond 'active supportive care and hormone therapy')",
+          "Clinical interpretation of PFO in relation to brain MRI and neurological symptoms, specifically regarding paradoxical embolization",
+          "Reason for 'untreated closed fracture' at discharge"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E007",
+        "source_text": "Under active supportive care and hormone therapy, the patient was finally discharged with dysphasia and an untreated closed fracture.",
+        "category": "clinical_course",
+        "temporal_cue": "at discharge",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the clinical interpretation of the patent foramen ovale (PFO) finding in relation to the brain MRI results and the patient's neurological symptoms, specifically regarding paradoxical embolization, and how did this influence the diagnosis or management?",
+        "current_trajectory_hypothesis": "The patient presented with a femur fracture, developed sleepiness 5 hours later, and 2 days later showed severe neurological and respiratory compromise with imaging consistent with FES. A PFO was identified 15 days after the fracture. I am seeking to understand the clinical significance of the PFO as a potential mechanism for paradoxical embolization, explaining the brain MRI findings and the patient's neurological symptoms and outcome, and how this finding impacted the clinical decision-making.",
+        "confirmed_evidence": [
+          "Patient presented with femur fracture due to an accident",
+          "Patient developed sleepiness approximately 5 hours after arrival",
+          "Two days after initial presentation, patient had severe neurological deficits (GCS 4, positive Babinski, Kernig, neck stiffness), tachycardia (HR 124 bpm), hypoxemia (PO2 64 mm Hg), and elevated blood pressure (148/80 mm Hg).",
+          "Two days after initial presentation, CT showed left femoral comminuted fracture with dislocation, bilateral lung exudative lesion, and pleural effusion.",
+          "Two days after initial presentation, brain MRI showed diffuse abnormal signals in bilateral cerebral hemisphere, brainstem, and cerebellum, suggestive of embolization.",
+          "Petechiae was not reported at any point during the clinical course.",
+          "Initial vital signs, respiratory status, and neurological exam (beyond 'alert') at presentation and at 5 hours (onset of sleepiness) are not reported.",
+          "Laboratory tests (CBC, ABG, D-dimer, fat globules) were ordered but no results were documented in the source.",
+          "Fourteen days after the fracture, both the lung symptoms and lung CT findings were considerably improved.",
+          "Fifteen days after the fracture, transthoracic echocardiography ultrasound revealed shunts through a PFO.",
+          "At discharge, the patient had dysphasia and an untreated closed fracture, after receiving active supportive care and hormone therapy."
+        ],
+        "missing_key_evidence": [
+          "Initial vital signs at presentation (before sleepiness)",
+          "Initial respiratory status at presentation (before sleepiness)",
+          "Initial neurological exam findings at presentation (beyond 'alert')",
+          "Clinical status (vital signs, neurological, respiratory) at the 5-hour mark when sleepiness began",
+          "Details of clinical progression between onset of sleepiness and transfer to neurology department",
+          "Specific treatment or management for FES or its symptoms (beyond 'active supportive care and hormone therapy')",
+          "Clinical interpretation of PFO in relation to brain MRI and neurological symptoms, specifically regarding paradoxical embolization, and its influence on management",
+          "Details of 'hormone therapy' and its rationale",
+          "Reason for 'untreated closed fracture' at discharge"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "The source does not report a clinical interpretation linking the PFO finding with brain MRI results or neurological symptoms regarding paradoxical embolization, nor its influence on diagnosis or management.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the rationale for the 'hormone therapy' and the reason for the 'untreated closed fracture' at discharge?",
+        "current_trajectory_hypothesis": "The patient presented with a femur fracture, developed sleepiness 5 hours later, and 2 days later showed severe neurological and respiratory compromise with imaging consistent with FES. A PFO was identified 15 days after the fracture, potentially explaining paradoxical embolization. Lung symptoms improved, but neurological sequelae (dysphasia) remained. I am seeking to understand the rationale behind the mentioned 'hormone therapy' and the reason for the 'untreated closed fracture' at discharge, as these are part of the patient's final documented clinical course and may provide further context to the FES trajectory and management.",
+        "confirmed_evidence": [
+          "Patient presented with femur fracture due to an accident",
+          "Patient developed sleepiness approximately 5 hours after arrival",
+          "Two days after initial presentation, patient had severe neurological deficits (GCS 4, positive Babinski, Kernig, neck stiffness), tachycardia (HR 124 bpm), hypoxemia (PO2 64 mm Hg), and elevated blood pressure (148/80 mm Hg).",
+          "Two days after initial presentation, CT showed left femoral comminuted fracture with dislocation, bilateral lung exudative lesion, and pleural effusion.",
+          "Two days after initial presentation, brain MRI showed diffuse abnormal signals in bilateral cerebral hemisphere, brainstem, and cerebellum, suggestive of embolization.",
+          "Petechiae was not reported at any point during the clinical course.",
+          "Initial vital signs, respiratory status, and neurological exam (beyond 'alert') at presentation and at 5 hours (onset of sleepiness) are not reported.",
+          "Laboratory tests (CBC, ABG, D-dimer, fat globules) were ordered but no results were documented in the source.",
+          "Fourteen days after the fracture, both the lung symptoms and lung CT findings were considerably improved.",
+          "Fifteen days after the fracture, transthoracic echocardiography ultrasound revealed shunts through a PFO.",
+          "At discharge, the patient had dysphasia and an untreated closed fracture, after receiving active supportive care and hormone therapy."
+        ],
+        "missing_key_evidence": [
+          "Initial vital signs at presentation (before sleepiness)",
+          "Initial respiratory status at presentation (before sleepiness)",
+          "Initial neurological exam findings at presentation (beyond 'alert')",
+          "Clinical status (vital signs, neurological, respiratory) at the 5-hour mark when sleepiness began",
+          "Details of clinical progression between onset of sleepiness and transfer to neurology department",
+          "Specific treatment or management for FES or its symptoms (beyond 'active supportive care and hormone therapy')",
+          "Clinical interpretation of PFO in relation to brain MRI and neurological symptoms, specifically regarding paradoxical embolization, and its influence on management",
+          "Rationale for 'hormone therapy'",
+          "Reason for 'untreated closed fracture' at discharge"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "request_too_diagnostic",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "The request asks for rationale and reason related to hormone therapy and untreated fracture, which is diagnostic reasoning. Please ask for a specific clinical evidence type (e.g., treatment rationale, clinical course) supported by the source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "the patient was initially diagnosed with FES",
+        "trajectory_summary": "A 46-year-old woman presented with a femur fracture due to an accident. She was alert on arrival but developed sleepiness approximately 5 hours later. Two days post-fracture, she presented with severe neurological deficits (GCS 4, positive bilateral Babinski, Kernig, neck stiffness), hypoxemia (PO2 64 mm Hg), tachycardia (HR 124 bpm), and elevated blood pressure. Imaging at this time showed a left femoral comminuted fracture, bilateral lung exudative lesions and pleural effusion on CT, and diffuse abnormal signals suggestive of embolization in the brain on MRI. Petechiae were not reported. Laboratory tests were ordered but no results were documented. Fourteen days after the fracture, lung symptoms and CT findings improved. Fifteen days post-fracture, transthoracic echocardiography revealed shunts through a patent foramen ovale (PFO). The patient was discharged with dysphasia and an untreated closed fracture, after receiving active supportive care and hormone therapy.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient sustained a femur fracture due to an accident, a known risk factor for FES.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Patient developed sleepiness approximately 5 hours after arrival, indicating early neurological involvement.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Two days post-fracture, patient exhibited severe neurological compromise including GCS 4, positive bilateral Babinski, Kernig sign, and neck stiffness.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Brain MRI two days post-fracture showed diffuse abnormal signals in bilateral cerebral hemisphere, brainstem, and cerebellum, suggestive of embolization.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Two days post-fracture, patient had significant hypoxemia (PO2 64 mm Hg) and tachycardia (HR 124 bpm).",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Lung CT two days post-fracture revealed bilateral exudative lesions and pleural effusion, consistent with pulmonary involvement in FES.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Lung symptoms and CT findings showed considerable improvement 14 days post-fracture.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Transthoracic echocardiography 15 days post-fracture revealed shunts through a PFO, providing a potential mechanism for paradoxical embolization to the brain.",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Patient was discharged with residual dysphasia, indicating persistent neurological sequelae.",
+            "evidence_ids": [
+              "E007"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [
+          "Detailed initial vital signs, respiratory status, and neurological exam findings at presentation and at 5 hours (onset of sleepiness).",
+          "Presence or absence of petechiae at any point during the clinical course.",
+          "Specific results of laboratory tests (CBC, ABG, D-dimer, fat globules).",
+          "Details of clinical progression between onset of sleepiness and transfer to neurology department.",
+          "Specific treatment or management strategies employed for FES symptoms (beyond 'active supportive care and hormone therapy').",
+          "Clinical interpretation of the PFO finding in relation to brain MRI and neurological symptoms, specifically regarding paradoxical embolization, and its influence on diagnosis or management.",
+          "Rationale for 'hormone therapy'.",
+          "Reason for 'untreated closed fracture' at discharge."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "the patient was initially diagnosed with FES",
+    "trajectory_summary": "A 46-year-old woman presented with a femur fracture due to an accident. She was alert on arrival but developed sleepiness approximately 5 hours later. Two days post-fracture, she presented with severe neurological deficits (GCS 4, positive bilateral Babinski, Kernig, neck stiffness), hypoxemia (PO2 64 mm Hg), tachycardia (HR 124 bpm), and elevated blood pressure. Imaging at this time showed a left femoral comminuted fracture, bilateral lung exudative lesions and pleural effusion on CT, and diffuse abnormal signals suggestive of embolization in the brain on MRI. Petechiae were not reported. Laboratory tests were ordered but no results were documented. Fourteen days after the fracture, lung symptoms and CT findings improved. Fifteen days post-fracture, transthoracic echocardiography revealed shunts through a patent foramen ovale (PFO). The patient was discharged with dysphasia and an untreated closed fracture, after receiving active supportive care and hormone therapy.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient sustained a femur fracture due to an accident, a known risk factor for FES.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Patient developed sleepiness approximately 5 hours after arrival, indicating early neurological involvement.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Two days post-fracture, patient exhibited severe neurological compromise including GCS 4, positive bilateral Babinski, Kernig sign, and neck stiffness.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Brain MRI two days post-fracture showed diffuse abnormal signals in bilateral cerebral hemisphere, brainstem, and cerebellum, suggestive of embolization.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Two days post-fracture, patient had significant hypoxemia (PO2 64 mm Hg) and tachycardia (HR 124 bpm).",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Lung CT two days post-fracture revealed bilateral exudative lesions and pleural effusion, consistent with pulmonary involvement in FES.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Lung symptoms and CT findings showed considerable improvement 14 days post-fracture.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Transthoracic echocardiography 15 days post-fracture revealed shunts through a PFO, providing a potential mechanism for paradoxical embolization to the brain.",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Patient was discharged with residual dysphasia, indicating persistent neurological sequelae.",
+        "evidence_ids": [
+          "E007"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [
+      "Detailed initial vital signs, respiratory status, and neurological exam findings at presentation and at 5 hours (onset of sleepiness).",
+      "Presence or absence of petechiae at any point during the clinical course.",
+      "Specific results of laboratory tests (CBC, ABG, D-dimer, fat globules).",
+      "Details of clinical progression between onset of sleepiness and transfer to neurology department.",
+      "Specific treatment or management strategies employed for FES symptoms (beyond 'active supportive care and hormone therapy').",
+      "Clinical interpretation of the PFO finding in relation to brain MRI and neurological symptoms, specifically regarding paradoxical embolization, and its influence on diagnosis or management.",
+      "Rationale for 'hormone therapy'.",
+      "Reason for 'untreated closed fracture' at discharge."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.8
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T22:30:25.367816+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

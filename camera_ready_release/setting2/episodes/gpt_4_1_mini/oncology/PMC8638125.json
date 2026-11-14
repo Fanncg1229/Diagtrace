@@ -1,0 +1,257 @@
+{
+  "case_id": "PMC8638125",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 7,
+  "termination": "final",
+  "known_final_diagnosis": "This confirmed a diagnosis of widely disseminated HIV-associated KS.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E007",
+    "E008"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order HIV serology and viral load testing",
+        "current_trajectory_hypothesis": "Presentation suggests possible immunodeficiency with disseminated Kaposi's sarcoma (KS) given pigmented rash, lymphadenopathy, cachexia, and edema; need to confirm HIV infection status.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "HIV serology and viral load results to confirm HIV infection and level of immunosuppression"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order acknowledged and recorded; no matching source result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request HIV serology and viral load test results",
+        "current_trajectory_hypothesis": "Initial presentation suggests Kaposi's sarcoma in context of immunodeficiency; ordered HIV testing to confirm HIV infection and assess immunosuppression.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "HIV serology and viral load results to confirm HIV infection and level of immunosuppression"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "HIV serology was positive, and total CD4 +T-helper lymphocyte count was 116 cells/μL (9%). Initial viral load measured 87 272 copies/mL.",
+        "category": "serology",
+        "temporal_cue": "after admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order skin biopsy of pigmented rash lesions for histopathology",
+        "current_trajectory_hypothesis": "HIV infection confirmed with severe immunosuppression; skin biopsy needed to confirm diagnosis of Kaposi's sarcoma in disseminated pigmented rash.",
+        "confirmed_evidence": [
+          "HIV serology positive, CD4 count 116 cells/μL, viral load 87,272 copies/mL"
+        ],
+        "missing_key_evidence": [
+          "Histopathology confirmation of Kaposi's sarcoma from skin biopsy",
+          "Details of lymph node biopsy or imaging to assess dissemination"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Order acknowledged, no direct source record documents performance or results of this skin biopsy yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request histopathology results of the skin biopsy of pigmented rash lesions",
+        "current_trajectory_hypothesis": "Skin biopsy was ordered to confirm Kaposi's sarcoma histopathologically; need results to verify presence of KS characteristic spindle cells and vascular proliferation.",
+        "confirmed_evidence": [
+          "HIV serology positive, CD4 count 116 cells/μL, viral load 87,272 copies/mL"
+        ],
+        "missing_key_evidence": [
+          "Histopathology confirmation of Kaposi's sarcoma from skin biopsy",
+          "Details of lymph node biopsy or imaging to assess dissemination"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "CT-guided biopsy of a bony lesion on his iliac crest was performed, demonstrating bone infiltrated by spindle cell proliferation, strongly positive for CD34 and HHV-8 on immunohistochemistry (figure 2).",
+        "category": "pathology_report",
+        "temporal_cue": "after admission",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request imaging reports or clinical examination findings regarding lymphadenopathy or other organ involvement to confirm widespread dissemination of Kaposi's sarcoma",
+        "current_trajectory_hypothesis": "HIV infection confirmed with low CD4 count; bone biopsy confirms KS by spindle cell proliferation positive for CD34 and HHV-8. Need evidence of lymphadenopathy and other extracutaneous dissemination to confirm widely disseminated KS.",
+        "confirmed_evidence": [
+          "HIV serology positive, CD4 count 116 cells/μL, viral load 87,272 copies/mL",
+          "Bone biopsy of iliac crest lesion shows spindle cell proliferation positive for CD34 and HHV-8 confirming Kaposi's sarcoma"
+        ],
+        "missing_key_evidence": [
+          "Direct evidence supporting involvement of lymph nodes or other extracutaneous sites by KS",
+          "Histopathology of pigmented skin rash if explicitly available",
+          "Clinical course or treatment response to support diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "His examination was strikingly abnormal, with evidence of severe lower limb and scrotal oedema; a disseminated pigmented rash on his torso; extensive, non-tender cervical lymphadenopathy and marked cachexia (45 kg).",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial presentation with symptoms and signs suggestive of HIV-related disseminated Kaposi's sarcoma; HIV infection with immunosuppression confirmed; bone biopsy confirms Kaposi's sarcoma; clinical exam shows disseminated rash and lymphadenopathy; awaiting further clinical course or treatment data to consolidate trajectory.",
+        "confirmed_evidence": [
+          "HIV serology positive, CD4 count 116 cells/μL, viral load 87,272 copies/mL",
+          "Bone biopsy of iliac crest lesion shows spindle cell proliferation positive for CD34 and HHV-8 confirming Kaposi's sarcoma",
+          "On admission, severe lower limb and scrotal oedema, disseminated pigmented rash on torso, extensive non-tender cervical lymphadenopathy, and marked cachexia documented"
+        ],
+        "missing_key_evidence": [
+          "Histopathology confirmation of pigmented skin rash lesions if distinct from bone biopsy",
+          "Additional evidence of extracutaneous KS dissemination (e.g., lymph nodes or visceral involvement) beyond bone and skin",
+          "Treatment details and clinical course for disease progression or response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No pending orders to report and no later undisclosed clinical trajectory update available after the current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "widely disseminated HIV-associated Kaposi's sarcoma",
+        "trajectory_summary": "A 30-year-old man presented with 4-day dry cough, exertional dyspnoea, severe lower limb and scrotal edema, disseminated pigmented rash, extensive non-tender cervical lymphadenopathy, and marked cachexia. HIV serology was positive with significant immunosuppression (CD4 count 116 cells/μL, viral load 87,272 copies/mL). A CT-guided biopsy of an iliac crest bone lesion confirmed Kaposi's sarcoma via spindle cell proliferation positive for CD34 and HHV-8. Clinical examination supported disseminated disease with multiple organ involvement. This confirmed widely disseminated HIV-associated Kaposi's sarcoma.",
+        "key_supporting_evidence": [
+          {
+            "claim": "HIV serology was positive with severe immunosuppression (CD4+ count 116 cells/μL, viral load 87,272 copies/mL)",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "CT-guided biopsy of iliac crest bone lesion showed spindle cell proliferation strongly positive for CD34 and HHV-8, confirming Kaposi's sarcoma",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "On admission, clinical findings included severe lower limb and scrotal oedema, disseminated pigmented rash on torso, extensive non-tender cervical lymphadenopathy, and marked cachexia consistent with widely disseminated KS",
+            "evidence_ids": [
+              "E001"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "other causes of lymphadenopathy and rash (e.g., lymphoma, other infections)",
+            "basis": "Bone biopsy confirmed KS; HIV immunosuppression consistent with KS; clinical presentation typical for HIV-associated KS"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Histopathology of pigmented skin rash lesions not separately documented but bone biopsy confirms diagnosis",
+          "Additional imaging or biopsy confirming lymph node or visceral involvement was not documented",
+          "Treatment details and clinical outcome not documented"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "widely disseminated HIV-associated Kaposi's sarcoma",
+    "trajectory_summary": "A 30-year-old man presented with 4-day dry cough, exertional dyspnoea, severe lower limb and scrotal edema, disseminated pigmented rash, extensive non-tender cervical lymphadenopathy, and marked cachexia. HIV serology was positive with significant immunosuppression (CD4 count 116 cells/μL, viral load 87,272 copies/mL). A CT-guided biopsy of an iliac crest bone lesion confirmed Kaposi's sarcoma via spindle cell proliferation positive for CD34 and HHV-8. Clinical examination supported disseminated disease with multiple organ involvement. This confirmed widely disseminated HIV-associated Kaposi's sarcoma.",
+    "key_supporting_evidence": [
+      {
+        "claim": "HIV serology was positive with severe immunosuppression (CD4+ count 116 cells/μL, viral load 87,272 copies/mL)",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "CT-guided biopsy of iliac crest bone lesion showed spindle cell proliferation strongly positive for CD34 and HHV-8, confirming Kaposi's sarcoma",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "On admission, clinical findings included severe lower limb and scrotal oedema, disseminated pigmented rash on torso, extensive non-tender cervical lymphadenopathy, and marked cachexia consistent with widely disseminated KS",
+        "evidence_ids": [
+          "E001"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "other causes of lymphadenopathy and rash (e.g., lymphoma, other infections)",
+        "basis": "Bone biopsy confirmed KS; HIV immunosuppression consistent with KS; clinical presentation typical for HIV-associated KS"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Histopathology of pigmented skin rash lesions not separately documented but bone biopsy confirms diagnosis",
+      "Additional imaging or biopsy confirming lymph node or visceral involvement was not documented",
+      "Treatment details and clinical outcome not documented"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-29T08:47:29.898799+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

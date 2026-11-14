@@ -1,0 +1,407 @@
+{
+  "case_id": "PMC10696229",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 10,
+  "termination": "final",
+  "known_final_diagnosis": "Histopathological examination confirmed that the lesion was a bronchogenic cyst, which was lined by respiratory epithelium with a variable amount of seromucinous gland, cartilage and smooth muscle (Fig. 4).",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E004",
+    "E005"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "initial chest X-ray report findings",
+        "current_trajectory_hypothesis": "Patient presented with chest pain and a non-resolving shadow on chest X-ray, which is the starting point for investigating a potential bronchogenic cyst.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Detailed characteristics of the chest X-ray shadow",
+          "Subsequent imaging findings",
+          "Biopsy/histopathology results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "We performed a new chest x-ray that showed a tubular inhomogeneous opacity in the medial part of the right lower lung field (Fig. 1).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "CT scan of the chest",
+        "current_trajectory_hypothesis": "The initial chest X-ray revealed an opacity. A CT scan is needed to further characterize this lesion and guide subsequent diagnostic or therapeutic steps towards confirming a bronchogenic cyst.",
+        "confirmed_evidence": [
+          "Patient presented with occasional mild right-sided chest pain for a few months and a non-resolving shadow on chest X-ray.",
+          "Initial chest X-ray showed a tubular inhomogeneous opacity in the medial part of the right lower lung field (E001)."
+        ],
+        "missing_key_evidence": [
+          "Detailed characteristics of the chest lesion from advanced imaging (e.g., CT)",
+          "Decision for surgical intervention or biopsy",
+          "Histopathological findings confirming bronchogenic cyst"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Clinician has ordered a CT scan of the chest. The source has a matching test record at a later phase, so the order is acknowledged now without advancing the phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "CT scan report of the chest",
+        "current_trajectory_hypothesis": "Following an initial chest X-ray showing an opacity, a CT scan was ordered to further characterize the lesion. The findings from the CT scan are crucial for understanding the nature of the lesion and guiding the next steps towards diagnosing a bronchogenic cyst.",
+        "confirmed_evidence": [
+          "Patient presented with occasional mild right-sided chest pain for a few months and a non-resolving shadow on chest X-ray.",
+          "Initial chest X-ray showed a tubular inhomogeneous opacity in the medial part of the right lower lung field (E001)."
+        ],
+        "missing_key_evidence": [
+          "Detailed characteristics of the chest lesion from CT scan",
+          "Decision for surgical intervention or biopsy",
+          "Histopathological findings confirming bronchogenic cyst"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "CECT chest further delineated the lesion and revealed a well-defined, thin-walled cystic lesion about 8.5 × 3.6 × 4.5 cm within the right lower lobe (Fig. 2). Post-contrast scan shows mild marginal enhancement of the lesion.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "surgical excision or biopsy of the chest lesion",
+        "current_trajectory_hypothesis": "Initial imaging (CXR and CT) revealed a cystic lesion in the right lower lobe. To confirm the diagnosis of bronchogenic cyst, a tissue sample for histopathological examination is required, likely obtained via surgical excision or biopsy.",
+        "confirmed_evidence": [
+          "Patient presented with occasional mild right-sided chest pain for a few months and a non-resolving shadow on chest X-ray.",
+          "Initial chest X-ray showed a tubular inhomogeneous opacity in the medial part of the right lower lung field (E001).",
+          "CECT chest revealed a well-defined, thin-walled cystic lesion about 8.5 × 3.6 × 4.5 cm within the right lower lobe with mild marginal enhancement (E002)."
+        ],
+        "missing_key_evidence": [
+          "Details of the procedure performed to obtain tissue",
+          "Histopathological findings confirming bronchogenic cyst"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Procedure order acknowledged without a documented result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "histopathological examination report of the excised chest lesion",
+        "current_trajectory_hypothesis": "Following imaging findings of a cystic lesion, a surgical procedure was performed to obtain tissue. The histopathological examination of this tissue is essential to confirm the diagnosis of a bronchogenic cyst.",
+        "confirmed_evidence": [
+          "Patient presented with occasional mild right-sided chest pain for a few months and a non-resolving shadow on chest X-ray.",
+          "Initial chest X-ray showed a tubular inhomogeneous opacity in the medial part of the right lower lung field (E001).",
+          "CECT chest revealed a well-defined, thin-walled cystic lesion about 8.5 × 3.6 × 4.5 cm within the right lower lobe with mild marginal enhancement (E002).",
+          "A surgical excision or biopsy of the chest lesion was ordered."
+        ],
+        "missing_key_evidence": [
+          "Histopathological findings confirming bronchogenic cyst",
+          "Details of the surgical procedure and clinical course post-procedure"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "histopathological findings of the excised lesion",
+        "current_trajectory_hypothesis": "Following imaging findings of a cystic lesion, a surgical procedure was performed to obtain tissue. The histopathological findings are crucial to confirm the diagnosis of a bronchogenic cyst.",
+        "confirmed_evidence": [
+          "Patient presented with occasional mild right-sided chest pain for a few months and a non-resolving shadow on chest X-ray.",
+          "Initial chest X-ray showed a tubular inhomogeneous opacity in the medial part of the right lower lung field (E001).",
+          "CECT chest revealed a well-defined, thin-walled cystic lesion about 8.5 × 3.6 × 4.5 cm within the right lower lobe with mild marginal enhancement (E002).",
+          "A surgical excision or biopsy of the chest lesion was ordered (implied by previous action)."
+        ],
+        "missing_key_evidence": [
+          "Specific histopathological findings confirming bronchogenic cyst",
+          "Details of the surgical procedure performed",
+          "Clinical course post-procedure"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "pathology report of the excised lesion",
+        "current_trajectory_hypothesis": "Following imaging findings of a cystic lesion, a surgical procedure was performed to obtain tissue. The pathology report is crucial to confirm the diagnosis of a bronchogenic cyst by detailing the microscopic characteristics of the lesion.",
+        "confirmed_evidence": [
+          "Patient presented with occasional mild right-sided chest pain for a few months and a non-resolving shadow on chest X-ray.",
+          "Initial chest X-ray showed a tubular inhomogeneous opacity in the medial part of the right lower lung field (E001).",
+          "CECT chest revealed a well-defined, thin-walled cystic lesion about 8.5 × 3.6 × 4.5 cm within the right lower lobe with mild marginal enhancement (E002).",
+          "A surgical excision or biopsy of the chest lesion was ordered (implied by previous action)."
+        ],
+        "missing_key_evidence": [
+          "Specific histopathological findings confirming bronchogenic cyst (e.g., type of lining, presence of glands/cartilage)",
+          "Details of the surgical procedure performed",
+          "Clinical course post-procedure"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "the lesion was a bronchogenic cyst, which was lined by respiratory epithelium with a variable amount of seromucinous gland, cartilage and smooth muscle",
+        "category": "other",
+        "temporal_cue": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "details of the surgical procedure performed to excise the lesion",
+        "current_trajectory_hypothesis": "The patient presented with chest pain and a chest X-ray shadow, which was further characterized by CT scan as a cystic lesion. Histopathological examination confirmed it as a bronchogenic cyst. Now, I need to understand the surgical intervention that led to the excision and subsequent diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with occasional mild right-sided chest pain for a few months and a non-resolving shadow on chest X-ray.",
+          "Initial chest X-ray showed a tubular inhomogeneous opacity in the medial part of the right lower lung field (E001).",
+          "CECT chest revealed a well-defined, thin-walled cystic lesion about 8.5 × 3.6 × 4.5 cm within the right lower lobe with mild marginal enhancement (E002).",
+          "A surgical excision or biopsy of the chest lesion was ordered (implied by previous action).",
+          "Histopathological examination confirmed the lesion was a bronchogenic cyst, lined by respiratory epithelium with seromucinous gland, cartilage and smooth muscle (E005)."
+        ],
+        "missing_key_evidence": [
+          "Specific details of the surgical procedure (e.g., type of surgery, approach)",
+          "Clinical course post-procedure or outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "A right mini-thoracotomy was performed through the fifth intercostal space with anticipation toward the right lower lobectomy, considering a parenchymal lesion. However, the opening of the chest cavity revealed a tubular, narrow-based pedunculated, mobile, pinkish, cystic smooth lesion arising from the mediastinum around the area of the inferior pulmonary ligament (Fig. 3). There was no adhesion with surrounding structures, and the lesion was completely mobile. The entire lesion was removed just ligating the stalk.",
+        "category": "molecular_test",
+        "temporal_cue": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with chest pain and a chest X-ray shadow, which was further characterized by CT scan as a cystic lesion. Surgical exploration via mini-thoracotomy revealed a pedunculated cystic lesion, which was excised. Histopathological examination confirmed it as a bronchogenic cyst. I need to understand the patient's recovery and long-term outcome.",
+        "confirmed_evidence": [
+          "Patient presented with occasional mild right-sided chest pain for a few months and a non-resolving shadow on chest X-ray.",
+          "Initial chest X-ray showed a tubular inhomogeneous opacity in the medial part of the right lower lung field (E001).",
+          "CECT chest revealed a well-defined, thin-walled cystic lesion about 8.5 × 3.6 × 4.5 cm within the right lower lobe with mild marginal enhancement (E002).",
+          "A surgical excision or biopsy of the chest lesion was ordered (implied by previous action).",
+          "Histopathological examination confirmed the lesion was a bronchogenic cyst, lined by respiratory epithelium with seromucinous gland, cartilage and smooth muscle (E005).",
+          "Surgical procedure involved a right mini-thoracotomy, revealing a tubular, narrow-based pedunculated, mobile, pinkish, cystic smooth lesion arising from the mediastinum around the inferior pulmonary ligament, which was completely removed by ligating the stalk (E004)."
+        ],
+        "missing_key_evidence": [
+          "Post-operative recovery details",
+          "Patient's long-term outcome or follow-up"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No pending results and no undisclosed clinical course updates after current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Bronchogenic cyst",
+        "trajectory_summary": "A 12-year-old boy presented with occasional mild right-sided chest pain and a non-resolving shadow on chest X-ray. Initial chest X-ray (E001) showed a tubular inhomogeneous opacity in the medial part of the right lower lung field. A subsequent CECT chest (E002) further delineated a well-defined, thin-walled cystic lesion (8.5 × 3.6 × 4.5 cm) within the right lower lobe with mild marginal enhancement. Surgical exploration via right mini-thoracotomy (E004) revealed a tubular, narrow-based pedunculated, mobile, pinkish, cystic smooth lesion arising from the mediastinum around the inferior pulmonary ligament, which was completely removed. Histopathological examination (E005) confirmed the lesion to be a bronchogenic cyst, lined by respiratory epithelium with seromucinous gland, cartilage, and smooth muscle.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial chest X-ray showed a tubular inhomogeneous opacity in the medial part of the right lower lung field.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "CECT chest revealed a well-defined, thin-walled cystic lesion about 8.5 × 3.6 × 4.5 cm within the right lower lobe with mild marginal enhancement.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Surgical procedure via right mini-thoracotomy identified and removed a tubular, narrow-based pedunculated, mobile, pinkish, cystic smooth lesion arising from the mediastinum around the inferior pulmonary ligament.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Histopathological examination confirmed the lesion was a bronchogenic cyst, lined by respiratory epithelium with a variable amount of seromucinous gland, cartilage and smooth muscle.",
+            "evidence_ids": [
+              "E005"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Other lung lesions (e.g., solid tumor, infection)",
+            "basis": "The CT scan characterized the lesion as cystic (E002), and definitive histopathology confirmed a bronchogenic cyst (E005), making other solid or infectious etiologies less likely."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Details of post-operative recovery",
+          "Patient's long-term outcome or follow-up"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Bronchogenic cyst",
+    "trajectory_summary": "A 12-year-old boy presented with occasional mild right-sided chest pain and a non-resolving shadow on chest X-ray. Initial chest X-ray (E001) showed a tubular inhomogeneous opacity in the medial part of the right lower lung field. A subsequent CECT chest (E002) further delineated a well-defined, thin-walled cystic lesion (8.5 × 3.6 × 4.5 cm) within the right lower lobe with mild marginal enhancement. Surgical exploration via right mini-thoracotomy (E004) revealed a tubular, narrow-based pedunculated, mobile, pinkish, cystic smooth lesion arising from the mediastinum around the inferior pulmonary ligament, which was completely removed. Histopathological examination (E005) confirmed the lesion to be a bronchogenic cyst, lined by respiratory epithelium with seromucinous gland, cartilage, and smooth muscle.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial chest X-ray showed a tubular inhomogeneous opacity in the medial part of the right lower lung field.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "CECT chest revealed a well-defined, thin-walled cystic lesion about 8.5 × 3.6 × 4.5 cm within the right lower lobe with mild marginal enhancement.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Surgical procedure via right mini-thoracotomy identified and removed a tubular, narrow-based pedunculated, mobile, pinkish, cystic smooth lesion arising from the mediastinum around the inferior pulmonary ligament.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Histopathological examination confirmed the lesion was a bronchogenic cyst, lined by respiratory epithelium with a variable amount of seromucinous gland, cartilage and smooth muscle.",
+        "evidence_ids": [
+          "E005"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Other lung lesions (e.g., solid tumor, infection)",
+        "basis": "The CT scan characterized the lesion as cystic (E002), and definitive histopathology confirmed a bronchogenic cyst (E005), making other solid or infectious etiologies less likely."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Details of post-operative recovery",
+      "Patient's long-term outcome or follow-up"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T18:51:06.896650+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

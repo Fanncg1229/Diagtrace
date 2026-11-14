@@ -1,0 +1,54 @@
+{
+  "prompt_version": "2026-07-31-interactive-fvcu-v1",
+  "judge_deployment": "gpt-4.1-mini-test",
+  "judge_input_file": "eacl_benchmark/results/interactive_fvcu_quality/matched225_100case_claude_haiku45/judge_inputs/neurology__PMC6119376.json",
+  "judge_output": {
+    "case_id": "PMC6119376",
+    "judge_status": "completed",
+    "interactive_fvcu": {
+      "factuality": {
+        "score": 3,
+        "major_issues": [
+          "Final reconstruction includes claims about diagnosis confirmation and immunophenotype similarity without direct citation of released evidence.",
+          "Most turns failed to obtain or cite diagnosis-revealing evidence; only imaging report E001 was disclosed."
+        ],
+        "rationale": "The clinician agent's claims about the diagnosis and immunophenotype are consistent with the known final diagnosis but are not directly supported by released evidence excerpts. Only the initial MRI report (E001) was disclosed. No pathology or immunophenotype reports were provided despite multiple requests."
+      },
+      "validity": {
+        "score": 4,
+        "major_issues": [],
+        "rationale": "The clinician agent's requests and interpretations were clinically reasonable and focused on obtaining key diagnostic evidence such as pathology, immunophenotyping, and treatment details. The strategy to wait and reassess when no new evidence was available was appropriate."
+      },
+      "coherence": {
+        "score": 4,
+        "major_issues": [],
+        "rationale": "The working reconstruction evolved logically with each turn, consistently incorporating confirmed evidence and identifying missing key evidence. There were no contradictions or unexplained shifts. The final reconstruction aligns with the interaction trace and known diagnosis."
+      },
+      "utility": {
+        "score": 2,
+        "major_issues": [
+          "The clinician agent failed to obtain or disclose key diagnosis-revealing evidence such as pathology reports and immunophenotype results despite multiple requests.",
+          "High proportion of wait/reassess turns with no new evidence acquired.",
+          "Final reconstruction relies heavily on known diagnosis rather than acquired evidence."
+        ],
+        "rationale": "The episode used the full turn budget but yielded only one disclosed evidence item (E001). The clinician agent did not successfully acquire high-yield evidence needed to reconstruct the diagnostic trajectory, limiting the utility of the episode."
+      },
+      "overall_quality": {
+        "score": 3,
+        "rationale": "While the clinician agent demonstrated valid clinical reasoning and maintained coherence, the lack of factual grounding in released evidence and low utility due to failure to acquire key diagnostic data reduce the overall quality. The final reconstruction is plausible but insufficiently supported by the interaction."
+      }
+    },
+    "trajectory_flags": {
+      "unsupported_or_unreleased_claims": true,
+      "request_strategy_problem": false,
+      "final_reconstruction_grounded": false
+    },
+    "episode_notes": "The clinician agent appropriately focused on critical diagnostic evidence but was unable to obtain or cite pathology and immunophenotype reports that confirm the diagnosis. The final reconstruction includes claims not directly supported by disclosed evidence, reflecting reliance on known diagnosis rather than interactive evidence recovery."
+  },
+  "usage": {
+    "prompt_tokens": 11421,
+    "completion_tokens": 596,
+    "total_tokens": 12017
+  },
+  "created_at": "2026-08-01T03:07:49.959628+00:00"
+}

@@ -1,0 +1,597 @@
+{
+  "case_id": "PMC6910170",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 12,
+  "termination": "final",
+  "known_final_diagnosis": "A diagnosis of TLS was confirmed, and urgent long hemodialysis was initiated.",
+  "disclosed_evidence_ids": [
+    "E002",
+    "E003",
+    "E005",
+    "E006",
+    "E007",
+    "E008",
+    "E009"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the initial laboratory results from admission, specifically serum electrolytes (potassium, phosphate, calcium), uric acid, creatinine, BUN, and complete blood count.",
+        "current_trajectory_hypothesis": "89-year-old with long-standing stable CLL presenting with dyspnea and cough following URTI. Given the final diagnosis of TLS (tumor lysis syndrome) and urgent hemodialysis initiation, the clinical trajectory likely involves acute metabolic derangement (hyperkalemia, hyperphosphatemia, hypocalcemia, hyperuricemia) and acute kidney injury triggering TLS diagnosis and treatment.",
+        "confirmed_evidence": [
+          "89-year-old female with CLL >40 years, untreated for 15 years",
+          "Presented with worsening dyspnea and dry cough after URTI treated with azithromycin",
+          "Physical exam: distress, dyspnea, bibasilar crackles, palpable axillary lymphadenopathies, sinus tachycardia, no fever"
+        ],
+        "missing_key_evidence": [
+          "Admission laboratory values (electrolytes, uric acid, renal function) confirming TLS criteria",
+          "Timing and trigger of acute TLS development",
+          "Imaging findings (chest X-ray for pulmonary findings)",
+          "Urine findings (uric acid, myoglobin, crystal precipitation)",
+          "Treatment course and response to hemodialysis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.25
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "WBC 67×103/uL, neutrophils 5%, lymphocytes 78%, hemoglobin (Hb) 11.2 g%, hematocrit (Hct) 33, platelets 72×103/uL, serum creatinine 0.76 mg/dL, potassium 4.9 mEq/L, blood sugar 122 mg/dL, blood urea nitrogen (BUN) 24 mg/dL, calcium 8.9 mg/dL, phosphorus 4 mg/dL, albumin 4.6 g/dL (normal range 3.5–5.2), total protein 6.5 g/dL (normal range, 6.6–8.3), C-reactive protein (CRP) 0.9 mg/L (normal range 0–0.5), and liver enzymes and lipid profile were normal (Table 1). Uric acid and lactate dehydrogenase (LDH) were not available. Venous blood gases: pH 7.32, partial pressure of carbon dioxide (pCO2) 51 mmHg, bicarbonate (HCO3) 26 mmol/L.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the uric acid level and lactate dehydrogenase (LDH) from admission or shortly after, as these are critical markers for TLS diagnosis. Also provide any repeat electrolyte panels (particularly potassium and phosphate) obtained after admission.",
+        "current_trajectory_hypothesis": "89-year-old with long-standing CLL presenting with dyspnea and cough after URTI. Initial labs show mild metabolic acidosis (pH 7.32), elevated BUN (24), and mild anemia/thrombocytopenia consistent with CLL. However, admission electrolytes (K 4.9, phosphate 4, calcium 8.9) appear relatively normal, which is atypical for TLS diagnosis. The missing uric acid and LDH values are essential to confirm TLS, as are subsequent electrolyte measurements showing acute derangement that triggered hemodialysis.",
+        "confirmed_evidence": [
+          "89-year-old female with CLL >40 years, untreated for 15 years",
+          "Presented with worsening dyspnea and dry cough after URTI treated with azithromycin",
+          "Physical exam: distress, dyspnea, bibasilar crackles, palpable axillary lymphadenopathies, sinus tachycardia, no fever",
+          "Admission labs: WBC 67×10³/uL (markedly elevated), lymphocytes 78%, mild anemia (Hb 11.2), thrombocytopenia (platelets 72×10³/uL)",
+          "Admission labs: mild metabolic acidosis (pH 7.32, pCO2 51), elevated BUN (24), creatinine 0.76 (baseline normal)"
+        ],
+        "missing_key_evidence": [
+          "Uric acid level (critical TLS marker) - not available on admission",
+          "LDH level (critical TLS marker) - not available on admission",
+          "Repeat electrolyte panels showing acute hyperkalemia, hyperphosphatemia, hypocalcemia that prompted hemodialysis",
+          "Timing of acute metabolic derangement relative to admission",
+          "Chest X-ray findings explaining dyspnea and bibasilar crackles",
+          "Urine findings (uric acid crystals, myoglobin)",
+          "Documentation of hemodialysis initiation and response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "On day 2, the patient developed oliguric acute renal failure (100 mL/24 hours), with serum creatinine 1.63 mg/dL, BUN 55 mg/dL, perfusion index (Pi) 7.8 mg/dL, magnesium (Mg) 2.9 mg/dL, uric acid 20.4 mg/dL, calcium 8.3 mg/dL, WBC 135×103/uL, platelets 129×103/uL, Hb 12.1 g/dL, LDH 966 U/L, pH 7.30, and HCO3 17 mEq/L(Table 1).",
+        "category": "routine_lab",
+        "temporal_cue": "day 2",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the chest X-ray findings from admission or early hospitalization that explain the dyspnea and bibasilar crackles, and clarify whether pulmonary edema, infiltrates, or other acute pulmonary pathology was documented.",
+        "current_trajectory_hypothesis": "89-year-old with long-standing stable CLL presenting with dyspnea and cough after URTI. On day 2, she developed acute oliguric renal failure with marked hyperuricemia (20.4 mg/dL), elevated LDH (966 U/L), hyperphosphatemia (7.8 mg/dL), and worsening metabolic acidosis, consistent with tumor lysis syndrome. The acute rise in WBC from 67 to 135×10³/uL on day 2 suggests acute leukemic proliferation or mobilization triggered by the URTI, precipitating TLS. Urgent hemodialysis was initiated. The initial dyspnea and bibasilar crackles may reflect pulmonary edema from acute kidney injury or direct leukemic involvement.",
+        "confirmed_evidence": [
+          "89-year-old female with CLL >40 years, untreated for 15 years",
+          "Presented with worsening dyspnea and dry cough after URTI treated with azithromycin",
+          "Physical exam: distress, dyspnea, bibasilar crackles, palpable axillary lymphadenopathies, sinus tachycardia, no fever",
+          "Admission labs: WBC 67×10³/uL, mild anemia, thrombocytopenia, mild metabolic acidosis (pH 7.32)",
+          "Day 2: acute oliguric renal failure (100 mL/24 hours), creatinine 1.63 mg/dL, BUN 55 mg/dL, uric acid 20.4 mg/dL (markedly elevated), LDH 966 U/L, hyperphosphatemia 7.8 mg/dL, hypocalcemia 8.3 mg/dL, WBC doubled to 135×10³/uL, worsening metabolic acidosis (pH 7.30, HCO3 17)"
+        ],
+        "missing_key_evidence": [
+          "Chest X-ray findings explaining dyspnea and bibasilar crackles (pulmonary edema vs. infiltrates vs. other)",
+          "Urine findings (uric acid crystals, myoglobin, or other evidence of TLS-related precipitation)",
+          "Potassium level on day 2 (critical for TLS diagnosis, not provided in E005)",
+          "Documentation of hemodialysis initiation timing and response",
+          "Clinical course after hemodialysis initiation and final outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.65
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Chest x-ray (CXR) revealed enlarged cardiac silhouette, pulmonary congestion, and an infiltration in the left lower lobe, which consisted with pneumonia or as part of the congestion (Figure 1).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the serum potassium level on day 2 when acute renal failure and TLS were documented, and confirm the timing of hemodialysis initiation in relation to the metabolic derangement.",
+        "current_trajectory_hypothesis": "89-year-old with long-standing stable CLL presenting with dyspnea and cough after URTI. Initial presentation showed bibasilar crackles and CXR findings of pulmonary congestion with left lower lobe infiltration. On day 2, she developed acute oliguric renal failure with marked hyperuricemia (20.4 mg/dL), elevated LDH (966 U/L), hyperphosphatemia (7.8 mg/dL), hypocalcemia (8.3 mg/dL), worsening metabolic acidosis, and doubling of WBC to 135×10³/uL—consistent with tumor lysis syndrome. Urgent hemodialysis was initiated to manage the acute metabolic derangement.",
+        "confirmed_evidence": [
+          "89-year-old female with CLL >40 years, untreated for 15 years",
+          "Presented with worsening dyspnea and dry cough after URTI treated with azithromycin",
+          "Physical exam: distress, dyspnea, bibasilar crackles, palpable axillary lymphadenopathies, sinus tachycardia, no fever",
+          "CXR on admission: enlarged cardiac silhouette, pulmonary congestion, left lower lobe infiltration (pneumonia or congestion-related)",
+          "Admission labs: WBC 67×10³/uL, Hb 11.2 g/dL, platelets 72×10³/uL, mild metabolic acidosis (pH 7.32, pCO2 51), BUN 24 mg/dL, creatinine 0.76 mg/dL",
+          "Day 2: acute oliguric renal failure (100 mL/24 hours), creatinine 1.63 mg/dL, BUN 55 mg/dL, uric acid 20.4 mg/dL, LDH 966 U/L, phosphorus 7.8 mg/dL, calcium 8.3 mg/dL, WBC 135×10³/uL, worsening metabolic acidosis (pH 7.30, HCO3 17)"
+        ],
+        "missing_key_evidence": [
+          "Serum potassium level on day 2 (critical TLS criterion, not yet provided)",
+          "Timing and documentation of hemodialysis initiation relative to day 2 metabolic derangement",
+          "Urine findings (uric acid crystals, myoglobin, or other TLS-related precipitation)",
+          "Clinical course and response to hemodialysis treatment",
+          "Final outcome and discharge status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "On day 3, the patient became anuric with further deterioration of blood tests: Pi 26 mg/d, uric acid 42 mg/dL, calcium 7.2 mg/dL, magnesium 3.55 mg/dL, LDH 966 u/L, BUN 107 mg/dL, serum creatinine 2.2 mg/dL, sodium 133 meq/L, potassium 6.94 mmol/L, LDH 1135 U/L, pH 7.30, HCO3 16 mmol/L, pCO2 45 mmHg, AG 21, WBC 190×103/uL, lymphocytes 64%, neutrophils 5%, Hb 9.6 g/dL, and platelets 166×103/uL (Table 1).",
+        "category": "routine_lab",
+        "temporal_cue": "day 3",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "phase_index_after must equal the selected evidence phase.",
+        "validation_errors": [
+          "phase_index_after must equal the selected evidence phase."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide documentation of when hemodialysis was initiated (timing relative to day 2 or day 3), the specific indication for urgent hemodialysis, and the clinical response or course during and after hemodialysis treatment.",
+        "current_trajectory_hypothesis": "89-year-old with long-standing stable CLL (>40 years, untreated for 15 years) presented with dyspnea and cough following URTI. CXR showed pulmonary congestion and left lower lobe infiltration. On day 2, she developed acute oliguric renal failure with marked hyperuricemia (20.4 mg/dL), elevated LDH (966 U/L), hyperphosphatemia (7.8 mg/dL), hypocalcemia (8.3 mg/dL), and WBC doubling to 135×10³/uL. By day 3, she became anuric with severe metabolic derangement: uric acid 42 mg/dL, phosphorus 26 mg/dL, potassium 6.94 mmol/L (life-threatening hyperkalemia), calcium 7.2 mg/dL, LDH 1135 U/L, WBC 190×10³/uL, and worsening metabolic acidosis (pH 7.30, AG 21). This constellation of findings is diagnostic of tumor lysis syndrome (TLS) with acute kidney injury. Urgent hemodialysis was initiated to manage the acute metabolic emergency.",
+        "confirmed_evidence": [
+          "89-year-old female with CLL >40 years, untreated for 15 years",
+          "Presented with worsening dyspnea and dry cough after URTI treated with azithromycin",
+          "Physical exam: distress, dyspnea, bibasilar crackles, palpable axillary lymphadenopathies, sinus tachycardia, no fever",
+          "CXR on admission: enlarged cardiac silhouette, pulmonary congestion, left lower lobe infiltration",
+          "Admission labs: WBC 67×10³/uL, Hb 11.2 g/dL, platelets 72×10³/uL, creatinine 0.76 mg/dL, K 4.9 mEq/L, phosphorus 4 mg/dL, calcium 8.9 mg/dL, mild metabolic acidosis (pH 7.32)",
+          "Day 2: acute oliguric renal failure (100 mL/24 hours), creatinine 1.63 mg/dL, BUN 55 mg/dL, uric acid 20.4 mg/dL, LDH 966 U/L, phosphorus 7.8 mg/dL, calcium 8.3 mg/dL, WBC 135×10³/uL, worsening metabolic acidosis (pH 7.30, HCO3 17)",
+          "Day 3: anuria, uric acid 42 mg/dL, phosphorus 26 mg/dL, potassium 6.94 mmol/L (severe hyperkalemia), calcium 7.2 mg/dL, LDH 1135 U/L, WBC 190×10³/uL, creatinine 2.2 mg/dL, BUN 107 mg/dL, worsening metabolic acidosis (pH 7.30, AG 21)"
+        ],
+        "missing_key_evidence": [
+          "Timing of hemodialysis initiation (day 2 vs. day 3) and specific clinical trigger",
+          "Documentation of hemodialysis response and clinical course during treatment",
+          "Urine findings (uric acid crystals, myoglobin, or other TLS-related precipitation)",
+          "Final outcome and discharge status",
+          "Whether acute leukemic proliferation/Richter transformation was documented or ruled out"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the clinical documentation of hemodialysis initiation, including the date/timing (day 2 or day 3), the specific clinical indication, and the patient's clinical course and response during hemodialysis treatment.",
+        "current_trajectory_hypothesis": "89-year-old with long-standing stable CLL (>40 years, untreated for 15 years) presented with dyspnea and cough following URTI. CXR showed pulmonary congestion and left lower lobe infiltration. Progressive acute kidney injury and severe metabolic derangement developed: day 2 showed oliguric renal failure with hyperuricemia (20.4 mg/dL), elevated LDH (966 U/L), hyperphosphatemia (7.8 mg/dL), and WBC doubling to 135×10³/uL. By day 3, anuria with life-threatening hyperkalemia (K 6.94 mmol/L), severe hyperuricemia (42 mg/dL), hyperphosphatemia (26 mg/dL), hypocalcemia (7.2 mg/dL), and WBC 190×10³/uL—diagnostic of tumor lysis syndrome. Urgent hemodialysis was initiated to manage the acute metabolic emergency.",
+        "confirmed_evidence": [
+          "89-year-old female with CLL >40 years, untreated for 15 years",
+          "Presented with worsening dyspnea and dry cough after URTI treated with azithromycin",
+          "Physical exam: distress, dyspnea, bibasilar crackles, palpable axillary lymphadenopathies, sinus tachycardia, no fever",
+          "CXR on admission: enlarged cardiac silhouette, pulmonary congestion, left lower lobe infiltration",
+          "Admission labs: WBC 67×10³/uL, Hb 11.2 g/dL, platelets 72×10³/uL, creatinine 0.76 mg/dL, K 4.9 mEq/L, phosphorus 4 mg/dL, calcium 8.9 mg/dL, mild metabolic acidosis (pH 7.32)",
+          "Day 2: acute oliguric renal failure (100 mL/24 hours), creatinine 1.63 mg/dL, BUN 55 mg/dL, uric acid 20.4 mg/dL, LDH 966 U/L, phosphorus 7.8 mg/dL, calcium 8.3 mg/dL, WBC 135×10³/uL",
+          "Day 3: anuria, uric acid 42 mg/dL, phosphorus 26 mg/dL, potassium 6.94 mmol/L, calcium 7.2 mg/dL, LDH 1135 U/L, WBC 190×10³/uL, creatinine 2.2 mg/dL, BUN 107 mg/dL, metabolic acidosis (pH 7.30, AG 21)"
+        ],
+        "missing_key_evidence": [
+          "Timing and documentation of hemodialysis initiation relative to day 2 or day 3 metabolic derangement",
+          "Clinical response to hemodialysis and subsequent laboratory trends",
+          "Urine findings (uric acid crystals, myoglobin, or other TLS-related precipitation)",
+          "Final outcome and discharge status",
+          "Whether acute leukemic proliferation or Richter transformation was documented"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "urgent long hemodialysis was initiated. A total of only 3 consecutive sessions of initially hemodialysis followed by hemodiafiltration were sufficient to achieve a full recovery of kidney functions and electrolytes balance.",
+        "category": "other",
+        "temporal_cue": "day 3",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the urine findings from admission or early hospitalization, specifically documenting uric acid crystals, myoglobin, or other evidence of tumor lysis syndrome-related precipitation in the urine.",
+        "current_trajectory_hypothesis": "89-year-old with long-standing stable CLL (>40 years, untreated for 15 years) presented with dyspnea and cough following URTI. CXR showed pulmonary congestion and left lower lobe infiltration. Progressive acute kidney injury and severe metabolic derangement developed: day 2 showed oliguric renal failure with hyperuricemia (20.4 mg/dL), elevated LDH (966 U/L), hyperphosphatemia (7.8 mg/dL), and WBC doubling to 135×10³/uL. By day 3, anuria with life-threatening hyperkalemia (K 6.94 mmol/L), severe hyperuricemia (42 mg/dL), hyperphosphatemia (26 mg/dL), hypocalcemia (7.2 mg/dL), and WBC 190×10³/uL—diagnostic of tumor lysis syndrome. Urgent hemodialysis was initiated on day 3, with 3 consecutive sessions of hemodialysis followed by hemodiafiltration achieving full recovery of kidney function and electrolyte balance.",
+        "confirmed_evidence": [
+          "89-year-old female with CLL >40 years, untreated for 15 years",
+          "Presented with worsening dyspnea and dry cough after URTI treated with azithromycin",
+          "Physical exam: distress, dyspnea, bibasilar crackles, palpable axillary lymphadenopathies, sinus tachycardia, no fever",
+          "CXR on admission: enlarged cardiac silhouette, pulmonary congestion, left lower lobe infiltration",
+          "Admission labs: WBC 67×10³/uL, Hb 11.2 g/dL, platelets 72×10³/uL, creatinine 0.76 mg/dL, K 4.9 mEq/L, phosphorus 4 mg/dL, calcium 8.9 mg/dL, mild metabolic acidosis (pH 7.32)",
+          "Day 2: acute oliguric renal failure (100 mL/24 hours), creatinine 1.63 mg/dL, BUN 55 mg/dL, uric acid 20.4 mg/dL, LDH 966 U/L, phosphorus 7.8 mg/dL, calcium 8.3 mg/dL, WBC 135×10³/uL",
+          "Day 3: anuria, uric acid 42 mg/dL, phosphorus 26 mg/dL, potassium 6.94 mmol/L, calcium 7.2 mg/dL, LDH 1135 U/L, WBC 190×10³/uL, creatinine 2.2 mg/dL, BUN 107 mg/dL, metabolic acidosis (pH 7.30, AG 21)",
+          "Urgent hemodialysis initiated on day 3; 3 consecutive sessions of hemodialysis followed by hemodiafiltration achieved full recovery of kidney function and electrolyte balance"
+        ],
+        "missing_key_evidence": [
+          "Urine findings (uric acid crystals, myoglobin, or other TLS-related precipitation)",
+          "Final outcome and discharge status",
+          "Whether acute leukemic proliferation or Richter transformation was documented as the trigger for TLS"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "The provided evidence records do not report urine findings specifically documenting uric acid crystals, myoglobin, or other tumor lysis syndrome-related precipitation in the urine during admission or early hospitalization.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the final outcome and discharge status of the patient, including whether kidney function and electrolytes normalized after hemodialysis, and any documentation of the clinical course post-treatment.",
+        "current_trajectory_hypothesis": "89-year-old with long-standing stable CLL (>40 years, untreated for 15 years) presented with dyspnea and cough following URTI. CXR showed pulmonary congestion and left lower lobe infiltration. Progressive acute kidney injury and severe metabolic derangement developed: day 2 showed oliguric renal failure with hyperuricemia (20.4 mg/dL), elevated LDH (966 U/L), hyperphosphatemia (7.8 mg/dL), and WBC doubling to 135×10³/uL. By day 3, anuria with life-threatening hyperkalemia (K 6.94 mmol/L), severe hyperuricemia (42 mg/dL), hyperphosphatemia (26 mg/dL), hypocalcemia (7.2 mg/dL), and WBC 190×10³/uL—diagnostic of tumor lysis syndrome. Urgent hemodialysis was initiated on day 3, with 3 consecutive sessions of hemodialysis followed by hemodiafiltration achieving full recovery of kidney function and electrolyte balance.",
+        "confirmed_evidence": [
+          "89-year-old female with CLL >40 years, untreated for 15 years",
+          "Presented with worsening dyspnea and dry cough after URTI treated with azithromycin",
+          "Physical exam: distress, dyspnea, bibasilar crackles, palpable axillary lymphadenopathies, sinus tachycardia, no fever",
+          "CXR on admission: enlarged cardiac silhouette, pulmonary congestion, left lower lobe infiltration",
+          "Admission labs: WBC 67×10³/uL, Hb 11.2 g/dL, platelets 72×10³/uL, creatinine 0.76 mg/dL, K 4.9 mEq/L, phosphorus 4 mg/dL, calcium 8.9 mg/dL, mild metabolic acidosis (pH 7.32)",
+          "Day 2: acute oliguric renal failure (100 mL/24 hours), creatinine 1.63 mg/dL, BUN 55 mg/dL, uric acid 20.4 mg/dL, LDH 966 U/L, phosphorus 7.8 mg/dL, calcium 8.3 mg/dL, WBC 135×10³/uL",
+          "Day 3: anuria, uric acid 42 mg/dL, phosphorus 26 mg/dL, potassium 6.94 mmol/L, calcium 7.2 mg/dL, LDH 1135 U/L, WBC 190×10³/uL, creatinine 2.2 mg/dL, BUN 107 mg/dL, metabolic acidosis (pH 7.30, AG 21)",
+          "Urgent hemodialysis initiated on day 3; 3 consecutive sessions of hemodialysis followed by hemodiafiltration achieved full recovery of kidney function and electrolyte balance"
+        ],
+        "missing_key_evidence": [
+          "Final outcome and discharge status",
+          "Post-hemodialysis laboratory values confirming normalization of electrolytes and renal function",
+          "Whether acute leukemic proliferation or Richter transformation was documented as the trigger for TLS"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "89-year-old with long-standing stable CLL (>40 years, untreated for 15 years) presented with dyspnea and cough following URTI. CXR showed pulmonary congestion and left lower lobe infiltration. Progressive acute kidney injury and severe metabolic derangement developed: day 2 showed oliguric renal failure with hyperuricemia (20.4 mg/dL), elevated LDH (966 U/L), hyperphosphatemia (7.8 mg/dL), and WBC doubling to 135×10³/uL. By day 3, anuria with life-threatening hyperkalemia (K 6.94 mmol/L), severe hyperuricemia (42 mg/dL), hyperphosphatemia (26 mg/dL), hypocalcemia (7.2 mg/dL), and WBC 190×10³/uL—diagnostic of tumor lysis syndrome. Urgent hemodialysis was initiated on day 3, with 3 consecutive sessions of hemodialysis followed by hemodiafiltration achieving full recovery of kidney function and electrolyte balance.",
+        "confirmed_evidence": [
+          "89-year-old female with CLL >40 years, untreated for 15 years",
+          "Presented with worsening dyspnea and dry cough after URTI treated with azithromycin",
+          "Physical exam: distress, dyspnea, bibasilar crackles, palpable axillary lymphadenopathies, sinus tachycardia, no fever",
+          "CXR on admission: enlarged cardiac silhouette, pulmonary congestion, left lower lobe infiltration",
+          "Admission labs: WBC 67×10³/uL, Hb 11.2 g/dL, platelets 72×10³/uL, creatinine 0.76 mg/dL, K 4.9 mEq/L, phosphorus 4 mg/dL, calcium 8.9 mg/dL, mild metabolic acidosis (pH 7.32)",
+          "Day 2: acute oliguric renal failure (100 mL/24 hours), creatinine 1.63 mg/dL, BUN 55 mg/dL, uric acid 20.4 mg/dL, LDH 966 U/L, phosphorus 7.8 mg/dL, calcium 8.3 mg/dL, WBC 135×10³/uL",
+          "Day 3: anuria, uric acid 42 mg/dL, phosphorus 26 mg/dL, potassium 6.94 mmol/L, calcium 7.2 mg/dL, LDH 1135 U/L, WBC 190×10³/uL, creatinine 2.2 mg/dL, BUN 107 mg/dL, metabolic acidosis (pH 7.30, AG 21)",
+          "Urgent hemodialysis initiated on day 3; 3 consecutive sessions of hemodialysis followed by hemodiafiltration achieved full recovery of kidney function and electrolyte balance"
+        ],
+        "missing_key_evidence": [
+          "Post-hemodialysis laboratory values confirming normalization of electrolytes and renal function",
+          "Final outcome and discharge status",
+          "Whether acute leukemic proliferation or Richter transformation was documented as the trigger for TLS"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "Conservative treatment as a first step therapy was instituted by giving intravenous fluids along with bicarbonate in the presence of metabolic acidosis. In addition, febuxostat (80 mg/day) as well as sevelamer (2.4 g/day) were initiated.",
+        "category": "other",
+        "temporal_cue": "day 2",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide documentation of whether acute leukemic proliferation, Richter transformation, or other acute leukemic event was identified as the trigger for tumor lysis syndrome in this patient with long-standing stable CLL.",
+        "current_trajectory_hypothesis": "89-year-old with long-standing stable CLL (>40 years, untreated for 15 years) presented with dyspnea and cough following URTI. CXR showed pulmonary congestion and left lower lobe infiltration. On day 2, acute oliguric renal failure developed with marked hyperuricemia (20.4 mg/dL), elevated LDH (966 U/L), hyperphosphatemia (7.8 mg/dL), and WBC doubling from 67 to 135×10³/uL. By day 3, anuria with life-threatening hyperkalemia (K 6.94 mmol/L), severe hyperuricemia (42 mg/dL), hyperphosphatemia (26 mg/dL), hypocalcemia (7.2 mg/dL), and WBC 190×10³/uL—diagnostic of tumor lysis syndrome. Conservative treatment (IV fluids, bicarbonate, febuxostat, sevelamer) was initiated on day 2. Urgent hemodialysis was initiated on day 3, with 3 consecutive sessions of hemodialysis followed by hemodiafiltration achieving full recovery of kidney function and electrolyte balance.",
+        "confirmed_evidence": [
+          "89-year-old female with CLL >40 years, untreated for 15 years",
+          "Presented with worsening dyspnea and dry cough after URTI treated with azithromycin",
+          "Physical exam: distress, dyspnea, bibasilar crackles, palpable axillary lymphadenopathies, sinus tachycardia, no fever",
+          "CXR on admission: enlarged cardiac silhouette, pulmonary congestion, left lower lobe infiltration",
+          "Admission labs: WBC 67×10³/uL, Hb 11.2 g/dL, platelets 72×10³/uL, creatinine 0.76 mg/dL, K 4.9 mEq/L, phosphorus 4 mg/dL, calcium 8.9 mg/dL, mild metabolic acidosis (pH 7.32)",
+          "Day 2: acute oliguric renal failure (100 mL/24 hours), creatinine 1.63 mg/dL, BUN 55 mg/dL, uric acid 20.4 mg/dL, LDH 966 U/L, phosphorus 7.8 mg/dL, calcium 8.3 mg/dL, WBC 135×10³/uL",
+          "Day 2: conservative treatment initiated with IV fluids, bicarbonate, febuxostat (80 mg/day), sevelamer (2.4 g/day)",
+          "Day 3: anuria, uric acid 42 mg/dL, phosphorus 26 mg/dL, potassium 6.94 mmol/L, calcium 7.2 mg/dL, LDH 1135 U/L, WBC 190×10³/uL, creatinine 2.2 mg/dL, BUN 107 mg/dL, metabolic acidosis (pH 7.30, AG 21)",
+          "Urgent hemodialysis initiated on day 3; 3 consecutive sessions of hemodialysis followed by hemodiafiltration achieved full recovery of kidney function and electrolyte balance"
+        ],
+        "missing_key_evidence": [
+          "Documentation of acute leukemic proliferation, Richter transformation, or other acute leukemic event as the trigger for TLS",
+          "Post-hemodialysis laboratory values confirming normalization of electrolytes and renal function",
+          "Final outcome and discharge status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.92
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No source record documents whether acute leukemic proliferation, Richter transformation, or other acute leukemic event was identified as the trigger for tumor lysis syndrome.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide post-hemodialysis laboratory values (electrolytes, uric acid, creatinine, BUN, calcium, phosphorus) documenting the recovery of kidney function and electrolyte normalization after the 3 sessions of hemodialysis and hemodiafiltration.",
+        "current_trajectory_hypothesis": "89-year-old with long-standing stable CLL (>40 years, untreated for 15 years) presented with dyspnea and cough following URTI. CXR showed pulmonary congestion and left lower lobe infiltration. On day 2, acute oliguric renal failure developed with marked hyperuricemia (20.4 mg/dL), elevated LDH (966 U/L), hyperphosphatemia (7.8 mg/dL), and WBC doubling from 67 to 135×10³/uL. By day 3, anuria with life-threatening hyperkalemia (K 6.94 mmol/L), severe hyperuricemia (42 mg/dL), hyperphosphatemia (26 mg/dL), hypocalcemia (7.2 mg/dL), and WBC 190×10³/uL—diagnostic of tumor lysis syndrome. Conservative treatment (IV fluids, bicarbonate, febuxostat, sevelamer) was initiated on day 2. Urgent hemodialysis was initiated on day 3, with 3 consecutive sessions of hemodialysis followed by hemodiafiltration achieving full recovery of kidney function and electrolyte balance.",
+        "confirmed_evidence": [
+          "89-year-old female with CLL >40 years, untreated for 15 years",
+          "Presented with worsening dyspnea and dry cough after URTI treated with azithromycin",
+          "Physical exam: distress, dyspnea, bibasilar crackles, palpable axillary lymphadenopathies, sinus tachycardia, no fever",
+          "CXR on admission: enlarged cardiac silhouette, pulmonary congestion, left lower lobe infiltration",
+          "Admission labs: WBC 67×10³/uL, Hb 11.2 g/dL, platelets 72×10³/uL, creatinine 0.76 mg/dL, K 4.9 mEq/L, phosphorus 4 mg/dL, calcium 8.9 mg/dL, mild metabolic acidosis (pH 7.32)",
+          "Day 2: acute oliguric renal failure (100 mL/24 hours), creatinine 1.63 mg/dL, BUN 55 mg/dL, uric acid 20.4 mg/dL, LDH 966 U/L, phosphorus 7.8 mg/dL, calcium 8.3 mg/dL, WBC 135×10³/uL",
+          "Day 2: conservative treatment initiated with IV fluids, bicarbonate, febuxostat (80 mg/day), sevelamer (2.4 g/day)",
+          "Day 3: anuria, uric acid 42 mg/dL, phosphorus 26 mg/dL, potassium 6.94 mmol/L, calcium 7.2 mg/dL, LDH 1135 U/L, WBC 190×10³/uL, creatinine 2.2 mg/dL, BUN 107 mg/dL, metabolic acidosis (pH 7.30, AG 21)",
+          "Urgent hemodialysis initiated on day 3; 3 consecutive sessions of hemodialysis followed by hemodiafiltration achieved full recovery of kidney function and electrolyte balance"
+        ],
+        "missing_key_evidence": [
+          "Post-hemodialysis laboratory values confirming normalization of electrolytes and renal function",
+          "Final outcome and discharge status",
+          "Documentation of acute leukemic proliferation or Richter transformation as the trigger for TLS"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.92
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E009",
+        "source_text": "Her serum creatinine was 0.78 mg/dL, BUN 39 mg/dL, calcium 7.5 mg/dL, Pi 2.6, LDH 694 U/L, uric acid 9.7 pH 7.43, HCO3 25.5, and pCO2 39 (Table 1). The patient was discharged home with a hemodynamically stable condition.",
+        "category": "other",
+        "temporal_cue": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Tumor Lysis Syndrome (TLS)",
+        "trajectory_summary": "An 89-year-old female with long-standing stable chronic lymphocytic leukemia (CLL) for >40 years, untreated for 15 years, presented with worsening dyspnea and dry cough following an upper respiratory tract infection treated with azithromycin. Physical examination revealed distress, dyspnea, bibasilar crackles, palpable axillary lymphadenopathies, and sinus tachycardia without fever. Chest X-ray showed enlarged cardiac silhouette, pulmonary congestion, and left lower lobe infiltration. On admission, laboratory studies revealed markedly elevated WBC (67×10³/uL) with mild anemia and thrombocytopenia, mild metabolic acidosis (pH 7.32), and baseline renal function (creatinine 0.76 mg/dL). On day 2, she developed acute oliguric renal failure (100 mL/24 hours) with marked hyperuricemia (20.4 mg/dL), elevated LDH (966 U/L), hyperphosphatemia (7.8 mg/dL), hypocalcemia (8.3 mg/dL), and doubling of WBC to 135×10³/uL. Conservative treatment with IV fluids, bicarbonate, febuxostat (80 mg/day), and sevelamer (2.4 g/day) was initiated on day 2. By day 3, she became anuric with life-threatening metabolic derangement: potassium 6.94 mmol/L (severe hyperkalemia), uric acid 42 mg/dL, phosphorus 26 mg/dL, calcium 7.2 mg/dL, LDH 1135 U/L, WBC 190×10³/uL, creatinine 2.2 mg/dL, BUN 107 mg/dL, and worsening metabolic acidosis (pH 7.30, AG 21)—meeting diagnostic criteria for tumor lysis syndrome. Urgent hemodialysis was initiated on day 3, with 3 consecutive sessions of hemodialysis followed by hemodiafiltration. Post-treatment laboratory values showed marked improvement: creatinine 0.78 mg/dL, BUN 39 mg/dL, calcium 7.5 mg/dL, phosphorus 2.6 mg/dL, uric acid 9.7 mg/dL, LDH 694 U/L, and normalized acid-base status (pH 7.43, HCO3 25.5). The patient was discharged home in hemodynamically stable condition with full recovery of kidney function and electrolyte balance.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient had long-standing stable CLL (>40 years) untreated for 15 years with markedly elevated WBC at presentation (67×10³/uL)",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Acute oliguric renal failure developed on day 2 with marked hyperuricemia (20.4 mg/dL), elevated LDH (966 U/L), hyperphosphatemia (7.8 mg/dL), and hypocalcemia (8.3 mg/dL)",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "By day 3, patient became anuric with life-threatening hyperkalemia (6.94 mmol/L), severe hyperuricemia (42 mg/dL), hyperphosphatemia (26 mg/dL), hypocalcemia (7.2 mg/dL), and WBC 190×10³/uL",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Conservative treatment with IV fluids, bicarbonate, febuxostat, and sevelamer was initiated on day 2",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Urgent hemodialysis was initiated with 3 consecutive sessions of hemodialysis followed by hemodiafiltration achieving full recovery of kidney function and electrolyte balance",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "Post-hemodialysis laboratory values showed normalization: creatinine 0.78 mg/dL, BUN 39 mg/dL, calcium 7.5 mg/dL, phosphorus 2.6 mg/dL, uric acid 9.7 mg/dL, normalized acid-base status (pH 7.43, HCO3 25.5)",
+            "evidence_ids": [
+              "E009"
+            ]
+          },
+          {
+            "claim": "Patient was discharged home in hemodynamically stable condition",
+            "evidence_ids": [
+              "E009"
+            ]
+          },
+          {
+            "claim": "Chest X-ray showed enlarged cardiac silhouette, pulmonary congestion, and left lower lobe infiltration consistent with pulmonary edema from acute kidney injury",
+            "evidence_ids": [
+              "E003"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Acute leukemic transformation (Richter transformation) or acute leukemic proliferation",
+            "basis": "While WBC doubled from 67 to 135×10³/uL on day 2 and reached 190×10³/uL on day 3, no source documentation explicitly identified acute leukemic transformation. The acute metabolic derangement and TLS diagnosis were confirmed, but the specific trigger (whether spontaneous proliferation, URTI-induced mobilization, or other mechanism) was not documented in available records."
+          },
+          {
+            "alternative": "Acute coronary syndrome or primary cardiac dysfunction",
+            "basis": "While CXR showed enlarged cardiac silhouette and pulmonary congestion, these findings are consistent with pulmonary edema secondary to acute kidney injury and fluid overload from TLS rather than primary cardiac pathology. Patient had no prior history of coronary disease."
+          },
+          {
+            "alternative": "Pneumonia as primary diagnosis",
+            "basis": "While CXR showed left lower lobe infiltration and patient had preceding URTI treated with azithromycin, the clinical course and laboratory findings are diagnostic of TLS with secondary pulmonary edema rather than primary infectious pneumonia. No fever or systemic infection markers were documented."
+          }
+        ],
+        "remaining_uncertainties": [
+          "The specific trigger for acute TLS in this patient with long-standing stable CLL (whether acute leukemic proliferation, Richter transformation, URTI-induced mobilization, or spontaneous event) was not explicitly documented",
+          "Urine findings (uric acid crystals, myoglobin, or other TLS-related precipitation) were not reported",
+          "The exact timing of hemodialysis initiation relative to day 3 metabolic derangement was not precisely documented",
+          "Whether the left lower lobe infiltration on CXR represented pneumonia, pulmonary edema, or leukemic infiltration was not definitively clarified"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Tumor Lysis Syndrome (TLS)",
+    "trajectory_summary": "An 89-year-old female with long-standing stable chronic lymphocytic leukemia (CLL) for >40 years, untreated for 15 years, presented with worsening dyspnea and dry cough following an upper respiratory tract infection treated with azithromycin. Physical examination revealed distress, dyspnea, bibasilar crackles, palpable axillary lymphadenopathies, and sinus tachycardia without fever. Chest X-ray showed enlarged cardiac silhouette, pulmonary congestion, and left lower lobe infiltration. On admission, laboratory studies revealed markedly elevated WBC (67×10³/uL) with mild anemia and thrombocytopenia, mild metabolic acidosis (pH 7.32), and baseline renal function (creatinine 0.76 mg/dL). On day 2, she developed acute oliguric renal failure (100 mL/24 hours) with marked hyperuricemia (20.4 mg/dL), elevated LDH (966 U/L), hyperphosphatemia (7.8 mg/dL), hypocalcemia (8.3 mg/dL), and doubling of WBC to 135×10³/uL. Conservative treatment with IV fluids, bicarbonate, febuxostat (80 mg/day), and sevelamer (2.4 g/day) was initiated on day 2. By day 3, she became anuric with life-threatening metabolic derangement: potassium 6.94 mmol/L (severe hyperkalemia), uric acid 42 mg/dL, phosphorus 26 mg/dL, calcium 7.2 mg/dL, LDH 1135 U/L, WBC 190×10³/uL, creatinine 2.2 mg/dL, BUN 107 mg/dL, and worsening metabolic acidosis (pH 7.30, AG 21)—meeting diagnostic criteria for tumor lysis syndrome. Urgent hemodialysis was initiated on day 3, with 3 consecutive sessions of hemodialysis followed by hemodiafiltration. Post-treatment laboratory values showed marked improvement: creatinine 0.78 mg/dL, BUN 39 mg/dL, calcium 7.5 mg/dL, phosphorus 2.6 mg/dL, uric acid 9.7 mg/dL, LDH 694 U/L, and normalized acid-base status (pH 7.43, HCO3 25.5). The patient was discharged home in hemodynamically stable condition with full recovery of kidney function and electrolyte balance.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient had long-standing stable CLL (>40 years) untreated for 15 years with markedly elevated WBC at presentation (67×10³/uL)",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Acute oliguric renal failure developed on day 2 with marked hyperuricemia (20.4 mg/dL), elevated LDH (966 U/L), hyperphosphatemia (7.8 mg/dL), and hypocalcemia (8.3 mg/dL)",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "By day 3, patient became anuric with life-threatening hyperkalemia (6.94 mmol/L), severe hyperuricemia (42 mg/dL), hyperphosphatemia (26 mg/dL), hypocalcemia (7.2 mg/dL), and WBC 190×10³/uL",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Conservative treatment with IV fluids, bicarbonate, febuxostat, and sevelamer was initiated on day 2",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Urgent hemodialysis was initiated with 3 consecutive sessions of hemodialysis followed by hemodiafiltration achieving full recovery of kidney function and electrolyte balance",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "Post-hemodialysis laboratory values showed normalization: creatinine 0.78 mg/dL, BUN 39 mg/dL, calcium 7.5 mg/dL, phosphorus 2.6 mg/dL, uric acid 9.7 mg/dL, normalized acid-base status (pH 7.43, HCO3 25.5)",
+        "evidence_ids": [
+          "E009"
+        ]
+      },
+      {
+        "claim": "Patient was discharged home in hemodynamically stable condition",
+        "evidence_ids": [
+          "E009"
+        ]
+      },
+      {
+        "claim": "Chest X-ray showed enlarged cardiac silhouette, pulmonary congestion, and left lower lobe infiltration consistent with pulmonary edema from acute kidney injury",
+        "evidence_ids": [
+          "E003"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Acute leukemic transformation (Richter transformation) or acute leukemic proliferation",
+        "basis": "While WBC doubled from 67 to 135×10³/uL on day 2 and reached 190×10³/uL on day 3, no source documentation explicitly identified acute leukemic transformation. The acute metabolic derangement and TLS diagnosis were confirmed, but the specific trigger (whether spontaneous proliferation, URTI-induced mobilization, or other mechanism) was not documented in available records."
+      },
+      {
+        "alternative": "Acute coronary syndrome or primary cardiac dysfunction",
+        "basis": "While CXR showed enlarged cardiac silhouette and pulmonary congestion, these findings are consistent with pulmonary edema secondary to acute kidney injury and fluid overload from TLS rather than primary cardiac pathology. Patient had no prior history of coronary disease."
+      },
+      {
+        "alternative": "Pneumonia as primary diagnosis",
+        "basis": "While CXR showed left lower lobe infiltration and patient had preceding URTI treated with azithromycin, the clinical course and laboratory findings are diagnostic of TLS with secondary pulmonary edema rather than primary infectious pneumonia. No fever or systemic infection markers were documented."
+      }
+    ],
+    "remaining_uncertainties": [
+      "The specific trigger for acute TLS in this patient with long-standing stable CLL (whether acute leukemic proliferation, Richter transformation, URTI-induced mobilization, or spontaneous event) was not explicitly documented",
+      "Urine findings (uric acid crystals, myoglobin, or other TLS-related precipitation) were not reported",
+      "The exact timing of hemodialysis initiation relative to day 3 metabolic derangement was not precisely documented",
+      "Whether the left lower lobe infiltration on CXR represented pneumonia, pulmonary edema, or leukemic infiltration was not definitively clarified"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T06:58:43.217531+00:00",
+  "clinician_model": "claude-haiku-4-5",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

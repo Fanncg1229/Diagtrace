@@ -1,0 +1,548 @@
+{
+  "case_id": "PMC4077029",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "consistent with AHA",
+  "disclosed_evidence_ids": [
+    "E003",
+    "E004",
+    "E005"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Complete Blood Count (CBC)",
+        "current_trajectory_hypothesis": "Patient with lupus presenting with headaches. Investigating for anemia as a potential cause of symptoms or related to the known final diagnosis of Autoimmune Hemolytic Anemia (AHA).",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Evidence of anemia",
+          "Evidence of hemolysis",
+          "Specific tests for AHA"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for CBC test registered; no direct result reported yet in the source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Reticulocyte count",
+        "current_trajectory_hypothesis": "Patient with lupus presenting with headaches. Investigating for anemia and hemolysis, which are key features of Autoimmune Hemolytic Anemia (AHA). A reticulocyte count will help assess bone marrow response to potential anemia.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Evidence of anemia (from CBC)",
+          "Evidence of hemolysis (e.g., elevated bilirubin, LDH, low haptoglobin)",
+          "Specific tests for AHA (e.g., Direct Antiglobulin Test)",
+          "Reticulocyte count results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "The reticulocyte count was ordered but the source documents no corresponding test result.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Complete Blood Count (CBC) results",
+        "current_trajectory_hypothesis": "Patient with lupus presenting with headaches. Investigating for anemia and hemolysis, which are key features of Autoimmune Hemolytic Anemia (AHA). I've ordered CBC and Reticulocyte count, and now requesting the CBC results to assess for anemia.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Evidence of anemia (from CBC)",
+          "Reticulocyte count results",
+          "Evidence of hemolysis (e.g., elevated bilirubin, LDH, low haptoglobin, peripheral smear)",
+          "Specific tests for AHA (e.g., Direct Antiglobulin Test)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "basic laboratory studies were significant for an isolated elevation of PTT at 74 with a normal CBC, chemistry panel, liver panel, INR, and urine toxicology screen",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Reticulocyte count results",
+        "current_trajectory_hypothesis": "Patient with lupus presenting with headaches. Initial CBC was reported as normal, which is unexpected for Autoimmune Hemolytic Anemia (AHA). However, I am still investigating for AHA, and a reticulocyte count is crucial to assess for bone marrow response to potential hemolysis, even if anemia is not yet overt.",
+        "confirmed_evidence": [
+          "Patient is a 25-year-old Asian woman with a history of lupus, on prednisone and self-discontinued mycophenylate.",
+          "Presented with 6 days of intermittent 10/10 sharp right-sided headaches, occasionally spreading to the neck.",
+          "Neurologic examination was unremarkable.",
+          "Initial basic laboratory studies showed an isolated elevation of PTT at 74.",
+          "Initial CBC, chemistry panel, liver panel, INR, and urine toxicology screen were normal."
+        ],
+        "missing_key_evidence": [
+          "Reticulocyte count results",
+          "Evidence of hemolysis (e.g., elevated bilirubin, LDH, low haptoglobin, peripheral smear)",
+          "Specific tests for AHA (e.g., Direct Antiglobulin Test)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Reticulocyte count results are not reported in the source records",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Lactate Dehydrogenase (LDH)",
+        "current_trajectory_hypothesis": "Patient with lupus presenting with headaches. Initial CBC was normal, which is unexpected for Autoimmune Hemolytic Anemia (AHA). However, AHA can develop or present with normal CBC initially. I am now looking for other markers of hemolysis, such as elevated LDH, bilirubin, or low haptoglobin, which are key features of AHA.",
+        "confirmed_evidence": [
+          "Patient is a 25-year-old Asian woman with a history of lupus, on prednisone and self-discontinued mycophenylate.",
+          "Presented with 6 days of intermittent 10/10 sharp right-sided headaches, occasionally spreading to the neck.",
+          "Neurologic examination was unremarkable.",
+          "Initial basic laboratory studies showed an isolated elevation of PTT at 74.",
+          "Initial CBC, chemistry panel, liver panel, INR, and urine toxicology screen were normal."
+        ],
+        "missing_key_evidence": [
+          "Evidence of hemolysis (e.g., elevated bilirubin, LDH, low haptoglobin, peripheral smear)",
+          "Specific tests for AHA (e.g., Direct Antiglobulin Test)",
+          "Reticulocyte count results (if available later)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "LDH test was ordered but not documented in the source records",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Haptoglobin level",
+        "current_trajectory_hypothesis": "Patient with lupus presenting with headaches. Initial CBC was normal, which is unexpected for Autoimmune Hemolytic Anemia (AHA). However, AHA can develop or present with normal CBC initially. I am now looking for other markers of hemolysis, such as low haptoglobin, elevated bilirubin, or LDH, which are key features of AHA. I have ordered LDH, but it was not documented. Haptoglobin is another crucial marker.",
+        "confirmed_evidence": [
+          "Patient is a 25-year-old Asian woman with a history of lupus, on prednisone and self-discontinued mycophenylate.",
+          "Presented with 6 days of intermittent 10/10 sharp right-sided headaches, occasionally spreading to the neck.",
+          "Neurologic examination was unremarkable.",
+          "Initial basic laboratory studies showed an isolated elevation of PTT at 74.",
+          "Initial CBC, chemistry panel, liver panel, INR, and urine toxicology screen were normal."
+        ],
+        "missing_key_evidence": [
+          "Evidence of hemolysis (e.g., low haptoglobin, elevated bilirubin, peripheral smear)",
+          "Specific tests for AHA (e.g., Direct Antiglobulin Test)",
+          "Reticulocyte count results (if available later)",
+          "LDH results (if available later)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Haptoglobin level order placed, but no source evidence documents the test result.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Bilirubin (total and direct)",
+        "current_trajectory_hypothesis": "Patient with lupus presenting with headaches. Initial CBC was normal, which is unexpected for Autoimmune Hemolytic Anemia (AHA). However, AHA can develop or present with normal CBC initially. I am continuing to look for other markers of hemolysis, such as elevated bilirubin, low haptoglobin, or LDH, which are key features of AHA. I have previously ordered LDH and Haptoglobin, but their results were not documented. Bilirubin is another crucial marker for hemolysis.",
+        "confirmed_evidence": [
+          "Patient is a 25-year-old Asian woman with a history of lupus, on prednisone and self-discontinued mycophenylate.",
+          "Presented with 6 days of intermittent 10/10 sharp right-sided headaches, occasionally spreading to the neck.",
+          "Neurologic examination was unremarkable.",
+          "Initial basic laboratory studies showed an isolated elevation of PTT at 74.",
+          "Initial CBC, chemistry panel, liver panel, INR, and urine toxicology screen were normal."
+        ],
+        "missing_key_evidence": [
+          "Evidence of hemolysis (e.g., elevated bilirubin, low haptoglobin, LDH, peripheral smear, reticulocyte count)",
+          "Specific tests for AHA (e.g., Direct Antiglobulin Test)",
+          "Reticulocyte count results (if available later)",
+          "LDH results (if available later)",
+          "Haptoglobin results (if available later)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "No source record documents bilirubin test results; order acknowledged.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Direct Antiglobulin Test (DAT) / Coombs test",
+        "current_trajectory_hypothesis": "Patient with lupus presenting with headaches. Initial CBC was normal, which is unexpected for Autoimmune Hemolytic Anemia (AHA). However, AHA can develop or present with normal CBC initially. I am continuing to look for markers of hemolysis and now ordering the most specific test for AHA, the Direct Antiglobulin Test (DAT).",
+        "confirmed_evidence": [
+          "Patient is a 25-year-old Asian woman with a history of lupus, on prednisone and self-discontinued mycophenylate.",
+          "Presented with 6 days of intermittent 10/10 sharp right-sided headaches, occasionally spreading to the neck.",
+          "Neurologic examination was unremarkable.",
+          "Initial basic laboratory studies showed an isolated elevation of PTT at 74.",
+          "Initial CBC, chemistry panel, liver panel, INR, and urine toxicology screen were normal."
+        ],
+        "missing_key_evidence": [
+          "Evidence of hemolysis (e.g., elevated bilirubin, low haptoglobin, LDH, peripheral smear, reticulocyte count)",
+          "Specific tests for AHA (e.g., Direct Antiglobulin Test results)",
+          "Reticulocyte count results (if available later)",
+          "LDH results (if available later)",
+          "Haptoglobin results (if available later)",
+          "Bilirubin results (if available later)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Order recorded but no corresponding source evidence for test result",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Direct Antiglobulin Test (DAT) / Coombs test results",
+        "current_trajectory_hypothesis": "Patient with lupus presenting with headaches. Initial CBC was normal, which is unexpected for Autoimmune Hemolytic Anemia (AHA). However, AHA can develop or present with normal CBC initially. I have ordered several markers of hemolysis and the specific DAT test for AHA. I am now requesting the results of the DAT, as it is crucial for confirming AHA.",
+        "confirmed_evidence": [
+          "Patient is a 25-year-old Asian woman with a history of lupus, on prednisone and self-discontinued mycophenylate.",
+          "Presented with 6 days of intermittent 10/10 sharp right-sided headaches, occasionally spreading to the neck.",
+          "Neurologic examination was unremarkable.",
+          "Initial basic laboratory studies showed an isolated elevation of PTT at 74.",
+          "Initial CBC, chemistry panel, liver panel, INR, and urine toxicology screen were normal."
+        ],
+        "missing_key_evidence": [
+          "Specific tests for AHA (e.g., Direct Antiglobulin Test results)",
+          "Evidence of hemolysis (e.g., elevated bilirubin, low haptoglobin, LDH, peripheral smear, reticulocyte count)",
+          "Reticulocyte count results (if available later)",
+          "LDH results (if available later)",
+          "Haptoglobin results (if available later)",
+          "Bilirubin results (if available later)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "No Direct Antiglobulin Test (DAT) or Coombs test results found in supplied evidence.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient with lupus presenting with headaches. Initial workup for Autoimmune Hemolytic Anemia (AHA) has not yielded documented results for key tests (reticulocyte count, LDH, haptoglobin, bilirubin, DAT/Coombs test), and initial CBC was normal. I need to find evidence that supports the diagnosis of AHA, which might involve a later development of symptoms, further diagnostic steps, or a comprehensive report of previously ordered tests.",
+        "confirmed_evidence": [
+          "Patient is a 25-year-old Asian woman with a history of lupus, on prednisone and self-discontinued mycophenylate.",
+          "Presented with 6 days of intermittent 10/10 sharp right-sided headaches, occasionally spreading to the neck.",
+          "Neurologic examination was unremarkable.",
+          "Initial basic laboratory studies showed an isolated elevation of PTT at 74.",
+          "Initial CBC, chemistry panel, liver panel, INR, and urine toxicology screen were normal."
+        ],
+        "missing_key_evidence": [
+          "Evidence of hemolysis (e.g., elevated bilirubin, low haptoglobin, LDH, peripheral smear, reticulocyte count)",
+          "Specific tests for AHA (e.g., Direct Antiglobulin Test results)",
+          "Clinical course progression related to AHA",
+          "Treatment and response for AHA"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Work-up of her elevated PTT revealed a clotting mixing study that failed to correct with a 1:1 ratio to plasma (suggestive of the presence of an inhibitor)",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Peripheral blood smear",
+        "current_trajectory_hypothesis": "Patient with lupus presenting with headaches. Initial CBC was normal, and specific tests for AHA (DAT, reticulocyte count, LDH, haptoglobin, bilirubin) were ordered but results not documented. A peripheral blood smear can provide morphological evidence of hemolysis (e.g., spherocytes, schistocytes) which is crucial for diagnosing AHA, especially if other lab markers are not yet overt or documented.",
+        "confirmed_evidence": [
+          "Patient is a 25-year-old Asian woman with a history of lupus, on prednisone and self-discontinued mycophenylate.",
+          "Presented with 6 days of intermittent 10/10 sharp right-sided headaches, occasionally spreading to the neck.",
+          "Neurologic examination was unremarkable.",
+          "Initial basic laboratory studies showed an isolated elevation of PTT at 74.",
+          "Initial CBC, chemistry panel, liver panel, INR, and urine toxicology screen were normal.",
+          "Work-up of elevated PTT revealed a clotting mixing study that failed to correct with a 1:1 ratio to plasma, suggesting an inhibitor."
+        ],
+        "missing_key_evidence": [
+          "Evidence of hemolysis (e.g., elevated bilirubin, low haptoglobin, LDH, peripheral smear, reticulocyte count)",
+          "Specific tests for AHA (e.g., Direct Antiglobulin Test results)",
+          "Clinical course progression related to AHA",
+          "Treatment and response for AHA"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Peripheral blood smear ordered but no corresponding source result documented.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient with lupus presenting with headaches. Initial CBC was normal, and specific tests for AHA (reticulocyte count, LDH, haptoglobin, bilirubin, DAT/Coombs) and peripheral smear were ordered but results not documented. The elevated PTT and inhibitor are noted but not directly related to AHA. I need to find evidence that supports the diagnosis of AHA, which might involve a later development of symptoms, further diagnostic steps, or a comprehensive report of previously ordered tests.",
+        "confirmed_evidence": [
+          "Patient is a 25-year-old Asian woman with a history of lupus, on prednisone and self-discontinued mycophenylate.",
+          "Presented with 6 days of intermittent 10/10 sharp right-sided headaches, occasionally spreading to the neck.",
+          "Neurologic examination was unremarkable.",
+          "Initial basic laboratory studies showed an isolated elevation of PTT at 74.",
+          "Initial CBC, chemistry panel, liver panel, INR, and urine toxicology screen were normal.",
+          "Work-up of elevated PTT revealed a clotting mixing study that failed to correct with a 1:1 ratio to plasma, suggesting an inhibitor."
+        ],
+        "missing_key_evidence": [
+          "Evidence of hemolysis (e.g., elevated bilirubin, low haptoglobin, LDH, peripheral smear, reticulocyte count)",
+          "Specific tests for AHA (e.g., Direct Antiglobulin Test results)",
+          "Clinical course progression related to AHA",
+          "Treatment and response for AHA"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "an undetectable factor 8 level, consistent with AHA",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Factor VIII inhibitor titer",
+        "current_trajectory_hypothesis": "The patient's elevated PTT, non-correcting mixing study, and undetectable Factor VIII level strongly suggest Acquired Hemophilia A (AHA). I need to confirm the presence and quantify the Factor VIII inhibitor to fully support this diagnosis.",
+        "confirmed_evidence": [
+          "Patient is a 25-year-old Asian woman with a history of lupus, on prednisone and self-discontinued mycophenylate.",
+          "Presented with 6 days of intermittent 10/10 sharp right-sided headaches, occasionally spreading to the neck.",
+          "Neurologic examination was unremarkable.",
+          "Initial basic laboratory studies showed an isolated elevation of PTT at 74.",
+          "Initial CBC, chemistry panel, liver panel, INR, and urine toxicology screen were normal.",
+          "Work-up of elevated PTT revealed a clotting mixing study that failed to correct with a 1:1 ratio to plasma, suggesting an inhibitor.",
+          "An undetectable factor 8 level, consistent with AHA (Acquired Hemophilia A)."
+        ],
+        "missing_key_evidence": [
+          "Specific characterization and titer of the Factor VIII inhibitor",
+          "Clinical course progression related to Acquired Hemophilia A",
+          "Treatment and response for Acquired Hemophilia A"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "The factor VIII inhibitor titer test is ordered but the source does not provide its result.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Factor VIII inhibitor titer results",
+        "current_trajectory_hypothesis": "The patient's elevated PTT, non-correcting mixing study, and undetectable Factor VIII level strongly suggest Acquired Hemophilia A (AHA). I need to confirm the presence and quantify the Factor VIII inhibitor to fully support this diagnosis. I previously ordered this test, and am now requesting its results.",
+        "confirmed_evidence": [
+          "Patient is a 25-year-old Asian woman with a history of lupus, on prednisone and self-discontinued mycophenylate.",
+          "Presented with 6 days of intermittent 10/10 sharp right-sided headaches, occasionally spreading to the neck.",
+          "Neurologic examination was unremarkable.",
+          "Initial basic laboratory studies showed an isolated elevation of PTT at 74 (E003).",
+          "Initial CBC, chemistry panel, liver panel, INR, and urine toxicology screen were normal (E003).",
+          "Work-up of elevated PTT revealed a clotting mixing study that failed to correct with a 1:1 ratio to plasma, suggesting an inhibitor (E004).",
+          "An undetectable factor 8 level, consistent with AHA (Acquired Hemophilia A) (E005)."
+        ],
+        "missing_key_evidence": [
+          "Specific characterization and titer of the Factor VIII inhibitor",
+          "Clinical course progression related to Acquired Hemophilia A",
+          "Treatment and response for Acquired Hemophilia A"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "No source record contains factor VIII inhibitor titer results.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Acquired Hemophilia A (AHA)",
+        "trajectory_summary": "A 25-year-old woman with lupus presented with headaches. Initial laboratory studies revealed an isolated elevated PTT. Further workup showed a clotting mixing study that failed to correct, suggesting an inhibitor, and an undetectable factor 8 level, which was explicitly stated to be consistent with Acquired Hemophilia A.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial basic laboratory studies were significant for an isolated elevation of PTT at 74.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Work-up of her elevated PTT revealed a clotting mixing study that failed to correct with a 1:1 ratio to plasma, suggestive of the presence of an inhibitor.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "An undetectable factor 8 level, consistent with AHA (Acquired Hemophilia A).",
+            "evidence_ids": [
+              "E005"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Autoimmune Hemolytic Anemia",
+            "basis": "Initial CBC was normal (E003), and no evidence of hemolysis (e.g., elevated bilirubin, LDH, low haptoglobin, peripheral smear, reticulocyte count, or positive DAT/Coombs test) was documented despite being ordered. The diagnosis of AHA was clarified by source E005 as Acquired Hemophilia A, not Autoimmune Hemolytic Anemia."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Specific characterization and titer of the Factor VIII inhibitor",
+          "Clinical course progression related to Acquired Hemophilia A",
+          "Treatment and response for Acquired Hemophilia A",
+          "The direct link between the presenting headaches and back pain to the confirmed diagnosis of Acquired Hemophilia A is not explicitly documented."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Acquired Hemophilia A (AHA)",
+    "trajectory_summary": "A 25-year-old woman with lupus presented with headaches. Initial laboratory studies revealed an isolated elevated PTT. Further workup showed a clotting mixing study that failed to correct, suggesting an inhibitor, and an undetectable factor 8 level, which was explicitly stated to be consistent with Acquired Hemophilia A.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial basic laboratory studies were significant for an isolated elevation of PTT at 74.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Work-up of her elevated PTT revealed a clotting mixing study that failed to correct with a 1:1 ratio to plasma, suggestive of the presence of an inhibitor.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "An undetectable factor 8 level, consistent with AHA (Acquired Hemophilia A).",
+        "evidence_ids": [
+          "E005"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Autoimmune Hemolytic Anemia",
+        "basis": "Initial CBC was normal (E003), and no evidence of hemolysis (e.g., elevated bilirubin, LDH, low haptoglobin, peripheral smear, reticulocyte count, or positive DAT/Coombs test) was documented despite being ordered. The diagnosis of AHA was clarified by source E005 as Acquired Hemophilia A, not Autoimmune Hemolytic Anemia."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Specific characterization and titer of the Factor VIII inhibitor",
+      "Clinical course progression related to Acquired Hemophilia A",
+      "Treatment and response for Acquired Hemophilia A",
+      "The direct link between the presenting headaches and back pain to the confirmed diagnosis of Acquired Hemophilia A is not explicitly documented."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T22:11:40.054702+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

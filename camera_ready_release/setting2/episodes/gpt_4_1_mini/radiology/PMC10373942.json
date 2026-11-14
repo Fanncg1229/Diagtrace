@@ -1,0 +1,351 @@
+{
+  "case_id": "PMC10373942",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 9,
+  "termination": "final",
+  "known_final_diagnosis": "Hepatic vein pylephlebitis",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E008"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order liver function tests and inflammatory markers",
+        "current_trajectory_hypothesis": "Patient with fever, productive cough, and epigastric pain with history of complicated diverticulitis; suspecting possible intra-abdominal or hepatic infection or complication.",
+        "confirmed_evidence": [
+          "Initial presentation with fever, dyspnea, productive cough with dark brown sputum, epigastric pain, tachypnea, tachycardia, diaphoresis, and diminished breath sounds on right side",
+          "Past history of diverticulitis complicated by perforation, abscess, fistula, and colostomy"
+        ],
+        "missing_key_evidence": [
+          "Laboratory evidence supporting infection or liver involvement",
+          "Imaging findings suggestive of hepatic vein thrombosis or infection"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order placed; no direct matching source record to confirm test results yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Suspected infectious or thrombotic complication likely involving the liver given abdominal pain, past complicated diverticulitis, and systemic symptoms.",
+        "confirmed_evidence": [
+          "Initial presentation symptoms and past medical history with complications suggestive of intra-abdominal infection"
+        ],
+        "missing_key_evidence": [
+          "Laboratory evidence supporting liver involvement or systemic infection/inflammation",
+          "Imaging or clinical course showing hepatic venous thrombosis or septic thrombophlebitis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "Initial laboratory evaluation was significant for elevated white blood cell count, total and direct bilirubin, alkaline phosphatase, and D-dimer (Table 1).",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order contrast-enhanced abdominal CT scan to evaluate liver, hepatic veins, and intra-abdominal structures",
+        "current_trajectory_hypothesis": "Patient has systemic inflammatory response with lab evidence of infection and liver involvement; imaging is needed to detect hepatic vein thrombosis or abscess related to prior diverticulitis complications",
+        "confirmed_evidence": [
+          "Presentation with fever, dyspnea, cough, epigastric pain, tachypnea, tachycardia, diaphoresis, diminished breath sounds",
+          "Past medical history of complicated diverticulitis with perforation, abscess, colostomy",
+          "Laboratory results show elevated WBC, bilirubin, alkaline phosphatase, and D-dimer supportive of infection and possible liver involvement"
+        ],
+        "missing_key_evidence": [
+          "Imaging findings confirming hepatic vein thrombosis or pylephlebitis",
+          "Microbiological evidence to support septic thrombophlebitis diagnosis",
+          "Clinical course details such as response to therapy or further complications"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order recorded; no match to a tested report at current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request the report of the contrast-enhanced abdominal CT scan",
+        "current_trajectory_hypothesis": "Contrast-enhanced abdominal CT will provide crucial imaging evidence for hepatic vein thrombosis or infectious complications in the liver related to prior complex diverticulitis.",
+        "confirmed_evidence": [
+          "Initial presentation with fever, dyspnea, productive cough, epigastric pain, and relevant exam findings",
+          "Past complicated diverticulitis with perforation, abscess, fistula, and colostomy",
+          "Initial labs showing elevated WBC, bilirubin, alkaline phosphatase, and D-dimer suggestive of infection and liver involvement"
+        ],
+        "missing_key_evidence": [
+          "Imaging report confirming hepatic vein thrombosis or pylephlebitis",
+          "Microbiological or pathology results supporting septic thrombophlebitis",
+          "Clinical response or further management details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "A computed tomography (CT) scan with intravenous contrast of the abdomen, pelvis, and thorax demonstrated opacification of the hepatic vein indicative of thrombosis. A hepatic fluid collection measuring 9 cm transversely along with multiple cavitary lesions was also seen in the lung fields bilaterally, which were suggestive of hepatic abscess and septic pulmonary emboli, respectively (Figures 1, 2).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order blood cultures and hepatic abscess fluid cultures to identify causative organisms",
+        "current_trajectory_hypothesis": "Imaging confirms hepatic vein thrombosis and hepatic abscess with septic pulmonary emboli; microbiological cultures are needed to establish the infectious etiology.",
+        "confirmed_evidence": [
+          "Initial presentation with systemic and respiratory symptoms plus epigastric pain",
+          "Past medical history with complicated diverticulitis",
+          "Lab evidence of infection and liver involvement (elevated WBC, bilirubin, ALP, D-dimer)",
+          "Contrast CT showing hepatic vein thrombosis, hepatic abscess, and septic pulmonary emboli"
+        ],
+        "missing_key_evidence": [
+          "Microbiological evidence from blood or abscess fluid cultures",
+          "Clinical course or treatment response details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Order placed for blood cultures and hepatic abscess fluid cultures; awaiting results in source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient with confirmed hepatic vein thrombosis, hepatic abscess, and septic pulmonary emboli; microbiological results pending to confirm infectious etiology and guide treatment.",
+        "confirmed_evidence": [
+          "38-year-old male with fever, cough, dyspnea, epigastric pain, and diminished breath sounds",
+          "Past medical history of complicated diverticulitis with perforation, abscess, fistula, and colostomy",
+          "Initial labs showed elevated WBC, bilirubin, alkaline phosphatase, and D-dimer",
+          "Contrast-enhanced CT showed hepatic vein thrombosis, 9 cm hepatic abscess, and septic pulmonary emboli",
+          "Orders placed for blood and hepatic abscess fluid cultures"
+        ],
+        "missing_key_evidence": [
+          "Microbiological culture results confirming causative pathogens",
+          "Clinical course details including treatment response or complications"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "A transthoracic echocardiogram was performed and was negative for vegetation.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request blood and hepatic abscess fluid culture results",
+        "current_trajectory_hypothesis": "Microbiological culture results from blood and abscess fluid are needed to confirm infectious pathogens causing hepatic vein pylephlebitis and guide appropriate treatment.",
+        "confirmed_evidence": [
+          "Patient presented with fever, dyspnea, productive cough, epigastric pain, and diminished breath sounds",
+          "Past medical history significant for complicated diverticulitis with perforation, abscess, fistula, and colostomy",
+          "Lab tests showed elevated WBC, bilirubin, alkaline phosphatase, and D-dimer",
+          "Contrast-enhanced CT revealed hepatic vein thrombosis, hepatic abscess, and septic pulmonary emboli",
+          "Negative transthoracic echocardiogram for vegetation"
+        ],
+        "missing_key_evidence": [
+          "Microbiological culture results confirming causative organisms",
+          "Clinical course details including treatment response or complications"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Blood cultures were obtained and grew pan-susceptible Streptococcus anginosus.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request clinical course details including treatment given, response to therapy, and outcome",
+        "current_trajectory_hypothesis": "Patient with hepatic vein thrombosis, hepatic abscess, septic pulmonary emboli, and Streptococcus anginosus bacteremia; treatment and clinical course data needed to complete trajectory reconstruction.",
+        "confirmed_evidence": [
+          "Initial symptoms and past medical history with complicated diverticulitis",
+          "Laboratory evidence of infection and liver involvement (elevated WBC, bilirubin, ALP, D-dimer)",
+          "Contrast-enhanced CT showing hepatic vein thrombosis, hepatic abscess, and septic pulmonary emboli",
+          "Blood cultures growing pan-susceptible Streptococcus anginosus",
+          "Negative transthoracic echocardiogram for vegetation"
+        ],
+        "missing_key_evidence": [
+          "Clinical course details including treatment regimen, response, and final outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "The patient had serial thoracenteses to drain fluid collections and placement of a CT-guided drain. The patient’s clinical status improved over the course of the admission, and he was discharged on intravenous ceftriaxone and metronidazole for four weeks.",
+        "category": "other",
+        "temporal_cue": "discharge",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Hepatic vein pylephlebitis",
+        "trajectory_summary": "A 36-year-old male with a history of complicated diverticulitis presented with fever, dyspnea, productive cough with dark brown sputum, and epigastric pain. Admission labs showed elevated WBC, bilirubin, alkaline phosphatase, and D-dimer suggestive of infection and liver involvement. Contrast-enhanced CT revealed hepatic vein thrombosis, a 9 cm hepatic abscess, and bilateral septic pulmonary emboli. Blood cultures grew pan-susceptible Streptococcus anginosus, and echocardiogram was negative for vegetation. The patient underwent serial thoracenteses and CT-guided drainage, with clinical improvement and discharge on intravenous ceftriaxone and metronidazole.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Elevated WBC, bilirubin, alkaline phosphatase, and D-dimer on admission",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "CT showing hepatic vein thrombosis, hepatic abscess, and septic pulmonary emboli",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Blood cultures grew pan-susceptible Streptococcus anginosus confirming infectious etiology",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Negative transthoracic echocardiogram ruling out endocarditis as embolic source",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Clinical improvement with drainage procedures and IV antibiotics and discharge",
+            "evidence_ids": [
+              "E008"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Endocarditis causing septic emboli",
+            "basis": "Negative transthoracic echocardiogram for vegetations"
+          }
+        ],
+        "remaining_uncertainties": [],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Hepatic vein pylephlebitis",
+    "trajectory_summary": "A 36-year-old male with a history of complicated diverticulitis presented with fever, dyspnea, productive cough with dark brown sputum, and epigastric pain. Admission labs showed elevated WBC, bilirubin, alkaline phosphatase, and D-dimer suggestive of infection and liver involvement. Contrast-enhanced CT revealed hepatic vein thrombosis, a 9 cm hepatic abscess, and bilateral septic pulmonary emboli. Blood cultures grew pan-susceptible Streptococcus anginosus, and echocardiogram was negative for vegetation. The patient underwent serial thoracenteses and CT-guided drainage, with clinical improvement and discharge on intravenous ceftriaxone and metronidazole.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Elevated WBC, bilirubin, alkaline phosphatase, and D-dimer on admission",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "CT showing hepatic vein thrombosis, hepatic abscess, and septic pulmonary emboli",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Blood cultures grew pan-susceptible Streptococcus anginosus confirming infectious etiology",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Negative transthoracic echocardiogram ruling out endocarditis as embolic source",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Clinical improvement with drainage procedures and IV antibiotics and discharge",
+        "evidence_ids": [
+          "E008"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Endocarditis causing septic emboli",
+        "basis": "Negative transthoracic echocardiogram for vegetations"
+      }
+    ],
+    "remaining_uncertainties": [],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-26T07:56:52.277937+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

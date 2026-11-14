@@ -1,0 +1,406 @@
+{
+  "case_id": "PMC11031648",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 9,
+  "termination": "final",
+  "known_final_diagnosis": "The histopathology report revealed acute and subacute appendicitis with periappendicitis, with no evidence of malignancy.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "Please provide the detailed findings of the abdominal physical examination at the initial presentation and subsequent visits, focusing on tenderness, guarding, rebound, palpable masses, and signs of peritonitis.",
+        "current_trajectory_hypothesis": "47-year-old female with 2-week history of right lower abdominal pain with nausea, vomiting, subjective fever, suspected appendiceal pathology based on ultrasound showing borderline appendix diameter and pelvic free fluid, but without CT confirmation yet.",
+        "confirmed_evidence": [
+          "constant cramping right lower abdominal pain",
+          "acute generalized abdominal pain two weeks ago",
+          "pain shifted to right lower side",
+          "nausea, vomiting",
+          "subjective fever",
+          "abdominal ultrasound showed borderline appendix diameter (0.8 cm) with free fluid in pelvis"
+        ],
+        "missing_key_evidence": [
+          "physical examination findings",
+          "confirmatory imaging results (CT)",
+          "laboratory findings suggestive of inflammation or infection",
+          "operative findings and histopathology confirming acute and subacute appendicitis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "No source evidence documents detailed abdominal physical examination findings at initial presentation or subsequent visits.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order laboratory tests including complete blood count (CBC) with differential, C-reactive protein (CRP), and erythrocyte sedimentation rate (ESR) to assess for inflammation or infection.",
+        "current_trajectory_hypothesis": "Patient with signs and symptoms suggestive of appendicitis; need inflammatory markers to support diagnosis.",
+        "confirmed_evidence": [
+          "constant cramping right lower abdominal pain",
+          "acute generalized abdominal pain two weeks ago",
+          "pain shifted to right lower side",
+          "nausea, vomiting",
+          "subjective fever",
+          "abdominal ultrasound showed borderline appendix diameter (0.8 cm) with free fluid in pelvis"
+        ],
+        "missing_key_evidence": [
+          "physical examination findings",
+          "laboratory evidence of inflammation or infection",
+          "confirmatory imaging results (CT)",
+          "operative findings and histopathology confirming acute and subacute appendicitis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Laboratory tests ordered as requested, no matching source record documenting results yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the laboratory test results for complete blood count (CBC) with differential, C-reactive protein (CRP), and erythrocyte sedimentation rate (ESR) obtained at initial evaluation or subsequent visits.",
+        "current_trajectory_hypothesis": "47-year-old female with right lower abdominal pain, nausea, vomiting, and subjective fever, with suspected appendiceal pathology suggested by borderline appendix diameter and pelvic free fluid on ultrasound; laboratory inflammation markers are needed to support diagnosis.",
+        "confirmed_evidence": [
+          "constant cramping right lower abdominal pain",
+          "acute generalized abdominal pain two weeks ago",
+          "pain shifted to right lower side",
+          "nausea, vomiting",
+          "subjective fever",
+          "abdominal ultrasound showed borderline appendix diameter (0.8 cm) with free fluid in pelvis"
+        ],
+        "missing_key_evidence": [
+          "abdominal physical examination findings",
+          "laboratory evidence of inflammation or infection",
+          "confirmatory imaging results (CT) if performed",
+          "operative findings and histopathology confirming acute and subacute appendicitis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "Blood work came back inconclusive too; the patient’s inflammatory markers (C-reactive protein [CRP] and erythrocyte sedimentation rate [ESR]) were normal. Also, her complete blood count results ruled out leukocytosis.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "Please provide details of any abdominal imaging reports performed after the initial ultrasound, such as CT scan findings related to the appendix and pelvic area.",
+        "current_trajectory_hypothesis": "Patient with right lower quadrant abdominal pain and negative inflammatory markers, initial ultrasound borderline appendix size with free fluid; imaging confirmation of appendicitis needed.",
+        "confirmed_evidence": [
+          "constant cramping right lower abdominal pain",
+          "acute generalized abdominal pain two weeks ago",
+          "pain shifted to right lower side",
+          "nausea, vomiting",
+          "subjective fever",
+          "abdominal ultrasound showed borderline appendix diameter (0.8 cm) with free fluid in pelvis",
+          "laboratory inflammatory markers CRP and ESR normal, CBC no leukocytosis"
+        ],
+        "missing_key_evidence": [
+          "physical examination findings",
+          "confirmatory imaging results (CT or other)",
+          "operative findings and histopathology confirming acute and subacute appendicitis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "The report came back with a right adnexal enhancing mass with no conclusive features and a query whirl sign over the same area (Figures 1-2).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the operative findings and histopathology report related to the appendix if available, to confirm acute and subacute appendicitis.",
+        "current_trajectory_hypothesis": "Patient with right lower abdominal pain, borderline appendiceal ultrasound, normal inflammatory markers, inconclusive imaging showing right adnexal mass and possible whirl sign; diagnosis requires operative and histopathology confirmation of acute/subacute appendicitis.",
+        "confirmed_evidence": [
+          "constant cramping right lower abdominal pain",
+          "acute generalized abdominal pain two weeks ago",
+          "pain shifted to right lower side",
+          "nausea, vomiting",
+          "subjective fever",
+          "borderline appendix diameter (0.8 cm) with free fluid in pelvis on ultrasound",
+          "normal CRP and ESR, no leukocytosis on CBC",
+          "imaging showing right adnexal enhancing mass and query whirl sign"
+        ],
+        "missing_key_evidence": [
+          "abdominal physical examination findings",
+          "operative findings and histopathology confirming acute and subacute appendicitis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "acute and subacute appendicitis with periappendicitis, with no evidence of malignancy",
+        "category": "pathology_report",
+        "temporal_cue": "postoperative",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "Please provide detailed findings of the abdominal physical examination during initial evaluation and any subsequent visits, particularly focusing on tenderness, guarding, rebound tenderness, palpable masses, and peritonitis signs.",
+        "current_trajectory_hypothesis": "Patient presents with right lower abdominal pain and non-specific imaging and laboratory findings; operative and histopathology reports confirm appendicitis, but physical exam details remain missing.",
+        "confirmed_evidence": [
+          "constant cramping right lower abdominal pain",
+          "acute generalized abdominal pain two weeks ago",
+          "pain shifted to right lower side",
+          "nausea, vomiting",
+          "subjective fever",
+          "borderline appendix diameter (0.8 cm) with free fluid in pelvis on ultrasound",
+          "normal inflammatory markers (CRP, ESR) and no leukocytosis on CBC",
+          "imaging showing right adnexal enhancing mass and possible whirl sign",
+          "histopathology confirming acute and subacute appendicitis with periappendicitis, no malignancy"
+        ],
+        "missing_key_evidence": [
+          "physical examination findings including abdominal exam focusing on acute abdomen signs"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No evidence record contains detailed abdominal physical exam findings.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "47-year-old female with two weeks of right lower abdominal pain and inconclusive labs and imaging underwent surgery with histopathology confirming acute and subacute appendicitis with periappendicitis.",
+        "confirmed_evidence": [
+          "constant cramping right lower abdominal pain",
+          "acute generalized abdominal pain two weeks ago",
+          "pain shifted to right lower side",
+          "nausea, vomiting",
+          "subjective fever",
+          "borderline appendix diameter (0.8 cm) with free fluid in pelvis on ultrasound",
+          "normal inflammatory markers (CRP, ESR) and no leukocytosis on CBC",
+          "imaging showing right adnexal enhancing mass and possible whirl sign",
+          "histopathology confirming acute and subacute appendicitis with periappendicitis, no malignancy"
+        ],
+        "missing_key_evidence": [
+          "detailed abdominal physical examination findings",
+          "operative findings and surgical procedure details",
+          "postoperative clinical course or treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "After adhesions were released, the cecum was identified and tracked until its base and the appendix were visible. Surprisingly, the appendix was long and inflamed and attached to the posterior wall of the cecum. It made a ring-like structure where about 8 to 10 cm of the terminal ileum (the last part of the small bowel) went through, causing an internal hernia (Figures 3-5). Hernia reduction was performed, and then the appendix was freed, with its mesentery controlled using a LigaSure vessel sealing device, then divided with a stapler, and finally removed with an endobag.",
+        "category": "image_finding",
+        "temporal_cue": "during diagnostic laparoscopic surgery",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide any documented postoperative clinical course notes or treatment response details following the appendectomy and hernia reduction surgery.",
+        "current_trajectory_hypothesis": "Patient with 2-week right lower abdominal pain and inconclusive labs/imaging had diagnostic laparoscopy revealing an inflamed appendix causing internal hernia, underwent appendectomy and hernia reduction, histopathology confirmed acute/subacute appendicitis; postoperative course not yet described.",
+        "confirmed_evidence": [
+          "constant cramping right lower abdominal pain",
+          "acute generalized abdominal pain two weeks ago",
+          "pain shifted to right lower side",
+          "nausea, vomiting",
+          "subjective fever",
+          "borderline appendix diameter (0.8 cm) with free fluid in pelvis on ultrasound",
+          "normal inflammatory markers (CRP, ESR) and no leukocytosis on CBC",
+          "imaging showing right adnexal enhancing mass and possible whirl sign",
+          "histopathology confirming acute and subacute appendicitis with periappendicitis, no malignancy",
+          "intraoperative findings: appendix inflamed, forming ring causing internal hernia involving terminal ileum, hernia reduced, appendix removed laparoscopically"
+        ],
+        "missing_key_evidence": [
+          "postoperative clinical course details",
+          "documented physical exam findings during presentation or follow-up"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No postoperative clinical course notes or treatment response details are documented in the provided sources.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "Status no_new_update is not valid for clinician action REQUEST_RESULT.",
+        "validation_errors": [
+          "Status no_new_update is not valid for clinician action REQUEST_RESULT."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "acute and subacute appendicitis with periappendicitis",
+        "trajectory_summary": "A 47-year-old female presented with a 2-week history of acute generalized abdominal pain shifting to constant right lower abdominal pain, accompanied by nausea, vomiting, subjective fever, mild abdominal distension, and decreased bowel movements. Initial ultrasound showed a borderline appendiceal diameter of 0.8 cm and free pelvic fluid. Laboratory testing including CBC, CRP, and ESR showed no leukocytosis or elevated inflammatory markers. Subsequent imaging revealed a right adnexal enhancing mass with a query whirl sign but inconclusive for appendicitis. Diagnostic laparoscopy identified an inflamed and elongated appendix forming a ring entrapping the terminal ileum causing an internal hernia. The hernia was reduced, and the appendix was removed laparoscopically. Histopathology confirmed acute and subacute appendicitis with periappendicitis with no evidence of malignancy.",
+        "key_supporting_evidence": [
+          {
+            "claim": "constant cramping right lower abdominal pain and associated symptoms with borderline appendiceal diameter and pelvic free fluid on ultrasound",
+            "evidence_ids": []
+          },
+          {
+            "claim": "normal laboratory inflammatory markers (CRP, ESR) and no leukocytosis on CBC",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "imaging shows right adnexal enhancing mass and possible whirl sign suggestive of internal hernia",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "diagnostic laparoscopy revealed inflamed elongated appendix causing internal hernia with terminal ileum entrapped, appendix removed laparoscopically",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "histopathology confirming acute and subacute appendicitis with periappendicitis without malignancy",
+            "evidence_ids": [
+              "E004"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "malignancy",
+            "basis": "no evidence of malignancy on histopathology"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Detailed abdominal physical examination findings during initial and subsequent visits",
+          "Postoperative clinical course and treatment response documentation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "acute and subacute appendicitis with periappendicitis",
+    "trajectory_summary": "A 47-year-old female presented with a 2-week history of acute generalized abdominal pain shifting to constant right lower abdominal pain, accompanied by nausea, vomiting, subjective fever, mild abdominal distension, and decreased bowel movements. Initial ultrasound showed a borderline appendiceal diameter of 0.8 cm and free pelvic fluid. Laboratory testing including CBC, CRP, and ESR showed no leukocytosis or elevated inflammatory markers. Subsequent imaging revealed a right adnexal enhancing mass with a query whirl sign but inconclusive for appendicitis. Diagnostic laparoscopy identified an inflamed and elongated appendix forming a ring entrapping the terminal ileum causing an internal hernia. The hernia was reduced, and the appendix was removed laparoscopically. Histopathology confirmed acute and subacute appendicitis with periappendicitis with no evidence of malignancy.",
+    "key_supporting_evidence": [
+      {
+        "claim": "constant cramping right lower abdominal pain and associated symptoms with borderline appendiceal diameter and pelvic free fluid on ultrasound",
+        "evidence_ids": []
+      },
+      {
+        "claim": "normal laboratory inflammatory markers (CRP, ESR) and no leukocytosis on CBC",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "imaging shows right adnexal enhancing mass and possible whirl sign suggestive of internal hernia",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "diagnostic laparoscopy revealed inflamed elongated appendix causing internal hernia with terminal ileum entrapped, appendix removed laparoscopically",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "histopathology confirming acute and subacute appendicitis with periappendicitis without malignancy",
+        "evidence_ids": [
+          "E004"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "malignancy",
+        "basis": "no evidence of malignancy on histopathology"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Detailed abdominal physical examination findings during initial and subsequent visits",
+      "Postoperative clinical course and treatment response documentation"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.85
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-29T11:33:05.744173+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

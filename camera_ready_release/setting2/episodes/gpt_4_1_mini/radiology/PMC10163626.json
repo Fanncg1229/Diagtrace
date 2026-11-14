@@ -1,0 +1,505 @@
+{
+  "case_id": "PMC10163626",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "Features overall were consistent with a diagnosis of phlegmonous gastritis and duodenitis.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "order abdominal imaging, specifically an abdominal CT scan with contrast to evaluate for gastritis, duodenitis, or other structural abnormalities",
+        "current_trajectory_hypothesis": "Patient with severe epigastric pain and vomiting, refractory to H. pylori treatment, likely severe gastritis or duodenitis; imaging can help identify inflammatory changes or complications such as phlegmon or abscess",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "imaging findings to support diagnosis of phlegmonous gastritis and duodenitis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for abdominal CT scan with contrast acknowledged; no source record confirms result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request the abdominal CT scan with contrast report",
+        "current_trajectory_hypothesis": "Abdominal CT could reveal inflammatory changes consistent with phlegmonous gastritis and duodenitis, clarifying the underlying cause of persistent epigastric pain and vomiting",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "imaging findings from CT confirming gastritis or duodenitis, or showing phlegmonous changes"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "Chest imaging was unremarkable, and contrast enhanced computed tomography of the abdomen revealed diffuse bowel wall thickening involving the stomach with mucosal enhancement, as well as patches of focal thickening with retained fluid in the stomach (Fig. 1). Also notable on cross-sectional imaging was diffuse adenopathy involving the mesenteric, gastro-hepatic, and para-aortic abdominal lymph nodes. No pancreatic enhancement noted.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "Ask about any history of fever, chills, or signs of systemic infection prior to or during hospitalization",
+        "current_trajectory_hypothesis": "Initial imaging showing diffuse gastric wall thickening and lymphadenopathy suggests severe inflammation, possibly infectious; systemic symptoms would support an infectious phlegmonous gastritis",
+        "confirmed_evidence": [
+          "Abdominal CT with contrast showed diffuse bowel wall thickening of the stomach with mucosal enhancement and focal thickening with retained fluid",
+          "Diffuse adenopathy involving mesenteric, gastro-hepatic, and para-aortic nodes"
+        ],
+        "missing_key_evidence": [
+          "clinical features of systemic infection such as fever or chills to support infectious etiology",
+          "microbiological or biopsy results to confirm phlegmonous gastritis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "On admission the patient was afebrile and hemodynamically stable on room air.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "order upper endoscopy with gastric and duodenal biopsies for histopathology and culture to assess for phlegmonous gastritis and duodenitis",
+        "current_trajectory_hypothesis": "Imaging findings and clinical presentation suggest severe gastritis and duodenitis, but tissue diagnosis with biopsy and culture is necessary to confirm phlegmonous inflammation and identify causative organisms",
+        "confirmed_evidence": [
+          "Abdominal CT showed diffuse gastric wall thickening with mucosal enhancement and lymphadenopathy",
+          "Patient afebrile and hemodynamically stable on admission"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic and microbiological confirmation of phlegmonous gastritis and duodenitis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for upper endoscopy with biopsies registered; no direct source evidence for order result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request the upper endoscopy report including histopathology and culture results",
+        "current_trajectory_hypothesis": "Upper endoscopy with biopsies will provide direct evidence of phlegmonous gastritis and duodenitis through histopathologic inflammation and microbial culture confirmation",
+        "confirmed_evidence": [
+          "Abdominal CT showed diffuse gastric wall thickening with mucosal enhancement and lymphadenopathy",
+          "Patient afebrile and hemodynamically stable on admission"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic and microbiological confirmation of phlegmonous gastritis and duodenitis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient with severe gastritis and duodenitis on imaging, afebrile, pending tissue biopsy and culture results needed to confirm phlegmonous gastritis and duodenitis",
+        "confirmed_evidence": [
+          "Abdominal CT showed diffuse gastric wall thickening with mucosal enhancement and lymphadenopathy",
+          "Patient afebrile and hemodynamically stable on admission"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic and microbiological confirmation of phlegmonous gastritis and duodenitis",
+          "Clinical course or treatment response information"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Initial microbiologic testing including HIV screen, COVID-19 nasopharyngeal nucleic acid amplification testing (NAAT), Quanti-FERON Gold, cytomegalovirus (CMV) NAAT, blood cultures and urine cultures were negative.",
+        "category": "microbiology",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient with severe gastritis and duodenitis on CT imaging, afebrile, negative initial microbiology screening, pending endoscopic biopsy and culture confirmation of phlegmonous gastritis and duodenitis",
+        "confirmed_evidence": [
+          "Abdominal CT showed diffuse gastric wall thickening with mucosal enhancement and lymphadenopathy",
+          "Patient afebrile and hemodynamically stable on admission",
+          "Initial microbiologic testing including HIV, COVID-19, Quanti-FERON, CMV NAAT, blood and urine cultures negative"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic and microbiological confirmation from endoscopic biopsies",
+          "Clinical course and treatment response details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "An upper endoscopy was pursued which revealed congested, erythematous, eroded, friable, nodular and scalloped gastric mucosa as well as erythematous mucosal changes in the duodenum (Fig. 2).",
+        "category": "image_finding",
+        "temporal_cue": "after admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request histopathology and culture results from the gastric and duodenal biopsies obtained at upper endoscopy",
+        "current_trajectory_hypothesis": "Upper endoscopy findings of friable, nodular gastric mucosa and erythematous duodenal mucosa strongly support a severe inflammatory process; histopathology and culture results are needed for definitive confirmation of phlegmonous gastritis and duodenitis",
+        "confirmed_evidence": [
+          "Abdominal CT showed diffuse gastric wall thickening with mucosal enhancement and lymphadenopathy",
+          "Patient afebrile and hemodynamically stable on admission",
+          "Initial microbiologic testing including HIV, COVID-19, Quanti-FERON, CMV NAAT, blood and urine cultures negative",
+          "Upper endoscopy revealed congested, erythematous, eroded, friable, nodular and scalloped gastric mucosa and erythematous changes in the duodenum"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic and microbiological confirmation from biopsy specimens",
+          "Subsequent clinical course and treatment response details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient with severe gastritis and duodenitis confirmed on imaging and endoscopy with characteristic mucosal changes, pending tissue diagnosis and microbiological confirmation; clinical course and treatment response still unknown.",
+        "confirmed_evidence": [
+          "Abdominal CT showed diffuse gastric wall thickening with mucosal enhancement and lymphadenopathy",
+          "Patient afebrile and hemodynamically stable on admission",
+          "Initial microbiologic testing including HIV, COVID-19, Quanti-FERON, CMV NAAT, blood and urine cultures negative",
+          "Upper endoscopy revealed congested, erythematous, eroded, friable, nodular and scalloped gastric mucosa and erythematous changes in the duodenum"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic and microbiological confirmation from biopsy specimens to confirm phlegmonous gastritis and duodenitis",
+          "Subsequent clinical course and treatment response details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient shows severe gastritis and duodenitis on imaging and endoscopy with inflammatory mucosal changes; histopathology and microbiological confirmation still pending; clinical course and response to treatment unknown",
+        "confirmed_evidence": [
+          "Abdominal CT showed diffuse gastric wall thickening with mucosal enhancement and lymphadenopathy",
+          "Patient afebrile and hemodynamically stable on admission",
+          "Initial microbiologic testing including HIV, COVID-19, Quanti-FERON, CMV NAAT, blood and urine cultures negative",
+          "Upper endoscopy revealed congested, erythematous, eroded, friable, nodular and scalloped gastric mucosa and erythematous changes in the duodenum"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic and microbiological confirmation from biopsy specimens to confirm phlegmonous gastritis and duodenitis",
+          "Subsequent clinical course and treatment response details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient has imaging and endoscopic findings consistent with severe gastritis and duodenitis; histopathology and microbiology results pending to confirm phlegmonous gastritis and duodenitis; clinical course and treatment response unknown.",
+        "confirmed_evidence": [
+          "Abdominal CT showed diffuse gastric wall thickening with mucosal enhancement and lymphadenopathy",
+          "Patient afebrile and hemodynamically stable on admission",
+          "Initial microbiologic testing negative (HIV, COVID-19, Quanti-FERON, CMV NAAT, blood and urine cultures)",
+          "Upper endoscopy revealed congested, erythematous, eroded, friable, nodular and scalloped gastric mucosa and erythematous changes in the duodenum"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic and microbiological confirmation from biopsy specimens to confirm phlegmonous gastritis and duodenitis",
+          "Subsequent clinical course and treatment response details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient has documented imaging and endoscopic evidence of severe gastritis and duodenitis with inflammatory mucosal changes; initial infectious screening negative; biopsy results and clinical course needed to confirm phlegmonous gastritis and duodenitis and assess treatment response",
+        "confirmed_evidence": [
+          "Abdominal CT scan showed diffuse stomach wall thickening with mucosal enhancement and lymphadenopathy",
+          "Patient was afebrile and hemodynamically stable on admission",
+          "Initial microbiologic testing negative including HIV, COVID-19, Quanti-FERON, CMV NAAT, blood and urine cultures",
+          "Upper endoscopy showed congested, erythematous, eroded, friable, nodular, scalloped gastric mucosa and erythematous duodenal mucosa"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic and microbiological confirmation from upper endoscopic biopsies to confirm phlegmonous gastritis and duodenitis",
+          "Clinical course and treatment response documentation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient has feature consistent with phlegmonous gastritis and duodenitis based on imaging and endoscopy; pending confirmatory histopathology and microbial culture; no systemic infection signs or initial microbiology detected; awaiting further clinical course and treatment data",
+        "confirmed_evidence": [
+          "Abdominal CT scan with contrast showed diffuse stomach wall thickening with mucosal enhancement and lymphadenopathy",
+          "Patient afebrile and hemodynamically stable on admission",
+          "Initial microbiologic testing negative including HIV, COVID-19, Quanti-FERON, CMV NAAT, blood and urine cultures",
+          "Upper endoscopy showed congested, erythematous, eroded, friable, nodular, scalloped gastric mucosa and erythematous duodenal mucosa"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic and microbiological confirmation from upper endoscopic biopsies",
+          "Documentation of clinical course, treatment administered, and outcomes"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Imaging and endoscopy show severe gastritis and duodenitis with characteristic inflammatory changes; initial infectious screening is negative; biopsy histopathology and culture results pending to confirm phlegmonous gastritis and duodenitis; clinical course and treatment details also pending",
+        "confirmed_evidence": [
+          "Abdominal CT scan with contrast showed diffuse stomach wall thickening with mucosal enhancement and lymphadenopathy",
+          "Patient afebrile and hemodynamically stable on admission",
+          "Initial microbiologic testing negative including HIV, COVID-19, Quanti-FERON, CMV NAAT, blood and urine cultures",
+          "Upper endoscopy showed congested, erythematous, eroded, friable, nodular, scalloped gastric mucosa and erythematous duodenal mucosa"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic and microbiological confirmation from upper endoscopic biopsies",
+          "Documentation of clinical course, treatment administered, and outcomes"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "phlegmonous gastritis and duodenitis",
+        "trajectory_summary": "A 19-year-old man presented with severe epigastric pain, vomiting, and weight loss refractory to H. pylori treatment. Abdominal CT with contrast showed diffuse gastric wall thickening with mucosal enhancement and lymphadenopathy. The patient was afebrile and hemodynamically stable on admission with negative initial microbiologic testing (HIV, COVID-19, Quanti-FERON, CMV NAAT, blood and urine cultures). Upper endoscopy demonstrated congested, erythematous, eroded, friable, nodular, scalloped gastric mucosa and erythematous duodenal mucosa, consistent with severe gastritis and duodenitis. However, histopathology and microbiology results from biopsy specimens were not documented. The clinical, imaging, and endoscopic findings align with phlegmonous gastritis and duodenitis despite absence of systemic infection signs and negative initial infectious screens.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Abdominal CT scan showed diffuse stomach wall thickening with mucosal enhancement and lymphadenopathy",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Patient was afebrile and hemodynamically stable on admission",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Initial microbiologic testing including HIV, COVID-19, Quanti-FERON, CMV NAAT, blood and urine cultures were negative",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Upper endoscopy showed congested, erythematous, eroded, friable, nodular, scalloped gastric mucosa and erythematous duodenal mucosa consistent with severe gastritis and duodenitis",
+            "evidence_ids": [
+              "E004"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "systemic infection with fever or sepsis",
+            "basis": "Patient was afebrile and had negative extensive infectious screening on admission"
+          },
+          {
+            "alternative": "pancreatitis",
+            "basis": "CT showed no pancreatic enhancement or abnormality"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Histopathologic and microbiological confirmation from upper endoscopic biopsy specimens to definitively diagnose phlegmonous gastritis and duodenitis",
+          "Details of clinical course, treatment administered, and patient outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "phlegmonous gastritis and duodenitis",
+    "trajectory_summary": "A 19-year-old man presented with severe epigastric pain, vomiting, and weight loss refractory to H. pylori treatment. Abdominal CT with contrast showed diffuse gastric wall thickening with mucosal enhancement and lymphadenopathy. The patient was afebrile and hemodynamically stable on admission with negative initial microbiologic testing (HIV, COVID-19, Quanti-FERON, CMV NAAT, blood and urine cultures). Upper endoscopy demonstrated congested, erythematous, eroded, friable, nodular, scalloped gastric mucosa and erythematous duodenal mucosa, consistent with severe gastritis and duodenitis. However, histopathology and microbiology results from biopsy specimens were not documented. The clinical, imaging, and endoscopic findings align with phlegmonous gastritis and duodenitis despite absence of systemic infection signs and negative initial infectious screens.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Abdominal CT scan showed diffuse stomach wall thickening with mucosal enhancement and lymphadenopathy",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Patient was afebrile and hemodynamically stable on admission",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Initial microbiologic testing including HIV, COVID-19, Quanti-FERON, CMV NAAT, blood and urine cultures were negative",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Upper endoscopy showed congested, erythematous, eroded, friable, nodular, scalloped gastric mucosa and erythematous duodenal mucosa consistent with severe gastritis and duodenitis",
+        "evidence_ids": [
+          "E004"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "systemic infection with fever or sepsis",
+        "basis": "Patient was afebrile and had negative extensive infectious screening on admission"
+      },
+      {
+        "alternative": "pancreatitis",
+        "basis": "CT showed no pancreatic enhancement or abnormality"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Histopathologic and microbiological confirmation from upper endoscopic biopsy specimens to definitively diagnose phlegmonous gastritis and duodenitis",
+      "Details of clinical course, treatment administered, and patient outcome"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.7
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-24T02:30:19.192309+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

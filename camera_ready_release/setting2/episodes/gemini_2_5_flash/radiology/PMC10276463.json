@@ -1,0 +1,610 @@
+{
+  "case_id": "PMC10276463",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 14,
+  "termination": "final",
+  "known_final_diagnosis": "The patient was diagnosed with PPT",
+  "disclosed_evidence_ids": [
+    "E002",
+    "E003",
+    "E004",
+    "E006",
+    "E008",
+    "E009"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "CT scan of the paranasal sinuses and brain",
+        "current_trajectory_hypothesis": "The patient presents with symptoms suggestive of complicated frontal sinusitis, potentially leading to Pott's Puffy Tumor. Imaging is needed to confirm sinusitis, assess bone involvement, and identify any intracranial complications.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Confirmation of frontal sinusitis",
+          "Evidence of osteomyelitis or subperiosteal abscess",
+          "Assessment of intracranial extension"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order acknowledged for CT scan; no source record documents the order as performed yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "CT scan report of the paranasal sinuses and brain",
+        "current_trajectory_hypothesis": "The patient's symptoms (headache, frontal swelling, fever, pain behind the eye) strongly suggest complicated frontal sinusitis. A CT scan is essential to confirm the diagnosis, assess the extent of bone erosion, identify a subperiosteal abscess, and rule out intracranial complications, which are characteristic of Pott's Puffy Tumor.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Confirmation of frontal sinusitis",
+          "Presence of subperiosteal abscess",
+          "Evidence of osteomyelitis",
+          "Intracranial involvement"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "a computed tomography (CT) scan of the sinuses (CTDI 1.44 mGy) was performed showing signs of bone erosions in relation to the frontal sinuses, although not visualized in its entirety.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Detailed CT scan report findings, specifically regarding frontal sinus involvement, presence of subperiosteal abscess, and any intracranial findings.",
+        "current_trajectory_hypothesis": "The patient's symptoms and initial CT findings of bone erosions in the frontal sinuses are highly suggestive of Pott's Puffy Tumor. Further details from the CT scan are needed to confirm the extent of frontal sinusitis, identify a subperiosteal abscess, and assess for intracranial complications, which are characteristic of PPT.",
+        "confirmed_evidence": [
+          "Patient presented with headache, frontal swelling, fever, and pain behind the right eye.",
+          "CT scan showed signs of bone erosions in relation to the frontal sinuses."
+        ],
+        "missing_key_evidence": [
+          "Confirmation of frontal sinusitis",
+          "Presence of subperiosteal abscess",
+          "Detailed extent of bone erosion/osteomyelitis",
+          "Intracranial involvement (e.g., epidural abscess, meningitis)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Gadolinium-enhanced MRI scan (Fig. 1) was performed, showing slight maxillary, ethmoidal and frontal sinusitis on the left side, osteomyelitis of the frontal bone, and in communication herewith an epidural and periosteal mass with capsular contrast-enhancement compatible with an abscess. Additionally, the contrast-enhanced MR venogram revealed partial obstruction in the anterior third part of the superior sagittal sinus in close relation to the abscesses due to reactive phlebitis without thrombosis.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "Surgical intervention or drainage procedure performed for the frontal abscess/osteomyelitis",
+        "current_trajectory_hypothesis": "The patient's symptoms, initial CT findings of bone erosions, and subsequent MRI findings of frontal sinusitis, osteomyelitis, periosteal and epidural abscesses, and reactive phlebitis strongly support the diagnosis of Pott's Puffy Tumor. Given these findings, surgical intervention is highly probable to drain the abscesses and debride the osteomyelitic bone.",
+        "confirmed_evidence": [
+          "Patient presented with headache, frontal swelling, fever, and pain behind the right eye.",
+          "CT scan showed signs of bone erosions in relation to the frontal sinuses.",
+          "MRI showed slight maxillary, ethmoidal and frontal sinusitis on the left side.",
+          "MRI showed osteomyelitis of the frontal bone.",
+          "MRI showed an epidural and periosteal mass with capsular contrast-enhancement compatible with an abscess, in communication with osteomyelitis.",
+          "MRI showed partial obstruction in the anterior third part of the superior sagittal sinus due to reactive phlebitis without thrombosis."
+        ],
+        "missing_key_evidence": [
+          "Details of surgical management (e.g., drainage, debridement)",
+          "Antibiotic treatment regimen",
+          "Clinical course and outcome post-intervention"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Procedure ordered but no source record documents the performance of surgical intervention or drainage.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient's symptoms, initial CT findings of bone erosions, and subsequent MRI findings of frontal sinusitis, osteomyelitis, periosteal and epidural abscesses, and reactive phlebitis strongly support the diagnosis of Pott's Puffy Tumor. Following these definitive imaging findings, surgical intervention to drain abscesses and debride osteomyelitic bone, along with appropriate antibiotic therapy, would be the expected course of treatment.",
+        "confirmed_evidence": [
+          "Patient presented with headache, frontal swelling, fever, and pain behind the right eye.",
+          "CT scan showed signs of bone erosions in relation to the frontal sinuses.",
+          "MRI showed slight maxillary, ethmoidal and frontal sinusitis on the left side.",
+          "MRI showed osteomyelitis of the frontal bone.",
+          "MRI showed an epidural and periosteal mass with capsular contrast-enhancement compatible with an abscess, in communication with osteomyelitis.",
+          "MRI showed partial obstruction in the anterior third part of the superior sagittal sinus due to reactive phlebitis without thrombosis."
+        ],
+        "missing_key_evidence": [
+          "Details of surgical management (e.g., drainage, debridement)",
+          "Antibiotic treatment regimen",
+          "Clinical course and outcome post-intervention"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "A subsequent CT scan of the cerebrum (Fig. 2, CTDI 24.30, mGy) gave a full visualization of the frontal bone erosion internally on the right side.",
+        "category": "imaging_report",
+        "temporal_cue": "after MRI scan",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Details of surgical intervention performed, including drainage of abscesses and debridement of osteomyelitic bone.",
+        "current_trajectory_hypothesis": "The patient's symptoms, initial CT findings of bone erosions, and subsequent MRI findings of frontal sinusitis, osteomyelitis, periosteal and epidural abscesses, and reactive phlebitis strongly support the diagnosis of Pott's Puffy Tumor. A subsequent CT confirmed frontal bone erosion. Surgical intervention is the expected next step to manage the abscesses and osteomyelitis.",
+        "confirmed_evidence": [
+          "Patient presented with headache, frontal swelling, fever, and pain behind the right eye.",
+          "CT scan showed signs of bone erosions in relation to the frontal sinuses (E002).",
+          "MRI showed slight maxillary, ethmoidal and frontal sinusitis on the left side (E003).",
+          "MRI showed osteomyelitis of the frontal bone (E003).",
+          "MRI showed an epidural and periosteal mass with capsular contrast-enhancement compatible with an abscess, in communication with osteomyelitis (E003).",
+          "MRI showed partial obstruction in the anterior third part of the superior sagittal sinus due to reactive phlebitis without thrombosis (E003).",
+          "Subsequent CT scan of the cerebrum gave a full visualization of the frontal bone erosion internally on the right side (E004)."
+        ],
+        "missing_key_evidence": [
+          "Details of surgical management (e.g., drainage, debridement)",
+          "Antibiotic treatment regimen",
+          "Clinical course and outcome post-intervention"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "No source record reports details of surgical intervention such as drainage or debridement.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "What was the antibiotic treatment regimen initiated for the patient?",
+        "current_trajectory_hypothesis": "The patient's symptoms, initial CT findings of bone erosions, and subsequent MRI findings of frontal sinusitis, osteomyelitis, periosteal and epidural abscesses, and reactive phlebitis strongly support the diagnosis of Pott's Puffy Tumor. A subsequent CT confirmed frontal bone erosion. While surgical details are not yet available, antibiotic treatment is a critical component of managing this condition.",
+        "confirmed_evidence": [
+          "Patient presented with headache, frontal swelling, fever, and pain behind the right eye.",
+          "CT scan showed signs of bone erosions in relation to the frontal sinuses (E002).",
+          "MRI showed slight maxillary, ethmoidal and frontal sinusitis on the left side (E003).",
+          "MRI showed osteomyelitis of the frontal bone (E003).",
+          "MRI showed an epidural and periosteal mass with capsular contrast-enhancement compatible with an abscess, in communication with osteomyelitis (E003).",
+          "MRI showed partial obstruction in the anterior third part of the superior sagittal sinus due to reactive phlebitis without thrombosis (E003).",
+          "Subsequent CT scan of the cerebrum gave a full visualization of the frontal bone erosion internally on the right side (E004)."
+        ],
+        "missing_key_evidence": [
+          "Details of surgical management (e.g., drainage, debridement)",
+          "Antibiotic treatment regimen",
+          "Clinical course and outcome post-intervention"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient's symptoms, initial CT findings of bone erosions, and subsequent MRI findings of frontal sinusitis, osteomyelitis, periosteal and epidural abscesses, and reactive phlebitis strongly support the diagnosis of Pott's Puffy Tumor. A subsequent CT confirmed frontal bone erosion. The next steps in the trajectory would typically involve surgical intervention and antibiotic therapy, followed by monitoring of the clinical course and outcome.",
+        "confirmed_evidence": [
+          "Patient presented with headache, frontal swelling, fever, and pain behind the right eye.",
+          "CT scan showed signs of bone erosions in relation to the frontal sinuses (E002).",
+          "MRI showed slight maxillary, ethmoidal and frontal sinusitis on the left side (E003).",
+          "MRI showed osteomyelitis of the frontal bone (E003).",
+          "MRI showed an epidural and periosteal mass with capsular contrast-enhancement compatible with an abscess, in communication with osteomyelitis (E003).",
+          "MRI showed partial obstruction in the anterior third part of the superior sagittal sinus due to reactive phlebitis without thrombosis (E003).",
+          "Subsequent CT scan of the cerebrum gave a full visualization of the frontal bone erosion internally on the right side (E004)."
+        ],
+        "missing_key_evidence": [
+          "Details of surgical management (e.g., drainage, debridement)",
+          "Antibiotic treatment regimen",
+          "Clinical course and outcome post-intervention"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "Cultures of blood yielded Streptococcus anginosus.",
+        "category": "microbiology",
+        "temporal_cue": "after admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Details of the antibiotic treatment regimen administered to the patient, especially after the positive blood culture.",
+        "current_trajectory_hypothesis": "The patient's symptoms, imaging findings (CT and MRI showing frontal sinusitis, osteomyelitis, epidural and periosteal abscesses, and reactive phlebitis), and positive blood culture for Streptococcus anginosus strongly confirm the diagnosis of Pott's Puffy Tumor. The next crucial step in the management trajectory is the antibiotic treatment, which would typically be guided by culture results.",
+        "confirmed_evidence": [
+          "Patient presented with headache, frontal swelling, fever, and pain behind the right eye.",
+          "CT scan showed signs of bone erosions in relation to the frontal sinuses (E002).",
+          "MRI showed slight maxillary, ethmoidal and frontal sinusitis on the left side (E003).",
+          "MRI showed osteomyelitis of the frontal bone (E003).",
+          "MRI showed an epidural and periosteal mass with capsular contrast-enhancement compatible with an abscess, in communication with osteomyelitis (E003).",
+          "MRI showed partial obstruction in the anterior third part of the superior sagittal sinus due to reactive phlebitis without thrombosis (E003).",
+          "Subsequent CT scan of the cerebrum gave a full visualization of the frontal bone erosion internally on the right side (E004).",
+          "Cultures of blood yielded Streptococcus anginosus (E006)."
+        ],
+        "missing_key_evidence": [
+          "Details of surgical management (e.g., drainage, debridement)",
+          "Antibiotic treatment regimen details",
+          "Clinical course and outcome post-intervention"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient's symptoms, imaging findings (CT and MRI showing frontal sinusitis, osteomyelitis, epidural and periosteal abscesses, and reactive phlebitis), and positive blood culture for Streptococcus anginosus strongly confirm the diagnosis of Pott's Puffy Tumor. The next crucial steps in the trajectory involve the actual treatment (surgical and antibiotic) and the subsequent clinical course and outcome.",
+        "confirmed_evidence": [
+          "Patient presented with headache, frontal swelling, fever, and pain behind the right eye.",
+          "CT scan showed signs of bone erosions in relation to the frontal sinuses (E002).",
+          "MRI showed slight maxillary, ethmoidal and frontal sinusitis on the left side (E003).",
+          "MRI showed osteomyelitis of the frontal bone (E003).",
+          "MRI showed an epidural and periosteal mass with capsular contrast-enhancement compatible with an abscess, in communication with osteomyelitis (E003).",
+          "MRI showed partial obstruction in the anterior third part of the superior sagittal sinus due to reactive phlebitis without thrombosis (E003).",
+          "Subsequent CT scan of the cerebrum gave a full visualization of the frontal bone erosion internally on the right side (E004).",
+          "Cultures of blood yielded Streptococcus anginosus (E006)."
+        ],
+        "missing_key_evidence": [
+          "Details of surgical management (e.g., drainage, debridement)",
+          "Antibiotic treatment regimen details",
+          "Clinical course and outcome post-intervention"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "The patient was consulted with the neurosurgery department finding no indication for surgical intervention due to no neurological deficits and the patient’s well-being.",
+        "category": "other",
+        "temporal_cue": "after diagnosis",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "What was the specific antibiotic treatment regimen administered to the patient, including the type of antibiotics and duration?",
+        "current_trajectory_hypothesis": "The patient's symptoms, imaging findings (CT and MRI showing frontal sinusitis, osteomyelitis, epidural and periosteal abscesses, and reactive phlebitis), and positive blood culture for Streptococcus anginosus strongly confirm the diagnosis of Pott's Puffy Tumor. Despite the presence of abscesses, neurosurgery decided against surgical intervention due to the patient's well-being and lack of neurological deficits. Therefore, the antibiotic treatment regimen is crucial for understanding the management of this case.",
+        "confirmed_evidence": [
+          "Patient presented with headache, frontal swelling, fever, and pain behind the right eye.",
+          "CT scan showed signs of bone erosions in relation to the frontal sinuses (E002).",
+          "MRI showed slight maxillary, ethmoidal and frontal sinusitis on the left side (E003).",
+          "MRI showed osteomyelitis of the frontal bone (E003).",
+          "MRI showed an epidural and periosteal mass with capsular contrast-enhancement compatible with an abscess, in communication with osteomyelitis (E003).",
+          "MRI showed partial obstruction in the anterior third part of the superior sagittal sinus due to reactive phlebitis without thrombosis (E003).",
+          "Subsequent CT scan of the cerebrum gave a full visualization of the frontal bone erosion internally on the right side (E004).",
+          "Cultures of blood yielded Streptococcus anginosus (E006).",
+          "Neurosurgery department found no indication for surgical intervention due to no neurological deficits and the patient’s well-being (E008)."
+        ],
+        "missing_key_evidence": [
+          "Specific antibiotic treatment regimen details",
+          "Clinical course and outcome post-treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E009",
+        "source_text": "After one week of hospitalization the patient went home to continue the intravenous antibiotic treatment for six weeks in total with frequent consultations.",
+        "category": "other",
+        "temporal_cue": "follow-up",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "What specific antibiotic(s) were used for the intravenous treatment?",
+        "current_trajectory_hypothesis": "The patient's symptoms, imaging findings (CT and MRI showing frontal sinusitis, osteomyelitis, epidural and periosteal abscesses, and reactive phlebitis), and positive blood culture for Streptococcus anginosus strongly confirm the diagnosis of Pott's Puffy Tumor. Neurosurgery decided against surgical intervention. The patient received intravenous antibiotic treatment for six weeks. Knowing the specific antibiotic(s) used is crucial for understanding the complete treatment plan.",
+        "confirmed_evidence": [
+          "Patient presented with headache, frontal swelling, fever, and pain behind the right eye.",
+          "CT scan showed signs of bone erosions in relation to the frontal sinuses (E002).",
+          "MRI showed slight maxillary, ethmoidal and frontal sinusitis on the left side (E003).",
+          "MRI showed osteomyelitis of the frontal bone (E003).",
+          "MRI showed an epidural and periosteal mass with capsular contrast-enhancement compatible with an abscess, in communication with osteomyelitis (E003).",
+          "MRI showed partial obstruction in the anterior third part of the superior sagittal sinus due to reactive phlebitis without thrombosis (E003).",
+          "Subsequent CT scan of the cerebrum gave a full visualization of the frontal bone erosion internally on the right side (E004).",
+          "Cultures of blood yielded Streptococcus anginosus (E006).",
+          "Neurosurgery department found no indication for surgical intervention due to no neurological deficits and the patient’s well-being (E008).",
+          "Patient continued intravenous antibiotic treatment for six weeks in total (E009)."
+        ],
+        "missing_key_evidence": [
+          "Specific type of antibiotic(s) used",
+          "Clinical course and outcome post-treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient's symptoms, imaging findings (CT and MRI showing frontal sinusitis, osteomyelitis, epidural and periosteal abscesses, and reactive phlebitis), and positive blood culture for Streptococcus anginosus strongly confirm the diagnosis of Pott's Puffy Tumor. Neurosurgery decided against surgical intervention. The patient received six weeks of intravenous antibiotic treatment. The next crucial step is to understand the clinical course and outcome following this treatment.",
+        "confirmed_evidence": [
+          "Patient presented with headache, frontal swelling, fever, and pain behind the right eye.",
+          "CT scan showed signs of bone erosions in relation to the frontal sinuses (E002).",
+          "MRI showed slight maxillary, ethmoidal and frontal sinusitis on the left side (E003).",
+          "MRI showed osteomyelitis of the frontal bone (E003).",
+          "MRI showed an epidural and periosteal mass with capsular contrast-enhancement compatible with an abscess, in communication with osteomyelitis (E003).",
+          "MRI showed partial obstruction in the anterior third part of the superior sagittal sinus due to reactive phlebitis without thrombosis (E003).",
+          "Subsequent CT scan of the cerebrum gave a full visualization of the frontal bone erosion internally on the right side (E004).",
+          "Cultures of blood yielded Streptococcus anginosus (E006).",
+          "Neurosurgery department found no indication for surgical intervention due to no neurological deficits and the patient’s well-being (E008).",
+          "Patient continued intravenous antibiotic treatment for six weeks in total (E009)."
+        ],
+        "missing_key_evidence": [
+          "Specific type of antibiotic(s) used",
+          "Clinical course and outcome post-treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No pending results and no undisclosed clinical trajectory updates are available beyond current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "PPT",
+        "trajectory_summary": "A previously healthy 9-year-old boy presented with worsening headache, fever, increased frontal swelling, and pain behind the right eye, following an initial course of penicillin for similar symptoms. Imaging studies, including CT and MRI, revealed signs of bone erosions in the frontal sinuses, frontal bone osteomyelitis, slight maxillary, ethmoidal, and frontal sinusitis, as well as epidural and periosteal abscesses in communication with the osteomyelitis. MRI also showed partial obstruction of the superior sagittal sinus due to reactive phlebitis. Blood cultures yielded Streptococcus anginosus. Despite the presence of abscesses, neurosurgery determined no indication for surgical intervention due to the absence of neurological deficits and the patient's well-being. The patient was treated with a six-week course of intravenous antibiotics.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with headache, incipient frontal swelling, fever, and pain behind the right eye, with worsening symptoms after initial penicillin treatment.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "CT scan showed signs of bone erosions in relation to the frontal sinuses.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "MRI showed slight maxillary, ethmoidal and frontal sinusitis on the left side, osteomyelitis of the frontal bone, and an epidural and periosteal mass with capsular contrast-enhancement compatible with an abscess, in communication with the osteomyelitis.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "MRI revealed partial obstruction in the anterior third part of the superior sagittal sinus due to reactive phlebitis without thrombosis.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Subsequent CT scan of the cerebrum gave a full visualization of the frontal bone erosion internally on the right side.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Cultures of blood yielded Streptococcus anginosus.",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Neurosurgery department found no indication for surgical intervention due to no neurological deficits and the patient’s well-being.",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "Patient continued intravenous antibiotic treatment for six weeks in total.",
+            "evidence_ids": [
+              "E009"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [
+          "Specific type of antibiotic(s) used for the intravenous treatment.",
+          "Detailed clinical course and outcome after the completion of the six-week intravenous antibiotic treatment."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "PPT",
+    "trajectory_summary": "A previously healthy 9-year-old boy presented with worsening headache, fever, increased frontal swelling, and pain behind the right eye, following an initial course of penicillin for similar symptoms. Imaging studies, including CT and MRI, revealed signs of bone erosions in the frontal sinuses, frontal bone osteomyelitis, slight maxillary, ethmoidal, and frontal sinusitis, as well as epidural and periosteal abscesses in communication with the osteomyelitis. MRI also showed partial obstruction of the superior sagittal sinus due to reactive phlebitis. Blood cultures yielded Streptococcus anginosus. Despite the presence of abscesses, neurosurgery determined no indication for surgical intervention due to the absence of neurological deficits and the patient's well-being. The patient was treated with a six-week course of intravenous antibiotics.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with headache, incipient frontal swelling, fever, and pain behind the right eye, with worsening symptoms after initial penicillin treatment.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "CT scan showed signs of bone erosions in relation to the frontal sinuses.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "MRI showed slight maxillary, ethmoidal and frontal sinusitis on the left side, osteomyelitis of the frontal bone, and an epidural and periosteal mass with capsular contrast-enhancement compatible with an abscess, in communication with the osteomyelitis.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "MRI revealed partial obstruction in the anterior third part of the superior sagittal sinus due to reactive phlebitis without thrombosis.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Subsequent CT scan of the cerebrum gave a full visualization of the frontal bone erosion internally on the right side.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Cultures of blood yielded Streptococcus anginosus.",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Neurosurgery department found no indication for surgical intervention due to no neurological deficits and the patient’s well-being.",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "Patient continued intravenous antibiotic treatment for six weeks in total.",
+        "evidence_ids": [
+          "E009"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [
+      "Specific type of antibiotic(s) used for the intravenous treatment.",
+      "Detailed clinical course and outcome after the completion of the six-week intravenous antibiotic treatment."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T18:33:54.775756+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

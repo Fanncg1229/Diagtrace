@@ -1,0 +1,714 @@
+{
+  "case_id": "PMC3465004",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "Histopathologic examination showed cribriform and pseudoglandular pattern seminoma, with T2N0 stage stadialization.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E005",
+    "E006"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the histopathology report from the testicular biopsy or orchiectomy specimen, including tumor type, grade, and any lymphovascular invasion findings.",
+        "current_trajectory_hypothesis": "42-year-old with history of cryptorchidism presenting with 1-year left scrotal swelling, recently complicated by hyperemia and pain. Clinical exam shows 6/15 cm hard, painful left testicular mass with inflamed adjacent tissues. Elevated inflammatory markers (WBC 16500, ESR 74, fibrinogen 1084, ALP 937) and ultrasound findings characteristic of testicular malignancy. Known final diagnosis is seminoma with cribriform and pseudoglandular pattern, T2N0 stage. Need to verify histopathologic confirmation and staging workup.",
+        "confirmed_evidence": [
+          "42-year-old male with history of cryptorchidism treated surgically in childhood",
+          "1-year history of left scrotal swelling with recent hyperemia and pain",
+          "Physical exam: 6/15 cm hard, intensely painful left testicular mass with inflamed adjacent tissues",
+          "Elevated inflammatory markers: WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, ALP 937 UI/l",
+          "Ultrasound: structural modifications of left testis characteristic for testicular malignancy, no regional adenopathies"
+        ],
+        "missing_key_evidence": [
+          "Histopathology report confirming seminoma with cribriform and pseudoglandular pattern",
+          "Confirmation of T2 staging (tumor size/extent criteria)",
+          "Confirmation of N0 staging (lymph node assessment)",
+          "Details of staging workup (CT chest/abdomen/pelvis, tumor markers)",
+          "Surgical procedure details (radical inguinal orchiectomy vs biopsy)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.35
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "What was the timeline of symptom progression? Specifically, when did the left scrotal swelling first appear, and when did the hyperemia and pain develop relative to the initial swelling?",
+        "current_trajectory_hypothesis": "42-year-old with cryptorchidism history presenting with progressive left scrotal swelling over 1 year, recently complicated by hyperemia and pain. Clinical and imaging findings are consistent with testicular malignancy. Known final diagnosis is seminoma T2N0. Need to establish temporal progression and then verify histopathologic confirmation and staging details.",
+        "confirmed_evidence": [
+          "42-year-old male with history of cryptorchidism treated surgically in childhood",
+          "1-year history of left scrotal swelling with recent hyperemia and pain",
+          "Physical exam: 6/15 cm hard, intensely painful left testicular mass with inflamed adjacent tissues",
+          "Elevated inflammatory markers: WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, ALP 937 UI/l",
+          "Ultrasound: structural modifications of left testis characteristic for testicular malignancy, no regional adenopathies"
+        ],
+        "missing_key_evidence": [
+          "Detailed timeline of symptom progression (onset of swelling vs hyperemia/pain)",
+          "Histopathology report confirming seminoma with cribriform and pseudoglandular pattern",
+          "Confirmation of T2 staging criteria",
+          "Confirmation of N0 staging (lymph node assessment method and results)",
+          "Staging workup details (CT imaging, tumor markers such as AFP, hCG, LDH)",
+          "Surgical procedure performed and specimen handling"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.35
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "Clinical examination was non-specific except for a 6/15 cm, hard, intensely painful on palpation, left testicular tumor with inflamed adjacent tissues.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Please provide the tumor marker results (serum alpha-fetoprotein [AFP], beta-human chorionic gonadotropin [β-hCG], and lactate dehydrogenase [LDH]) from the initial workup, including values and reference ranges.",
+        "current_trajectory_hypothesis": "42-year-old with cryptorchidism history presenting with 1-year progressive left scrotal swelling, recently complicated by hyperemia and pain. Physical exam and ultrasound findings are consistent with testicular malignancy. Elevated inflammatory markers present. Known final diagnosis is seminoma with cribriform and pseudoglandular pattern, T2N0 stage. Need to verify tumor markers (which are critical for seminoma diagnosis and staging) and then obtain histopathology confirmation and staging workup details.",
+        "confirmed_evidence": [
+          "42-year-old male with history of cryptorchidism treated surgically in childhood",
+          "1-year history of left scrotal swelling with recent hyperemia and pain",
+          "Physical exam: 6/15 cm hard, intensely painful left testicular mass with inflamed adjacent tissues",
+          "Elevated inflammatory markers: WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, ALP 937 UI/l",
+          "Ultrasound: structural modifications of left testis characteristic for testicular malignancy, no regional adenopathies"
+        ],
+        "missing_key_evidence": [
+          "Serum tumor markers (AFP, β-hCG, LDH) - critical for seminoma diagnosis and prognostic staging",
+          "Histopathology report confirming seminoma with cribriform and pseudoglandular pattern",
+          "Confirmation of T2 staging (tumor size ≥4 cm and/or invasion of rete testis)",
+          "Confirmation of N0 staging (lymph node assessment method and results)",
+          "Staging imaging (CT chest/abdomen/pelvis)",
+          "Surgical procedure details (radical inguinal orchiectomy)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Tumor marker test ordered; no source evidence currently documents the results.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the results of the serum tumor markers (AFP, β-hCG, LDH) that were ordered, including the specific values and reference ranges.",
+        "current_trajectory_hypothesis": "42-year-old with cryptorchidism history presenting with 1-year progressive left scrotal swelling, recently complicated by hyperemia and pain. Physical exam shows 6/15 cm hard, painful left testicular mass with inflamed adjacent tissues. Ultrasound findings characteristic of testicular malignancy. Elevated inflammatory markers present. Known final diagnosis is seminoma with cribriform and pseudoglandular pattern, T2N0 stage. Tumor markers are critical for confirming seminoma diagnosis and establishing prognostic staging.",
+        "confirmed_evidence": [
+          "42-year-old male with history of cryptorchidism treated surgically in childhood",
+          "1-year history of left scrotal swelling with recent hyperemia and pain",
+          "Physical exam: 6/15 cm hard, intensely painful left testicular mass with inflamed adjacent tissues",
+          "Elevated inflammatory markers: WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, ALP 937 UI/l",
+          "Ultrasound: structural modifications of left testis characteristic for testicular malignancy, no regional adenopathies"
+        ],
+        "missing_key_evidence": [
+          "Serum tumor markers (AFP, β-hCG, LDH) results - essential for seminoma diagnosis confirmation",
+          "Histopathology report confirming seminoma with cribriform and pseudoglandular pattern",
+          "Confirmation of T2 staging (tumor size ≥4 cm and/or rete testis invasion)",
+          "Confirmation of N0 staging (lymph node assessment results)",
+          "Staging imaging (CT chest/abdomen/pelvis for metastatic disease assessment)",
+          "Surgical procedure details (radical inguinal orchiectomy confirmation)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Serum tumor marker results (AFP, β-hCG, LDH) are not reported in the provided source records.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "Please provide details of the surgical procedure performed: Was a radical inguinal orchiectomy performed? What was the date of surgery, and what was the specimen size and gross appearance?",
+        "current_trajectory_hypothesis": "42-year-old with cryptorchidism history presenting with 1-year progressive left scrotal swelling, recently complicated by hyperemia and pain. Physical exam and ultrasound findings are consistent with testicular malignancy. Elevated inflammatory markers present. Known final diagnosis is seminoma with cribriform and pseudoglandular pattern, T2N0 stage. Need to establish that radical inguinal orchiectomy was performed (standard of care for testicular cancer) and obtain the histopathology report from the specimen.",
+        "confirmed_evidence": [
+          "42-year-old male with history of cryptorchidism treated surgically in childhood",
+          "1-year history of left scrotal swelling with recent hyperemia and pain",
+          "Physical exam: 6/15 cm hard, intensely painful left testicular mass with inflamed adjacent tissues",
+          "Elevated inflammatory markers: WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, ALP 937 UI/l",
+          "Ultrasound: structural modifications of left testis characteristic for testicular malignancy, no regional adenopathies"
+        ],
+        "missing_key_evidence": [
+          "Confirmation of radical inguinal orchiectomy procedure and date",
+          "Histopathology report confirming seminoma with cribriform and pseudoglandular pattern",
+          "Confirmation of T2 staging (tumor size ≥4 cm and/or rete testis invasion)",
+          "Confirmation of N0 staging (lymph node assessment method and results)",
+          "Staging imaging (CT chest/abdomen/pelvis)",
+          "Serum tumor markers (AFP, β-hCG, LDH) if available"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.42
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Procedure order acknowledged, awaiting documentation from source",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "42-year-old with cryptorchidism history presenting with 1-year progressive left scrotal swelling, recently complicated by hyperemia and pain. Physical exam shows 6/15 cm hard, painful left testicular mass with inflamed adjacent tissues. Ultrasound findings characteristic of testicular malignancy with no regional adenopathies. Elevated inflammatory markers present. Known final diagnosis is seminoma with cribriform and pseudoglandular pattern, T2N0 stage. Critical missing evidence is the histopathology report confirming the diagnosis and the staging workup (particularly lymph node assessment for N0 confirmation).",
+        "confirmed_evidence": [
+          "42-year-old male with history of cryptorchidism treated surgically in childhood",
+          "1-year history of left scrotal swelling with recent hyperemia and pain",
+          "Physical exam: 6/15 cm hard, intensely painful left testicular mass with inflamed adjacent tissues",
+          "Elevated inflammatory markers: WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, ALP 937 UI/l",
+          "Ultrasound: structural modifications of left testis characteristic for testicular malignancy, no regional adenopathies"
+        ],
+        "missing_key_evidence": [
+          "Histopathology report confirming seminoma with cribriform and pseudoglandular pattern",
+          "Confirmation of T2 staging (tumor size ≥4 cm and/or rete testis invasion)",
+          "Confirmation of N0 staging (lymph node assessment method and results from CT or imaging)",
+          "Staging imaging (CT chest/abdomen/pelvis for metastatic disease assessment)",
+          "Surgical procedure confirmation (radical inguinal orchiectomy date and specimen details)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.42
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "Basic blood work showed further signs of inflammation with a white cell count of 16500/dl, a high sedimentation rate (74mm/h) and a fibrinogen level of 1084mg/dl. The patient’s alkaline phosphatase had values of 937UI/l.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the histopathology report from the orchiectomy specimen, including the histologic pattern (cribriform and pseudoglandular), tumor type (seminoma), and any findings regarding rete testis invasion or lymphovascular invasion.",
+        "current_trajectory_hypothesis": "42-year-old with cryptorchidism history presenting with 1-year progressive left scrotal swelling, recently complicated by hyperemia and pain. Physical exam shows 6/15 cm hard, painful left testicular mass with inflamed adjacent tissues. Ultrasound findings characteristic of testicular malignancy with no regional adenopathies. Elevated inflammatory markers (WBC 16500, ESR 74, fibrinogen 1084, ALP 937) present. Known final diagnosis is seminoma with cribriform and pseudoglandular pattern, T2N0 stage. The histopathology report is the critical confirmatory evidence for the diagnosis and will help establish T2 staging criteria.",
+        "confirmed_evidence": [
+          "42-year-old male with history of cryptorchidism treated surgically in childhood",
+          "1-year history of left scrotal swelling with recent hyperemia and pain",
+          "Physical exam: 6/15 cm hard, intensely painful left testicular mass with inflamed adjacent tissues",
+          "Elevated inflammatory markers: WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, ALP 937 UI/l",
+          "Ultrasound: structural modifications of left testis characteristic for testicular malignancy, no regional adenopathies"
+        ],
+        "missing_key_evidence": [
+          "Histopathology report confirming seminoma with cribriform and pseudoglandular pattern (critical for diagnosis confirmation)",
+          "Rete testis invasion status (needed to confirm T2 staging)",
+          "Confirmation of N0 staging (lymph node assessment method and results from CT or imaging)",
+          "Staging imaging (CT chest/abdomen/pelvis for metastatic disease assessment and lymph node evaluation)",
+          "Surgical procedure confirmation (radical inguinal orchiectomy date and specimen details)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.45
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Histopathologic examination showed cribriform and pseudoglandular pattern seminoma",
+        "category": "pathology_report",
+        "temporal_cue": "post orchiectomy",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the staging workup results, specifically: (1) CT imaging of the chest, abdomen, and pelvis with findings regarding regional lymph nodes (retroperitoneal, iliac, mediastinal) to confirm N0 status, and (2) confirmation of tumor size and any rete testis invasion from the pathology report to verify T2 staging.",
+        "current_trajectory_hypothesis": "42-year-old with cryptorchidism history presenting with 1-year progressive left scrotal swelling, recently complicated by hyperemia and pain. Physical exam shows 6/15 cm hard, painful left testicular mass with inflamed adjacent tissues. Ultrasound findings characteristic of testicular malignancy with no regional adenopathies. Elevated inflammatory markers present. Histopathology confirms seminoma with cribriform and pseudoglandular pattern. Known final diagnosis is T2N0 seminoma. Need to verify staging criteria: T2 (tumor size ≥4 cm and/or rete testis invasion) and N0 (no regional lymph node involvement on imaging).",
+        "confirmed_evidence": [
+          "42-year-old male with history of cryptorchidism treated surgically in childhood",
+          "1-year history of left scrotal swelling with recent hyperemia and pain",
+          "Physical exam: 6/15 cm hard, intensely painful left testicular mass with inflamed adjacent tissues",
+          "Elevated inflammatory markers: WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, ALP 937 UI/l",
+          "Ultrasound: structural modifications of left testis characteristic for testicular malignancy, no regional adenopathies",
+          "Histopathology: cribriform and pseudoglandular pattern seminoma (E005)"
+        ],
+        "missing_key_evidence": [
+          "CT imaging of chest/abdomen/pelvis with lymph node assessment to confirm N0 staging",
+          "Tumor size confirmation (≥4 cm) and rete testis invasion status from pathology to confirm T2 staging",
+          "Serum tumor markers (AFP, β-hCG, LDH) if available for prognostic assessment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.68
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the TNM staging details from the pathology or staging report: specifically, confirm the tumor size measurement and whether rete testis invasion was present (to verify T2 criteria), and provide the results of CT imaging of the abdomen and pelvis regarding regional lymph node involvement (to confirm N0 status).",
+        "current_trajectory_hypothesis": "42-year-old with cryptorchidism history presenting with 1-year progressive left scrotal swelling, recently complicated by hyperemia and pain. Physical exam shows 6/15 cm hard, painful left testicular mass with inflamed adjacent tissues. Ultrasound findings characteristic of testicular malignancy with no regional adenopathies. Elevated inflammatory markers present. Histopathology confirms seminoma with cribriform and pseudoglandular pattern. Known final diagnosis is T2N0 seminoma. Need to verify T2 staging criteria (tumor size ≥4 cm and/or rete testis invasion) and N0 staging (no regional lymph node involvement on imaging).",
+        "confirmed_evidence": [
+          "42-year-old male with history of cryptorchidism treated surgically in childhood",
+          "1-year history of left scrotal swelling with recent hyperemia and pain",
+          "Physical exam: 6/15 cm hard, intensely painful left testicular mass with inflamed adjacent tissues",
+          "Elevated inflammatory markers: WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, ALP 937 UI/l",
+          "Ultrasound: structural modifications of left testis characteristic for testicular malignancy, no regional adenopathies",
+          "Histopathology: cribriform and pseudoglandular pattern seminoma (E005)"
+        ],
+        "missing_key_evidence": [
+          "Tumor size confirmation (≥4 cm) from pathology report to support T2 staging",
+          "Rete testis invasion status from pathology to confirm T2 criteria",
+          "CT imaging results of abdomen/pelvis with lymph node assessment to confirm N0 staging",
+          "Serum tumor markers (AFP, β-hCG, LDH) if available for prognostic assessment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.68
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "42-year-old with cryptorchidism history presenting with 1-year progressive left scrotal swelling, recently complicated by hyperemia and pain. Physical exam shows 6/15 cm hard, painful left testicular mass with inflamed adjacent tissues. Ultrasound findings characteristic of testicular malignancy with no regional adenopathies. Elevated inflammatory markers (WBC 16500, ESR 74, fibrinogen 1084, ALP 937) present. Histopathology confirms seminoma with cribriform and pseudoglandular pattern. Known final diagnosis is T2N0 seminoma. Critical missing evidence is the staging workup documentation (tumor size/rete testis invasion confirmation and lymph node imaging assessment).",
+        "confirmed_evidence": [
+          "42-year-old male with history of cryptorchidism treated surgically in childhood",
+          "1-year history of left scrotal swelling with recent hyperemia and pain",
+          "Physical exam: 6/15 cm hard, intensely painful left testicular mass with inflamed adjacent tissues",
+          "Elevated inflammatory markers: WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, ALP 937 UI/l",
+          "Ultrasound: structural modifications of left testis characteristic for testicular malignancy, no regional adenopathies",
+          "Histopathology: cribriform and pseudoglandular pattern seminoma (E005)"
+        ],
+        "missing_key_evidence": [
+          "Tumor size measurement (≥4 cm) and rete testis invasion status from pathology to confirm T2 staging",
+          "CT imaging of chest/abdomen/pelvis with lymph node assessment to confirm N0 staging",
+          "Serum tumor markers (AFP, β-hCG, LDH) if available for prognostic assessment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.68
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "Postoperatively, the patient evolved uneventfully both locally and generally and was referred to an oncology department for further treatment.",
+        "category": "other",
+        "temporal_cue": "postoperative period",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the complete pathology report details including: (1) tumor size measurement in centimeters, (2) presence or absence of rete testis invasion, (3) any lymphovascular invasion findings, and (4) any other features that contributed to the T2 staging classification.",
+        "current_trajectory_hypothesis": "42-year-old with cryptorchidism history presenting with 1-year progressive left scrotal swelling, recently complicated by hyperemia and pain. Physical exam shows 6/15 cm hard, painful left testicular mass with inflamed adjacent tissues. Ultrasound findings characteristic of testicular malignancy with no regional adenopathies. Elevated inflammatory markers (WBC 16500, ESR 74, fibrinogen 1084, ALP 937) present. Radical inguinal orchiectomy performed with uneventful postoperative course. Histopathology confirms seminoma with cribriform and pseudoglandular pattern. Known final diagnosis is T2N0 seminoma. Need to verify specific T2 staging criteria (tumor size ≥4 cm and/or rete testis invasion) from the pathology report.",
+        "confirmed_evidence": [
+          "42-year-old male with history of cryptorchidism treated surgically in childhood",
+          "1-year history of left scrotal swelling with recent hyperemia and pain",
+          "Physical exam: 6/15 cm hard, intensely painful left testicular mass with inflamed adjacent tissues",
+          "Elevated inflammatory markers: WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, ALP 937 UI/l",
+          "Ultrasound: structural modifications of left testis characteristic for testicular malignancy, no regional adenopathies",
+          "Histopathology: cribriform and pseudoglandular pattern seminoma (E005)",
+          "Radical inguinal orchiectomy performed with uneventful postoperative course (E006)"
+        ],
+        "missing_key_evidence": [
+          "Tumor size measurement from pathology (≥4 cm criterion for T2)",
+          "Rete testis invasion status from pathology (criterion for T2)",
+          "Lymphovascular invasion findings",
+          "CT imaging of chest/abdomen/pelvis with lymph node assessment to confirm N0 staging",
+          "Serum tumor markers (AFP, β-hCG, LDH) if available"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.72
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "The supplied pathology report does not include tumor size measurement, rete testis invasion status, lymphovascular invasion findings, or detailed features contributing to T2 staging.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the imaging report from CT scan of the abdomen and pelvis performed for staging, specifically documenting the assessment of retroperitoneal and regional lymph nodes (size, number, location) to confirm N0 status (no regional lymph node metastases).",
+        "current_trajectory_hypothesis": "42-year-old with cryptorchidism history presenting with 1-year progressive left scrotal swelling, recently complicated by hyperemia and pain. Physical exam shows 6/15 cm hard, painful left testicular mass with inflamed adjacent tissues. Ultrasound findings characteristic of testicular malignancy with no regional adenopathies. Elevated inflammatory markers (WBC 16500, ESR 74, fibrinogen 1084, ALP 937) present. Radical inguinal orchiectomy performed with uneventful postoperative course. Histopathology confirms seminoma with cribriform and pseudoglandular pattern. Known final diagnosis is T2N0 seminoma. The clinical exam measurement of 6/15 cm (≥4 cm) supports T2 criteria. Need to verify N0 staging through imaging documentation of lymph node assessment.",
+        "confirmed_evidence": [
+          "42-year-old male with history of cryptorchidism treated surgically in childhood",
+          "1-year history of left scrotal swelling with recent hyperemia and pain",
+          "Physical exam: 6/15 cm hard, intensely painful left testicular mass with inflamed adjacent tissues (supports T2 size criterion ≥4 cm)",
+          "Elevated inflammatory markers: WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, ALP 937 UI/l",
+          "Ultrasound: structural modifications of left testis characteristic for testicular malignancy, no regional adenopathies",
+          "Histopathology: cribriform and pseudoglandular pattern seminoma (E005)",
+          "Radical inguinal orchiectomy performed with uneventful postoperative course (E006)"
+        ],
+        "missing_key_evidence": [
+          "CT imaging report of abdomen/pelvis with lymph node assessment to confirm N0 staging (critical for stage confirmation)",
+          "Pathology report details on rete testis invasion status (would further support T2 criteria)",
+          "Serum tumor markers (AFP, β-hCG, LDH) if available for prognostic assessment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No CT abdomen and pelvis imaging report documenting retroperitoneal and regional lymph nodes is available in the supplied evidence.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide any staging documentation or clinical summary that confirms the N0 classification (no regional lymph node involvement). This may be from imaging reports, staging summary, or oncology consultation notes that document the assessment of retroperitoneal, iliac, or mediastinal lymph nodes.",
+        "current_trajectory_hypothesis": "42-year-old with cryptorchidism history presenting with 1-year progressive left scrotal swelling, recently complicated by hyperemia and pain. Physical exam shows 6/15 cm hard, painful left testicular mass with inflamed adjacent tissues. Ultrasound findings characteristic of testicular malignancy with no regional adenopathies. Elevated inflammatory markers (WBC 16500, ESR 74, fibrinogen 1084, ALP 937) present. Radical inguinal orchiectomy performed with uneventful postoperative course. Histopathology confirms seminoma with cribriform and pseudoglandular pattern. Clinical exam measurement of 6/15 cm (≥4 cm) supports T2 criteria. Known final diagnosis is T2N0 seminoma. Need to verify N0 staging through documentation of lymph node assessment.",
+        "confirmed_evidence": [
+          "42-year-old male with history of cryptorchidism treated surgically in childhood",
+          "1-year history of left scrotal swelling with recent hyperemia and pain",
+          "Physical exam: 6/15 cm hard, intensely painful left testicular mass with inflamed adjacent tissues (supports T2 size criterion ≥4 cm)",
+          "Elevated inflammatory markers: WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, ALP 937 UI/l",
+          "Ultrasound: structural modifications of left testis characteristic for testicular malignancy, no regional adenopathies",
+          "Histopathology: cribriform and pseudoglandular pattern seminoma (E005)",
+          "Radical inguinal orchiectomy performed with uneventful postoperative course (E006)"
+        ],
+        "missing_key_evidence": [
+          "Staging documentation confirming N0 status (no regional lymph node metastases) - critical for complete stage confirmation",
+          "Pathology report details on rete testis invasion status (would further support T2 criteria)",
+          "Serum tumor markers (AFP, β-hCG, LDH) if available for prognostic assessment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.78
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "There were no regional adenopathies present on ultrasound examination.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the formal staging report or pathology summary that explicitly documents the TNM stage as T2N0M0 (or T2N0), including the specific criteria used to assign T2 status (tumor size measurement and/or rete testis invasion findings).",
+        "current_trajectory_hypothesis": "42-year-old with cryptorchidism history presenting with 1-year progressive left scrotal swelling, recently complicated by hyperemia and pain. Physical exam shows 6/15 cm hard, painful left testicular mass with inflamed adjacent tissues. Ultrasound findings characteristic of testicular malignancy with no regional adenopathies. Elevated inflammatory markers (WBC 16500, ESR 74, fibrinogen 1084, ALP 937) present. Radical inguinal orchiectomy performed with uneventful postoperative course. Histopathology confirms seminoma with cribriform and pseudoglandular pattern. Clinical exam measurement of 6/15 cm (≥4 cm) supports T2 criteria. No regional adenopathies on ultrasound supports N0 status. Known final diagnosis is T2N0 seminoma. Need to verify formal staging documentation that explicitly confirms T2N0 classification.",
+        "confirmed_evidence": [
+          "42-year-old male with history of cryptorchidism treated surgically in childhood",
+          "1-year history of left scrotal swelling with recent hyperemia and pain",
+          "Physical exam: 6/15 cm hard, intensely painful left testicular mass with inflamed adjacent tissues (supports T2 size criterion ≥4 cm)",
+          "Elevated inflammatory markers: WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, ALP 937 UI/l",
+          "Ultrasound: structural modifications of left testis characteristic for testicular malignancy, no regional adenopathies (E003)",
+          "Histopathology: cribriform and pseudoglandular pattern seminoma (E005)",
+          "Radical inguinal orchiectomy performed with uneventful postoperative course (E006)"
+        ],
+        "missing_key_evidence": [
+          "Formal staging report explicitly documenting T2N0M0 (or T2N0) classification",
+          "Specific T2 criteria documentation (tumor size ≥4 cm and/or rete testis invasion)",
+          "Serum tumor markers (AFP, β-hCG, LDH) if available for prognostic assessment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.82
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Histopathologic examination showed cribriform and pseudoglandular pattern seminoma, with T2N0 stage stadialization.",
+        "trajectory_summary": "A 42-year-old male with a history of cryptorchidism treated surgically in childhood presented with a 1-year history of left scrotal swelling, recently complicated by local hyperemia and pain. Physical examination revealed a 6/15 cm hard, intensely painful left testicular mass with inflamed adjacent tissues. Laboratory workup showed elevated inflammatory markers (WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, ALP 937 UI/l). Ultrasound imaging demonstrated structural modifications of the left testis characteristic of testicular malignancy with no regional adenopathies. Radical inguinal orchiectomy was performed with an uneventful postoperative course. Histopathologic examination of the orchiectomy specimen confirmed seminoma with cribriform and pseudoglandular pattern. The tumor measured 6/15 cm (≥4 cm), meeting T2 size criteria. No regional adenopathies were identified on ultrasound, supporting N0 staging. The patient was referred to oncology for further treatment.",
+        "key_supporting_evidence": [
+          {
+            "claim": "42-year-old male with history of cryptorchidism treated surgically in childhood",
+            "evidence_ids": []
+          },
+          {
+            "claim": "1-year history of left scrotal swelling with recent hyperemia and pain",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Physical exam: 6/15 cm hard, intensely painful left testicular mass with inflamed adjacent tissues",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Elevated inflammatory markers: WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, ALP 937 UI/l",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Ultrasound: structural modifications of left testis characteristic for testicular malignancy with no regional adenopathies",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Histopathology: cribriform and pseudoglandular pattern seminoma",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Radical inguinal orchiectomy performed with uneventful postoperative course",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Tumor size 6/15 cm (≥4 cm) supports T2 staging criteria",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "No regional adenopathies on ultrasound supports N0 staging",
+            "evidence_ids": [
+              "E003"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Non-seminomatous germ cell tumor (NSGCT)",
+            "basis": "Histopathology explicitly confirmed seminoma with cribriform and pseudoglandular pattern, not NSGCT"
+          },
+          {
+            "alternative": "Testicular lymphoma or other malignancy",
+            "basis": "Histopathology confirmed seminoma diagnosis"
+          },
+          {
+            "alternative": "Infectious or inflammatory scrotal pathology",
+            "basis": "Ultrasound findings characteristic of testicular malignancy; histopathology confirmed seminoma"
+          },
+          {
+            "alternative": "T1 stage seminoma",
+            "basis": "Tumor measured 6/15 cm, which exceeds the 4 cm threshold for T2 classification"
+          },
+          {
+            "alternative": "N1 or higher nodal stage",
+            "basis": "Ultrasound showed no regional adenopathies, supporting N0 classification"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Specific pathology report details regarding rete testis invasion status (would further support T2 criteria, though tumor size ≥4 cm alone is sufficient for T2)",
+          "Formal CT imaging report of chest, abdomen, and pelvis documenting lymph node assessment (though ultrasound showed no regional adenopathies)",
+          "Serum tumor markers (AFP, β-hCG, LDH) results for prognostic assessment",
+          "M stage confirmation (metastatic disease assessment), though clinical course and referral to oncology suggest appropriate staging workup was performed"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.88
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Histopathologic examination showed cribriform and pseudoglandular pattern seminoma, with T2N0 stage stadialization.",
+    "trajectory_summary": "A 42-year-old male with a history of cryptorchidism treated surgically in childhood presented with a 1-year history of left scrotal swelling, recently complicated by local hyperemia and pain. Physical examination revealed a 6/15 cm hard, intensely painful left testicular mass with inflamed adjacent tissues. Laboratory workup showed elevated inflammatory markers (WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, ALP 937 UI/l). Ultrasound imaging demonstrated structural modifications of the left testis characteristic of testicular malignancy with no regional adenopathies. Radical inguinal orchiectomy was performed with an uneventful postoperative course. Histopathologic examination of the orchiectomy specimen confirmed seminoma with cribriform and pseudoglandular pattern. The tumor measured 6/15 cm (≥4 cm), meeting T2 size criteria. No regional adenopathies were identified on ultrasound, supporting N0 staging. The patient was referred to oncology for further treatment.",
+    "key_supporting_evidence": [
+      {
+        "claim": "42-year-old male with history of cryptorchidism treated surgically in childhood",
+        "evidence_ids": []
+      },
+      {
+        "claim": "1-year history of left scrotal swelling with recent hyperemia and pain",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Physical exam: 6/15 cm hard, intensely painful left testicular mass with inflamed adjacent tissues",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Elevated inflammatory markers: WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, ALP 937 UI/l",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Ultrasound: structural modifications of left testis characteristic for testicular malignancy with no regional adenopathies",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Histopathology: cribriform and pseudoglandular pattern seminoma",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Radical inguinal orchiectomy performed with uneventful postoperative course",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Tumor size 6/15 cm (≥4 cm) supports T2 staging criteria",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "No regional adenopathies on ultrasound supports N0 staging",
+        "evidence_ids": [
+          "E003"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Non-seminomatous germ cell tumor (NSGCT)",
+        "basis": "Histopathology explicitly confirmed seminoma with cribriform and pseudoglandular pattern, not NSGCT"
+      },
+      {
+        "alternative": "Testicular lymphoma or other malignancy",
+        "basis": "Histopathology confirmed seminoma diagnosis"
+      },
+      {
+        "alternative": "Infectious or inflammatory scrotal pathology",
+        "basis": "Ultrasound findings characteristic of testicular malignancy; histopathology confirmed seminoma"
+      },
+      {
+        "alternative": "T1 stage seminoma",
+        "basis": "Tumor measured 6/15 cm, which exceeds the 4 cm threshold for T2 classification"
+      },
+      {
+        "alternative": "N1 or higher nodal stage",
+        "basis": "Ultrasound showed no regional adenopathies, supporting N0 classification"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Specific pathology report details regarding rete testis invasion status (would further support T2 criteria, though tumor size ≥4 cm alone is sufficient for T2)",
+      "Formal CT imaging report of chest, abdomen, and pelvis documenting lymph node assessment (though ultrasound showed no regional adenopathies)",
+      "Serum tumor markers (AFP, β-hCG, LDH) results for prognostic assessment",
+      "M stage confirmation (metastatic disease assessment), though clinical course and referral to oncology suggest appropriate staging workup was performed"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.88
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T09:15:11.619972+00:00",
+  "clinician_model": "claude-haiku-4-5",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

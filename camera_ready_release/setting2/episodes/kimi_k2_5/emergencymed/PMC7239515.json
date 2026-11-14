@@ -1,0 +1,474 @@
+{
+  "case_id": "PMC7239515",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 11,
+  "termination": "final",
+  "known_final_diagnosis": "A tension pneumothorax, possibly secondary to underlying COVID-19, was diagnosed.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E007",
+    "E008",
+    "E009",
+    "E010"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Chest X-ray findings performed in the emergency department",
+        "current_trajectory_hypothesis": "36-year-old man with suspected COVID-19 presents with clinical signs suggestive of left-sided tension pneumothorax (absent breath sounds, hemodynamic compromise) requiring urgent diagnosis and intervention",
+        "confirmed_evidence": [
+          "Physical examination consistent with left hemithorax pathology: absent breath sounds, reduced vocal fremitus, asymmetrical expansion",
+          "Hemodynamic compromise: tachycardia (150 bpm), elevated JVP (3cm), borderline hypotension (110/65)",
+          "Severe respiratory failure: SpO2 88-90% on 15L/min, RR 50, accessory muscle use",
+          "Left-sided pleuritic chest pain with acute deterioration over 4 hours"
+        ],
+        "missing_key_evidence": [
+          "Radiographic confirmation of pneumothorax and mediastinal shift",
+          "COVID-19 test results (PCR/antigen)",
+          "Immediate intervention performed (needle decompression/chest drain)",
+          "Evidence of underlying lung pathology (bullae, COVID pneumonitis)",
+          "Treatment response and clinical outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Emergency decompression procedure performed (needle thoracostomy or chest tube insertion) and immediate clinical response",
+        "current_trajectory_hypothesis": "36-year-old man with suspected COVID-19 presents with clinical signs of left-sided tension pneumothorax. Given the hemodynamic compromise and respiratory failure, emergency needle decompression or chest tube insertion would be the immediate life-saving intervention performed in the ED prior to or concurrent with imaging confirmation.",
+        "confirmed_evidence": [
+          "Physical examination consistent with left hemithorax pathology: absent breath sounds, reduced vocal fremitus, asymmetrical expansion",
+          "Hemodynamic compromise: tachycardia (150 bpm), elevated JVP (3cm), borderline hypotension (110/65)",
+          "Severe respiratory failure: SpO2 88-90% on 15L/min, RR 50, accessory muscle use",
+          "Left-sided pleuritic chest pain with acute deterioration over 4 hours"
+        ],
+        "missing_key_evidence": [
+          "Emergency intervention performed (needle decompression/chest drain)",
+          "Immediate clinical response to decompression",
+          "Radiographic confirmation of pneumothorax and mediastinal shift",
+          "COVID-19 test results (PCR/antigen)",
+          "Evidence of underlying lung pathology (bullae, COVID pneumonitis)",
+          "Definitive management and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E009",
+        "source_text": "The treatment resulted in immediate improvement in respiratory and cardiovascular physiology with clinical and radiological evidence of lung re-expansion (figure 3). Within an hour the patient’s oxygen requirement reduced from 15 L/min via a non-rebreathe mask, to 4 L/min via nasal cannula, with normalisation of respiratory and heart rate.",
+        "category": "image_finding",
+        "temporal_cue": "within an hour after treatment",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "COVID-19 PCR or antigen test result from admission",
+        "current_trajectory_hypothesis": "36-year-old man presented with clinical tension pneumothorax on a background of suspected COVID-19 infection. Emergency decompression was performed with immediate clinical improvement (reduced oxygen requirements, normalized vitals) and radiological re-expansion confirmed. Need to verify COVID-19 status to support 'secondary to underlying COVID-19' etiology and obtain initial imaging confirmation of the pneumothorax.",
+        "confirmed_evidence": [
+          "Physical examination consistent with left hemithorax pathology: absent breath sounds, reduced vocal fremitus, asymmetrical expansion",
+          "Hemodynamic compromise: tachycardia (150 bpm), elevated JVP (3cm), borderline hypotension (110/65)",
+          "Severe respiratory failure: SpO2 88-90% on 15L/min, RR 50, accessory muscle use",
+          "Emergency treatment performed with immediate improvement: oxygen requirement reduced from 15 L/min to 4 L/min within one hour, normalization of respiratory and heart rate",
+          "Radiological evidence of lung re-expansion post-treatment (figure 3)"
+        ],
+        "missing_key_evidence": [
+          "Initial imaging confirming left-sided pneumothorax and mediastinal shift",
+          "COVID-19 test confirmation (PCR/antigen)",
+          "Specific procedure performed (needle thoracostomy vs chest tube insertion)",
+          "Underlying lung pathology (bullous disease, COVID pneumonitis, barotrauma)",
+          "Definitive management course and final outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E010",
+        "source_text": "His initial COVID-19 swab returned negative, however after review of the history and imaging by the infectious diseases team it was felt he very likely had COVID-19, and it was the delay in his presentation that resulted in a negative swab result.",
+        "category": "other",
+        "temporal_cue": "2 days later",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Initial chest radiograph or CT imaging report from the emergency department demonstrating left-sided pneumothorax and mediastinal shift",
+        "current_trajectory_hypothesis": "36-year-old man presented with clinical signs of left-sided tension pneumothorax (absent breath sounds, hemodynamic compromise with tachycardia 150 bpm, elevated JVP, severe hypoxemia). Emergency decompression was performed with immediate clinical improvement (oxygen requirement reduced from 15L to 4L within one hour, normalization of vitals) and radiological lung re-expansion. Initial COVID-19 swab was negative but considered false negative due to delayed presentation. Underlying COVID-19 pneumonitis or bullous disease suspected as etiology.",
+        "confirmed_evidence": [
+          "Physical examination consistent with left hemithorax pathology: absent breath sounds, reduced vocal fremitus, asymmetrical expansion",
+          "Hemodynamic compromise: tachycardia (150 bpm), elevated JVP (3cm), borderline hypotension (110/65)",
+          "Severe respiratory failure: SpO2 88-90% on 15L/min, RR 50, accessory muscle use",
+          "Emergency treatment performed with immediate improvement: oxygen requirement reduced from 15 L/min to 4 L/min within one hour, normalization of respiratory and heart rate",
+          "Radiological evidence of lung re-expansion post-treatment (figure 3)",
+          "COVID-19 status: Initial PCR negative, but infectious diseases team concluded likely COVID-19 due to delayed presentation explaining negative swab"
+        ],
+        "missing_key_evidence": [
+          "Initial imaging confirmation of left-sided pneumothorax with mediastinal shift (diagnostic radiographic evidence)",
+          "Specific decompression procedure performed (needle thoracostomy vs chest tube insertion)",
+          "Underlying lung pathology on imaging (COVID-19 pneumonitis, bullous emphysema, or barotrauma changes)",
+          "Definitive management and hospital course outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "A portable anteroposterior chest radiograph was performed demonstrating a large left-sided pneumothorax with mediastinal shift and radiological signs of tension (figure 1).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Specific emergency decompression procedure performed (needle thoracostomy versus chest tube insertion) and procedural details",
+        "current_trajectory_hypothesis": "36-year-old man presented with clinical and radiographic evidence of left-sided tension pneumothorax (large pneumothorax with mediastinal shift on portable CXR) on a background of suspected COVID-19 infection (initial PCR negative but deemed false negative due to delayed presentation). Emergency decompression was performed with immediate clinical improvement (oxygen requirement reduced from 15L to 4L within one hour, normalization of vitals) and radiological lung re-expansion.",
+        "confirmed_evidence": [
+          "Physical examination consistent with left hemithorax pathology: absent breath sounds, reduced vocal fremitus, asymmetrical expansion",
+          "Hemodynamic compromise: tachycardia (150 bpm), elevated JVP (3cm), borderline hypotension (110/65)",
+          "Severe respiratory failure: SpO2 88-90% on 15L/min, RR 50, accessory muscle use",
+          "Initial chest radiograph: large left-sided pneumothorax with mediastinal shift and radiological signs of tension (figure 1)",
+          "Emergency treatment performed with immediate improvement: oxygen requirement reduced from 15 L/min to 4 L/min within one hour, normalization of respiratory and heart rate",
+          "Radiological evidence of lung re-expansion post-treatment (figure 3)",
+          "COVID-19 status: Initial PCR negative, but infectious diseases team concluded likely COVID-19 due to delayed presentation explaining negative swab"
+        ],
+        "missing_key_evidence": [
+          "Specific decompression procedure performed (needle thoracostomy vs chest tube insertion)",
+          "Underlying lung pathology on imaging (COVID-19 pneumonitis, bullous emphysema, cystic changes)",
+          "Definitive management course and final outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "On review of the chest X-ray, the patient was treated with immediate emergency needle decompression of his pneumothorax with a 14-gauge cannula inserted in the second rib space and mid-clavicular line.",
+        "category": "treatment_response",
+        "temporal_cue": "on admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "CT chest imaging findings or detailed radiographic description of underlying lung parenchyma (COVID-19 pneumonitis, bullous disease, or cystic changes) that predisposed to pneumothorax",
+        "current_trajectory_hypothesis": "36-year-old man presented with clinical and radiographic tension pneumothorax (large left-sided pneumothorax with mediastinal shift) on background of suspected COVID-19 infection. Immediate needle decompression (14-gauge cannula, 2nd intercostal space) performed with rapid clinical improvement and lung re-expansion. Initial PCR negative but deemed false negative. Need to verify underlying pulmonary pathology supporting COVID-19 as etiology.",
+        "confirmed_evidence": [
+          "Presentation: 3-week cough, fevers, acute deterioration with left pleuritic chest pain",
+          "Physical exam: Absent left breath sounds, reduced fremitus, asymmetrical expansion, tachycardia 150 bpm, elevated JVP 3cm, SpO2 88-90% on 15L",
+          "Initial CXR: Large left-sided pneumothorax with mediastinal shift and radiological signs of tension (figure 1)",
+          "Intervention: Emergency needle decompression with 14-gauge cannula in 2nd rib space mid-clavicular line",
+          "Response: Immediate improvement, O2 requirement reduced from 15L to 4L within 1 hour, normalization of vitals, radiological re-expansion (figure 3)",
+          "COVID-19 status: Initial PCR negative, ID team assessment of likely COVID-19 due to delayed presentation causing false negative"
+        ],
+        "missing_key_evidence": [
+          "Underlying lung pathology on imaging (COVID-19 pneumonitis, bullous changes, cystic disease) explaining pneumothorax etiology",
+          "Definitive management (chest tube insertion following needle decompression) and final outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Definitive management following needle decompression (chest tube insertion) and subsequent hospital course",
+        "current_trajectory_hypothesis": "36-year-old man presented with clinical and radiographic left-sided tension pneumothorax (large pneumothorax with mediastinal shift on CXR) on background of suspected COVID-19 infection (initial PCR negative but deemed false negative by ID team). Immediate needle decompression performed (14-gauge cannula, 2nd ICS mid-clavicular line) with rapid clinical improvement (O2 requirement reduced from 15L to 4L within 1 hour) and radiological re-expansion. Standard definitive management would require chest tube insertion following emergency needle decompression.",
+        "confirmed_evidence": [
+          "Presentation: 3-week cough, fevers, acute deterioration with left pleuritic chest pain",
+          "Physical exam: Absent left breath sounds, reduced fremitus, asymmetrical expansion, tachycardia 150 bpm, elevated JVP 3cm, SpO2 88-90% on 15L, RR 50",
+          "Initial CXR: Large left-sided pneumothorax with mediastinal shift and radiological signs of tension (figure 1)",
+          "Intervention: Emergency needle decompression with 14-gauge cannula in 2nd rib space mid-clavicular line",
+          "Response: Immediate improvement, O2 requirement reduced from 15L to 4L within 1 hour, normalization of vitals, radiological re-expansion (figure 3)",
+          "COVID-19 status: Initial PCR negative, ID team assessment of likely COVID-19 due to delayed presentation causing false negative"
+        ],
+        "missing_key_evidence": [
+          "Definitive management (chest tube insertion following needle decompression)",
+          "Underlying lung pathology explaining COVID-19 association (pneumonitis, bullous changes)",
+          "Final outcome and discharge status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "Following initial decompression, a 12-French Seldinger chest drain was inserted into the patients left axilla.",
+        "category": "treatment_response",
+        "temporal_cue": "on admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "COVID-19 serology (antibody) test results performed during the hospital admission",
+        "current_trajectory_hypothesis": "36-year-old man presented with clinical and radiographic left-sided tension pneumothorax (large pneumothorax with mediastinal shift on CXR) on background of suspected COVID-19 infection. Immediate needle decompression (14-gauge cannula, 2nd ICS) followed by 12-French Seldinger chest drain insertion. Rapid clinical improvement with oxygen requirement reduction from 15L to 4L within 1 hour and radiological re-expansion. Initial PCR negative but deemed false negative by ID team due to delayed presentation. Need serological confirmation to support COVID-19 etiology.",
+        "confirmed_evidence": [
+          "Presentation: 3-week cough, fevers, acute deterioration with left pleuritic chest pain",
+          "Physical exam: Absent left breath sounds, reduced fremitus, asymmetrical expansion, tachycardia 150 bpm, elevated JVP 3cm, SpO2 88-90% on 15L, RR 50",
+          "Initial CXR: Large left-sided pneumothorax with mediastinal shift and radiological signs of tension (figure 1) - E001",
+          "Emergency intervention: Needle decompression with 14-gauge cannula in 2nd rib space mid-clavicular line - E007",
+          "Definitive management: 12-French Seldinger chest drain inserted into left axilla - E008",
+          "Response: Immediate improvement, O2 requirement reduced from 15L to 4L within 1 hour, normalization of vitals, radiological re-expansion (figure 3) - E009",
+          "COVID-19 status: Initial PCR negative, ID team assessment of likely COVID-19 due to delayed presentation causing false negative - E010"
+        ],
+        "missing_key_evidence": [
+          "Serological confirmation of COVID-19 infection (antibody testing)",
+          "Underlying lung pathology on imaging (COVID-19 pneumonitis, bullous changes) explaining pneumothorax etiology",
+          "Final outcome and discharge status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No COVID-19 serology (antibody) test results found in the supplied evidence for the current or previous phases.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Hospital discharge summary or final clinical outcome including duration of chest drain placement and any complications",
+        "current_trajectory_hypothesis": "36-year-old man presented with clinical and radiographic left-sided tension pneumothorax (large pneumothorax with mediastinal shift) on background of suspected COVID-19 infection. Immediate needle decompression (14-gauge cannula, 2nd ICS mid-clavicular line) followed by 12-French Seldinger chest drain insertion into left axilla. Rapid clinical improvement with oxygen requirement reduction from 15L to 4L within 1 hour and radiological re-expansion. Initial PCR negative but deemed false negative by ID team due to delayed presentation. Need to verify final outcome to complete trajectory.",
+        "confirmed_evidence": [
+          "Presentation: 3-week cough, fevers, acute deterioration with left pleuritic chest pain, severe respiratory distress (RR 50, SpO2 88-90% on 15L), hemodynamic compromise (HR 150, JVP 3cm)",
+          "Physical exam: Absent left breath sounds, reduced vocal fremitus, asymmetrical expansion",
+          "Initial CXR (E001): Large left-sided pneumothorax with mediastinal shift and radiological signs of tension",
+          "Emergency intervention (E007): Immediate needle decompression with 14-gauge cannula in 2nd rib space mid-clavicular line",
+          "Definitive management (E008): 12-French Seldinger chest drain inserted into left axilla",
+          "Treatment response (E009): Immediate improvement, O2 requirement reduced from 15L to 4L within 1 hour, normalization of respiratory and heart rate, radiological re-expansion",
+          "COVID-19 status (E010): Initial PCR negative, ID team assessment of likely COVID-19 due to delayed presentation causing false negative"
+        ],
+        "missing_key_evidence": [
+          "Final outcome, discharge status, or duration of hospitalization",
+          "Duration of chest drain placement and any complications",
+          "Radiological evidence of underlying COVID-19 lung changes (pneumonitis, bullous disease)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Duration of chest drain placement, subsequent imaging, and final disposition or outcome of hospitalization",
+        "current_trajectory_hypothesis": "36-year-old man presented with clinical and radiographic left-sided tension pneumothorax (large pneumothorax with mediastinal shift on CXR) on background of suspected COVID-19 infection. Immediate needle decompression (14-gauge cannula, 2nd ICS mid-clavicular line) followed by 12-French Seldinger chest drain insertion into left axilla. Rapid clinical improvement with oxygen requirement reduction from 15L to 4L within 1 hour and radiological re-expansion. Initial PCR negative but deemed false negative by ID team due to delayed presentation. Need to verify final outcome and chest drain course to complete trajectory.",
+        "confirmed_evidence": [
+          "Presentation: 3-week cough, fevers, acute deterioration with left pleuritic chest pain, severe respiratory distress (RR 50, SpO2 88-90% on 15L), hemodynamic compromise (HR 150, JVP 3cm)",
+          "Physical exam: Absent left breath sounds, reduced vocal fremitus, asymmetrical expansion",
+          "Initial CXR (E001): Large left-sided pneumothorax with mediastinal shift and radiological signs of tension",
+          "Emergency intervention (E007): Immediate needle decompression with 14-gauge cannula in 2nd rib space mid-clavicular line",
+          "Definitive management (E008): 12-French Seldinger chest drain inserted into left axilla",
+          "Treatment response (E009): Immediate improvement, O2 requirement reduced from 15L to 4L within 1 hour, normalization of respiratory and heart rate, radiological re-expansion",
+          "COVID-19 status (E010): Initial PCR negative, ID team assessment of likely COVID-19 due to delayed presentation causing false negative"
+        ],
+        "missing_key_evidence": [
+          "Final outcome, discharge status, or duration of hospitalization",
+          "Duration of chest drain placement and any complications",
+          "Radiological evidence of underlying COVID-19 lung changes (pneumonitis, bullous disease)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "A tension pneumothorax, possibly secondary to underlying COVID-19",
+        "trajectory_summary": "A 36-year-old man with 3 weeks of respiratory symptoms (dry cough, fevers) presented via ambulance with acute deterioration over 4 hours featuring left-sided pleuritic chest pain, severe respiratory distress (RR 50, SpO2 88-90% on 15 L/min oxygen), and hemodynamic compromise (tachycardia 150 bpm, elevated JVP 3 cm, borderline hypotension 110/65 mmHg). Physical examination revealed absent breath sounds, reduced vocal fremitus, and asymmetrical chest expansion on the left. Portable chest radiograph confirmed a large left-sided pneumothorax with mediastinal shift and radiological signs of tension (E001). Immediate emergency needle decompression was performed with a 14-gauge cannula in the second intercostal space mid-clavicular line (E007), followed by insertion of a 12-French Seldinger chest drain into the left axilla (E008). The patient demonstrated immediate clinical and physiological improvement within one hour, with oxygen requirements decreasing from 15 L/min to 4 L/min and normalization of respiratory and heart rates, accompanied by radiological evidence of lung re-expansion (E009). Initial COVID-19 PCR testing was negative; however, following review by the infectious diseases team, the clinical and epidemiological context led to assessment that he likely had COVID-19 with a false-negative result due to delayed presentation (E010).",
+        "key_supporting_evidence": [
+          {
+            "claim": "Large left-sided pneumothorax with mediastinal shift and radiological signs of tension on admission",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Emergency needle decompression performed with 14-gauge cannula in 2nd intercostal space mid-clavicular line",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Definitive management with 12-French Seldinger chest drain insertion into left axilla",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "Immediate clinical improvement within one hour: oxygen requirement reduced from 15 L/min to 4 L/min with normalization of respiratory and heart rate and radiological lung re-expansion",
+            "evidence_ids": [
+              "E009"
+            ]
+          },
+          {
+            "claim": "Assessment by infectious diseases team that patient likely had COVID-19 despite negative initial PCR due to delayed presentation",
+            "evidence_ids": [
+              "E010"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Primary spontaneous pneumothorax without underlying pathology",
+            "basis": "Clinical context of preceding 3-week respiratory illness and ID team assessment favoring infectious etiology"
+          },
+          {
+            "alternative": "Traumatic pneumothorax",
+            "basis": "No history of recent trauma documented"
+          },
+          {
+            "alternative": "Simple pneumothorax without tension",
+            "basis": "Radiological signs of tension with mediastinal shift and clinical hemodynamic compromise (tachycardia 150 bpm, elevated JVP)"
+          }
+        ],
+        "remaining_uncertainties": [
+          "No serological confirmation (antibody testing) of COVID-19 infection documented",
+          "No CT imaging findings available to confirm underlying COVID-19 pneumonitis or bullous lung disease",
+          "Final discharge status, total duration of hospitalization, and duration of chest drain placement not documented in available evidence",
+          "No documentation of complications during hospitalization or long-term follow-up"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "A tension pneumothorax, possibly secondary to underlying COVID-19",
+    "trajectory_summary": "A 36-year-old man with 3 weeks of respiratory symptoms (dry cough, fevers) presented via ambulance with acute deterioration over 4 hours featuring left-sided pleuritic chest pain, severe respiratory distress (RR 50, SpO2 88-90% on 15 L/min oxygen), and hemodynamic compromise (tachycardia 150 bpm, elevated JVP 3 cm, borderline hypotension 110/65 mmHg). Physical examination revealed absent breath sounds, reduced vocal fremitus, and asymmetrical chest expansion on the left. Portable chest radiograph confirmed a large left-sided pneumothorax with mediastinal shift and radiological signs of tension (E001). Immediate emergency needle decompression was performed with a 14-gauge cannula in the second intercostal space mid-clavicular line (E007), followed by insertion of a 12-French Seldinger chest drain into the left axilla (E008). The patient demonstrated immediate clinical and physiological improvement within one hour, with oxygen requirements decreasing from 15 L/min to 4 L/min and normalization of respiratory and heart rates, accompanied by radiological evidence of lung re-expansion (E009). Initial COVID-19 PCR testing was negative; however, following review by the infectious diseases team, the clinical and epidemiological context led to assessment that he likely had COVID-19 with a false-negative result due to delayed presentation (E010).",
+    "key_supporting_evidence": [
+      {
+        "claim": "Large left-sided pneumothorax with mediastinal shift and radiological signs of tension on admission",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Emergency needle decompression performed with 14-gauge cannula in 2nd intercostal space mid-clavicular line",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Definitive management with 12-French Seldinger chest drain insertion into left axilla",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "Immediate clinical improvement within one hour: oxygen requirement reduced from 15 L/min to 4 L/min with normalization of respiratory and heart rate and radiological lung re-expansion",
+        "evidence_ids": [
+          "E009"
+        ]
+      },
+      {
+        "claim": "Assessment by infectious diseases team that patient likely had COVID-19 despite negative initial PCR due to delayed presentation",
+        "evidence_ids": [
+          "E010"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Primary spontaneous pneumothorax without underlying pathology",
+        "basis": "Clinical context of preceding 3-week respiratory illness and ID team assessment favoring infectious etiology"
+      },
+      {
+        "alternative": "Traumatic pneumothorax",
+        "basis": "No history of recent trauma documented"
+      },
+      {
+        "alternative": "Simple pneumothorax without tension",
+        "basis": "Radiological signs of tension with mediastinal shift and clinical hemodynamic compromise (tachycardia 150 bpm, elevated JVP)"
+      }
+    ],
+    "remaining_uncertainties": [
+      "No serological confirmation (antibody testing) of COVID-19 infection documented",
+      "No CT imaging findings available to confirm underlying COVID-19 pneumonitis or bullous lung disease",
+      "Final discharge status, total duration of hospitalization, and duration of chest drain placement not documented in available evidence",
+      "No documentation of complications during hospitalization or long-term follow-up"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.85
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-24T22:14:32.262987+00:00",
+  "clinician_model": "Kimi-K2.5",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

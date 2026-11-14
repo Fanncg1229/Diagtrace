@@ -1,0 +1,564 @@
+{
+  "case_id": "PMC8072183",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 11,
+  "termination": "final",
+  "known_final_diagnosis": "The patient was initially diagnosed with TTS and was qualified for the conservative treatment of the coronary disease. ... which confirmed the diagnosis of TTS.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E005",
+    "E006"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "What were the physical examination findings on admission, including vital signs, cardiac auscultation, and signs of heart failure or cardiogenic shock?",
+        "current_trajectory_hypothesis": "62-year-old obese female with smoking history, hypertension, and recent chemotherapy (gemcitabine/cisplatin) presents with acute retrosternal chest pain. Initial concern was acute coronary event, but final diagnosis is Takotsubo cardiomyopathy (TTS). Need to establish baseline clinical presentation and hemodynamic status.",
+        "confirmed_evidence": [
+          "3-day history of chest pain with acute retrosternal component at rest lasting ~1 hour on admission day",
+          "Risk factors: obesity, smoking, hypertension, recent chemotherapy exposure"
+        ],
+        "missing_key_evidence": [
+          "Physical examination findings and vital signs on admission",
+          "ECG findings (ST changes, T-wave inversions)",
+          "Cardiac biomarkers (troponin, BNP)",
+          "Echocardiography findings showing apical ballooning or wall motion abnormality",
+          "Coronary angiography results",
+          "Temporal progression and treatment response",
+          "Confirmation that coronary arteries were patent (ruling out ACS)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.15
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "On admission to the clinic, she remained hemodynamically stable, with no chest pain, and had a systemic arterial pressure of 110/80 mmHg.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "What were the ECG findings on admission? Specifically, were there ST-segment changes, T-wave inversions, or other acute ischemic changes?",
+        "current_trajectory_hypothesis": "62-year-old obese female with smoking, hypertension, and recent chemotherapy presents with acute retrosternal chest pain. On admission she is hemodynamically stable without active chest pain. Initial concern was acute coronary event but final diagnosis is TTS. Need ECG findings to establish acute phase changes and differentiate from STEMI/NSTEMI.",
+        "confirmed_evidence": [
+          "3-day history of chest pain with acute retrosternal component at rest lasting ~1 hour on admission day",
+          "Risk factors: obesity, smoking, hypertension, recent chemotherapy (gemcitabine/cisplatin)",
+          "On admission: hemodynamically stable, no active chest pain, BP 110/80 mmHg"
+        ],
+        "missing_key_evidence": [
+          "ECG findings (ST changes, T-wave inversions, QT prolongation)",
+          "Cardiac biomarkers (troponin, BNP)",
+          "Echocardiography findings showing apical ballooning or wall motion abnormality characteristic of TTS",
+          "Coronary angiography results confirming patent coronaries",
+          "Temporal progression and treatment response",
+          "Stressor or trigger for TTS (emotional or physical)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [
+          "ECG on admission"
+        ],
+        "explanation": "ECG on admission was ordered; source record for results exists but has not been disclosed yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the ECG findings on admission? Please provide the specific findings including ST-segment changes, T-wave patterns, QT interval, and any other acute changes.",
+        "current_trajectory_hypothesis": "62-year-old obese female with smoking, hypertension, and recent chemotherapy (gemcitabine/cisplatin) presents with acute retrosternal chest pain. On admission she is hemodynamically stable without active chest pain (BP 110/80 mmHg). Initial concern was acute coronary event but final diagnosis is Takotsubo cardiomyopathy (TTS). ECG findings are critical to establish the acute phase presentation and characteristic changes of TTS.",
+        "confirmed_evidence": [
+          "3-day history of chest pain with acute retrosternal component at rest lasting ~1 hour on admission day",
+          "Risk factors: obesity, smoking, hypertension, recent chemotherapy (gemcitabine/cisplatin 5 months prior)",
+          "On admission: hemodynamically stable, no active chest pain, BP 110/80 mmHg"
+        ],
+        "missing_key_evidence": [
+          "ECG findings (ST changes, T-wave inversions, QT prolongation characteristic of TTS)",
+          "Cardiac biomarkers (troponin elevation, BNP)",
+          "Echocardiography findings showing apical ballooning or wall motion abnormality",
+          "Coronary angiography results confirming patent coronaries (ruling out ACS)",
+          "Temporal progression and treatment response",
+          "Identified stressor or trigger for TTS"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "The ECG record demonstrated a normal sinus rhythm of 96/min with singular ventricular and supraventricular beats, as well as inverted T waves in the leads from above the anterior and lateral wall.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the cardiac biomarker results on admission and during hospitalization? Specifically, please provide troponin levels (serial measurements if available) and BNP or NT-proBNP levels.",
+        "current_trajectory_hypothesis": "62-year-old obese female with smoking, hypertension, and recent chemotherapy (gemcitabine/cisplatin 5 months prior) presents with acute retrosternal chest pain. On admission: hemodynamically stable, no active chest pain (BP 110/80 mmHg). ECG shows normal sinus rhythm with inverted T waves in anterior and lateral leads. Initial concern was acute coronary event but final diagnosis is Takotsubo cardiomyopathy (TTS). Troponin elevation would support myocardial injury; pattern and degree help differentiate TTS from ACS.",
+        "confirmed_evidence": [
+          "3-day history of chest pain with acute retrosternal component at rest lasting ~1 hour on admission day",
+          "Risk factors: obesity, smoking, hypertension, recent chemotherapy (gemcitabine/cisplatin 5 months prior)",
+          "On admission: hemodynamically stable, no active chest pain, BP 110/80 mmHg",
+          "ECG on admission: normal sinus rhythm 96/min with inverted T waves in anterior and lateral leads"
+        ],
+        "missing_key_evidence": [
+          "Cardiac biomarkers (troponin serial levels, BNP/NT-proBNP) to confirm myocardial injury",
+          "Echocardiography findings showing apical ballooning or characteristic wall motion abnormality of TTS",
+          "Coronary angiography results confirming patent coronaries (critical to rule out ACS)",
+          "Temporal progression and treatment response",
+          "Identified emotional or physical stressor triggering TTS",
+          "Recovery pattern and follow-up imaging"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.25
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Laboratory testing revealed decreased red blood cells with a hemoglobin level of 9.3 g/dl and a markedly elevated concentration of cardiac markers such as troponin I hs – 9552 ng/l (lab standard: 0.00–15.60 ng/l), B-type natriuretic peptide (BNP – 175 pg/ml; lab standard: 0.00–100.00 pg/ml), and N-terminal pro-B-type natriuretic peptide (NT-proBNP – 2691 pg/ml; lab standard: 0.00–125.00 pg/ml).",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the echocardiography findings? Specifically, please describe the left ventricular wall motion abnormalities, ejection fraction, and whether apical ballooning or other characteristic features of Takotsubo cardiomyopathy were present.",
+        "current_trajectory_hypothesis": "62-year-old obese female with smoking, hypertension, and recent chemotherapy (gemcitabine/cisplatin 5 months prior) presents with acute retrosternal chest pain. On admission: hemodynamically stable, no active chest pain (BP 110/80 mmHg). ECG shows normal sinus rhythm with inverted T waves in anterior and lateral leads. Markedly elevated troponin I (9552 ng/l) and natriuretic peptides (BNP 175, NT-proBNP 2691) confirm myocardial injury. Initial concern was acute coronary event but final diagnosis is Takotsubo cardiomyopathy (TTS). Echocardiography is critical to demonstrate the characteristic apical ballooning and wall motion abnormality that defines TTS.",
+        "confirmed_evidence": [
+          "3-day history of chest pain with acute retrosternal component at rest lasting ~1 hour on admission day",
+          "Risk factors: obesity, smoking, hypertension, recent chemotherapy (gemcitabine/cisplatin 5 months prior)",
+          "On admission: hemodynamically stable, no active chest pain, BP 110/80 mmHg",
+          "ECG on admission: normal sinus rhythm 96/min with inverted T waves in anterior and lateral leads",
+          "Markedly elevated cardiac biomarkers: troponin I hs 9552 ng/l (normal 0-15.60), BNP 175 pg/ml (normal 0-100), NT-proBNP 2691 pg/ml (normal 0-125)",
+          "Anemia: hemoglobin 9.3 g/dl"
+        ],
+        "missing_key_evidence": [
+          "Echocardiography findings showing apical ballooning or characteristic wall motion abnormality of TTS (essential diagnostic criterion)",
+          "Coronary angiography results confirming patent coronaries (critical to rule out acute coronary syndrome)",
+          "Identified emotional or physical stressor triggering TTS",
+          "Temporal progression and treatment response",
+          "Recovery pattern and follow-up imaging demonstrating normalization"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.35
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "The left ventriculography conducted at the same time presented akinesis of the apex and the apical and mid-segment of the anterior wall, and the ejection fraction was 38%",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the coronary angiography findings? Specifically, please describe the patency of the left main, left anterior descending, left circumflex, and right coronary arteries, and whether any stenosis, occlusion, or other abnormalities were identified.",
+        "current_trajectory_hypothesis": "62-year-old obese female with smoking, hypertension, and recent chemotherapy (gemcitabine/cisplatin 5 months prior) presents with acute retrosternal chest pain. On admission: hemodynamically stable, no active chest pain (BP 110/80 mmHg). ECG shows normal sinus rhythm with inverted T waves in anterior and lateral leads. Markedly elevated troponin I (9552 ng/l) and natriuretic peptides confirm myocardial injury. Left ventriculography demonstrates akinesis of apex and apical/mid-anterior wall with ejection fraction 38%, consistent with apical ballooning characteristic of Takotsubo cardiomyopathy (TTS). Coronary angiography is the critical diagnostic test to confirm patent coronaries and definitively rule out acute coronary syndrome, thereby confirming TTS diagnosis.",
+        "confirmed_evidence": [
+          "3-day history of chest pain with acute retrosternal component at rest lasting ~1 hour on admission day",
+          "Risk factors: obesity, smoking, hypertension, recent chemotherapy (gemcitabine/cisplatin 5 months prior)",
+          "On admission: hemodynamically stable, no active chest pain, BP 110/80 mmHg",
+          "ECG on admission: normal sinus rhythm 96/min with inverted T waves in anterior and lateral leads",
+          "Markedly elevated cardiac biomarkers: troponin I hs 9552 ng/l (normal 0-15.60), BNP 175 pg/ml (normal 0-100), NT-proBNP 2691 pg/ml (normal 0-125)",
+          "Left ventriculography: akinesis of apex and apical/mid-anterior wall, ejection fraction 38%",
+          "Anemia: hemoglobin 9.3 g/dl"
+        ],
+        "missing_key_evidence": [
+          "Coronary angiography results confirming patent coronaries (essential to rule out acute coronary syndrome and confirm TTS diagnosis)",
+          "Identified emotional or physical stressor triggering TTS",
+          "Treatment course and response to conservative management",
+          "Follow-up imaging demonstrating recovery of wall motion and ejection fraction"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.55
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E003",
+        "source_text": "The patient was subject to cardiac catheterization, which demonstrated minor atherosclerotic changes in the coronary arteries (Figures 1, 2).",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "Was there an identified emotional stressor, physical stress, or triggering event preceding the onset of chest pain? This is important to document the precipitant of Takotsubo cardiomyopathy, which typically follows acute emotional or physical stress.",
+        "current_trajectory_hypothesis": "62-year-old obese female with smoking, hypertension, and recent chemotherapy (gemcitabine/cisplatin 5 months prior) presents with acute retrosternal chest pain. On admission: hemodynamically stable, no active chest pain (BP 110/80 mmHg). ECG shows normal sinus rhythm with inverted T waves in anterior and lateral leads. Markedly elevated troponin I (9552 ng/l) and natriuretic peptides confirm myocardial injury. Left ventriculography demonstrates akinesis of apex and apical/mid-anterior wall with ejection fraction 38%, consistent with apical ballooning. Cardiac catheterization shows only minor atherosclerotic changes with patent coronaries, ruling out acute coronary syndrome. This constellation of findings is diagnostic of Takotsubo cardiomyopathy (TTS). Need to identify the stressor/trigger and document treatment course.",
+        "confirmed_evidence": [
+          "3-day history of chest pain with acute retrosternal component at rest lasting ~1 hour on admission day",
+          "Risk factors: obesity, smoking, hypertension, recent chemotherapy (gemcitabine/cisplatin 5 months prior)",
+          "On admission: hemodynamically stable, no active chest pain, BP 110/80 mmHg",
+          "ECG on admission: normal sinus rhythm 96/min with inverted T waves in anterior and lateral leads",
+          "Markedly elevated cardiac biomarkers: troponin I hs 9552 ng/l, BNP 175 pg/ml, NT-proBNP 2691 pg/ml",
+          "Left ventriculography: akinesis of apex and apical/mid-anterior wall, ejection fraction 38%",
+          "Cardiac catheterization: minor atherosclerotic changes only, patent coronaries (rules out ACS)",
+          "Anemia: hemoglobin 9.3 g/dl"
+        ],
+        "missing_key_evidence": [
+          "Identified emotional or physical stressor/trigger for TTS",
+          "Treatment course (medications, conservative management details)",
+          "Follow-up imaging demonstrating recovery of wall motion and ejection fraction",
+          "Clinical course and outcome during hospitalization"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "No source evidence reports on emotional or physical stressor preceding chest pain.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "62-year-old obese female with smoking, hypertension, and recent chemotherapy (gemcitabine/cisplatin 5 months prior) presents with acute retrosternal chest pain. On admission: hemodynamically stable, no active chest pain (BP 110/80 mmHg). ECG shows normal sinus rhythm with inverted T waves in anterior and lateral leads. Markedly elevated troponin I (9552 ng/l) and natriuretic peptides confirm myocardial injury. Left ventriculography demonstrates akinesis of apex and apical/mid-anterior wall with ejection fraction 38%, consistent with apical ballooning. Cardiac catheterization shows only minor atherosclerotic changes with patent coronaries, ruling out acute coronary syndrome. This constellation of findings is diagnostic of Takotsubo cardiomyopathy (TTS). Patient was qualified for conservative treatment. Need to document the treatment course, response, and any recovery of cardiac function.",
+        "confirmed_evidence": [
+          "3-day history of chest pain with acute retrosternal component at rest lasting ~1 hour on admission day",
+          "Risk factors: obesity, smoking, hypertension, recent chemotherapy (gemcitabine/cisplatin 5 months prior)",
+          "On admission: hemodynamically stable, no active chest pain, BP 110/80 mmHg",
+          "ECG on admission: normal sinus rhythm 96/min with inverted T waves in anterior and lateral leads",
+          "Markedly elevated cardiac biomarkers: troponin I hs 9552 ng/l, BNP 175 pg/ml, NT-proBNP 2691 pg/ml",
+          "Left ventriculography: akinesis of apex and apical/mid-anterior wall, ejection fraction 38%",
+          "Cardiac catheterization: minor atherosclerotic changes only, patent coronaries (rules out ACS)",
+          "Anemia: hemoglobin 9.3 g/dl",
+          "Patient qualified for conservative treatment of coronary disease"
+        ],
+        "missing_key_evidence": [
+          "Treatment details during hospitalization (medications, supportive care)",
+          "Clinical course and response to conservative management",
+          "Follow-up imaging demonstrating recovery of wall motion and ejection fraction",
+          "Hospital outcome and discharge status",
+          "Identified stressor/trigger for TTS (not yet reported)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "The hospitalization period was devoid of complications. The retrosternal pain did not reoccur.",
+        "category": "clinical_course",
+        "temporal_cue": "during hospitalization",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the follow-up echocardiography or cardiac imaging performed during or after hospitalization? Specifically, please provide the left ventricular ejection fraction, wall motion assessment, and whether there was recovery of the apical ballooning and normalization of cardiac function.",
+        "current_trajectory_hypothesis": "62-year-old obese female with smoking, hypertension, and recent chemotherapy (gemcitabine/cisplatin 5 months prior) presents with acute retrosternal chest pain. On admission: hemodynamically stable, no active chest pain (BP 110/80 mmHg). ECG shows normal sinus rhythm with inverted T waves in anterior and lateral leads. Markedly elevated troponin I (9552 ng/l) and natriuretic peptides confirm myocardial injury. Left ventriculography demonstrates akinesis of apex and apical/mid-anterior wall with ejection fraction 38%, consistent with apical ballooning. Cardiac catheterization shows only minor atherosclerotic changes with patent coronaries, ruling out acute coronary syndrome. This constellation of findings is diagnostic of Takotsubo cardiomyopathy (TTS). Patient was qualified for conservative treatment. Hospitalization was uncomplicated with no recurrence of chest pain. Follow-up imaging is needed to document the characteristic recovery of wall motion and ejection fraction that defines TTS.",
+        "confirmed_evidence": [
+          "3-day history of chest pain with acute retrosternal component at rest lasting ~1 hour on admission day",
+          "Risk factors: obesity, smoking, hypertension, recent chemotherapy (gemcitabine/cisplatin 5 months prior)",
+          "On admission: hemodynamically stable, no active chest pain, BP 110/80 mmHg",
+          "ECG on admission: normal sinus rhythm 96/min with inverted T waves in anterior and lateral leads",
+          "Markedly elevated cardiac biomarkers: troponin I hs 9552 ng/l, BNP 175 pg/ml, NT-proBNP 2691 pg/ml",
+          "Left ventriculography: akinesis of apex and apical/mid-anterior wall, ejection fraction 38%",
+          "Cardiac catheterization: minor atherosclerotic changes only, patent coronaries (rules out ACS)",
+          "Anemia: hemoglobin 9.3 g/dl",
+          "Patient qualified for conservative treatment of coronary disease",
+          "Hospitalization uncomplicated with no recurrence of chest pain"
+        ],
+        "missing_key_evidence": [
+          "Follow-up echocardiography or cardiac imaging showing recovery of wall motion and ejection fraction (characteristic of TTS recovery)",
+          "Treatment details during hospitalization (medications, supportive care)",
+          "Identified stressor/trigger for TTS (not yet reported)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.82
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E005",
+        "source_text": "In the echocardiographic examination, apart from the normal function of all valves, an improved left ventricular contractive function with 47% ejection fraction was observed",
+        "category": "clinical_course",
+        "temporal_cue": "during hospitalization",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the specific medications and treatments administered during hospitalization for the management of Takotsubo cardiomyopathy? Please include details on beta-blockers, ACE inhibitors, diuretics, antiplatelet agents, or any other cardiac medications used.",
+        "current_trajectory_hypothesis": "62-year-old obese female with smoking, hypertension, and recent chemotherapy (gemcitabine/cisplatin 5 months prior) presents with acute retrosternal chest pain. On admission: hemodynamically stable, no active chest pain (BP 110/80 mmHg). ECG shows normal sinus rhythm with inverted T waves in anterior and lateral leads. Markedly elevated troponin I (9552 ng/l) and natriuretic peptides confirm myocardial injury. Left ventriculography demonstrates akinesis of apex and apical/mid-anterior wall with ejection fraction 38%, consistent with apical ballooning characteristic of Takotsubo cardiomyopathy (TTS). Cardiac catheterization shows only minor atherosclerotic changes with patent coronaries, ruling out acute coronary syndrome. Patient was qualified for conservative treatment. Hospitalization was uncomplicated with no recurrence of chest pain. Follow-up echocardiography shows improved left ventricular function with ejection fraction 47%, demonstrating recovery characteristic of TTS. Need to document the specific conservative treatment regimen used.",
+        "confirmed_evidence": [
+          "3-day history of chest pain with acute retrosternal component at rest lasting ~1 hour on admission day",
+          "Risk factors: obesity, smoking, hypertension, recent chemotherapy (gemcitabine/cisplatin 5 months prior)",
+          "On admission: hemodynamically stable, no active chest pain, BP 110/80 mmHg",
+          "ECG on admission: normal sinus rhythm 96/min with inverted T waves in anterior and lateral leads",
+          "Markedly elevated cardiac biomarkers: troponin I hs 9552 ng/l, BNP 175 pg/ml, NT-proBNP 2691 pg/ml",
+          "Left ventriculography: akinesis of apex and apical/mid-anterior wall, ejection fraction 38%",
+          "Cardiac catheterization: minor atherosclerotic changes only, patent coronaries (rules out ACS)",
+          "Anemia: hemoglobin 9.3 g/dl",
+          "Patient qualified for conservative treatment of coronary disease",
+          "Hospitalization uncomplicated with no recurrence of chest pain",
+          "Follow-up echocardiography: improved left ventricular function with ejection fraction 47%"
+        ],
+        "missing_key_evidence": [
+          "Specific medications and treatment regimen during hospitalization (beta-blockers, ACE inhibitors, diuretics, antiplatelet agents)",
+          "Identified emotional or physical stressor/trigger for TTS (not yet reported)",
+          "Discharge status and long-term follow-up"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "On discharge, the following were recommended: acetylsalicylic acid 75 mg/day, bisoprolol 2.5 mg/day, ramipril 1.25 mg/ day, atorvastatin 20 mg/day, pantoprazole 20 mg/day, supplementation with iron and thyroid hormones, and continuation of the ongoing analgesic chronic therapy.",
+        "category": "other",
+        "temporal_cue": "4th day of hospitalization and 4 months later",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Takotsubo cardiomyopathy (TTS)",
+        "trajectory_summary": "A 62-year-old obese female with smoking history, chronic hypertension, hypothyroidism, and recent chemotherapy (gemcitabine/cisplatin 5 months prior) for high-grade urothelial bladder cancer presented with a 3-day history of retrosternal chest pain. On admission, she was hemodynamically stable (BP 110/80 mmHg) without active chest pain. ECG showed normal sinus rhythm with inverted T waves in anterior and lateral leads. Cardiac biomarkers were markedly elevated (troponin I hs 9552 ng/l, BNP 175 pg/ml, NT-proBNP 2691 pg/ml), indicating myocardial injury. Left ventriculography demonstrated akinesis of the apex and apical/mid-anterior wall with reduced ejection fraction of 38%, consistent with apical ballooning. Cardiac catheterization revealed only minor atherosclerotic changes with patent coronary arteries, ruling out acute coronary syndrome. This constellation of findings—acute chest pain, myocardial injury, characteristic apical ballooning on ventriculography, and patent coronaries—confirmed the diagnosis of Takotsubo cardiomyopathy. The patient was qualified for conservative treatment. Hospitalization was uncomplicated without recurrence of chest pain. Follow-up echocardiography demonstrated recovery of left ventricular function with improved ejection fraction of 47%, characteristic of TTS. At discharge, she was prescribed acetylsalicylic acid, bisoprolol, ramipril, atorvastatin, pantoprazole, iron supplementation, and thyroid hormone replacement.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Acute presentation with retrosternal chest pain at rest lasting ~1 hour on admission day, with 3-day prodromal history",
+            "evidence_ids": []
+          },
+          {
+            "claim": "On admission: hemodynamically stable, no active chest pain, BP 110/80 mmHg",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "ECG on admission: normal sinus rhythm 96/min with inverted T waves in anterior and lateral leads",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Markedly elevated cardiac biomarkers confirming myocardial injury: troponin I hs 9552 ng/l (normal 0-15.60), BNP 175 pg/ml (normal 0-100), NT-proBNP 2691 pg/ml (normal 0-125)",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Left ventriculography demonstrates akinesis of apex and apical/mid-anterior wall with ejection fraction 38%, consistent with apical ballooning characteristic of TTS",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Cardiac catheterization shows minor atherosclerotic changes only with patent coronary arteries, ruling out acute coronary syndrome",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Patient qualified for conservative treatment of coronary disease",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Hospitalization uncomplicated with no recurrence of retrosternal chest pain",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Follow-up echocardiography shows improved left ventricular contractive function with ejection fraction 47%, demonstrating recovery characteristic of TTS",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Conservative treatment regimen at discharge: acetylsalicylic acid 75 mg/day, bisoprolol 2.5 mg/day, ramipril 1.25 mg/day, atorvastatin 20 mg/day, pantoprazole 20 mg/day, iron and thyroid hormone supplementation",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Risk factors present: obesity, smoking history, chronic hypertension, recent chemotherapy exposure (gemcitabine/cisplatin 5 months prior)",
+            "evidence_ids": [
+              "E004"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Acute coronary syndrome (STEMI/NSTEMI)",
+            "basis": "Cardiac catheterization demonstrated patent coronary arteries with only minor atherosclerotic changes, definitively ruling out significant coronary stenosis or occlusion that would cause ACS"
+          },
+          {
+            "alternative": "Myocardial infarction with cardiogenic shock",
+            "basis": "Patient remained hemodynamically stable throughout admission without signs of shock; hospitalization was uncomplicated"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Specific emotional or physical stressor/trigger preceding the onset of chest pain was not documented in available source records, though recent chemotherapy exposure and cancer diagnosis may represent significant life stressors",
+          "Exact timing of follow-up echocardiography relative to admission is not explicitly stated, though recovery of ejection fraction from 38% to 47% is documented"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.92
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Takotsubo cardiomyopathy (TTS)",
+    "trajectory_summary": "A 62-year-old obese female with smoking history, chronic hypertension, hypothyroidism, and recent chemotherapy (gemcitabine/cisplatin 5 months prior) for high-grade urothelial bladder cancer presented with a 3-day history of retrosternal chest pain. On admission, she was hemodynamically stable (BP 110/80 mmHg) without active chest pain. ECG showed normal sinus rhythm with inverted T waves in anterior and lateral leads. Cardiac biomarkers were markedly elevated (troponin I hs 9552 ng/l, BNP 175 pg/ml, NT-proBNP 2691 pg/ml), indicating myocardial injury. Left ventriculography demonstrated akinesis of the apex and apical/mid-anterior wall with reduced ejection fraction of 38%, consistent with apical ballooning. Cardiac catheterization revealed only minor atherosclerotic changes with patent coronary arteries, ruling out acute coronary syndrome. This constellation of findings—acute chest pain, myocardial injury, characteristic apical ballooning on ventriculography, and patent coronaries—confirmed the diagnosis of Takotsubo cardiomyopathy. The patient was qualified for conservative treatment. Hospitalization was uncomplicated without recurrence of chest pain. Follow-up echocardiography demonstrated recovery of left ventricular function with improved ejection fraction of 47%, characteristic of TTS. At discharge, she was prescribed acetylsalicylic acid, bisoprolol, ramipril, atorvastatin, pantoprazole, iron supplementation, and thyroid hormone replacement.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Acute presentation with retrosternal chest pain at rest lasting ~1 hour on admission day, with 3-day prodromal history",
+        "evidence_ids": []
+      },
+      {
+        "claim": "On admission: hemodynamically stable, no active chest pain, BP 110/80 mmHg",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "ECG on admission: normal sinus rhythm 96/min with inverted T waves in anterior and lateral leads",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Markedly elevated cardiac biomarkers confirming myocardial injury: troponin I hs 9552 ng/l (normal 0-15.60), BNP 175 pg/ml (normal 0-100), NT-proBNP 2691 pg/ml (normal 0-125)",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Left ventriculography demonstrates akinesis of apex and apical/mid-anterior wall with ejection fraction 38%, consistent with apical ballooning characteristic of TTS",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Cardiac catheterization shows minor atherosclerotic changes only with patent coronary arteries, ruling out acute coronary syndrome",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Patient qualified for conservative treatment of coronary disease",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Hospitalization uncomplicated with no recurrence of retrosternal chest pain",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Follow-up echocardiography shows improved left ventricular contractive function with ejection fraction 47%, demonstrating recovery characteristic of TTS",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Conservative treatment regimen at discharge: acetylsalicylic acid 75 mg/day, bisoprolol 2.5 mg/day, ramipril 1.25 mg/day, atorvastatin 20 mg/day, pantoprazole 20 mg/day, iron and thyroid hormone supplementation",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Risk factors present: obesity, smoking history, chronic hypertension, recent chemotherapy exposure (gemcitabine/cisplatin 5 months prior)",
+        "evidence_ids": [
+          "E004"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Acute coronary syndrome (STEMI/NSTEMI)",
+        "basis": "Cardiac catheterization demonstrated patent coronary arteries with only minor atherosclerotic changes, definitively ruling out significant coronary stenosis or occlusion that would cause ACS"
+      },
+      {
+        "alternative": "Myocardial infarction with cardiogenic shock",
+        "basis": "Patient remained hemodynamically stable throughout admission without signs of shock; hospitalization was uncomplicated"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Specific emotional or physical stressor/trigger preceding the onset of chest pain was not documented in available source records, though recent chemotherapy exposure and cancer diagnosis may represent significant life stressors",
+      "Exact timing of follow-up echocardiography relative to admission is not explicitly stated, though recovery of ejection fraction from 38% to 47% is documented"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.92
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T04:48:46.057702+00:00",
+  "clinician_model": "claude-haiku-4-5",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

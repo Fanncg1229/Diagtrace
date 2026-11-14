@@ -1,0 +1,431 @@
+{
+  "case_id": "PMC11877875",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 8,
+  "termination": "final",
+  "known_final_diagnosis": "The patient was diagnosed with Weil’s disease, complicated by total atrioventricular block (TAVB) and unstable hemodynamics.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E004",
+    "E007",
+    "E009"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "ECG report or cardiac monitoring results from admission showing rhythm and conduction abnormalities",
+        "current_trajectory_hypothesis": "43-year-old woman from endemic area presents with shock (hypotension 81/43, bradycardia 41 bpm), jaundice, and systemic symptoms. Initial presentation suggests cardiovascular collapse with bradycardia possibly due to TAVB, in context of febrile illness with hepatic/renal involvement suggesting Weil's disease (severe leptospirosis). Need to confirm conduction abnormality and identify leptospirosis diagnostic evidence.",
+        "confirmed_evidence": [
+          "Admission vitals: hypotension 81/43 mmHg, bradycardia 41 bpm, fever 38.2°C",
+          "Physical exam: jaundice, icteric sclera, hepatosplenomegaly suggesting hepatic involvement",
+          "Epidemiological risk: residence in leptospirosis-endemic area",
+          "Systemic symptoms consistent with severe leptospirosis (Weil's disease)"
+        ],
+        "missing_key_evidence": [
+          "ECG confirmation of total atrioventricular block (TAVB)",
+          "Laboratory confirmation of leptospirosis (serology, PCR, or culture)",
+          "Evidence of renal dysfunction (Weil's disease criteria)",
+          "Hemorrhagic manifestations if present",
+          "Treatment course and response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "The patient’s symptomatic bradycardia prompted an electrocardiogram, which revealed TAVB with a junctional escape rhythm of 45 bpm and no signs of myocardial infarction or other pathological conditions (Fig. 1a).",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Leptospira serology (microscopic agglutination test) or PCR results confirming leptospirosis diagnosis",
+        "current_trajectory_hypothesis": "43-year-old woman presents with shock, TAVB (junctional escape 45 bpm), jaundice, and hepatosplenomegaly in leptospirosis-endemic area. Clinical picture consistent with Weil's disease (severe leptospirosis) with cardiac complication. Trajectory: febrile illness → cardiovascular collapse with complete heart block → hepatic dysfunction. Need laboratory confirmation of Leptospira infection and evidence of renal involvement to fulfill Weil's disease criteria.",
+        "confirmed_evidence": [
+          "Admission ECG (E001): TAVB with junctional escape rhythm 45 bpm, no MI",
+          "Hemodynamic instability: BP 81/43 mmHg, HR 41 bpm",
+          "Hepatic involvement: jaundice, icteric sclera, hepatosplenomegaly on exam",
+          "Epidemiological risk: residence in leptospirosis-endemic area",
+          "Systemic symptoms: fever, lethargy, anorexia, nausea"
+        ],
+        "missing_key_evidence": [
+          "Definitive laboratory confirmation of Leptospira infection (serology MAT or PCR)",
+          "Renal function tests (creatinine, BUN) to confirm renal failure component of Weil's disease",
+          "Coagulation studies or evidence of hemorrhagic diathesis",
+          "Treatment course (antibiotics, temporary pacing)",
+          "Outcome and resolution"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Renal function tests (serum creatinine, blood urea nitrogen) and urinalysis results from admission",
+        "current_trajectory_hypothesis": "43-year-old woman presents with shock, TAVB (junctional escape 45 bpm), jaundice, and hepatosplenomegaly in leptospirosis-endemic area. Clinical picture consistent with Weil's disease (severe leptospirosis) with cardiac complication. Trajectory: febrile illness → cardiovascular collapse with complete heart block → hepatic dysfunction. Need confirmation of renal involvement to fulfill Weil's disease criteria (jaundice, renal failure, hemorrhagic diathesis) and definitive laboratory confirmation of Leptospira infection.",
+        "confirmed_evidence": [
+          "Admission ECG (E001): TAVB with junctional escape rhythm 45 bpm, no MI",
+          "Hemodynamic instability: BP 81/43 mmHg, HR 41 bpm",
+          "Hepatic involvement: jaundice, icteric sclera, hepatosplenomegaly on exam",
+          "Epidemiological risk: residence in leptospirosis-endemic area",
+          "Systemic symptoms: fever, lethargy, anorexia, nausea, chest pain"
+        ],
+        "missing_key_evidence": [
+          "Renal function tests (creatinine, BUN) to confirm renal failure component of Weil's disease",
+          "Definitive laboratory confirmation of Leptospira infection (serology MAT, PCR, or culture)",
+          "Evidence of hemorrhagic diathesis or coagulopathy",
+          "Treatment course (antibiotics, temporary pacing)",
+          "Outcome and clinical resolution"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Blood urea nitrogen92 mg/dL*Creatinine4.1 mg/dL*",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Leptospira microscopic agglutination test (MAT) serology or PCR results confirming leptospirosis infection",
+        "current_trajectory_hypothesis": "43-year-old woman from endemic area presents with classic Weil's disease triad: jaundice/hepatic dysfunction, severe renal failure (BUN 92, Cr 4.1), and hemodynamic instability with TAVB. Trajectory: acute febrile illness → multi-organ failure involving liver, kidneys, and cardiac conduction system. Clinical criteria for Weil's disease met but need microbiological confirmation of Leptospira infection.",
+        "confirmed_evidence": [
+          "Admission ECG (E001): TAVB with junctional escape rhythm 45 bpm, no MI",
+          "Severe renal failure (E004): BUN 92 mg/dL, Creatinine 4.1 mg/dL",
+          "Hepatic involvement: jaundice, icteric sclera, hepatosplenomegaly on exam",
+          "Hemodynamic shock: BP 81/43 mmHg, HR 41 bpm",
+          "Epidemiological risk: residence in leptospirosis-endemic area",
+          "Systemic symptoms: fever, lethargy, anorexia, nausea, chest pain"
+        ],
+        "missing_key_evidence": [
+          "Definitive laboratory confirmation of Leptospira infection (serology MAT titers or PCR positivity)",
+          "Evidence of hemorrhagic diathesis (Weil's disease criteria)",
+          "Liver function tests (bilirubin, transaminases) to quantify hepatic dysfunction",
+          "Treatment course (antibiotics, temporary pacing, dialysis if needed)",
+          "Outcome and clinical resolution"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Liver function test results including serum bilirubin, AST, and ALT from admission",
+        "current_trajectory_hypothesis": "43-year-old woman from leptospirosis-endemic area presents with classic Weil's disease manifestations: hemodynamic shock (BP 81/43), TAVB with junctional escape rhythm (E001), severe renal failure (BUN 92 mg/dL, Cr 4.1 mg/dL - E004), and clinical jaundice with hepatosplenomegaly. Trajectory suggests acute severe leptospirosis with cardiac and multi-organ involvement. Need objective laboratory confirmation of hepatic dysfunction and definitive microbiological diagnosis or treatment course to complete trajectory.",
+        "confirmed_evidence": [
+          "Admission ECG (E001): TAVB with junctional escape rhythm 45 bpm, no MI",
+          "Severe renal failure (E004): BUN 92 mg/dL, Creatinine 4.1 mg/dL",
+          "Hepatic involvement: jaundice, icteric sclera, hepatosplenomegaly on physical exam",
+          "Hemodynamic shock: BP 81/43 mmHg, HR 41 bpm",
+          "Epidemiological risk: residence in leptospirosis-endemic area",
+          "Systemic symptoms: fever, lethargy, anorexia, nausea, chest pain"
+        ],
+        "missing_key_evidence": [
+          "Liver function tests (bilirubin, transaminases) to objectively quantify hepatic dysfunction",
+          "Definitive laboratory confirmation of Leptospira infection (serology or PCR)",
+          "Evidence of hemorrhagic diathesis or coagulopathy",
+          "Treatment course (antibiotics, temporary pacing, inotropic support)",
+          "Clinical outcome and resolution"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E004",
+        "source_text": "Table 1Laboratory results during admissionParameterResultsLeukocytes8.8 × 109/L*Hemoglobin10.3 g/dL**Platelets98 × 109/L**Blood urea nitrogen92 mg/dL*Creatinine4.1 mg/dL*AST102 IU/L*ALT65 IU/L*IgM anti-leptospirosisPositiveIgG anti-leptospirosisPositiveMATPositiveCRP9 mg/dL*hs-Troponin I361 ng/dL*Total bilirubin6.1 mg/dL*Direct bilirubin5.3 mg/dL*AST, aspartate transaminase; ALT, alanine transaminase; MAT, microscopic agglutination test; CRP, C-reactive protein*High**Low",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Treatment course including antibiotics administered for leptospirosis and cardiac interventions for TAVB (such as temporary pacing), and clinical outcome",
+        "current_trajectory_hypothesis": "43-year-old woman from leptospirosis-endemic area presents with Weil's disease (severe leptospirosis) complicated by TAVB and cardiogenic shock. Trajectory: acute febrile illness → multi-organ failure (liver: bilirubin 6.1 mg/dL, AST 102; kidneys: Cr 4.1 mg/dL, BUN 92; hematologic: platelets 98k, Hgb 10.3; cardiac: TAVB, troponin 361 ng/dL) → confirmed by positive MAT serology, IgM and IgG anti-leptospirosis antibodies. Need to verify treatment interventions and clinical resolution.",
+        "confirmed_evidence": [
+          "Admission ECG (E001): TAVB with junctional escape rhythm 45 bpm, no MI",
+          "Severe renal failure (E004): BUN 92 mg/dL, Creatinine 4.1 mg/dL",
+          "Hepatic dysfunction (E004): Total bilirubin 6.1 mg/dL, Direct bilirubin 5.3 mg/dL, AST 102 IU/L, ALT 65 IU/L",
+          "Confirmed leptospirosis (E004): MAT positive, IgM anti-leptospirosis positive, IgG anti-leptospirosis positive",
+          "Cardiac injury (E004): hs-Troponin I 361 ng/dL (elevated)",
+          "Hematologic abnormalities (E004): Hemoglobin 10.3 g/dL (low), Platelets 98 × 10^9/L (low)",
+          "Systemic inflammation (E004): Leukocytes 8.8 × 10^9/L, CRP 9 mg/dL",
+          "Physical exam: Jaundice, icteric sclera, hepatosplenomegaly, hypotension 81/43 mmHg, bradycardia 41 bpm",
+          "Epidemiological risk: Residence in leptospirosis-endemic area"
+        ],
+        "missing_key_evidence": [
+          "Treatment course (antibiotics such as penicillin or doxycycline)",
+          "Cardiac intervention for TAVB (temporary transvenous pacing)",
+          "Clinical outcome and resolution of organ dysfunction",
+          "Evidence of hemorrhagic diathesis (if present)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "The patient received 2 g of ceftriaxone and doxycycline 100 mg twice daily. Initial treatment also included an infusion of 0.9% NaCl, 40 mg of esomeprazole once daily, 8 mg of ondansetron twice daily, and 1 g of paracetamol three times daily. Owing to the ECG findings, transcutaneous pacing was initiated at 40 mA with a rhythm maintenance rate of 70 bpm. A dopamine infusion was also administered, starting at 5 mcg/kgBW/minute and later titrated to 10 mcg/kgBW/minute until the systolic blood pressure exceeded 90 mmHg or the mean arterial pressure reached more than 65 mmHg.",
+        "category": "treatment_response",
+        "temporal_cue": "initial treatment",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Clinical outcome including resolution of total atrioventricular block, recovery of renal and hepatic function, and patient disposition",
+        "current_trajectory_hypothesis": "43-year-old woman with confirmed Weil's disease (positive MAT, IgM/IgG) presenting with the classic triad of jaundice (bilirubin 6.1 mg/dL), renal failure (Cr 4.1 mg/dL), and cardiac involvement (TAVB with junctional escape, troponin 361 ng/dL) complicated by hemodynamic shock (BP 81/43). Trajectory: acute febrile illness → multi-organ failure → confirmed leptospirosis → treatment with ceftriaxone/doxycycline, transcutaneous pacing, and vasopressor support. Need to verify clinical response to treatment and final outcome.",
+        "confirmed_evidence": [
+          "Admission ECG (E001): TAVB with junctional escape rhythm 45 bpm, no MI",
+          "Severe renal failure (E004): BUN 92 mg/dL, Creatinine 4.1 mg/dL",
+          "Hepatic dysfunction (E004): Total bilirubin 6.1 mg/dL, Direct bilirubin 5.3 mg/dL, AST 102 IU/L, ALT 65 IU/L",
+          "Confirmed leptospirosis (E004): MAT positive, IgM and IgG anti-leptospirosis positive",
+          "Cardiac injury (E004): hs-Troponin I 361 ng/dL",
+          "Hematologic abnormalities (E004): Hemoglobin 10.3 g/dL, Platelets 98 × 10^9/L",
+          "Treatment (E007): Ceftriaxone 2g, doxycycline 100mg BID, transcutaneous pacing 40mA/70bpm, dopamine infusion 5-10 mcg/kg/min",
+          "Physical exam: Jaundice, icteric sclera, hepatosplenomegaly, hypotension 81/43 mmHg, bradycardia 41 bpm",
+          "Epidemiological risk: Residence in leptospirosis-endemic area"
+        ],
+        "missing_key_evidence": [
+          "Clinical outcome and resolution of organ dysfunction",
+          "Recovery of atrioventricular conduction or need for permanent pacing",
+          "Recovery of renal function (dialysis requirement or spontaneous recovery)",
+          "Duration of hospitalization and survival status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E009",
+        "source_text": "Unfortunately, the patient experienced cardiac arrest, and despite ten cycles of cardiopulmonary resuscitation (CPR), a return of spontaneous circulation was not achieved. The patient passed away within 48 hours after admission, with cardiogenic shock suspected as the cause of death owing to the deterioration in clinical condition.",
+        "category": "other",
+        "temporal_cue": "within 48 hours after admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Weil's disease complicated by total atrioventricular block (TAVB) and unstable hemodynamics",
+        "trajectory_summary": "A 43-year-old woman from a leptospirosis-endemic area presented with acute febrile illness (fever 38.2°C, lethargy, anorexia, nausea, headache) and chest pain. On admission, she was in hemodynamic shock (BP 81/43 mmHg) with symptomatic bradycardia (HR 41 bpm). Physical examination revealed jaundice, icteric sclera, and hepatosplenomegaly. ECG confirmed TAVB with junctional escape rhythm (45 bpm) without MI. Laboratory studies demonstrated multi-organ failure characteristic of Weil's disease: severe renal failure (BUN 92 mg/dL, creatinine 4.1 mg/dL), hepatic dysfunction (total bilirubin 6.1 mg/dL, direct bilirubin 5.3 mg/dL, AST 102 IU/L), hematologic abnormalities (hemoglobin 10.3 g/dL, platelets 98 × 10^9/L), and cardiac injury (hs-troponin I 361 ng/dL). Definitive diagnosis was established by positive microscopic agglutination test (MAT) and positive IgM/IgG anti-leptospirosis serology. Treatment included ceftriaxone, doxycycline, transcutaneous pacing (40 mA, 70 bpm), and dopamine infusion (5-10 mcg/kg/min). Despite interventions, the patient developed cardiogenic shock and died within 48 hours of admission despite CPR.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Total atrioventricular block with junctional escape rhythm (45 bpm) without myocardial infarction",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Severe renal failure (BUN 92 mg/dL, creatinine 4.1 mg/dL)",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Hepatic dysfunction with jaundice (total bilirubin 6.1 mg/dL, direct bilirubin 5.3 mg/dL, AST 102 IU/L, ALT 65 IU/L)",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Confirmed leptospirosis infection (MAT positive, IgM anti-leptospirosis positive, IgG anti-leptospirosis positive)",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Cardiac injury (hs-troponin I 361 ng/dL) and hematologic abnormalities (thrombocytopenia 98 × 10^9/L, anemia Hgb 10.3 g/dL)",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Treatment with ceftriaxone, doxycycline, transcutaneous pacing, and vasopressor support",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Death within 48 hours from cardiogenic shock despite resuscitation",
+            "evidence_ids": [
+              "E009"
+            ]
+          },
+          {
+            "claim": "Epidemiological risk factor (residence in leptospirosis-endemic area) and clinical presentation with fever, jaundice, and hypotension",
+            "evidence_ids": []
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Acute myocardial infarction",
+            "basis": "ECG showed no signs of myocardial infarction (E001)"
+          },
+          {
+            "alternative": "Primary cardiac etiology unrelated to infection",
+            "basis": "Clinical context of confirmed leptospirosis with multi-organ failure suggests TAVB was complication of Weil's disease rather than primary cardiac pathology"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Specific Leptospira serovar identification not documented in available results",
+          "Formal autopsy confirmation of cause of death not documented"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Weil's disease complicated by total atrioventricular block (TAVB) and unstable hemodynamics",
+    "trajectory_summary": "A 43-year-old woman from a leptospirosis-endemic area presented with acute febrile illness (fever 38.2°C, lethargy, anorexia, nausea, headache) and chest pain. On admission, she was in hemodynamic shock (BP 81/43 mmHg) with symptomatic bradycardia (HR 41 bpm). Physical examination revealed jaundice, icteric sclera, and hepatosplenomegaly. ECG confirmed TAVB with junctional escape rhythm (45 bpm) without MI. Laboratory studies demonstrated multi-organ failure characteristic of Weil's disease: severe renal failure (BUN 92 mg/dL, creatinine 4.1 mg/dL), hepatic dysfunction (total bilirubin 6.1 mg/dL, direct bilirubin 5.3 mg/dL, AST 102 IU/L), hematologic abnormalities (hemoglobin 10.3 g/dL, platelets 98 × 10^9/L), and cardiac injury (hs-troponin I 361 ng/dL). Definitive diagnosis was established by positive microscopic agglutination test (MAT) and positive IgM/IgG anti-leptospirosis serology. Treatment included ceftriaxone, doxycycline, transcutaneous pacing (40 mA, 70 bpm), and dopamine infusion (5-10 mcg/kg/min). Despite interventions, the patient developed cardiogenic shock and died within 48 hours of admission despite CPR.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Total atrioventricular block with junctional escape rhythm (45 bpm) without myocardial infarction",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Severe renal failure (BUN 92 mg/dL, creatinine 4.1 mg/dL)",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Hepatic dysfunction with jaundice (total bilirubin 6.1 mg/dL, direct bilirubin 5.3 mg/dL, AST 102 IU/L, ALT 65 IU/L)",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Confirmed leptospirosis infection (MAT positive, IgM anti-leptospirosis positive, IgG anti-leptospirosis positive)",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Cardiac injury (hs-troponin I 361 ng/dL) and hematologic abnormalities (thrombocytopenia 98 × 10^9/L, anemia Hgb 10.3 g/dL)",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Treatment with ceftriaxone, doxycycline, transcutaneous pacing, and vasopressor support",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Death within 48 hours from cardiogenic shock despite resuscitation",
+        "evidence_ids": [
+          "E009"
+        ]
+      },
+      {
+        "claim": "Epidemiological risk factor (residence in leptospirosis-endemic area) and clinical presentation with fever, jaundice, and hypotension",
+        "evidence_ids": []
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Acute myocardial infarction",
+        "basis": "ECG showed no signs of myocardial infarction (E001)"
+      },
+      {
+        "alternative": "Primary cardiac etiology unrelated to infection",
+        "basis": "Clinical context of confirmed leptospirosis with multi-organ failure suggests TAVB was complication of Weil's disease rather than primary cardiac pathology"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Specific Leptospira serovar identification not documented in available results",
+      "Formal autopsy confirmation of cause of death not documented"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T00:59:13.664143+00:00",
+  "clinician_model": "Kimi-K2.5",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

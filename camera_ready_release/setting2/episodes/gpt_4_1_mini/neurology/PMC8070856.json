@@ -1,0 +1,343 @@
+{
+  "case_id": "PMC8070856",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 9,
+  "termination": "final",
+  "known_final_diagnosis": "The clinical picture, CSF analyses, nerve conduction study and MRI features all supported a diagnosis of GBS.",
+  "disclosed_evidence_ids": [
+    "E006",
+    "E007",
+    "E008",
+    "E009"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "cerebrospinal fluid analysis (CSF) including protein levels, cell count, and glucose",
+        "current_trajectory_hypothesis": "Patient with new onset back pain, distal paraesthesia, and ascending weakness after COVID-19 vaccination; GBS suspected",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "CSF analysis results to support GBS diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for CSF analysis recorded; corresponding source result not yet disclosed.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "nerve conduction studies to assess for demyelination or axonal neuropathy",
+        "current_trajectory_hypothesis": "Awaiting CSF analysis and nerve conduction studies results to support diagnosis of GBS in patient with clinical features post-COVID-19 vaccination",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "CSF analysis results to support GBS diagnosis",
+          "nerve conduction study results to confirm demyelinating neuropathy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order registered for nerve conduction studies; no result yet available.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "results of cerebrospinal fluid analysis including protein, cell count, and glucose levels",
+        "current_trajectory_hypothesis": "Patient with clinical features compatible with GBS, awaiting CSF results which often show albuminocytologic dissociation to support diagnosis",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "CSF analysis results to show characteristic albuminocytologic dissociation supporting GBS"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "A lumbar puncture was performed, the results of which revealed a 0.5 mL colourless sample of fluid with an isolated elevated protein level of 1.77 g/L (0.15–0.45). Cerebrospinal fluid (CSF) glucose was 3.9 mmol/L, white cell count <0.001 ×109/L and red blood cell <0.001 ×109/L.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "results of nerve conduction studies focusing on evidence of demyelination or axonal neuropathy",
+        "current_trajectory_hypothesis": "Elevated CSF protein with normal cell count supports albuminocytologic dissociation typical of GBS; nerve conduction studies results needed to confirm peripheral nerve demyelination or axonal damage",
+        "confirmed_evidence": [
+          "CSF analysis on admission showed elevated protein 1.77 g/L with normal glucose and white cell count (E006), consistent with albuminocytologic dissociation"
+        ],
+        "missing_key_evidence": [
+          "nerve conduction study results to confirm demyelinating or axonal neuropathy characteristic of GBS",
+          "MRI findings if any relevant to support diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "A nerve conduction study showed patchy attenuation of the upper limb motor responses on direct stimulation. No definitive features to suggest demyelination were identified at the time of study; however, it was noted that the study was performed at a slightly early, and therefore, suboptimal time in the suspected clinical course of GBS.",
+        "category": "other",
+        "temporal_cue": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "MRI of the spine to evaluate for nerve root enhancement or other inflammatory changes supporting GBS",
+        "current_trajectory_hypothesis": "CSF shows albuminocytologic dissociation; nerve conduction study early and nondiagnostic; MRI may show supportive inflammatory nerve root findings for GBS",
+        "confirmed_evidence": [
+          "CSF analysis on admission showed elevated protein 1.77 g/L with normal glucose and white cell count, consistent with albuminocytologic dissociation (E006)",
+          "Nerve conduction study showed patchy attenuation of upper limb motor responses without definitive demyelination, likely early in disease course (E007)"
+        ],
+        "missing_key_evidence": [
+          "MRI findings supporting diagnosis of GBS such as nerve root enhancement"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "MRI of the spine ordered but no result disclosed yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "MRI spine report focusing on nerve root enhancement or inflammatory changes consistent with GBS",
+        "current_trajectory_hypothesis": "CSF shows albuminocytologic dissociation and early nerve conduction studies nondiagnostic; MRI spine findings needed to support GBS diagnosis with nerve root inflammation evidence",
+        "confirmed_evidence": [
+          "CSF analysis on admission showed elevated protein 1.77 g/L with normal glucose and white cell count, consistent with albuminocytologic dissociation (E006)",
+          "Nerve conduction study showed patchy attenuation of upper limb motor responses without definitive demyelination, likely early in disease course (E007)"
+        ],
+        "missing_key_evidence": [
+          "MRI findings supporting diagnosis of GBS such as nerve root enhancement"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E009",
+        "source_text": "a MRI whole spine with gadolinium contrast illustrated globally thickened cauda equina nerve rootlets bilaterally, particularly at the level of S1 (figure 3). On the sagittal postcontrast T1 sequence, there was prominent ventral cauda equina nerve root enhancement as well as pial enhancement of the conus medullaris (figure 4). The MRI features were in keeping with an underlying autoimmune aetiology.",
+        "category": "imaging_report",
+        "temporal_cue": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial clinical features followed by CSF albuminocytologic dissociation, early nerve conduction study with patchy motor response attenuation but no clear demyelination, and MRI showing nerve root enhancement consistent with inflammatory autoimmune neuropathy (GBS). Awaiting additional clinical course or treatment response to consolidate diagnosis.",
+        "confirmed_evidence": [
+          "Clinical presentation with ascending symmetrical weakness and distal paraesthesia post COVID-19 vaccination",
+          "CSF analysis showing elevated protein 1.77 g/L with normal glucose and white cell count consistent with albuminocytologic dissociation (E006)",
+          "Nerve conduction study shows patchy attenuation of motor responses without definitive demyelination, possibly early in disease course (E007)",
+          "MRI spine with gadolinium shows thickened cauda equina nerve rootlets, ventral nerve root enhancement and conus medullaris pial enhancement consistent with autoimmune aetiology (E009)"
+        ],
+        "missing_key_evidence": [
+          "Documentation of clinical course progression or treatment response",
+          "Further confirmatory diagnostic findings if available"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "A MRI head demonstrated normal appearances of the brain parenchyma, ventricles and subarachnoid spaces. Gadolinium-enhanced T1-weighted images depicted no abnormal parenchymal, pachymeningeal or leptomeningeal enhancement (figure 2).",
+        "category": "imaging_report",
+        "temporal_cue": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Diagnostic workup supports GBS with characteristic clinical presentation, CSF albuminocytologic dissociation, early nerve conduction study changes, and MRI inflammatory nerve root findings; awaiting documentation of clinical course, interventions, and patient outcome to confirm management and final diagnosis confirmation.",
+        "confirmed_evidence": [
+          "Clinical presentation with ascending symmetrical weakness and distal paraesthesia post COVID-19 vaccination",
+          "CSF analysis showing elevated protein 1.77 g/L with normal glucose and white cell count consistent with albuminocytologic dissociation (E006)",
+          "Nerve conduction study shows patchy attenuation of motor responses without definitive demyelination, possibly early in disease course (E007)",
+          "MRI spine with gadolinium shows thickened cauda equina nerve rootlets, ventral nerve root enhancement and conus medullaris pial enhancement consistent with autoimmune aetiology (E009)",
+          "MRI head shows normal brain parenchyma and no intracranial enhancement, supporting peripheral rather than central nervous system pathology (E008)"
+        ],
+        "missing_key_evidence": [
+          "Documentation of clinical course progression or treatment response",
+          "Further confirmatory diagnostic findings if available"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "No pending orders and no new undisclosed clinical trajectory updates available at or after the current phase.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Guillain-Barré Syndrome (GBS)",
+        "trajectory_summary": "A 37-year-old man developed progressive ascending symmetrical muscle weakness and distal paraesthesia approximately two weeks after COVID-19 ChAdOx1 vaccination. On admission, cerebrospinal fluid analysis showed elevated protein (1.77 g/L) with normal glucose and white cell count, consistent with albuminocytologic dissociation. Nerve conduction studies showed patchy attenuation of upper limb motor responses without definitive demyelination, likely due to early disease stage. MRI of the whole spine revealed globally thickened cauda equina nerve rootlets with prominent ventral nerve root and conus medullaris pial enhancement, supporting an inflammatory autoimmune neuropathy. MRI of the brain was normal, excluding central nervous system pathology. This integrated clinical presentation, CSF findings, electrophysiological study, and imaging are diagnostic and supportive of GBS.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Elevated CSF protein with normal cell count consistent with albuminocytologic dissociation typical of GBS",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Nerve conduction study showed patchy attenuation of motor responses without definitive demyelination, likely early in disease",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "MRI whole spine with gadolinium revealed thickened cauda equina nerve rootlets and ventral nerve root and conus medullaris enhancement consistent with autoimmune neuropathy",
+            "evidence_ids": [
+              "E009"
+            ]
+          },
+          {
+            "claim": "MRI brain was normal excluding central nervous system involvement",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "Clinical presentation included progressive ascending symmetrical weakness and distal paraesthesia post COVID-19 vaccination",
+            "evidence_ids": []
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "central nervous system pathology",
+            "basis": "Normal brain MRI with no parenchymal or meningeal enhancement (E008)"
+          }
+        ],
+        "remaining_uncertainties": [
+          "No documented follow-up on clinical course progression or treatment response to further consolidate diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Guillain-Barré Syndrome (GBS)",
+    "trajectory_summary": "A 37-year-old man developed progressive ascending symmetrical muscle weakness and distal paraesthesia approximately two weeks after COVID-19 ChAdOx1 vaccination. On admission, cerebrospinal fluid analysis showed elevated protein (1.77 g/L) with normal glucose and white cell count, consistent with albuminocytologic dissociation. Nerve conduction studies showed patchy attenuation of upper limb motor responses without definitive demyelination, likely due to early disease stage. MRI of the whole spine revealed globally thickened cauda equina nerve rootlets with prominent ventral nerve root and conus medullaris pial enhancement, supporting an inflammatory autoimmune neuropathy. MRI of the brain was normal, excluding central nervous system pathology. This integrated clinical presentation, CSF findings, electrophysiological study, and imaging are diagnostic and supportive of GBS.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Elevated CSF protein with normal cell count consistent with albuminocytologic dissociation typical of GBS",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Nerve conduction study showed patchy attenuation of motor responses without definitive demyelination, likely early in disease",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "MRI whole spine with gadolinium revealed thickened cauda equina nerve rootlets and ventral nerve root and conus medullaris enhancement consistent with autoimmune neuropathy",
+        "evidence_ids": [
+          "E009"
+        ]
+      },
+      {
+        "claim": "MRI brain was normal excluding central nervous system involvement",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "Clinical presentation included progressive ascending symmetrical weakness and distal paraesthesia post COVID-19 vaccination",
+        "evidence_ids": []
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "central nervous system pathology",
+        "basis": "Normal brain MRI with no parenchymal or meningeal enhancement (E008)"
+      }
+    ],
+    "remaining_uncertainties": [
+      "No documented follow-up on clinical course progression or treatment response to further consolidate diagnosis"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T22:11:30.764966+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

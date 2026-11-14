@@ -1,0 +1,613 @@
+{
+  "case_id": "PMC10432262",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "M tuberculosis was identified by PCR in lymph node biopsies from the mesentery sent for microbiological analysis, indicating TB.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E004",
+    "E005",
+    "E006"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Abdominal CT scan report",
+        "current_trajectory_hypothesis": "Patient presented with chronic abdominal symptoms. Initial workup likely involved imaging to investigate abdominal pain, distension, and palpable bowel loops.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Imaging findings",
+          "Biopsy results",
+          "Microbiology results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "Chest X-ray and upper ultrasound abdomen were normal; contrast-enhanced computed tomography (CT) showed distended ileum with fecal matter and dilated jejunal and ileal loops. Minimal free fluid was adjacent to the terminal ileum. The reduced caliber of caecum with prominent submucosal fat and diffuse postcontrast mucosal enhancement in the caecum and ascending colon increases suspicion of inflammatory bowel disease (Fig. 1).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "Colonoscopy with biopsy results",
+        "current_trajectory_hypothesis": "Initial imaging suggested inflammatory bowel disease. A colonoscopy with biopsies would be a logical next step to investigate the suspected IBD and obtain tissue for histological and microbiological analysis, potentially leading to the diagnosis of TB.",
+        "confirmed_evidence": [
+          "Patient presented with chronic abdominal pain, diarrhea, bloating, fatigue, nausea, vomiting, and 5 kg weight loss.",
+          "Physical exam showed distended abdomen with palpable bowel loops and increased bowel sounds.",
+          "Abdominal CT scan showed distended ileum with fecal matter, dilated jejunal and ileal loops, minimal free fluid, and reduced caliber of caecum with prominent submucosal fat and diffuse postcontrast mucosal enhancement in the caecum and ascending colon, raising suspicion for inflammatory bowel disease."
+        ],
+        "missing_key_evidence": [
+          "Endoscopic findings",
+          "Biopsy results (histology, microbiology)",
+          "Specific identification of M. tuberculosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "The colonoscopy with biopsy was ordered; no direct source evidence result with biopsy is yet disclosed or available at this phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient underwent a colonoscopy with biopsy to investigate suspected IBD based on CT findings. I am awaiting the results of this procedure, which may provide histological or microbiological evidence, or lead to further diagnostic steps towards identifying M. tuberculosis.",
+        "confirmed_evidence": [
+          "Patient presented with chronic abdominal pain, diarrhea, bloating, fatigue, nausea, vomiting, and 5 kg weight loss.",
+          "Physical exam showed distended abdomen with palpable bowel loops and increased bowel sounds.",
+          "Abdominal CT scan showed distended ileum with fecal matter, dilated jejunal and ileal loops, minimal free fluid, and reduced caliber of caecum with prominent submucosal fat and diffuse postcontrast mucosal enhancement in the caecum and ascending colon, raising suspicion for inflammatory bowel disease (E002).",
+          "A colonoscopy with biopsy was ordered."
+        ],
+        "missing_key_evidence": [
+          "Endoscopic findings",
+          "Biopsy results (histology, microbiology)",
+          "Specific identification of M. tuberculosis from lymph node biopsies"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "The laboratory tests of blood and stools confirmed positive Helicobacter pylori [H pylori] infection and anemia with leukocytosis [WBC:14.35×10^9/L; reference range 4.0-11.0×10^9/L), mean corpuscular hemoglobin concentration (MCHC):30.8 g/dL; reference range 32.0-36.0 g/dL, Hemoglobin: 10.30 g/dL; reference range 12.0-16.0 g/dL], as well erythrocyte-sedimentation-rate (ESR) was elevated.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Colonoscopy findings and biopsy results",
+        "current_trajectory_hypothesis": "The colonoscopy with biopsy was ordered to investigate the suspected inflammatory bowel disease based on CT findings. Its results are crucial to understand the next steps in the diagnostic trajectory, potentially revealing findings suggestive of TB or leading to further investigations like mesenteric lymph node biopsy.",
+        "confirmed_evidence": [
+          "Patient presented with chronic abdominal pain, diarrhea, bloating, fatigue, nausea, vomiting, and 5 kg weight loss.",
+          "Physical exam showed distended abdomen with palpable bowel loops and increased bowel sounds.",
+          "Abdominal CT scan showed distended ileum with fecal matter, dilated jejunal and ileal loops, minimal free fluid, and reduced caliber of caecum with prominent submucosal fat and diffuse postcontrast mucosal enhancement in the caecum and ascending colon, raising suspicion for inflammatory bowel disease (E002).",
+          "Laboratory tests showed positive Helicobacter pylori infection, anemia (Hb 10.30 g/dL, MCHC 30.8 g/dL), leukocytosis (WBC 14.35×10^9/L), and elevated ESR (E001).",
+          "A colonoscopy with biopsy was ordered."
+        ],
+        "missing_key_evidence": [
+          "Endoscopic findings",
+          "Biopsy results (histology, microbiology) from colonoscopy",
+          "Evidence of mesenteric lymph node involvement",
+          "How mesenteric lymph node biopsies were obtained",
+          "Specific identification of M. tuberculosis from lymph node biopsies"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "A colonoscopy was performed, which revealed a patulous ileocecal valve with terminal ileum ulcerations and ileal stenosis, and the cecum and ileocecal valves were deformed (Fig. 8, Fig. 9, Fig. 10, Fig. 11, Fig. 12). Despite the gross appearance was consistent with conditions such as tuberculosis, Crohn's disease, or malignancy.",
+        "category": "image_finding",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Histopathology and microbiology results from colonoscopy biopsies",
+        "current_trajectory_hypothesis": "Colonoscopy revealed findings suggestive of TB, Crohn's, or malignancy. The biopsy results are crucial to differentiate these conditions and to see if any evidence of M. tuberculosis was found at this stage, or if further investigation was prompted.",
+        "confirmed_evidence": [
+          "Patient presented with chronic abdominal pain, diarrhea, bloating, fatigue, nausea, vomiting, and 5 kg weight loss.",
+          "Physical exam showed distended abdomen with palpable bowel loops and increased bowel sounds.",
+          "Abdominal CT scan showed distended ileum with fecal matter, dilated jejunal and ileal loops, minimal free fluid, and reduced caliber of caecum with prominent submucosal fat and diffuse postcontrast mucosal enhancement in the caecum and ascending colon, raising suspicion for inflammatory bowel disease (E002).",
+          "Laboratory tests showed positive Helicobacter pylori infection, anemia (Hb 10.30 g/dL, MCHC 30.8 g/dL), leukocytosis (WBC 14.35×10^9/L), and elevated ESR (E001).",
+          "A colonoscopy was performed, revealing a patulous ileocecal valve with terminal ileum ulcerations and ileal stenosis, and deformed cecum and ileocecal valves, with gross appearance consistent with tuberculosis, Crohn's disease, or malignancy (E004)."
+        ],
+        "missing_key_evidence": [
+          "Biopsy results (histology, microbiology) from colonoscopy",
+          "Evidence of mesenteric lymph node involvement",
+          "How mesenteric lymph node biopsies were obtained",
+          "Specific identification of M. tuberculosis from lymph node biopsies"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "No source record provides histopathology and microbiology results specifically from colonoscopy biopsies.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Report on how mesenteric lymph node biopsies were obtained and their histopathology/microbiology results",
+        "current_trajectory_hypothesis": "Colonoscopy findings were suggestive but biopsies were not reported. Given the final diagnosis of M. tuberculosis from mesenteric lymph node biopsies, the next step in the trajectory must involve the acquisition and analysis of these lymph nodes, likely through a surgical or interventional procedure.",
+        "confirmed_evidence": [
+          "Patient presented with chronic abdominal pain, diarrhea, bloating, fatigue, nausea, vomiting, and 5 kg weight loss.",
+          "Physical exam showed distended abdomen with palpable bowel loops and increased bowel sounds.",
+          "Abdominal CT scan showed distended ileum with fecal matter, dilated jejunal and ileal loops, minimal free fluid, and reduced caliber of caecum with prominent submucosal fat and diffuse postcontrast mucosal enhancement in the caecum and ascending colon, raising suspicion for inflammatory bowel disease (E002).",
+          "Laboratory tests showed positive Helicobacter pylori infection, anemia (Hb 10.30 g/dL, MCHC 30.8 g/dL), leukocytosis (WBC 14.35×10^9/L), and elevated ESR (E001).",
+          "A colonoscopy was performed, revealing a patulous ileocecal valve with terminal ileum ulcerations and ileal stenosis, and deformed cecum and ileocecal valves, with gross appearance consistent with tuberculosis, Crohn's disease, or malignancy (E004).",
+          "No histopathology or microbiology results from colonoscopy biopsies were reported."
+        ],
+        "missing_key_evidence": [
+          "Method of obtaining mesenteric lymph node biopsies",
+          "Histopathology results from mesenteric lymph node biopsies",
+          "Microbiology results (including PCR for M. tuberculosis) from mesenteric lymph node biopsies"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "Procedure to obtain mesenteric lymph node biopsies",
+        "current_trajectory_hypothesis": "After colonoscopy findings were suggestive of inflammatory conditions but without reported biopsy results, the next logical step to confirm the diagnosis of M. tuberculosis from mesenteric lymph nodes would be a procedure to obtain these biopsies. I need to identify how these biopsies were obtained.",
+        "confirmed_evidence": [
+          "Patient presented with chronic abdominal pain, diarrhea, bloating, fatigue, nausea, vomiting, and 5 kg weight loss.",
+          "Physical exam showed distended abdomen with palpable bowel loops and increased bowel sounds.",
+          "Abdominal CT scan showed distended ileum with fecal matter, dilated jejunal and ileal loops, minimal free fluid, and reduced caliber of caecum with prominent submucosal fat and diffuse postcontrast mucosal enhancement in the caecum and ascending colon, raising suspicion for inflammatory bowel disease (E002).",
+          "Laboratory tests showed positive Helicobacter pylori infection, anemia (Hb 10.30 g/dL, MCHC 30.8 g/dL), leukocytosis (WBC 14.35×10^9/L), and elevated ESR (E001).",
+          "A colonoscopy was performed, revealing a patulous ileocecal valve with terminal ileum ulcerations and ileal stenosis, and deformed cecum and ileocecal valves, with gross appearance consistent with tuberculosis, Crohn's disease, or malignancy (E004).",
+          "No histopathology or microbiology results from colonoscopy biopsies were reported."
+        ],
+        "missing_key_evidence": [
+          "Method of obtaining mesenteric lymph node biopsies",
+          "Histopathology results from mesenteric lymph node biopsies",
+          "Microbiology results (including PCR for M. tuberculosis) from mesenteric lymph node biopsies"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Procedure ordered to obtain mesenteric lymph node biopsies but no documented source record specifies the procedure details.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Microbiology and histopathology results from mesenteric lymph node biopsies, specifically PCR for M. tuberculosis",
+        "current_trajectory_hypothesis": "Following the colonoscopy findings suggestive of inflammatory conditions and the lack of reported colonoscopy biopsy results, mesenteric lymph node biopsies were likely obtained. These biopsies are expected to contain the definitive diagnosis of M. tuberculosis via PCR.",
+        "confirmed_evidence": [
+          "Patient presented with chronic abdominal pain, diarrhea, bloating, fatigue, nausea, vomiting, and 5 kg weight loss.",
+          "Physical exam showed distended abdomen with palpable bowel loops and increased bowel sounds.",
+          "Abdominal CT scan showed distended ileum with fecal matter, dilated jejunal and ileal loops, minimal free fluid, and reduced caliber of caecum with prominent submucosal fat and diffuse postcontrast mucosal enhancement in the caecum and ascending colon, raising suspicion for inflammatory bowel disease (E002).",
+          "Laboratory tests showed positive Helicobacter pylori infection, anemia (Hb 10.30 g/dL, MCHC 30.8 g/dL), leukocytosis (WBC 14.35×10^9/L), and elevated ESR (E001).",
+          "A colonoscopy was performed, revealing a patulous ileocecal valve with terminal ileum ulcerations and ileal stenosis, and deformed cecum and ileocecal valves, with gross appearance consistent with tuberculosis, Crohn's disease, or malignancy (E004).",
+          "No histopathology or microbiology results from colonoscopy biopsies were reported.",
+          "A procedure to obtain mesenteric lymph node biopsies was ordered, but details are not documented."
+        ],
+        "missing_key_evidence": [
+          "Specific identification of M. tuberculosis from lymph node biopsies by PCR",
+          "Histopathology findings from mesenteric lymph node biopsies"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "PCR result for M. tuberculosis from mesenteric lymph node biopsies",
+        "current_trajectory_hypothesis": "The patient's colonoscopy findings were non-specific, and biopsies from that procedure were not reported. The definitive diagnosis of M. tuberculosis was made from mesenteric lymph node biopsies. I am now seeking the specific PCR result that identified M. tuberculosis from these biopsies.",
+        "confirmed_evidence": [
+          "Patient presented with chronic abdominal pain, diarrhea, bloating, fatigue, nausea, vomiting, and 5 kg weight loss.",
+          "Physical exam showed distended abdomen with palpable bowel loops and increased bowel sounds.",
+          "Abdominal CT scan showed distended ileum with fecal matter, dilated jejunal and ileal loops, minimal free fluid, and reduced caliber of caecum with prominent submucosal fat and diffuse postcontrast mucosal enhancement in the caecum and ascending colon, raising suspicion for inflammatory bowel disease (E002).",
+          "Laboratory tests showed positive Helicobacter pylori infection, anemia (Hb 10.30 g/dL, MCHC 30.8 g/dL), leukocytosis (WBC 14.35×10^9/L), and elevated ESR (E001).",
+          "A colonoscopy was performed, revealing a patulous ileocecal valve with terminal ileum ulcerations and ileal stenosis, and deformed cecum and ileocecal valves, with gross appearance consistent with tuberculosis, Crohn's disease, or malignancy (E004).",
+          "No histopathology or microbiology results from colonoscopy biopsies were reported.",
+          "A procedure to obtain mesenteric lymph node biopsies was ordered, but details are not documented."
+        ],
+        "missing_key_evidence": [
+          "Specific identification of M. tuberculosis from lymph node biopsies by PCR",
+          "Histopathology findings from mesenteric lymph node biopsies",
+          "Details of the procedure used to obtain mesenteric lymph node biopsies"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "M tuberculosis was identified by PCR in lymph node biopsies from the mesentery sent for microbiological analysis",
+        "category": "pathology_report",
+        "temporal_cue": "on admission",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Histopathology report from mesenteric lymph node biopsies",
+        "current_trajectory_hypothesis": "The diagnosis of M. tuberculosis has been confirmed by PCR from mesenteric lymph node biopsies. To further characterize the findings and potentially rule out other conditions like Crohn's disease or malignancy, which were suggested by colonoscopy, the histopathology report from these lymph node biopsies is needed.",
+        "confirmed_evidence": [
+          "Patient presented with chronic abdominal pain, diarrhea, bloating, fatigue, nausea, vomiting, and 5 kg weight loss.",
+          "Physical exam showed distended abdomen with palpable bowel loops and increased bowel sounds.",
+          "Abdominal CT scan showed distended ileum with fecal matter, dilated jejunal and ileal loops, minimal free fluid, and reduced caliber of caecum with prominent submucosal fat and diffuse postcontrast mucosal enhancement in the caecum and ascending colon, raising suspicion for inflammatory bowel disease (E002).",
+          "Laboratory tests showed positive Helicobacter pylori infection, anemia (Hb 10.30 g/dL, MCHC 30.8 g/dL), leukocytosis (WBC 14.35×10^9/L), and elevated ESR (E001).",
+          "A colonoscopy was performed, revealing a patulous ileocecal valve with terminal ileum ulcerations and ileal stenosis, and deformed cecum and ileocecal valves, with gross appearance consistent with tuberculosis, Crohn's disease, or malignancy (E004).",
+          "No histopathology or microbiology results from colonoscopy biopsies were reported.",
+          "A procedure to obtain mesenteric lymph node biopsies was ordered, but details are not documented.",
+          "M. tuberculosis was identified by PCR in lymph node biopsies from the mesentery sent for microbiological analysis (E005)."
+        ],
+        "missing_key_evidence": [
+          "Histopathology findings from mesenteric lymph node biopsies",
+          "Details of the procedure used to obtain mesenteric lymph node biopsies"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No histopathology report from mesenteric lymph node biopsies is documented in the supplied evidence.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Details of the procedure used to obtain mesenteric lymph node biopsies",
+        "current_trajectory_hypothesis": "The definitive diagnosis of M. tuberculosis was made by PCR from mesenteric lymph node biopsies. While the PCR result is confirmed, the specific procedure used to obtain these biopsies is a missing step in the diagnostic trajectory.",
+        "confirmed_evidence": [
+          "Patient presented with chronic abdominal pain, diarrhea, bloating, fatigue, nausea, vomiting, and 5 kg weight loss.",
+          "Physical exam showed distended abdomen with palpable bowel loops and increased bowel sounds.",
+          "Abdominal CT scan showed distended ileum with fecal matter, dilated jejunal and ileal loops, minimal free fluid, and reduced caliber of caecum with prominent submucosal fat and diffuse postcontrast mucosal enhancement in the caecum and ascending colon, raising suspicion for inflammatory bowel disease (E002).",
+          "Laboratory tests showed positive Helicobacter pylori infection, anemia (Hb 10.30 g/dL, MCHC 30.8 g/dL), leukocytosis (WBC 14.35×10^9/L), and elevated ESR (E001).",
+          "A colonoscopy was performed, revealing a patulous ileocecal valve with terminal ileum ulcerations and ileal stenosis, and deformed cecum and ileocecal valves, with gross appearance consistent with tuberculosis, Crohn's disease, or malignancy (E004).",
+          "No histopathology or microbiology results from colonoscopy biopsies were reported.",
+          "A procedure to obtain mesenteric lymph node biopsies was ordered, but details are not documented.",
+          "M. tuberculosis was identified by PCR in lymph node biopsies from the mesentery sent for microbiological analysis (E005)."
+        ],
+        "missing_key_evidence": [
+          "Details of the procedure used to obtain mesenteric lymph node biopsies",
+          "Histopathology findings from mesenteric lymph node biopsies"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No source record describes the procedure details for obtaining mesenteric lymph node biopsies.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Histopathology and microbiology results from colonoscopy biopsies",
+        "current_trajectory_hypothesis": "Colonoscopy revealed findings suggestive of TB, Crohn's, or malignancy. The biopsy results from this procedure are crucial to understand if any evidence of M. tuberculosis was found at this stage, or if further investigation (like mesenteric lymph node biopsy) was prompted due to non-diagnostic or negative findings.",
+        "confirmed_evidence": [
+          "Patient presented with chronic abdominal pain, diarrhea, bloating, fatigue, nausea, vomiting, and 5 kg weight loss.",
+          "Physical exam showed distended abdomen with palpable bowel loops and increased bowel sounds.",
+          "Abdominal CT scan showed distended ileum with fecal matter, dilated jejunal and ileal loops, minimal free fluid, and reduced caliber of caecum with prominent submucosal fat and diffuse postcontrast mucosal enhancement in the caecum and ascending colon, raising suspicion for inflammatory bowel disease (E002).",
+          "Laboratory tests showed positive Helicobacter pylori infection, anemia (Hb 10.30 g/dL, MCHC 30.8 g/dL), leukocytosis (WBC 14.35×10^9/L), and elevated ESR (E001).",
+          "A colonoscopy was performed, revealing a patulous ileocecal valve with terminal ileum ulcerations and ileal stenosis, and deformed cecum and ileocecal valves, with gross appearance consistent with tuberculosis, Crohn's disease, or malignancy (E004).",
+          "No histopathology or microbiology results from colonoscopy biopsies were reported previously.",
+          "A procedure to obtain mesenteric lymph node biopsies was ordered, but details are not documented.",
+          "M. tuberculosis was identified by PCR in lymph node biopsies from the mesentery sent for microbiological analysis (E005)."
+        ],
+        "missing_key_evidence": [
+          "Histopathology findings from mesenteric lymph node biopsies",
+          "Details of the procedure used to obtain mesenteric lymph node biopsies",
+          "Histopathology and microbiology results from colonoscopy biopsies"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No specific histopathology and microbiology results from colonoscopy biopsies are reported in the source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Histopathology report from mesenteric lymph node biopsies",
+        "current_trajectory_hypothesis": "The definitive diagnosis of M. tuberculosis was confirmed by PCR from mesenteric lymph node biopsies. To fully understand the pathological changes and to further differentiate from other conditions like Crohn's disease or malignancy, the histopathology report from these biopsies is crucial.",
+        "confirmed_evidence": [
+          "Patient presented with chronic abdominal pain, diarrhea, bloating, fatigue, nausea, vomiting, and 5 kg weight loss.",
+          "Physical exam showed distended abdomen with palpable bowel loops and increased bowel sounds.",
+          "Abdominal CT scan showed distended ileum with fecal matter, dilated jejunal and ileal loops, minimal free fluid, and reduced caliber of caecum with prominent submucosal fat and diffuse postcontrast mucosal enhancement in the caecum and ascending colon, raising suspicion for inflammatory bowel disease (E002).",
+          "Laboratory tests showed positive Helicobacter pylori infection, anemia (Hb 10.30 g/dL, MCHC 30.8 g/dL), leukocytosis (WBC 14.35×10^9/L), and elevated ESR (E001).",
+          "A colonoscopy was performed, revealing a patulous ileocecal valve with terminal ileum ulcerations and ileal stenosis, and deformed cecum and ileocecal valves, with gross appearance consistent with tuberculosis, Crohn's disease, or malignancy (E004).",
+          "No histopathology or microbiology results from colonoscopy biopsies were reported.",
+          "A procedure to obtain mesenteric lymph node biopsies was ordered, but details are not documented.",
+          "M. tuberculosis was identified by PCR in lymph node biopsies from the mesentery sent for microbiological analysis (E005)."
+        ],
+        "missing_key_evidence": [
+          "Histopathology findings from mesenteric lymph node biopsies",
+          "Details of the procedure used to obtain mesenteric lymph node biopsies"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No source record reports the histopathology report from mesenteric lymph node biopsies.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The diagnosis of M. tuberculosis has been confirmed by PCR from mesenteric lymph node biopsies. The next step in the clinical trajectory would be the initiation of treatment for TB and observation of the patient's clinical course and response to therapy.",
+        "confirmed_evidence": [
+          "Patient presented with chronic abdominal pain, diarrhea, bloating, fatigue, nausea, vomiting, and 5 kg weight loss.",
+          "Physical exam showed distended abdomen with palpable bowel loops and increased bowel sounds.",
+          "Abdominal CT scan showed distended ileum with fecal matter, dilated jejunal and ileal loops, minimal free fluid, and reduced caliber of caecum with prominent submucosal fat and diffuse postcontrast mucosal enhancement in the caecum and ascending colon, raising suspicion for inflammatory bowel disease (E002).",
+          "Laboratory tests showed positive Helicobacter pylori infection, anemia (Hb 10.30 g/dL, MCHC 30.8 g/dL), leukocytosis (WBC 14.35×10^9/L), and elevated ESR (E001).",
+          "A colonoscopy was performed, revealing a patulous ileocecal valve with terminal ileum ulcerations and ileal stenosis, and deformed cecum and ileocecal valves, with gross appearance consistent with tuberculosis, Crohn's disease, or malignancy (E004).",
+          "No histopathology or microbiology results from colonoscopy biopsies were reported.",
+          "A procedure to obtain mesenteric lymph node biopsies was ordered, but details are not documented.",
+          "M. tuberculosis was identified by PCR in lymph node biopsies from the mesentery sent for microbiological analysis (E005)."
+        ],
+        "missing_key_evidence": [
+          "Histopathology findings from mesenteric lymph node biopsies",
+          "Details of the procedure used to obtain mesenteric lymph node biopsies",
+          "Clinical course and treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "The woman was given antituberculous medicine and was followed in an outpatient clinic. Her symptoms and indications improved noticeably over time. Her symptoms began to improve significantly; she began to gain weight and feel stronger.",
+        "category": "other",
+        "temporal_cue": "after diagnosis",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "M tuberculosis was identified by PCR in lymph node biopsies from the mesentery sent for microbiological analysis, indicating TB.",
+        "trajectory_summary": "A 37-year-old female presented with 2 months of abdominal pain, diarrhea, bloating, fatigue, nausea, vomiting, and 5 kg weight loss. Physical exam showed a distended abdomen with palpable bowel loops. Initial workup included laboratory tests showing positive Helicobacter pylori infection, anemia, leukocytosis, and elevated ESR (E001). An abdominal CT scan revealed findings suggestive of inflammatory bowel disease (E002). A colonoscopy was performed, which showed terminal ileum ulcerations, ileal stenosis, and deformed cecum and ileocecal valves, with gross appearance consistent with tuberculosis, Crohn's disease, or malignancy (E004). No histopathology or microbiology results from the colonoscopy biopsies were reported. Subsequently, M. tuberculosis was identified by PCR in lymph node biopsies from the mesentery (E005). Following this diagnosis, the patient was treated with antituberculous medicine, leading to significant improvement in symptoms, weight gain, and increased strength (E006).",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with chronic abdominal pain, diarrhea, bloating, fatigue, nausea, vomiting, and 5 kg weight loss, along with physical exam findings of distended abdomen, palpable bowel loops, and increased bowel sounds.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Abdominal CT scan showed distended ileum with fecal matter, dilated jejunal and ileal loops, minimal free fluid, and reduced caliber of caecum with prominent submucosal fat and diffuse postcontrast mucosal enhancement in the caecum and ascending colon, raising suspicion for inflammatory bowel disease.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Colonoscopy revealed a patulous ileocecal valve with terminal ileum ulcerations and ileal stenosis, and deformed cecum and ileocecal valves, with gross appearance consistent with tuberculosis, Crohn's disease, or malignancy.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "M. tuberculosis was identified by PCR in lymph node biopsies from the mesentery sent for microbiological analysis.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "The patient's symptoms and indications improved noticeably over time after being given antituberculous medicine, including weight gain and feeling stronger.",
+            "evidence_ids": [
+              "E006"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Crohn's disease",
+            "basis": "Gross colonoscopy findings were consistent with Crohn's, but the definitive diagnosis of M. tuberculosis by PCR from mesenteric lymph node biopsies (E005) makes Crohn's disease less likely as the primary diagnosis."
+          },
+          {
+            "alternative": "Malignancy",
+            "basis": "Gross colonoscopy findings were consistent with malignancy, but the definitive diagnosis of M. tuberculosis by PCR from mesenteric lymph node biopsies (E005) makes malignancy less likely as the primary diagnosis."
+          },
+          {
+            "alternative": "Helicobacter pylori infection",
+            "basis": "Laboratory tests confirmed positive H. pylori infection (E001), but this was not identified as the cause of the patient's primary abdominal symptoms or the final diagnosis, which was M. tuberculosis."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Histopathology findings from mesenteric lymph node biopsies",
+          "Details of the procedure used to obtain mesenteric lymph node biopsies",
+          "Histopathology and microbiology results from colonoscopy biopsies"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "M tuberculosis was identified by PCR in lymph node biopsies from the mesentery sent for microbiological analysis, indicating TB.",
+    "trajectory_summary": "A 37-year-old female presented with 2 months of abdominal pain, diarrhea, bloating, fatigue, nausea, vomiting, and 5 kg weight loss. Physical exam showed a distended abdomen with palpable bowel loops. Initial workup included laboratory tests showing positive Helicobacter pylori infection, anemia, leukocytosis, and elevated ESR (E001). An abdominal CT scan revealed findings suggestive of inflammatory bowel disease (E002). A colonoscopy was performed, which showed terminal ileum ulcerations, ileal stenosis, and deformed cecum and ileocecal valves, with gross appearance consistent with tuberculosis, Crohn's disease, or malignancy (E004). No histopathology or microbiology results from the colonoscopy biopsies were reported. Subsequently, M. tuberculosis was identified by PCR in lymph node biopsies from the mesentery (E005). Following this diagnosis, the patient was treated with antituberculous medicine, leading to significant improvement in symptoms, weight gain, and increased strength (E006).",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with chronic abdominal pain, diarrhea, bloating, fatigue, nausea, vomiting, and 5 kg weight loss, along with physical exam findings of distended abdomen, palpable bowel loops, and increased bowel sounds.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Abdominal CT scan showed distended ileum with fecal matter, dilated jejunal and ileal loops, minimal free fluid, and reduced caliber of caecum with prominent submucosal fat and diffuse postcontrast mucosal enhancement in the caecum and ascending colon, raising suspicion for inflammatory bowel disease.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Colonoscopy revealed a patulous ileocecal valve with terminal ileum ulcerations and ileal stenosis, and deformed cecum and ileocecal valves, with gross appearance consistent with tuberculosis, Crohn's disease, or malignancy.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "M. tuberculosis was identified by PCR in lymph node biopsies from the mesentery sent for microbiological analysis.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "The patient's symptoms and indications improved noticeably over time after being given antituberculous medicine, including weight gain and feeling stronger.",
+        "evidence_ids": [
+          "E006"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Crohn's disease",
+        "basis": "Gross colonoscopy findings were consistent with Crohn's, but the definitive diagnosis of M. tuberculosis by PCR from mesenteric lymph node biopsies (E005) makes Crohn's disease less likely as the primary diagnosis."
+      },
+      {
+        "alternative": "Malignancy",
+        "basis": "Gross colonoscopy findings were consistent with malignancy, but the definitive diagnosis of M. tuberculosis by PCR from mesenteric lymph node biopsies (E005) makes malignancy less likely as the primary diagnosis."
+      },
+      {
+        "alternative": "Helicobacter pylori infection",
+        "basis": "Laboratory tests confirmed positive H. pylori infection (E001), but this was not identified as the cause of the patient's primary abdominal symptoms or the final diagnosis, which was M. tuberculosis."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Histopathology findings from mesenteric lymph node biopsies",
+      "Details of the procedure used to obtain mesenteric lymph node biopsies",
+      "Histopathology and microbiology results from colonoscopy biopsies"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T00:35:02.279801+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

@@ -1,0 +1,192 @@
+{
+  "case_id": "PMC10783388",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 5,
+  "termination": "final",
+  "known_final_diagnosis": "The patient underwent an FNAC on the right hemithorax in a prone position, which suggested the presence of an HC (Fig. 2). Thereafter, a thoracotomy was performed, and the abscess was removed. Histopathological results confirmed the previous diagnosis.",
+  "disclosed_evidence_ids": [
+    "E003",
+    "E004"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Fine Needle Aspiration Cytology (FNAC) report of the right hemithorax lesion",
+        "current_trajectory_hypothesis": "Patient with persistent respiratory symptoms post-COVID-19 infection; FNAC performed on right hemithorax lesion showing findings suggestive of hydatid cyst (HC).",
+        "confirmed_evidence": [
+          "Patient had persistent respiratory symptoms including cough and sputum after COVID-19 infection",
+          "An FNAC was performed on the right hemithorax"
+        ],
+        "missing_key_evidence": [
+          "FNAC cytology report details confirming hydatid cyst",
+          "Histopathological confirmation after thoracotomy and abscess removal"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for FNAC test has been placed based on clinician action; no result yet disclosed.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Fine Needle Aspiration Cytology (FNAC) report of the right hemithorax lesion",
+        "current_trajectory_hypothesis": "FNAC on right hemithorax lesion to confirm hydatid cyst presence in patient with persistent respiratory symptoms post-COVID-19.",
+        "confirmed_evidence": [
+          "Patient with intermittent respiratory symptoms lasting two years post-COVID-19 infection",
+          "FNAC performed on right hemithorax lesion"
+        ],
+        "missing_key_evidence": [
+          "Cytology details from FNAC report confirming hydatid cyst",
+          "Histopathological confirmation after surgical removal",
+          "Clinical course details regarding thoracotomy and abscess removal"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "The patient underwent an FNAC on the right hemithorax in a prone position, which suggested the presence of an HC (Fig. 2).",
+        "category": "image_finding",
+        "temporal_cue": "after CT scan",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "FNAC suggests hydatid cyst in right hemithorax. Next step is surgical confirmation and histopathology.",
+        "confirmed_evidence": [
+          "FNAC on right hemithorax lesion suggested presence of hydatid cyst"
+        ],
+        "missing_key_evidence": [
+          "Details of thoracotomy and abscess removal",
+          "Histopathological report confirming hydatid cyst diagnosis",
+          "Clinical course and treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "The postoperative period was uneventful, and the patient’s symptoms improved.",
+        "category": "other",
+        "temporal_cue": "postoperative",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Histopathological examination report of the abscess removed after thoracotomy",
+        "current_trajectory_hypothesis": "Following FNAC suggestive of hydatid cyst, thoracotomy was performed and abscess removed; histopathology needed to confirm hydatid cyst diagnosis.",
+        "confirmed_evidence": [
+          "FNAC on right hemithorax lesion suggested presence of hydatid cyst",
+          "Postoperative period uneventful, patient's symptoms improved"
+        ],
+        "missing_key_evidence": [
+          "Histopathological report details confirming hydatid cyst diagnosis",
+          "Details of thoracotomy and abscess removal procedure"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E003",
+        "source_text": "Histopathological results confirmed the previous diagnosis.",
+        "category": "image_finding",
+        "temporal_cue": "after CT scan",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Hydatid cyst (HC) in the right hemithorax",
+        "trajectory_summary": "A 29-year-old female presented with intermittent respiratory symptoms including cough and sputum persisting for two years after COVID-19 infection. Due to persistent symptoms, an FNAC was performed on a right hemithorax lesion, which suggested the presence of a hydatid cyst. Subsequently, the patient underwent thoracotomy with abscess removal. Histopathological examination of the resected abscess confirmed the diagnosis of hydatid cyst. The postoperative period was uneventful and the patient's symptoms improved.",
+        "key_supporting_evidence": [
+          {
+            "claim": "FNAC performed on right hemithorax lesion suggested presence of hydatid cyst",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Histopathological examination confirmed the hydatid cyst diagnosis after thoracotomy and abscess removal",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Postoperative period was uneventful and patient's symptoms improved",
+            "evidence_ids": [
+              "E004"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Hydatid cyst (HC) in the right hemithorax",
+    "trajectory_summary": "A 29-year-old female presented with intermittent respiratory symptoms including cough and sputum persisting for two years after COVID-19 infection. Due to persistent symptoms, an FNAC was performed on a right hemithorax lesion, which suggested the presence of a hydatid cyst. Subsequently, the patient underwent thoracotomy with abscess removal. Histopathological examination of the resected abscess confirmed the diagnosis of hydatid cyst. The postoperative period was uneventful and the patient's symptoms improved.",
+    "key_supporting_evidence": [
+      {
+        "claim": "FNAC performed on right hemithorax lesion suggested presence of hydatid cyst",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Histopathological examination confirmed the hydatid cyst diagnosis after thoracotomy and abscess removal",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Postoperative period was uneventful and patient's symptoms improved",
+        "evidence_ids": [
+          "E004"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-29T11:09:27.051719+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

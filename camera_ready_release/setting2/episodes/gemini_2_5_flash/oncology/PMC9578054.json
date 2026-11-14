@@ -1,0 +1,429 @@
+{
+  "case_id": "PMC9578054",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 11,
+  "termination": "final",
+  "known_final_diagnosis": "The patient had stage IV metastatic lung adenocarcinoma.",
+  "disclosed_evidence_ids": [
+    "E003",
+    "E005",
+    "E007",
+    "E008"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Brain imaging (e.g., CT or MRI) to investigate neurological symptoms",
+        "current_trajectory_hypothesis": "Patient presented with neurological and constitutional symptoms. Given the known diagnosis of metastatic lung adenocarcinoma, brain metastases are a strong possibility explaining the neurological deficits.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Confirmation of brain lesions/metastases",
+          "Evidence of primary lung lesion",
+          "Biopsy/pathology results for confirmation",
+          "Staging information",
+          "Treatment and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Brain imaging test ordered, awaiting source documentation of result.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Result of the brain imaging (CT or MRI) previously ordered",
+        "current_trajectory_hypothesis": "Patient presented with neurological and constitutional symptoms. Brain imaging is expected to show lesions consistent with metastases, given the known final diagnosis of metastatic lung adenocarcinoma.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Confirmation of brain lesions/metastases",
+          "Evidence of primary lung lesion",
+          "Biopsy/pathology results for confirmation",
+          "Staging information",
+          "Treatment and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "A non-contrast computed tomography (CT) scan of the brain showed lesions with vasogenic edema in the right parietal lobe (Figure 1).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Chest imaging (e.g., CT scan of the chest) to investigate for a primary lung lesion",
+        "current_trajectory_hypothesis": "The patient has neurological symptoms and brain lesions consistent with metastases. Given the known final diagnosis of metastatic lung adenocarcinoma, the next step is to identify the primary lung tumor.",
+        "confirmed_evidence": [
+          "Patient presented with left-sided weakness and headache",
+          "Brain CT showed lesions with vasogenic edema in the right parietal lobe"
+        ],
+        "missing_key_evidence": [
+          "Evidence of primary lung lesion",
+          "Biopsy/pathology results for confirmation of lung adenocarcinoma",
+          "Staging information beyond brain metastases",
+          "Treatment and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Order acknowledged and recorded; waiting for documented test result.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Result of the chest imaging (CT scan of the chest) previously ordered",
+        "current_trajectory_hypothesis": "The patient has neurological symptoms and brain lesions consistent with metastases. A primary lung lesion is suspected given the known final diagnosis of metastatic lung adenocarcinoma, and the chest CT result is crucial to identify it.",
+        "confirmed_evidence": [
+          "Patient presented with left-sided weakness and headache",
+          "Brain CT showed lesions with vasogenic edema in the right parietal lobe"
+        ],
+        "missing_key_evidence": [
+          "Evidence of primary lung lesion",
+          "Biopsy/pathology results for confirmation of lung adenocarcinoma",
+          "Staging information beyond brain metastases",
+          "Treatment and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "A CT scan of the chest showed a mass in the anterior segment of the right upper lobe (Figure 3), and CT scan of the abdomen showed multiple hypodense liver lesions, indicating metastasis (Figure 4).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "Biopsy of the lung mass or an accessible metastatic site for histopathological diagnosis",
+        "current_trajectory_hypothesis": "The patient has neurological symptoms and brain lesions, a lung mass, and liver lesions, all highly suggestive of metastatic cancer. A biopsy is needed to confirm the diagnosis of lung adenocarcinoma and characterize it.",
+        "confirmed_evidence": [
+          "Patient presented with left-sided weakness and headache, unintentional weight loss, lack of appetite, subjective fever, and night sweats.",
+          "Brain CT showed lesions with vasogenic edema in the right parietal lobe.",
+          "Chest CT showed a mass in the anterior segment of the right upper lobe.",
+          "Abdominal CT showed multiple hypodense liver lesions, indicating metastasis."
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of lung adenocarcinoma",
+          "Molecular testing results (if performed)",
+          "Further staging information (e.g., PET scan if available)",
+          "Treatment plan and response",
+          "Outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Procedure order registered without available immediate biopsy result in source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Result of the biopsy (histopathology report) of the lung mass or metastatic site",
+        "current_trajectory_hypothesis": "The patient has multiple lesions suggestive of metastatic cancer. A biopsy is essential to confirm the histopathological diagnosis of lung adenocarcinoma, which is the known final diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with left-sided weakness and headache, unintentional weight loss, lack of appetite, subjective fever, and night sweats.",
+          "Brain CT showed lesions with vasogenic edema in the right parietal lobe.",
+          "Chest CT showed a mass in the anterior segment of the right upper lobe.",
+          "Abdominal CT showed multiple hypodense liver lesions, indicating metastasis."
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of lung adenocarcinoma",
+          "Molecular testing results (if performed)",
+          "Further staging information (e.g., PET scan if available)",
+          "Treatment plan and response",
+          "Outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "The slides were fixed by Spray-Cyte and sent to the Pathology Laboratory, which showed that the patient’s sample was positive for malignancy, since there were clusters of malignant epithelial cells with enlarged hyperchromatic pleomorphic nuclei with coarse chromatin. Cell-block immunostaining showed positive reactivity of the malignant cells to CK-7, TTF-1, and focally for Napsin-A. These findings indicated primary lung adenocarcinoma.",
+        "category": "pathology_report",
+        "temporal_cue": "on admission",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Molecular testing (e.g., for EGFR, ALK, ROS1, PD-L1) on the biopsy sample",
+        "current_trajectory_hypothesis": "The patient has a confirmed diagnosis of metastatic lung adenocarcinoma. Molecular testing is crucial for guiding targeted therapy and is a standard part of the workup for this diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with left-sided weakness and headache, unintentional weight loss, lack of appetite, subjective fever, and night sweats.",
+          "Brain CT showed lesions with vasogenic edema in the right parietal lobe.",
+          "Chest CT showed a mass in the anterior segment of the right upper lobe.",
+          "Abdominal CT showed multiple hypodense liver lesions, indicating metastasis.",
+          "Biopsy confirmed primary lung adenocarcinoma with positive reactivity to CK-7, TTF-1, and Napsin-A."
+        ],
+        "missing_key_evidence": [
+          "Molecular testing results",
+          "Further staging information (e.g., PET scan if available)",
+          "Treatment plan and response",
+          "Outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "Molecular testing ordered but no source record documents the result.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Result of the molecular testing (e.g., for EGFR, ALK, ROS1, PD-L1) on the biopsy sample",
+        "current_trajectory_hypothesis": "The patient has a confirmed diagnosis of metastatic lung adenocarcinoma. Molecular testing results are needed to complete the diagnostic workup and inform potential targeted therapies, which is a standard part of the trajectory for this diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with left-sided weakness and headache, unintentional weight loss, lack of appetite, subjective fever, and night sweats.",
+          "Brain CT showed lesions with vasogenic edema in the right parietal lobe.",
+          "Chest CT showed a mass in the anterior segment of the right upper lobe.",
+          "Abdominal CT showed multiple hypodense liver lesions, indicating metastasis.",
+          "Biopsy confirmed primary lung adenocarcinoma with positive reactivity to CK-7, TTF-1, and Napsin-A."
+        ],
+        "missing_key_evidence": [
+          "Molecular testing results",
+          "Further staging information (e.g., PET scan if available)",
+          "Treatment plan and response",
+          "Outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No source record reports the result of molecular testing on the biopsy sample.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient has a confirmed diagnosis of stage IV metastatic lung adenocarcinoma with brain and liver metastases. Molecular testing results were not reported. The next step is to understand the treatment plan and the patient's clinical course.",
+        "confirmed_evidence": [
+          "Patient presented with left-sided weakness and headache, unintentional weight loss, lack of appetite, subjective fever, and night sweats.",
+          "Brain CT showed lesions with vasogenic edema in the right parietal lobe.",
+          "Chest CT showed a mass in the anterior segment of the right upper lobe.",
+          "Abdominal CT showed multiple hypodense liver lesions, indicating metastasis.",
+          "Biopsy confirmed primary lung adenocarcinoma with positive reactivity to CK-7, TTF-1, and Napsin-A."
+        ],
+        "missing_key_evidence": [
+          "Treatment plan and response",
+          "Clinical course and outcome",
+          "Molecular testing results (not reported in source)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "The patient was admitted to the hospital for a malignancy workup with weakness in the left side of the body. Dexamethasone was started at a loading dose of 10 mg intravenously and continued on a regular dose, and levetiracetam 500 mg orally was started for prophylaxis to prevent convulsions. The patient followed up with the Oncology Department for staging and prognosis. Afterward, the patient was referred to the Palliative Care team.",
+        "category": "treatment_response",
+        "temporal_cue": "after diagnosis",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient has a confirmed diagnosis of stage IV metastatic lung adenocarcinoma with brain and liver metastases. Initial symptomatic treatment was provided, and the patient was referred to Oncology for staging/prognosis and subsequently to Palliative Care. I need to understand the subsequent clinical course and outcome.",
+        "confirmed_evidence": [
+          "Patient presented with left-sided weakness and headache, unintentional weight loss, lack of appetite, subjective fever, and night sweats.",
+          "Brain CT showed lesions with vasogenic edema in the right parietal lobe.",
+          "Chest CT showed a mass in the anterior segment of the right upper lobe.",
+          "Abdominal CT showed multiple hypodense liver lesions, indicating metastasis.",
+          "Biopsy confirmed primary lung adenocarcinoma with positive reactivity to CK-7, TTF-1, and Napsin-A.",
+          "Patient was admitted, started on Dexamethasone and Levetiracetam, followed up with Oncology, and referred to Palliative Care."
+        ],
+        "missing_key_evidence": [
+          "Specific details of the treatment plan (beyond initial symptomatic management)",
+          "Patient's clinical course and outcome after palliative care referral",
+          "Molecular testing results (not reported in source)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No pending orders and no new undisclosed clinical trajectory updates after the current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "The patient had stage IV metastatic lung adenocarcinoma.",
+        "trajectory_summary": "A 63-year-old man with a 30-pack-year smoking history presented with left-sided weakness, headache, and constitutional symptoms. Brain CT revealed lesions in the right parietal lobe. Chest CT showed a mass in the right upper lobe, and abdominal CT showed multiple hypodense liver lesions. Biopsy confirmed primary lung adenocarcinoma. Molecular testing results were not reported. The patient received symptomatic treatment with Dexamethasone and Levetiracetam, was followed by Oncology for staging and prognosis, and subsequently referred to Palliative Care. No further clinical course or outcome was documented.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with left upper and lower limb weakness and headache, along with constitutional symptoms (unintentional weight loss, lack of appetite, subjective fever, night sweats).",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Non-contrast CT scan of the brain showed lesions with vasogenic edema in the right parietal lobe.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "CT scan of the chest showed a mass in the anterior segment of the right upper lobe.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "CT scan of the abdomen showed multiple hypodense liver lesions, indicating metastasis.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Pathology report confirmed malignancy with clusters of malignant epithelial cells, and immunostaining (CK-7, TTF-1, Napsin-A positive) indicated primary lung adenocarcinoma.",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Patient was admitted, started on Dexamethasone and Levetiracetam, followed up with Oncology, and referred to the Palliative Care team.",
+            "evidence_ids": [
+              "E008"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [
+          "Specific details of the long-term treatment plan (beyond initial symptomatic management).",
+          "Patient's clinical course and outcome after palliative care referral.",
+          "Molecular testing results (e.g., EGFR, ALK, ROS1, PD-L1) were not reported in the source."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "The patient had stage IV metastatic lung adenocarcinoma.",
+    "trajectory_summary": "A 63-year-old man with a 30-pack-year smoking history presented with left-sided weakness, headache, and constitutional symptoms. Brain CT revealed lesions in the right parietal lobe. Chest CT showed a mass in the right upper lobe, and abdominal CT showed multiple hypodense liver lesions. Biopsy confirmed primary lung adenocarcinoma. Molecular testing results were not reported. The patient received symptomatic treatment with Dexamethasone and Levetiracetam, was followed by Oncology for staging and prognosis, and subsequently referred to Palliative Care. No further clinical course or outcome was documented.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with left upper and lower limb weakness and headache, along with constitutional symptoms (unintentional weight loss, lack of appetite, subjective fever, night sweats).",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Non-contrast CT scan of the brain showed lesions with vasogenic edema in the right parietal lobe.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "CT scan of the chest showed a mass in the anterior segment of the right upper lobe.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "CT scan of the abdomen showed multiple hypodense liver lesions, indicating metastasis.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Pathology report confirmed malignancy with clusters of malignant epithelial cells, and immunostaining (CK-7, TTF-1, Napsin-A positive) indicated primary lung adenocarcinoma.",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Patient was admitted, started on Dexamethasone and Levetiracetam, followed up with Oncology, and referred to the Palliative Care team.",
+        "evidence_ids": [
+          "E008"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [
+      "Specific details of the long-term treatment plan (beyond initial symptomatic management).",
+      "Patient's clinical course and outcome after palliative care referral.",
+      "Molecular testing results (e.g., EGFR, ALK, ROS1, PD-L1) were not reported in the source."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T18:20:44.151412+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

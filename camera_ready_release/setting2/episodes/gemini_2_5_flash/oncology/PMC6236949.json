@@ -1,0 +1,347 @@
+{
+  "case_id": "PMC6236949",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 9,
+  "termination": "final",
+  "known_final_diagnosis": "He was classified as having limited stage small cell lung cancer (LS-SCLC)",
+  "disclosed_evidence_ids": [
+    "E003",
+    "E005",
+    "E006",
+    "E007"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "detailed lab results for hyponatremia workup, including serum sodium, serum osmolality, urine sodium, and urine osmolality",
+        "current_trajectory_hypothesis": "Patient presented with nausea, vomiting, and hyponatremia. Investigating the cause of hyponatremia, potentially SIADH, which could be linked to SCLC.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "confirmation of SIADH",
+          "evidence of lung mass/lesion",
+          "biopsy/pathology confirming SCLC"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Table 1Blood laboratories from day 1, 2, and 6Laboratory StudiesDay 1Day 2Day 6Sodium (mEq/L)110119130Blood Urea Nitrogen (mg/dL)7916Creatinine (mg/dL)0.50.50.6Serum osmolality (mOsm/kg)227237Urine osmolality (mOsm/kg)579Urine sodium (mEq/L)126Adrenocorticotropic hormone (pg/mL)15Total cortisol (ug/dL)16.55Thyroid stimulating hormone (mIU/mL)1.59",
+        "category": "routine_lab",
+        "temporal_cue": "days 1, 2 and 6",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "CT scan of the chest",
+        "current_trajectory_hypothesis": "Patient presented with nausea, vomiting, and hyponatremia, with lab results consistent with SIADH. Given the known association between SIADH and SCLC, and the patient's smoking history, a chest CT is warranted to investigate for a lung mass.",
+        "confirmed_evidence": [
+          "initial presentation with nausea and vomiting",
+          "hyponatremia (Na 110 mEq/L) with low serum osmolality (227 mOsm/kg), high urine osmolality (579 mOsm/kg), and high urine sodium (126 mEq/L) consistent with SIADH"
+        ],
+        "missing_key_evidence": [
+          "evidence of lung mass/lesion",
+          "biopsy/pathology confirming SCLC",
+          "staging information for SCLC"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Order acknowledged; CT scan of chest ordered but result not yet disclosed.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "report of the CT scan of the chest",
+        "current_trajectory_hypothesis": "Patient presented with nausea, vomiting, and hyponatremia, with lab results consistent with SIADH. Given the known association between SIADH and SCLC, and the patient's smoking history, a chest CT was ordered to investigate for a lung mass. I am now requesting the results of this scan.",
+        "confirmed_evidence": [
+          "initial presentation with nausea and vomiting",
+          "hyponatremia (Na 110 mEq/L) with low serum osmolality (227 mOsm/kg), high urine osmolality (579 mOsm/kg), and high urine sodium (126 mEq/L) consistent with SIADH"
+        ],
+        "missing_key_evidence": [
+          "evidence of lung mass/lesion",
+          "biopsy/pathology confirming SCLC",
+          "staging information for SCLC"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Due to the patient’s significant smoking history, unilateral end-expiratory wheeze, initial poor quality chest imaging, and high-index of suspicion, a CT chest was ordered. It revealed the presence of a conglomeration of nodules and opacities measuring 3.0 × 1.9 cm in the inferior segment of the right upper lobe of the lung with ipsilateral mediastinal lymphadenopathy.",
+        "category": "image_finding",
+        "temporal_cue": "after admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "biopsy of the right upper lobe lung mass",
+        "current_trajectory_hypothesis": "Patient presented with nausea, vomiting, and hyponatremia, with lab results consistent with SIADH. A chest CT revealed a lung mass and ipsilateral mediastinal lymphadenopathy. To confirm the diagnosis of SCLC, a biopsy of the lung mass is needed.",
+        "confirmed_evidence": [
+          "initial presentation with nausea and vomiting",
+          "hyponatremia (Na 110 mEq/L) with low serum osmolality (227 mOsm/kg), high urine osmolality (579 mOsm/kg), and high urine sodium (126 mEq/L) consistent with SIADH (E003)",
+          "chest CT showing a 3.0 x 1.9 cm conglomeration of nodules and opacities in the inferior segment of the right upper lobe with ipsilateral mediastinal lymphadenopathy (E005)"
+        ],
+        "missing_key_evidence": [
+          "pathological confirmation of SCLC",
+          "staging information for SCLC"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Biopsy of the right upper lobe lung mass has been ordered; no corresponding prior result evidence found to disclose yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "pathology report from the biopsy of the right upper lobe lung mass",
+        "current_trajectory_hypothesis": "Patient presented with nausea, vomiting, and hyponatremia, with lab results consistent with SIADH. A chest CT revealed a lung mass and ipsilateral mediastinal lymphadenopathy. A biopsy was ordered to confirm the diagnosis of SCLC. I am now requesting the pathology results.",
+        "confirmed_evidence": [
+          "initial presentation with nausea and vomiting",
+          "hyponatremia (Na 110 mEq/L) with low serum osmolality (227 mOsm/kg), high urine osmolality (579 mOsm/kg), and high urine sodium (126 mEq/L) consistent with SIADH (E003)",
+          "chest CT showing a 3.0 x 1.9 cm conglomeration of nodules and opacities in the inferior segment of the right upper lobe with ipsilateral mediastinal lymphadenopathy (E005)"
+        ],
+        "missing_key_evidence": [
+          "pathological confirmation of SCLC",
+          "staging information for SCLC"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "Biopsy specimen stained positive for CK, CD56, NSE, BcL2, Synaptophysin, PAX-5, and TTF-1, but negative for Chromogranin, CD57, and NFP; consistent with small cell carcinoma.",
+        "category": "pathology_report",
+        "temporal_cue": "after CT chest",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "PET-CT scan for staging",
+        "current_trajectory_hypothesis": "Patient presented with nausea, vomiting, and hyponatremia, with lab results consistent with SIADH. A chest CT revealed a lung mass and ipsilateral mediastinal lymphadenopathy. Biopsy confirmed small cell carcinoma. Now, a PET-CT is needed to determine the stage of the cancer, specifically to confirm if it is limited stage.",
+        "confirmed_evidence": [
+          "initial presentation with nausea and vomiting",
+          "hyponatremia (Na 110 mEq/L) with low serum osmolality (227 mOsm/kg), high urine osmolality (579 mOsm/kg), and high urine sodium (126 mEq/L) consistent with SIADH (E003)",
+          "chest CT showing a 3.0 x 1.9 cm conglomeration of nodules and opacities in the inferior segment of the right upper lobe with ipsilateral mediastinal lymphadenopathy (E005)",
+          "biopsy specimen stained positive for CK, CD56, NSE, BcL2, Synaptophysin, PAX-5, and TTF-1, but negative for Chromogranin, CD57, and NFP; consistent with small cell carcinoma (E006)"
+        ],
+        "missing_key_evidence": [
+          "staging information for SCLC (specifically 'limited stage')",
+          "evidence of treatment or clinical course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "PET-CT scan order has been accepted but no result reported yet in the source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "report of the PET-CT scan for staging",
+        "current_trajectory_hypothesis": "Patient presented with nausea, vomiting, and hyponatremia, with lab results consistent with SIADH. A chest CT revealed a lung mass and ipsilateral mediastinal lymphadenopathy. Biopsy confirmed small cell carcinoma. A PET-CT was ordered to determine the stage of the cancer. I am now requesting the results of this scan to confirm 'limited stage'.",
+        "confirmed_evidence": [
+          "initial presentation with nausea and vomiting",
+          "hyponatremia (Na 110 mEq/L) with low serum osmolality (227 mOsm/kg), high urine osmolality (579 mOsm/kg), and high urine sodium (126 mEq/L) consistent with SIADH (E003)",
+          "chest CT showing a 3.0 x 1.9 cm conglomeration of nodules and opacities in the inferior segment of the right upper lobe with ipsilateral mediastinal lymphadenopathy (E005)",
+          "biopsy specimen stained positive for CK, CD56, NSE, BcL2, Synaptophysin, PAX-5, and TTF-1, but negative for Chromogranin, CD57, and NFP; consistent with small cell carcinoma (E006)"
+        ],
+        "missing_key_evidence": [
+          "staging information for SCLC (specifically 'limited stage')",
+          "evidence of treatment or clinical course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "A follow-up telephone conversation occurred 4 weeks from discharge. The patient’s oncologist had ordered a whole-body PET scan within 1 week of hospital discharge and it revealed uptake in one ipsilateral mediastinal lymph node.",
+        "category": "image_finding",
+        "temporal_cue": "4 weeks post discharge",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with nausea, vomiting, and hyponatremia, with lab results consistent with SIADH. A chest CT revealed a lung mass and ipsilateral mediastinal lymphadenopathy. Biopsy confirmed small cell carcinoma. A PET-CT showed uptake in one ipsilateral mediastinal lymph node, supporting a limited stage diagnosis. I am now seeking information on the subsequent clinical course or treatment.",
+        "confirmed_evidence": [
+          "initial presentation with nausea and vomiting",
+          "hyponatremia (Na 110 mEq/L) with low serum osmolality (227 mOsm/kg), high urine osmolality (579 mOsm/kg), and high urine sodium (126 mEq/L) consistent with SIADH (E003)",
+          "chest CT showing a 3.0 x 1.9 cm conglomeration of nodules and opacities in the inferior segment of the right upper lobe with ipsilateral mediastinal lymphadenopathy (E005)",
+          "biopsy specimen stained positive for CK, CD56, NSE, BcL2, Synaptophysin, PAX-5, and TTF-1, but negative for Chromogranin, CD57, and NFP; consistent with small cell carcinoma (E006)",
+          "PET scan revealed uptake in one ipsilateral mediastinal lymph node, supporting limited stage disease (E007)"
+        ],
+        "missing_key_evidence": [
+          "details of treatment for LS-SCLC",
+          "patient's response to treatment or outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No pending orders and no new undisclosed clinical trajectory update available after current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "limited stage small cell lung cancer (LS-SCLC)",
+        "trajectory_summary": "The patient presented with nausea, vomiting, and hyponatremia. Lab results confirmed SIADH. A chest CT revealed a right upper lobe lung mass with ipsilateral mediastinal lymphadenopathy. Biopsy confirmed small cell carcinoma. A subsequent PET scan showed uptake in one ipsilateral mediastinal lymph node, leading to the classification of limited stage small cell lung cancer.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial presentation with nausea, vomiting, and hyponatremia consistent with SIADH (low serum osmolality, high urine osmolality, high urine sodium).",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Chest CT revealed a 3.0 x 1.9 cm conglomeration of nodules and opacities in the inferior segment of the right upper lobe with ipsilateral mediastinal lymphadenopathy.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Biopsy specimen stained positive for markers consistent with small cell carcinoma (CK, CD56, NSE, BcL2, Synaptophysin, PAX-5, TTF-1) and negative for others (Chromogranin, CD57, NFP).",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "PET scan revealed uptake in one ipsilateral mediastinal lymph node, supporting limited stage disease.",
+            "evidence_ids": [
+              "E007"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Other causes of hyponatremia (e.g., adrenal insufficiency, hypothyroidism)",
+            "basis": "Normal ACTH, cortisol, and TSH levels (E003)"
+          },
+          {
+            "alternative": "Acute cardiopulmonary disease",
+            "basis": "Initial chest plain film showed no acute cardiopulmonary disease"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Details of treatment for LS-SCLC",
+          "Patient's response to treatment or outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "limited stage small cell lung cancer (LS-SCLC)",
+    "trajectory_summary": "The patient presented with nausea, vomiting, and hyponatremia. Lab results confirmed SIADH. A chest CT revealed a right upper lobe lung mass with ipsilateral mediastinal lymphadenopathy. Biopsy confirmed small cell carcinoma. A subsequent PET scan showed uptake in one ipsilateral mediastinal lymph node, leading to the classification of limited stage small cell lung cancer.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial presentation with nausea, vomiting, and hyponatremia consistent with SIADH (low serum osmolality, high urine osmolality, high urine sodium).",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Chest CT revealed a 3.0 x 1.9 cm conglomeration of nodules and opacities in the inferior segment of the right upper lobe with ipsilateral mediastinal lymphadenopathy.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Biopsy specimen stained positive for markers consistent with small cell carcinoma (CK, CD56, NSE, BcL2, Synaptophysin, PAX-5, TTF-1) and negative for others (Chromogranin, CD57, NFP).",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "PET scan revealed uptake in one ipsilateral mediastinal lymph node, supporting limited stage disease.",
+        "evidence_ids": [
+          "E007"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Other causes of hyponatremia (e.g., adrenal insufficiency, hypothyroidism)",
+        "basis": "Normal ACTH, cortisol, and TSH levels (E003)"
+      },
+      {
+        "alternative": "Acute cardiopulmonary disease",
+        "basis": "Initial chest plain film showed no acute cardiopulmonary disease"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Details of treatment for LS-SCLC",
+      "Patient's response to treatment or outcome"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T23:12:13.230933+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

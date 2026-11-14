@@ -1,0 +1,359 @@
+{
+  "case_id": "PMC9271278",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 10,
+  "termination": "final",
+  "known_final_diagnosis": "simultaneous spontaneous bilateral ganglia hemorrhage secondary to uncontrolled hypertension",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E003",
+    "E004",
+    "E005"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "non-contrast head CT scan",
+        "current_trajectory_hypothesis": "Patient presents with acute neurological deficit and signs of severe brain injury; initial imaging can confirm presence and location of intracranial hemorrhage",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "imaging evidence to confirm bilateral ganglia hemorrhages and exclude other causes"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "The non-contrast head CT scan is ordered; no previous order for this test was disclosed yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "non-contrast head CT scan report",
+        "current_trajectory_hypothesis": "Initial imaging with non-contrast head CT to evaluate for intracranial hemorrhages is done but results pending",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "CT findings of simultaneous bilateral ganglia hemorrhages",
+          "any signs of mass effect, midline shift, or hydrocephalus",
+          "exclusion of ischemic stroke or other causes on imaging"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "A non-contrast brain CT was obtained, which demonstrated bilateral basal ganglia hemorrhage (BBGH). Hematoma measured 5x3cm in the left basal ganglia and 3x1cm in the right basal ganglia (see Figures 1 and 2).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "blood pressure measurement and laboratory tests including coagulation profile, CBC, renal function, and electrolytes",
+        "current_trajectory_hypothesis": "Patient with bilateral basal ganglia hemorrhages most likely secondary to hypertension; need to confirm uncontrolled hypertension and exclude coagulopathy or other systemic causes",
+        "confirmed_evidence": [
+          "non-contrast head CT showing bilateral basal ganglia hemorrhages (E001)"
+        ],
+        "missing_key_evidence": [
+          "evidence of uncontrolled hypertension at presentation",
+          "laboratory results excluding coagulopathies or systemic causes",
+          "physical examination findings related to hypertension or other end organ damage"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Order for blood pressure and lab tests acknowledged; no direct matching result yet",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "blood pressure measurement and laboratory test results including coagulation profile, CBC, renal function, and electrolytes",
+        "current_trajectory_hypothesis": "Confirming uncontrolled hypertension and excluding coagulopathy or systemic cause for BBGH with blood pressure and laboratory results",
+        "confirmed_evidence": [
+          "non-contrast head CT showing bilateral basal ganglia hemorrhages (E001)"
+        ],
+        "missing_key_evidence": [
+          "evidence of uncontrolled hypertension at presentation",
+          "coagulation profile and lab results excluding alternative causes"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "On admission, blood pressure was 220/120. Other vital signs were normal. The patient’s complete blood count, comprehensive biochemistry profile, and coagulation markers were all within normal limits.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "detailed neurological examination including assessment of cranial nerves, motor and sensory deficits, and level of consciousness",
+        "current_trajectory_hypothesis": "Bilateral basal ganglia hemorrhages confirmed by CT, severe hypertension confirmed on admission, normal labs excluding coagulopathy; detailed neuro exam needed to document neurological deficits consistent with hemorrhages and correlate clinical severity",
+        "confirmed_evidence": [
+          "non-contrast head CT showing bilateral basal ganglia hemorrhages (E001)",
+          "blood pressure 220/120 and normal lab tests excluding coagulopathy (E003)"
+        ],
+        "missing_key_evidence": [
+          "detailed neurological exam findings to correlate clinical deficits with hemorrhage locations",
+          "clinical progression or response to treatment if available"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "After 2 days, Glasgow coma scale of the patient improved from 8 to 11 (eye-opening 4, verbal response 3, motor response 4)",
+        "category": "other",
+        "temporal_cue": "ICU day 2",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient with documented bilateral basal ganglia hemorrhages and severe uncontrolled hypertension with improving neurological scale; additional temporal progression and treatment response data pending",
+        "confirmed_evidence": [
+          "bilateral basal ganglia hemorrhages on CT (E001)",
+          "severe hypertension and normal labs on admission (E003)",
+          "improvement in Glasgow coma scale from 8 to 11 on ICU day 2 (E004)"
+        ],
+        "missing_key_evidence": [
+          "detailed neurological exam findings at presentation and during hospitalization",
+          "documentation of treatment strategy and response",
+          "evidence excluding other potential causes such as vascular malformation or coagulopathy beyond labs",
+          "final confirmation that hemorrhages are spontaneous and related to hypertension"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "After another 5 days of neurology inpatient unit, the patient clinically improved (GCS 14/15) and was referred to the rehabilitation department.",
+        "category": "other",
+        "temporal_cue": "after 10 days of admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "neurological examination findings at initial presentation and during hospitalization including motor, sensory, cranial nerves, and aphasia assessment",
+        "current_trajectory_hypothesis": "Neurological exam findings will corroborate clinical deficits from bilateral basal ganglia hemorrhages and clarify clinical severity and progression",
+        "confirmed_evidence": [
+          "bilateral basal ganglia hemorrhages on CT (E001)",
+          "severe hypertension and normal labs on admission (E003)",
+          "improved Glasgow coma scale over hospitalization (E004, E005)"
+        ],
+        "missing_key_evidence": [
+          "detailed neurological exam at presentation and hospital course",
+          "treatment strategy confirmation",
+          "evidence excluding alternative causes of hemorrhages beyond normal lab tests"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No source record contains neurological examination findings regarding motor, sensory, cranial nerves, or aphasia assessment at initial presentation or during hospitalization.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "MRI brain with and without contrast to exclude vascular malformations or other structural causes of bilateral basal ganglia hemorrhages",
+        "current_trajectory_hypothesis": "To confirm that bilateral basal ganglia hemorrhages are spontaneous and secondary to hypertension, excluding vascular malformation or other structural causes is critical",
+        "confirmed_evidence": [
+          "bilateral basal ganglia hemorrhages on CT (E001)",
+          "severe uncontrolled hypertension with blood pressure 220/120 and normal labs excluding coagulopathy (E003)",
+          "clinical improvement over 10 days documented by rising GCS scores (E004, E005)"
+        ],
+        "missing_key_evidence": [
+          "imaging evidence excluding other causes such as vascular malformations",
+          "detailed neurological examination at presentation and during hospitalization",
+          "documentation of treatment strategy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No evidence in the source documents the result of the ordered MRI brain with and without contrast.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Awaiting MRI brain imaging results to exclude vascular malformations and confirm hemorrhage etiology, alongside ongoing clinical course documentation",
+        "confirmed_evidence": [
+          "bilateral basal ganglia hemorrhages on CT (E001)",
+          "severe uncontrolled hypertension documented (E003)",
+          "clinical improvement over 10 days with increasing GCS (E004, E005)"
+        ],
+        "missing_key_evidence": [
+          "MRI brain results to exclude vascular malformation",
+          "detailed neurological examination findings",
+          "documentation of treatment strategy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No pending orders; no undisclosed clinical trajectory update available after current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "simultaneous spontaneous bilateral ganglia hemorrhage secondary to uncontrolled hypertension",
+        "trajectory_summary": "A 37-year-old man with poorly controlled hypertension presented with sudden severe headache, worsening confusion, right-sided weakness, and mixed aphasia with stupor. Initial non-contrast head CT confirmed simultaneous bilateral basal ganglia hemorrhages (left 5x3cm, right 3x1cm). On admission, blood pressure was critically elevated at 220/120, and laboratory tests including coagulation profile were normal, excluding systemic coagulopathies. Neurological status initially was poor with GCS 8 but improved progressively to 14 by day 10 of hospitalization, consistent with treatment and supportive care. No evidence of vascular malformations was documented, but MRI was ordered without result disclosure. The clinical picture and investigations support spontaneous bilateral ganglia hemorrhage secondary to hypertensive crisis.",
+        "key_supporting_evidence": [
+          {
+            "claim": "non-contrast head CT showed bilateral basal ganglia hemorrhages",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "severe uncontrolled hypertension on admission (220/120) with normal labs including coagulation profile",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "clinical neurological deterioration with GCS 8 improving to 14 over 10 days",
+            "evidence_ids": [
+              "E004",
+              "E005"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "vascular malformation",
+            "basis": "MRI ordered but no results documented; no indication of other causes on CT or labs"
+          },
+          {
+            "alternative": "coagulopathy related hemorrhage",
+            "basis": "normal coagulation profile and lab tests on admission"
+          }
+        ],
+        "remaining_uncertainties": [
+          "missing detailed neurological examination findings at presentation and during hospitalization",
+          "MRI brain results to conclusively exclude vascular malformations or other structural causes",
+          "documentation of specific treatment strategies used"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "simultaneous spontaneous bilateral ganglia hemorrhage secondary to uncontrolled hypertension",
+    "trajectory_summary": "A 37-year-old man with poorly controlled hypertension presented with sudden severe headache, worsening confusion, right-sided weakness, and mixed aphasia with stupor. Initial non-contrast head CT confirmed simultaneous bilateral basal ganglia hemorrhages (left 5x3cm, right 3x1cm). On admission, blood pressure was critically elevated at 220/120, and laboratory tests including coagulation profile were normal, excluding systemic coagulopathies. Neurological status initially was poor with GCS 8 but improved progressively to 14 by day 10 of hospitalization, consistent with treatment and supportive care. No evidence of vascular malformations was documented, but MRI was ordered without result disclosure. The clinical picture and investigations support spontaneous bilateral ganglia hemorrhage secondary to hypertensive crisis.",
+    "key_supporting_evidence": [
+      {
+        "claim": "non-contrast head CT showed bilateral basal ganglia hemorrhages",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "severe uncontrolled hypertension on admission (220/120) with normal labs including coagulation profile",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "clinical neurological deterioration with GCS 8 improving to 14 over 10 days",
+        "evidence_ids": [
+          "E004",
+          "E005"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "vascular malformation",
+        "basis": "MRI ordered but no results documented; no indication of other causes on CT or labs"
+      },
+      {
+        "alternative": "coagulopathy related hemorrhage",
+        "basis": "normal coagulation profile and lab tests on admission"
+      }
+    ],
+    "remaining_uncertainties": [
+      "missing detailed neurological examination findings at presentation and during hospitalization",
+      "MRI brain results to conclusively exclude vascular malformations or other structural causes",
+      "documentation of specific treatment strategies used"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.85
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-29T06:39:09.916909+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

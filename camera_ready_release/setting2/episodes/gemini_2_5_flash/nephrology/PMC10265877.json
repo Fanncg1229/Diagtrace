@@ -1,0 +1,701 @@
+{
+  "case_id": "PMC10265877",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 12,
+  "termination": "final",
+  "known_final_diagnosis": "The patient met six of the EULAR/ACR 2019 classification criteria for systemic lupus erythematosus (SLE) [1], with a total score of 31 including glomerular proteinuria, and a Class V renal biopsy. Positive ANA results, positive anti-dsDNA and anti-Sm antibodies and reduced complement C3 and C4 proteins.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E005",
+    "E006"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Detailed urinalysis report, including protein and hematuria quantification if available.",
+        "current_trajectory_hypothesis": "Patient presents with symptoms suggestive of systemic autoimmune disease, including edema, proteinuria, hematuria, and skin lesions. Initial urinalysis findings need quantification to assess renal involvement.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Quantified proteinuria and hematuria",
+          "Specific autoimmune markers (ANA, anti-dsDNA, anti-Sm)",
+          "Complement levels (C3, C4)",
+          "Renal biopsy findings"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "Initial laboratory investigations showed a decreased serum albumin level of 33.5 g/L then 28.2 g/l (normal rage: 35–50 g/L) and proteinuria of 4.5 g/day (urinary total volume 1000 mL). Microscopic examination of the urine showed microscopic hematuria (80–100 cells/HPF) and leukocyturia (50,000/mL). Electrophoresis of serum proteins showed a polyclonal peak in gamma globulins at 33.6 g/L. Serum creatinine was 58 μmol/L. The patient's blood test results showed a leukocyte count of 4900/mm3, with 1100/mm3 being lymphocytes, hemoglobin level of 12 g/dL, and a platelet count of 178,000/mm3. The patient's antibody test showed a positive result with a titer of 1:1800 and homogenous pattern. Additionally, the patient tested positive for anti-double-stranded DNA antibodies with a titer of 1:40, and for anti-Sm (+ +), anti-RNP (+ +), and anti-SSA antibodies (+). The complement C3 and C4 levels were reduced to 42 mg/L (normal range: 81–157 mg/dL) and 7 mg/dL (normal range: 13–39 mg/dL), respectively, while CH50 was 9.5 U/mL (normal range: 31.7–95 U/mL). The results for Anti-glomerular basement membrane antibody, anti-neutrophil cytoplasmic antibody, Coombs' test, antiphospholipid antibody, serum cryoglobulins, serum and urine immunofixation electrophoresis, and anti-PLA2R antibody were all negative.",
+        "category": "serology",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Renal biopsy findings, specifically the class of lupus nephritis.",
+        "current_trajectory_hypothesis": "The patient presents with nephrotic range proteinuria, microscopic hematuria, reduced complement levels, and positive ANA, anti-dsDNA, and anti-Sm antibodies, strongly suggesting lupus nephritis. A renal biopsy is crucial to classify the lupus nephritis.",
+        "confirmed_evidence": [
+          "Lower extremity edema for 1 month",
+          "Asthenia and weight loss",
+          "Photosensitive skin patches with fine scaling and pruritus",
+          "Proteinuria (4.5 g/day)",
+          "Microscopic hematuria (80-100 cells/HPF)",
+          "Decreased serum albumin (33.5 g/L then 28.2 g/L)",
+          "Positive ANA (1:1800, homogenous)",
+          "Positive anti-dsDNA (1:40)",
+          "Positive anti-Sm (++)",
+          "Positive anti-RNP (++)",
+          "Positive anti-SSA (+)",
+          "Reduced complement C3 (42 mg/L), C4 (7 mg/dL), and CH50 (9.5 U/mL)",
+          "Negative anti-GBM, ANCA, Coombs, aPL, cryoglobulins, immunofixation, and anti-PLA2R antibodies"
+        ],
+        "missing_key_evidence": [
+          "Renal biopsy findings (class of lupus nephritis)",
+          "Clinical course/treatment/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Light microscopy showed that 8/34 glomeruli were sclerotic and the rest showed segmental mesangial deposits and infiltration of neutrophils, but no mesangial cell or stromal proliferation. The glomerular basement membrane was diffusely thickened with segmental spikes. The renal interstitium contained some inflammatory infiltrates, and the tubules showed small focal atrophy and scattered proteinaceous and red blood cell casts.",
+        "category": "pathology_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Immunofluorescence and electron microscopy findings from the renal biopsy, and the final classification of lupus nephritis.",
+        "current_trajectory_hypothesis": "The patient has significant proteinuria, hematuria, positive autoimmune markers (ANA, anti-dsDNA, anti-Sm), and low complement levels, strongly indicating systemic lupus erythematosus with renal involvement. Initial light microscopy findings suggest membranous changes. Immunofluorescence and electron microscopy are crucial for definitive classification of lupus nephritis, particularly to confirm Class V.",
+        "confirmed_evidence": [
+          "Lower extremity edema for 1 month",
+          "Asthenia and weight loss",
+          "Photosensitive skin patches with fine scaling and pruritus",
+          "Proteinuria (4.5 g/day)",
+          "Microscopic hematuria (80-100 cells/HPF)",
+          "Decreased serum albumin (33.5 g/L then 28.2 g/L)",
+          "Positive ANA (1:1800, homogenous)",
+          "Positive anti-dsDNA (1:40)",
+          "Positive anti-Sm (++)",
+          "Positive anti-RNP (++)",
+          "Positive anti-SSA (+)",
+          "Reduced complement C3 (42 mg/L), C4 (7 mg/dL), and CH50 (9.5 U/mL)",
+          "Negative anti-GBM, ANCA, Coombs, aPL, cryoglobulins, immunofixation, and anti-PLA2R antibodies",
+          "Renal biopsy light microscopy showing sclerotic glomeruli, segmental mesangial deposits, diffusely thickened glomerular basement membrane with segmental spikes, inflammatory infiltrates, and tubular atrophy with casts."
+        ],
+        "missing_key_evidence": [
+          "Specific classification of lupus nephritis (e.g., Class V)",
+          "Immunofluorescence and electron microscopy findings from renal biopsy",
+          "Clinical course/treatment/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E004",
+        "source_text": "Direct immunofluorescence showed full-house staining along the mesangium and the capillary loops with subepithelial immune deposits of IgG (3 +), IgA (+), IgM (1 +), C3 (2 +), C1q (1 +), fibrinogen (2 +), albumin (−), kappa (2 +), lambda (3 +).",
+        "category": "pathology_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Electron microscopy findings from the renal biopsy and the final classification of lupus nephritis.",
+        "current_trajectory_hypothesis": "The patient has systemic lupus erythematosus with significant renal involvement, as evidenced by clinical symptoms, serology, and initial renal biopsy findings (light microscopy and immunofluorescence). Electron microscopy and the final classification are needed to confirm Class V lupus nephritis.",
+        "confirmed_evidence": [
+          "Lower extremity edema for 1 month",
+          "Asthenia and weight loss",
+          "Photosensitive skin patches with fine scaling and pruritus",
+          "Proteinuria (4.5 g/day)",
+          "Microscopic hematuria (80-100 cells/HPF)",
+          "Decreased serum albumin (33.5 g/L then 28.2 g/L)",
+          "Positive ANA (1:1800, homogenous)",
+          "Positive anti-dsDNA (1:40)",
+          "Positive anti-Sm (++)",
+          "Positive anti-RNP (++)",
+          "Positive anti-SSA (+)",
+          "Reduced complement C3 (42 mg/L), C4 (7 mg/dL), and CH50 (9.5 U/mL)",
+          "Negative anti-GBM, ANCA, Coombs, aPL, cryoglobulins, immunofixation, and anti-PLA2R antibodies",
+          "Renal biopsy light microscopy showing sclerotic glomeruli, segmental mesangial deposits, diffusely thickened glomerular basement membrane with segmental spikes, inflammatory infiltrates, and tubular atrophy with casts.",
+          "Renal biopsy immunofluorescence showing full-house staining along mesangium and capillary loops with subepithelial immune deposits of IgG, IgA, IgM, C3, C1q, fibrinogen, kappa, and lambda."
+        ],
+        "missing_key_evidence": [
+          "Electron microscopy findings from renal biopsy",
+          "Specific classification of lupus nephritis (e.g., Class V)",
+          "Clinical course/treatment/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E004",
+        "source_text": "A renal biopsy was performed. Light microscopy showed that 8/34 glomeruli were sclerotic and the rest showed segmental mesangial deposits and infiltration of neutrophils, but no mesangial cell or stromal proliferation. The glomerular basement membrane was diffusely thickened with segmental spikes. The renal interstitium contained some inflammatory infiltrates, and the tubules showed small focal atrophy and scattered proteinaceous and red blood cell casts. There was intimal fibrous proliferation and sclerosis of small arteries. Congo red stain for amyloid was negative. Direct immunofluorescence showed full-house staining along the mesangium and the capillary loops with subepithelial immune deposits of IgG (3 +), IgA (+), IgM (1 +), C3 (2 +), C1q (1 +), fibrinogen (2 +), albumin (−), kappa (2 +), lambda (3 +).",
+        "category": "pathology_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Electron microscopy findings from the renal biopsy and the final classification of lupus nephritis (e.g., Class V).",
+        "current_trajectory_hypothesis": "The patient has systemic lupus erythematosus with significant renal involvement, as evidenced by clinical symptoms, serology, and initial renal biopsy findings (light microscopy and immunofluorescence). Electron microscopy and the final classification are needed to confirm Class V lupus nephritis, as stated in the final diagnosis.",
+        "confirmed_evidence": [
+          "Lower extremity edema for 1 month",
+          "Asthenia and weight loss",
+          "Photosensitive skin patches with fine scaling and pruritus",
+          "Proteinuria (4.5 g/day)",
+          "Microscopic hematuria (80-100 cells/HPF)",
+          "Decreased serum albumin (33.5 g/L then 28.2 g/L)",
+          "Positive ANA (1:1800, homogenous)",
+          "Positive anti-dsDNA (1:40)",
+          "Positive anti-Sm (++)",
+          "Positive anti-RNP (++)",
+          "Positive anti-SSA (+)",
+          "Reduced complement C3 (42 mg/L), C4 (7 mg/dL), and CH50 (9.5 U/mL)",
+          "Negative anti-GBM, ANCA, Coombs, aPL, cryoglobulins, immunofixation, and anti-PLA2R antibodies",
+          "Renal biopsy light microscopy showing sclerotic glomeruli, segmental mesangial deposits, diffusely thickened glomerular basement membrane with segmental spikes, inflammatory infiltrates, and tubular atrophy with casts.",
+          "Renal biopsy immunofluorescence showing full-house staining along mesangium and capillary loops with subepithelial immune deposits of IgG, IgA, IgM, C3, C1q, fibrinogen, kappa, and lambda."
+        ],
+        "missing_key_evidence": [
+          "Electron microscopy findings from renal biopsy",
+          "Specific classification of lupus nephritis (e.g., Class V)",
+          "Clinical course/treatment/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "No source record reports electron microscopy findings or the final classification of lupus nephritis.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Specific EULAR/ACR 2019 classification criteria for SLE that were met, and the total score.",
+        "current_trajectory_hypothesis": "The patient has strong serological and clinical evidence for SLE with renal involvement. While the explicit 'Class V renal biopsy' classification has not been directly reported, the light microscopy and immunofluorescence findings are highly suggestive of it. The final diagnosis also states that the patient met specific EULAR/ACR criteria with a total score, which needs to be verified.",
+        "confirmed_evidence": [
+          "Lower extremity edema for 1 month",
+          "Asthenia and weight loss",
+          "Photosensitive skin patches with fine scaling and pruritus",
+          "Proteinuria (4.5 g/day)",
+          "Microscopic hematuria (80-100 cells/HPF)",
+          "Decreased serum albumin (33.5 g/L then 28.2 g/L)",
+          "Positive ANA (1:1800, homogenous)",
+          "Positive anti-dsDNA (1:40)",
+          "Positive anti-Sm (++)",
+          "Positive anti-RNP (++)",
+          "Positive anti-SSA (+)",
+          "Reduced complement C3 (42 mg/L), C4 (7 mg/dL), and CH50 (9.5 U/mL)",
+          "Negative anti-GBM, ANCA, Coombs, aPL, cryoglobulins, immunofixation, and anti-PLA2R antibodies",
+          "Renal biopsy light microscopy showing sclerotic glomeruli, segmental mesangial deposits, diffusely thickened glomerular basement membrane with segmental spikes, inflammatory infiltrates, and tubular atrophy with casts.",
+          "Renal biopsy immunofluorescence showing full-house staining along mesangium and capillary loops with subepithelial immune deposits of IgG, IgA, IgM, C3, C1q, fibrinogen, kappa, and lambda."
+        ],
+        "missing_key_evidence": [
+          "Explicit classification of lupus nephritis (e.g., Class V)",
+          "Specific EULAR/ACR 2019 classification criteria met and total score",
+          "Clinical course/treatment/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "No source record contains specific EULAR/ACR 2019 classification criteria for SLE or total score information.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient has systemic lupus erythematosus with severe renal involvement (likely Class V lupus nephritis based on biopsy findings), supported by clinical symptoms, nephrotic range proteinuria, microscopic hematuria, positive autoimmune markers (ANA, anti-dsDNA, anti-Sm), and low complement levels. While the explicit Class V classification and EULAR/ACR criteria/score are not reported, the available evidence strongly supports the diagnosis. The next step is to understand the clinical course and treatment.",
+        "confirmed_evidence": [
+          "Lower extremity edema for 1 month",
+          "Asthenia and weight loss",
+          "Photosensitive skin patches with fine scaling and pruritus",
+          "Proteinuria (4.5 g/day)",
+          "Microscopic hematuria (80-100 cells/HPF)",
+          "Decreased serum albumin (33.5 g/L then 28.2 g/L)",
+          "Positive ANA (1:1800, homogenous)",
+          "Positive anti-dsDNA (1:40)",
+          "Positive anti-Sm (++)",
+          "Positive anti-RNP (++)",
+          "Positive anti-SSA (+)",
+          "Reduced complement C3 (42 mg/L), C4 (7 mg/dL), and CH50 (9.5 U/mL)",
+          "Negative anti-GBM, ANCA, Coombs, aPL, cryoglobulins, immunofixation, and anti-PLA2R antibodies",
+          "Renal biopsy light microscopy showing sclerotic glomeruli, segmental mesangial deposits, diffusely thickened glomerular basement membrane with segmental spikes, inflammatory infiltrates, and tubular atrophy with casts.",
+          "Renal biopsy immunofluorescence showing full-house staining along mesangium and capillary loops with subepithelial immune deposits of IgG, IgA, IgM, C3, C1q, fibrinogen, kappa, and lambda."
+        ],
+        "missing_key_evidence": [
+          "Explicit classification of lupus nephritis (e.g., Class V)",
+          "Specific EULAR/ACR 2019 classification criteria met and total score",
+          "Clinical course/treatment/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "The skin biopsy confirmed the diagnosis of LET, with the presence of inflammatory lymphohistiocytic infiltrates and dermal mucin on and below the skin surface, with little or no involvement of the epidermis or dermo-epidermal layer (Fig. 3). Direct immunofluorescence of skin biopsy confirmed LET by the presence of CD3/CD4 lymphocytes.",
+        "category": "pathology_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient has systemic lupus erythematosus with severe renal involvement (likely Class V lupus nephritis based on biopsy findings), supported by clinical symptoms, nephrotic range proteinuria, microscopic hematuria, positive autoimmune markers (ANA, anti-dsDNA, anti-Sm), low complement levels, and a confirmed skin biopsy of Lupus Erythematosus Tumidus. While explicit Class V classification and EULAR/ACR criteria/score are not reported, the available evidence strongly supports the diagnosis. The next step is to understand the clinical course and treatment.",
+        "confirmed_evidence": [
+          "Lower extremity edema for 1 month",
+          "Asthenia and weight loss",
+          "Photosensitive skin patches with fine scaling and pruritus",
+          "Proteinuria (4.5 g/day)",
+          "Microscopic hematuria (80-100 cells/HPF)",
+          "Decreased serum albumin (33.5 g/L then 28.2 g/L)",
+          "Positive ANA (1:1800, homogenous)",
+          "Positive anti-dsDNA (1:40)",
+          "Positive anti-Sm (++)",
+          "Positive anti-RNP (++)",
+          "Positive anti-SSA (+)",
+          "Reduced complement C3 (42 mg/L), C4 (7 mg/dL), and CH50 (9.5 U/mL)",
+          "Negative anti-GBM, ANCA, Coombs, aPL, cryoglobulins, immunofixation, and anti-PLA2R antibodies",
+          "Renal biopsy light microscopy showing sclerotic glomeruli, segmental mesangial deposits, diffusely thickened glomerular basement membrane with segmental spikes, inflammatory infiltrates, and tubular atrophy with casts.",
+          "Renal biopsy immunofluorescence showing full-house staining along mesangium and capillary loops with subepithelial immune deposits of IgG, IgA, IgM, C3, C1q, fibrinogen, kappa, and lambda.",
+          "Skin biopsy confirmed Lupus Erythematosus Tumidus (LET) with inflammatory lymphohistiocytic infiltrates and dermal mucin."
+        ],
+        "missing_key_evidence": [
+          "Explicit classification of lupus nephritis (e.g., Class V)",
+          "Specific EULAR/ACR 2019 classification criteria met and total score",
+          "Clinical course/treatment/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Ultrasound examination of the kidneys showed normal-sized kidneys (left 11.8 cm; right 11.7 cm).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient has systemic lupus erythematosus with severe renal involvement, supported by clinical symptoms, nephrotic range proteinuria, microscopic hematuria, positive autoimmune markers (ANA, anti-dsDNA, anti-Sm), low complement levels, and renal biopsy findings (light microscopy and immunofluorescence) consistent with membranous lupus nephritis. Skin biopsy confirmed Lupus Erythematosus Tumidus. While the explicit 'Class V' classification and EULAR/ACR criteria/score are not reported, the available evidence strongly supports the diagnosis. The next step is to understand the clinical course, treatment, and patient's response.",
+        "confirmed_evidence": [
+          "Lower extremity edema for 1 month",
+          "Asthenia and weight loss",
+          "Photosensitive skin patches with fine scaling and pruritus",
+          "Proteinuria (4.5 g/day)",
+          "Microscopic hematuria (80-100 cells/HPF)",
+          "Decreased serum albumin (33.5 g/L then 28.2 g/L)",
+          "Positive ANA (1:1800, homogenous)",
+          "Positive anti-dsDNA (1:40)",
+          "Positive anti-Sm (++)",
+          "Positive anti-RNP (++)",
+          "Positive anti-SSA (+)",
+          "Reduced complement C3 (42 mg/L), C4 (7 mg/dL), and CH50 (9.5 U/mL)",
+          "Negative anti-GBM, ANCA, Coombs, aPL, cryoglobulins, immunofixation, and anti-PLA2R antibodies",
+          "Renal biopsy light microscopy showing sclerotic glomeruli, segmental mesangial deposits, diffusely thickened glomerular basement membrane with segmental spikes, inflammatory infiltrates, and tubular atrophy with casts.",
+          "Renal biopsy immunofluorescence showing full-house staining along mesangium and capillary loops with subepithelial immune deposits of IgG, IgA, IgM, C3, C1q, fibrinogen, kappa, and lambda.",
+          "Skin biopsy confirmed Lupus Erythematosus Tumidus (LET) with inflammatory lymphohistiocytic infiltrates and dermal mucin.",
+          "Normal-sized kidneys on ultrasound."
+        ],
+        "missing_key_evidence": [
+          "Explicit classification of lupus nephritis (e.g., Class V)",
+          "Specific EULAR/ACR 2019 classification criteria met and total score",
+          "Clinical course/treatment/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Symptomatic treatment was based on anti ptoteinuric treatment with ACE inhibitors (Captopril 25 1 table × 2/day) and substantive treatment combined oral corticotherapy at 1 mg/kg/day (prednisone 5 12 tablets/day) for 1 month followed by tapering 5 mg/15 days and hydroxychloroquine 200 twice a day. No DMARD therapy for SLE has been initiated.",
+        "category": "treatment_response",
+        "temporal_cue": "after diagnosis",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Patient's response to initial treatment (ACE inhibitors, corticosteroids, hydroxychloroquine), including changes in proteinuria, edema, and complement levels.",
+        "current_trajectory_hypothesis": "The patient has systemic lupus erythematosus with severe renal involvement (membranous lupus nephritis, likely Class V based on biopsy findings), supported by clinical symptoms, nephrotic range proteinuria, microscopic hematuria, positive autoimmune markers (ANA, anti-dsDNA, anti-Sm), low complement levels, and confirmed skin biopsy of Lupus Erythematosus Tumidus. Initial treatment has been initiated. The next step is to understand the patient's response to this treatment.",
+        "confirmed_evidence": [
+          "Lower extremity edema for 1 month",
+          "Asthenia and weight loss",
+          "Photosensitive skin patches with fine scaling and pruritus",
+          "Proteinuria (4.5 g/day)",
+          "Microscopic hematuria (80-100 cells/HPF)",
+          "Decreased serum albumin (33.5 g/L then 28.2 g/L)",
+          "Positive ANA (1:1800, homogenous)",
+          "Positive anti-dsDNA (1:40)",
+          "Positive anti-Sm (++)",
+          "Positive anti-RNP (++)",
+          "Positive anti-SSA (+)",
+          "Reduced complement C3 (42 mg/L), C4 (7 mg/dL), and CH50 (9.5 U/mL)",
+          "Negative anti-GBM, ANCA, Coombs, aPL, cryoglobulins, immunofixation, and anti-PLA2R antibodies",
+          "Renal biopsy light microscopy showing sclerotic glomeruli, segmental mesangial deposits, diffusely thickened glomerular basement membrane with segmental spikes, inflammatory infiltrates, and tubular atrophy with casts.",
+          "Renal biopsy immunofluorescence showing full-house staining along mesangium and capillary loops with subepithelial immune deposits of IgG, IgA, IgM, C3, C1q, fibrinogen, kappa, and lambda.",
+          "Skin biopsy confirmed Lupus Erythematosus Tumidus (LET) with inflammatory lymphohistiocytic infiltrates and dermal mucin.",
+          "Normal-sized kidneys on ultrasound.",
+          "Initial treatment with ACE inhibitors (Captopril), oral corticosteroids (prednisone), and hydroxychloroquine."
+        ],
+        "missing_key_evidence": [
+          "Explicit classification of lupus nephritis (e.g., Class V)",
+          "Specific EULAR/ACR 2019 classification criteria met and total score",
+          "Clinical course/treatment response/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "After 1 month, the skin lesions regressed. At 6 and 12 months follow up, proteinuria improved to respecively 0.8 g/24 hour and 0.5 g/24 hour. At the latest check-up, 22 months after the initial presentation, the patient’s proteinuria was 684 mg/24 hour, serum creatinine was 51 µmol/l, and there was complete resolution of the lesions.",
+        "category": "other",
+        "temporal_cue": "follow up to 22 months",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Complement C3 and C4 levels at follow-up (e.g., 6, 12, or 22 months).",
+        "current_trajectory_hypothesis": "The patient has systemic lupus erythematosus with severe renal involvement (membranous lupus nephritis, likely Class V based on biopsy findings), supported by clinical symptoms, nephrotic range proteinuria, microscopic hematuria, positive autoimmune markers (ANA, anti-dsDNA, anti-Sm), low complement levels, and confirmed skin biopsy of Lupus Erythematosus Tumidus. Initial treatment led to significant improvement in proteinuria and skin lesions. Assessing post-treatment complement levels will provide further insight into disease activity and treatment response.",
+        "confirmed_evidence": [
+          "Lower extremity edema for 1 month",
+          "Asthenia and weight loss",
+          "Photosensitive skin patches with fine scaling and pruritus",
+          "Proteinuria (4.5 g/day)",
+          "Microscopic hematuria (80-100 cells/HPF)",
+          "Decreased serum albumin (33.5 g/L then 28.2 g/L)",
+          "Positive ANA (1:1800, homogenous)",
+          "Positive anti-dsDNA (1:40)",
+          "Positive anti-Sm (++)",
+          "Positive anti-RNP (++)",
+          "Positive anti-SSA (+)",
+          "Reduced complement C3 (42 mg/L), C4 (7 mg/dL), and CH50 (9.5 U/mL)",
+          "Negative anti-GBM, ANCA, Coombs, aPL, cryoglobulins, immunofixation, and anti-PLA2R antibodies",
+          "Renal biopsy light microscopy showing sclerotic glomeruli, segmental mesangial deposits, diffusely thickened glomerular basement membrane with segmental spikes, inflammatory infiltrates, and tubular atrophy with casts.",
+          "Renal biopsy immunofluorescence showing full-house staining along mesangium and capillary loops with subepithelial immune deposits of IgG, IgA, IgM, C3, C1q, fibrinogen, kappa, and lambda.",
+          "Skin biopsy confirmed Lupus Erythematosus Tumidus (LET) with inflammatory lymphohistiocytic infiltrates and dermal mucin.",
+          "Normal-sized kidneys on ultrasound.",
+          "Initial treatment with ACE inhibitors (Captopril), oral corticosteroids (prednisone), and hydroxychloroquine.",
+          "Skin lesions regressed after 1 month of treatment.",
+          "Proteinuria improved to 0.8 g/24h at 6 months, 0.5 g/24h at 12 months, and 684 mg/24h at 22 months.",
+          "Serum creatinine 51 µmol/l at 22 months.",
+          "Complete resolution of lesions at 22 months."
+        ],
+        "missing_key_evidence": [
+          "Explicit classification of lupus nephritis (e.g., Class V)",
+          "Specific EULAR/ACR 2019 classification criteria met and total score",
+          "Complement levels at follow-up"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No complement C3 and C4 levels reported at follow-up time points (6, 12, or 22 months) in the supplied evidence.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "The patient met six of the EULAR/ACR 2019 classification criteria for systemic lupus erythematosus (SLE) [1], with a total score of 31 including glomerular proteinuria, and a Class V renal biopsy. Positive ANA results, positive anti-dsDNA and anti-Sm antibodies and reduced complement C3 and C4 proteins.",
+        "trajectory_summary": "A 38-year-old female presented with lower extremity edema, asthenia, weight loss, and photosensitive skin patches. Initial workup revealed nephrotic range proteinuria (4.5 g/day), microscopic hematuria, decreased serum albumin, positive ANA (1:1800), anti-dsDNA (1:40), anti-Sm, anti-RNP, anti-SSA antibodies, and reduced complement C3, C4, and CH50. Renal biopsy showed sclerotic glomeruli, mesangial deposits, diffusely thickened glomerular basement membrane with segmental spikes, and full-house immunofluorescence staining with subepithelial immune deposits, consistent with membranous lupus nephritis. Skin biopsy confirmed Lupus Erythematosus Tumidus. Treatment with ACE inhibitors, corticosteroids, and hydroxychloroquine led to regression of skin lesions and significant improvement in proteinuria (to 684 mg/24h at 22 months).",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with lower extremity edema, asthenia, weight loss, and photosensitive skin patches.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Initial urinalysis showed proteinuria of 4.5 g/day and microscopic hematuria (80-100 cells/HPF).",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Serum albumin was decreased (33.5 g/L then 28.2 g/L).",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Positive ANA (1:1800, homogenous), anti-double-stranded DNA antibodies (1:40), anti-Sm (++), anti-RNP (++), and anti-SSA antibodies (+).",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Reduced complement C3 (42 mg/L), C4 (7 mg/dL), and CH50 (9.5 U/mL).",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Renal biopsy light microscopy showed diffusely thickened glomerular basement membrane with segmental spikes, segmental mesangial deposits, and sclerotic glomeruli.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Renal biopsy immunofluorescence showed full-house staining along mesangium and capillary loops with subepithelial immune deposits of IgG, IgA, IgM, C3, C1q, fibrinogen, kappa, and lambda.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Skin biopsy confirmed Lupus Erythematosus Tumidus (LET) with inflammatory lymphohistiocytic infiltrates and dermal mucin.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Treatment initiated with ACE inhibitors (Captopril), oral corticosteroids (prednisone), and hydroxychloroquine.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Skin lesions regressed after 1 month, and proteinuria improved to 0.8 g/24h at 6 months, 0.5 g/24h at 12 months, and 684 mg/24h at 22 months.",
+            "evidence_ids": [
+              "E006"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Anti-glomerular basement membrane antibody disease",
+            "basis": "Negative anti-glomerular basement membrane antibody (E001)"
+          },
+          {
+            "alternative": "Anti-neutrophil cytoplasmic antibody (ANCA) associated vasculitis",
+            "basis": "Negative anti-neutrophil cytoplasmic antibody (E001)"
+          },
+          {
+            "alternative": "Coombs' positive hemolytic anemia",
+            "basis": "Negative Coombs' test (E001)"
+          },
+          {
+            "alternative": "Antiphospholipid syndrome",
+            "basis": "Negative antiphospholipid antibody (E001)"
+          },
+          {
+            "alternative": "Cryoglobulinemia",
+            "basis": "Negative serum cryoglobulins (E001)"
+          },
+          {
+            "alternative": "Monoclonal gammopathy",
+            "basis": "Negative serum and urine immunofixation electrophoresis (E001)"
+          },
+          {
+            "alternative": "PLA2R-associated membranous nephropathy",
+            "basis": "Negative anti-PLA2R antibody (E001)"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Explicit classification of lupus nephritis as 'Class V' from the pathology report.",
+          "Electron microscopy findings from the renal biopsy.",
+          "Specific EULAR/ACR 2019 classification criteria met and the total score.",
+          "Complement C3 and C4 levels at follow-up."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "The patient met six of the EULAR/ACR 2019 classification criteria for systemic lupus erythematosus (SLE) [1], with a total score of 31 including glomerular proteinuria, and a Class V renal biopsy. Positive ANA results, positive anti-dsDNA and anti-Sm antibodies and reduced complement C3 and C4 proteins.",
+    "trajectory_summary": "A 38-year-old female presented with lower extremity edema, asthenia, weight loss, and photosensitive skin patches. Initial workup revealed nephrotic range proteinuria (4.5 g/day), microscopic hematuria, decreased serum albumin, positive ANA (1:1800), anti-dsDNA (1:40), anti-Sm, anti-RNP, anti-SSA antibodies, and reduced complement C3, C4, and CH50. Renal biopsy showed sclerotic glomeruli, mesangial deposits, diffusely thickened glomerular basement membrane with segmental spikes, and full-house immunofluorescence staining with subepithelial immune deposits, consistent with membranous lupus nephritis. Skin biopsy confirmed Lupus Erythematosus Tumidus. Treatment with ACE inhibitors, corticosteroids, and hydroxychloroquine led to regression of skin lesions and significant improvement in proteinuria (to 684 mg/24h at 22 months).",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with lower extremity edema, asthenia, weight loss, and photosensitive skin patches.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Initial urinalysis showed proteinuria of 4.5 g/day and microscopic hematuria (80-100 cells/HPF).",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Serum albumin was decreased (33.5 g/L then 28.2 g/L).",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Positive ANA (1:1800, homogenous), anti-double-stranded DNA antibodies (1:40), anti-Sm (++), anti-RNP (++), and anti-SSA antibodies (+).",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Reduced complement C3 (42 mg/L), C4 (7 mg/dL), and CH50 (9.5 U/mL).",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Renal biopsy light microscopy showed diffusely thickened glomerular basement membrane with segmental spikes, segmental mesangial deposits, and sclerotic glomeruli.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Renal biopsy immunofluorescence showed full-house staining along mesangium and capillary loops with subepithelial immune deposits of IgG, IgA, IgM, C3, C1q, fibrinogen, kappa, and lambda.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Skin biopsy confirmed Lupus Erythematosus Tumidus (LET) with inflammatory lymphohistiocytic infiltrates and dermal mucin.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Treatment initiated with ACE inhibitors (Captopril), oral corticosteroids (prednisone), and hydroxychloroquine.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Skin lesions regressed after 1 month, and proteinuria improved to 0.8 g/24h at 6 months, 0.5 g/24h at 12 months, and 684 mg/24h at 22 months.",
+        "evidence_ids": [
+          "E006"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Anti-glomerular basement membrane antibody disease",
+        "basis": "Negative anti-glomerular basement membrane antibody (E001)"
+      },
+      {
+        "alternative": "Anti-neutrophil cytoplasmic antibody (ANCA) associated vasculitis",
+        "basis": "Negative anti-neutrophil cytoplasmic antibody (E001)"
+      },
+      {
+        "alternative": "Coombs' positive hemolytic anemia",
+        "basis": "Negative Coombs' test (E001)"
+      },
+      {
+        "alternative": "Antiphospholipid syndrome",
+        "basis": "Negative antiphospholipid antibody (E001)"
+      },
+      {
+        "alternative": "Cryoglobulinemia",
+        "basis": "Negative serum cryoglobulins (E001)"
+      },
+      {
+        "alternative": "Monoclonal gammopathy",
+        "basis": "Negative serum and urine immunofixation electrophoresis (E001)"
+      },
+      {
+        "alternative": "PLA2R-associated membranous nephropathy",
+        "basis": "Negative anti-PLA2R antibody (E001)"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Explicit classification of lupus nephritis as 'Class V' from the pathology report.",
+      "Electron microscopy findings from the renal biopsy.",
+      "Specific EULAR/ACR 2019 classification criteria met and the total score.",
+      "Complement C3 and C4 levels at follow-up."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T21:27:24.680630+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

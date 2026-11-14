@@ -1,0 +1,52 @@
+{
+  "prompt_version": "2026-07-31-interactive-fvcu-v1",
+  "judge_deployment": "gpt-4.1-mini-test",
+  "judge_input_file": "eacl_benchmark/results/interactive_fvcu_quality/matched225_100case_gpt41mini/judge_inputs/neurology__PMC10662534.json",
+  "judge_output": {
+    "case_id": "PMC10662534",
+    "judge_status": "completed",
+    "interactive_fvcu": {
+      "factuality": {
+        "score": 5,
+        "major_issues": [],
+        "rationale": "All claims and interpretations by the clinician agent are well grounded in the disclosed report-agent responses and source events. The final reconstruction cites only released evidence (E002, E003, E004, E005, E006) with no fabrication or unsupported claims."
+      },
+      "validity": {
+        "score": 5,
+        "major_issues": [],
+        "rationale": "The clinician agent's requests and interpretations are clinically appropriate and reasonable given the known diagnosis of nondiabetic LRPN. The agent orders relevant imaging, electrophysiology, and laboratory tests to exclude differential diagnoses and confirm neuropathy localization. Interpretations of findings are consistent with clinical reasoning."
+      },
+      "coherence": {
+        "score": 4,
+        "major_issues": [
+          "Repeated WAIT_REASSESS actions with invalid report selections (turns 9, 10, 11, 13, 14) that do not update the reconstruction or add new evidence."
+        ],
+        "rationale": "The working reconstruction and confidence evolve logically with each new piece of evidence. However, multiple consecutive turns involve waiting without new evidence or updated reconstruction, and invalid report selections that do not contribute to the trajectory, causing some inefficiency and minor coherence disruption."
+      },
+      "utility": {
+        "score": 4,
+        "major_issues": [
+          "Several ordered tests remain undocumented or results not requested (e.g., initial MRI order, repeated lab orders).",
+          "Multiple WAIT_REASSESS turns without new evidence reduce efficiency."
+        ],
+        "rationale": "The clinician agent prioritizes high-yield evidence categories (imaging, electrophysiology, CSF, serology) and obtains key diagnostic data supporting the final diagnosis. However, some ordered tests are not followed up with result requests, and the episode includes redundant waiting turns, limiting optimal use of the fixed turn budget."
+      },
+      "overall_quality": {
+        "score": 4,
+        "rationale": "The clinician agent demonstrates strong factual grounding and clinical validity, producing a coherent and well-supported final reconstruction. Minor inefficiencies in request strategy and repeated waiting without new evidence slightly reduce overall utility and coherence but do not undermine the diagnostic trajectory reconstruction quality."
+      }
+    },
+    "trajectory_flags": {
+      "unsupported_or_unreleased_claims": false,
+      "request_strategy_problem": false,
+      "final_reconstruction_grounded": true
+    },
+    "episode_notes": "The clinician agent effectively reconstructs the diagnostic trajectory for nondiabetic LRPN using appropriate evidence. The final summary is well supported by released evidence. Some inefficiencies arise from repeated waiting and invalid report selections without new data, but these do not significantly impair the overall quality."
+  },
+  "usage": {
+    "prompt_tokens": 9215,
+    "completion_tokens": 613,
+    "total_tokens": 9828
+  },
+  "created_at": "2026-08-01T02:59:10.973027+00:00"
+}

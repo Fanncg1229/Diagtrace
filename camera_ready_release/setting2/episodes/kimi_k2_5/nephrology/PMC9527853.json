@@ -1,0 +1,414 @@
+{
+  "case_id": "PMC9527853",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 8,
+  "termination": "final",
+  "known_final_diagnosis": "A diagnosis of sarcoidosis was made based upon the renal biopsy findings and the above serological test results.",
+  "disclosed_evidence_ids": [
+    "E002",
+    "E004",
+    "E005",
+    "E006",
+    "E007"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "MRI of the brain and orbits performed to rule out intracranial pathology",
+        "current_trajectory_hypothesis": "63-year-old man presents with bilateral ocular hypertension, optic nerve edema, and retinal ischemic changes suspicious for sarcoidosis or hypertensive retinopathy. MRI was ordered to evaluate for intracranial causes. The trajectory likely involves progression from ocular findings to systemic workup revealing renal involvement, culminating in renal biopsy confirming sarcoidosis.",
+        "confirmed_evidence": [
+          "Initial presentation with blurry vision, glare, elevated IOP (33 and 38 mm Hg), optic nerve edema, cotton-wool spots, and retinal hemorrhages",
+          "Preliminary diagnosis of bilateral hypertensive retinopathy with optic nerve swelling",
+          "Treatment initiated for open-angle glaucoma with timolol and latanoprost"
+        ],
+        "missing_key_evidence": [
+          "MRI findings",
+          "Systemic symptoms or organ involvement beyond eyes",
+          "Renal function tests or urinalysis",
+          "Serological markers (ACE, calcium, etc.)",
+          "Renal biopsy pathology results",
+          "Chest imaging (CXR/CT) for hilar lymphadenopathy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "The magnetic resonance imaging results were normal, with no evidence of any intracranial abnormality or mass.",
+        "category": "imaging_report",
+        "temporal_cue": "after initial presentation",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Chest imaging (chest X-ray or CT chest) performed to evaluate for hilar lymphadenopathy or pulmonary involvement",
+        "current_trajectory_hypothesis": "63-year-old man with ocular hypertension and retinal ischemia. MRI ruled out intracranial mass. Given final diagnosis of sarcoidosis via renal biopsy, the trajectory likely involves systemic evaluation revealing pulmonary and/or renal involvement. Chest imaging would be standard to evaluate for hilar lymphadenopathy typical of sarcoidosis.",
+        "confirmed_evidence": [
+          "Initial presentation with blurry vision, glare, elevated IOP (33 and 38 mm Hg), optic nerve edema, cotton-wool spots, and retinal hemorrhages",
+          "Preliminary diagnosis of bilateral hypertensive retinopathy with optic nerve swelling",
+          "Treatment initiated for open-angle glaucoma with timolol and latanoprost",
+          "MRI brain/orbits normal - no intracranial abnormality (E002)"
+        ],
+        "missing_key_evidence": [
+          "Chest imaging for hilar lymphadenopathy or pulmonary sarcoidosis",
+          "Serological markers (ACE, calcium, vitamin D levels)",
+          "Renal function tests or urinalysis indicating renal involvement",
+          "Renal biopsy pathology results confirming granulomatous inflammation",
+          "Systemic symptoms (fever, weight loss, respiratory symptoms)",
+          "Temporal progression from ocular presentation to systemic diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.15
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "A chest computed tomography scan disclosed a 4-mm partially calcified nodule in the left lower lobe, a 2.3-cm nodule in the right lung base, and non-specific mediastinal lymphadenopathy (Figure 1).",
+        "category": "pathology_report",
+        "temporal_cue": "after nephrology workup",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Renal function tests (serum creatinine, BUN, electrolytes) and urinalysis performed during the nephrology workup",
+        "current_trajectory_hypothesis": "63-year-old man presented with ocular hypertension and retinal ischemia. After normal MRI, workup progressed to reveal renal dysfunction prompting nephrology consultation. Chest CT showed lung nodules and mediastinal lymphadenopathy. The trajectory involves progression from isolated ocular findings to systemic sarcoidosis involving kidneys and lungs, with renal biopsy providing definitive diagnosis.",
+        "confirmed_evidence": [
+          "Initial presentation with blurry vision, glare, elevated IOP (33 and 38 mm Hg), optic nerve edema, cotton-wool spots, and retinal hemorrhages",
+          "Preliminary diagnosis of bilateral hypertensive retinopathy with optic nerve swelling",
+          "Treatment initiated for open-angle glaucoma with timolol and latanoprost",
+          "MRI brain/orbits normal - no intracranial abnormality (E002)",
+          "Chest CT showing 4-mm calcified left lower lobe nodule, 2.3-cm right lung base nodule, and non-specific mediastinal lymphadenopathy (E005)"
+        ],
+        "missing_key_evidence": [
+          "Renal function abnormalities or urinalysis indicating renal involvement",
+          "Serological markers (ACE, calcium, vitamin D levels) mentioned in final diagnosis",
+          "Renal biopsy pathology results confirming granulomatous inflammation consistent with sarcoidosis",
+          "Systemic symptoms prompting nephrology referral",
+          "Temporal sequence between ocular presentation and nephrology consultation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.25
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "The initial nephrology workup included a 24-h blood pressure monitor, serologic testing, urine sediment analysis, urinalysis, and kidney ultrasound. The 24-h blood pressure monitor revealed an average blood pressure of 126/80 mm Hg. The urinalysis results were remarkable for mild hematuria and proteinuria. The urine protein-creatinine ratio was 0.69 (reference range, less than 0.2), and the albumin-creatinine ratio was 22.4 mg/g (reference range, less than 30.0). A urine sediment analysis showed increased urinary B2-microglobulin of 359 mcg/L (reference range, less than 300 mcg/L). The serum creatinine had increased to 2.73 mg/dL from a baseline reading of 1.51 mg/dL, which was obtained 6 months prior. Due to the rapid decline in kidney function, a serologic workup for secondary causes of acute glomerulonephritis was performed. The results were inconclusive, however, with a positive ANA titer of 1: 640 and low complement 3 of 72.4 mg/ dL. The calcium level was in the reference range at 8.6 mg/dL. Serum and urine protein electrophoresis demonstrated a normal pattern. C-reactive protein (CRP) levels were normal at 0.2. The kidney ultrasound results were unremarkable.",
+        "category": "routine_lab",
+        "temporal_cue": "after referral to nephrology",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Renal biopsy pathology report showing granulomatous inflammation or findings consistent with sarcoidosis",
+        "current_trajectory_hypothesis": "63-year-old man presented with ocular hypertension and retinal ischemia (September 2019). MRI ruled out intracranial pathology. Workup revealed acute kidney injury (creatinine rise from 1.51 to 2.73 mg/dL) with proteinuria and hematuria, prompting nephrology evaluation. Chest CT demonstrated lung nodules and mediastinal lymphadenopathy. The trajectory progressed from isolated ocular findings to systemic sarcoidosis involving kidneys and lungs, with renal biopsy providing definitive histopathological confirmation of granulomatous inflammation.",
+        "confirmed_evidence": [
+          "Initial presentation with blurry vision, glare, elevated IOP (33 and 38 mm Hg), optic nerve edema, cotton-wool spots, and retinal hemorrhages",
+          "MRI brain/orbits normal - no intracranial abnormality (E002)",
+          "Acute kidney injury: creatinine increased to 2.73 mg/dL from baseline 1.51 mg/dL, with proteinuria (UPCR 0.69), hematuria, and elevated urinary B2-microglobulin (E004)",
+          "Chest CT showing 4-mm calcified left lower lobe nodule, 2.3-cm right lung base nodule, and non-specific mediastinal lymphadenopathy (E005)",
+          "Serologic workup showed positive ANA 1:640 and low C3 (72.4 mg/dL), with normal calcium and CRP (E004)"
+        ],
+        "missing_key_evidence": [
+          "Renal biopsy pathology results confirming granulomatous inflammation consistent with sarcoidosis (explicitly mentioned in final diagnosis)",
+          "Serum ACE levels and vitamin D levels referenced in final diagnosis",
+          "Ocular findings specifically linked to sarcoidosis (intermediate uveitis/pars planitis)",
+          "Treatment course and response to immunosuppressive therapy",
+          "Temporal relationship between nephrology referral and biopsy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E005",
+        "source_text": "A renal biopsy demonstrated non-caseating granulomatous interstitial nephritis, staining negative for acid fast bacilli and fungi.",
+        "category": "pathology_report",
+        "temporal_cue": "after nephrology workup",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Serological test results including serum ACE level and vitamin D levels referenced in the final diagnosis",
+        "current_trajectory_hypothesis": "63-year-old man presented with ocular hypertension and retinal ischemia (September 2019). MRI ruled out intracranial pathology. Workup revealed acute kidney injury with proteinuria and hematuria. Chest CT demonstrated lung nodules and mediastinal lymphadenopathy. Renal biopsy confirmed non-caseating granulomatous interstitial nephritis negative for AFB and fungi, establishing the diagnosis of sarcoidosis. The trajectory involves progression from isolated ocular findings to multi-system sarcoidosis involving kidneys and lungs.",
+        "confirmed_evidence": [
+          "Initial presentation with blurry vision, glare, elevated IOP (33 and 38 mm Hg), optic nerve edema, cotton-wool spots, and retinal hemorrhages",
+          "MRI brain/orbits normal - no intracranial abnormality (E002)",
+          "Acute kidney injury: creatinine increased to 2.73 mg/dL from baseline 1.51 mg/dL, with proteinuria (UPCR 0.69), hematuria, and elevated urinary B2-microglobulin (E004)",
+          "Chest CT showing 4-mm calcified left lower lobe nodule, 2.3-cm right lung base nodule, and non-specific mediastinal lymphadenopathy (E005)",
+          "Serologic workup showed positive ANA 1:640 and low C3 (72.4 mg/dL), with normal calcium and CRP (E004)",
+          "Renal biopsy demonstrated non-caseating granulomatous interstitial nephritis, staining negative for acid fast bacilli and fungi (E005)"
+        ],
+        "missing_key_evidence": [
+          "Serum ACE levels and vitamin D levels referenced in final diagnosis as supporting serological results",
+          "Specific ocular diagnosis linking findings to sarcoidosis (intermediate uveitis/pars planitis) versus initial hypertensive retinopathy diagnosis",
+          "Treatment course and response to immunosuppressive therapy for sarcoidosis",
+          "Clinical course and outcome following diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E005",
+        "source_text": "Based on the biopsy results, the patient’s vitamin D levels were evaluated. The results showed a 1,25-dihydroxyvitamin D3 to 25-hydroxyvitamin D3 ratio greater than 2 (50 ng/mL: 12.5 ng/mL), indicating extrarenal vitamin D3 production. The angiotensin-converting enzyme level was elevated at 73 U: L (reference range, less than 52 U: L).",
+        "category": "pathology_report",
+        "temporal_cue": "after nephrology workup",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Treatment course and clinical response to immunosuppressive therapy for sarcoidosis, including changes in renal function and ocular findings",
+        "current_trajectory_hypothesis": "63-year-old man presented with ocular hypertension and retinal ischemia initially diagnosed as hypertensive retinopathy (September 2019). After normal MRI, systemic workup revealed acute kidney injury (creatinine 1.51→2.73 mg/dL) with proteinuria and hematuria. Chest CT demonstrated lung nodules and mediastinal lymphadenopathy. Renal biopsy confirmed non-caseating granulomatous interstitial nephritis negative for AFB/fungi. Serological studies showed elevated ACE (73 U/L) and abnormal vitamin D metabolism indicating extrarenal production. The trajectory represents progression from isolated ocular findings to multi-system sarcoidosis involving kidneys and lungs, with renal biopsy providing definitive diagnosis.",
+        "confirmed_evidence": [
+          "Initial presentation with blurry vision, glare, elevated IOP (33 and 38 mm Hg), optic nerve edema, cotton-wool spots, and retinal hemorrhages",
+          "MRI brain/orbits normal - no intracranial abnormality (E002)",
+          "Acute kidney injury: creatinine increased to 2.73 mg/dL from baseline 1.51 mg/dL, with proteinuria (UPCR 0.69), hematuria, and elevated urinary B2-microglobulin (E004)",
+          "Chest CT showing 4-mm calcified left lower lobe nodule, 2.3-cm right lung base nodule, and non-specific mediastinal lymphadenopathy (E005)",
+          "Serologic workup showed positive ANA 1:640 and low C3 (72.4 mg/dL), with normal calcium and CRP (E004)",
+          "Renal biopsy demonstrated non-caseating granulomatous interstitial nephritis, staining negative for acid fast bacilli and fungi (E005)",
+          "Elevated ACE level at 73 U/L (ref <52) and elevated 1,25-dihydroxyvitamin D3 to 25-hydroxyvitamin D3 ratio >2 (50:12.5 ng/mL) indicating extrarenal vitamin D production (E005)"
+        ],
+        "missing_key_evidence": [
+          "Revision of preliminary ocular diagnosis from hypertensive retinopathy to ocular sarcoidosis (intermediate uveitis/pars planitis)",
+          "Treatment regimen initiated for systemic sarcoidosis (corticosteroids or immunosuppressants)",
+          "Clinical response to treatment including renal function recovery and ocular improvement",
+          "Long-term outcome or follow-up data"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "Five months later, the patient returned for a follow-up with the nephrologist. His serum creatinine level had improved to 1.72 mg/dL, and the calculated glomerular filtration rate (GFR) had improved from 24 mL/min to 40 mL/min. On ophthalmic assessment, all neurologic symptoms had resolved, although he continued to receive treatment for glaucoma, with normal intraocular pressures of 15 mm Hg and 18 mm Hg, respectively.",
+        "category": "other",
+        "temporal_cue": "five months later",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Specific immunosuppressive treatment regimen initiated for systemic sarcoidosis including corticosteroids and dosing",
+        "current_trajectory_hypothesis": "63-year-old man presented with ocular hypertension and retinal ischemia initially diagnosed as hypertensive retinopathy (September 2019). After normal MRI, systemic workup revealed acute kidney injury (creatinine 1.51→2.73 mg/dL) with proteinuria. Chest CT demonstrated lung nodules and mediastinal lymphadenopathy. Renal biopsy confirmed non-caseating granulomatous interstitial nephritis. Serological studies showed elevated ACE (73 U/L) and abnormal vitamin D metabolism (extrarenal production). Five-month follow-up showed improved renal function (creatinine 1.72 mg/dL, GFR 40 mL/min) and resolution of neurologic symptoms with normalized IOP. The trajectory represents systemic sarcoidosis with renal, pulmonary, and ocular involvement, diagnosed via renal biopsy, with favorable treatment response.",
+        "confirmed_evidence": [
+          "Initial presentation with blurry vision, glare, elevated IOP (33 and 38 mm Hg), optic nerve edema, cotton-wool spots, and retinal hemorrhages",
+          "MRI brain/orbits normal - no intracranial abnormality (E002)",
+          "Acute kidney injury: creatinine increased to 2.73 mg/dL from baseline 1.51 mg/dL, with proteinuria (UPCR 0.69), hematuria, and elevated urinary B2-microglobulin (E004)",
+          "Chest CT showing 4-mm calcified left lower lobe nodule, 2.3-cm right lung base nodule, and non-specific mediastinal lymphadenopathy (E005)",
+          "Serologic workup showed positive ANA 1:640 and low C3 (72.4 mg/dL), with normal calcium and CRP (E004)",
+          "Renal biopsy demonstrated non-caseating granulomatous interstitial nephritis, staining negative for acid fast bacilli and fungi (E005)",
+          "Elevated ACE level at 73 U/L (ref <52) and elevated 1,25-dihydroxyvitamin D3 to 25-hydroxyvitamin D3 ratio >2 indicating extrarenal vitamin D production (E005)",
+          "Five-month follow-up: creatinine improved to 1.72 mg/dL, GFR improved from 24 to 40 mL/min, neurologic symptoms resolved, IOP normalized to 15 and 18 mm Hg on glaucoma treatment (E007)"
+        ],
+        "missing_key_evidence": [
+          "Specific immunosuppressive treatment regimen (corticosteroids/doses) initiated for sarcoidosis",
+          "Explicit revision of preliminary ocular diagnosis from hypertensive retinopathy to ocular sarcoidosis",
+          "Clarification of 'neurologic symptoms' mentioned in follow-up (ocular vs other)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "The patient was then immediately started on treatment with oral prednisone 10 mg 4 times a day.",
+        "category": "pathology_report",
+        "temporal_cue": "after biopsy and serology results",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Sarcoidosis",
+        "trajectory_summary": "A 63-year-old man presented in September 2019 with blurry vision, glare, bilateral ocular hypertension (IOP 33 and 38 mm Hg), optic nerve edema, cotton-wool spots, and retinal hemorrhages, initially diagnosed as bilateral hypertensive retinopathy. MRI brain/orbits was normal, excluding intracranial pathology. Subsequent workup revealed acute kidney injury (serum creatinine rising from 1.51 to 2.73 mg/dL) with proteinuria and hematuria. Chest CT demonstrated pulmonary nodules and mediastinal lymphadenopathy. Renal biopsy confirmed non-caseating granulomatous interstitial nephritis with negative stains for acid-fast bacilli and fungi. Supporting serology showed elevated ACE (73 U/L) and abnormal vitamin D metabolism consistent with extrarenal production. The patient was treated with oral prednisone 40 mg daily. At five-month follow-up, renal function improved (creatinine 1.72 mg/dL, GFR 40 mL/min), and ocular symptoms resolved with normalized intraocular pressures.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Non-caseating granulomatous interstitial nephritis on renal biopsy, staining negative for acid-fast bacilli and fungi",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Elevated serum ACE level (73 U/L, reference <52 U/L)",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Abnormal vitamin D metabolism with 1,25-dihydroxyvitamin D3 to 25-hydroxyvitamin D3 ratio >2 (50:12.5 ng/mL) indicating extrarenal production",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Pulmonary involvement evidenced by chest CT showing lung nodules and mediastinal lymphadenopathy",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Acute kidney injury with creatinine elevation from 1.51 to 2.73 mg/dL, proteinuria (UPCR 0.69), and hematuria",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Treatment with oral prednisone 10 mg four times daily initiated",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Clinical response to immunosuppressive therapy with improved renal function (creatinine 1.72 mg/dL) and resolution of neurologic symptoms at five months",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Normal MRI excluding intracranial mass as alternative cause of optic nerve edema",
+            "evidence_ids": [
+              "E002"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Intracranial mass or structural lesion",
+            "basis": "MRI brain/orbits normal (E002)"
+          },
+          {
+            "alternative": "Infectious granulomatous disease (tuberculosis or fungal)",
+            "basis": "Renal biopsy stains negative for acid-fast bacilli and fungi (E005)"
+          },
+          {
+            "alternative": "Hypertensive retinopathy as primary diagnosis",
+            "basis": "24-hour blood pressure monitoring showed normal average 126/80 mm Hg (E004), and definitive sarcoidosis was established histologically"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Explicit documentation revising the preliminary ocular diagnosis from hypertensive retinopathy to ocular sarcoidosis (intermediate uveitis/pars planitis)",
+          "Specific duration of corticosteroid therapy and tapering regimen beyond initial dosing"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Sarcoidosis",
+    "trajectory_summary": "A 63-year-old man presented in September 2019 with blurry vision, glare, bilateral ocular hypertension (IOP 33 and 38 mm Hg), optic nerve edema, cotton-wool spots, and retinal hemorrhages, initially diagnosed as bilateral hypertensive retinopathy. MRI brain/orbits was normal, excluding intracranial pathology. Subsequent workup revealed acute kidney injury (serum creatinine rising from 1.51 to 2.73 mg/dL) with proteinuria and hematuria. Chest CT demonstrated pulmonary nodules and mediastinal lymphadenopathy. Renal biopsy confirmed non-caseating granulomatous interstitial nephritis with negative stains for acid-fast bacilli and fungi. Supporting serology showed elevated ACE (73 U/L) and abnormal vitamin D metabolism consistent with extrarenal production. The patient was treated with oral prednisone 40 mg daily. At five-month follow-up, renal function improved (creatinine 1.72 mg/dL, GFR 40 mL/min), and ocular symptoms resolved with normalized intraocular pressures.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Non-caseating granulomatous interstitial nephritis on renal biopsy, staining negative for acid-fast bacilli and fungi",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Elevated serum ACE level (73 U/L, reference <52 U/L)",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Abnormal vitamin D metabolism with 1,25-dihydroxyvitamin D3 to 25-hydroxyvitamin D3 ratio >2 (50:12.5 ng/mL) indicating extrarenal production",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Pulmonary involvement evidenced by chest CT showing lung nodules and mediastinal lymphadenopathy",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Acute kidney injury with creatinine elevation from 1.51 to 2.73 mg/dL, proteinuria (UPCR 0.69), and hematuria",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Treatment with oral prednisone 10 mg four times daily initiated",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Clinical response to immunosuppressive therapy with improved renal function (creatinine 1.72 mg/dL) and resolution of neurologic symptoms at five months",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Normal MRI excluding intracranial mass as alternative cause of optic nerve edema",
+        "evidence_ids": [
+          "E002"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Intracranial mass or structural lesion",
+        "basis": "MRI brain/orbits normal (E002)"
+      },
+      {
+        "alternative": "Infectious granulomatous disease (tuberculosis or fungal)",
+        "basis": "Renal biopsy stains negative for acid-fast bacilli and fungi (E005)"
+      },
+      {
+        "alternative": "Hypertensive retinopathy as primary diagnosis",
+        "basis": "24-hour blood pressure monitoring showed normal average 126/80 mm Hg (E004), and definitive sarcoidosis was established histologically"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Explicit documentation revising the preliminary ocular diagnosis from hypertensive retinopathy to ocular sarcoidosis (intermediate uveitis/pars planitis)",
+      "Specific duration of corticosteroid therapy and tapering regimen beyond initial dosing"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T02:11:11.695999+00:00",
+  "clinician_model": "Kimi-K2.5",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

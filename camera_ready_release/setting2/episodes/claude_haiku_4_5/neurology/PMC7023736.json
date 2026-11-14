@@ -1,0 +1,391 @@
+{
+  "case_id": "PMC7023736",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 7,
+  "termination": "final",
+  "known_final_diagnosis": "Because of a lack of an etiological factor for bacterial or viral meningitis, the patient was diagnosed with aseptic (chemical) meningitis.",
+  "disclosed_evidence_ids": [
+    "E003",
+    "E004",
+    "E007",
+    "E011",
+    "E013"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the cerebrospinal fluid (CSF) analysis results, including cell count, protein, glucose, Gram stain, and culture findings from the lumbar puncture or CSF sampling performed during this admission.",
+        "current_trajectory_hypothesis": "7-year-old girl with a large cystic sellar/suprasellar tumor with peripheral calcifications causing acute hydrocephalus and mass effect symptoms (headache, vomiting, weakness, balance disorder). The final diagnosis is aseptic (chemical) meningitis, which would be supported by CSF pleocytosis without bacterial/viral pathogens. The tumor likely triggered chemical meningitis through irritation or rupture of cyst contents into the subarachnoid space.",
+        "confirmed_evidence": [
+          "7-year-old girl with no prior medical history",
+          "Acute presentation with severe headache, vomiting, muscle weakness, balance disorders",
+          "Concentration problems noted 2-3 months prior (suggesting gradual onset)",
+          "Preoperative CT showed large cystic tumor with peripheral calcifications in sella/third ventricle region",
+          "Acute hydrocephalus present on imaging"
+        ],
+        "missing_key_evidence": [
+          "CSF analysis results (cell counts, protein, glucose, cultures) confirming aseptic meningitis",
+          "Negative bacterial and viral cultures/PCR to rule out infectious meningitis",
+          "Timing of CSF sampling relative to symptom onset and imaging",
+          "Pathological diagnosis of the tumor (histology)",
+          "Treatment course and response (surgery, shunting, outcome)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "CSF was fully transparent with 18 cells per μl (normal range: 0–5), 60% of neutrophils and 38% of lymphocytes, a positive Pandy’s reaction, a negative Nonne-Apelt reaction, 154.0 mg/dl of protein (normal range: 15–45), a normal concentration of glucose (79 mg%, normal range: 50–80), 2.7 mmol/l of lactic acid (normal range: 0.5–2.2). A latex test and aerobic and anaerobic cultures of CSF yielded negative results.",
+        "category": "routine_lab",
+        "temporal_cue": "postoperative day 7",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the pathological/histological diagnosis of the tumor specimen, including tumor type, grade, and any specific features (e.g., cyst contents analysis, calcification composition) that would explain the chemical meningitis.",
+        "current_trajectory_hypothesis": "7-year-old girl with large cystic sellar/suprasellar tumor causing acute hydrocephalus and mass effect symptoms. CSF analysis on postoperative day 7 shows pleocytosis (18 cells/μl with neutrophil predominance), elevated protein (154 mg/dl), normal glucose, elevated lactic acid, and negative cultures—consistent with aseptic (chemical) meningitis. The tumor histology and cyst contents are needed to confirm the mechanism of chemical meningitis (likely cyst rupture or irritation from tumor material).",
+        "confirmed_evidence": [
+          "7-year-old girl with no prior medical history, normal development",
+          "Acute presentation: severe headache, vomiting, muscle weakness, balance disorders",
+          "Concentration problems noted 2-3 months prior",
+          "Preoperative CT: large cystic tumor with peripheral calcifications in sella/third ventricle region with acute hydrocephalus",
+          "CSF analysis (postoperative day 7): 18 cells/μl (pleocytosis), 60% neutrophils/38% lymphocytes, positive Pandy's reaction, negative Nonne-Apelt reaction, protein 154 mg/dl (elevated), normal glucose 79 mg%, elevated lactic acid 2.7 mmol/l",
+          "Negative latex test and negative aerobic/anaerobic CSF cultures (rules out bacterial meningitis)"
+        ],
+        "missing_key_evidence": [
+          "Tumor histological diagnosis and type (e.g., craniopharyngioma, dermoid, arachnoid cyst, etc.)",
+          "Cyst contents analysis or composition",
+          "Viral PCR/serology results to definitively rule out viral meningitis",
+          "Timing of symptom onset relative to CSF sampling (was CSF obtained before or after surgery?)",
+          "Surgical findings and procedure details",
+          "Treatment response and clinical outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.65
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Pathomorphological examination of the surgical specimen revealed a craniopharyngioma G1-WHO testing positively for AE1/AE2 (stratified epithelium), GFAP (reactive gliosis), MIB-1 (with a few epithelial and inflammatory cells) and CD 68 (multiple macrophages, including polynuclear ones).",
+        "category": "pathology_report",
+        "temporal_cue": "postoperative",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide details on the surgical procedure performed, including the date of surgery, surgical approach, extent of tumor resection, intraoperative findings (particularly regarding cyst contents and any spillage), and whether a ventriculoperitoneal shunt was placed for hydrocephalus management.",
+        "current_trajectory_hypothesis": "7-year-old girl with craniopharyngioma (WHO G1) in the sella/suprasellar region causing acute hydrocephalus and mass effect symptoms. Preoperative imaging showed a large cystic tumor with peripheral calcifications. CSF analysis on postoperative day 7 demonstrates aseptic meningitis pattern (pleocytosis with neutrophil predominance, elevated protein, normal glucose, negative cultures). The chemical meningitis likely resulted from tumor cyst contents irritating the meninges, either from preoperative cyst rupture or intraoperative spillage during surgical resection. Pathology confirmed craniopharyngioma with inflammatory infiltrate (CD68+ macrophages).",
+        "confirmed_evidence": [
+          "7-year-old girl, no prior medical history, normal psychomotor development",
+          "Acute presentation: severe headache, vomiting, muscle weakness, balance disorders",
+          "Concentration problems noted 2-3 months prior (gradual onset)",
+          "Preoperative CT: large cystic tumor with peripheral calcifications in sella/third ventricle region with acute hydrocephalus",
+          "Pathology: craniopharyngioma WHO G1 with stratified epithelium (AE1/AE3+), reactive gliosis (GFAP+), and multiple macrophages (CD68+) indicating inflammatory response",
+          "CSF analysis (postoperative day 7): pleocytosis (18 cells/μl, 60% neutrophils), elevated protein (154 mg/dl), normal glucose (79 mg%), elevated lactic acid (2.7 mmol/l), negative cultures and latex test"
+        ],
+        "missing_key_evidence": [
+          "Surgical procedure details: date, approach, extent of resection, intraoperative findings regarding cyst contents",
+          "Whether cyst rupture or spillage occurred intraoperatively",
+          "Shunt placement for hydrocephalus management",
+          "Viral PCR/serology to definitively exclude viral meningitis",
+          "Timing of CSF sampling relative to surgery (was lumbar puncture performed preoperatively or postoperatively?)",
+          "Clinical course and outcome following surgery and treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.72
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "A pterional craniotomy was performed on the right side under general anaesthesia with the patient in a supine position. After reaching the base of the brain and evacuation of fluid from basal cisterns, the tumour’s wall was cut, and a thick yellowish fluid was drained. The tumour was separated from the right optic nerve, right ICA, optic chiasm and left optic nerve. Instead of the pituitary stalk, two thin bands were found, extending from the third ventricle and running towards the sella turcica on both sides of the tumour. After separating the tumour from those bands, it was incised slightly above the sellar diaphragm, dissected from the third ventricle wall, along the lamina terminalis, and removed. After achieving haemostasis, the dura mater was sutured and fixed to the bone and a cranioplasty was performed. A suction drain was then placed, soft tissues were closed in layers and protected with a dressing.",
+        "category": "other",
+        "temporal_cue": "operative day",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the clinical course following surgery, including: (1) timing of when the lumbar puncture was performed relative to surgery, (2) whether a ventriculoperitoneal shunt was placed for hydrocephalus management, (3) any postoperative complications or clinical deterioration, (4) treatment given for the meningitis (e.g., corticosteroids, antibiotics empirically), and (5) the patient's neurological status and outcome at discharge or final follow-up.",
+        "current_trajectory_hypothesis": "7-year-old girl with craniopharyngioma (WHO G1) in the sella/suprasellar region causing acute hydrocephalus and mass effect symptoms (headache, vomiting, weakness, balance disorder). Preoperative CT showed large cystic tumor with peripheral calcifications. Right pterional craniotomy was performed with evacuation of thick yellowish fluid from the tumor cyst and gross total resection. Postoperative day 7 CSF analysis shows aseptic meningitis pattern (pleocytosis with neutrophil predominance, elevated protein, normal glucose, negative cultures). The chemical meningitis was likely triggered by the tumor cyst contents (thick yellowish fluid) irritating the meninges, either from preoperative rupture or intraoperative spillage during resection. The inflammatory response is supported by pathology showing CD68+ macrophages.",
+        "confirmed_evidence": [
+          "7-year-old girl, no prior medical history, normal psychomotor development",
+          "Acute presentation: severe headache, vomiting, muscle weakness, balance disorders; concentration problems noted 2-3 months prior",
+          "Preoperative CT: large cystic tumor with peripheral calcifications in sella/third ventricle region with acute hydrocephalus",
+          "Pathology: craniopharyngioma WHO G1 with stratified epithelium, reactive gliosis, and multiple CD68+ macrophages indicating inflammatory response",
+          "Surgical findings: thick yellowish fluid drained from tumor cyst during pterional craniotomy; gross total resection achieved",
+          "CSF analysis (postoperative day 7): pleocytosis (18 cells/μl, 60% neutrophils/38% lymphocytes), elevated protein (154 mg/dl), normal glucose (79 mg%), elevated lactic acid (2.7 mmol/l), negative cultures and latex test—consistent with aseptic meningitis"
+        ],
+        "missing_key_evidence": [
+          "Exact timing of lumbar puncture relative to surgery (preoperative vs. postoperative)",
+          "Whether ventriculoperitoneal shunt was placed for hydrocephalus management",
+          "Postoperative complications or clinical deterioration related to meningitis",
+          "Treatment administered for meningitis (corticosteroids, empiric antibiotics, supportive care)",
+          "Viral PCR/serology results to definitively exclude viral meningitis",
+          "Patient's neurological status and functional outcome at discharge or follow-up"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.78
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E007",
+        "source_text": "A lumbar puncture was performed. CSF was fully transparent with 18 cells per μl (normal range: 0–5), 60% of neutrophils and 38% of lymphocytes, a positive Pandy’s reaction, a negative Nonne-Apelt reaction, 154.0 mg/dl of protein (normal range: 15–45), a normal concentration of glucose (79 mg%, normal range: 50–80), 2.7 mmol/l of lactic acid (normal range: 0.5–2.2). A latex test and aerobic and anaerobic cultures of CSF yielded negative results. The patient tested negatively for anti-CMV, anti-EBV, anti-HSV, anti-poxvirus and anti-Borrelia burgdorferi IgM antibodies. The results of other tests, including aerobic and anaerobic cultures of the blood (collected at peak fever) and urine, were also negative.",
+        "category": "routine_lab",
+        "temporal_cue": "postoperative day 7",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide information on the postoperative clinical course, including: (1) whether a ventriculoperitoneal shunt was placed for hydrocephalus management, (2) any treatment administered for the meningitis (corticosteroids, supportive care), (3) the patient's neurological status and symptom resolution in the postoperative period, and (4) the patient's functional outcome and status at discharge or final follow-up.",
+        "current_trajectory_hypothesis": "7-year-old girl with craniopharyngioma (WHO G1) in the sella/suprasellar region causing acute hydrocephalus and mass effect symptoms. Right pterional craniotomy with gross total resection was performed, during which thick yellowish fluid was drained from the tumor cyst. Postoperative day 7 CSF analysis demonstrates aseptic (chemical) meningitis: pleocytosis (18 cells/μl with 60% neutrophils), elevated protein (154 mg/dl), normal glucose, elevated lactic acid, and negative bacterial/viral cultures and serology (negative for CMV, EBV, HSV, poxvirus, Borrelia). The chemical meningitis was triggered by the tumor cyst contents irritating the meninges. The trajectory is nearly complete; final evidence needed is the postoperative management and clinical outcome.",
+        "confirmed_evidence": [
+          "7-year-old girl, no prior medical history, normal psychomotor development",
+          "Acute presentation: severe headache, vomiting, muscle weakness, balance disorders; concentration problems noted 2-3 months prior",
+          "Preoperative CT: large cystic tumor with peripheral calcifications in sella/third ventricle region with acute hydrocephalus",
+          "Pathology: craniopharyngioma WHO G1 with stratified epithelium (AE1/AE3+), reactive gliosis (GFAP+), and multiple CD68+ macrophages",
+          "Surgical findings: thick yellowish fluid drained from tumor cyst; gross total resection achieved via right pterional craniotomy",
+          "CSF analysis (postoperative day 7): pleocytosis (18 cells/μl, 60% neutrophils/38% lymphocytes), elevated protein (154 mg/dl), normal glucose (79 mg%), elevated lactic acid (2.7 mmol/l), positive Pandy's reaction, negative Nonne-Apelt reaction",
+          "Negative bacterial cultures (aerobic and anaerobic) and latex test from CSF",
+          "Negative viral serology: anti-CMV, anti-EBV, anti-HSV, anti-poxvirus, anti-Borrelia burgdorferi IgM antibodies all negative",
+          "Negative blood and urine cultures"
+        ],
+        "missing_key_evidence": [
+          "Ventriculoperitoneal shunt placement for hydrocephalus management",
+          "Treatment administered for meningitis (corticosteroids, supportive care)",
+          "Patient's neurological status and symptom resolution postoperatively",
+          "Functional outcome and status at discharge or final follow-up"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E011",
+        "source_text": "Increasing intracranial pressure required the placement of external drainage on day 11 after tumour resection. On day 14 post-surgery, the external drainage was removed following a CT scan of the head which showed the ventricular system without features of hydrocephalus. After removal of the drain, the patient was in good general status and was verbally responsive. Neurological examination showed the presence of meningeal symptoms and slight strabismus in the left eye, decreased muscle tone and diminished asymmetrical tendineae reflexes in the upper extremities, with a predominance of the left side, and a decrease in muscle tone with areflexia and a positive Babinski sign on the right side in the lower extremities.",
+        "category": "imaging_report",
+        "temporal_cue": "postoperative day 11-14",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide information on the patient's final neurological outcome and status at discharge or last follow-up, including resolution of meningeal symptoms, motor function recovery, and any long-term sequelae or complications.",
+        "current_trajectory_hypothesis": "7-year-old girl with craniopharyngioma (WHO G1) in the sella/suprasellar region causing acute hydrocephalus and mass effect symptoms. Right pterional craniotomy with gross total resection was performed, draining thick yellowish fluid from the tumor cyst. Postoperative day 7 CSF analysis demonstrates aseptic (chemical) meningitis with pleocytosis, elevated protein, normal glucose, and negative bacterial/viral cultures and serology. External ventricular drainage was placed on postoperative day 11 for increased intracranial pressure and removed on day 14 after CT showed resolution of hydrocephalus. At that time, patient was in good general status but still had meningeal symptoms and neurological deficits (strabismus, decreased muscle tone, asymmetrical reflexes, positive Babinski sign). Final outcome documentation is needed to complete the trajectory.",
+        "confirmed_evidence": [
+          "7-year-old girl, no prior medical history, normal psychomotor development",
+          "Acute presentation: severe headache, vomiting, muscle weakness, balance disorders; concentration problems noted 2-3 months prior",
+          "Preoperative CT: large cystic tumor with peripheral calcifications in sella/third ventricle region with acute hydrocephalus",
+          "Pathology: craniopharyngioma WHO G1 with stratified epithelium, reactive gliosis, and multiple CD68+ macrophages",
+          "Surgical findings: thick yellowish fluid drained from tumor cyst; gross total resection achieved via right pterional craniotomy",
+          "CSF analysis (postoperative day 7): pleocytosis (18 cells/μl, 60% neutrophils), elevated protein (154 mg/dl), normal glucose (79 mg%), elevated lactic acid (2.7 mmol/l), negative bacterial/viral cultures and serology",
+          "Postoperative day 11: external ventricular drainage placed for increased intracranial pressure",
+          "Postoperative day 14: external drainage removed after CT showed resolution of hydrocephalus; patient in good general status, verbally responsive, but with persistent meningeal symptoms and neurological deficits (strabismus, decreased muscle tone, asymmetrical reflexes, positive Babinski sign)"
+        ],
+        "missing_key_evidence": [
+          "Final neurological outcome at discharge or last follow-up",
+          "Resolution timeline of meningeal symptoms and aseptic meningitis",
+          "Recovery of motor function and neurological deficits",
+          "Any long-term sequelae or complications",
+          "Treatment administered for meningitis (corticosteroids, supportive care details)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.88
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E013",
+        "source_text": "Six months after the procedure she still needed substitutional hormone therapy, anti-epileptic treatment and ophthalmic and psychological counselling. A systematic improvement in the patient’s condition was noticeable. Currently, the patient is in good neurological condition without focal damage to the central nervous system. Hormone substitution continues.",
+        "category": "other",
+        "temporal_cue": "6 months after surgery",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Aseptic (chemical) meningitis",
+        "trajectory_summary": "A 7-year-old girl with no prior medical history presented with acute severe headache, vomiting, muscle weakness, and balance disorders, with concentration problems noted 2-3 months prior. Preoperative CT imaging revealed a large cystic tumor with peripheral calcifications in the sella/suprasellar region causing acute hydrocephalus. Pathological examination confirmed craniopharyngioma WHO G1. Right pterional craniotomy was performed with gross total resection, during which thick yellowish fluid was drained from the tumor cyst. Postoperative day 7 cerebrospinal fluid (CSF) analysis demonstrated aseptic meningitis: pleocytosis (18 cells/μl with 60% neutrophils and 38% lymphocytes), elevated protein (154 mg/dl), normal glucose (79 mg%), elevated lactic acid (2.7 mmol/l), positive Pandy's reaction, and negative Nonne-Apelt reaction. Bacterial cultures (aerobic and anaerobic) and latex test were negative. Viral serology was negative for CMV, EBV, HSV, poxvirus, and Borrelia burgdorferi IgM antibodies. Blood and urine cultures were also negative. External ventricular drainage was placed on postoperative day 11 for increased intracranial pressure and removed on day 14 after CT showed resolution of hydrocephalus. The patient demonstrated systematic improvement over the postoperative course and at 6 months follow-up was in good neurological condition without focal central nervous system damage, though requiring hormone substitution, anti-epileptic treatment, and supportive counseling.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Pleocytosis with neutrophil predominance in CSF consistent with aseptic meningitis",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Elevated CSF protein (154 mg/dl) with normal glucose (79 mg%) and elevated lactic acid (2.7 mmol/l) characteristic of aseptic meningitis",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Negative bacterial cultures (aerobic and anaerobic) and latex test ruling out bacterial meningitis",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Negative viral serology (CMV, EBV, HSV, poxvirus, Borrelia burgdorferi) and negative blood/urine cultures ruling out infectious etiologies",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Craniopharyngioma WHO G1 with thick yellowish cyst fluid drained intraoperatively, providing chemical irritant source for meningitis",
+            "evidence_ids": [
+              "E004",
+              "E003"
+            ]
+          },
+          {
+            "claim": "Pathology showing multiple CD68+ macrophages indicating inflammatory response to tumor cyst contents",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Positive Pandy's reaction and negative Nonne-Apelt reaction consistent with aseptic meningitis pattern",
+            "evidence_ids": [
+              "E007"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Bacterial meningitis",
+            "basis": "Negative aerobic and anaerobic CSF cultures, negative latex test, and negative blood cultures"
+          },
+          {
+            "alternative": "Viral meningitis",
+            "basis": "Negative serology for CMV, EBV, HSV, poxvirus, and Borrelia burgdorferi IgM antibodies"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Specific treatment administered for aseptic meningitis (corticosteroids, supportive care details) not explicitly documented",
+          "Exact timing of lumbar puncture relative to surgery (preoperative vs. postoperative day 7) not explicitly stated, though postoperative day 7 timing is indicated",
+          "Mechanism of cyst rupture or spillage (preoperative vs. intraoperative) not definitively established, though intraoperative drainage of thick yellowish fluid is documented"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.92
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Aseptic (chemical) meningitis",
+    "trajectory_summary": "A 7-year-old girl with no prior medical history presented with acute severe headache, vomiting, muscle weakness, and balance disorders, with concentration problems noted 2-3 months prior. Preoperative CT imaging revealed a large cystic tumor with peripheral calcifications in the sella/suprasellar region causing acute hydrocephalus. Pathological examination confirmed craniopharyngioma WHO G1. Right pterional craniotomy was performed with gross total resection, during which thick yellowish fluid was drained from the tumor cyst. Postoperative day 7 cerebrospinal fluid (CSF) analysis demonstrated aseptic meningitis: pleocytosis (18 cells/μl with 60% neutrophils and 38% lymphocytes), elevated protein (154 mg/dl), normal glucose (79 mg%), elevated lactic acid (2.7 mmol/l), positive Pandy's reaction, and negative Nonne-Apelt reaction. Bacterial cultures (aerobic and anaerobic) and latex test were negative. Viral serology was negative for CMV, EBV, HSV, poxvirus, and Borrelia burgdorferi IgM antibodies. Blood and urine cultures were also negative. External ventricular drainage was placed on postoperative day 11 for increased intracranial pressure and removed on day 14 after CT showed resolution of hydrocephalus. The patient demonstrated systematic improvement over the postoperative course and at 6 months follow-up was in good neurological condition without focal central nervous system damage, though requiring hormone substitution, anti-epileptic treatment, and supportive counseling.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Pleocytosis with neutrophil predominance in CSF consistent with aseptic meningitis",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Elevated CSF protein (154 mg/dl) with normal glucose (79 mg%) and elevated lactic acid (2.7 mmol/l) characteristic of aseptic meningitis",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Negative bacterial cultures (aerobic and anaerobic) and latex test ruling out bacterial meningitis",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Negative viral serology (CMV, EBV, HSV, poxvirus, Borrelia burgdorferi) and negative blood/urine cultures ruling out infectious etiologies",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Craniopharyngioma WHO G1 with thick yellowish cyst fluid drained intraoperatively, providing chemical irritant source for meningitis",
+        "evidence_ids": [
+          "E004",
+          "E003"
+        ]
+      },
+      {
+        "claim": "Pathology showing multiple CD68+ macrophages indicating inflammatory response to tumor cyst contents",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Positive Pandy's reaction and negative Nonne-Apelt reaction consistent with aseptic meningitis pattern",
+        "evidence_ids": [
+          "E007"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Bacterial meningitis",
+        "basis": "Negative aerobic and anaerobic CSF cultures, negative latex test, and negative blood cultures"
+      },
+      {
+        "alternative": "Viral meningitis",
+        "basis": "Negative serology for CMV, EBV, HSV, poxvirus, and Borrelia burgdorferi IgM antibodies"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Specific treatment administered for aseptic meningitis (corticosteroids, supportive care details) not explicitly documented",
+      "Exact timing of lumbar puncture relative to surgery (preoperative vs. postoperative day 7) not explicitly stated, though postoperative day 7 timing is indicated",
+      "Mechanism of cyst rupture or spillage (preoperative vs. intraoperative) not definitively established, though intraoperative drainage of thick yellowish fluid is documented"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.92
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T08:18:43.758504+00:00",
+  "clinician_model": "claude-haiku-4-5",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

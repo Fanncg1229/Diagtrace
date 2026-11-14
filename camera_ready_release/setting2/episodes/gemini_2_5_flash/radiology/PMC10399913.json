@@ -1,0 +1,518 @@
+{
+  "case_id": "PMC10399913",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 14,
+  "termination": "final",
+  "known_final_diagnosis": "Osteomyelitis of the clivus secondary to mucormycosis",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E005"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "detailed report of the initial non-contrast CT scan of the head/sinuses, specifically looking for extent of sinusitis and any signs of bone erosion or involvement of the clivus or skull base",
+        "current_trajectory_hypothesis": "Patient presented with neurological symptoms and sinusitis. The initial CT scan might show the extent of sinusitis and potential bone involvement, which could be an early indicator of the spread of infection towards the clivus.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Detailed imaging findings of sinusitis and bone involvement",
+          "Evidence of fungal infection",
+          "Confirmation of osteomyelitis",
+          "Specific identification of mucormycosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "Initial non-contrast CT scan demonstrated advanced sinusitis.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "report of any subsequent MRI of the brain or skull base, specifically looking for findings related to clivus involvement, osteomyelitis, or intracranial extension",
+        "current_trajectory_hypothesis": "The initial CT showed advanced sinusitis but did not detail bone involvement. Given the neurological symptom (facial droop) and the final diagnosis of clival osteomyelitis, an MRI would be crucial to identify bone marrow changes, clivus involvement, and potential intracranial spread.",
+        "confirmed_evidence": [
+          "Patient presented with weakness, fall, right-sided facial droop, hyperglycemia, and recent SARS-CoV-2 infection.",
+          "Initial non-contrast CT scan demonstrated advanced sinusitis (E001)."
+        ],
+        "missing_key_evidence": [
+          "Detailed imaging findings of clivus involvement or osteomyelitis",
+          "Evidence of fungal infection",
+          "Specific identification of mucormycosis",
+          "Biopsy or culture results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "No MRI brain or skull base imaging report is present in the source records.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "report of any biopsy or culture results from the sinuses or skull base, specifically looking for fungal elements or mucormycosis",
+        "current_trajectory_hypothesis": "The patient presented with sinusitis and neurological symptoms. While initial CT showed advanced sinusitis, specific evidence of clivus osteomyelitis and mucormycosis is still needed. A biopsy with histology and/or culture would be crucial for identifying the causative organism, especially mucormycosis, and confirming bone involvement.",
+        "confirmed_evidence": [
+          "Patient presented with weakness, fall, right-sided facial droop, hyperglycemia, and recent SARS-CoV-2 infection.",
+          "Initial non-contrast CT scan demonstrated advanced sinusitis (E001)."
+        ],
+        "missing_key_evidence": [
+          "Detailed imaging findings of clivus involvement or osteomyelitis",
+          "Evidence of fungal infection (mucormycosis)",
+          "Biopsy or culture results confirming mucormycosis",
+          "Confirmation of osteomyelitis of the clivus"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Pathological findings reported non-septate branching hyphae, indicative of potential mucormycosis from fungal infiltration.",
+        "category": "pathology_report",
+        "temporal_cue": "after nasal endoscopy",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "findings from the nasal endoscopy mentioned in relation to the pathological findings, specifically looking for descriptions of tissue involvement, location of biopsy, or signs of bone erosion/inflammation in the skull base or clivus region",
+        "current_trajectory_hypothesis": "The patient presented with sinusitis and neurological symptoms. Initial CT showed advanced sinusitis. Pathological findings confirmed non-septate branching hyphae, indicative of mucormycosis. The nasal endoscopy likely provided the tissue for biopsy and may describe the extent of the disease and its location, which is crucial for linking the mucormycosis to osteomyelitis of the clivus.",
+        "confirmed_evidence": [
+          "Patient presented with weakness, fall, right-sided facial droop, hyperglycemia, and recent SARS-CoV-2 infection.",
+          "Initial non-contrast CT scan demonstrated advanced sinusitis (E001).",
+          "Pathological findings reported non-septate branching hyphae, indicative of potential mucormycosis from fungal infiltration (E004)."
+        ],
+        "missing_key_evidence": [
+          "Direct evidence of osteomyelitis of the clivus",
+          "Specific location and extent of fungal infiltration/bone involvement from endoscopy or imaging",
+          "Confirmation of clivus involvement"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Given the radiological findings of potential Mucor, a fiberoptic nasal endoscopy was performed, which demonstrated sinusitis that, in conjunction with the radiological findings of SBO, increased the suspicion of invasive sinusitis due to mucormycosis.",
+        "category": "molecular_test",
+        "temporal_cue": "after CTA",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "report of the 'radiological findings of SBO' (Skull Base Osteomyelitis) mentioned in E003, specifically detailing any involvement of the clivus or other skull base structures, and the imaging modality used (e.g., MRI, CT, CTA)",
+        "current_trajectory_hypothesis": "The patient presented with neurological symptoms and advanced sinusitis. Pathology confirmed mucormycosis. Nasal endoscopy findings, combined with 'radiological findings of SBO', increased suspicion of invasive mucormycosis. I need to obtain the specific report for these radiological findings to confirm osteomyelitis of the clivus and its extent.",
+        "confirmed_evidence": [
+          "Patient presented with weakness, fall, right-sided facial droop, hyperglycemia, and recent SARS-CoV-2 infection.",
+          "Initial non-contrast CT scan demonstrated advanced sinusitis (E001).",
+          "Pathological findings reported non-septate branching hyphae, indicative of potential mucormycosis from fungal infiltration (E004).",
+          "Fiberoptic nasal endoscopy demonstrated sinusitis, which, in conjunction with radiological findings of SBO, increased suspicion of invasive sinusitis due to mucormycosis (E003)."
+        ],
+        "missing_key_evidence": [
+          "Direct imaging evidence of osteomyelitis of the clivus",
+          "Specific details of skull base involvement from imaging",
+          "Confirmation of clivus involvement by mucormycosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "CTA findings are shown in Figure 1. Advanced sinusitis is demonstrated and progressed since the initial non-contrast CT was completed. Abnormal gas was seen in several foci in the skull base, left occipital condyle, and soft tissues adjacent to the clivus.",
+        "category": "imaging_report",
+        "temporal_cue": "after admission",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "clinical note or diagnostic summary that explicitly states the diagnosis of osteomyelitis of the clivus, integrating the imaging and pathology findings",
+        "current_trajectory_hypothesis": "The patient presented with neurological symptoms and advanced sinusitis. Pathology confirmed mucormycosis. CTA showed advanced sinusitis, abnormal gas in the skull base, and soft tissue involvement adjacent to the clivus, which was interpreted as skull base osteomyelitis. I need a direct statement from the clinical record confirming the diagnosis of osteomyelitis of the clivus.",
+        "confirmed_evidence": [
+          "Patient presented with weakness, fall, right-sided facial droop, hyperglycemia, and recent SARS-CoV-2 infection.",
+          "Initial non-contrast CT scan demonstrated advanced sinusitis (E001).",
+          "Pathological findings reported non-septate branching hyphae, indicative of potential mucormycosis from fungal infiltration (E004).",
+          "Fiberoptic nasal endoscopy demonstrated sinusitis, which, in conjunction with radiological findings of SBO, increased suspicion of invasive sinusitis due to mucormycosis (E003).",
+          "CTA findings showed advanced sinusitis (progressed from initial CT), abnormal gas in several foci in the skull base, left occipital condyle, and soft tissues adjacent to the clivus (E002)."
+        ],
+        "missing_key_evidence": [
+          "Explicit clinical confirmation of osteomyelitis of the clivus"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No clinical note or diagnostic summary explicitly stating osteomyelitis of the clivus diagnosis integrating imaging and pathology is present in the supplied records.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "a more detailed interpretation or addendum to the CTA report (E002) or any other imaging report that explicitly describes bone destruction or osteomyelitis of the clivus itself, rather than just adjacent soft tissues",
+        "current_trajectory_hypothesis": "The patient presented with neurological symptoms and advanced sinusitis. Pathology confirmed mucormycosis. CTA showed advanced sinusitis, abnormal gas in the skull base, and soft tissue involvement adjacent to the clivus. While this strongly suggests skull base osteomyelitis, I need explicit imaging evidence confirming osteomyelitis of the clivus itself to fully support the final diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with weakness, fall, right-sided facial droop, hyperglycemia, and recent SARS-CoV-2 infection.",
+          "Initial non-contrast CT scan demonstrated advanced sinusitis (E001).",
+          "Pathological findings reported non-septate branching hyphae, indicative of potential mucormycosis from fungal infiltration (E004).",
+          "Fiberoptic nasal endoscopy demonstrated sinusitis, which, in conjunction with radiological findings of SBO, increased suspicion of invasive sinusitis due to mucormycosis (E003).",
+          "CTA findings showed advanced sinusitis (progressed from initial CT), abnormal gas in several foci in the skull base, left occipital condyle, and soft tissues adjacent to the clivus (E002)."
+        ],
+        "missing_key_evidence": [
+          "Explicit imaging evidence of osteomyelitis of the clivus",
+          "Direct clinical confirmation of osteomyelitis of the clivus"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No source record explicitly describes bone destruction or osteomyelitis of the clivus itself.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "discharge summary or final diagnostic statement from a relevant specialist (e.g., Infectious Disease, ENT) that explicitly states the final diagnosis of osteomyelitis of the clivus secondary to mucormycosis, integrating all findings",
+        "current_trajectory_hypothesis": "The patient presented with neurological symptoms and advanced sinusitis. Pathology confirmed mucormycosis. CTA showed advanced sinusitis, abnormal gas in the skull base, and soft tissue involvement adjacent to the clivus, which strongly suggests skull base osteomyelitis. While explicit imaging evidence for clival osteomyelitis is not directly reported, a comprehensive clinical summary or specialist consultation might synthesize these findings to confirm the final diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with weakness, fall, right-sided facial droop, hyperglycemia, and recent SARS-CoV-2 infection.",
+          "Initial non-contrast CT scan demonstrated advanced sinusitis (E001).",
+          "Pathological findings reported non-septate branching hyphae, indicative of potential mucormycosis from fungal infiltration (E004).",
+          "Fiberoptic nasal endoscopy demonstrated sinusitis, which, in conjunction with radiological findings of SBO, increased suspicion of invasive sinusitis due to mucormycosis (E003).",
+          "CTA findings showed advanced sinusitis (progressed from initial CT), abnormal gas in several foci in the skull base, left occipital condyle, and soft tissues adjacent to the clivus (E002)."
+        ],
+        "missing_key_evidence": [
+          "Explicit clinical confirmation of osteomyelitis of the clivus",
+          "Direct imaging evidence of osteomyelitis of the clivus"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No discharge summary or final diagnostic statement explicitly stating the final diagnosis is available in the source records.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "clinical note or specialist consultation report that interprets the 'radiological findings of SBO' (E003) and the specific CTA findings (E002) of abnormal gas in the skull base and soft tissues adjacent to the clivus, in light of the confirmed mucormycosis (E004) and the patient's facial droop, to explain the diagnosis of osteomyelitis of the clivus.",
+        "current_trajectory_hypothesis": "The patient presented with neurological symptoms and advanced sinusitis. Pathology confirmed mucormycosis. CTA showed advanced sinusitis, abnormal gas in the skull base, and soft tissue involvement adjacent to the clivus, which was interpreted as skull base osteomyelitis. I need a clinical interpretation that explicitly links these findings to osteomyelitis of the clivus.",
+        "confirmed_evidence": [
+          "Patient presented with weakness, fall, right-sided facial droop, hyperglycemia, and recent SARS-CoV-2 infection.",
+          "Initial non-contrast CT scan demonstrated advanced sinusitis (E001).",
+          "Pathological findings reported non-septate branching hyphae, indicative of potential mucormycosis from fungal infiltration (E004).",
+          "Fiberoptic nasal endoscopy demonstrated sinusitis, which, in conjunction with radiological findings of SBO, increased suspicion of invasive sinusitis due to mucormycosis (E003).",
+          "CTA findings showed advanced sinusitis (progressed from initial CT), abnormal gas in several foci in the skull base, left occipital condyle, and soft tissues adjacent to the clivus (E002)."
+        ],
+        "missing_key_evidence": [
+          "Explicit clinical confirmation of osteomyelitis of the clivus, integrating all findings."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No clinical note or specialist consultation report interpreting the radiological and CTA findings in light of mucormycosis and facial droop to explain osteomyelitis of the clivus is present in the source records.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "details of the treatment initiated for mucormycosis and any surgical interventions performed, especially if related to debridement of the skull base or clivus",
+        "current_trajectory_hypothesis": "The patient presented with neurological symptoms and advanced sinusitis. Pathology confirmed mucormycosis. CTA showed advanced sinusitis, abnormal gas in the skull base, and soft tissue involvement adjacent to the clivus, which was interpreted as skull base osteomyelitis. While explicit imaging evidence for clival osteomyelitis is not directly reported, information on treatment for mucormycosis and any surgical debridement of the skull base or clivus would further support the diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with weakness, fall, right-sided facial droop, hyperglycemia, and recent SARS-CoV-2 infection.",
+          "Initial non-contrast CT scan demonstrated advanced sinusitis (E001).",
+          "Pathological findings reported non-septate branching hyphae, indicative of potential mucormycosis from fungal infiltration (E004).",
+          "Fiberoptic nasal endoscopy demonstrated sinusitis, which, in conjunction with radiological findings of SBO, increased suspicion of invasive sinusitis due to mucormycosis (E003).",
+          "CTA findings showed advanced sinusitis (progressed from initial CT), abnormal gas in several foci in the skull base, left occipital condyle, and soft tissues adjacent to the clivus (E002)."
+        ],
+        "missing_key_evidence": [
+          "Explicit clinical confirmation of osteomyelitis of the clivus, integrating all findings.",
+          "Direct imaging evidence of osteomyelitis of the clivus.",
+          "Details of treatment and clinical course."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "formal radiology report or a radiologist's addendum interpreting the CTA findings (E002), specifically commenting on bone destruction, erosion, or osteomyelitis of the clivus or adjacent skull base structures, in light of the advanced sinusitis and suspected invasive fungal infection",
+        "current_trajectory_hypothesis": "The patient presented with neurological symptoms and advanced sinusitis. Pathology confirmed mucormycosis. CTA showed advanced sinusitis, abnormal gas in the skull base, and soft tissue involvement adjacent to the clivus. While this strongly suggests skull base osteomyelitis, I need explicit imaging evidence or a radiologist's interpretation confirming osteomyelitis of the clivus itself to fully support the final diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with weakness, fall, right-sided facial droop, hyperglycemia, and recent SARS-CoV-2 infection.",
+          "Initial non-contrast CT scan demonstrated advanced sinusitis (E001).",
+          "Pathological findings reported non-septate branching hyphae, indicative of potential mucormycosis from fungal infiltration (E004).",
+          "Fiberoptic nasal endoscopy demonstrated sinusitis, which, in conjunction with radiological findings of SBO, increased suspicion of invasive sinusitis due to mucormycosis (E003).",
+          "CTA findings showed advanced sinusitis (progressed from initial CT), abnormal gas in several foci in the skull base, left occipital condyle, and soft tissues adjacent to the clivus (E002)."
+        ],
+        "missing_key_evidence": [
+          "Explicit imaging evidence or radiologist's interpretation of osteomyelitis of the clivus",
+          "Direct clinical confirmation of osteomyelitis of the clivus, integrating all findings."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E002",
+        "source_text": "CTA findings are shown in Figure 1. Advanced sinusitis is demonstrated and progressed since the initial non-contrast CT was completed. Abnormal gas was seen in several foci in the skull base, left occipital condyle, and soft tissues adjacent to the clivus.",
+        "category": "imaging_report",
+        "temporal_cue": "after admission",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "operative report or surgical pathology report detailing any debridement of the skull base or clivus, and findings of bone involvement",
+        "current_trajectory_hypothesis": "The patient presented with neurological symptoms and advanced sinusitis. Pathology confirmed mucormycosis. CTA showed advanced sinusitis, abnormal gas in the skull base, and soft tissue involvement adjacent to the clivus, which was interpreted as skull base osteomyelitis. To further confirm osteomyelitis of the clivus, I need evidence of surgical intervention and direct findings of bone involvement.",
+        "confirmed_evidence": [
+          "Patient presented with weakness, fall, right-sided facial droop, hyperglycemia, and recent SARS-CoV-2 infection.",
+          "Initial non-contrast CT scan demonstrated advanced sinusitis (E001).",
+          "Pathological findings reported non-septate branching hyphae, indicative of potential mucormycosis from fungal infiltration (E004).",
+          "Fiberoptic nasal endoscopy demonstrated sinusitis, which, in conjunction with radiological findings of SBO, increased suspicion of invasive sinusitis due to mucormycosis (E003).",
+          "CTA findings showed advanced sinusitis (progressed from initial CT), abnormal gas in several foci in the skull base, left occipital condyle, and soft tissues adjacent to the clivus (E002)."
+        ],
+        "missing_key_evidence": [
+          "Explicit imaging evidence or radiologist's interpretation of osteomyelitis of the clivus",
+          "Direct clinical confirmation of osteomyelitis of the clivus, integrating all findings.",
+          "Evidence of surgical debridement of infected bone in the clivus region."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Additionally, the patient was transferred to undergo endoscopic debridement, which demonstrated Mucor on the carotid wall.",
+        "category": "treatment_response",
+        "temporal_cue": "clinical progression after diagnosis",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "operative report or detailed surgical findings from the endoscopic debridement (mentioned in E005), specifically describing the extent of fungal invasion, any bone involvement or erosion in the skull base or clivus region, and the rationale for debridement in that area",
+        "current_trajectory_hypothesis": "The patient presented with neurological symptoms and advanced sinusitis. Pathology confirmed mucormycosis. CTA showed advanced sinusitis, abnormal gas in the skull base, and soft tissue involvement adjacent to the clivus, which was interpreted as skull base osteomyelitis. Endoscopic debridement was performed, revealing Mucor on the carotid wall. A detailed operative report could provide direct evidence of bone involvement in the clivus, further supporting the diagnosis of osteomyelitis of the clivus.",
+        "confirmed_evidence": [
+          "Patient presented with weakness, fall, right-sided facial droop, hyperglycemia, and recent SARS-CoV-2 infection.",
+          "Initial non-contrast CT scan demonstrated advanced sinusitis (E001).",
+          "Pathological findings reported non-septate branching hyphae, indicative of potential mucormycosis from fungal infiltration (E004).",
+          "Fiberoptic nasal endoscopy demonstrated sinusitis, which, in conjunction with radiological findings of SBO, increased suspicion of invasive sinusitis due to mucormycosis (E003).",
+          "CTA findings showed advanced sinusitis (progressed from initial CT), abnormal gas in several foci in the skull base, left occipital condyle, and soft tissues adjacent to the clivus (E002).",
+          "Endoscopic debridement demonstrated Mucor on the carotid wall (E005)."
+        ],
+        "missing_key_evidence": [
+          "Explicit surgical or imaging evidence of osteomyelitis of the clivus itself",
+          "Direct clinical confirmation of osteomyelitis of the clivus, integrating all findings."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No source record provides a detailed operative report or surgical findings describing the extent of fungal invasion, bone involvement, or rationale for debridement.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Osteomyelitis of the clivus secondary to mucormycosis",
+        "trajectory_summary": "A 63-year-old male presented with weakness, a fall, and a right-sided facial droop, with a history of hyperglycemia and recent SARS-CoV-2 infection. Initial non-contrast CT scan demonstrated advanced sinusitis. Subsequent CTA showed advanced sinusitis, abnormal gas in several foci in the skull base, left occipital condyle, and soft tissues adjacent to the clivus. These radiological findings, along with fiberoptic nasal endoscopy demonstrating sinusitis, were interpreted as 'radiological findings of SBO' (Skull Base Osteomyelitis), increasing suspicion for invasive sinusitis due to mucormycosis. Pathological findings from biopsy confirmed non-septate branching hyphae, indicative of potential mucormycosis from fungal infiltration. Endoscopic debridement further demonstrated Mucor on the carotid wall. The combination of confirmed mucormycosis and radiological evidence of skull base osteomyelitis, with involvement adjacent to the clivus, supports the final diagnosis.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with neurological symptom (right-sided facial droop) and advanced sinusitis.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Initial non-contrast CT scan demonstrated advanced sinusitis.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "CTA showed advanced sinusitis, abnormal gas in several foci in the skull base, left occipital condyle, and soft tissues adjacent to the clivus.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Radiological findings of SBO (Skull Base Osteomyelitis) were identified, increasing suspicion of invasive sinusitis due to mucormycosis.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Pathological findings reported non-septate branching hyphae, indicative of potential mucormycosis from fungal infiltration.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Endoscopic debridement demonstrated Mucor on the carotid wall.",
+            "evidence_ids": [
+              "E005"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [
+          "No explicit imaging report or clinical note directly states 'osteomyelitis of the clivus' as a definitive diagnosis, though 'radiological findings of SBO' and 'soft tissues adjacent to the clivus' with confirmed mucormycosis strongly imply it."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Osteomyelitis of the clivus secondary to mucormycosis",
+    "trajectory_summary": "A 63-year-old male presented with weakness, a fall, and a right-sided facial droop, with a history of hyperglycemia and recent SARS-CoV-2 infection. Initial non-contrast CT scan demonstrated advanced sinusitis. Subsequent CTA showed advanced sinusitis, abnormal gas in several foci in the skull base, left occipital condyle, and soft tissues adjacent to the clivus. These radiological findings, along with fiberoptic nasal endoscopy demonstrating sinusitis, were interpreted as 'radiological findings of SBO' (Skull Base Osteomyelitis), increasing suspicion for invasive sinusitis due to mucormycosis. Pathological findings from biopsy confirmed non-septate branching hyphae, indicative of potential mucormycosis from fungal infiltration. Endoscopic debridement further demonstrated Mucor on the carotid wall. The combination of confirmed mucormycosis and radiological evidence of skull base osteomyelitis, with involvement adjacent to the clivus, supports the final diagnosis.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with neurological symptom (right-sided facial droop) and advanced sinusitis.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Initial non-contrast CT scan demonstrated advanced sinusitis.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "CTA showed advanced sinusitis, abnormal gas in several foci in the skull base, left occipital condyle, and soft tissues adjacent to the clivus.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Radiological findings of SBO (Skull Base Osteomyelitis) were identified, increasing suspicion of invasive sinusitis due to mucormycosis.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Pathological findings reported non-septate branching hyphae, indicative of potential mucormycosis from fungal infiltration.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Endoscopic debridement demonstrated Mucor on the carotid wall.",
+        "evidence_ids": [
+          "E005"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [
+      "No explicit imaging report or clinical note directly states 'osteomyelitis of the clivus' as a definitive diagnosis, though 'radiological findings of SBO' and 'soft tissues adjacent to the clivus' with confirmed mucormycosis strongly imply it."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T00:32:04.751884+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

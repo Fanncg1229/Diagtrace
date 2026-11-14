@@ -1,0 +1,513 @@
+{
+  "case_id": "PMC8719127",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 10,
+  "termination": "final",
+  "known_final_diagnosis": "Based on the above findings, the pathologist diagnosed the lesion as a mixture of adenocarcinoma and LCNEC.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E007",
+    "E008"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the head MRI report findings that revealed the brain tumor, including location, size, imaging characteristics, and any features suggestive of primary versus metastatic disease.",
+        "current_trajectory_hypothesis": "57-year-old woman with smoking history and asthma presenting with progressive headache and vomiting over one month, found to have a brain lesion on MRI that was subsequently biopsied and diagnosed as mixed adenocarcinoma and LCNEC (likely lung cancer metastasis or primary brain tumor with mixed histology).",
+        "confirmed_evidence": [
+          "One-month progressive headache and vomiting",
+          "MRI revealed large brain tumor",
+          "Occasional balance loss on examination",
+          "25 pack-year smoking history",
+          "Final pathology: adenocarcinoma and LCNEC mixture"
+        ],
+        "missing_key_evidence": [
+          "MRI imaging characteristics and tumor location",
+          "Biopsy/pathology specimen details and sampling method",
+          "Primary lung imaging (chest CT/X-ray) to establish if this is metastatic disease",
+          "Timeline of biopsy and pathology confirmation",
+          "Treatment course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "The head MRI revealed a 45 mm cystic mass in her right cerebellum (figure 1B).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the pathology report from the brain biopsy, including the histological findings, immunohistochemistry results, and confirmation of the adenocarcinoma and LCNEC components.",
+        "current_trajectory_hypothesis": "57-year-old woman with 25 pack-year smoking history presenting with one-month progressive headache and vomiting. MRI revealed a 45 mm cystic mass in the right cerebellum. Brain biopsy was performed and pathology confirmed mixed adenocarcinoma and LCNEC. This mixed histology in a brain lesion with smoking history suggests either metastatic lung cancer or a primary brain tumor with neuroendocrine differentiation.",
+        "confirmed_evidence": [
+          "One-month progressive headache and vomiting",
+          "45 mm cystic mass in right cerebellum on MRI",
+          "Occasional balance loss on examination",
+          "25 pack-year smoking history",
+          "Pathology diagnosis: adenocarcinoma and LCNEC mixture"
+        ],
+        "missing_key_evidence": [
+          "Detailed pathology report with histological description and immunohistochemistry",
+          "Method of tissue sampling (biopsy approach, stereotactic vs open)",
+          "Chest imaging (CT or X-ray) to determine if primary lung lesion exists",
+          "Whether this is metastatic disease from lung or primary brain tumor",
+          "Treatment course and clinical outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "The pathological specimens of the cerebral tumour contained a mixture of adenocarcinoma-like area with atypical cells forming small ducts and nests and an area with abundant eosinophilic cytoplasm and prominent nucleoli (figure 2A). On immunohistochemical analysis showed that CK AE1/3, CK7 and synaptophysin were diffusely positive in all regions (figure 2B). TTF-1 was diffusely positive in the former, but focal positive in the latter. Chromogranin A and CD56 were both focal positive, but the former showed stronger positive. In addition, p40, Napsin A and CK20 showed negative results. Based on the above findings, the pathologist diagnosed the lesion as a mixture of adenocarcinoma and LCNEC.",
+        "category": "pathology_report",
+        "temporal_cue": "postoperative",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide chest imaging findings (CT chest or chest X-ray) to determine if there is a primary lung lesion, and clarify whether this brain tumor is metastatic from lung cancer or a primary brain neoplasm.",
+        "current_trajectory_hypothesis": "57-year-old woman with 25 pack-year smoking history presenting with one-month progressive headache and vomiting. MRI revealed a 45 mm cystic mass in right cerebellum. Pathology confirmed mixed adenocarcinoma and LCNEC with immunohistochemistry showing CK AE1/3, CK7, synaptophysin, and TTF-1 positivity—markers consistent with lung origin. The critical remaining question is whether this represents metastatic lung cancer or a primary brain tumor with neuroendocrine differentiation.",
+        "confirmed_evidence": [
+          "One-month progressive headache and vomiting with balance loss",
+          "45 mm cystic mass in right cerebellum on MRI (E001)",
+          "Pathology: adenocarcinoma and LCNEC mixture with adenocarcinoma-like areas (small ducts/nests) and neuroendocrine areas (eosinophilic cytoplasm, prominent nucleoli) (E002)",
+          "Immunohistochemistry: CK AE1/3, CK7, synaptophysin diffusely positive; TTF-1 diffusely positive in adenocarcinoma area, focal in LCNEC area; Chromogranin A and CD56 focal positive; p40, Napsin A, CK20 negative (E002)",
+          "25 pack-year smoking history and well-controlled asthma"
+        ],
+        "missing_key_evidence": [
+          "Chest imaging (CT or X-ray) to identify primary lung lesion and establish metastatic vs primary diagnosis",
+          "Biopsy method (stereotactic vs open craniotomy)",
+          "Staging workup (if metastatic disease, extent of systemic disease)",
+          "Treatment course and clinical outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.65
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E001",
+        "source_text": "The whole-body CT revealed a tumour in the right pulmonary hilum and mediastinal lymphadenopathies (figure 1A).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the pathology report from the lung biopsy or resection specimen, including histological findings and immunohistochemistry results, to confirm that the pulmonary hilum lesion has the same adenocarcinoma and LCNEC histology as the brain lesion, establishing this as metastatic lung cancer.",
+        "current_trajectory_hypothesis": "57-year-old woman with 25 pack-year smoking history presenting with one-month progressive headache and vomiting. MRI revealed a 45 mm cystic mass in right cerebellum. Whole-body CT showed a tumor in the right pulmonary hilum with mediastinal lymphadenopathies. Brain biopsy pathology confirmed mixed adenocarcinoma and LCNEC with lung-origin markers (TTF-1+, CK7+, synaptophysin+). The trajectory now strongly suggests metastatic lung cancer with brain metastasis, but confirmation requires pathological evidence from the primary lung lesion.",
+        "confirmed_evidence": [
+          "One-month progressive headache and vomiting with balance loss on examination",
+          "45 mm cystic mass in right cerebellum on MRI (E001)",
+          "Tumor in right pulmonary hilum with mediastinal lymphadenopathies on whole-body CT (E001)",
+          "Brain biopsy pathology: adenocarcinoma and LCNEC mixture with adenocarcinoma-like areas (small ducts/nests) and neuroendocrine areas (eosinophilic cytoplasm, prominent nucleoli) (E002)",
+          "Immunohistochemistry from brain lesion: CK AE1/3, CK7, synaptophysin diffusely positive; TTF-1 diffusely positive in adenocarcinoma, focal in LCNEC; Chromogranin A and CD56 focal positive; p40, Napsin A, CK20 negative—consistent with lung origin (E002)",
+          "25 pack-year smoking history"
+        ],
+        "missing_key_evidence": [
+          "Pathology from lung lesion (biopsy or resection) confirming adenocarcinoma and LCNEC histology",
+          "Biopsy method for brain lesion (stereotactic vs open craniotomy)",
+          "Treatment course (chemotherapy, radiation, surgery) and clinical outcome",
+          "Staging details (TNM stage, extent of metastatic disease beyond brain and mediastinum)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.78
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the clinical course and treatment details, including whether the patient underwent surgery (craniotomy) for the brain lesion, what surgical approach was used for tissue sampling, and any subsequent treatment (chemotherapy, radiation therapy) and patient outcome.",
+        "current_trajectory_hypothesis": "57-year-old woman with 25 pack-year smoking history presenting with one-month progressive headache and vomiting. MRI revealed a 45 mm cystic mass in right cerebellum. Whole-body CT showed tumor in right pulmonary hilum with mediastinal lymphadenopathies, establishing metastatic lung cancer. Brain biopsy pathology confirmed mixed adenocarcinoma and LCNEC with lung-origin immunohistochemistry markers (TTF-1+, CK7+, synaptophysin+). The trajectory is now well-established as metastatic lung cancer with brain metastasis; remaining evidence needed includes surgical approach and treatment course.",
+        "confirmed_evidence": [
+          "One-month progressive headache and vomiting with balance loss (initial presentation)",
+          "45 mm cystic mass in right cerebellum on MRI (E001)",
+          "Tumor in right pulmonary hilum with mediastinal lymphadenopathies on whole-body CT (E001)",
+          "Brain lesion pathology: adenocarcinoma and LCNEC mixture (E002)",
+          "Immunohistochemistry consistent with lung origin: CK AE1/3+, CK7+, synaptophysin+, TTF-1+ (E002)",
+          "25 pack-year smoking history"
+        ],
+        "missing_key_evidence": [
+          "Surgical approach and method for brain tissue sampling (stereotactic biopsy vs open craniotomy)",
+          "Treatment course: chemotherapy regimen, radiation therapy, or other interventions",
+          "Clinical outcome and patient status at last follow-up",
+          "Pathology confirmation from primary lung lesion (if available)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.82
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "The CT results 10 weeks after the start of DT revealed a decrease in the size of the tumour in the right lung hilum. This corresponded to a partial response (figure 3A). The brain tumour was surgically removed. There was no recurrence for at least a year thereafter, including in the central nervous system (figure 3B).",
+        "category": "imaging_report",
+        "temporal_cue": "10 weeks after treatment start and follow-up",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide details on the surgical procedure performed for the brain tumor, including the surgical approach (stereotactic biopsy vs craniotomy), timing of surgery, and whether the lesion was biopsied or resected. Also provide information on the DT (likely denotes chemotherapy regimen) that was initiated and its specific agents.",
+        "current_trajectory_hypothesis": "57-year-old woman with 25 pack-year smoking history presenting with one-month progressive headache and vomiting. MRI revealed 45 mm cystic mass in right cerebellum. Whole-body CT showed tumor in right pulmonary hilum with mediastinal lymphadenopathies. Brain lesion pathology confirmed mixed adenocarcinoma and LCNEC with lung-origin markers (TTF-1+, CK7+, synaptophysin+), establishing diagnosis of metastatic lung cancer with brain metastasis. Brain tumor was surgically removed with no recurrence for at least one year. CT at 10 weeks showed partial response of lung tumor to DT (chemotherapy). Trajectory is well-established; remaining details needed are surgical approach specifics and chemotherapy regimen details.",
+        "confirmed_evidence": [
+          "One-month progressive headache and vomiting with balance loss on examination",
+          "45 mm cystic mass in right cerebellum on MRI (E001)",
+          "Tumor in right pulmonary hilum with mediastinal lymphadenopathies on whole-body CT (E001)",
+          "Brain lesion pathology: adenocarcinoma and LCNEC mixture with adenocarcinoma-like areas and neuroendocrine areas (E002)",
+          "Immunohistochemistry: CK AE1/3+, CK7+, synaptophysin+, TTF-1+ (diffuse in adenocarcinoma, focal in LCNEC), Chromogranin A and CD56 focal+, p40/Napsin A/CK20 negative—consistent with lung origin (E002)",
+          "Brain tumor surgically removed with no recurrence for at least one year (E008)",
+          "CT at 10 weeks after DT initiation showed partial response of lung tumor (E008)",
+          "25 pack-year smoking history"
+        ],
+        "missing_key_evidence": [
+          "Specific surgical approach for brain lesion (stereotactic biopsy vs open craniotomy)",
+          "Timing of brain surgery relative to diagnosis",
+          "Identity and regimen of DT (chemotherapy agents used)",
+          "Pathology from primary lung lesion (if biopsied or resected) confirming adenocarcinoma and LCNEC histology"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.88
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "DT combination therapy was started for BRAF-mutated NSCLC. Fever and rash appeared on the fourth day after treatment. Antihistamine and topical steroids were given, but the symptoms did not improve. Furthermore, DT was temporarily suspended because of hepatic dysfunction on the sixth day. On the ninth day after DT withdrawal, adverse events improved to grade 1 or lower, and dose-reduced DT administration was resumed. On the fifth day after the resumption of administration, fever and rash reappeared, so DT was discontinued and prednisolone (PSL) (20 mg/day) was given. After that, DT was resumed, and the patient did not develop a fever or rash. PSL was gradually reduced to 7.5 mg/day.",
+        "category": "treatment_response",
+        "temporal_cue": "after treatment start",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the specific chemotherapy regimen details for DT, including the names of the two agents used in the combination therapy for BRAF-mutated NSCLC, and clarify the timing of when the brain tumor surgery was performed relative to the initiation of DT.",
+        "current_trajectory_hypothesis": "57-year-old woman with 25 pack-year smoking history presenting with one-month progressive headache and vomiting. MRI revealed 45 mm cystic mass in right cerebellum. Whole-body CT showed tumor in right pulmonary hilum with mediastinal lymphadenopathies. Brain biopsy pathology confirmed mixed adenocarcinoma and LCNEC with lung-origin immunohistochemistry markers (TTF-1+, CK7+, synaptophysin+), establishing metastatic lung cancer with brain metastasis. Brain tumor was surgically removed. DT combination therapy for BRAF-mutated NSCLC was initiated with initial adverse events (fever, rash, hepatic dysfunction) managed with dose reduction and corticosteroids. At 10 weeks, lung tumor showed partial response with no CNS recurrence for at least one year.",
+        "confirmed_evidence": [
+          "One-month progressive headache and vomiting with balance loss on examination",
+          "45 mm cystic mass in right cerebellum on MRI (E001)",
+          "Tumor in right pulmonary hilum with mediastinal lymphadenopathies on whole-body CT (E001)",
+          "Brain lesion pathology: adenocarcinoma and LCNEC mixture (E002)",
+          "Immunohistochemistry consistent with lung origin: CK AE1/3+, CK7+, synaptophysin+, TTF-1+ (E002)",
+          "Brain tumor surgically removed with no recurrence for at least one year (E008)",
+          "DT combination therapy for BRAF-mutated NSCLC initiated with partial response at 10 weeks (E007, E008)",
+          "Adverse events (fever, rash, hepatic dysfunction) managed with dose reduction and prednisolone (E007)",
+          "25 pack-year smoking history"
+        ],
+        "missing_key_evidence": [
+          "Specific names of the two agents in DT combination therapy",
+          "Timing of brain surgery relative to DT initiation",
+          "Pathology confirmation from primary lung lesion (if available)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E007",
+        "source_text": "DT combination therapy was started for BRAF-mutated NSCLC. Fever and rash appeared on the fourth day after treatment. Antihistamine and topical steroids were given, but the symptoms did not improve. Furthermore, DT was temporarily suspended because of hepatic dysfunction on the sixth day. On the ninth day after DT withdrawal, adverse events improved to grade 1 or lower, and dose-reduced DT administration was resumed. On the fifth day after the resumption of administration, fever and rash reappeared, so DT was discontinued and prednisolone (PSL) (20 mg/day) was given. After that, DT was resumed, and the patient did not develop a fever or rash. PSL was gradually reduced to 7.5 mg/day.",
+        "category": "treatment_response",
+        "temporal_cue": "after treatment start",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the pathology report from the primary lung lesion (biopsy or resection specimen), including histological findings and immunohistochemistry results, to confirm that the pulmonary hilum tumor has the same adenocarcinoma and LCNEC histology as the brain metastasis.",
+        "current_trajectory_hypothesis": "57-year-old woman with 25 pack-year smoking history presenting with one-month progressive headache and vomiting. MRI revealed 45 mm cystic mass in right cerebellum. Whole-body CT showed tumor in right pulmonary hilum with mediastinal lymphadenopathies. Brain biopsy pathology confirmed mixed adenocarcinoma and LCNEC with lung-origin immunohistochemistry markers (TTF-1+, CK7+, synaptophysin+), establishing metastatic lung cancer with brain metastasis. Brain tumor was surgically removed. DT combination therapy for BRAF-mutated NSCLC was initiated with partial response at 10 weeks and no CNS recurrence for at least one year. The final key evidence needed is pathological confirmation from the primary lung lesion.",
+        "confirmed_evidence": [
+          "One-month progressive headache and vomiting with balance loss on examination",
+          "45 mm cystic mass in right cerebellum on MRI (E001)",
+          "Tumor in right pulmonary hilum with mediastinal lymphadenopathies on whole-body CT (E001)",
+          "Brain lesion pathology: adenocarcinoma and LCNEC mixture with adenocarcinoma-like areas (small ducts/nests) and neuroendocrine areas (eosinophilic cytoplasm, prominent nucleoli) (E002)",
+          "Immunohistochemistry from brain lesion: CK AE1/3+, CK7+, synaptophysin+ (diffuse); TTF-1+ (diffuse in adenocarcinoma, focal in LCNEC); Chromogranin A and CD56 focal+; p40, Napsin A, CK20 negative—consistent with lung origin (E002)",
+          "Brain tumor surgically removed with no recurrence for at least one year (E008)",
+          "DT combination therapy for BRAF-mutated NSCLC with partial response of lung tumor at 10 weeks (E007, E008)",
+          "Adverse events (fever, rash, hepatic dysfunction) managed with dose reduction and prednisolone (E007)",
+          "25 pack-year smoking history"
+        ],
+        "missing_key_evidence": [
+          "Pathology from primary lung lesion confirming adenocarcinoma and LCNEC histology",
+          "Specific names of the two agents in DT combination therapy",
+          "Exact timing of brain surgery relative to DT initiation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.92
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the clinical course documentation or operative report describing the timing and method of brain tumor surgery (stereotactic biopsy versus open craniotomy resection) and when it was performed relative to the diagnosis and initiation of DT chemotherapy.",
+        "current_trajectory_hypothesis": "57-year-old woman with 25 pack-year smoking history presenting with one-month progressive headache and vomiting. MRI revealed 45 mm cystic mass in right cerebellum. Whole-body CT showed tumor in right pulmonary hilum with mediastinal lymphadenopathies. Brain biopsy pathology confirmed mixed adenocarcinoma and LCNEC with lung-origin immunohistochemistry markers (TTF-1+, CK7+, synaptophysin+), establishing metastatic lung cancer with brain metastasis. Brain tumor was surgically removed with no recurrence for at least one year. DT combination therapy for BRAF-mutated NSCLC was initiated with partial response at 10 weeks. The trajectory is well-established; remaining details are surgical approach specifics and exact temporal sequence of interventions.",
+        "confirmed_evidence": [
+          "One-month progressive headache and vomiting with balance loss on examination",
+          "45 mm cystic mass in right cerebellum on MRI (E001)",
+          "Tumor in right pulmonary hilum with mediastinal lymphadenopathies on whole-body CT (E001)",
+          "Brain lesion pathology: adenocarcinoma and LCNEC mixture (E002)",
+          "Immunohistochemistry consistent with lung origin: CK AE1/3+, CK7+, synaptophysin+, TTF-1+ (E002)",
+          "Brain tumor surgically removed with no recurrence for at least one year (E008)",
+          "DT combination therapy for BRAF-mutated NSCLC with partial response at 10 weeks (E007, E008)",
+          "Adverse events managed with dose reduction and prednisolone (E007)",
+          "25 pack-year smoking history"
+        ],
+        "missing_key_evidence": [
+          "Surgical approach and method for brain lesion (stereotactic biopsy vs open craniotomy resection)",
+          "Timing of brain surgery relative to diagnosis and DT initiation",
+          "Specific names of the two agents in DT combination therapy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.92
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E008",
+        "source_text": "The brain tumour was surgically removed.",
+        "category": "imaging_report",
+        "temporal_cue": "10 weeks after treatment start and follow-up",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Metastatic lung cancer with mixed adenocarcinoma and large cell neuroendocrine carcinoma (LCNEC) histology, presenting with brain metastasis to the right cerebellum",
+        "trajectory_summary": "A 57-year-old woman with 25 pack-year smoking history and well-controlled asthma presented with one-month progressive headache and vomiting. MRI revealed a 45 mm cystic mass in the right cerebellum. Whole-body CT identified a tumor in the right pulmonary hilum with mediastinal lymphadenopathies, establishing a primary lung malignancy with brain metastasis. Brain biopsy pathology confirmed mixed adenocarcinoma and LCNEC with immunohistochemistry markers consistent with lung origin (CK AE1/3+, CK7+, synaptophysin+, TTF-1+). The patient underwent surgical removal of the brain tumor. DT combination therapy for BRAF-mutated NSCLC was initiated, with initial adverse events (fever, rash, hepatic dysfunction) managed by dose reduction and corticosteroids. At 10 weeks post-treatment, the lung tumor showed partial response with no CNS recurrence documented for at least one year.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with one-month progressive headache and vomiting with balance loss on examination",
+            "evidence_ids": []
+          },
+          {
+            "claim": "MRI revealed a 45 mm cystic mass in the right cerebellum",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Whole-body CT showed tumor in right pulmonary hilum with mediastinal lymphadenopathies",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Brain lesion pathology confirmed adenocarcinoma and LCNEC mixture with adenocarcinoma-like areas (small ducts/nests) and neuroendocrine areas (eosinophilic cytoplasm, prominent nucleoli)",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Immunohistochemistry showed CK AE1/3+, CK7+, synaptophysin+ (diffuse); TTF-1+ (diffuse in adenocarcinoma, focal in LCNEC); Chromogranin A and CD56 focal+; p40, Napsin A, CK20 negative—consistent with lung origin",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Brain tumor was surgically removed with no recurrence for at least one year",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "DT combination therapy for BRAF-mutated NSCLC was initiated with partial response of lung tumor at 10 weeks",
+            "evidence_ids": [
+              "E007",
+              "E008"
+            ]
+          },
+          {
+            "claim": "Adverse events (fever, rash, hepatic dysfunction) were managed with dose reduction and prednisolone",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Patient had 25 pack-year smoking history",
+            "evidence_ids": []
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Primary brain tumor (glioma or other CNS malignancy)",
+            "basis": "Immunohistochemistry showing TTF-1+, CK7+, and synaptophysin+ with lung-specific markers strongly indicates lung origin; imaging and clinical course consistent with metastatic disease from identified pulmonary primary"
+          },
+          {
+            "alternative": "Benign cerebellar lesion",
+            "basis": "Pathology confirmed malignant adenocarcinoma and LCNEC with atypical cells; clinical presentation with progressive symptoms and imaging characteristics consistent with malignancy"
+          },
+          {
+            "alternative": "Single primary brain malignancy without systemic disease",
+            "basis": "Whole-body CT identified separate primary tumor in right pulmonary hilum with mediastinal lymphadenopathies; treatment response to lung cancer-directed therapy (DT for BRAF-mutated NSCLC) confirms systemic malignancy"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Specific names of the two agents in the DT combination therapy regimen",
+          "Exact timing of brain surgery relative to diagnosis and initiation of DT chemotherapy",
+          "Pathology confirmation from the primary lung lesion (whether biopsied or resected) to directly verify adenocarcinoma and LCNEC histology in the pulmonary primary",
+          "Surgical approach used for brain lesion (stereotactic biopsy versus open craniotomy resection)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.93
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Metastatic lung cancer with mixed adenocarcinoma and large cell neuroendocrine carcinoma (LCNEC) histology, presenting with brain metastasis to the right cerebellum",
+    "trajectory_summary": "A 57-year-old woman with 25 pack-year smoking history and well-controlled asthma presented with one-month progressive headache and vomiting. MRI revealed a 45 mm cystic mass in the right cerebellum. Whole-body CT identified a tumor in the right pulmonary hilum with mediastinal lymphadenopathies, establishing a primary lung malignancy with brain metastasis. Brain biopsy pathology confirmed mixed adenocarcinoma and LCNEC with immunohistochemistry markers consistent with lung origin (CK AE1/3+, CK7+, synaptophysin+, TTF-1+). The patient underwent surgical removal of the brain tumor. DT combination therapy for BRAF-mutated NSCLC was initiated, with initial adverse events (fever, rash, hepatic dysfunction) managed by dose reduction and corticosteroids. At 10 weeks post-treatment, the lung tumor showed partial response with no CNS recurrence documented for at least one year.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with one-month progressive headache and vomiting with balance loss on examination",
+        "evidence_ids": []
+      },
+      {
+        "claim": "MRI revealed a 45 mm cystic mass in the right cerebellum",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Whole-body CT showed tumor in right pulmonary hilum with mediastinal lymphadenopathies",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Brain lesion pathology confirmed adenocarcinoma and LCNEC mixture with adenocarcinoma-like areas (small ducts/nests) and neuroendocrine areas (eosinophilic cytoplasm, prominent nucleoli)",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Immunohistochemistry showed CK AE1/3+, CK7+, synaptophysin+ (diffuse); TTF-1+ (diffuse in adenocarcinoma, focal in LCNEC); Chromogranin A and CD56 focal+; p40, Napsin A, CK20 negative—consistent with lung origin",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Brain tumor was surgically removed with no recurrence for at least one year",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "DT combination therapy for BRAF-mutated NSCLC was initiated with partial response of lung tumor at 10 weeks",
+        "evidence_ids": [
+          "E007",
+          "E008"
+        ]
+      },
+      {
+        "claim": "Adverse events (fever, rash, hepatic dysfunction) were managed with dose reduction and prednisolone",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Patient had 25 pack-year smoking history",
+        "evidence_ids": []
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Primary brain tumor (glioma or other CNS malignancy)",
+        "basis": "Immunohistochemistry showing TTF-1+, CK7+, and synaptophysin+ with lung-specific markers strongly indicates lung origin; imaging and clinical course consistent with metastatic disease from identified pulmonary primary"
+      },
+      {
+        "alternative": "Benign cerebellar lesion",
+        "basis": "Pathology confirmed malignant adenocarcinoma and LCNEC with atypical cells; clinical presentation with progressive symptoms and imaging characteristics consistent with malignancy"
+      },
+      {
+        "alternative": "Single primary brain malignancy without systemic disease",
+        "basis": "Whole-body CT identified separate primary tumor in right pulmonary hilum with mediastinal lymphadenopathies; treatment response to lung cancer-directed therapy (DT for BRAF-mutated NSCLC) confirms systemic malignancy"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Specific names of the two agents in the DT combination therapy regimen",
+      "Exact timing of brain surgery relative to diagnosis and initiation of DT chemotherapy",
+      "Pathology confirmation from the primary lung lesion (whether biopsied or resected) to directly verify adenocarcinoma and LCNEC histology in the pulmonary primary",
+      "Surgical approach used for brain lesion (stereotactic biopsy versus open craniotomy resection)"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.93
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T04:58:45.966570+00:00",
+  "clinician_model": "claude-haiku-4-5",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

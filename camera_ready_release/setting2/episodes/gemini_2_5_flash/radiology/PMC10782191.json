@@ -1,0 +1,560 @@
+{
+  "case_id": "PMC10782191",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "The angiographic results revealed moderate disease of the left anterior descending (LAD) artery, occlusion of the left vertebral artery at its ostium, severe stenosis of 80-90% in the right vertebral artery at the proximal segment, and an EF of 55-60%.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E005",
+    "E006",
+    "E007"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Electrocardiogram (ECG) findings at presentation",
+        "current_trajectory_hypothesis": "Patient presented with symptoms suggestive of cardiac and neurological issues. Initial workup likely focused on cardiac symptoms given the cardiologist visit.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Initial cardiac assessment findings (ECG, echo)",
+          "Vascular assessment for dizziness/balance issues",
+          "Details of vertebral artery disease diagnosis",
+          "Details of LAD disease diagnosis",
+          "Angiography results leading to final diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "ECG test order recorded but no corresponding ECG result found in source documents.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Echocardiogram findings at presentation",
+        "current_trajectory_hypothesis": "Patient presented with symptoms suggestive of cardiac and neurological issues. Initial workup likely focused on cardiac symptoms given the cardiologist visit, including an echocardiogram to assess cardiac function and structure, which would include EF.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Initial cardiac assessment findings (echocardiogram)",
+          "Vascular assessment for dizziness/balance issues",
+          "Details of vertebral artery disease diagnosis",
+          "Details of LAD disease diagnosis",
+          "Angiography results leading to final diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.15
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Echo test ordered but no echocardiogram findings documented in source",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Carotid and vertebral artery duplex ultrasound findings",
+        "current_trajectory_hypothesis": "Patient presented with symptoms suggestive of cardiac and neurological issues. Given the final diagnosis of vertebral artery disease and symptoms of dizziness/loss of balance, a vascular assessment of the neck arteries is a logical next step in the diagnostic workup.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Initial cardiac assessment findings (ECG, echo)",
+          "Vascular assessment for dizziness/balance issues (carotid/vertebral duplex)",
+          "Details of vertebral artery disease diagnosis",
+          "Details of LAD disease diagnosis",
+          "Angiography results leading to final diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "The test was ordered; no result documented in source records.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Angiographic results, including findings for LAD and vertebral arteries and EF",
+        "current_trajectory_hypothesis": "Patient presented with symptoms suggestive of cardiac and neurological issues. Initial workup attempts for ECG, Echo, and carotid/vertebral duplex were not documented. The final diagnosis explicitly states 'angiographic results' as the source of the diagnosis for LAD and vertebral artery disease, and EF. Therefore, requesting these results directly is the next logical step to confirm the diagnosis.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Angiographic results detailing LAD and vertebral artery disease and EF",
+          "Temporal sequence of diagnostic steps leading to angiography",
+          "Any treatment or clinical course post-diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "The angiographic results revealed moderate disease of the left anterior descending (LAD) artery, occlusion of the left vertebral artery at its ostium, severe stenosis of 80-90% in the right vertebral artery at the proximal segment, and an EF of 55-60%.",
+        "category": "image_finding",
+        "temporal_cue": "on 10/03/23",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The final diagnosis is confirmed by angiography (E005), but there is a significant temporal gap between the initial presentation and the angiography. I need to understand the intervening clinical course or diagnostic workup that led to the angiography.",
+        "confirmed_evidence": [
+          "Angiographic results revealed moderate disease of the left anterior descending (LAD) artery, occlusion of the left vertebral artery at its ostium, severe stenosis of 80-90% in the right vertebral artery at the proximal segment, and an EF of 55-60% (E005)."
+        ],
+        "missing_key_evidence": [
+          "Clinical course or diagnostic steps between initial presentation and angiography",
+          "Any initial cardiac or vascular assessment findings that might have prompted further investigation",
+          "Treatment or management post-diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "The MRI with and without contrast done on 11/09/23 showed generalized cerebral atrophy with normal cerebral hemispheres, basal ganglia, thalamic nuclei, midbrain, pons, and cerebellum. There was a normal diffusion signal with no bleeding, acute CVA, mass lesion, or midline shift. No abnormal enhancement was noted on post-contrast imaging. There was paranasal sinusitis.",
+        "category": "imaging_report",
+        "temporal_cue": "on 11/09/23",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Cardiac stress test findings (e.g., exercise ECG, nuclear stress test, stress echocardiogram) prior to angiography",
+        "current_trajectory_hypothesis": "The final diagnosis was confirmed by angiography (E005). The initial presentation was in Nov 2021, and the angiography was in Oct 2023, indicating a significant diagnostic interval. I need to identify the diagnostic steps that led to the decision for angiography, particularly for the LAD disease. A cardiac stress test is a common precursor to angiography for suspected coronary artery disease.",
+        "confirmed_evidence": [
+          "Angiographic results revealed moderate disease of the left anterior descending (LAD) artery, occlusion of the left vertebral artery at its ostium, severe stenosis of 80-90% in the right vertebral artery at the proximal segment, and an EF of 55-60% (E005).",
+          "MRI on 11/09/23 showed generalized cerebral atrophy with normal cerebral hemispheres, basal ganglia, thalamic nuclei, midbrain, pons, and cerebellum, with no acute CVA, mass lesion, or midline shift (E006)."
+        ],
+        "missing_key_evidence": [
+          "Diagnostic workup leading to angiography, especially for cardiac and vertebral artery disease",
+          "Any initial cardiac or vascular assessment findings that might have prompted further investigation",
+          "Treatment or management post-diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "The cardiac stress test was ordered; however, the source records do not document any results for this test.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Neurological consultation report or findings regarding dizziness and loss of balance",
+        "current_trajectory_hypothesis": "The final diagnosis was confirmed by angiography (E005). The patient presented with dizziness and loss of balance, which are symptoms consistent with vertebral artery disease. Given the lack of documented specific test results leading up to the angiography, a neurological consultation might have been sought to investigate these symptoms, potentially leading to the diagnosis of vertebral artery disease.",
+        "confirmed_evidence": [
+          "Angiographic results revealed moderate disease of the left anterior descending (LAD) artery, occlusion of the left vertebral artery at its ostium, severe stenosis of 80-90% in the right vertebral artery at the proximal segment, and an EF of 55-60% (E005).",
+          "MRI on 11/09/23 showed generalized cerebral atrophy with normal cerebral hemispheres, basal ganglia, thalamic nuclei, midbrain, pons, and cerebellum, with no acute CVA, mass lesion, or midline shift (E006)."
+        ],
+        "missing_key_evidence": [
+          "Diagnostic workup leading to angiography, especially for vertebral artery disease",
+          "Any initial cardiac or vascular assessment findings that might have prompted further investigation",
+          "Treatment or management post-diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No neurological consultation report or findings regarding dizziness and loss of balance found in the supplied evidence.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The final diagnosis was confirmed by angiography (E005) and an MRI (E006) ruled out acute neurological events. There is a significant temporal gap between the initial presentation (Nov 2021) and the angiography (Oct 2023). Previous attempts to find specific initial cardiac or vascular tests, or neurological consultations, have not yielded documented results. I need to understand the sequence of events or investigations that prompted the angiography.",
+        "confirmed_evidence": [
+          "Angiographic results revealed moderate disease of the left anterior descending (LAD) artery, occlusion of the left vertebral artery at its ostium, severe stenosis of 80-90% in the right vertebral artery at the proximal segment, and an EF of 55-60% (E005).",
+          "MRI on 11/09/23 showed generalized cerebral atrophy with normal cerebral hemispheres, basal ganglia, thalamic nuclei, midbrain, pons, and cerebellum, with no acute CVA, mass lesion, or midline shift (E006)."
+        ],
+        "missing_key_evidence": [
+          "Clinical course or diagnostic steps between initial presentation and angiography",
+          "Any initial cardiac or vascular assessment findings that might have prompted further investigation",
+          "Treatment or management post-diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "phase_index_after must equal the selected evidence phase.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "phase_index_after must equal the selected evidence phase.",
+        "validation_errors": [
+          "phase_index_after must equal the selected evidence phase.",
+          "phase_index_after must equal the selected evidence phase."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The final diagnosis was confirmed by angiography (E005). An MRI (E006) was performed after the angiography. There is a significant temporal gap between the initial presentation and the angiography. I need to identify the clinical events or diagnostic workup that occurred during this period and led to the decision for angiography.",
+        "confirmed_evidence": [
+          "Angiographic results revealed moderate disease of the left anterior descending (LAD) artery, occlusion of the left vertebral artery at its ostium, severe stenosis of 80-90% in the right vertebral artery at the proximal segment, and an EF of 55-60% (E005).",
+          "MRI on 11/09/23 showed generalized cerebral atrophy with normal cerebral hemispheres, basal ganglia, thalamic nuclei, midbrain, pons, and cerebellum, with no acute CVA, mass lesion, or midline shift (E006)."
+        ],
+        "missing_key_evidence": [
+          "Clinical course or diagnostic steps between initial presentation and angiography",
+          "Any initial cardiac or vascular assessment findings that might have prompted further investigation",
+          "Treatment or management post-diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "During the 08/16/23 follow-up, the patient reported worsening episodes of dizziness, loss of balance, and fatigue.",
+        "category": "other",
+        "temporal_cue": "on 08/16/23",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "CT angiography or MRA of head and neck findings prior to the diagnostic angiography (E005)",
+        "current_trajectory_hypothesis": "The patient presented with dizziness and loss of balance. Worsening of these symptoms (E007) likely prompted further investigation into the cerebrovascular system. A CT angiography or MRA of the head and neck would be a logical step to evaluate the vertebral arteries, potentially leading to the discovery of the vertebral artery disease and subsequent diagnostic angiography (E005).",
+        "confirmed_evidence": [
+          "Angiographic results revealed moderate disease of the left anterior descending (LAD) artery, occlusion of the left vertebral artery at its ostium, severe stenosis of 80-90% in the right vertebral artery at the proximal segment, and an EF of 55-60% (E005).",
+          "MRI on 11/09/23 showed generalized cerebral atrophy with normal cerebral hemispheres, basal ganglia, thalamic nuclei, midbrain, pons, and cerebellum, with no acute CVA, mass lesion, or midline shift (E006).",
+          "During the 08/16/23 follow-up, the patient reported worsening episodes of dizziness, loss of balance, and fatigue (E007)."
+        ],
+        "missing_key_evidence": [
+          "Specific diagnostic steps that led to the decision for angiography, especially for vertebral artery disease",
+          "Any initial cardiac assessment findings that might have prompted further investigation for LAD disease",
+          "Treatment or management post-diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.55
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "Order for CT angiography or MRA of head and neck registered; no direct prior record found in source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Cardiology consultation report or summary of initial cardiac assessment findings and recommendations from November 2021",
+        "current_trajectory_hypothesis": "The final diagnosis was confirmed by angiography (E005). The patient initially presented to a cardiologist with palpitations. There is a significant temporal gap between the initial presentation (Nov 2021) and the angiography (Oct 2023). I need to identify the initial cardiac workup and the rationale for proceeding to angiography, especially for the LAD disease, as direct test results have not been documented.",
+        "confirmed_evidence": [
+          "Angiographic results revealed moderate disease of the left anterior descending (LAD) artery, occlusion of the left vertebral artery at its ostium, severe stenosis of 80-90% in the right vertebral artery at the proximal segment, and an EF of 55-60% (E005).",
+          "MRI on 11/09/23 showed generalized cerebral atrophy with normal cerebral hemispheres, basal ganglia, thalamic nuclei, midbrain, pons, and cerebellum, with no acute CVA, mass lesion, or midline shift (E006).",
+          "During the 08/16/23 follow-up, the patient reported worsening episodes of dizziness, loss of balance, and fatigue (E007)."
+        ],
+        "missing_key_evidence": [
+          "Initial cardiac assessment findings and recommendations that led to further investigation or angiography",
+          "Specific diagnostic steps that led to the decision for angiography, especially for vertebral artery disease",
+          "Treatment or management post-diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.55
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "A 71-year-old male presented to the cardiologist’s office on November 3, 2021, with a range of complaints, including palpitations occurring intermittently for the past few weeks, leg cramps in both calves, particularly at night, fatigue, dizziness, and loss of balance. He was accompanied by his son, who is a practicing primary care physician himself. Orthostatic hypotension was ruled out. He was also seen by the ENT doctor and treated for vertigo by his primary care physician earlier.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The final diagnosis was confirmed by angiography (E005). The patient presented with symptoms in Nov 2021 (E001), and reported worsening symptoms in Aug 2023 (E007). I need to identify the clinical events or diagnostic workup that occurred between the worsening symptoms and the angiography, which led to the decision for angiography.",
+        "confirmed_evidence": [
+          "Angiographic results revealed moderate disease of the left anterior descending (LAD) artery, occlusion of the left vertebral artery at its ostium, severe stenosis of 80-90% in the right vertebral artery at the proximal segment, and an EF of 55-60% (E005).",
+          "MRI on 11/09/23 showed generalized cerebral atrophy with normal cerebral hemispheres, basal ganglia, thalamic nuclei, midbrain, pons, and cerebellum, with no acute CVA, mass lesion, or midline shift (E006).",
+          "During the 08/16/23 follow-up, the patient reported worsening episodes of dizziness, loss of balance, and fatigue (E007).",
+          "Initial presentation to cardiologist on November 3, 2021, with palpitations, leg cramps, fatigue, dizziness, and loss of balance; orthostatic hypotension ruled out; previously treated for vertigo (E001)."
+        ],
+        "missing_key_evidence": [
+          "Clinical course or diagnostic steps between initial presentation (Nov 2021) and worsening symptoms (Aug 2023)",
+          "Specific diagnostic steps that led to the decision for angiography after worsening symptoms",
+          "Treatment or management post-diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.55
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No pending orders and no new undisclosed clinical course updates at or after the current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Indication or rationale for performing the angiography (E005)",
+        "current_trajectory_hypothesis": "The final diagnosis was confirmed by angiography (E005). The patient presented with symptoms (E001) that worsened over time (E007). I need to identify the clinical rationale or specific findings that prompted the decision to perform the angiography, especially given the significant time gap between initial presentation and the procedure.",
+        "confirmed_evidence": [
+          "Angiographic results revealed moderate disease of the left anterior descending (LAD) artery, occlusion of the left vertebral artery at its ostium, severe stenosis of 80-90% in the right vertebral artery at the proximal segment, and an EF of 55-60% (E005).",
+          "MRI on 11/09/23 showed generalized cerebral atrophy with normal cerebral hemispheres, basal ganglia, thalamic nuclei, midbrain, pons, and cerebellum, with no acute CVA, mass lesion, or midline shift (E006).",
+          "During the 08/16/23 follow-up, the patient reported worsening episodes of dizziness, loss of balance, and fatigue (E007).",
+          "Initial presentation to cardiologist on November 3, 2021, with palpitations, leg cramps, fatigue, dizziness, and loss of balance; orthostatic hypotension ruled out; previously treated for vertigo (E001)."
+        ],
+        "missing_key_evidence": [
+          "Specific diagnostic steps or clinical rationale that led to the decision for angiography",
+          "Clinical course or diagnostic steps between initial presentation (Nov 2021) and worsening symptoms (Aug 2023)",
+          "Treatment or management post-diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.55
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No source record explicitly describes the indication or rationale for performing the angiography.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Treatment plan or interventions initiated following the angiographic diagnosis (E005)",
+        "current_trajectory_hypothesis": "The final diagnosis of LAD and vertebral artery disease was confirmed by angiography (E005). The patient presented with symptoms (E001) that worsened (E007). I have attempted to find the diagnostic steps leading to angiography and the rationale, but this information is not documented. The next logical step in reconstructing the trajectory is to identify the treatment or management initiated after the diagnosis.",
+        "confirmed_evidence": [
+          "Angiographic results revealed moderate disease of the left anterior descending (LAD) artery, occlusion of the left vertebral artery at its ostium, severe stenosis of 80-90% in the right vertebral artery at the proximal segment, and an EF of 55-60% (E005).",
+          "MRI on 11/09/23 showed generalized cerebral atrophy with normal cerebral hemispheres, basal ganglia, thalamic nuclei, midbrain, pons, and cerebellum, with no acute CVA, mass lesion, or midline shift (E006).",
+          "During the 08/16/23 follow-up, the patient reported worsening episodes of dizziness, loss of balance, and fatigue (E007).",
+          "Initial presentation to cardiologist on November 3, 2021, with palpitations, leg cramps, fatigue, dizziness, and loss of balance; orthostatic hypotension ruled out; previously treated for vertigo (E001)."
+        ],
+        "missing_key_evidence": [
+          "Specific diagnostic steps or clinical rationale that led to the decision for angiography",
+          "Clinical course or diagnostic steps between initial presentation (Nov 2021) and worsening symptoms (Aug 2023)",
+          "Treatment or management post-diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No treatment plan or interventions are documented in the source following the angiographic diagnosis.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "The angiographic results revealed moderate disease of the left anterior descending (LAD) artery, occlusion of the left vertebral artery at its ostium, severe stenosis of 80-90% in the right vertebral artery at the proximal segment, and an EF of 55-60%.",
+        "trajectory_summary": "A 71-year-old male initially presented to a cardiologist on November 3, 2021, with palpitations, leg cramps, fatigue, dizziness, and loss of balance. Orthostatic hypotension was ruled out, and he had previously been treated for vertigo. On August 16, 2023, he reported worsening episodes of dizziness, loss of balance, and fatigue. Subsequently, angiographic results on October 3, 2023, revealed moderate disease of the left anterior descending (LAD) artery, occlusion of the left vertebral artery at its ostium, severe stenosis of 80-90% in the right vertebral artery at the proximal segment, and an ejection fraction (EF) of 55-60%. An MRI performed on November 9, 2023, showed generalized cerebral atrophy but no acute CVA, mass lesion, or midline shift.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with palpitations, leg cramps, fatigue, dizziness, and loss of balance on November 3, 2021.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Patient reported worsening dizziness, loss of balance, and fatigue on August 16, 2023.",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Angiography on October 3, 2023, revealed moderate disease of the left anterior descending (LAD) artery.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Angiography on October 3, 2023, revealed occlusion of the left vertebral artery at its ostium.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Angiography on October 3, 2023, revealed severe stenosis of 80-90% in the right vertebral artery at the proximal segment.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Angiography on October 3, 2023, revealed an EF of 55-60%.",
+            "evidence_ids": [
+              "E005"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Orthostatic hypotension",
+            "basis": "Ruled out at initial presentation (E001)."
+          },
+          {
+            "alternative": "Acute cerebrovascular accident (CVA), mass lesion, or midline shift",
+            "basis": "MRI on November 9, 2023, showed no evidence of these conditions (E006)."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Specific diagnostic steps or clinical rationale that directly led to the decision for angiography.",
+          "Clinical course or diagnostic steps between initial presentation (Nov 2021) and worsening symptoms (Aug 2023).",
+          "Any treatment or management initiated following the angiographic diagnosis.",
+          "Initial cardiac assessment findings (ECG, echocardiogram) that were ordered but not documented.",
+          "Carotid and vertebral artery duplex ultrasound findings that were ordered but not documented.",
+          "Cardiac stress test findings that were ordered but not documented.",
+          "CT angiography or MRA of head and neck findings that were ordered but not documented.",
+          "Neurological consultation report or findings."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "The angiographic results revealed moderate disease of the left anterior descending (LAD) artery, occlusion of the left vertebral artery at its ostium, severe stenosis of 80-90% in the right vertebral artery at the proximal segment, and an EF of 55-60%.",
+    "trajectory_summary": "A 71-year-old male initially presented to a cardiologist on November 3, 2021, with palpitations, leg cramps, fatigue, dizziness, and loss of balance. Orthostatic hypotension was ruled out, and he had previously been treated for vertigo. On August 16, 2023, he reported worsening episodes of dizziness, loss of balance, and fatigue. Subsequently, angiographic results on October 3, 2023, revealed moderate disease of the left anterior descending (LAD) artery, occlusion of the left vertebral artery at its ostium, severe stenosis of 80-90% in the right vertebral artery at the proximal segment, and an ejection fraction (EF) of 55-60%. An MRI performed on November 9, 2023, showed generalized cerebral atrophy but no acute CVA, mass lesion, or midline shift.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with palpitations, leg cramps, fatigue, dizziness, and loss of balance on November 3, 2021.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Patient reported worsening dizziness, loss of balance, and fatigue on August 16, 2023.",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Angiography on October 3, 2023, revealed moderate disease of the left anterior descending (LAD) artery.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Angiography on October 3, 2023, revealed occlusion of the left vertebral artery at its ostium.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Angiography on October 3, 2023, revealed severe stenosis of 80-90% in the right vertebral artery at the proximal segment.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Angiography on October 3, 2023, revealed an EF of 55-60%.",
+        "evidence_ids": [
+          "E005"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Orthostatic hypotension",
+        "basis": "Ruled out at initial presentation (E001)."
+      },
+      {
+        "alternative": "Acute cerebrovascular accident (CVA), mass lesion, or midline shift",
+        "basis": "MRI on November 9, 2023, showed no evidence of these conditions (E006)."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Specific diagnostic steps or clinical rationale that directly led to the decision for angiography.",
+      "Clinical course or diagnostic steps between initial presentation (Nov 2021) and worsening symptoms (Aug 2023).",
+      "Any treatment or management initiated following the angiographic diagnosis.",
+      "Initial cardiac assessment findings (ECG, echocardiogram) that were ordered but not documented.",
+      "Carotid and vertebral artery duplex ultrasound findings that were ordered but not documented.",
+      "Cardiac stress test findings that were ordered but not documented.",
+      "CT angiography or MRA of head and neck findings that were ordered but not documented.",
+      "Neurological consultation report or findings."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.7
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T19:02:40.657852+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

@@ -1,0 +1,395 @@
+{
+  "case_id": "PMC6571394",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 8,
+  "termination": "final",
+  "known_final_diagnosis": "The final diagnosis was primary pulmonary artery high-grade sarcoma (Fig. 3).",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E008",
+    "E009"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order a biopsy of the pulmonary artery mass for histopathological examination",
+        "current_trajectory_hypothesis": "Patient with fever and dyspnea, imaging showed filling defects in pulmonary arteries and venous thrombosis; sarcoma diagnosis likely based on tissue biopsy of pulmonary artery mass.",
+        "confirmed_evidence": [
+          "Presentation with fever and dyspnea",
+          "Chest CT showed multiple filling defects in pulmonary arteries",
+          "Echocardiography showed right atrium and ventricle dilation with abnormal echo in pulmonary artery",
+          "Lower extremity venous thrombosis detected by Doppler ultrasound"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic confirmation of mass as high-grade sarcoma",
+          "Details of imaging supporting tumor rather than thrombus",
+          "Clinical course or response to any treatment",
+          "Additional labs or molecular tests confirming sarcoma"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for biopsy placed; no source record documents the order result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Biopsy of the pulmonary artery mass is needed to confirm high-grade sarcoma as the diagnosis after initial imaging suggested mass vs thrombus.",
+        "confirmed_evidence": [
+          "Initial presentation with fever and dyspnea",
+          "Imaging showed multiple pulmonary artery filling defects",
+          "Echocardiography showed right heart changes and abnormal pulmonary artery echo",
+          "Venous thrombosis of lower extremity confirmed by Doppler ultrasound",
+          "Biopsy ordered but histopathology result pending"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic confirmation of high-grade sarcoma",
+          "Details of imaging findings differentiating tumor from thrombus",
+          "Clinical course, treatment, or outcome information"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "Blood tests showed inflammatory activity (white blood cell [WBC] 13400/mL, C-reactive protein [CRP] 95.32 mg/L), a slight increase of D-dimer (2.78 μg/mL) and Fibrin Degradation Product (FDP)-20.81 μg/mL (normal range <5.0 μg/mL).",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request histopathological examination report of the pulmonary artery mass biopsy",
+        "current_trajectory_hypothesis": "Biopsy was performed to differentiate tumor from thrombus; histopathology needed to confirm high-grade sarcoma diagnosis.",
+        "confirmed_evidence": [
+          "Initial presentation with fever and dyspnea",
+          "Imaging showed multiple pulmonary artery filling defects",
+          "Echocardiography showed right heart changes and abnormal pulmonary artery echo",
+          "Venous thrombosis of lower extremity confirmed by Doppler ultrasound",
+          "Blood tests showed inflammatory activity and elevated D-dimer and FDP"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic confirmation of high-grade pulmonary artery sarcoma",
+          "Imaging details differentiating tumor from thrombus",
+          "Clinical course, treatment, response, or outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "In histopathology, the tumor is composed of spindle to epithelioid cells exhibiting marked pleomorphism with vascular growth pattern. Strange nuclei, giant nuclei, and multiple nuclei can be seen in tumor cells. Interspersed mitotic figures and areas of focal myxoid change and fibrinoid necrosis showed features of high-grade sarcoma. The immunohistochemistry results of tumor cells were positive for EMA, vimentin, and CD68, focally weakly positive for CR, SMA, ckp and bcl-2, and negative for WT1 and GFAP.",
+        "category": "pathology_report",
+        "temporal_cue": "at surgery",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request the chest enhanced computed tomography (CT) scan report with findings differentiating pulmonary artery sarcoma from thrombus",
+        "current_trajectory_hypothesis": "Histopathology confirms high-grade sarcoma; imaging details needed to document features suggestive of tumor rather than thrombus.",
+        "confirmed_evidence": [
+          "Presentation with fever and dyspnea",
+          "Chest CT showed multiple filling defects in pulmonary arteries",
+          "Echocardiography showed right atrium and ventricle dilation with abnormal echo in pulmonary artery",
+          "Lower extremity venous thrombosis detected by Doppler ultrasound",
+          "Blood tests showed inflammatory activity and elevated D-dimer and FDP",
+          "Histopathology showed spindle to epithelioid cells with marked pleomorphism and immunohistochemistry consistent with high-grade sarcoma"
+        ],
+        "missing_key_evidence": [
+          "Radiological imaging details differentiating tumor from thrombus in the pulmonary artery",
+          "Clinical course, treatment response, or outcome information if available"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "The chest enhanced computed tomography (CT) scanning revealed multiple filling defects occurred in the main trunk of both pulmonary arteries and branches of the left pulmonary artery (Fig. 1: Aa, Ab, Ac, Ad).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request echocardiography report to clarify the findings of right atrium and ventricle dilation and abnormal echoes in the pulmonary artery",
+        "current_trajectory_hypothesis": "Histopathology confirms high-grade sarcoma; CT shows filling defects in pulmonary arteries; echocardiography findings may further support tumor causing right heart strain and pulmonary artery involvement.",
+        "confirmed_evidence": [
+          "Presentation with fever and dyspnea",
+          "Blood tests showed inflammatory activity and elevated D-dimer and FDP",
+          "Chest CT showed multiple filling defects in pulmonary arteries",
+          "Lower extremity venous thrombosis by Doppler ultrasound",
+          "Histopathology shows spindle to epithelioid cells with high-grade sarcoma features",
+          "Immunohistochemistry consistent with pulmonary artery sarcoma"
+        ],
+        "missing_key_evidence": [
+          "Detailed echocardiography findings showing structural and functional impact of tumor in pulmonary artery",
+          "Imaging features clearly distinguishing tumor versus thrombus",
+          "Clinical course, treatment response, and outcome data"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Echocardiography revealed the dilated right atrium and ventricle, impaired right ventricular systolic function, and abnormal echo in the pulmonary artery and its branches (Fig. 2: A, B, C).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request summary of clinical course, treatment performed, and patient outcome following diagnosis",
+        "current_trajectory_hypothesis": "Diagnosis of primary pulmonary artery high-grade sarcoma is confirmed by histopathology and supported by imaging; clinical course and treatment outcome remain to verify disease progression and management success.",
+        "confirmed_evidence": [
+          "Presentation with fever and dyspnea",
+          "Chest CT showed multiple filling defects in pulmonary arteries",
+          "Echocardiography showed dilated right atrium and ventricle and abnormal pulmonary artery echo",
+          "Lower extremity venous thrombosis confirmed by Doppler ultrasound",
+          "Blood tests showed inflammatory activity and elevated D-dimer and FDP",
+          "Histopathology showed spindle to epithelioid cells with pleomorphism consistent with high-grade sarcoma",
+          "Immunohistochemistry positive for EMA, vimentin, and CD68 indicating sarcoma"
+        ],
+        "missing_key_evidence": [
+          "Details of clinical course after diagnosis",
+          "Treatment modalities initiated and response evaluation",
+          "Patient outcome and follow-up data"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E009",
+        "source_text": "The enhanced CT scanning of head, chest and belly revealed that no other tumor tissue was found (Fig. 1: Ca, Cb, Cc, Cd).",
+        "category": "imaging_report",
+        "temporal_cue": "post-operation",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Diagnosis of primary pulmonary artery high-grade sarcoma confirmed by histopathology and imaging, no evidence of metastasis on enhanced CT post-operation; awaiting clinical course and treatment outcome details.",
+        "confirmed_evidence": [
+          "Initial symptoms: fever and dyspnea",
+          "Blood tests showed inflammation and elevated D-dimer and FDP",
+          "Chest enhanced CT showed multiple pulmonary artery filling defects",
+          "Echocardiography showed dilated right heart chambers and abnormal pulmonary artery echo",
+          "Doppler ultrasound showed lower extremity venous thrombosis",
+          "Histopathology of pulmonary artery mass showed high-grade sarcoma with immunohistochemistry confirming diagnosis",
+          "Postoperative enhanced CT scan of head, chest, and abdomen showed no other tumor"
+        ],
+        "missing_key_evidence": [
+          "Detailed clinical course after biopsy and surgery",
+          "Specific treatment modalities and their response",
+          "Patient clinical outcome and follow-up data",
+          "Detailed imaging features distinguishing tumor from thrombus on initial CT"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No pending orders and no new undisclosed clinical updates after current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "primary pulmonary artery high-grade sarcoma",
+        "trajectory_summary": "A 26-year-old man presented with fever and dyspnea. Initial blood tests showed inflammatory activity with elevated WBC, CRP, D-dimer, and FDP. Chest enhanced CT revealed multiple filling defects in the main trunk and branches of the pulmonary arteries. Echocardiography demonstrated dilated right atrium and ventricle, impaired right ventricular systolic function, and abnormal echoes in the pulmonary artery and its branches. Doppler ultrasound detected lower extremity venous thrombosis. Histopathological examination of the pulmonary artery mass biopsy showed spindle to epithelioid cells with marked pleomorphism, mitotic figures, myxoid change, and fibrinoid necrosis, consistent with high-grade sarcoma. Immunohistochemistry was positive for EMA, vimentin, and CD68 among others, supporting sarcoma diagnosis. Postoperative enhanced CT scans of head, chest, and abdomen showed no evidence of other tumor tissues, confirming primary pulmonary artery sarcoma.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial presentation with fever and dyspnea; elevated inflammatory markers and coagulation products (WBC 13400, CRP 95.32 mg/L, D-dimer 2.78 μg/mL, FDP 20.81 μg/mL)",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Chest enhanced CT revealed multiple filling defects in main trunk and branches of pulmonary arteries",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Echocardiography showed dilated right atrium and ventricle, impaired right ventricular function, and abnormal pulmonary artery echo",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Lower extremity venous thrombosis demonstrated by Doppler ultrasound",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Histopathology of pulmonary artery mass shows spindle to epithelioid cells with marked pleomorphism and features of high-grade sarcoma",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "Immunohistochemistry positive for EMA, vimentin, CD68 and others consistent with sarcoma",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "Postoperative enhanced CT of head, chest, and abdomen shows no other tumors confirming primary origin",
+            "evidence_ids": [
+              "E009"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Pulmonary embolism or thrombus",
+            "basis": "Histopathology confirmed tumor rather than thrombus; imaging features not explicitly differentiating but biopsy supersedes"
+          },
+          {
+            "alternative": "Metastatic sarcoma",
+            "basis": "No other tumor tissues found on enhanced CT scans post-operation"
+          },
+          {
+            "alternative": "Other pulmonary artery tumors like intimal sarcoma",
+            "basis": "Histopathology and immunohistochemistry specifically indicate high-grade sarcoma; no conflicting evidence"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Detailed clinical course, treatment modalities, response, and patient outcome are not documented",
+          "Initial imaging features clearly distinguishing tumor from thrombus beyond filling defects not fully detailed"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "primary pulmonary artery high-grade sarcoma",
+    "trajectory_summary": "A 26-year-old man presented with fever and dyspnea. Initial blood tests showed inflammatory activity with elevated WBC, CRP, D-dimer, and FDP. Chest enhanced CT revealed multiple filling defects in the main trunk and branches of the pulmonary arteries. Echocardiography demonstrated dilated right atrium and ventricle, impaired right ventricular systolic function, and abnormal echoes in the pulmonary artery and its branches. Doppler ultrasound detected lower extremity venous thrombosis. Histopathological examination of the pulmonary artery mass biopsy showed spindle to epithelioid cells with marked pleomorphism, mitotic figures, myxoid change, and fibrinoid necrosis, consistent with high-grade sarcoma. Immunohistochemistry was positive for EMA, vimentin, and CD68 among others, supporting sarcoma diagnosis. Postoperative enhanced CT scans of head, chest, and abdomen showed no evidence of other tumor tissues, confirming primary pulmonary artery sarcoma.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial presentation with fever and dyspnea; elevated inflammatory markers and coagulation products (WBC 13400, CRP 95.32 mg/L, D-dimer 2.78 μg/mL, FDP 20.81 μg/mL)",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Chest enhanced CT revealed multiple filling defects in main trunk and branches of pulmonary arteries",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Echocardiography showed dilated right atrium and ventricle, impaired right ventricular function, and abnormal pulmonary artery echo",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Lower extremity venous thrombosis demonstrated by Doppler ultrasound",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Histopathology of pulmonary artery mass shows spindle to epithelioid cells with marked pleomorphism and features of high-grade sarcoma",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "Immunohistochemistry positive for EMA, vimentin, CD68 and others consistent with sarcoma",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "Postoperative enhanced CT of head, chest, and abdomen shows no other tumors confirming primary origin",
+        "evidence_ids": [
+          "E009"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Pulmonary embolism or thrombus",
+        "basis": "Histopathology confirmed tumor rather than thrombus; imaging features not explicitly differentiating but biopsy supersedes"
+      },
+      {
+        "alternative": "Metastatic sarcoma",
+        "basis": "No other tumor tissues found on enhanced CT scans post-operation"
+      },
+      {
+        "alternative": "Other pulmonary artery tumors like intimal sarcoma",
+        "basis": "Histopathology and immunohistochemistry specifically indicate high-grade sarcoma; no conflicting evidence"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Detailed clinical course, treatment modalities, response, and patient outcome are not documented",
+      "Initial imaging features clearly distinguishing tumor from thrombus beyond filling defects not fully detailed"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T23:03:48.464236+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

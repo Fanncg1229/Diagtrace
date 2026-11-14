@@ -1,0 +1,542 @@
+{
+  "case_id": "PMC10373942",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 14,
+  "termination": "final",
+  "known_final_diagnosis": "Hepatic vein pylephlebitis",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E004",
+    "E005",
+    "E006",
+    "E007",
+    "E008"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "initial complete blood count (CBC) and liver function tests (LFTs)",
+        "current_trajectory_hypothesis": "Patient presenting with signs of infection and abdominal symptoms, potentially related to prior abdominal pathology, leading to hepatic vein pylephlebitis. Initial labs are needed to assess for infection and liver involvement.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "initial laboratory results (CBC, LFTs)",
+          "imaging findings related to abdomen/liver",
+          "microbiology results",
+          "confirmation of hepatic vein pylephlebitis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order placed for initial CBC and LFTs, no result yet reported",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "CT scan of the abdomen and pelvis with contrast",
+        "current_trajectory_hypothesis": "Patient presents with signs of infection and abdominal symptoms, with a history of complicated diverticulitis, raising suspicion for intra-abdominal infection potentially leading to hepatic vein pylephlebitis. Imaging is needed to visualize the liver and portal system for signs of pylephlebitis or abscesses.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "initial laboratory results (CBC, LFTs)",
+          "abdominal imaging findings (CT scan)",
+          "microbiology results",
+          "confirmation of hepatic vein pylephlebitis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "The CT scan of the abdomen and pelvis with contrast has been ordered; awaiting source evidence for results.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "results of the CT scan of the abdomen and pelvis with contrast",
+        "current_trajectory_hypothesis": "Patient presents with signs of infection and abdominal symptoms, with a history of complicated diverticulitis. A CT scan was ordered to investigate for intra-abdominal infection, liver involvement, or pylephlebitis. The results are crucial for confirming or ruling out these possibilities.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "CT scan findings related to abdomen/liver",
+          "initial laboratory results (CBC, LFTs)",
+          "microbiology results",
+          "confirmation of hepatic vein pylephlebitis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "A computed tomography (CT) scan with intravenous contrast of the abdomen, pelvis, and thorax demonstrated opacification of the hepatic vein indicative of thrombosis. A hepatic fluid collection measuring 9 cm transversely along with multiple cavitary lesions was also seen in the lung fields bilaterally, which were suggestive of hepatic abscess and septic pulmonary emboli, respectively (Figures 1, 2).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "results of the initial complete blood count (CBC) and liver function tests (LFTs)",
+        "current_trajectory_hypothesis": "The CT scan revealed hepatic vein thrombosis, hepatic abscess, and septic pulmonary emboli, strongly supporting the diagnosis of hepatic vein pylephlebitis and its complications. Now, I need to verify the initial laboratory findings to assess the systemic inflammatory response and liver involvement.",
+        "confirmed_evidence": [
+          "CT scan showed opacification of the hepatic vein indicative of thrombosis (E002)",
+          "CT scan showed a hepatic fluid collection measuring 9 cm, suggestive of hepatic abscess (E002)",
+          "CT scan showed multiple cavitary lesions in the lung fields bilaterally, suggestive of septic pulmonary emboli (E002)"
+        ],
+        "missing_key_evidence": [
+          "initial laboratory results (CBC, LFTs)",
+          "microbiology results (e.g., blood cultures, abscess culture)",
+          "details on treatment and clinical course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "Initial laboratory evaluation was significant for elevated white blood cell count, total and direct bilirubin, alkaline phosphatase, and D-dimer (Table 1).",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "blood cultures",
+        "current_trajectory_hypothesis": "The CT scan and initial labs support hepatic vein pylephlebitis with complications (hepatic abscess, septic pulmonary emboli). Identifying the causative organism through microbiology is critical for guiding treatment and further confirming the infectious nature of the pylephlebitis.",
+        "confirmed_evidence": [
+          "CT scan showed opacification of the hepatic vein indicative of thrombosis (E002)",
+          "CT scan showed a hepatic fluid collection measuring 9 cm, suggestive of hepatic abscess (E002)",
+          "CT scan showed multiple cavitary lesions in the lung fields bilaterally, suggestive of septic pulmonary emboli (E002)",
+          "Initial laboratory evaluation was significant for elevated white blood cell count, total and direct bilirubin, alkaline phosphatase, and D-dimer (E001)"
+        ],
+        "missing_key_evidence": [
+          "microbiology results (e.g., blood cultures, abscess culture)",
+          "details on treatment and clinical course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Blood cultures order acknowledged; no immediate result to disclose",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "results of blood cultures",
+        "current_trajectory_hypothesis": "The CT scan and initial labs strongly suggest hepatic vein pylephlebitis with complications. Blood cultures are essential to identify the causative pathogen and confirm the infectious etiology, which is key for guiding treatment and fully supporting the diagnosis.",
+        "confirmed_evidence": [
+          "CT scan showed opacification of the hepatic vein indicative of thrombosis (E002)",
+          "CT scan showed a hepatic fluid collection measuring 9 cm, suggestive of hepatic abscess (E002)",
+          "CT scan showed multiple cavitary lesions in the lung fields bilaterally, suggestive of septic pulmonary emboli (E002)",
+          "Initial laboratory evaluation was significant for elevated white blood cell count, total and direct bilirubin, alkaline phosphatase, and D-dimer (E001)"
+        ],
+        "missing_key_evidence": [
+          "microbiology results (e.g., blood cultures, abscess culture)",
+          "details on treatment and clinical course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Blood cultures were obtained and grew pan-susceptible Streptococcus anginosus.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "drainage and culture of the hepatic fluid collection (abscess)",
+        "current_trajectory_hypothesis": "The CT scan identified a hepatic fluid collection suggestive of an abscess, and blood cultures grew Streptococcus anginosus. Draining and culturing this abscess would provide direct microbiological confirmation of the source of infection and further support the diagnosis of hepatic vein pylephlebitis.",
+        "confirmed_evidence": [
+          "CT scan showed opacification of the hepatic vein indicative of thrombosis (E002)",
+          "CT scan showed a hepatic fluid collection measuring 9 cm, suggestive of hepatic abscess (E002)",
+          "CT scan showed multiple cavitary lesions in the lung fields bilaterally, suggestive of septic pulmonary emboli (E002)",
+          "Initial laboratory evaluation was significant for elevated white blood cell count, total and direct bilirubin, alkaline phosphatase, and D-dimer (E001)",
+          "Blood cultures were obtained and grew pan-susceptible Streptococcus anginosus (E004)"
+        ],
+        "missing_key_evidence": [
+          "microbiology results from the hepatic abscess",
+          "details on treatment and clinical course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Order recorded; no source record documents the order result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "results of the culture from the hepatic fluid collection (abscess)",
+        "current_trajectory_hypothesis": "The CT scan identified a hepatic fluid collection (abscess), and blood cultures grew Streptococcus anginosus. Obtaining culture results directly from the abscess will confirm the causative organism at the source of infection, further solidifying the link to hepatic vein pylephlebitis.",
+        "confirmed_evidence": [
+          "CT scan showed opacification of the hepatic vein indicative of thrombosis (E002)",
+          "CT scan showed a hepatic fluid collection measuring 9 cm, suggestive of hepatic abscess (E002)",
+          "CT scan showed multiple cavitary lesions in the lung fields bilaterally, suggestive of septic pulmonary emboli (E002)",
+          "Initial laboratory evaluation was significant for elevated white blood cell count, total and direct bilirubin, alkaline phosphatase, and D-dimer (E001)",
+          "Blood cultures were obtained and grew pan-susceptible Streptococcus anginosus (E004)"
+        ],
+        "missing_key_evidence": [
+          "microbiology results from the hepatic abscess",
+          "details on treatment and clinical course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Abscess cultures grew Escherichia coli along with Streptococcus constellatus and Fusobacterium necrophum.",
+        "category": "other",
+        "temporal_cue": "during admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The diagnosis of hepatic vein pylephlebitis with hepatic abscess and septic pulmonary emboli is strongly supported by imaging and microbiology. I have identified multiple causative organisms. Now, I need to understand the treatment approach and the patient's response to therapy to complete the clinical trajectory.",
+        "confirmed_evidence": [
+          "CT scan showed opacification of the hepatic vein indicative of thrombosis (E002)",
+          "CT scan showed a hepatic fluid collection measuring 9 cm, suggestive of hepatic abscess (E002)",
+          "CT scan showed multiple cavitary lesions in the lung fields bilaterally, suggestive of septic pulmonary emboli (E002)",
+          "Initial laboratory evaluation was significant for elevated white blood cell count, total and direct bilirubin, alkaline phosphatase, and D-dimer (E001)",
+          "Blood cultures were obtained and grew pan-susceptible Streptococcus anginosus (E004)",
+          "Abscess cultures grew Escherichia coli along with Streptococcus constellatus and Fusobacterium necrophum (E005)"
+        ],
+        "missing_key_evidence": [
+          "details on treatment (antibiotics, anticoagulation, source control)",
+          "patient's clinical course and outcome",
+          "further investigation into the primary source of infection (e.g., related to diverticulitis)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "A repeat CT scan of the thorax, abdomen, and pelvis showed a decrease in the size of the hepatic abscess, along with new, large bilateral pleural effusions.",
+        "category": "imaging_report",
+        "temporal_cue": "during admission",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The diagnosis of hepatic vein pylephlebitis with hepatic abscess and septic pulmonary emboli is well-supported by imaging and microbiology. The repeat CT shows a decrease in abscess size but new pleural effusions. I need to understand the treatment plan and its impact on the patient's clinical course to complete the trajectory.",
+        "confirmed_evidence": [
+          "CT scan showed opacification of the hepatic vein indicative of thrombosis (E002)",
+          "CT scan showed a hepatic fluid collection measuring 9 cm, suggestive of hepatic abscess (E002)",
+          "CT scan showed multiple cavitary lesions in the lung fields bilaterally, suggestive of septic pulmonary emboli (E002)",
+          "Initial laboratory evaluation was significant for elevated white blood cell count, total and direct bilirubin, alkaline phosphatase, and D-dimer (E001)",
+          "Blood cultures were obtained and grew pan-susceptible Streptococcus anginosus (E004)",
+          "Abscess cultures grew Escherichia coli along with Streptococcus constellatus and Fusobacterium necrophum (E005)",
+          "A repeat CT scan showed a decrease in the size of the hepatic abscess, along with new, large bilateral pleural effusions (E006)"
+        ],
+        "missing_key_evidence": [
+          "details on treatment (antibiotics, anticoagulation, source control for abscess, management of pleural effusions)",
+          "patient's overall clinical course and outcome",
+          "further investigation into the primary source of infection (e.g., related to diverticulitis)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "Bilateral thoracenteses were performed, and the fluid sample was sent for laboratory analysis and culture. Laboratory analyses were indicative of exudative pleural fluid with fluid cultures also positive for S. anginosus.",
+        "category": "routine_lab",
+        "temporal_cue": "during admission",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The diagnosis of hepatic vein pylephlebitis with hepatic abscess and septic pulmonary emboli is well-supported by imaging and microbiology. The patient developed new pleural effusions, also infected with S. anginosus. I need to understand the treatment plan and its impact on the patient's clinical course to complete the trajectory.",
+        "confirmed_evidence": [
+          "CT scan showed opacification of the hepatic vein indicative of thrombosis (E002)",
+          "CT scan showed a hepatic fluid collection measuring 9 cm, suggestive of hepatic abscess (E002)",
+          "CT scan showed multiple cavitary lesions in the lung fields bilaterally, suggestive of septic pulmonary emboli (E002)",
+          "Initial laboratory evaluation was significant for elevated white blood cell count, total and direct bilirubin, alkaline phosphatase, and D-dimer (E001)",
+          "Blood cultures were obtained and grew pan-susceptible Streptococcus anginosus (E004)",
+          "Abscess cultures grew Escherichia coli along with Streptococcus constellatus and Fusobacterium necrophum (E005)",
+          "A repeat CT scan showed a decrease in the size of the hepatic abscess, along with new, large bilateral pleural effusions (E006)",
+          "Bilateral thoracenteses were performed, and the fluid sample was sent for laboratory analysis and culture. Laboratory analyses were indicative of exudative pleural fluid with fluid cultures also positive for S. anginosus (E007)"
+        ],
+        "missing_key_evidence": [
+          "details on treatment (antibiotics, anticoagulation, source control for abscess)",
+          "patient's overall clinical course and outcome",
+          "further investigation into the primary source of infection (e.g., related to diverticulitis)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "The patient had serial thoracenteses to drain fluid collections and placement of a CT-guided drain. The patient’s clinical status improved over the course of the admission, and he was discharged on intravenous ceftriaxone and metronidazole for four weeks.",
+        "category": "other",
+        "temporal_cue": "discharge",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The diagnosis of hepatic vein pylephlebitis with hepatic abscess, septic pulmonary emboli, and pleural effusions is well-supported. The clinical course and treatment are also documented. I need to verify if the primary source of infection, likely related to the patient's history of complicated diverticulitis, was identified or addressed.",
+        "confirmed_evidence": [
+          "CT scan showed opacification of the hepatic vein indicative of thrombosis (E002)",
+          "CT scan showed a hepatic fluid collection measuring 9 cm, suggestive of hepatic abscess (E002)",
+          "CT scan showed multiple cavitary lesions in the lung fields bilaterally, suggestive of septic pulmonary emboli (E002)",
+          "Initial laboratory evaluation was significant for elevated white blood cell count, total and direct bilirubin, alkaline phosphatase, and D-dimer (E001)",
+          "Blood cultures were obtained and grew pan-susceptible Streptococcus anginosus (E004)",
+          "Abscess cultures grew Escherichia coli along with Streptococcus constellatus and Fusobacterium necrophum (E005)",
+          "A repeat CT scan showed a decrease in the size of the hepatic abscess, along with new, large bilateral pleural effusions (E006)",
+          "Bilateral thoracenteses were performed, and the fluid sample was sent for laboratory analysis and culture. Laboratory analyses were indicative of exudative pleural fluid with fluid cultures also positive for S. anginosus (E007)",
+          "The patient had serial thoracenteses to drain fluid collections and placement of a CT-guided drain. The patient’s clinical status improved over the course of the admission, and he was discharged on intravenous ceftriaxone and metronidazole for four weeks (E008)"
+        ],
+        "missing_key_evidence": [
+          "explicit identification or management of the primary source of infection (e.g., related to diverticulitis)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No pending orders and no undisclosed clinical trajectory updates beyond current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "Was the primary source of infection, particularly related to the patient's history of diverticulitis, identified or addressed during this admission?",
+        "current_trajectory_hypothesis": "The diagnosis of hepatic vein pylephlebitis with hepatic abscess, septic pulmonary emboli, and pleural effusions is well-supported. The clinical course and treatment are also documented. I need to verify if the primary source of infection, likely related to the patient's history of complicated diverticulitis, was identified or addressed, as this is crucial for understanding the complete trajectory of pylephlebitis.",
+        "confirmed_evidence": [
+          "CT scan showed opacification of the hepatic vein indicative of thrombosis (E002)",
+          "CT scan showed a hepatic fluid collection measuring 9 cm, suggestive of hepatic abscess (E002)",
+          "CT scan showed multiple cavitary lesions in the lung fields bilaterally, suggestive of septic pulmonary emboli (E002)",
+          "Initial laboratory evaluation was significant for elevated white blood cell count, total and direct bilirubin, alkaline phosphatase, and D-dimer (E001)",
+          "Blood cultures were obtained and grew pan-susceptible Streptococcus anginosus (E004)",
+          "Abscess cultures grew Escherichia coli along with Streptococcus constellatus and Fusobacterium necrophum (E005)",
+          "A repeat CT scan showed a decrease in the size of the hepatic abscess, along with new, large bilateral pleural effusions (E006)",
+          "Bilateral thoracenteses were performed, and the fluid sample was sent for laboratory analysis and culture. Laboratory analyses were indicative of exudative pleural fluid with fluid cultures also positive for S. anginosus (E007)",
+          "The patient had serial thoracenteses to drain fluid collections and placement of a CT-guided drain. The patient’s clinical status improved over the course of the admission, and he was discharged on intravenous ceftriaxone and metronidazole for four weeks (E008)"
+        ],
+        "missing_key_evidence": [
+          "explicit identification or management of the primary source of infection (e.g., related to diverticulitis)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No evidence record explicitly addresses identification or management of the primary infection source related to diverticulitis.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Hepatic vein pylephlebitis",
+        "trajectory_summary": "A 36-year-old male with a history of complicated diverticulitis presented with fever, dyspnea, productive cough, and epigastric pain. Initial labs showed elevated WBC, bilirubin, alkaline phosphatase, and D-dimer. A CT scan revealed opacification of the hepatic vein indicative of thrombosis, a 9 cm hepatic fluid collection (abscess), and bilateral septic pulmonary emboli. Blood cultures grew pan-susceptible Streptococcus anginosus, while abscess cultures yielded Escherichia coli, Streptococcus constellatus, and Fusobacterium necrophum. The patient developed new bilateral pleural effusions, which were exudative and also positive for S. anginosus. He underwent serial thoracenteses and CT-guided drain placement, improved clinically, and was discharged on intravenous antibiotics (ceftriaxone and metronidazole) for four weeks.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial presentation included fever, dyspnea, productive cough with dark brown sputum, and epigastric pain, along with signs of systemic inflammation (tachypnea, tachycardia, diaphoresis) and diminished breath sounds on the right.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Initial laboratory evaluation showed elevated white blood cell count, total and direct bilirubin, alkaline phosphatase, and D-dimer.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "CT scan demonstrated opacification of the hepatic vein indicative of thrombosis, a 9 cm hepatic fluid collection (hepatic abscess), and multiple cavitary lesions in the lung fields bilaterally suggestive of septic pulmonary emboli.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Blood cultures grew pan-susceptible Streptococcus anginosus.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Abscess cultures grew Escherichia coli, Streptococcus constellatus, and Fusobacterium necrophum.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "A repeat CT scan showed a decrease in the size of the hepatic abscess but new, large bilateral pleural effusions.",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Bilateral thoracenteses were performed, yielding exudative pleural fluid that cultured positive for S. anginosus.",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "The patient's clinical status improved with serial thoracenteses and CT-guided drain placement, and he was discharged on intravenous antibiotics.",
+            "evidence_ids": [
+              "E008"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [
+          "The explicit identification or management of the primary source of infection related to the patient's history of diverticulitis was not documented."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Hepatic vein pylephlebitis",
+    "trajectory_summary": "A 36-year-old male with a history of complicated diverticulitis presented with fever, dyspnea, productive cough, and epigastric pain. Initial labs showed elevated WBC, bilirubin, alkaline phosphatase, and D-dimer. A CT scan revealed opacification of the hepatic vein indicative of thrombosis, a 9 cm hepatic fluid collection (abscess), and bilateral septic pulmonary emboli. Blood cultures grew pan-susceptible Streptococcus anginosus, while abscess cultures yielded Escherichia coli, Streptococcus constellatus, and Fusobacterium necrophum. The patient developed new bilateral pleural effusions, which were exudative and also positive for S. anginosus. He underwent serial thoracenteses and CT-guided drain placement, improved clinically, and was discharged on intravenous antibiotics (ceftriaxone and metronidazole) for four weeks.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial presentation included fever, dyspnea, productive cough with dark brown sputum, and epigastric pain, along with signs of systemic inflammation (tachypnea, tachycardia, diaphoresis) and diminished breath sounds on the right.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Initial laboratory evaluation showed elevated white blood cell count, total and direct bilirubin, alkaline phosphatase, and D-dimer.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "CT scan demonstrated opacification of the hepatic vein indicative of thrombosis, a 9 cm hepatic fluid collection (hepatic abscess), and multiple cavitary lesions in the lung fields bilaterally suggestive of septic pulmonary emboli.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Blood cultures grew pan-susceptible Streptococcus anginosus.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Abscess cultures grew Escherichia coli, Streptococcus constellatus, and Fusobacterium necrophum.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "A repeat CT scan showed a decrease in the size of the hepatic abscess but new, large bilateral pleural effusions.",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Bilateral thoracenteses were performed, yielding exudative pleural fluid that cultured positive for S. anginosus.",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "The patient's clinical status improved with serial thoracenteses and CT-guided drain placement, and he was discharged on intravenous antibiotics.",
+        "evidence_ids": [
+          "E008"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [
+      "The explicit identification or management of the primary source of infection related to the patient's history of diverticulitis was not documented."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T00:28:07.388101+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

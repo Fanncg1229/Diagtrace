@@ -1,0 +1,455 @@
+{
+  "case_id": "PMC7536775",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 10,
+  "termination": "final",
+  "known_final_diagnosis": "She was diagnosed with NCSE on electroencephalogram (EEG).",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E008"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "initial neurological examination findings",
+        "current_trajectory_hypothesis": "Patient presented with respiratory symptoms and altered mental status. Investigating initial neurological findings to understand if NCSE was suspected early or if symptoms evolved.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "detailed neurological status",
+          "progression of symptoms",
+          "results of initial workup for respiratory symptoms",
+          "reason for EEG"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "On examination at presentation, she was saturating at 91% on 40% oxygen and was unable to speak due to breathlessness. Her respiratory rate was 22 breaths per minute and she was hypotensive. An arterial blood gas indicated a type 1 respiratory failure (Pa02 7.2 kPa and PaC02 4.0 kPa). Her Glasgow Coma Score (GCS) was seven (withdrawing and opening eyes to pain, without a verbal response). She was transferred to intensive care for intubation and ventilation the day after admission.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "detailed neurological examination findings beyond GCS, specifically looking for signs of seizure activity or focal deficits",
+        "current_trajectory_hypothesis": "Patient presented with respiratory distress and altered mental status (GCS 7). The known diagnosis is NCSE. I need to understand if there were specific neurological signs or symptoms that prompted the consideration of NCSE and subsequent EEG.",
+        "confirmed_evidence": [
+          "Patient presented with shortness of breath, fever, lethargy, and was non-verbal.",
+          "Initial GCS was 7 (withdrawing and opening eyes to pain, no verbal response).",
+          "Patient had type 1 respiratory failure and was hypotensive, requiring intubation and ventilation."
+        ],
+        "missing_key_evidence": [
+          "specific neurological findings leading to suspicion of NCSE",
+          "results of initial workup for altered mental status",
+          "reason for EEG",
+          "EEG findings"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "Two days later she was less engaged, she was unable to speak or obey commands and opened her eyes only to pain. Some new onset intermittent right-sided facial jerks were noted.",
+        "category": "other",
+        "temporal_cue": "after one month intubation and ventilation",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "EEG findings",
+        "current_trajectory_hypothesis": "Patient presented with respiratory distress and altered mental status. New onset intermittent right-sided facial jerks were noted, suggesting seizure activity. The known final diagnosis is NCSE on EEG, so I am requesting the EEG findings to confirm this.",
+        "confirmed_evidence": [
+          "Patient presented with shortness of breath, fever, lethargy, and was non-verbal.",
+          "Initial GCS was 7 (withdrawing and opening eyes to pain, no verbal response).",
+          "Patient had type 1 respiratory failure and was hypotensive, requiring intubation and ventilation the day after admission.",
+          "Two days later (after an unspecified period of intubation and ventilation, possibly one month later based on the temporal cue), she was less engaged, unable to speak or obey commands, opened eyes only to pain, and had new onset intermittent right-sided facial jerks."
+        ],
+        "missing_key_evidence": [
+          "exact timeline of neurological deterioration and facial jerks",
+          "reason for EEG order",
+          "EEG findings confirming NCSE",
+          "clinical course after diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "At day ten postextubation, she underwent an EEG. Frequent (2.5–4 Hz), florid bilateral, non-synchronous epileptiform discharges were seen over both hemispheres throughout most of the recording. The patient was unresponsive during this period of recording. 2mg of intravenous lorazepam was given, after which the epileptiform discharges subsided and a 6–7 Hz background predominated. The patient became slightly more alert, in that she could obey some motor commands and vocalise to a small extent.",
+        "category": "molecular_test",
+        "temporal_cue": "day ten postextubation",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with respiratory distress and altered mental status, later developing facial jerks. EEG confirmed NCSE, which responded to lorazepam. I need to understand the subsequent management and patient's response to treatment for NCSE to complete the trajectory.",
+        "confirmed_evidence": [
+          "Patient presented with shortness of breath, fever, lethargy, and was non-verbal.",
+          "Initial GCS was 7 (withdrawing and opening eyes to pain, no verbal response).",
+          "Patient had type 1 respiratory failure and was hypotensive, requiring intubation and ventilation the day after admission.",
+          "Two days after admission (or after an unspecified period of intubation and ventilation), she was less engaged, unable to speak or obey commands, opened eyes only to pain, and had new onset intermittent right-sided facial jerks.",
+          "At day ten post-extubation, she underwent an EEG which showed frequent (2.5–4 Hz), florid bilateral, non-synchronous epileptiform discharges over both hemispheres, with the patient unresponsive during this period.",
+          "After 2mg IV lorazepam, the epileptiform discharges subsided, and a 6–7 Hz background predominated, with the patient becoming slightly more alert, obeying some motor commands and vocalizing to a small extent."
+        ],
+        "missing_key_evidence": [
+          "exact timeline of neurological deterioration and facial jerks relative to admission and intubation",
+          "further treatment for NCSE",
+          "patient's neurological outcome after NCSE treatment",
+          "rule-out evidence for other causes of altered mental status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "One day later, she had another EEG study to investigate whether there were residual subclinical seizures. The EEG showed a background rhythm reaching 7–8 Hz, which was reactive to external stimulation. Frequent multifocal epileptiform discharges were seen as well as intermittent frontotemporal theta/delta waves.",
+        "category": "other",
+        "temporal_cue": "one day later",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "What antiepileptic drug (AED) treatment was initiated after the diagnosis of NCSE and the second EEG?",
+        "current_trajectory_hypothesis": "Patient presented with respiratory distress and altered mental status, later developing facial jerks. EEG confirmed NCSE, which initially responded to lorazepam, but a subsequent EEG showed residual epileptiform activity. I need to understand the specific antiepileptic treatment initiated and the patient's response to it.",
+        "confirmed_evidence": [
+          "Patient presented with shortness of breath, fever, lethargy, and was non-verbal.",
+          "Initial GCS was 7 (withdrawing and opening eyes to pain, no verbal response).",
+          "Patient had type 1 respiratory failure and was hypotensive, requiring intubation and ventilation the day after admission.",
+          "Two days after admission (or after an unspecified period of intubation and ventilation), she was less engaged, unable to speak or obey commands, opened eyes only to pain, and had new onset intermittent right-sided facial jerks.",
+          "At day ten post-extubation, she underwent an EEG which showed frequent (2.5–4 Hz), florid bilateral, non-synchronous epileptiform discharges over both hemispheres, with the patient unresponsive during this period.",
+          "After 2mg IV lorazepam, the epileptiform discharges subsided, and a 6–7 Hz background predominated, with the patient becoming slightly more alert, obeying some motor commands and vocalizing to a small extent.",
+          "One day after the first EEG, a second EEG showed a background rhythm reaching 7–8 Hz, reactive to external stimulation, but also frequent multifocal epileptiform discharges and intermittent frontotemporal theta/delta waves."
+        ],
+        "missing_key_evidence": [
+          "specific antiepileptic drug treatment initiated",
+          "patient's neurological outcome after NCSE treatment",
+          "rule-out evidence for other causes of altered mental status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E002",
+        "source_text": "She was diagnosed with NCSE on electroencephalogram (EEG). She was commenced on Levetiracetam.",
+        "category": "other",
+        "temporal_cue": "after one month intubation and ventilation",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with respiratory distress and altered mental status, later developing facial jerks. EEG confirmed NCSE, which initially responded to lorazepam, but a subsequent EEG showed residual epileptiform activity. Levetiracetam was commenced. I need to understand the patient's response to this treatment and their subsequent neurological outcome.",
+        "confirmed_evidence": [
+          "Patient presented with shortness of breath, fever, lethargy, and was non-verbal.",
+          "Initial GCS was 7 (withdrawing and opening eyes to pain, no verbal response).",
+          "Patient had type 1 respiratory failure and was hypotensive, requiring intubation and ventilation the day after admission.",
+          "Two days after admission (or after an unspecified period of intubation and ventilation), she was less engaged, unable to speak or obey commands, opened eyes only to pain, and had new onset intermittent right-sided facial jerks.",
+          "At day ten post-extubation, she underwent an EEG which showed frequent (2.5–4 Hz), florid bilateral, non-synchronous epileptiform discharges over both hemispheres, with the patient unresponsive during this period.",
+          "After 2mg IV lorazepam, the epileptiform discharges subsided, and a 6–7 Hz background predominated, with the patient becoming slightly more alert, obeying some motor commands and vocalizing to a small extent.",
+          "One day after the first EEG, a second EEG showed a background rhythm reaching 7–8 Hz, reactive to external stimulation, but also frequent multifocal epileptiform discharges and intermittent frontotemporal theta/delta waves.",
+          "Levetiracetam was commenced for NCSE."
+        ],
+        "missing_key_evidence": [
+          "exact timeline of neurological deterioration and facial jerks relative to admission and intubation",
+          "patient's neurological outcome after Levetiracetam treatment",
+          "rule-out evidence for other causes of altered mental status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "explanation": "No pending orders and no undisclosed clinical trajectory updates after current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "patient's neurological status and response to Levetiracetam treatment",
+        "current_trajectory_hypothesis": "Patient presented with respiratory distress and altered mental status, later developing facial jerks. EEG confirmed NCSE, which initially responded to lorazepam, but a subsequent EEG showed residual epileptiform activity. Levetiracetam was commenced. I need to understand the patient's neurological outcome and response to Levetiracetam.",
+        "confirmed_evidence": [
+          "Patient presented with shortness of breath, fever, lethargy, and was non-verbal.",
+          "Initial GCS was 7 (withdrawing and opening eyes to pain, no verbal response).",
+          "Patient had type 1 respiratory failure and was hypotensive, requiring intubation and ventilation the day after admission.",
+          "Two days after admission (or after an unspecified period of intubation and ventilation), she was less engaged, unable to speak or obey commands, opened eyes only to pain, and had new onset intermittent right-sided facial jerks.",
+          "At day ten post-extubation, she underwent an EEG which showed frequent (2.5–4 Hz), florid bilateral, non-synchronous epileptiform discharges over both hemispheres, with the patient unresponsive during this period.",
+          "After 2mg IV lorazepam, the epileptiform discharges subsided, and a 6–7 Hz background predominated, with the patient becoming slightly more alert, obeying some motor commands and vocalizing to a small extent.",
+          "One day after the first EEG, a second EEG showed a background rhythm reaching 7–8 Hz, reactive to external stimulation, but also frequent multifocal epileptiform discharges and intermittent frontotemporal theta/delta waves.",
+          "Levetiracetam was commenced for NCSE."
+        ],
+        "missing_key_evidence": [
+          "patient's neurological outcome after Levetiracetam treatment",
+          "rule-out evidence for other causes of altered mental status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E002",
+        "source_text": "She was intubated and ventilated for one month. Her sedation was gradually lightened as she was weaned off the ventilator. Her GCS was 15 by the 25th of May and she was self-ventilating. She was weak in all four limbs. Two days later she was less engaged, she was unable to speak or obey commands and opened her eyes only to pain. Some new onset intermittent right-sided facial jerks were noted. She was diagnosed with NCSE on electroencephalogram (EEG). She was commenced on Levetiracetam.",
+        "category": "other",
+        "temporal_cue": "after one month intubation and ventilation",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "patient's neurological status and clinical course after commencing Levetiracetam",
+        "current_trajectory_hypothesis": "Patient presented with respiratory distress and altered mental status, later developing facial jerks. EEG confirmed NCSE, which initially responded to lorazepam, but a subsequent EEG showed residual epileptiform activity. Levetiracetam was commenced. I need to understand the patient's neurological outcome and response to Levetiracetam to complete the trajectory.",
+        "confirmed_evidence": [
+          "Patient presented with shortness of breath, fever, lethargy, and was non-verbal.",
+          "Initial GCS was 7 (withdrawing and opening eyes to pain, no verbal response).",
+          "Patient had type 1 respiratory failure and was hypotensive, requiring intubation and ventilation the day after admission.",
+          "Two days after admission (or after an unspecified period of intubation and ventilation), she was less engaged, unable to speak or obey commands, opened eyes only to pain, and had new onset intermittent right-sided facial jerks.",
+          "At day ten post-extubation, she underwent an EEG which showed frequent (2.5–4 Hz), florid bilateral, non-synchronous epileptiform discharges over both hemispheres, with the patient unresponsive during this period.",
+          "After 2mg IV lorazepam, the epileptiform discharges subsided, and a 6–7 Hz background predominated, with the patient becoming slightly more alert, obeying some motor commands and vocalizing to a small extent.",
+          "One day after the first EEG, a second EEG showed a background rhythm reaching 7–8 Hz, reactive to external stimulation, but also frequent multifocal epileptiform discharges and intermittent frontotemporal theta/delta waves.",
+          "Levetiracetam was commenced for NCSE."
+        ],
+        "missing_key_evidence": [
+          "patient's neurological outcome after Levetiracetam treatment",
+          "rule-out evidence for other causes of altered mental status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "The patient gradually improved in that she was able to verbalise and obey motor commands. She still however had episodes of fluctuating confusion three weeks after being discharged to the neurology ward; however, she did have a concomitant urinary tract infection at that time.",
+        "category": "other",
+        "temporal_cue": "three weeks after discharge to neurology ward",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "results of initial brain imaging (CT or MRI) and other relevant lab tests (e.g., electrolytes, toxicology, infection markers) performed to investigate altered mental status",
+        "current_trajectory_hypothesis": "Patient presented with respiratory distress and altered mental status, later developing facial jerks. EEG confirmed NCSE, which initially responded to lorazepam, but a subsequent EEG showed residual epileptiform activity. Levetiracetam was commenced, leading to gradual improvement, though fluctuating confusion persisted with a UTI. I need to understand what other causes of altered mental status were investigated and ruled out.",
+        "confirmed_evidence": [
+          "Patient presented with shortness of breath, fever, lethargy, and was non-verbal.",
+          "Initial GCS was 7 (withdrawing and opening eyes to pain, no verbal response).",
+          "Patient had type 1 respiratory failure and was hypotensive, requiring intubation and ventilation the day after admission.",
+          "Two days after admission (or after an unspecified period of intubation and ventilation), she was less engaged, unable to speak or obey commands, opened eyes only to pain, and had new onset intermittent right-sided facial jerks.",
+          "At day ten post-extubation, she underwent an EEG which showed frequent (2.5–4 Hz), florid bilateral, non-synchronous epileptiform discharges over both hemispheres, with the patient unresponsive during this period.",
+          "After 2mg IV lorazepam, the epileptiform discharges subsided, and a 6–7 Hz background predominated, with the patient becoming slightly more alert, obeying some motor commands and vocalizing to a small extent.",
+          "One day after the first EEG, a second EEG showed a background rhythm reaching 7–8 Hz, reactive to external stimulation, but also frequent multifocal epileptiform discharges and intermittent frontotemporal theta/delta waves.",
+          "Levetiracetam was commenced for NCSE.",
+          "The patient gradually improved, able to verbalize and obey motor commands.",
+          "She still had episodes of fluctuating confusion three weeks after being discharged to the neurology ward, with a concomitant urinary tract infection."
+        ],
+        "missing_key_evidence": [
+          "exact timeline of neurological deterioration and facial jerks relative to admission and intubation",
+          "results of initial workup for altered mental status (e.g., brain imaging, metabolic panel, toxicology)",
+          "final neurological outcome related to NCSE"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "Order placed; imaging and lab test results not yet documented in source",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "Status found is not valid for clinician action ORDER_TEST.",
+        "validation_errors": [
+          "Status found is not valid for clinician action ORDER_TEST."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "NCSE on electroencephalogram (EEG)",
+        "trajectory_summary": "A 57-year-old woman presented with shortness of breath and fever, found to be lethargic with a GCS of 7 and type 1 respiratory failure, requiring intubation and ventilation. After approximately one month of intubation, and two days after achieving a GCS of 15 and self-ventilating (around May 27th), she experienced neurological deterioration with decreased engagement, inability to speak or obey commands, and new onset intermittent right-sided facial jerks. An EEG performed around day ten post-extubation (approximately June 4th) showed frequent (2.5–4 Hz), florid bilateral, non-synchronous epileptiform discharges, confirming Nonconvulsive Status Epilepticus (NCSE). These discharges subsided with intravenous lorazepam, leading to improved alertness. A follow-up EEG the next day showed persistent multifocal epileptiform discharges. She was commenced on Levetiracetam, leading to gradual improvement in verbalization and motor commands, though she experienced fluctuating confusion three weeks after discharge to the neurology ward, attributed to a concomitant urinary tract infection.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with severe respiratory distress and altered mental status, requiring intubation.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Neurological deterioration occurred with new onset intermittent right-sided facial jerks and decreased responsiveness around May 27th, after extubation.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "First EEG (day ten post-extubation) showed frequent, florid bilateral, non-synchronous epileptiform discharges, confirming NCSE.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Epileptiform discharges subsided and alertness improved after 2mg intravenous lorazepam.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "A second EEG one day later showed persistent multifocal epileptiform discharges.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Levetiracetam was commenced for NCSE.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Patient gradually improved, able to verbalize and obey motor commands, though later experienced fluctuating confusion with a UTI.",
+            "evidence_ids": [
+              "E008"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [
+          "Initial brain imaging and other lab tests to rule out alternative causes of altered mental status were not documented."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "NCSE on electroencephalogram (EEG)",
+    "trajectory_summary": "A 57-year-old woman presented with shortness of breath and fever, found to be lethargic with a GCS of 7 and type 1 respiratory failure, requiring intubation and ventilation. After approximately one month of intubation, and two days after achieving a GCS of 15 and self-ventilating (around May 27th), she experienced neurological deterioration with decreased engagement, inability to speak or obey commands, and new onset intermittent right-sided facial jerks. An EEG performed around day ten post-extubation (approximately June 4th) showed frequent (2.5–4 Hz), florid bilateral, non-synchronous epileptiform discharges, confirming Nonconvulsive Status Epilepticus (NCSE). These discharges subsided with intravenous lorazepam, leading to improved alertness. A follow-up EEG the next day showed persistent multifocal epileptiform discharges. She was commenced on Levetiracetam, leading to gradual improvement in verbalization and motor commands, though she experienced fluctuating confusion three weeks after discharge to the neurology ward, attributed to a concomitant urinary tract infection.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with severe respiratory distress and altered mental status, requiring intubation.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Neurological deterioration occurred with new onset intermittent right-sided facial jerks and decreased responsiveness around May 27th, after extubation.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "First EEG (day ten post-extubation) showed frequent, florid bilateral, non-synchronous epileptiform discharges, confirming NCSE.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Epileptiform discharges subsided and alertness improved after 2mg intravenous lorazepam.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "A second EEG one day later showed persistent multifocal epileptiform discharges.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Levetiracetam was commenced for NCSE.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Patient gradually improved, able to verbalize and obey motor commands, though later experienced fluctuating confusion with a UTI.",
+        "evidence_ids": [
+          "E008"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [
+      "Initial brain imaging and other lab tests to rule out alternative causes of altered mental status were not documented."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T17:11:58.437945+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

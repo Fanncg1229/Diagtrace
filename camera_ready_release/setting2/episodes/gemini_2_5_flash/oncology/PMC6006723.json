@@ -1,0 +1,659 @@
+{
+  "case_id": "PMC6006723",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "The patient was diagnosed with bilateral DHPLNB. Pathology after left partial nephrectomy confirmed Wilms tumor.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E003"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "abdominal ultrasound to investigate the cause of abdominal distension",
+        "current_trajectory_hypothesis": "The patient presented with abdominal distension and weight loss. Initial investigation will likely involve imaging to characterize the abdominal distension, which is suspected to be related to a renal mass given the final diagnosis.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Imaging findings of the abdomen",
+          "Confirmation of renal involvement",
+          "Pathology results",
+          "Treatment course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [
+          "abdominal ultrasound"
+        ],
+        "explanation": "Abdominal ultrasound was ordered; supporting source record exists.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "results of the abdominal ultrasound",
+        "current_trajectory_hypothesis": "The patient presented with abdominal distension and weight loss. An abdominal ultrasound was ordered to investigate the cause, and I expect it to show findings consistent with renal masses, given the final diagnosis of bilateral DHPLNB and Wilms tumor.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Detailed abdominal imaging findings",
+          "Confirmation of renal involvement and characteristics of masses",
+          "Pathology results",
+          "Treatment course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "Initial limited ultrasonographic study of the abdomen demonstrated massively enlarged kidneys with loss of corticomedullary differentiation. The right kidney measured 13.1 cm and the left measured 15 cm (normal approximately 6 cm) [1]. Multiple ill-defined hypoechoic areas were seen randomly interspersed within the renal parenchyma bilaterally suggesting presence of nephrogenic rests and therefore nephroblastomatosis. It was not possible to rule out the presence of Wilms tumour within the nephrogenic rests on ultrasound. No evidence of hydronephrosis, hydroureter or free fluid was seen.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "abdominal MRI to further characterize the renal masses and assess for Wilms tumor",
+        "current_trajectory_hypothesis": "Initial ultrasound showed massively enlarged kidneys with multiple hypoechoic areas suggestive of nephrogenic rests/nephroblastomatosis, and Wilms tumor could not be ruled out. A more detailed imaging study like MRI is needed to better characterize these findings and plan further management.",
+        "confirmed_evidence": [
+          "Patient presented with abdominal distension and weight loss.",
+          "Abdominal ultrasound revealed massively enlarged kidneys (right 13.1 cm, left 15 cm) with loss of corticomedullary differentiation.",
+          "Multiple ill-defined hypoechoic areas were seen bilaterally, suggesting nephrogenic rests and nephroblastomatosis.",
+          "Wilms tumor could not be ruled out on ultrasound."
+        ],
+        "missing_key_evidence": [
+          "Detailed characteristics of renal masses from advanced imaging (MRI/CT)",
+          "Confirmation of Wilms tumor (biopsy/pathology)",
+          "Extent of disease (staging)",
+          "Treatment course and response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Order for abdominal MRI recorded; no evidence of result in source yet",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "results of the abdominal MRI",
+        "current_trajectory_hypothesis": "Initial ultrasound showed massively enlarged kidneys with multiple hypoechoic areas suggestive of nephrogenic rests/nephroblastomatosis, and Wilms tumor could not be ruled out. An abdominal MRI was ordered to further characterize these findings and assess for Wilms tumor.",
+        "confirmed_evidence": [
+          "Patient presented with abdominal distension and weight loss.",
+          "Abdominal ultrasound revealed massively enlarged kidneys (right 13.1 cm, left 15 cm) with loss of corticomedullary differentiation.",
+          "Multiple ill-defined hypoechoic areas were seen bilaterally, suggesting nephrogenic rests and nephroblastomatosis.",
+          "Wilms tumor could not be ruled out on ultrasound."
+        ],
+        "missing_key_evidence": [
+          "Detailed characteristics of renal masses from advanced imaging (MRI/CT)",
+          "Confirmation of Wilms tumor (biopsy/pathology)",
+          "Extent of disease (staging)",
+          "Treatment course and response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Gadolinium enhanced magnetic resonance imaging (MRI) of the abdomen performed after 6 weeks of chemotherapy demonstrated hypointense peripheral masses on T1/T2 images with thick septations suggestive of bilateral DHPLNB. A small heterogeneously enhancing lesion with multiple small linear and round cysts in the medial left kidney was characterized on T1 imaging, suspicious for a superimposed Wilms tumor (Fig. 2). Diffusion weighted imaging was not conducted.",
+        "category": "imaging_report",
+        "temporal_cue": "after 6 weeks of chemotherapy",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial ultrasound (E001) showed massively enlarged kidneys with features suggestive of nephroblastomatosis and possible Wilms tumor. An MRI (E003) was performed after 6 weeks of chemotherapy, indicating that chemotherapy was initiated based on earlier findings. I need to understand the decision-making process and the specific findings that prompted the start of chemotherapy.",
+        "confirmed_evidence": [
+          "Patient presented with abdominal distension and weight loss.",
+          "Abdominal ultrasound (E001) revealed massively enlarged kidneys (right 13.1 cm, left 15 cm) with loss of corticomedullary differentiation.",
+          "Multiple ill-defined hypoechoic areas were seen bilaterally, suggesting nephrogenic rests and nephroblastomatosis.",
+          "Wilms tumor could not be ruled out on ultrasound (E001).",
+          "Gadolinium enhanced MRI (E003) performed after 6 weeks of chemotherapy demonstrated hypointense peripheral masses with thick septations suggestive of bilateral DHPLNB.",
+          "MRI (E003) also showed a small heterogeneously enhancing lesion in the medial left kidney, suspicious for a superimposed Wilms tumor."
+        ],
+        "missing_key_evidence": [
+          "Reason for initiating chemotherapy",
+          "Specific chemotherapy regimen",
+          "Pre-chemotherapy biopsy results (if any)",
+          "Details of surgical intervention",
+          "Pathology report confirming Wilms tumor",
+          "Post-treatment course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial ultrasound (E001) showed massively enlarged kidneys with features suggestive of nephroblastomatosis and possible Wilms tumor. An MRI (E003) was performed after 6 weeks of chemotherapy, indicating that chemotherapy was initiated based on earlier findings. I need to understand the specific evidence or clinical decision that prompted the start of chemotherapy.",
+        "confirmed_evidence": [
+          "Patient presented with abdominal distension and weight loss.",
+          "Abdominal ultrasound (E001) revealed massively enlarged kidneys (right 13.1 cm, left 15 cm) with loss of corticomedullary differentiation.",
+          "Multiple ill-defined hypoechoic areas were seen bilaterally, suggesting nephrogenic rests and nephroblastomatosis.",
+          "Wilms tumor could not be ruled out on ultrasound (E001).",
+          "Gadolinium enhanced MRI (E003) performed after 6 weeks of chemotherapy demonstrated hypointense peripheral masses with thick septations suggestive of bilateral DHPLNB.",
+          "MRI (E003) also showed a small heterogeneously enhancing lesion in the medial left kidney, suspicious for a superimposed Wilms tumor."
+        ],
+        "missing_key_evidence": [
+          "Specific findings or diagnosis that led to chemotherapy initiation",
+          "Chemotherapy regimen details",
+          "Pre-chemotherapy biopsy results (if any)",
+          "Details of surgical intervention",
+          "Pathology report confirming Wilms tumor",
+          "Post-treatment course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial ultrasound (E001) showed massively enlarged kidneys with features suggestive of nephroblastomatosis and possible Wilms tumor. An MRI (E003) was performed after 6 weeks of chemotherapy, indicating that chemotherapy was initiated based on earlier findings. I need to understand the specific evidence or clinical decision that prompted the start of chemotherapy.",
+        "confirmed_evidence": [
+          "Patient presented with abdominal distension and weight loss.",
+          "Abdominal ultrasound (E001) revealed massively enlarged kidneys (right 13.1 cm, left 15 cm) with loss of corticomedullary differentiation.",
+          "Multiple ill-defined hypoechoic areas were seen bilaterally, suggesting nephrogenic rests and nephroblastomatosis.",
+          "Wilms tumor could not be ruled out on ultrasound (E001).",
+          "Gadolinium enhanced MRI (E003) performed after 6 weeks of chemotherapy demonstrated hypointense peripheral masses with thick septations suggestive of bilateral DHPLNB.",
+          "MRI (E003) also showed a small heterogeneously enhancing lesion in the medial left kidney, suspicious for a superimposed Wilms tumor."
+        ],
+        "missing_key_evidence": [
+          "Specific findings or diagnosis that led to chemotherapy initiation",
+          "Chemotherapy regimen details",
+          "Pre-chemotherapy biopsy results (if any)",
+          "Details of surgical intervention",
+          "Pathology report confirming Wilms tumor",
+          "Post-treatment course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "clinical course update regarding the decision to initiate chemotherapy and the findings that led to it",
+        "current_trajectory_hypothesis": "Initial ultrasound (E001) showed massively enlarged kidneys with features suggestive of nephroblastomatosis and possible Wilms tumor. An MRI (E003) was performed after 6 weeks of chemotherapy, indicating that chemotherapy was initiated based on earlier findings. I need to understand the specific evidence or clinical decision that prompted the start of chemotherapy.",
+        "confirmed_evidence": [
+          "Patient presented with abdominal distension and weight loss.",
+          "Abdominal ultrasound (E001) revealed massively enlarged kidneys (right 13.1 cm, left 15 cm) with loss of corticomedullary differentiation.",
+          "Multiple ill-defined hypoechoic areas were seen bilaterally, suggesting nephrogenic rests and nephroblastomatosis.",
+          "Wilms tumor could not be ruled out on ultrasound (E001).",
+          "Gadolinium enhanced MRI (E003) performed after 6 weeks of chemotherapy demonstrated hypointense peripheral masses with thick septations suggestive of bilateral DHPLNB.",
+          "MRI (E003) also showed a small heterogeneously enhancing lesion in the medial left kidney, suspicious for a superimposed Wilms tumor."
+        ],
+        "missing_key_evidence": [
+          "Specific findings or diagnosis that led to chemotherapy initiation",
+          "Chemotherapy regimen details",
+          "Pre-chemotherapy biopsy results (if any)",
+          "Details of surgical intervention",
+          "Pathology report confirming Wilms tumor",
+          "Post-treatment course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "explanation": "No source record documents the clinical course update regarding the decision to initiate chemotherapy or the findings leading to it.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "left partial nephrectomy",
+        "current_trajectory_hypothesis": "Initial ultrasound (E001) suggested nephroblastomatosis and possible Wilms tumor. MRI (E003) after 6 weeks of chemotherapy showed bilateral DHPLNB and a suspicious lesion for Wilms tumor in the left kidney. The final diagnosis mentions a left partial nephrectomy, so I need to confirm this procedure and its timing.",
+        "confirmed_evidence": [
+          "Patient presented with abdominal distension and weight loss.",
+          "Abdominal ultrasound (E001) revealed massively enlarged kidneys (right 13.1 cm, left 15 cm) with loss of corticomedullary differentiation.",
+          "Multiple ill-defined hypoechoic areas were seen bilaterally, suggesting nephrogenic rests and nephroblastomatosis.",
+          "Wilms tumor could not be ruled out on ultrasound (E001).",
+          "Gadolinium enhanced MRI (E003) performed after 6 weeks of chemotherapy demonstrated hypointense peripheral masses with thick septations suggestive of bilateral DHPLNB.",
+          "MRI (E003) also showed a small heterogeneously enhancing lesion in the medial left kidney, suspicious for a superimposed Wilms tumor."
+        ],
+        "missing_key_evidence": [
+          "Details of surgical intervention (left partial nephrectomy)",
+          "Pathology report confirming Wilms tumor from the resected specimen",
+          "Chemotherapy regimen details",
+          "Pre-chemotherapy biopsy results (if any)",
+          "Post-treatment course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "explanation": "Procedure ordered; no source results yet available.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "pathology report from the left partial nephrectomy",
+        "current_trajectory_hypothesis": "Initial ultrasound (E001) suggested nephroblastomatosis and possible Wilms tumor. MRI (E003) after 6 weeks of chemotherapy showed bilateral DHPLNB and a suspicious lesion for Wilms tumor in the left kidney. A left partial nephrectomy was performed. I need the pathology report to confirm the Wilms tumor diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with abdominal distension and weight loss.",
+          "Abdominal ultrasound (E001) revealed massively enlarged kidneys (right 13.1 cm, left 15 cm) with loss of corticomedullary differentiation.",
+          "Multiple ill-defined hypoechoic areas were seen bilaterally, suggesting nephrogenic rests and nephroblastomatosis.",
+          "Wilms tumor could not be ruled out on ultrasound (E001).",
+          "Gadolinium enhanced MRI (E003) performed after 6 weeks of chemotherapy demonstrated hypointense peripheral masses with thick septations suggestive of bilateral DHPLNB.",
+          "MRI (E003) also showed a small heterogeneously enhancing lesion in the medial left kidney, suspicious for a superimposed Wilms tumor."
+        ],
+        "missing_key_evidence": [
+          "Pathology report confirming Wilms tumor from the resected specimen",
+          "Chemotherapy regimen details",
+          "Pre-chemotherapy biopsy results (if any)",
+          "Post-treatment course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "pathology findings from the left partial nephrectomy specimen",
+        "current_trajectory_hypothesis": "Initial ultrasound (E001) suggested nephroblastomatosis and possible Wilms tumor. MRI (E003) after 6 weeks of chemotherapy showed bilateral DHPLNB and a suspicious lesion for Wilms tumor in the left kidney. A left partial nephrectomy was performed. I need the pathology findings to confirm the Wilms tumor diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with abdominal distension and weight loss.",
+          "Abdominal ultrasound (E001) revealed massively enlarged kidneys (right 13.1 cm, left 15 cm) with loss of corticomedullary differentiation.",
+          "Multiple ill-defined hypoechoic areas were seen bilaterally, suggesting nephrogenic rests and nephroblastomatosis.",
+          "Wilms tumor could not be ruled out on ultrasound (E001).",
+          "Gadolinium enhanced MRI (E003) performed after 6 weeks of chemotherapy demonstrated hypointense peripheral masses with thick septations suggestive of bilateral DHPLNB.",
+          "MRI (E003) also showed a small heterogeneously enhancing lesion in the medial left kidney, suspicious for a superimposed Wilms tumor."
+        ],
+        "missing_key_evidence": [
+          "Pathology report confirming Wilms tumor from the resected specimen",
+          "Chemotherapy regimen details",
+          "Pre-chemotherapy biopsy results (if any)",
+          "Post-treatment course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "pathology report confirming Wilms tumor from the left partial nephrectomy specimen",
+        "current_trajectory_hypothesis": "Initial ultrasound (E001) suggested nephroblastomatosis and possible Wilms tumor. MRI (E003) after 6 weeks of chemotherapy showed bilateral DHPLNB and a suspicious lesion for Wilms tumor in the left kidney. A left partial nephrectomy was performed. I need the pathology report to confirm the Wilms tumor diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with abdominal distension and weight loss.",
+          "Abdominal ultrasound (E001) revealed massively enlarged kidneys (right 13.1 cm, left 15 cm) with loss of corticomedullary differentiation.",
+          "Multiple ill-defined hypoechoic areas were seen bilaterally, suggesting nephrogenic rests and nephroblastomatosis.",
+          "Wilms tumor could not be ruled out on ultrasound (E001).",
+          "Gadolinium enhanced MRI (E003) performed after 6 weeks of chemotherapy demonstrated hypointense peripheral masses with thick septations suggestive of bilateral DHPLNB.",
+          "MRI (E003) also showed a small heterogeneously enhancing lesion in the medial left kidney, suspicious for a superimposed Wilms tumor."
+        ],
+        "missing_key_evidence": [
+          "Pathology report confirming Wilms tumor from the resected specimen",
+          "Chemotherapy regimen details",
+          "Pre-chemotherapy biopsy results (if any)",
+          "Post-treatment course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "pathology confirmation of Wilms tumor from the left partial nephrectomy specimen",
+        "current_trajectory_hypothesis": "Initial ultrasound (E001) suggested nephroblastomatosis and possible Wilms tumor. MRI (E003) after 6 weeks of chemotherapy showed bilateral DHPLNB and a suspicious lesion for Wilms tumor in the left kidney. A left partial nephrectomy was performed. I need the pathology report to confirm the Wilms tumor diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with abdominal distension and weight loss.",
+          "Abdominal ultrasound (E001) revealed massively enlarged kidneys (right 13.1 cm, left 15 cm) with loss of corticomedullary differentiation.",
+          "Multiple ill-defined hypoechoic areas were seen bilaterally, suggesting nephrogenic rests and nephroblastomatosis.",
+          "Wilms tumor could not be ruled out on ultrasound (E001).",
+          "Gadolinium enhanced MRI (E003) performed after 6 weeks of chemotherapy demonstrated hypointense peripheral masses with thick septations suggestive of bilateral DHPLNB.",
+          "MRI (E003) also showed a small heterogeneously enhancing lesion in the medial left kidney, suspicious for a superimposed Wilms tumor."
+        ],
+        "missing_key_evidence": [
+          "Pathology report confirming Wilms tumor from the resected specimen",
+          "Chemotherapy regimen details",
+          "Pre-chemotherapy biopsy results (if any)",
+          "Post-treatment course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "pathological findings from the left partial nephrectomy specimen that confirmed Wilms tumor",
+        "current_trajectory_hypothesis": "Initial ultrasound (E001) suggested nephroblastomatosis and possible Wilms tumor. MRI (E003) after 6 weeks of chemotherapy showed bilateral DHPLNB and a suspicious lesion for Wilms tumor in the left kidney. A left partial nephrectomy was performed. I need the specific pathological findings to confirm the Wilms tumor diagnosis, as stated in the known final diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with abdominal distension and weight loss.",
+          "Abdominal ultrasound (E001) revealed massively enlarged kidneys (right 13.1 cm, left 15 cm) with loss of corticomedullary differentiation.",
+          "Multiple ill-defined hypoechoic areas were seen bilaterally, suggesting nephrogenic rests and nephroblastomatosis.",
+          "Wilms tumor could not be ruled out on ultrasound (E001).",
+          "Gadolinium enhanced MRI (E003) performed after 6 weeks of chemotherapy demonstrated hypointense peripheral masses with thick septations suggestive of bilateral DHPLNB.",
+          "MRI (E003) also showed a small heterogeneously enhancing lesion in the medial left kidney, suspicious for a superimposed Wilms tumor."
+        ],
+        "missing_key_evidence": [
+          "Pathological confirmation of Wilms tumor from the resected specimen",
+          "Chemotherapy regimen details",
+          "Pre-chemotherapy biopsy results (if any)",
+          "Post-treatment course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "bilateral DHPLNB, Wilms tumor",
+        "trajectory_summary": "A 9-month-old female presented with abdominal distension and weight loss. Initial abdominal ultrasound (E001) revealed massively enlarged kidneys with features suggestive of nephrogenic rests and nephroblastomatosis, with Wilms tumor not ruled out. After 6 weeks of chemotherapy, an abdominal MRI (E003) showed findings suggestive of bilateral diffuse hyperplastic perilobar nephroblastomatosis (DHPLNB) and a suspicious lesion for Wilms tumor in the medial left kidney. The known final diagnosis states that pathology after left partial nephrectomy confirmed Wilms tumor.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with abdominal distension and weight loss.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Abdominal ultrasound revealed massively enlarged kidneys with loss of corticomedullary differentiation and multiple ill-defined hypoechoic areas suggesting nephrogenic rests and nephroblastomatosis.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Wilms tumor could not be ruled out on ultrasound.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Gadolinium enhanced MRI performed after 6 weeks of chemotherapy demonstrated hypointense peripheral masses with thick septations suggestive of bilateral DHPLNB.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "MRI showed a small heterogeneously enhancing lesion in the medial left kidney, suspicious for a superimposed Wilms tumor.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Pathology after left partial nephrectomy confirmed Wilms tumor.",
+            "evidence_ids": []
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Beckwith Wiedemann Syndrome",
+            "basis": "Patient did not exhibit any clinical features of Beckwith Wiedemann Syndrome including omphalocele, macroglossia and macrosomia."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Specific findings or diagnosis that led to the initiation of chemotherapy prior to MRI.",
+          "Details of the chemotherapy regimen.",
+          "The specific pathology report confirming Wilms tumor from the left partial nephrectomy specimen.",
+          "Details of the left partial nephrectomy procedure.",
+          "Post-treatment course and outcome."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "bilateral DHPLNB, Wilms tumor",
+    "trajectory_summary": "A 9-month-old female presented with abdominal distension and weight loss. Initial abdominal ultrasound (E001) revealed massively enlarged kidneys with features suggestive of nephrogenic rests and nephroblastomatosis, with Wilms tumor not ruled out. After 6 weeks of chemotherapy, an abdominal MRI (E003) showed findings suggestive of bilateral diffuse hyperplastic perilobar nephroblastomatosis (DHPLNB) and a suspicious lesion for Wilms tumor in the medial left kidney. The known final diagnosis states that pathology after left partial nephrectomy confirmed Wilms tumor.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with abdominal distension and weight loss.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Abdominal ultrasound revealed massively enlarged kidneys with loss of corticomedullary differentiation and multiple ill-defined hypoechoic areas suggesting nephrogenic rests and nephroblastomatosis.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Wilms tumor could not be ruled out on ultrasound.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Gadolinium enhanced MRI performed after 6 weeks of chemotherapy demonstrated hypointense peripheral masses with thick septations suggestive of bilateral DHPLNB.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "MRI showed a small heterogeneously enhancing lesion in the medial left kidney, suspicious for a superimposed Wilms tumor.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Pathology after left partial nephrectomy confirmed Wilms tumor.",
+        "evidence_ids": []
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Beckwith Wiedemann Syndrome",
+        "basis": "Patient did not exhibit any clinical features of Beckwith Wiedemann Syndrome including omphalocele, macroglossia and macrosomia."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Specific findings or diagnosis that led to the initiation of chemotherapy prior to MRI.",
+      "Details of the chemotherapy regimen.",
+      "The specific pathology report confirming Wilms tumor from the left partial nephrectomy specimen.",
+      "Details of the left partial nephrectomy procedure.",
+      "Post-treatment course and outcome."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.8
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T23:11:32.691152+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

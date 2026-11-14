@@ -1,0 +1,366 @@
+{
+  "case_id": "PMC3847606",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 8,
+  "termination": "final",
+  "known_final_diagnosis": "In the Emergency Room, RHS was diagnosed.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E003",
+    "E004",
+    "E005"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "Were there any symptoms of facial weakness, paralysis, or ear pain/rash noted at presentation or during the progression of symptoms?",
+        "current_trajectory_hypothesis": "The patient presented with neck pain and a spreading vesicular rash. The known diagnosis is Ramsay Hunt Syndrome, which typically involves facial nerve palsy and zoster oticus. I need to verify if these key symptoms were present.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Facial nerve palsy",
+          "Rash in the ear (zoster oticus)",
+          "Other cranial nerve involvement"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "A 54-year-old Caucasian female, with no past medical history, developed right-sided neck pain on day 1. On day 4, an erythematous, vesicular rash erupted at the site of pain. She was diagnosed with contact dermatitis at a walk-in clinic. Over days 4–9, she developed a right earache and headache and the rash spread to her upper right chest-wall.",
+        "category": "other",
+        "temporal_cue": "days 1 to 9",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "Was there any documented facial weakness or paralysis, or vesicular rash in the ear canal or on the auricle?",
+        "current_trajectory_hypothesis": "The patient presented with neck pain and a spreading vesicular rash, followed by an earache. The known diagnosis is Ramsay Hunt Syndrome. I need to confirm the presence of facial palsy and zoster oticus (rash in/around the ear) to support this diagnosis.",
+        "confirmed_evidence": [
+          "Right-sided neck pain on day 1",
+          "Erythematous, vesicular rash on day 4 at site of pain, spreading to upper right chest-wall",
+          "Right earache and headache developed over days 4-9"
+        ],
+        "missing_key_evidence": [
+          "Facial nerve palsy",
+          "Vesicular rash in the ear (zoster oticus)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "On day 14, she woke up with partial right-sided facial paralysis.",
+        "category": "other",
+        "temporal_cue": "day 14",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "Was there any documented vesicular rash in the ear canal or on the auricle?",
+        "current_trajectory_hypothesis": "The patient presented with neck pain and a spreading vesicular rash, followed by an earache and later partial facial paralysis. The known diagnosis is Ramsay Hunt Syndrome. I need to confirm the presence of zoster oticus (vesicular rash in/around the ear) to further support this diagnosis.",
+        "confirmed_evidence": [
+          "Right-sided neck pain on day 1",
+          "Erythematous, vesicular rash on day 4 at site of pain, spreading to upper right chest-wall",
+          "Right earache and headache developed over days 4-9",
+          "Partial right-sided facial paralysis on day 14"
+        ],
+        "missing_key_evidence": [
+          "Vesicular rash in the ear (zoster oticus)",
+          "Specific diagnostic tests (e.g., VZV PCR)",
+          "Confirmation of RHS diagnosis in ER"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Exam showed a similar rash along the auricle but the external auditory canal was normal.",
+        "category": "other",
+        "temporal_cue": "day 12",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the diagnostic findings or conclusions from the Emergency Room visit where Ramsay Hunt Syndrome was diagnosed?",
+        "current_trajectory_hypothesis": "The patient presented with neck pain and a spreading vesicular rash, followed by an earache, then facial paralysis and rash on the auricle. These clinical findings are highly suggestive of Ramsay Hunt Syndrome. I need to verify the specific documentation of the RHS diagnosis made in the Emergency Room.",
+        "confirmed_evidence": [
+          "Right-sided neck pain on day 1",
+          "Erythematous, vesicular rash on day 4 at site of pain, spreading to upper right chest-wall",
+          "Right earache and headache developed over days 4-9",
+          "Partial right-sided facial paralysis on day 14",
+          "Similar rash along the auricle (day 12)"
+        ],
+        "missing_key_evidence": [
+          "Specific documentation of the ER diagnosis of RHS",
+          "Evidence of VZV etiology (e.g., PCR)",
+          "Clinical course/treatment/outcome after diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E004",
+        "source_text": "In the Emergency Room, RHS was diagnosed.",
+        "category": "other",
+        "temporal_cue": "day 14",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Was a viral PCR test for Varicella Zoster Virus (VZV) performed on any lesion or fluid, and what were the results?",
+        "current_trajectory_hypothesis": "The patient presented with neck pain, a spreading vesicular rash, earache, facial paralysis, and rash on the auricle, leading to a diagnosis of Ramsay Hunt Syndrome in the ER. To further support the diagnosis and reconstruct the trajectory, I need to verify if VZV infection was confirmed by laboratory testing.",
+        "confirmed_evidence": [
+          "Right-sided neck pain on day 1",
+          "Erythematous, vesicular rash on day 4 at site of pain, spreading to upper right chest-wall",
+          "Right earache and headache developed over days 4-9",
+          "Partial right-sided facial paralysis on day 14",
+          "Similar rash along the auricle (day 12)",
+          "Ramsay Hunt Syndrome diagnosed in the Emergency Room"
+        ],
+        "missing_key_evidence": [
+          "VZV confirmation (e.g., PCR)",
+          "Clinical course/treatment/outcome after diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Order recorded but no source evidence documents performance or results of VZV PCR test.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with neck pain, a spreading vesicular rash, earache, facial paralysis, and rash on the auricle, leading to a diagnosis of Ramsay Hunt Syndrome in the ER. I need to understand the subsequent clinical course, treatment, and outcome to complete the trajectory.",
+        "confirmed_evidence": [
+          "Right-sided neck pain on day 1",
+          "Erythematous, vesicular rash on day 4 at site of pain, spreading to upper right chest-wall",
+          "Right earache and headache developed over days 4-9",
+          "Partial right-sided facial paralysis on day 14",
+          "Similar rash along the auricle (day 12)",
+          "Ramsay Hunt Syndrome diagnosed in the Emergency Room"
+        ],
+        "missing_key_evidence": [
+          "Clinical course/treatment/outcome after diagnosis",
+          "VZV confirmation (PCR was not documented)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "On day 46, the patient returned showing significant improvement. She could smile symmetrically and close her right eye completely.",
+        "category": "other",
+        "temporal_cue": "day 46",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "What treatment, if any, was initiated for the patient after the diagnosis of Ramsay Hunt Syndrome in the Emergency Room?",
+        "current_trajectory_hypothesis": "The patient presented with neck pain, a spreading vesicular rash, earache, facial paralysis, and rash on the auricle, leading to a diagnosis of Ramsay Hunt Syndrome in the ER. I have information on the initial presentation, key diagnostic signs, the diagnosis, and the outcome. Now I need to verify the treatment administered.",
+        "confirmed_evidence": [
+          "Right-sided neck pain on day 1",
+          "Erythematous, vesicular rash on day 4 at site of pain, spreading to upper right chest-wall",
+          "Right earache and headache developed over days 4-9",
+          "Similar rash along the auricle (day 12)",
+          "Partial right-sided facial paralysis on day 14",
+          "Ramsay Hunt Syndrome diagnosed in the Emergency Room",
+          "Significant improvement by day 46 (symmetrical smile, complete eye closure)"
+        ],
+        "missing_key_evidence": [
+          "Specific treatment initiated for RHS",
+          "VZV confirmation (PCR was not documented)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E004",
+        "source_text": "In the Emergency Room, RHS was diagnosed. Valacyclovir was extended to 10 days and prednisone started.",
+        "category": "other",
+        "temporal_cue": "day 14",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Ramsay Hunt Syndrome (RHS)",
+        "trajectory_summary": "A 54-year-old female presented with right-sided neck pain on day 1, followed by an erythematous, vesicular rash on day 4, initially misdiagnosed as contact dermatitis. Over days 4-9, she developed a right earache and headache, and the rash spread. By day 12, a similar rash was noted along the auricle. On day 14, she developed partial right-sided facial paralysis and was diagnosed with Ramsay Hunt Syndrome in the Emergency Room. Treatment with Valacyclovir (extended to 10 days) and prednisone was initiated. By day 46, she showed significant improvement with symmetrical smile and complete right eye closure.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial symptoms included right-sided neck pain and an erythematous, vesicular rash.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "The rash spread to the upper right chest-wall, and the patient developed a right earache and headache.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "A vesicular rash was observed along the auricle.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Partial right-sided facial paralysis developed.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Ramsay Hunt Syndrome was diagnosed in the Emergency Room.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Treatment included Valacyclovir and prednisone.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Significant improvement in facial paralysis was noted by day 46.",
+            "evidence_ids": [
+              "E005"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Contact dermatitis",
+            "basis": "The development of earache, auricular rash, and partial facial paralysis, along with the formal diagnosis of Ramsay Hunt Syndrome, ruled out the initial misdiagnosis of contact dermatitis."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Varicella Zoster Virus (VZV) PCR confirmation was not documented."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Ramsay Hunt Syndrome (RHS)",
+    "trajectory_summary": "A 54-year-old female presented with right-sided neck pain on day 1, followed by an erythematous, vesicular rash on day 4, initially misdiagnosed as contact dermatitis. Over days 4-9, she developed a right earache and headache, and the rash spread. By day 12, a similar rash was noted along the auricle. On day 14, she developed partial right-sided facial paralysis and was diagnosed with Ramsay Hunt Syndrome in the Emergency Room. Treatment with Valacyclovir (extended to 10 days) and prednisone was initiated. By day 46, she showed significant improvement with symmetrical smile and complete right eye closure.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial symptoms included right-sided neck pain and an erythematous, vesicular rash.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "The rash spread to the upper right chest-wall, and the patient developed a right earache and headache.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "A vesicular rash was observed along the auricle.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Partial right-sided facial paralysis developed.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Ramsay Hunt Syndrome was diagnosed in the Emergency Room.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Treatment included Valacyclovir and prednisone.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Significant improvement in facial paralysis was noted by day 46.",
+        "evidence_ids": [
+          "E005"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Contact dermatitis",
+        "basis": "The development of earache, auricular rash, and partial facial paralysis, along with the formal diagnosis of Ramsay Hunt Syndrome, ruled out the initial misdiagnosis of contact dermatitis."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Varicella Zoster Virus (VZV) PCR confirmation was not documented."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T22:10:49.464735+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

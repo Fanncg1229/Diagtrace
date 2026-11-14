@@ -1,0 +1,451 @@
+{
+  "case_id": "PMC9367167",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 11,
+  "termination": "final",
+  "known_final_diagnosis": "A ruptured AML in the region of the patient’s atrophic native left kidney was the suspected cause of haemorrhage.",
+  "disclosed_evidence_ids": [
+    "E003",
+    "E004",
+    "E005",
+    "E006",
+    "E007"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Complete Blood Count (CBC)",
+        "current_trajectory_hypothesis": "Patient presenting with signs of hypovolemic shock and acute abdominal pain, likely due to internal hemorrhage. Initial labs are needed to assess for anemia and severity of blood loss.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Confirmation of hemorrhage (e.g., anemia)",
+          "Localization of hemorrhage",
+          "Identification of the source of hemorrhage (AML)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for Complete Blood Count (CBC) acknowledged; no direct test result document yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "CT scan of the abdomen and pelvis with contrast",
+        "current_trajectory_hypothesis": "Patient presenting with signs of hypovolemic shock and acute abdominal pain, likely due to internal hemorrhage. Imaging is needed to localize the bleeding and identify the source, potentially a ruptured AML given the known diagnosis.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Confirmation of hemorrhage (e.g., anemia from CBC)",
+          "Localization of hemorrhage via imaging",
+          "Identification of the source of hemorrhage (AML)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.15
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for CT scan of abdomen and pelvis with contrast acknowledged; source has corresponding evidence.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "CT scan of the abdomen and pelvis with contrast report",
+        "current_trajectory_hypothesis": "Patient presenting with signs of hypovolemic shock and acute abdominal pain, likely due to internal hemorrhage. CT scan is expected to localize the bleeding and identify the source, potentially a ruptured AML.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Confirmation of hemorrhage (e.g., anemia from CBC)",
+          "Localization and source of hemorrhage via imaging",
+          "Identification of the ruptured AML"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "A CT scan of the abdomen and pelvis withintravenous contrast demonstrated large volume hemoperitoneum and left retroperitoneal haematoma with contrast extravasation from the left renal artery.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Complete Blood Count (CBC) results",
+        "current_trajectory_hypothesis": "Patient presenting with signs of hypovolemic shock and acute abdominal pain, confirmed to have large volume hemoperitoneum and left retroperitoneal hematoma with contrast extravasation from the left renal artery. CBC results are needed to quantify the blood loss and confirm anemia.",
+        "confirmed_evidence": [
+          "Large volume hemoperitoneum and left retroperitoneal hematoma with contrast extravasation from the left renal artery (E004)"
+        ],
+        "missing_key_evidence": [
+          "Confirmation of anemia from CBC",
+          "Identification of the ruptured AML",
+          "Confirmation of atrophic native left kidney"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Initial labs were significant for venous blood gas (VBG) showing pH 7.31, pCO2 41 and bicarbonate 20.6 mmol/L. Her haemoglobin was 82 g/L, decreased from baseline of 123 g/L. The lactate was elevated to 2.6. Her blood urea nitrogen (BUN) was 30 mg/dL and serum creatinine was 2.59 mg/dL, increased from baseline 21 mg/dL and 2.01 mg/dL, respectively, 6 months prior. Obtaining a urine pregnancy initially was difficult due to minimal urine output; however, once obtained, this test was negative.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Detailed description of the native left kidney and any masses or lesions in the CT scan report (E004)",
+        "current_trajectory_hypothesis": "Patient presented with hypovolemic shock and acute abdominal pain, confirmed to have large volume hemoperitoneum and left retroperitoneal hematoma with active extravasation from the left renal artery. Significant anemia is present. I need to confirm the presence of a ruptured AML and an atrophic native left kidney as per the final diagnosis.",
+        "confirmed_evidence": [
+          "Large volume hemoperitoneum and left retroperitoneal hematoma with contrast extravasation from the left renal artery (E004)",
+          "Hemoglobin 82 g/L, decreased from baseline 123 g/L (E003)",
+          "Elevated lactate 2.6 (E003)"
+        ],
+        "missing_key_evidence": [
+          "Explicit identification of a ruptured AML",
+          "Confirmation of an atrophic native left kidney",
+          "Clinical course/intervention"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E004",
+        "source_text": "A CT scan of the abdomen and pelvis withintravenous contrast demonstrated large volume hemoperitoneum and left retroperitoneal haematoma with contrast extravasation from the left renal artery. A ruptured AML in the region of the patient’s atrophic native left kidney was the suspected cause of haemorrhage.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with signs of shock and acute abdominal pain. Workup revealed large volume hemoperitoneum, left retroperitoneal hematoma with active extravasation from the left renal artery, and significant anemia. A ruptured AML in the region of the atrophic native left kidney was identified as the suspected cause. The next step is to understand the management of this acute hemorrhage.",
+        "confirmed_evidence": [
+          "Patient presented with progressively worsening left lower quadrant abdominal pain radiating to her left flank, numbness to her left lower extremity, a 'bulge' in the left lower quadrant, and signs of hypovolemic shock (E000)",
+          "CT scan showed large volume hemoperitoneum and left retroperitoneal hematoma with contrast extravasation from the left renal artery (E004)",
+          "Hemoglobin was 82 g/L, decreased from baseline of 123 g/L, and lactate was elevated to 2.6 (E003)",
+          "A ruptured AML in the region of the patient’s atrophic native left kidney was the suspected cause of haemorrhage (E004)"
+        ],
+        "missing_key_evidence": [
+          "Details of the intervention or management for the hemorrhage",
+          "Clinical course or outcome following intervention"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "While in the surgical ICU, the patient developed worsening acute allograft dysfunction, over her CKD with hyperkalaemia and oliguria. General nephrology and transplant nephrology services were consulted. Acute allograft dysfunction was thought to be secondary to acute tubular necrosis due to the massive retroperitoneal bleed, hypotension and possibly a component of contrast nephropathy. A renal ultrasound of the patient’s transplanted kidney demonstrated normal flow during her hospitalisation. Due to a potassium of 7.7 mmol/L, haemodialysis was initiated via temporary internal jugular venous trialysis catheter. She underwent three consecutive days of haemodialysis. Her creatinine peaked at 4.18 mg/dL, with an estimated glomerular filtration rate (GFR) of 13 mL/min. Fortunately, her kidney function and urine output improved and she did not need any further dialysis.",
+        "category": "imaging_report",
+        "temporal_cue": "hospital course",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with signs of shock and acute abdominal pain. Workup revealed large volume hemoperitoneum, left retroperitoneal hematoma with active extravasation from the left renal artery, and significant anemia. A ruptured AML in the region of the atrophic native left kidney was identified as the suspected cause. The patient subsequently developed acute allograft dysfunction requiring dialysis. I need to understand how the hemorrhage itself was managed.",
+        "confirmed_evidence": [
+          "Patient presented with progressively worsening left lower quadrant abdominal pain radiating to her left flank, numbness to her left lower extremity, a 'bulge' in the left lower quadrant, and signs of hypovolemic shock (E000)",
+          "CT scan showed large volume hemoperitoneum and left retroperitoneal hematoma with contrast extravasation from the left renal artery (E004)",
+          "Hemoglobin was 82 g/L, decreased from baseline of 123 g/L, and lactate was elevated to 2.6 (E003)",
+          "A ruptured AML in the region of the patient’s atrophic native left kidney was the suspected cause of haemorrhage (E004)",
+          "Patient developed worsening acute allograft dysfunction, hyperkalaemia, and oliguria, requiring hemodialysis (E007)"
+        ],
+        "missing_key_evidence": [
+          "Details of the intervention or management for the hemorrhage",
+          "Outcome of the hemorrhage management"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Resuscitation began with placement of two large bore peripheral intravenous lines. Simultaneously, the patient was started on 2 L of supplemental oxygen via nasal cannula. Crystalloid infusion was initiated with 1 L of lactated ringers solution. Two units of uncrossmatched O+packed red blood cells were given due to presumed intra-abdominal bleeding causing haemorrhagic shock.",
+        "category": "treatment_response",
+        "temporal_cue": "after admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with signs of shock and acute abdominal pain. Workup revealed large volume hemoperitoneum, left retroperitoneal hematoma with active extravasation from the left renal artery, and significant anemia. A ruptured AML in the region of the atrophic native left kidney was identified as the suspected cause. Initial resuscitation was performed, and the patient subsequently developed acute allograft dysfunction requiring dialysis. I need to understand the definitive intervention for the hemorrhage.",
+        "confirmed_evidence": [
+          "Patient presented with progressively worsening left lower quadrant abdominal pain radiating to her left flank, numbness to her left lower extremity, a 'bulge' in the left lower quadrant, and signs of hypovolemic shock (E000)",
+          "CT scan showed large volume hemoperitoneum and left retroperitoneal hematoma with contrast extravasation from the left renal artery (E004)",
+          "Hemoglobin was 82 g/L, decreased from baseline of 123 g/L, and lactate was elevated to 2.6 (E003)",
+          "A ruptured AML in the region of the patient’s atrophic native left kidney was the suspected cause of haemorrhage (E004)",
+          "Initial resuscitation included placement of large bore IVs, oxygen, crystalloid infusion, and two units of uncrossmatched O+ packed red blood cells (E005)",
+          "Patient developed worsening acute allograft dysfunction, hyperkalaemia, and oliguria, requiring hemodialysis (E007)"
+        ],
+        "missing_key_evidence": [
+          "Details of the definitive intervention (e.g., embolization, surgery) for the ruptured AML and hemorrhage",
+          "Outcome of the hemorrhage management"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Details of the intervention performed to manage the hemorrhage from the ruptured AML",
+        "current_trajectory_hypothesis": "Patient presented with signs of shock and acute abdominal pain. Workup revealed large volume hemoperitoneum, left retroperitoneal hematoma with active extravasation from the left renal artery, and significant anemia. A ruptured AML in the region of the atrophic native left kidney was identified as the suspected cause. Initial resuscitation was performed, and the patient subsequently developed acute allograft dysfunction requiring dialysis. I need to understand the definitive intervention for the hemorrhage.",
+        "confirmed_evidence": [
+          "Patient presented with progressively worsening left lower quadrant abdominal pain radiating to her left flank, numbness to her left lower extremity, a 'bulge' in the left lower quadrant, and signs of hypovolemic shock (E000)",
+          "CT scan showed large volume hemoperitoneum and left retroperitoneal hematoma with contrast extravasation from the left renal artery (E004)",
+          "Hemoglobin was 82 g/L, decreased from baseline of 123 g/L, and lactate was elevated to 2.6 (E003)",
+          "A ruptured AML in the region of the patient’s atrophic native left kidney was the suspected cause of haemorrhage (E004)",
+          "Initial resuscitation included placement of large bore IVs, oxygen, crystalloid infusion, and two units of uncrossmatched O+ packed red blood cells (E005)",
+          "Patient developed worsening acute allograft dysfunction, hyperkalaemia, and oliguria, requiring hemodialysis (E007)"
+        ],
+        "missing_key_evidence": [
+          "Details of the definitive intervention (e.g., embolization, surgery) for the ruptured AML and hemorrhage",
+          "Outcome of the hemorrhage management"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "The patient’s left renal artery was embolised successfully with 5 cm3 of ethanol and ×6 coils.",
+        "category": "image_finding",
+        "temporal_cue": "after admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with signs of shock and acute abdominal pain. Workup revealed large volume hemoperitoneum, left retroperitoneal hematoma with active extravasation from the left renal artery, and significant anemia. A ruptured AML in the region of the atrophic native left kidney was identified as the suspected cause. Initial resuscitation was performed, followed by successful embolization of the left renal artery. The patient subsequently developed acute allograft dysfunction requiring temporary dialysis, which later improved. I need to confirm the overall outcome related to the hemorrhage and AML.",
+        "confirmed_evidence": [
+          "Patient presented with progressively worsening left lower quadrant abdominal pain radiating to her left flank, numbness to her left lower extremity, a 'bulge' in the left lower quadrant, and signs of hypovolemic shock (E000)",
+          "CT scan showed large volume hemoperitoneum and left retroperitoneal hematoma with contrast extravasation from the left renal artery (E004)",
+          "Hemoglobin was 82 g/L, decreased from baseline of 123 g/L, and lactate was elevated to 2.6 (E003)",
+          "A ruptured AML in the region of the patient’s atrophic native left kidney was the suspected cause of haemorrhage (E004)",
+          "Initial resuscitation included placement of large bore IVs, oxygen, crystalloid infusion, and two units of uncrossmatched O+ packed red blood cells (E005)",
+          "The patient’s left renal artery was embolised successfully with 5 cm3 of ethanol and ×6 coils (E006)",
+          "Patient developed worsening acute allograft dysfunction, hyperkalaemia, and oliguria, requiring hemodialysis, which later improved (E007)"
+        ],
+        "missing_key_evidence": [
+          "Overall outcome of the patient related to the ruptured AML and hemorrhage"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No pending orders and no undisclosed clinical trajectory updates beyond the current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "A ruptured AML in the region of the patient’s atrophic native left kidney was the suspected cause of haemorrhage.",
+        "trajectory_summary": "A woman in her 30s with a history of kidney transplant and IgA nephropathy presented to the emergency department with progressively worsening left lower quadrant abdominal pain radiating to her left flank, accompanied by signs of hypovolemic shock including diaphoresis, pallor, cool skin, diminished capillary refill, and hypotension. Initial laboratory findings revealed significant anemia (hemoglobin 82 g/L, decreased from baseline 123 g/L) and elevated lactate (2.6). A CT scan of the abdomen and pelvis with contrast demonstrated large volume hemoperitoneum and a left retroperitoneal hematoma with contrast extravasation from the left renal artery. The CT scan identified a ruptured AML in the region of the patient’s atrophic native left kidney as the suspected cause of hemorrhage. Initial resuscitation included crystalloid infusion and two units of packed red blood cells. The hemorrhage was definitively managed by successful embolization of the patient’s left renal artery with ethanol and coils. Following the intervention, the patient developed acute allograft dysfunction with hyperkalemia and oliguria, requiring temporary hemodialysis, which subsequently improved.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with progressively worsening left lower quadrant abdominal pain, signs of hypovolemic shock, and a 'bulge' in the left lower quadrant.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Initial labs showed hemoglobin of 82 g/L (decreased from baseline) and elevated lactate of 2.6.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "CT scan revealed large volume hemoperitoneum and left retroperitoneal hematoma with contrast extravasation from the left renal artery.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "A ruptured AML in the region of the patient’s atrophic native left kidney was the suspected cause of haemorrhage.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Initial resuscitation included crystalloid infusion and two units of uncrossmatched O+ packed red blood cells.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "The patient’s left renal artery was embolised successfully with 5 cm3 of ethanol and ×6 coils.",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Patient developed worsening acute allograft dysfunction, hyperkalaemia, and oliguria, requiring hemodialysis, which later improved.",
+            "evidence_ids": [
+              "E007"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Other causes of acute abdominal pain and hemorrhage",
+            "basis": "Direct identification of ruptured AML as the source of hemorrhage by CT scan (E004)."
+          }
+        ],
+        "remaining_uncertainties": [],
+        "confidence_that_diagnosis_is_supported": 1.0
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "A ruptured AML in the region of the patient’s atrophic native left kidney was the suspected cause of haemorrhage.",
+    "trajectory_summary": "A woman in her 30s with a history of kidney transplant and IgA nephropathy presented to the emergency department with progressively worsening left lower quadrant abdominal pain radiating to her left flank, accompanied by signs of hypovolemic shock including diaphoresis, pallor, cool skin, diminished capillary refill, and hypotension. Initial laboratory findings revealed significant anemia (hemoglobin 82 g/L, decreased from baseline 123 g/L) and elevated lactate (2.6). A CT scan of the abdomen and pelvis with contrast demonstrated large volume hemoperitoneum and a left retroperitoneal hematoma with contrast extravasation from the left renal artery. The CT scan identified a ruptured AML in the region of the patient’s atrophic native left kidney as the suspected cause of hemorrhage. Initial resuscitation included crystalloid infusion and two units of packed red blood cells. The hemorrhage was definitively managed by successful embolization of the patient’s left renal artery with ethanol and coils. Following the intervention, the patient developed acute allograft dysfunction with hyperkalemia and oliguria, requiring temporary hemodialysis, which subsequently improved.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with progressively worsening left lower quadrant abdominal pain, signs of hypovolemic shock, and a 'bulge' in the left lower quadrant.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Initial labs showed hemoglobin of 82 g/L (decreased from baseline) and elevated lactate of 2.6.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "CT scan revealed large volume hemoperitoneum and left retroperitoneal hematoma with contrast extravasation from the left renal artery.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "A ruptured AML in the region of the patient’s atrophic native left kidney was the suspected cause of haemorrhage.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Initial resuscitation included crystalloid infusion and two units of uncrossmatched O+ packed red blood cells.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "The patient’s left renal artery was embolised successfully with 5 cm3 of ethanol and ×6 coils.",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Patient developed worsening acute allograft dysfunction, hyperkalaemia, and oliguria, requiring hemodialysis, which later improved.",
+        "evidence_ids": [
+          "E007"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Other causes of acute abdominal pain and hemorrhage",
+        "basis": "Direct identification of ruptured AML as the source of hemorrhage by CT scan (E004)."
+      }
+    ],
+    "remaining_uncertainties": [],
+    "confidence_that_diagnosis_is_supported": 1.0
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T20:59:48.666306+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

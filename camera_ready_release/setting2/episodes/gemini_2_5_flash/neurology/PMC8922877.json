@@ -1,0 +1,260 @@
+{
+  "case_id": "PMC8922877",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 6,
+  "termination": "final",
+  "known_final_diagnosis": "CT-guided biopsy of the apical mass showed non-small cell lung carcinoma. Immunohistochemistry further substantiated the diagnosis of squamous cell carcinoma; the tumor cells expressed CK5, p63, and p40 but were immunonegative for thyroid transcription factor 1 (TTF1), synaptophysin, and chromogranin.",
+  "disclosed_evidence_ids": [
+    "E003",
+    "E004"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "CT scan of the chest",
+        "current_trajectory_hypothesis": "Patient presents with symptoms suggestive of brachial plexopathy. Given the final diagnosis of non-small cell lung carcinoma, an apical lung mass (Pancoast tumor) is suspected. Imaging of the chest is needed to identify such a mass.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Imaging evidence of an apical mass",
+          "Biopsy results confirming malignancy",
+          "Immunohistochemistry results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "CT scan of the chest ordered, awaiting result.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "CT chest report",
+        "current_trajectory_hypothesis": "Patient presents with symptoms suggestive of brachial plexopathy. Given the final diagnosis of non-small cell lung carcinoma, an apical lung mass (Pancoast tumor) is suspected. Imaging of the chest is needed to identify such a mass. The CT scan was ordered, and now the report is needed to confirm the presence of a mass.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Imaging evidence of an apical mass",
+          "Biopsy results confirming malignancy",
+          "Immunohistochemistry results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "CT of the chest showed a right apical mass that extended to the right supraclavicular region (Fig. 3).",
+        "category": "imaging_report",
+        "temporal_cue": "following early workup",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "CT-guided biopsy of the right apical mass",
+        "current_trajectory_hypothesis": "A right apical mass has been identified on CT, which is consistent with a Pancoast tumor given the patient's symptoms. The next step is to obtain tissue for pathological diagnosis to confirm malignancy and type, as indicated by the known final diagnosis.",
+        "confirmed_evidence": [
+          "Right upper extremity weakness and numbness, burning pain, decreased strength, and hand swelling",
+          "CT chest showed a right apical mass extending to the right supraclavicular region"
+        ],
+        "missing_key_evidence": [
+          "Biopsy results confirming malignancy and tumor type",
+          "Immunohistochemistry results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Procedure order for CT-guided biopsy acknowledged based on clinician request; no matching source result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Pathology report from the CT-guided biopsy of the right apical mass",
+        "current_trajectory_hypothesis": "A right apical mass has been identified on CT, consistent with a Pancoast tumor. A CT-guided biopsy was ordered to obtain tissue for pathological diagnosis. The next step is to review the pathology report to confirm malignancy and tumor type, as per the known final diagnosis.",
+        "confirmed_evidence": [
+          "Right upper extremity weakness and numbness, burning pain, decreased strength, and hand swelling (initial presentation)",
+          "CT chest showed a right apical mass extending to the right supraclavicular region (E003)"
+        ],
+        "missing_key_evidence": [
+          "Biopsy results confirming malignancy and tumor type",
+          "Immunohistochemistry results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "CT-guided biopsy of the apical mass showed non-small cell lung carcinoma.",
+        "category": "pathology_report",
+        "temporal_cue": "following CT chest",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Immunohistochemistry results from the apical mass biopsy",
+        "current_trajectory_hypothesis": "The patient presented with symptoms suggestive of brachial plexopathy, and a CT scan revealed a right apical mass. Biopsy confirmed non-small cell lung carcinoma. The next step is to obtain immunohistochemistry results to further classify the tumor type, as indicated by the known final diagnosis.",
+        "confirmed_evidence": [
+          "Right upper extremity weakness and numbness, burning pain, decreased strength, and hand swelling (initial presentation)",
+          "CT chest showed a right apical mass extending to the right supraclavicular region (E003)",
+          "CT-guided biopsy of the apical mass showed non-small cell lung carcinoma (E004)"
+        ],
+        "missing_key_evidence": [
+          "Immunohistochemistry results confirming squamous cell carcinoma and specific markers"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E004",
+        "source_text": "Immunohistochemistry further substantiated the diagnosis of squamous cell carcinoma; the tumor cells expressed CK5, p63, and p40 but were immunonegative for thyroid transcription factor 1 (TTF1), synaptophysin, and chromogranin. Mucicarmine and CK7 immunostaining were diffusely positive. Neuroendocrine differentiation was excluded by the negative synaptophysin and chromogranin.",
+        "category": "pathology_report",
+        "temporal_cue": "following CT chest",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "CT-guided biopsy of the apical mass showed non-small cell lung carcinoma. Immunohistochemistry further substantiated the diagnosis of squamous cell carcinoma; the tumor cells expressed CK5, p63, and p40 but were immunonegative for thyroid transcription factor 1 (TTF1), synaptophysin, and chromogranin.",
+        "trajectory_summary": "A 58-year-old male presented with worsening right upper extremity weakness and numbness, burning pain, and hand swelling, suggestive of brachial plexopathy. A CT scan of the chest revealed a right apical mass extending to the right supraclavicular region. A CT-guided biopsy of this mass confirmed non-small cell lung carcinoma. Immunohistochemistry further classified the tumor as squamous cell carcinoma, showing expression of CK5, p63, and p40, and negativity for TTF1, synaptophysin, and chromogranin.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with right upper extremity weakness, numbness, burning pain, and hand swelling, consistent with brachial plexopathy.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "CT of the chest showed a right apical mass extending to the right supraclavicular region.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "CT-guided biopsy of the apical mass showed non-small cell lung carcinoma.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Immunohistochemistry confirmed the diagnosis of squamous cell carcinoma, with tumor cells expressing CK5, p63, and p40.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Immunohistochemistry showed tumor cells were immunonegative for thyroid transcription factor 1 (TTF1), synaptophysin, and chromogranin.",
+            "evidence_ids": [
+              "E004"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Lung adenocarcinoma",
+            "basis": "Immunonegativity for TTF1 (E004)"
+          },
+          {
+            "alternative": "Neuroendocrine tumor",
+            "basis": "Immunonegativity for synaptophysin and chromogranin (E004)"
+          }
+        ],
+        "remaining_uncertainties": [],
+        "confidence_that_diagnosis_is_supported": 1.0
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "CT-guided biopsy of the apical mass showed non-small cell lung carcinoma. Immunohistochemistry further substantiated the diagnosis of squamous cell carcinoma; the tumor cells expressed CK5, p63, and p40 but were immunonegative for thyroid transcription factor 1 (TTF1), synaptophysin, and chromogranin.",
+    "trajectory_summary": "A 58-year-old male presented with worsening right upper extremity weakness and numbness, burning pain, and hand swelling, suggestive of brachial plexopathy. A CT scan of the chest revealed a right apical mass extending to the right supraclavicular region. A CT-guided biopsy of this mass confirmed non-small cell lung carcinoma. Immunohistochemistry further classified the tumor as squamous cell carcinoma, showing expression of CK5, p63, and p40, and negativity for TTF1, synaptophysin, and chromogranin.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with right upper extremity weakness, numbness, burning pain, and hand swelling, consistent with brachial plexopathy.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "CT of the chest showed a right apical mass extending to the right supraclavicular region.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "CT-guided biopsy of the apical mass showed non-small cell lung carcinoma.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Immunohistochemistry confirmed the diagnosis of squamous cell carcinoma, with tumor cells expressing CK5, p63, and p40.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Immunohistochemistry showed tumor cells were immunonegative for thyroid transcription factor 1 (TTF1), synaptophysin, and chromogranin.",
+        "evidence_ids": [
+          "E004"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Lung adenocarcinoma",
+        "basis": "Immunonegativity for TTF1 (E004)"
+      },
+      {
+        "alternative": "Neuroendocrine tumor",
+        "basis": "Immunonegativity for synaptophysin and chromogranin (E004)"
+      }
+    ],
+    "remaining_uncertainties": [],
+    "confidence_that_diagnosis_is_supported": 1.0
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T17:29:10.775885+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

@@ -1,0 +1,462 @@
+{
+  "case_id": "PMC6571421",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 12,
+  "termination": "final",
+  "known_final_diagnosis": "the diagnosis of pulmonary adenocarcinoma with lymph nodes metastases and paraneoplastic hypertrophic osteoarthropathy was established.",
+  "disclosed_evidence_ids": [
+    "E005",
+    "E006"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order chest imaging, preferably chest CT scan, to evaluate for pulmonary lesions or masses in the context of suspected pulmonary pathology and paraneoplastic syndromes",
+        "current_trajectory_hypothesis": "Patient with chronic shoulder and interscapular pain, clubbing, joint swelling, and skin thickening likely has paraneoplastic hypertrophic osteoarthropathy; need to identify primary lung malignancy",
+        "confirmed_evidence": [
+          "pain and clubbing with swollen extremities and skin thickening",
+          "history of heavy smoking, raising suspicion for lung cancer"
+        ],
+        "missing_key_evidence": [
+          "imaging evidence of pulmonary adenocarcinoma",
+          "lymph node status",
+          "biopsy or cytology confirmation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Chest imaging (CT scan) ordered, matching clinician request; no result reported yet",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request chest CT scan results to identify any pulmonary lesions, lymph node enlargement, or other abnormalities",
+        "current_trajectory_hypothesis": "Following chest CT scan order, awaiting imaging evidence to confirm pulmonary adenocarcinoma and lymph node metastases supporting paraneoplastic hypertrophic osteoarthropathy",
+        "confirmed_evidence": [
+          "pain and clubbing with swollen extremities and skin thickening",
+          "history of heavy smoking, raising suspicion for lung cancer"
+        ],
+        "missing_key_evidence": [
+          "imaging evidence of pulmonary adenocarcinoma",
+          "lymph node status",
+          "biopsy or cytology confirmation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "The computed tomography (CT) of the thorax, abdomen, and pelvis revealed the presence of a 23/19 mm (transverse) and 20 mm (cranial–caudal) mass lesion, respectively, having speculated margins, contrast enhancement, and areas of necrosis at the level of the dorsal segment of the right upper pulmonary lobe. The mass presented several extensions to the pleura and determined pleural invasion (Figs. 5 and 6). In addition, multiple mediastinal adenopathy were noticed, and some of them presented central necrosis.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "Order biopsy of the right upper pulmonary lobe mass or mediastinal lymph nodes for histopathological confirmation of pulmonary adenocarcinoma",
+        "current_trajectory_hypothesis": "Chest CT confirms a right upper lobe pulmonary mass with mediastinal lymphadenopathy; biopsy is needed for definitive histopathological diagnosis to confirm pulmonary adenocarcinoma",
+        "confirmed_evidence": [
+          "CT scan shows a 23/19 mm mass with speculated margins, necrosis, pleural invasion at right upper lobe",
+          "multiple necrotic mediastinal adenopathy present"
+        ],
+        "missing_key_evidence": [
+          "histopathological or cytological confirmation of pulmonary adenocarcinoma",
+          "evidence linking paraneoplastic hypertrophic osteoarthropathy with primary tumor"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Procedure order acknowledged; no source evidence of its performance or results yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request histopathological biopsy report of the pulmonary mass or mediastinal lymph node to confirm pulmonary adenocarcinoma diagnosis",
+        "current_trajectory_hypothesis": "Biopsy confirmation awaited to definitively establish the diagnosis of pulmonary adenocarcinoma responsible for paraneoplastic hypertrophic osteoarthropathy",
+        "confirmed_evidence": [
+          "Chest CT shows right upper lobe mass with pleural invasion and necrotic mediastinal lymphadenopathy"
+        ],
+        "missing_key_evidence": [
+          "histopathological or cytological confirmation of pulmonary adenocarcinoma",
+          "evidence linking paraneoplastic hypertrophic osteoarthropathy with the tumor",
+          "clinical course or treatment response documentation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Awaiting biopsy results to confirm pulmonary adenocarcinoma in a patient with CT evidence of right upper lobe mass and necrotic mediastinal lymphadenopathy, supporting paraneoplastic hypertrophic osteoarthropathy.",
+        "confirmed_evidence": [
+          "Chest CT shows a 23/19 mm mass with speculated margins, necrosis, and pleural invasion at right upper lobe",
+          "Multiple necrotic mediastinal lymph nodes present"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of pulmonary adenocarcinoma",
+          "Documentation linking paraneoplastic hypertrophic osteoarthropathy with primary tumor and clinical course or treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "Laboratory findings were normal, except for the presence of inflammatory syndrome, slight anemia, and high values of vascular endothelial growth factor (VEGF) (1291 pg/mL, with normal values less than 100 pg/mL).",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request biopsy or cytology results of the right upper pulmonary lobe mass or mediastinal lymph nodes for histopathological confirmation of pulmonary adenocarcinoma",
+        "current_trajectory_hypothesis": "Awaiting histopathological confirmation after CT identified a suspicious mass and lymphadenopathies, and labs showed inflammatory syndrome and high VEGF supporting hypertrophic osteoarthropathy.",
+        "confirmed_evidence": [
+          "Chest CT shows a 23/19 mm mass with speculated margins, necrosis and pleural invasion at right upper lobe",
+          "multiple necrotic mediastinal lymph nodes present",
+          "laboratory findings show inflammatory syndrome, slight anemia, and elevated VEGF (1291 pg/mL)"
+        ],
+        "missing_key_evidence": [
+          "histopathological or cytological confirmation of pulmonary adenocarcinoma",
+          "evidence linking paraneoplastic hypertrophic osteoarthropathy with primary tumor and clinical course or treatment response documentation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Confirmed chest CT evidence of right upper lobe mass and mediastinal necrotic lymphadenopathy suggest pulmonary adenocarcinoma; pending histopathology results and clinical course to confirm diagnosis and related paraneoplastic syndrome",
+        "confirmed_evidence": [
+          "Chest CT shows 23/19 mm mass with speculated margins, necrosis, pleural invasion in right upper lobe",
+          "Multiple necrotic mediastinal lymph nodes present",
+          "Lab findings show inflammatory syndrome, slight anemia, and high VEGF (1291 pg/mL) supporting hypertrophic osteoarthropathy"
+        ],
+        "missing_key_evidence": [
+          "Histopathological or cytological confirmation of pulmonary adenocarcinoma",
+          "Documentation linking paraneoplastic hypertrophic osteoarthropathy with tumor and clinical course or treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Chest CT confirmed right upper lobe mass and necrotic mediastinal lymph nodes; labs support inflammatory syndrome and hypertrophic osteoarthropathy; awaiting histopathological confirmation and clinical course updates.",
+        "confirmed_evidence": [
+          "Chest CT shows a 23/19 mm mass with speculated margins, necrosis, and pleural invasion in the right upper lobe",
+          "Multiple necrotic mediastinal lymph nodes present",
+          "Laboratory findings revealed inflammatory syndrome, slight anemia, and elevated VEGF (1291 pg/mL)"
+        ],
+        "missing_key_evidence": [
+          "Histopathological or cytological confirmation of pulmonary adenocarcinoma",
+          "Documentation linking paraneoplastic hypertrophic osteoarthropathy with the primary tumor and clinical course or treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Chest CT showed suspicious right upper lobe mass with necrotic mediastinal lymphadenopathy; labs support inflammatory syndrome and hypertrophic osteoarthropathy. Awaiting histopathology confirmation and clinical evidence linking tumor to paraneoplastic syndrome.",
+        "confirmed_evidence": [
+          "Chest CT shows a 23/19 mm mass with speculated margins, necrosis, and pleural invasion in the right upper lobe",
+          "Multiple necrotic mediastinal lymph nodes present",
+          "Laboratory findings revealed inflammatory syndrome, slight anemia, and elevated VEGF (1291 pg/mL)"
+        ],
+        "missing_key_evidence": [
+          "Histopathological or cytological confirmation of pulmonary adenocarcinoma",
+          "Clinical course documentation linking paraneoplastic hypertrophic osteoarthropathy with the primary tumor and treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Currently have imaging evidence of right upper lobe mass and necrotic mediastinal lymphadenopathies, lab evidence of inflammatory syndrome and elevated VEGF supporting hypertrophic osteoarthropathy; still awaiting histopathological confirmation and clinical course linking paraneoplastic syndrome with pulmonary adenocarcinoma.",
+        "confirmed_evidence": [
+          "Chest CT shows a 23/19 mm mass with speculated margins, necrosis, and pleural invasion in right upper lobe",
+          "Multiple necrotic mediastinal lymph nodes present",
+          "Laboratory findings revealed inflammatory syndrome, slight anemia, and elevated VEGF (1291 pg/mL)"
+        ],
+        "missing_key_evidence": [
+          "Histopathological or cytological confirmation of pulmonary adenocarcinoma",
+          "Clinical course or treatment response documentation linking paraneoplastic hypertrophic osteoarthropathy with the primary tumor"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Chest CT and lab findings strongly suggest pulmonary adenocarcinoma with paraneoplastic hypertrophic osteoarthropathy; awaiting histopathological confirmation and clinical course data to finalize diagnosis and evidence linkage",
+        "confirmed_evidence": [
+          "Chest CT shows 23/19 mm mass with speculated margins, necrosis, and pleural invasion in right upper lobe",
+          "Multiple necrotic mediastinal lymph nodes present",
+          "Laboratory findings revealed inflammatory syndrome, slight anemia, and elevated VEGF (1291 pg/mL) supporting hypertrophic osteoarthropathy"
+        ],
+        "missing_key_evidence": [
+          "Histopathological or cytological confirmation of pulmonary adenocarcinoma",
+          "Clinical course or treatment response documentation linking paraneoplastic hypertrophic osteoarthropathy with the tumor"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "pulmonary adenocarcinoma with lymph nodes metastases and paraneoplastic hypertrophic osteoarthropathy",
+        "trajectory_summary": "A 41-year-old man presented with chronic right shoulder and interscapular pain, clubbing of fingers and toes, swollen joints, and pachydermia. Chest CT revealed a 23x19 mm spiculated mass with necrosis and pleural invasion in the right upper pulmonary lobe, alongside necrotic mediastinal lymphadenopathy. Laboratory studies showed inflammatory syndrome, slight anemia, and markedly elevated VEGF supporting hypertrophic osteoarthropathy. Though histopathological confirmation was not documented, the clinical and radiologic findings strongly support pulmonary adenocarcinoma with lymph node metastases causing paraneoplastic hypertrophic osteoarthropathy.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient had chronic pain, clubbing, joint swelling, and skin thickening suggestive of hypertrophic osteoarthropathy",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Chest CT showed a spiculated necrotic mass with pleural invasion in right upper lobe and necrotic mediastinal lymph nodes",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Laboratory findings revealed inflammatory syndrome, slight anemia, and elevated VEGF supporting diagnosis of hypertrophic osteoarthropathy",
+            "evidence_ids": [
+              "E006"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "benign causes of clubbing and joint pain",
+            "basis": "Imaging showed a malignant pulmonary mass with metastatic lymphadenopathy."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Histopathological or cytological confirmation of pulmonary adenocarcinoma was not documented",
+          "Clinical course or treatment response linking paraneoplastic syndrome to the pulmonary tumor was not reported"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "pulmonary adenocarcinoma with lymph nodes metastases and paraneoplastic hypertrophic osteoarthropathy",
+    "trajectory_summary": "A 41-year-old man presented with chronic right shoulder and interscapular pain, clubbing of fingers and toes, swollen joints, and pachydermia. Chest CT revealed a 23x19 mm spiculated mass with necrosis and pleural invasion in the right upper pulmonary lobe, alongside necrotic mediastinal lymphadenopathy. Laboratory studies showed inflammatory syndrome, slight anemia, and markedly elevated VEGF supporting hypertrophic osteoarthropathy. Though histopathological confirmation was not documented, the clinical and radiologic findings strongly support pulmonary adenocarcinoma with lymph node metastases causing paraneoplastic hypertrophic osteoarthropathy.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient had chronic pain, clubbing, joint swelling, and skin thickening suggestive of hypertrophic osteoarthropathy",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Chest CT showed a spiculated necrotic mass with pleural invasion in right upper lobe and necrotic mediastinal lymph nodes",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Laboratory findings revealed inflammatory syndrome, slight anemia, and elevated VEGF supporting diagnosis of hypertrophic osteoarthropathy",
+        "evidence_ids": [
+          "E006"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "benign causes of clubbing and joint pain",
+        "basis": "Imaging showed a malignant pulmonary mass with metastatic lymphadenopathy."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Histopathological or cytological confirmation of pulmonary adenocarcinoma was not documented",
+      "Clinical course or treatment response linking paraneoplastic syndrome to the pulmonary tumor was not reported"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.85
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T16:02:09.991767+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

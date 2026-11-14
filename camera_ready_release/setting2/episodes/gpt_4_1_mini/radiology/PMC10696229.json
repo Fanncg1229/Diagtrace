@@ -1,0 +1,264 @@
+{
+  "case_id": "PMC10696229",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 7,
+  "termination": "final",
+  "known_final_diagnosis": "Histopathological examination confirmed that the lesion was a bronchogenic cyst, which was lined by respiratory epithelium with a variable amount of seromucinous gland, cartilage and smooth muscle (Fig. 4).",
+  "disclosed_evidence_ids": [
+    "E002",
+    "E005"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "order imaging chest CT scan to characterize the nature and location of the non-resolving chest x-ray shadow",
+        "current_trajectory_hypothesis": "Patient with chronic right-sided chest pain and persistent chest x-ray shadow; need imaging to characterize lesion",
+        "confirmed_evidence": [
+          "Right-sided chest pain and non-resolving chest x-ray shadow noted"
+        ],
+        "missing_key_evidence": [
+          "CT imaging chest findings to guide diagnosis",
+          "physical exam findings related to chest",
+          "histopathological confirmation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Chest CT scan order acknowledged; result not yet disclosed.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request results of the chest CT scan",
+        "current_trajectory_hypothesis": "Patient with chronic right-sided chest pain and persistent chest x-ray shadow; chest CT scan ordered to characterize lesion and location to guide diagnosis",
+        "confirmed_evidence": [
+          "Right-sided chest pain and non-resolving chest x-ray shadow noted"
+        ],
+        "missing_key_evidence": [
+          "Chest CT scan findings detailing lesion characteristics",
+          "physical exam findings related to chest",
+          "histopathological confirmation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "CECT chest further delineated the lesion and revealed a well-defined, thin-walled cystic lesion about 8.5 × 3.6 × 4.5 cm within the right lower lobe (Fig. 2). Post-contrast scan shows mild marginal enhancement of the lesion.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "order biopsy or surgical resection for histopathological examination of the cystic lesion",
+        "current_trajectory_hypothesis": "Imaging revealed a well-defined cystic lesion in right lower lobe; histopathology needed to confirm bronchogenic cyst",
+        "confirmed_evidence": [
+          "Right-sided chest pain and non-resolving chest x-ray shadow noted",
+          "Chest CT shows well-defined, thin-walled cystic lesion in right lower lobe"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of the cystic lesion",
+          "physical exam findings related to chest"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Procedure order acknowledged without documented result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request histopathological examination report of the cystic lesion obtained by biopsy or surgical resection",
+        "current_trajectory_hypothesis": "Patient with right lung cystic lesion on CT scan; histopathology needed to confirm bronchogenic cyst diagnosis",
+        "confirmed_evidence": [
+          "Right-sided chest pain and non-resolving chest x-ray shadow noted",
+          "Chest CT shows well-defined, thin-walled cystic lesion in right lower lobe"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of bronchogenic cyst",
+          "physical exam findings related to chest"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "the lesion was a bronchogenic cyst, which was lined by respiratory epithelium with a variable amount of seromucinous gland, cartilage and smooth muscle",
+        "category": "other",
+        "temporal_cue": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "request detailed physical examination findings focusing on the respiratory system and chest",
+        "current_trajectory_hypothesis": "Chronic right-sided chest pain with persistent chest x-ray shadow corresponds to a well-defined thin-walled cystic lesion on chest CT scan in right lower lobe; histopathology confirmed bronchogenic cyst; physical exam details could support clinical correlation and exclude complications",
+        "confirmed_evidence": [
+          "Right-sided chest pain and non-resolving chest x-ray shadow noted",
+          "Chest CT shows well-defined, thin-walled cystic lesion in right lower lobe",
+          "Histopathology confirms bronchogenic cyst lined by respiratory epithelium with seromucinous gland, cartilage, and smooth muscle"
+        ],
+        "missing_key_evidence": [
+          "Physical examination findings related to chest and respiratory system",
+          "Temporal clinical course and treatment details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No source record reports detailed physical examination findings focusing on the respiratory system or chest.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Diagnosis of bronchogenic cyst is histopathologically confirmed after chronic chest pain and imaging; no documented physical exam or clinical course reported yet",
+        "confirmed_evidence": [
+          "Right-sided chest pain and non-resolving chest x-ray shadow noted",
+          "Chest CT shows well-defined, thin-walled cystic lesion in right lower lobe",
+          "Histopathology confirms bronchogenic cyst lined by respiratory epithelium with seromucinous gland, cartilage, and smooth muscle"
+        ],
+        "missing_key_evidence": [
+          "Physical examination findings related to chest and respiratory system",
+          "Temporal clinical course and treatment details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No pending orders and no undisclosed clinical course updates after current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "bronchogenic cyst",
+        "trajectory_summary": "A 12-year-old boy presented with chronic mild right-sided chest pain and a non-resolving chest x-ray shadow. Chest CT revealed a well-defined, thin-walled cystic lesion in the right lower lobe. Surgical biopsy yielded histopathological confirmation of a bronchogenic cyst lined by respiratory epithelium with seromucinous glands, cartilage, and smooth muscle. No additional physical exam findings or clinical course details were documented.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Chronic right-sided chest pain with a persistent shadow on chest x-ray",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Chest CT shows a well-defined, thin-walled cystic lesion in the right lower lobe",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Histopathological examination confirmed the lesion as a bronchogenic cyst lined by respiratory epithelium with seromucinous glands, cartilage, and smooth muscle",
+            "evidence_ids": [
+              "E005"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [
+          "No detailed physical examination findings related to the chest or respiratory system documented",
+          "No clinical course or treatment outcome details available"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "bronchogenic cyst",
+    "trajectory_summary": "A 12-year-old boy presented with chronic mild right-sided chest pain and a non-resolving chest x-ray shadow. Chest CT revealed a well-defined, thin-walled cystic lesion in the right lower lobe. Surgical biopsy yielded histopathological confirmation of a bronchogenic cyst lined by respiratory epithelium with seromucinous glands, cartilage, and smooth muscle. No additional physical exam findings or clinical course details were documented.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Chronic right-sided chest pain with a persistent shadow on chest x-ray",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Chest CT shows a well-defined, thin-walled cystic lesion in the right lower lobe",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Histopathological examination confirmed the lesion as a bronchogenic cyst lined by respiratory epithelium with seromucinous glands, cartilage, and smooth muscle",
+        "evidence_ids": [
+          "E005"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [
+      "No detailed physical examination findings related to the chest or respiratory system documented",
+      "No clinical course or treatment outcome details available"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.85
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T23:56:09.604920+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

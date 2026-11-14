@@ -1,0 +1,468 @@
+{
+  "case_id": "PMC9509197",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 12,
+  "termination": "final",
+  "known_final_diagnosis": "after pathophysiological analysis and immunohistochemistry, it was found that the primary tumor was a breast tumor and that the gingival tumor was a metastatic tumor from the breast MAC",
+  "disclosed_evidence_ids": [
+    "E003",
+    "E005",
+    "E006"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "Biopsy of the gingival lesion",
+        "current_trajectory_hypothesis": "Patient presented with a non-healing gingival lesion. A biopsy was likely performed to investigate the nature of this lesion.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Histopathological findings of the gingival lesion"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.0
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Procedure order acknowledged, no direct source result for biopsy order itself",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Histopathological findings of the gingival lesion biopsy",
+        "current_trajectory_hypothesis": "A biopsy of the non-healing gingival lesion was performed to determine its nature. The histopathological findings are expected to provide initial diagnostic clues.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Histopathological findings of the gingival lesion",
+          "Evidence of primary tumor site"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Microscopic examination of the specimens revealed nests of cells floating in lakes of mucin partitioned by delicate fibrous septa containing capillary blood vessels. The cell clusters varied in shape and size with occasional tubular arrangements.",
+        "category": "pathology_report",
+        "temporal_cue": "early workup",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Immunohistochemistry (IHC) on the gingival lesion biopsy specimen",
+        "current_trajectory_hypothesis": "The initial biopsy revealed mucin-producing cells, suggestive of adenocarcinoma. Immunohistochemistry is needed to determine the primary origin of this metastatic tumor, as the final diagnosis indicates a metastatic breast tumor.",
+        "confirmed_evidence": [
+          "Patient presented with a non-healing post-extraction gingival wound, swelling, and vegetation.",
+          "Histopathological examination of the gingival lesion showed nests of cells in mucin lakes with occasional tubular arrangements (E005)."
+        ],
+        "missing_key_evidence": [
+          "Immunohistochemistry results to identify the primary tumor site",
+          "Confirmation of breast origin"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "The order for IHC on the gingival lesion biopsy specimen is confirmed; no direct result yet in the source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Immunohistochemistry (IHC) results of the gingival lesion biopsy",
+        "current_trajectory_hypothesis": "The initial biopsy suggested adenocarcinoma. Immunohistochemistry is crucial to identify the primary source of this metastatic lesion, which is expected to be breast cancer based on the final diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with a non-healing post-extraction gingival wound, swelling, and vegetation.",
+          "Histopathological examination of the gingival lesion showed nests of cells in mucin lakes with occasional tubular arrangements (E005)."
+        ],
+        "missing_key_evidence": [
+          "Immunohistochemistry results confirming the primary tumor site",
+          "Evidence of breast origin"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "The tumor was estrogen-(90% of cells, Allred score 8) and progesterone receptor-positive (40% of cells, Allred score 6), and the Ki67 proliferative index was 30% (30% of the nuclei of the tumor cells had a positive reaction). HER2 receptors were 1+, CK7+, CK20+, mammaglobin −, and GATA-3 +",
+        "category": "pathology_report",
+        "temporal_cue": "early workup",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Imaging of the breast (e.g., mammography, ultrasound, or MRI) to identify the primary tumor",
+        "current_trajectory_hypothesis": "The patient presented with a gingival lesion. Histopathology and immunohistochemistry confirmed it as metastatic adenocarcinoma with features highly suggestive of breast origin (ER+, PR+, GATA-3+). The next logical step is to identify the primary breast tumor.",
+        "confirmed_evidence": [
+          "Patient presented with a non-healing post-extraction gingival wound, swelling, and vegetation.",
+          "Histopathological examination of the gingival lesion showed nests of cells in mucin lakes with occasional tubular arrangements (E005).",
+          "Immunohistochemistry of the gingival lesion showed the tumor was ER+, PR+, Ki67 30%, HER2 1+, CK7+, CK20+, mammaglobin -, and GATA-3+ (E006)."
+        ],
+        "missing_key_evidence": [
+          "Evidence of the primary breast tumor",
+          "Imaging findings of the breast"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Breast imaging was ordered but no new imaging result was documented in the source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Imaging report of the breast (mammography, ultrasound, or MRI)",
+        "current_trajectory_hypothesis": "The gingival lesion was identified as metastatic adenocarcinoma with IHC markers highly suggestive of breast origin. I am now seeking imaging evidence to confirm the presence and characteristics of the primary breast tumor.",
+        "confirmed_evidence": [
+          "Patient presented with a non-healing post-extraction gingival wound, swelling, and vegetation.",
+          "Histopathological examination of the gingival lesion showed nests of cells in mucin lakes with occasional tubular arrangements (E005).",
+          "Immunohistochemistry of the gingival lesion showed the tumor was ER+, PR+, Ki67 30%, HER2 1+, CK7+, CK20+, mammaglobin -, and GATA-3+ (E006)."
+        ],
+        "missing_key_evidence": [
+          "Imaging findings of the primary breast tumor",
+          "Confirmation of the primary breast tumor"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "In addition, the radiologist described expansive soft tissue changes in the left breast with dimensions of 60 × 40 × 35 mm and infiltrating lymph nodes in the area of the left axilla.",
+        "category": "imaging_report",
+        "temporal_cue": "early workup",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "Biopsy of the breast lesion identified on imaging",
+        "current_trajectory_hypothesis": "The patient presented with a gingival lesion that was identified as metastatic adenocarcinoma with IHC markers highly suggestive of breast origin. Imaging confirmed a suspicious lesion in the left breast. A biopsy of this breast lesion is needed to confirm it as the primary tumor.",
+        "confirmed_evidence": [
+          "Patient presented with a non-healing post-extraction gingival wound, swelling, and vegetation.",
+          "Histopathological examination of the gingival lesion showed nests of cells in mucin lakes with occasional tubular arrangements (E005).",
+          "Immunohistochemistry of the gingival lesion showed the tumor was ER+, PR+, Ki67 30%, HER2 1+, CK7+, CK20+, mammaglobin -, and GATA-3+ (E006).",
+          "Imaging revealed expansive soft tissue changes in the left breast (60 × 40 × 35 mm) and infiltrating lymph nodes in the left axilla (E003)."
+        ],
+        "missing_key_evidence": [
+          "Histopathological findings of the breast lesion",
+          "Confirmation that the breast lesion is the primary tumor"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Procedure order acknowledged; corresponding source record already disclosed, no new source evidence returned now.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Histopathological findings of the breast lesion biopsy",
+        "current_trajectory_hypothesis": "The patient presented with a gingival lesion that was identified as metastatic adenocarcinoma with IHC markers highly suggestive of breast origin. Imaging confirmed a suspicious lesion in the left breast. A biopsy of this breast lesion was performed, and its histopathological findings are needed to confirm it as the primary tumor and link it to the metastatic gingival lesion.",
+        "confirmed_evidence": [
+          "Patient presented with a non-healing post-extraction gingival wound, swelling, and vegetation.",
+          "Histopathological examination of the gingival lesion showed nests of cells in mucin lakes with occasional tubular arrangements (E005).",
+          "Immunohistochemistry of the gingival lesion showed the tumor was ER+, PR+, Ki67 30%, HER2 1+, CK7+, CK20+, mammaglobin -, and GATA-3+ (E006).",
+          "Imaging revealed expansive soft tissue changes in the left breast (60 × 40 × 35 mm) and infiltrating lymph nodes in the left axilla (E003)."
+        ],
+        "missing_key_evidence": [
+          "Histopathological findings of the breast lesion",
+          "Confirmation that the breast lesion is the primary tumor and its characteristics"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E006",
+        "source_text": "The tumor was estrogen-(90% of cells, Allred score 8) and progesterone receptor-positive (40% of cells, Allred score 6), and the Ki67 proliferative index was 30% (30% of the nuclei of the tumor cells had a positive reaction).",
+        "category": "pathology_report",
+        "temporal_cue": "early workup",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Pathology report of the primary breast tumor",
+        "current_trajectory_hypothesis": "The patient presented with a gingival lesion that was identified as metastatic adenocarcinoma with IHC markers highly suggestive of breast origin. Imaging confirmed a suspicious lesion in the left breast. I am seeking the pathology report of this breast mass to definitively confirm it as the primary tumor and characterize its specific pathological features.",
+        "confirmed_evidence": [
+          "Patient presented with a non-healing post-extraction gingival wound, swelling, and vegetation.",
+          "Histopathological examination of the gingival lesion showed nests of cells in mucin lakes with occasional tubular arrangements (E005).",
+          "Immunohistochemistry of the gingival lesion showed the tumor was ER+, PR+, Ki67 30%, HER2 1+, CK7+, CK20+, mammaglobin -, and GATA-3+ (E006).",
+          "Imaging revealed expansive soft tissue changes in the left breast (60 × 40 × 35 mm) and infiltrating lymph nodes in the left axilla (E003)."
+        ],
+        "missing_key_evidence": [
+          "Pathology report of the primary breast tumor",
+          "Definitive confirmation that the breast lesion is the primary tumor"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E006",
+        "source_text": "The tumor was estrogen-(90% of cells, Allred score 8) and progesterone receptor-positive (40% of cells, Allred score 6), and the Ki67 proliferative index was 30% (30% of the nuclei of the tumor cells had a positive reaction). HER2 receptors were 1+, CK7+, CK20+, mammaglobin −, and GATA-3 +",
+        "category": "pathology_report",
+        "temporal_cue": "early workup",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Histological type of the primary breast tumor",
+        "current_trajectory_hypothesis": "The patient presented with a gingival lesion that was identified as metastatic adenocarcinoma with IHC markers highly suggestive of breast origin. Imaging confirmed a suspicious lesion in the left breast. I am seeking the specific histological type of the primary breast tumor to further characterize it and confirm its link to the metastatic gingival lesion.",
+        "confirmed_evidence": [
+          "Patient presented with a non-healing post-extraction gingival wound, swelling, and vegetation.",
+          "Histopathological examination of the gingival lesion showed nests of cells in mucin lakes with occasional tubular arrangements (E005).",
+          "Immunohistochemistry of the gingival lesion showed the tumor was ER+, PR+, Ki67 30%, HER2 1+, CK7+, CK20+, mammaglobin -, and GATA-3+ (E006).",
+          "Imaging revealed expansive soft tissue changes in the left breast (60 × 40 × 35 mm) and infiltrating lymph nodes in the left axilla (E003)."
+        ],
+        "missing_key_evidence": [
+          "Specific histological type of the primary breast tumor",
+          "Explicit confirmation that the breast lesion is the primary tumor"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Pathological diagnosis of the primary breast tumor",
+        "current_trajectory_hypothesis": "The patient presented with a gingival lesion that was identified as metastatic adenocarcinoma with IHC markers highly suggestive of breast origin. Imaging confirmed a suspicious lesion in the left breast. I am seeking the definitive pathological diagnosis of this breast mass to confirm it as the primary tumor and link it to the metastatic gingival lesion, as mentioned in the final diagnosis.",
+        "confirmed_evidence": [
+          "Patient presented with a non-healing post-extraction gingival wound, swelling, and vegetation.",
+          "Histopathological examination of the gingival lesion showed nests of cells in mucin lakes with occasional tubular arrangements (E005).",
+          "Immunohistochemistry of the gingival lesion showed the tumor was ER+, PR+, Ki67 30%, HER2 1+, CK7+, CK20+, mammaglobin -, and GATA-3+ (E006).",
+          "Imaging revealed expansive soft tissue changes in the left breast (60 × 40 × 35 mm) and infiltrating lymph nodes in the left axilla (E003)."
+        ],
+        "missing_key_evidence": [
+          "Explicit pathological diagnosis of the primary breast tumor",
+          "Confirmation that the breast lesion is the primary tumor and its specific histological type"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E006",
+        "source_text": "The tumor was estrogen-(90% of cells, Allred score 8) and progesterone receptor-positive (40% of cells, Allred score 6), and the Ki67 proliferative index was 30% (30% of the nuclei of the tumor cells had a positive reaction). HER2 receptors were 1+, CK7+, CK20+, mammaglobin −, and GATA-3 +",
+        "category": "pathology_report",
+        "temporal_cue": "early workup",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "after pathophysiological analysis and immunohistochemistry, it was found that the primary tumor was a breast tumor and that the gingival tumor was a metastatic tumor from the breast MAC",
+        "trajectory_summary": "A 58-year-old female presented with a non-healing post-extraction gingival wound, swelling, and vegetation. Biopsy of the gingival lesion revealed nests of cells in mucin lakes with occasional tubular arrangements, consistent with adenocarcinoma. Immunohistochemistry of the tumor showed it was estrogen-receptor positive, progesterone-receptor positive, GATA-3 positive, and HER2 1+, strongly suggesting a breast primary. Subsequent imaging of the breast identified an expansive soft tissue mass in the left breast with infiltrating lymph nodes. The combination of these findings confirmed the gingival lesion as a metastatic adenocarcinoma originating from a primary breast tumor.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with a non-healing post-extraction gingival wound, swelling, and vegetation.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Histopathological examination of the gingival lesion showed nests of cells in mucin lakes with occasional tubular arrangements, consistent with adenocarcinoma.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Immunohistochemistry of the tumor (gingival lesion) showed it was ER+, PR+, Ki67 30%, HER2 1+, CK7+, CK20+, mammaglobin -, and GATA-3+, indicating a breast origin.",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Imaging revealed an expansive soft tissue mass in the left breast (60 × 40 × 35 mm) and infiltrating lymph nodes in the left axilla, identifying the primary tumor site.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "The primary tumor was identified as a breast tumor, and the gingival tumor as a metastatic tumor from the breast, based on pathophysiological analysis and immunohistochemistry.",
+            "evidence_ids": [
+              "E005",
+              "E006",
+              "E003"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Pyogenic granuloma, squamous cell carcinoma, mesenchymal tumor, chondrosarcoma, or osteosarcoma",
+            "basis": "Histopathological findings of adenocarcinoma (E005) and immunohistochemistry profile consistent with breast cancer (E006) ruled out these initial differential diagnoses."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Specific histological subtype of the primary breast tumor (e.g., invasive ductal carcinoma, invasive lobular carcinoma) beyond its immunohistochemical profile."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "after pathophysiological analysis and immunohistochemistry, it was found that the primary tumor was a breast tumor and that the gingival tumor was a metastatic tumor from the breast MAC",
+    "trajectory_summary": "A 58-year-old female presented with a non-healing post-extraction gingival wound, swelling, and vegetation. Biopsy of the gingival lesion revealed nests of cells in mucin lakes with occasional tubular arrangements, consistent with adenocarcinoma. Immunohistochemistry of the tumor showed it was estrogen-receptor positive, progesterone-receptor positive, GATA-3 positive, and HER2 1+, strongly suggesting a breast primary. Subsequent imaging of the breast identified an expansive soft tissue mass in the left breast with infiltrating lymph nodes. The combination of these findings confirmed the gingival lesion as a metastatic adenocarcinoma originating from a primary breast tumor.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with a non-healing post-extraction gingival wound, swelling, and vegetation.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Histopathological examination of the gingival lesion showed nests of cells in mucin lakes with occasional tubular arrangements, consistent with adenocarcinoma.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Immunohistochemistry of the tumor (gingival lesion) showed it was ER+, PR+, Ki67 30%, HER2 1+, CK7+, CK20+, mammaglobin -, and GATA-3+, indicating a breast origin.",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Imaging revealed an expansive soft tissue mass in the left breast (60 × 40 × 35 mm) and infiltrating lymph nodes in the left axilla, identifying the primary tumor site.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "The primary tumor was identified as a breast tumor, and the gingival tumor as a metastatic tumor from the breast, based on pathophysiological analysis and immunohistochemistry.",
+        "evidence_ids": [
+          "E005",
+          "E006",
+          "E003"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Pyogenic granuloma, squamous cell carcinoma, mesenchymal tumor, chondrosarcoma, or osteosarcoma",
+        "basis": "Histopathological findings of adenocarcinoma (E005) and immunohistochemistry profile consistent with breast cancer (E006) ruled out these initial differential diagnoses."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Specific histological subtype of the primary breast tumor (e.g., invasive ductal carcinoma, invasive lobular carcinoma) beyond its immunohistochemical profile."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T18:19:46.649893+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

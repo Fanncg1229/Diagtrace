@@ -1,0 +1,452 @@
+{
+  "case_id": "PMC7437808",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 10,
+  "termination": "final",
+  "known_final_diagnosis": "Therefore, the patient was diagnosed with carcinomatous meningitis.",
+  "disclosed_evidence_ids": [
+    "E007",
+    "E008",
+    "E009",
+    "E010"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "What was the patient's smoking history and any history of cancer?",
+        "current_trajectory_hypothesis": "Patient presented with subacute meningitis-like symptoms. Initial workup showed signs of meningitis but negative CSF cytology. The final diagnosis is carcinomatous meningitis, suggesting an underlying malignancy.",
+        "confirmed_evidence": [
+          "76-year-old man with 2-month history of headache, nausea, emesis, intermittent fever",
+          "Cervical rigidity present",
+          "Brain MRI unremarkable except for small lacunar infarctions",
+          "CSF: pressure 220 mmH2O, protein 0.76 g/L, WBC 6 x 10^6 cells/L (mononuclear 0.8, multinuclear 0.2), normal glucose/chlorides, cytology negative for atypical cells",
+          "Initial consideration was meningitis",
+          "Known history of heavy smoking"
+        ],
+        "missing_key_evidence": [
+          "Evidence of primary malignancy",
+          "Confirmation of carcinomatous meningitis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "The source records do not contain information about smoking history or past history of cancer.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the results of any subsequent cerebrospinal fluid (CSF) analyses, specifically cytology?",
+        "current_trajectory_hypothesis": "Patient presented with subacute meningitis-like symptoms. Initial workup showed signs of meningitis but negative CSF cytology. The final diagnosis is carcinomatous meningitis, suggesting further investigations were needed to confirm the diagnosis, likely involving repeat CSF studies or identification of a primary tumor.",
+        "confirmed_evidence": [
+          "76-year-old man with 2-month history of headache, nausea, emesis, intermittent fever",
+          "Cervical rigidity present",
+          "Brain MRI unremarkable except for small lacunar infarctions",
+          "CSF: pressure 220 mmH2O, protein 0.76 g/L, WBC 6 x 10^6 cells/L (mononuclear 0.8, multinuclear 0.2), normal glucose/chlorides, cytology negative for atypical cells",
+          "Initial consideration was meningitis",
+          "Known history of heavy smoking"
+        ],
+        "missing_key_evidence": [
+          "Evidence of primary malignancy",
+          "Confirmation of carcinomatous meningitis, especially via CSF cytology"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E009",
+        "source_text": "A second cytologic examination of CSF was performed, and abnormal cells were found. These cells had larger cell areas and nucleocytoplasmic ratios than monocytes and enlarged and hyperchromatic nuclei (Fig. 3).",
+        "category": "image_finding",
+        "temporal_cue": "after sputum cytology",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "What were the results of imaging studies (e.g., CT scan, PET scan) or biopsies performed to identify a primary tumor, especially in the lungs?",
+        "current_trajectory_hypothesis": "Patient presented with subacute meningitis-like symptoms. Initial CSF cytology was negative, but a second CSF cytology revealed abnormal cells, strongly suggesting carcinomatous meningitis. The next step is to identify the primary source of these malignant cells, likely a tumor, given the patient's smoking history.",
+        "confirmed_evidence": [
+          "76-year-old man with 2-month history of headache, nausea, emesis, intermittent fever",
+          "Cervical rigidity present",
+          "Brain MRI unremarkable except for small lacunar infarctions",
+          "Initial CSF: pressure 220 mmH2O, protein 0.76 g/L, WBC 6 x 10^6 cells/L (mononuclear 0.8, multinuclear 0.2), normal glucose/chlorides, cytology negative for atypical cells",
+          "Initial consideration was meningitis",
+          "Known history of heavy smoking",
+          "Second CSF cytologic examination found abnormal cells with larger cell areas, nucleocytoplasmic ratios, and enlarged, hyperchromatic nuclei"
+        ],
+        "missing_key_evidence": [
+          "Identification of the primary tumor site",
+          "Histopathological confirmation of the primary tumor type"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "Test order recorded; no corresponding result found yet in source records.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the results of sputum cytology?",
+        "current_trajectory_hypothesis": "Patient presented with subacute meningitis-like symptoms. Initial CSF cytology was negative, but a second CSF cytology revealed abnormal cells, strongly suggesting carcinomatous meningitis. Given the patient's smoking history, a primary lung tumor is suspected. Sputum cytology is a common diagnostic test for lung cancer.",
+        "confirmed_evidence": [
+          "76-year-old man with 2-month history of headache, nausea, emesis, intermittent fever",
+          "Cervical rigidity present",
+          "Brain MRI unremarkable except for small lacunar infarctions",
+          "Initial CSF: pressure 220 mmH2O, protein 0.76 g/L, WBC 6 x 10^6 cells/L (mononuclear 0.8, multinuclear 0.2), normal glucose/chlorides, cytology negative for atypical cells",
+          "Initial consideration was meningitis",
+          "Known history of heavy smoking",
+          "Second CSF cytologic examination found abnormal cells with larger cell areas, nucleocytoplasmic ratios, and enlarged, hyperchromatic nuclei"
+        ],
+        "missing_key_evidence": [
+          "Identification of the primary tumor site",
+          "Histopathological confirmation of the primary tumor type"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "Adenocarcinoma cells were found by exfoliative cytologic examination of sputum.",
+        "category": "pathology_report",
+        "temporal_cue": "after lung CT",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the findings of the lung CT scan?",
+        "current_trajectory_hypothesis": "Patient presented with subacute meningitis-like symptoms. Initial CSF cytology was negative, but a second CSF cytology revealed abnormal cells, strongly suggesting carcinomatous meningitis. Sputum cytology confirmed adenocarcinoma cells, pointing to a primary lung tumor. A lung CT scan would provide imaging evidence of this primary tumor.",
+        "confirmed_evidence": [
+          "76-year-old man with 2-month history of headache, nausea, emesis, intermittent fever",
+          "Cervical rigidity present",
+          "Brain MRI unremarkable except for small lacunar infarctions",
+          "Initial CSF: pressure 220 mmH2O, protein 0.76 g/L, WBC 6 x 10^6 cells/L (mononuclear 0.8, multinuclear 0.2), normal glucose/chlorides, cytology negative for atypical cells",
+          "Initial consideration was meningitis",
+          "Known history of heavy smoking",
+          "Second CSF cytologic examination found abnormal cells with larger cell areas, nucleocytoplasmic ratios, and enlarged, hyperchromatic nuclei",
+          "Adenocarcinoma cells found by exfoliative cytologic examination of sputum"
+        ],
+        "missing_key_evidence": [
+          "Imaging evidence of the primary tumor in the lung",
+          "Histopathological confirmation of the primary tumor type (e.g., biopsy)",
+          "Details on the link between primary tumor and CSF findings (e.g., specific markers if available)",
+          "Treatment or clinical course post-diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "Subsequently, a systemic investigation was performed, and a lung computed tomography scan showed a nodule in the upper lobe of the right lung.",
+        "category": "imaging_report",
+        "temporal_cue": "after second EEG",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "What were the results of any biopsy or pathological examination of the lung nodule?",
+        "current_trajectory_hypothesis": "Patient presented with subacute meningitis-like symptoms. Initial CSF cytology was negative, but a second CSF cytology revealed abnormal cells, strongly suggesting carcinomatous meningitis. Sputum cytology confirmed adenocarcinoma cells, and a lung CT scan showed a nodule in the upper lobe of the right lung. The next logical step is to confirm the nature of the lung nodule via biopsy.",
+        "confirmed_evidence": [
+          "76-year-old man with 2-month history of headache, nausea, emesis, intermittent fever",
+          "Cervical rigidity present",
+          "Brain MRI unremarkable except for small lacunar infarctions",
+          "Initial CSF: pressure 220 mmH2O, protein 0.76 g/L, WBC 6 x 10^6 cells/L (mononuclear 0.8, multinuclear 0.2), normal glucose/chlorides, cytology negative for atypical cells",
+          "Initial consideration was meningitis",
+          "Known history of heavy smoking",
+          "Second CSF cytologic examination found abnormal cells with larger cell areas, nucleocytoplasmic ratios, and enlarged, hyperchromatic nuclei",
+          "Adenocarcinoma cells found by exfoliative cytologic examination of sputum",
+          "Lung computed tomography scan showed a nodule in the upper lobe of the right lung"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of the primary tumor type from the lung nodule",
+          "Further details on the link between primary tumor and CSF findings (e.g., specific markers if available)",
+          "Treatment or clinical course post-diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "Procedure order noted; no biopsy or pathology results of lung nodule documented in the source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Were there any further analyses or characterization (e.g., immunohistochemistry, specific markers) performed on the abnormal cells found in the cerebrospinal fluid?",
+        "current_trajectory_hypothesis": "Patient presented with subacute meningitis-like symptoms. Initial CSF cytology was negative, but a second CSF cytology revealed abnormal cells, strongly suggesting carcinomatous meningitis. Sputum cytology confirmed adenocarcinoma cells, and a lung CT scan showed a nodule in the upper lobe of the right lung. I am now seeking further characterization of the CSF cells to strengthen the link to the primary lung adenocarcinoma.",
+        "confirmed_evidence": [
+          "76-year-old man with 2-month history of headache, nausea, emesis, intermittent fever",
+          "Cervical rigidity present",
+          "Brain MRI unremarkable except for small lacunar infarctions",
+          "Initial CSF: pressure 220 mmH2O, protein 0.76 g/L, WBC 6 x 10^6 cells/L (mononuclear 0.8, multinuclear 0.2), normal glucose/chlorides, cytology negative for atypical cells",
+          "Initial consideration was meningitis",
+          "Known history of heavy smoking",
+          "Second CSF cytologic examination found abnormal cells with larger cell areas, nucleocytoplasmic ratios, and enlarged, hyperchromatic nuclei",
+          "Adenocarcinoma cells found by exfoliative cytologic examination of sputum",
+          "Lung computed tomography scan showed a nodule in the upper lobe of the right lung"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of the primary tumor type from the lung nodule (not documented)",
+          "Further details on the link between primary tumor and CSF findings (e.g., specific markers if available on CSF cells)",
+          "Treatment or clinical course post-diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E009",
+        "source_text": "These cells had larger cell areas and nucleocytoplasmic ratios than monocytes and enlarged and hyperchromatic nuclei (Fig. 3).",
+        "category": "image_finding",
+        "temporal_cue": "after sputum cytology",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with subacute meningitis-like symptoms. Initial CSF cytology was negative, but a second CSF cytology revealed abnormal cells. Further investigation identified a primary lung adenocarcinoma via sputum cytology and lung CT. This evidence strongly supports the diagnosis of carcinomatous meningitis. I am now seeking information on the patient's clinical course, treatment, and outcome to complete the trajectory.",
+        "confirmed_evidence": [
+          "76-year-old man with 2-month history of headache, nausea, emesis, intermittent fever",
+          "Cervical rigidity present",
+          "Brain MRI unremarkable except for small lacunar infarctions",
+          "Initial CSF: pressure 220 mmH2O, protein 0.76 g/L, WBC 6 x 10^6 cells/L (mononuclear 0.8, multinuclear 0.2), normal glucose/chlorides, cytology negative for atypical cells",
+          "Initial consideration was meningitis",
+          "Known history of heavy smoking",
+          "Second CSF cytologic examination found abnormal cells with larger cell areas, nucleocytoplasmic ratios, and enlarged, hyperchromatic nuclei",
+          "Adenocarcinoma cells found by exfoliative cytologic examination of sputum",
+          "Lung computed tomography scan showed a nodule in the upper lobe of the right lung"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of the primary tumor type from the lung nodule (not documented)",
+          "Details on the link between primary tumor and CSF findings (e.g., specific markers if available on CSF cells beyond morphology)",
+          "Treatment or clinical course post-diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E010",
+        "source_text": "The patient received systemic therapy in the Department of Oncology. He received whole brain radiotherapy and intrathecal injection of methotrexate once a week in the first month then intrathecal injection monthly thereafter. The clinical symptom (headache and vomiting) relieved after the third month.",
+        "category": "treatment_response",
+        "temporal_cue": "after diagnosis",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "What were the results of any systemic staging imaging (e.g., PET scan, whole-body CT) performed to assess for other metastases or further characterize the primary lung tumor?",
+        "current_trajectory_hypothesis": "Patient presented with subacute meningitis-like symptoms. Initial CSF cytology was negative, but a second CSF cytology revealed abnormal cells. Further investigation identified a primary lung adenocarcinoma via sputum cytology and lung CT. The patient received treatment for carcinomatous meningitis with symptom relief. I am now seeking information on systemic staging to understand the full extent of the disease.",
+        "confirmed_evidence": [
+          "76-year-old man with 2-month history of headache, nausea, emesis, intermittent fever",
+          "Cervical rigidity present",
+          "Brain MRI unremarkable except for small lacunar infarctions",
+          "Initial CSF: pressure 220 mmH2O, protein 0.76 g/L, WBC 6 x 10^6 cells/L (mononuclear 0.8, multinuclear 0.2), normal glucose/chlorides, cytology negative for atypical cells",
+          "Initial consideration was meningitis",
+          "Known history of heavy smoking",
+          "Second CSF cytologic examination found abnormal cells with larger cell areas, nucleocytoplasmic ratios, and enlarged, hyperchromatic nuclei",
+          "Adenocarcinoma cells found by exfoliative cytologic examination of sputum",
+          "Lung computed tomography scan showed a nodule in the upper lobe of the right lung",
+          "Patient received whole brain radiotherapy and intrathecal injection of methotrexate for carcinomatous meningitis",
+          "Clinical symptoms (headache and vomiting) relieved after the third month of treatment"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of the primary tumor type from the lung nodule (not documented)",
+          "Further details on the link between primary tumor and CSF findings (e.g., specific markers if available on CSF cells beyond morphology)",
+          "Systemic staging results for other metastases"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "Systemic staging imaging ordered but no corresponding source report found yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "carcinomatous meningitis",
+        "trajectory_summary": "A 76-year-old man presented with a 2-month history of headache, nausea, emesis, and intermittent fever, along with cervical rigidity. Initial CSF analysis showed elevated pressure and protein, but cytology was negative. A second CSF cytologic examination later revealed abnormal cells. Further investigation, guided by the patient's heavy smoking history, included a lung CT scan which showed a nodule in the upper lobe of the right lung. Exfoliative cytologic examination of sputum confirmed adenocarcinoma cells. Based on these findings, the patient was diagnosed with carcinomatous meningitis. He received whole brain radiotherapy and intrathecal methotrexate, leading to relief of headache and vomiting after three months.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with subacute meningitis-like symptoms including headache, nausea, emesis, intermittent fever, and cervical rigidity.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Initial CSF analysis showed elevated pressure (220 mmH2O), increased protein (0.76 g/L), and WBC count of 6 x 10^6 cells/L, but initial cytology was negative.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "A second CSF cytologic examination found abnormal cells with larger cell areas, nucleocytoplasmic ratios, and enlarged, hyperchromatic nuclei.",
+            "evidence_ids": [
+              "E009"
+            ]
+          },
+          {
+            "claim": "A lung computed tomography scan showed a nodule in the upper lobe of the right lung.",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Adenocarcinoma cells were found by exfoliative cytologic examination of sputum.",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "The patient received whole brain radiotherapy and intrathecal methotrexate for carcinomatous meningitis, with clinical symptom relief (headache and vomiting) after three months.",
+            "evidence_ids": [
+              "E010"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "bacterial meningitis",
+            "basis": "Initial CSF cytology negative, normal glucose and chlorides, and subacute presentation not typical for acute bacterial meningitis. The subsequent identification of adenocarcinoma cells in sputum and abnormal cells in CSF points away from infectious causes."
+          },
+          {
+            "alternative": "viral meningitis",
+            "basis": "Subacute presentation, elevated protein, and later identification of malignant cells in CSF and sputum make viral meningitis less likely."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Histopathological confirmation of the primary tumor type from the lung nodule (biopsy results were not documented).",
+          "Further specific characterization (e.g., immunohistochemistry, molecular markers) of the abnormal cells in CSF beyond morphological description.",
+          "Results of systemic staging imaging to assess for other metastases."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "carcinomatous meningitis",
+    "trajectory_summary": "A 76-year-old man presented with a 2-month history of headache, nausea, emesis, and intermittent fever, along with cervical rigidity. Initial CSF analysis showed elevated pressure and protein, but cytology was negative. A second CSF cytologic examination later revealed abnormal cells. Further investigation, guided by the patient's heavy smoking history, included a lung CT scan which showed a nodule in the upper lobe of the right lung. Exfoliative cytologic examination of sputum confirmed adenocarcinoma cells. Based on these findings, the patient was diagnosed with carcinomatous meningitis. He received whole brain radiotherapy and intrathecal methotrexate, leading to relief of headache and vomiting after three months.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with subacute meningitis-like symptoms including headache, nausea, emesis, intermittent fever, and cervical rigidity.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Initial CSF analysis showed elevated pressure (220 mmH2O), increased protein (0.76 g/L), and WBC count of 6 x 10^6 cells/L, but initial cytology was negative.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "A second CSF cytologic examination found abnormal cells with larger cell areas, nucleocytoplasmic ratios, and enlarged, hyperchromatic nuclei.",
+        "evidence_ids": [
+          "E009"
+        ]
+      },
+      {
+        "claim": "A lung computed tomography scan showed a nodule in the upper lobe of the right lung.",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Adenocarcinoma cells were found by exfoliative cytologic examination of sputum.",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "The patient received whole brain radiotherapy and intrathecal methotrexate for carcinomatous meningitis, with clinical symptom relief (headache and vomiting) after three months.",
+        "evidence_ids": [
+          "E010"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "bacterial meningitis",
+        "basis": "Initial CSF cytology negative, normal glucose and chlorides, and subacute presentation not typical for acute bacterial meningitis. The subsequent identification of adenocarcinoma cells in sputum and abnormal cells in CSF points away from infectious causes."
+      },
+      {
+        "alternative": "viral meningitis",
+        "basis": "Subacute presentation, elevated protein, and later identification of malignant cells in CSF and sputum make viral meningitis less likely."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Histopathological confirmation of the primary tumor type from the lung nodule (biopsy results were not documented).",
+      "Further specific characterization (e.g., immunohistochemistry, molecular markers) of the abnormal cells in CSF beyond morphological description.",
+      "Results of systemic staging imaging to assess for other metastases."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T17:55:23.254667+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

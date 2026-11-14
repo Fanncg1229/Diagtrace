@@ -1,0 +1,556 @@
+{
+  "case_id": "PMC11921573",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 14,
+  "termination": "final",
+  "known_final_diagnosis": "a presumptive diagnosis of stage IV adenoid cystic carcinoma with metastases to the liver and lung was made",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E005",
+    "E006",
+    "E007"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order a biopsy of the liver mass for histopathological examination",
+        "current_trajectory_hypothesis": "Patient with RUQ pain and large liver mass on CT, suspect malignant tumor requiring histopathological diagnosis.",
+        "confirmed_evidence": [
+          "29-year-old male with RUQ pain, early satiety, large 14 cm liver mass on CT",
+          "Mildly elevated transaminases"
+        ],
+        "missing_key_evidence": [
+          "Histopathology results to confirm diagnosis of adenoid cystic carcinoma",
+          "Further imaging to assess for metastases"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for liver biopsy procedure acknowledged; result not yet reported in the source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order chest CT scan to evaluate for lung metastases given suspicion of stage IV disease",
+        "current_trajectory_hypothesis": "Patient has a large liver mass; biopsy ordered but not yet resulted; need to assess for metastases to confirm stage IV adenoid cystic carcinoma.",
+        "confirmed_evidence": [
+          "29-year-old male with RUQ pain, early satiety, large 14 cm liver mass on CT",
+          "Mildly elevated transaminases",
+          "Order liver biopsy placed"
+        ],
+        "missing_key_evidence": [
+          "Histopathology results from liver biopsy",
+          "Imaging evidence confirming lung metastases"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for chest CT scan to evaluate for lung metastases recorded; no direct matching result at this phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request histopathology results from the liver biopsy",
+        "current_trajectory_hypothesis": "Awaiting liver biopsy results to confirm diagnosis of adenoid cystic carcinoma in patient with large liver mass.",
+        "confirmed_evidence": [
+          "29-year-old male with RUQ pain, early satiety, large 14 cm liver mass on CT",
+          "Mildly elevated transaminases",
+          "Liver biopsy ordered but no result yet",
+          "Chest CT scan ordered but no result yet"
+        ],
+        "missing_key_evidence": [
+          "Histopathology results from liver biopsy to confirm diagnosis",
+          "Chest CT report to confirm presence of lung metastases"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Waiting for key diagnostic results such as histopathology from the liver biopsy and chest CT imaging to confirm diagnosis of stage IV adenoid cystic carcinoma with metastases.",
+        "confirmed_evidence": [
+          "29-year-old male with RUQ pain, early satiety, large 14 cm liver mass on CT",
+          "Mildly elevated transaminases",
+          "Liver biopsy ordered but results pending",
+          "Chest CT scan ordered but results pending"
+        ],
+        "missing_key_evidence": [
+          "Histopathology results from liver biopsy to confirm adenoid cystic carcinoma diagnosis",
+          "Chest CT imaging to confirm lung metastases"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "A computed tomography (CT) scan revealed hepatomegaly with a large mass centered in the left lobe measuring 14 cm",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request chest CT scan report to evaluate presence of lung metastases",
+        "current_trajectory_hypothesis": "Patient with large liver mass and planned biopsy; need chest CT imaging to confirm lung metastases for staging as stage IV adenoid cystic carcinoma.",
+        "confirmed_evidence": [
+          "29-year-old male with RUQ pain, early satiety, large 14 cm liver mass on CT",
+          "Mildly elevated transaminases",
+          "Liver biopsy ordered but results pending"
+        ],
+        "missing_key_evidence": [
+          "Chest CT imaging report confirming lung metastases",
+          "Histopathology results from liver biopsy confirming adenoid cystic carcinoma"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "A chest CT revealed innumerable bilateral pulmonary nodules measuring up to 8 mm, favoring metastases",
+        "category": "imaging_report",
+        "temporal_cue": "2 months after initial visit",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request histopathology report of the liver mass biopsy to confirm diagnosis of adenoid cystic carcinoma",
+        "current_trajectory_hypothesis": "Patient with large liver mass and lung metastases on imaging; biopsy histopathology needed for definitive diagnosis of adenoid cystic carcinoma.",
+        "confirmed_evidence": [
+          "Large 14 cm liver mass on CT at initial presentation (E001)",
+          "Chest CT showing innumerable bilateral pulmonary nodules favoring metastases (E007)",
+          "Liver biopsy ordered"
+        ],
+        "missing_key_evidence": [
+          "Histopathology results from liver biopsy confirming adenoid cystic carcinoma"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Confirmed initial imaging of large liver mass and lung metastases; awaiting histopathology confirmation and clinical course information to support final diagnosis of stage IV adenoid cystic carcinoma.",
+        "confirmed_evidence": [
+          "Large 14 cm liver mass on CT at initial presentation (E001)",
+          "Chest CT showing innumerable bilateral pulmonary nodules favoring metastases (E007)",
+          "Liver biopsy ordered"
+        ],
+        "missing_key_evidence": [
+          "Histopathology results from liver biopsy confirming adenoid cystic carcinoma",
+          "Details on clinical management or response to treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Initial imaging shows large liver mass and chest CT confirms pulmonary metastases. Liver biopsy ordered but pathology results not reported yet. Awaiting further clinical documentation to confirm adenoid cystic carcinoma pathology and patient management.",
+        "confirmed_evidence": [
+          "29-year-old male with right upper quadrant pain and early satiety",
+          "Large 14 cm liver mass on CT (E001)",
+          "Chest CT showing innumerable bilateral pulmonary nodules favoring metastases (E007)",
+          "Liver biopsy ordered but histopathology results not documented"
+        ],
+        "missing_key_evidence": [
+          "Histopathology results of liver biopsy to confirm adenoid cystic carcinoma",
+          "Details about clinical treatment and response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Abdominal CT angiography with contrast showed a 21 cm hepatic mass centered in the left hepatic lobe",
+        "category": "imaging_report",
+        "temporal_cue": "2 months after initial visit",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order pathology or histopathology report of liver biopsy to confirm diagnosis of adenoid cystic carcinoma",
+        "current_trajectory_hypothesis": "Patient with large liver mass and lung metastases on imaging; biopsy specimen taken, need pathology report to confirm adenoid cystic carcinoma.",
+        "confirmed_evidence": [
+          "Large liver mass on initial CT (E001)",
+          "Chest CT showing bilateral pulmonary nodules favoring metastases (E007)",
+          "Abdominal CT angiography showing 21 cm hepatic mass (E005)",
+          "Liver biopsy ordered but histopathology results not documented"
+        ],
+        "missing_key_evidence": [
+          "Histopathology results confirming adenoid cystic carcinoma from liver biopsy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Pathology report order placed with pending result.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Large hepatic mass with lung metastases documented; liver biopsy performed but histopathology results pending; awaiting confirmatory pathology and clinical course details.",
+        "confirmed_evidence": [
+          "Large 14 cm liver mass on initial CT (E001)",
+          "Chest CT with innumerable bilateral pulmonary nodules favoring metastases (E007)",
+          "Abdominal CT angiography showing 21 cm hepatic mass (E005)",
+          "Liver biopsy and pathology report ordered but results not documented"
+        ],
+        "missing_key_evidence": [
+          "Histopathology report confirming adenoid cystic carcinoma from liver biopsy",
+          "Details on clinical management and response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "Laboratory tests revealed alkaline phosphatase elevation (451 IU/L) and mildly elevated transaminases, with an AST level of 93 units/L and an ALT of 45 units/L. His tumor marker laboratory results were within normal ranges (CA 19.9 < 14.0; AFP: 1.97; and CEA: 5.28)",
+        "category": "routine_lab",
+        "temporal_cue": "2 months after initial visit",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Imaging confirms large liver mass and lung metastases consistent with stage IV malignancy; biopsy obtained but histopathology report for adenoid cystic carcinoma confirmation still pending.",
+        "confirmed_evidence": [
+          "Initial CT showing 14 cm liver mass (E001)",
+          "Chest CT showing innumerable bilateral pulmonary nodules favoring metastases (E007)",
+          "Follow-up abdominal CT angiography revealing 21 cm hepatic mass (E005)",
+          "Laboratory results with elevated alkaline phosphatase and mild transaminase elevation (E006)",
+          "Liver biopsy and pathology report ordered"
+        ],
+        "missing_key_evidence": [
+          "Histopathology results from liver biopsy confirming adenoid cystic carcinoma",
+          "Details on clinical management, treatment response, or further diagnostic confirmation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Imaging studies confirm a large and growing liver mass with pulmonary metastases consistent with stage IV disease; biopsy performed but histopathology results are not documented yet; further clinical updates needed to confirm diagnosis.",
+        "confirmed_evidence": [
+          "Initial CT showing a 14 cm liver mass (E001)",
+          "Chest CT showing innumerable pulmonary nodules favoring metastases (E007)",
+          "Follow-up abdominal CT angiography showing a 21 cm hepatic mass (E005)",
+          "Laboratory results showing elevated alkaline phosphatase and mild transaminase elevation (E006)",
+          "Liver biopsy procedure ordered, no histopathology results documented"
+        ],
+        "missing_key_evidence": [
+          "Histopathology report from liver biopsy confirming adenoid cystic carcinoma",
+          "Details on clinical management, treatment response, or further diagnostic confirmation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Current trajectory confirms large hepatic mass and lung metastases by imaging; liver biopsy performed but no pathology report available yet; awaiting final confirmatory histopathology or clinical documentation.",
+        "confirmed_evidence": [
+          "Large 14 cm liver mass on initial CT (E001)",
+          "Chest CT showing innumerable bilateral pulmonary nodules favoring metastases (E007)",
+          "Follow-up abdominal CT angiography showing 21 cm hepatic mass (E005)",
+          "Laboratory results with elevated alkaline phosphatase and mild transaminase elevation (E006)",
+          "Liver biopsy ordered and procedure completed"
+        ],
+        "missing_key_evidence": [
+          "Histopathology report confirming adenoid cystic carcinoma from liver biopsy",
+          "Details on clinical management, treatment response, or further diagnostic confirmation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "a presumptive diagnosis of stage IV adenoid cystic carcinoma with metastases to the liver and lung was made",
+        "trajectory_summary": "A 29-year-old male presented with right upper quadrant abdominal pain and early satiety. Initial CT showed a large 14 cm left hepatic lobe mass with hepatomegaly. Laboratory tests revealed mild transaminase elevation and normal tumor markers. A liver biopsy was ordered but histopathology results were not documented. Subsequent chest CT imaging revealed innumerable bilateral pulmonary nodules suggestive of metastases. Follow-up abdominal CT angiography showed growth of the hepatic mass to 21 cm, consistent with progressive disease. The clinical scenario with imaging and laboratory findings led to a presumptive diagnosis of stage IV adenoid cystic carcinoma with liver and lung metastases.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial CT showed a large 14 cm hepatic mass in the left lobe",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Chest CT revealed innumerable bilateral pulmonary nodules favoring metastases",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Follow-up abdominal CT angiography showed a 21 cm hepatic mass",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Laboratory tests showed mildly elevated transaminases and normal tumor markers",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Liver biopsy was ordered but histopathology results were not documented",
+            "evidence_ids": []
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "primary hepatocellular carcinoma or other liver primary tumors",
+            "basis": "normal tumor markers and clinical context favor metastatic adenoid cystic carcinoma"
+          },
+          {
+            "alternative": "benign hepatic lesions",
+            "basis": "progressive mass growth and bilateral lung nodules suggest malignancy"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Histopathology confirmation of adenoid cystic carcinoma from liver biopsy not documented in available records",
+          "Details on clinical management and treatment response are not provided"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "a presumptive diagnosis of stage IV adenoid cystic carcinoma with metastases to the liver and lung was made",
+    "trajectory_summary": "A 29-year-old male presented with right upper quadrant abdominal pain and early satiety. Initial CT showed a large 14 cm left hepatic lobe mass with hepatomegaly. Laboratory tests revealed mild transaminase elevation and normal tumor markers. A liver biopsy was ordered but histopathology results were not documented. Subsequent chest CT imaging revealed innumerable bilateral pulmonary nodules suggestive of metastases. Follow-up abdominal CT angiography showed growth of the hepatic mass to 21 cm, consistent with progressive disease. The clinical scenario with imaging and laboratory findings led to a presumptive diagnosis of stage IV adenoid cystic carcinoma with liver and lung metastases.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial CT showed a large 14 cm hepatic mass in the left lobe",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Chest CT revealed innumerable bilateral pulmonary nodules favoring metastases",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Follow-up abdominal CT angiography showed a 21 cm hepatic mass",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Laboratory tests showed mildly elevated transaminases and normal tumor markers",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Liver biopsy was ordered but histopathology results were not documented",
+        "evidence_ids": []
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "primary hepatocellular carcinoma or other liver primary tumors",
+        "basis": "normal tumor markers and clinical context favor metastatic adenoid cystic carcinoma"
+      },
+      {
+        "alternative": "benign hepatic lesions",
+        "basis": "progressive mass growth and bilateral lung nodules suggest malignancy"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Histopathology confirmation of adenoid cystic carcinoma from liver biopsy not documented in available records",
+      "Details on clinical management and treatment response are not provided"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.7
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-29T08:33:03.424430+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

@@ -1,0 +1,421 @@
+{
+  "case_id": "PMC5623198",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 11,
+  "termination": "final",
+  "known_final_diagnosis": "On hospital day 2, cardiac MRI was obtained that revealed right ventricular contusion (correlating with origin of ventricular ectopy) and oedema with regional wall motion abnormalities involving the right ventricular outflow tract and free wall. The MRI also showed a subacute precordial haematoma extending from the level of the great vessels across the left and anterior border of the heart, anterior to the pulmonary artery and right ventricular outflow tract and a small pericardial effusion with possible pericardial haematoma.",
+  "disclosed_evidence_ids": [
+    "E003",
+    "E009",
+    "E010",
+    "E012",
+    "E014",
+    "E015"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "Perform and report the initial emergency department physical examination findings focusing on cardiovascular and general status, including heart rate, blood pressure, pulses, and any signs of trauma or distress",
+        "current_trajectory_hypothesis": "An 8-year-old with episodes of lightheadedness, presyncope, and documented ventricular tachycardia likely has an underlying cardiac pathology; initial exam findings may show hemodynamic stability or signs of cardiac compromise",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Emergency department vital signs and physical examination findings including any signs of trauma or heart failure"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "phase_index_after must equal the selected evidence phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "Report the initial emergency department vital signs including heart rate, blood pressure, respiratory rate, oxygen saturation, and temperature",
+        "current_trajectory_hypothesis": "The initial ED vital signs will help characterize the hemodynamic status of the child with ventricular tachycardia and episodes of presyncope",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Initial emergency department vital signs documenting hemodynamic status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "No source evidence reports the initial ED vital signs including heart rate, blood pressure, respiratory rate, oxygen saturation, or temperature.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "Report the findings of the initial 12-lead ECG performed at the emergency department, focusing on arrhythmia type, heart rhythm, conduction abnormalities, and any signs of ischemia or ventricular ectopy",
+        "current_trajectory_hypothesis": "The initial ECG will confirm the ventricular tachycardia diagnosis and may show baseline conduction or repolarization abnormalities aiding diagnostic localization",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Electrocardiogram findings confirming ventricular tachycardia and baseline cardiac electrical status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E014",
+        "source_text": "ECG. Monomorphic accelerated ventricular rhythm of LBBB morphology.",
+        "category": "image_finding",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order initial blood tests including cardiac biomarkers (troponin, CK-MB), electrolytes, and complete blood count",
+        "current_trajectory_hypothesis": "Initial blood tests including cardiac biomarkers and electrolytes will help assess myocardial injury or ischemia, inflammation, or metabolic causes contributing to ventricular tachycardia",
+        "confirmed_evidence": [
+          "Initial ECG shows monomorphic accelerated ventricular rhythm of left bundle branch block morphology (E014)"
+        ],
+        "missing_key_evidence": [
+          "Initial physical exam and vital signs",
+          "Initial blood test results including cardiac biomarkers and electrolytes",
+          "Imaging or further cardiac evaluation for structural pathology"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [
+          "initial blood tests including cardiac biomarkers (troponin, CK-MB), electrolytes, and complete blood count"
+        ],
+        "explanation": "Initial blood tests order matched with existing source record for lab tests including CBC, metabolic panel, and troponin",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Report the results of the initial blood tests including cardiac biomarkers (troponin, CK-MB), electrolytes, and complete blood count",
+        "current_trajectory_hypothesis": "Initial blood tests will provide evidence for myocardial injury or ischemia contributing to ventricular tachycardia and may indicate inflammation or metabolic abnormalities",
+        "confirmed_evidence": [
+          "Initial ECG shows monomorphic accelerated ventricular rhythm of left bundle branch block morphology (E014)"
+        ],
+        "missing_key_evidence": [
+          "Results of initial blood tests including cardiac biomarkers and electrolytes",
+          "Physical examination and vital signs at presentation",
+          "Imaging findings leading to right ventricular contusion and hematoma diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Her laboratory tests including complete blood count, comprehensive metabolic panel, troponin I and chest radiograph were unremarkable.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order cardiac MRI performed on hospital day 2 focusing on findings of the right ventricle, presence of contusion, edema, regional wall motion abnormalities, hematoma, and pericardial effusion",
+        "current_trajectory_hypothesis": "Cardiac MRI on hospital day 2 provided key diagnostic evidence showing right ventricular contusion, edema, regional wall motion abnormalities, precordial hematoma and pericardial effusion confirming myocardial injury consistent with ventricular arrhythmia etiology",
+        "confirmed_evidence": [
+          "Initial ECG shows monomorphic accelerated ventricular rhythm of left bundle branch block morphology (E014)",
+          "Initial blood tests including troponin I and chest radiograph were unremarkable (E003)"
+        ],
+        "missing_key_evidence": [
+          "Cardiac MRI findings detailing right ventricular contusion, edema, wall motion abnormalities, hematoma, and small pericardial effusion corresponding to diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Cardiac MRI ordered; no immediate source result to return before performance.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Report the findings of the cardiac MRI performed on hospital day 2 focusing on right ventricular contusion, edema, regional wall motion abnormalities, precordial hematoma, and pericardial effusion",
+        "current_trajectory_hypothesis": "Cardiac MRI on hospital day 2 revealed right ventricular contusion with edema and regional wall abnormalities, precordial hematoma and pericardial effusion, confirming myocardial injury and correlating with the ventricular tachycardia origin",
+        "confirmed_evidence": [
+          "Initial ECG shows monomorphic accelerated ventricular rhythm of LBBB morphology (E014)",
+          "Initial blood tests including troponin I and chest radiograph were unremarkable (E003)"
+        ],
+        "missing_key_evidence": [
+          "Cardiac MRI findings supporting right ventricular contusion and hematoma diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E015",
+        "source_text": "Cardiac MRI. Evidence of myocardial contusion involving the right ventricular free wall with focal areas of delayed enhancement, evidence of oedema (figure 3C), significant regional wall motion abnormalities involving the right ventricular outflow tract and right ventricular free wall (figure 3B). Normal left ventricular size and function, LVEF of 69%; small pericardial effusion with possible pericardial stranding/haematoma (figure 3A); normal right ventricular size with mildly depressed global function and regional wall motion abnormalities as described above. RVEF is 41%.",
+        "category": "imaging_report",
+        "temporal_cue": "hospital day 2",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Report details of the cardiac MRI findings related to the subacute precordial hematoma extending from the level of the great vessels across the left and anterior border of the heart, and its relation to the pulmonary artery and right ventricular outflow tract",
+        "current_trajectory_hypothesis": "Cardiac MRI on hospital day 2 revealed right ventricular contusion and edema, regional wall motion abnormalities, and a subacute precordial hematoma anterior to the pulmonary artery and right ventricular outflow tract with a small pericardial effusion, explaining the arrhythmogenic substrate",
+        "confirmed_evidence": [
+          "Initial ECG shows monomorphic accelerated ventricular rhythm of LBBB morphology (E014)",
+          "Initial blood tests including troponin I and chest radiograph were unremarkable (E003)",
+          "Cardiac MRI on hospital day 2 shows myocardial contusion involving right ventricular free wall with delayed enhancement, edema, regional wall motion abnormalities of right ventricular outflow tract and free wall, small pericardial effusion, and reduced RVEF (E015)"
+        ],
+        "missing_key_evidence": [
+          "Specific MRI description and imaging evidence of the subacute precordial hematoma and its anatomical extent around great vessels and RV outflow tract"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E009",
+        "source_text": "On hospital day 2, cardiac MRI was obtained that revealed right ventricular contusion (correlating with origin of ventricular ectopy) and oedema with regional wall motion abnormalities involving the right ventricular outflow tract and free wall. The MRI also showed a subacute precordial haematoma extending from the level of the great vessels across the left and anterior border of the heart, anterior to the pulmonary artery and right ventricular outflow tract and a small pericardial effusion with possible pericardial haematoma.",
+        "category": "imaging_report",
+        "temporal_cue": "hospital day 2",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Report any documented clinical course or treatment response from hospital day 2 onwards including arrhythmia control, symptom resolution, or complications",
+        "current_trajectory_hypothesis": "After identification of right ventricular contusion and precordial hematoma on hospital day 2 cardiac MRI, the clinical course and treatment response will further support the diagnosis and its impact",
+        "confirmed_evidence": [
+          "Initial ECG shows monomorphic accelerated ventricular rhythm of LBBB morphology (E014)",
+          "Initial blood tests including troponin I and chest radiograph were unremarkable (E003)",
+          "Cardiac MRI on hospital day 2 shows myocardial contusion involving right ventricular free wall with delayed enhancement, edema, regional wall motion abnormalities of right ventricular outflow tract and free wall, small pericardial effusion, and reduced RVEF (E015)",
+          "Cardiac MRI on hospital day 2 also showed a subacute precordial haematoma extending from level of great vessels across left and anterior border of heart anterior to pulmonary artery and RV outflow tract and small pericardial effusion with possible pericardial haematoma (E009)"
+        ],
+        "missing_key_evidence": [
+          "Clinical course or hospital follow-up documenting symptom changes, arrhythmia management or complications post MRI diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E010",
+        "source_text": "She was started on verapamil 40 mg every 8 hours on arrival; on hospital day 3 her dose was increased to 60 mg every 8 hours due to sustained frequent ectopic beats. On day 4, she continued to have premature ventricular contractions (PVCs) but with a decrease in frequency. The paediatric cardiology electrophysiologist evaluated the patient at bedside and cleared her for discharge. She was instructed to continue verapamil at home, to follow-up with paediatric cardiology in 2 weeks and a Holter monitor was ordered. Additionally, she was advised to avoid vigorous physical activity for 4 weeks.",
+        "category": "treatment_response",
+        "temporal_cue": "hospital days 0-4",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Report the findings of the Holter monitor ordered at discharge, including arrhythmia burden and ventricular ectopy characterization",
+        "current_trajectory_hypothesis": "Holter monitoring post-treatment initiation will provide evidence of arrhythmia burden and response to verapamil in this child with right ventricular contusion-related ventricular ectopy",
+        "confirmed_evidence": [
+          "Initial ECG shows monomorphic accelerated ventricular rhythm of LBBB morphology (E014)",
+          "Initial blood tests including troponin I and chest radiograph were unremarkable (E003)",
+          "Cardiac MRI on hospital day 2 shows myocardial contusion involving right ventricular free wall with delayed enhancement, edema, regional wall motion abnormalities of right ventricular outflow tract and free wall, small pericardial effusion, and reduced RVEF (E015)",
+          "Cardiac MRI on hospital day 2 also showed a subacute precordial hematoma extending from level of great vessels across left and anterior border of heart anterior to pulmonary artery and RV outflow tract and small pericardial effusion with possible pericardial hematoma (E009)",
+          "Clinical course from hospital days 0-4 with verapamil initiation, dose escalation, reduced PVC frequency, pediatric cardiology clearance for discharge and activity restrictions (E010)"
+        ],
+        "missing_key_evidence": [
+          "Holter monitor results providing follow-up arrhythmia burden and ventricular ectopy characterization"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E012",
+        "source_text": "She has continued to be followed by paediatric cardiology every 6 months with ECG and 24 hours Holter monitoring prior to each appointment. Her last two Holter recordings demonstrated 26%–27% PVCs. Her ECGs have continued to demonstrate sinus rhythm with monomorphic PVCs and occasional couplets.",
+        "category": "molecular_test",
+        "temporal_cue": "two months after initial event",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Right ventricular contusion with regional wall motion abnormalities, precordial hematoma, and pericardial effusion causing ventricular tachycardia",
+        "trajectory_summary": "An 8-year-old girl presented to the ED with lightheadedness, presyncope, and documented ventricular tachycardia by EMS. The initial ECG showed a monomorphic accelerated ventricular rhythm with left bundle branch block morphology. Initial blood tests including troponin, electrolytes, and chest radiograph were unremarkable. On hospital day 2, cardiac MRI demonstrated right ventricular free wall contusion with focal delayed enhancement, edema, regional wall motion abnormalities involving the right ventricular outflow tract, a subacute precordial hematoma extending from the great vessels anterior to the pulmonary artery and RV outflow tract, and a small pericardial effusion possibly with pericardial hematoma. The patient was treated with verapamil, which reduced the frequency of premature ventricular contractions. Follow-up Holter monitoring up to two months post-event showed persistent monomorphic PVCs at 26%-27% burden with occasional couplets. The pediatric cardiology electrophysiologist cleared her for discharge with activity restrictions and outpatient follow-up.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial ECG shows monomorphic accelerated ventricular rhythm of left bundle branch block morphology",
+            "evidence_ids": [
+              "E014"
+            ]
+          },
+          {
+            "claim": "Initial blood tests including troponin I and chest radiograph were unremarkable",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Cardiac MRI on hospital day 2 shows right ventricular free wall contusion with delayed enhancement, edema, regional wall motion abnormalities of right ventricular outflow tract and free wall, small pericardial effusion, and reduced right ventricular ejection fraction",
+            "evidence_ids": [
+              "E015"
+            ]
+          },
+          {
+            "claim": "Cardiac MRI revealed subacute precordial hematoma extending from the great vessels anterior to pulmonary artery and right ventricular outflow tract, with small pericardial effusion and possible pericardial hematoma",
+            "evidence_ids": [
+              "E009"
+            ]
+          },
+          {
+            "claim": "Clinical course with verapamil treatment decreased PVC frequency with pediatric cardiology clearance for discharge",
+            "evidence_ids": [
+              "E010"
+            ]
+          },
+          {
+            "claim": "Follow-up Holter monitoring two months post-event shows persistent monomorphic PVCs at 26-27% burden with occasional couplets",
+            "evidence_ids": [
+              "E012"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "primary ischemic myocardium injury",
+            "basis": "normal initial troponin and no ischemic ECG changes"
+          },
+          {
+            "alternative": "electrolyte or metabolic cause",
+            "basis": "normal initial electrolytes and metabolic panel"
+          },
+          {
+            "alternative": "structural congenital heart disease",
+            "basis": "normal left ventricular size and function on MRI and no congenital anomalies reported"
+          }
+        ],
+        "remaining_uncertainties": [
+          "No documented initial emergency department physical examination and vital signs",
+          "No long-term outcome beyond two months documented",
+          "No invasive diagnostic procedures or biopsy data available"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Right ventricular contusion with regional wall motion abnormalities, precordial hematoma, and pericardial effusion causing ventricular tachycardia",
+    "trajectory_summary": "An 8-year-old girl presented to the ED with lightheadedness, presyncope, and documented ventricular tachycardia by EMS. The initial ECG showed a monomorphic accelerated ventricular rhythm with left bundle branch block morphology. Initial blood tests including troponin, electrolytes, and chest radiograph were unremarkable. On hospital day 2, cardiac MRI demonstrated right ventricular free wall contusion with focal delayed enhancement, edema, regional wall motion abnormalities involving the right ventricular outflow tract, a subacute precordial hematoma extending from the great vessels anterior to the pulmonary artery and RV outflow tract, and a small pericardial effusion possibly with pericardial hematoma. The patient was treated with verapamil, which reduced the frequency of premature ventricular contractions. Follow-up Holter monitoring up to two months post-event showed persistent monomorphic PVCs at 26%-27% burden with occasional couplets. The pediatric cardiology electrophysiologist cleared her for discharge with activity restrictions and outpatient follow-up.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial ECG shows monomorphic accelerated ventricular rhythm of left bundle branch block morphology",
+        "evidence_ids": [
+          "E014"
+        ]
+      },
+      {
+        "claim": "Initial blood tests including troponin I and chest radiograph were unremarkable",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Cardiac MRI on hospital day 2 shows right ventricular free wall contusion with delayed enhancement, edema, regional wall motion abnormalities of right ventricular outflow tract and free wall, small pericardial effusion, and reduced right ventricular ejection fraction",
+        "evidence_ids": [
+          "E015"
+        ]
+      },
+      {
+        "claim": "Cardiac MRI revealed subacute precordial hematoma extending from the great vessels anterior to pulmonary artery and right ventricular outflow tract, with small pericardial effusion and possible pericardial hematoma",
+        "evidence_ids": [
+          "E009"
+        ]
+      },
+      {
+        "claim": "Clinical course with verapamil treatment decreased PVC frequency with pediatric cardiology clearance for discharge",
+        "evidence_ids": [
+          "E010"
+        ]
+      },
+      {
+        "claim": "Follow-up Holter monitoring two months post-event shows persistent monomorphic PVCs at 26-27% burden with occasional couplets",
+        "evidence_ids": [
+          "E012"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "primary ischemic myocardium injury",
+        "basis": "normal initial troponin and no ischemic ECG changes"
+      },
+      {
+        "alternative": "electrolyte or metabolic cause",
+        "basis": "normal initial electrolytes and metabolic panel"
+      },
+      {
+        "alternative": "structural congenital heart disease",
+        "basis": "normal left ventricular size and function on MRI and no congenital anomalies reported"
+      }
+    ],
+    "remaining_uncertainties": [
+      "No documented initial emergency department physical examination and vital signs",
+      "No long-term outcome beyond two months documented",
+      "No invasive diagnostic procedures or biopsy data available"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-23T19:54:28.026717+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

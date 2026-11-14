@@ -1,0 +1,296 @@
+{
+  "case_id": "PMC9527853",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 7,
+  "termination": "final",
+  "known_final_diagnosis": "A diagnosis of sarcoidosis was made based upon the renal biopsy findings and the above serological test results.",
+  "disclosed_evidence_ids": [
+    "E002",
+    "E004",
+    "E005",
+    "E007"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order serological tests relevant for sarcoidosis diagnosis including serum angiotensin-converting enzyme (ACE), calcium levels, and relevant inflammatory markers",
+        "current_trajectory_hypothesis": "Initial presentation with bilateral optic nerve edema, retinal ischemic changes, and new-onset glaucoma; sarcoidosis suspected, serological tests needed for further support",
+        "confirmed_evidence": [
+          "Presented with blurry vision, optic nerve edema, cotton-wool spots, retinal vessel congestion, dot-blot hemorrhages",
+          "Initial diagnosis considered hypertensive retinopathy with optic nerve swelling",
+          "Started treatment for open-angle glaucoma and ordered MRI"
+        ],
+        "missing_key_evidence": [
+          "Serological test results relevant to sarcoidosis",
+          "Biopsy findings to support sarcoidosis diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Serological tests relevant for sarcoidosis diagnosis were ordered as requested; no direct source record matches an order event to cite.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "Order a renal biopsy to obtain histopathological confirmation of sarcoidosis",
+        "current_trajectory_hypothesis": "Pending serological test results for sarcoidosis; histopathological confirmation via renal biopsy needed to confirm diagnosis given systemic signs",
+        "confirmed_evidence": [
+          "Initial presentation with optic nerve edema, retinal ischemic changes, and new-onset glaucoma",
+          "Serological tests relevant for sarcoidosis ordered"
+        ],
+        "missing_key_evidence": [
+          "Results of serological tests for sarcoidosis",
+          "Renal biopsy results confirming sarcoidosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Renal biopsy procedure ordered; no source result document yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request renal biopsy histopathology report results",
+        "current_trajectory_hypothesis": "Serological tests and renal biopsy ordered to confirm sarcoidosis; renal biopsy result needed to verify histopathological confirmation.",
+        "confirmed_evidence": [
+          "Initial presentation with optic nerve edema, retinal ischemic changes, and new-onset glaucoma",
+          "Serological tests and renal biopsy ordered for sarcoidosis confirmation"
+        ],
+        "missing_key_evidence": [
+          "Results of serological tests for sarcoidosis",
+          "Renal biopsy results confirming sarcoidosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "A renal biopsy demonstrated non-caseating granulomatous interstitial nephritis, staining negative for acid fast bacilli and fungi.",
+        "category": "pathology_report",
+        "temporal_cue": "after nephrology workup",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request serological test results including serum ACE, calcium levels, and inflammatory markers to support sarcoidosis diagnosis",
+        "current_trajectory_hypothesis": "Renal biopsy shows non-caseating granulomatous interstitial nephritis consistent with sarcoidosis; serological test results are needed to corroborate histopathological findings.",
+        "confirmed_evidence": [
+          "Initial presentation showed optic nerve edema, retinal ischemic changes, and new-onset glaucoma",
+          "Renal biopsy demonstrated non-caseating granulomatous interstitial nephritis with negative stains for acid fast bacilli and fungi"
+        ],
+        "missing_key_evidence": [
+          "Serological test results relevant to sarcoidosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "The initial nephrology workup included a 24-h blood pressure monitor, serologic testing, urine sediment analysis, urinalysis, and kidney ultrasound. The 24-h blood pressure monitor revealed an average blood pressure of 126/80 mm Hg. The urinalysis results were remarkable for mild hematuria and proteinuria. The urine protein-creatinine ratio was 0.69 (reference range, less than 0.2), and the albumin-creatinine ratio was 22.4 mg/g (reference range, less than 30.0). A urine sediment analysis showed increased urinary B2-microglobulin of 359 mcg/L (reference range, less than 300 mcg/L). The serum creatinine had increased to 2.73 mg/dL from a baseline reading of 1.51 mg/dL, which was obtained 6 months prior. Due to the rapid decline in kidney function, a serologic workup for secondary causes of acute glomerulonephritis was performed. The results were inconclusive, however, with a positive ANA titer of 1: 640 and low complement 3 of 72.4 mg/ dL. The calcium level was in the reference range at 8.6 mg/dL. Serum and urine protein electrophoresis demonstrated a normal pattern. C-reactive protein (CRP) levels were normal at 0.2. The kidney ultrasound results were unremarkable.",
+        "category": "routine_lab",
+        "temporal_cue": "after referral to nephrology",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request MRI brain imaging report to evaluate for intracranial pathology explaining optic nerve edema",
+        "current_trajectory_hypothesis": "Initial presentation showed optic nerve edema and retinal ischemic changes; MRI was ordered to rule out intracranial pathology contributing to visual symptoms.",
+        "confirmed_evidence": [
+          "Initial ophthalmologist encounter noted bilateral optic nerve edema and retinal ischemia",
+          "MRI was ordered to rule out intracranial causes",
+          "Renal biopsy showed non-caseating granulomatous interstitial nephritis consistent with sarcoidosis",
+          "Serological tests including ANA positive, low C3 complement, normal calcium, and negative inflammatory markers"
+        ],
+        "missing_key_evidence": [
+          "MRI brain imaging results to exclude other intracranial pathology impacting optic nerves"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "The magnetic resonance imaging results were normal, with no evidence of any intracranial abnormality or mass.",
+        "category": "imaging_report",
+        "temporal_cue": "after initial presentation",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request ophthalmology follow-up or retina consult report results documenting clinical course and response to glaucoma treatment or retinal ischemic changes",
+        "current_trajectory_hypothesis": "Initial presentation with ocular findings and glaucoma treatment initiated; follow-up clinical course details and response to treatment or progression data are needed to complete the trajectory",
+        "confirmed_evidence": [
+          "Initial presentation showed blurry vision with optic nerve edema, retinal ischemic changes, and glaucoma",
+          "MRI brain was normal, ruling out intracranial causes for optic nerve swelling",
+          "Renal biopsy confirmed non-caseating granulomatous interstitial nephritis consistent with sarcoidosis",
+          "Serological tests showed positive ANA, low C3, normal calcium, and normal inflammatory markers"
+        ],
+        "missing_key_evidence": [
+          "Clinical course and ophthalmology follow-up assessments documenting treatment response or progression of ocular disease"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "Five months later, the patient returned for a follow-up with the nephrologist. His serum creatinine level had improved to 1.72 mg/dL, and the calculated glomerular filtration rate (GFR) had improved from 24 mL/min to 40 mL/min. On ophthalmic assessment, all neurologic symptoms had resolved, although he continued to receive treatment for glaucoma, with normal intraocular pressures of 15 mm Hg and 18 mm Hg, respectively.",
+        "category": "other",
+        "temporal_cue": "five months later",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "sarcoidosis",
+        "trajectory_summary": "A 63-year-old man initially presented with blurry vision, optic nerve edema, retinal ischemic changes, and elevated intraocular pressure leading to a preliminary diagnosis of hypertensive retinopathy with open-angle glaucoma. MRI brain was normal ruling out intracranial pathology. Serologic workup showed positive ANA, low complement 3, normal calcium, and normal inflammatory markers. Renal biopsy revealed non-caseating granulomatous interstitial nephritis negative for acid-fast bacilli and fungi, confirming sarcoidosis. Follow-up showed improvement in renal function and resolution of neurologic symptoms with ongoing glaucoma treatment and controlled intraocular pressure.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial presentation with blurry vision, optic nerve edema, retinal ischemic changes, and elevated intraocular pressure",
+            "evidence_ids": []
+          },
+          {
+            "claim": "MRI brain was normal with no intracranial abnormality",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Serologic testing showed positive ANA, low C3 complement, normal calcium and inflammatory markers",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Renal biopsy demonstrated non-caseating granulomatous interstitial nephritis negative for AFB and fungi confirming sarcoidosis",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Follow-up showed improved renal function and resolved neurologic symptoms with ongoing glaucoma treatment",
+            "evidence_ids": [
+              "E007"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "intracranial mass or intracranial pathology",
+            "basis": "Normal MRI brain imaging (E002)"
+          },
+          {
+            "alternative": "infectious granulomatous disease such as tuberculosis or fungal infection",
+            "basis": "Negative acid-fast bacilli and fungal stains on renal biopsy (E005)"
+          }
+        ],
+        "remaining_uncertainties": [],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "sarcoidosis",
+    "trajectory_summary": "A 63-year-old man initially presented with blurry vision, optic nerve edema, retinal ischemic changes, and elevated intraocular pressure leading to a preliminary diagnosis of hypertensive retinopathy with open-angle glaucoma. MRI brain was normal ruling out intracranial pathology. Serologic workup showed positive ANA, low complement 3, normal calcium, and normal inflammatory markers. Renal biopsy revealed non-caseating granulomatous interstitial nephritis negative for acid-fast bacilli and fungi, confirming sarcoidosis. Follow-up showed improvement in renal function and resolution of neurologic symptoms with ongoing glaucoma treatment and controlled intraocular pressure.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial presentation with blurry vision, optic nerve edema, retinal ischemic changes, and elevated intraocular pressure",
+        "evidence_ids": []
+      },
+      {
+        "claim": "MRI brain was normal with no intracranial abnormality",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Serologic testing showed positive ANA, low C3 complement, normal calcium and inflammatory markers",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Renal biopsy demonstrated non-caseating granulomatous interstitial nephritis negative for AFB and fungi confirming sarcoidosis",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Follow-up showed improved renal function and resolved neurologic symptoms with ongoing glaucoma treatment",
+        "evidence_ids": [
+          "E007"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "intracranial mass or intracranial pathology",
+        "basis": "Normal MRI brain imaging (E002)"
+      },
+      {
+        "alternative": "infectious granulomatous disease such as tuberculosis or fungal infection",
+        "basis": "Negative acid-fast bacilli and fungal stains on renal biopsy (E005)"
+      }
+    ],
+    "remaining_uncertainties": [],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-25T18:33:57.596647+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

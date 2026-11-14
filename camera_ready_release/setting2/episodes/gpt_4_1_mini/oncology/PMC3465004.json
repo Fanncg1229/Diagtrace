@@ -1,0 +1,508 @@
+{
+  "case_id": "PMC3465004",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 12,
+  "termination": "final",
+  "known_final_diagnosis": "Histopathologic examination showed cribriform and pseudoglandular pattern seminoma, with T2N0 stage stadialization.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E006"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order serum tumor markers specific for testicular cancer (AFP, Beta-hCG, LDH)",
+        "current_trajectory_hypothesis": "Patient with left testicular mass, inflammatory signs, suggestive of testicular tumor. Imaging suggests malignancy. Need tumor markers to support diagnosis.",
+        "confirmed_evidence": [
+          "Clinical presentation: left scrotal swelling, pain, hyperemia",
+          "History of cryptorchidism",
+          "Physical exam: hard, painful left testicular tumor 6/15 cm",
+          "Lab: elevated WBC 16500, ESR 74, fibrinogen 1084, alkaline phosphatase 937",
+          "Ultrasound: structural modifications of left testis consistent with malignancy; no adenopathies"
+        ],
+        "missing_key_evidence": [
+          "Serum tumor markers for testicular cancer",
+          "Histopathologic confirmation",
+          "Staging imaging results",
+          "Physical exam details of lymph nodes or other sites"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Ordered serum tumor markers specific for testicular cancer; no results documented in source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "Order left testicular biopsy or orchiectomy specimen for histopathologic examination",
+        "current_trajectory_hypothesis": "Patient has clinical and imaging evidence of left testicular tumor suggestive of malignancy; need histopathologic confirmation and classification.",
+        "confirmed_evidence": [
+          "Clinical presentation: left scrotal swelling, pain, hyperemia",
+          "History of cryptorchidism",
+          "Physical exam: hard, painful left testicular tumor 6/15 cm",
+          "Lab: elevated WBC 16500, ESR 74, fibrinogen 1084, alkaline phosphatase 937",
+          "Ultrasound: structural modifications of left testis consistent with malignancy; no adenopathies",
+          "Order for serum tumor markers (pending)"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic confirmation and tumor classification",
+          "Serum tumor marker results",
+          "Staging imaging results to confirm absence of metastasis or nodes"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.65
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "The procedure order is registered without documentation of results yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request histopathologic examination results of left testicular biopsy or orchiectomy specimen",
+        "current_trajectory_hypothesis": "Histopathology is key to confirm and classify the testicular tumor; biopsy or orchiectomy specimen should show seminoma morphology and stage.",
+        "confirmed_evidence": [
+          "Clinical presentation: left scrotal swelling, pain, hyperemia",
+          "History of cryptorchidism",
+          "Physical exam: hard, painful left testicular tumor 6/15 cm",
+          "Lab: elevated WBC 16500, ESR 74, fibrinogen 1084, alkaline phosphatase 937",
+          "Ultrasound: structural modifications of left testis consistent with malignancy; no adenopathies",
+          "Orders for serum tumor markers and biopsy/orchiectomy specimen"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic confirmation and tumor classification",
+          "Serum tumor marker results",
+          "Staging imaging results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.65
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Waiting for histopathologic examination results or additional diagnostic evaluations to confirm seminoma diagnosis and staging.",
+        "confirmed_evidence": [
+          "Clinical presentation: left scrotal swelling, pain, hyperemia",
+          "History of cryptorchidism",
+          "Physical exam: hard, painful left testicular tumor 6/15 cm",
+          "Lab: elevated WBC 16500, ESR 74, fibrinogen 1084, alkaline phosphatase 937",
+          "Ultrasound: structural modifications of left testis consistent with malignancy; no adenopathies",
+          "Procedures ordered: serum tumor markers and testicular biopsy/orchiectomy specimen"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic results confirming seminoma pattern and staging",
+          "Serum tumor markers results",
+          "Staging imaging to confirm absence of metastasis or nodes"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.65
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "Clinical examination was non-specific except for a 6/15 cm, hard, intensely painful on palpation, left testicular tumor with inflamed adjacent tissues.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request detailed histopathologic examination report of left testicular biopsy or orchiectomy specimen specifying tumor type, pattern, and stage",
+        "current_trajectory_hypothesis": "Awaiting histopathologic confirmation of seminoma with cribriform and pseudoglandular patterns and staging information (T2N0) to confirm diagnosis.",
+        "confirmed_evidence": [
+          "Clinical presentation of left scrotal swelling, pain, and hyperemia",
+          "History of cryptorchidism with childhood surgery",
+          "Physical exam showing 6/15 cm hard and painful left testicular tumor with inflamed adjacent tissues",
+          "Laboratory findings: elevated WBC, ESR, fibrinogen, and alkaline phosphatase",
+          "Ultrasound imaging showing testicular malignancy without regional adenopathies",
+          "Procedures ordered including biopsy/orchiectomy and serum tumor markers"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic details of tumor morphology and pattern",
+          "Staging information confirming T2N0",
+          "Results of serum tumor markers",
+          "Staging imaging results to rule out metastasis or lymphadenopathy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Still waiting for histopathologic confirmation of seminoma with cribriform and pseudoglandular pattern and T2N0 stage, plus serum tumor markers and staging imaging results.",
+        "confirmed_evidence": [
+          "Left testicular tumor 6/15 cm, hard, painful, with local inflammation on physical exam (E001)",
+          "History of cryptorchidism with childhood surgery",
+          "Laboratory signs of inflammation (elevated WBC, ESR, fibrinogen, alkaline phosphatase)",
+          "Ultrasound suggests testicular malignancy without regional adenopathies",
+          "Procedures ordered for biopsy/orchiectomy and serum tumor markers"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic report detailing seminoma morphology and tumor staging (T2N0)",
+          "Serum tumor marker results (AFP, Beta-hCG, LDH)",
+          "Staging imaging report to confirm absence of metastasis or lymphadenopathy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "Basic blood work showed further signs of inflammation with a white cell count of 16500/dl, a high sedimentation rate (74mm/h) and a fibrinogen level of 1084mg/dl. The patient’s alkaline phosphatase had values of 937UI/l.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request serum tumor marker results (AFP, Beta-hCG, LDH) related to left testicular tumor",
+        "current_trajectory_hypothesis": "Serum tumor markers are essential to support the diagnosis of seminoma and rule out non-seminomatous germ cell tumors; awaiting results to strengthen diagnosis.",
+        "confirmed_evidence": [
+          "History of cryptorchidism with surgery in childhood",
+          "Physical exam: 6/15 cm hard, painful left testicular tumor with local hyperemia and inflamed adjacent tissues (E001)",
+          "Laboratory signs of inflammation: elevated WBC 16500/dl, ESR 74mm/h, fibrinogen 1084mg/dl, alkaline phosphatase 937UI/l (E002)",
+          "Ultrasound showing testicular structural changes consistent with malignancy and absence of regional adenopathies",
+          "Orders made for serum tumor markers and biopsy/orchiectomy specimen"
+        ],
+        "missing_key_evidence": [
+          "Serum tumor marker results (AFP, Beta-hCG, LDH)",
+          "Histopathologic confirmation and tumor pattern/staging (T2N0)",
+          "Imaging or clinical staging confirming absence of metastasis or nodal involvement"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Serum tumor marker results (AFP, Beta-hCG, LDH) are not reported in the supplied evidence records.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient with left testicular mass and local inflammatory signs; pending histopathologic confirmation of seminoma subtype and stage to validate final diagnosis.",
+        "confirmed_evidence": [
+          "Left testicular tumor 6/15 cm, hard and painful with local inflammation (E001)",
+          "History of cryptorchidism with childhood surgery",
+          "Lab: elevated WBC 16500/dl, ESR 74mm/h, fibrinogen 1084mg/dl, alkaline phosphatase 937UI/l (E002)",
+          "Ultrasound showing testicular malignancy without regional adenopathies",
+          "Orders placed for serum tumor markers and biopsy/orchiectomy specimen",
+          "Serum tumor markers results not available yet"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic report confirming seminoma with cribriform and pseudoglandular pattern",
+          "Precise tumor stage (T2N0)",
+          "Serum tumor marker results (AFP, Beta-hCG, LDH)",
+          "Imaging or clinical staging to confirm absence of metastasis and nodal involvement"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Structural modifications of the left testis revealed by ultrasonography along with clinical and paraclinical data were characteristic for testicular malignancy. There were no regional adenopathies present on ultrasound examination.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient with left testicular tumor consistent with malignancy on imaging and physical exam, with inflammatory markers elevated. Awaiting histopathology results confirming seminoma with cribriform and pseudoglandular pattern and T2N0 staging, plus serum tumor marker and staging imaging results.",
+        "confirmed_evidence": [
+          "Physical exam: 6/15 cm hard, painful left testicular tumor with inflamed adjacent tissues (E001)",
+          "Lab: elevated WBC 16500/dl, ESR 74mm/h, fibrinogen 1084mg/dl, alkaline phosphatase 937 UI/l (E002)",
+          "Ultrasound: testicular malignancy without regional adenopathies (E003)",
+          "Known history of cryptorchidism with surgery in childhood",
+          "Orders for serum tumor markers and testicular biopsy/orchiectomy specimen"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic report confirming seminoma with specified patterns and staging (T2N0)",
+          "Serum tumor marker results (AFP, Beta-hCG, LDH)",
+          "Staging imaging results confirming absence of metastatic disease"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "Postoperatively, the patient evolved uneventfully both locally and generally and was referred to an oncology department for further treatment.",
+        "category": "other",
+        "temporal_cue": "postoperative period",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request histopathologic examination results specifying seminoma with cribriform and pseudoglandular pattern and staging as T2N0",
+        "current_trajectory_hypothesis": "Histopathologic confirmation of seminoma tumor type with specified histological pattern and stage is critical to finalize diagnosis; currently unavailable in the records.",
+        "confirmed_evidence": [
+          "Patient presented with 1-year history of left scrotal swelling, pain, and hyperemia",
+          "Physical exam: hard, painful left testicular tumor 6/15 cm, inflamed adjacent tissues (E001)",
+          "Lab: elevated inflammatory markers including WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, alkaline phosphatase 937 UI/l (E002)",
+          "Ultrasound showed structural changes consistent with testicular malignancy without regional lymphadenopathy (E003)",
+          "Postoperative course was uneventful and patient referred to oncology (E006)",
+          "Orders and pending for biopsy/orchiectomy specimen and serum tumor markers"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic report confirming seminoma morphology with cribriform and pseudoglandular pattern and staging T2N0",
+          "Serum tumor marker results (AFP, Beta-hCG, LDH)",
+          "Imaging staging confirming no metastatic disease"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "Ask if there was any imaging done for staging beyond testicular ultrasound, such as CT scans of the abdomen or pelvis to rule out lymph node or metastatic disease.",
+        "current_trajectory_hypothesis": "The patient has a clinical and imaging profile suggestive of testicular malignancy, with inflammation and no regional adenopathies on ultrasound. Histopathologic confirmation and staging imaging results are still missing. Staging imaging such as CT could confirm absence of metastasis or nodal involvement and support T2N0 staging.",
+        "confirmed_evidence": [
+          "Physical exam: 6/15 cm hard, painful left testicular tumor with inflamed adjacent tissues (E001)",
+          "Lab: elevated inflammation markers (WBC 16500/dl, ESR 74, fibrinogen 1084, alkaline phosphatase 937) (E002)",
+          "Ultrasound showed testicular malignancy without regional adenopathies (E003)",
+          "Postoperative period uneventful, patient referred to oncology (E006)"
+        ],
+        "missing_key_evidence": [
+          "Histopathologic confirmation of seminoma with cribriform and pseudoglandular pattern and T2N0 stage",
+          "Serum tumor marker results (AFP, Beta-hCG, LDH)",
+          "Staging imaging beyond ultrasound (CT or MRI) to confirm absence of metastases"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No evidence in the source material reports any imaging done beyond testicular ultrasound for staging.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Histopathologic examination showed cribriform and pseudoglandular pattern seminoma, with T2N0 stage stadialization.",
+        "trajectory_summary": "A 42-year-old patient presented with a 1-year history of left scrotal swelling complicated by local hyperemia and pain. History included cryptorchidism with surgery in childhood. Physical exam revealed a 6/15 cm hard, intensely painful left testicular tumor with inflamed adjacent tissues. Laboratory tests showed elevated inflammatory markers (WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, alkaline phosphatase 937 UI/l). Ultrasonography displayed structural modifications characteristic of testicular malignancy with no regional adenopathies. Histopathologic examination (implied but exact report text not available) confirmed seminoma with cribriform and pseudoglandular patterns and localized T2N0 staging. The postoperative course was uneventful with referral to oncology. Serum tumor markers and staging imaging beyond ultrasound were ordered but not documented in the source material.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Physical exam: hard, painful left testicular tumor 6/15 cm with inflamed adjacent tissues",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Laboratory evidence of inflammation with elevated WBC, ESR, fibrinogen, alkaline phosphatase",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Ultrasound evidence of testicular malignancy without regional adenopathy",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Postoperative course uneventful, patient referred to oncology",
+            "evidence_ids": [
+              "E006"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Non-seminomatous germ cell tumors",
+            "basis": "No reported elevation of serum tumor markers available; histopathology confirmed seminoma pattern"
+          },
+          {
+            "alternative": "Infectious or inflammatory testicular conditions",
+            "basis": "Histopathologic confirmation of seminoma and testicular ultrasound consistent with malignancy"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Lack of documented serum tumor marker results (AFP, Beta-hCG, LDH)",
+          "No documented staging imaging beyond testicular ultrasound (e.g., CT scan of abdomen/pelvis)",
+          "No direct quoted histopathology report text due to source limitations"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Histopathologic examination showed cribriform and pseudoglandular pattern seminoma, with T2N0 stage stadialization.",
+    "trajectory_summary": "A 42-year-old patient presented with a 1-year history of left scrotal swelling complicated by local hyperemia and pain. History included cryptorchidism with surgery in childhood. Physical exam revealed a 6/15 cm hard, intensely painful left testicular tumor with inflamed adjacent tissues. Laboratory tests showed elevated inflammatory markers (WBC 16500/dl, ESR 74 mm/h, fibrinogen 1084 mg/dl, alkaline phosphatase 937 UI/l). Ultrasonography displayed structural modifications characteristic of testicular malignancy with no regional adenopathies. Histopathologic examination (implied but exact report text not available) confirmed seminoma with cribriform and pseudoglandular patterns and localized T2N0 staging. The postoperative course was uneventful with referral to oncology. Serum tumor markers and staging imaging beyond ultrasound were ordered but not documented in the source material.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Physical exam: hard, painful left testicular tumor 6/15 cm with inflamed adjacent tissues",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Laboratory evidence of inflammation with elevated WBC, ESR, fibrinogen, alkaline phosphatase",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Ultrasound evidence of testicular malignancy without regional adenopathy",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Postoperative course uneventful, patient referred to oncology",
+        "evidence_ids": [
+          "E006"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Non-seminomatous germ cell tumors",
+        "basis": "No reported elevation of serum tumor markers available; histopathology confirmed seminoma pattern"
+      },
+      {
+        "alternative": "Infectious or inflammatory testicular conditions",
+        "basis": "Histopathologic confirmation of seminoma and testicular ultrasound consistent with malignancy"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Lack of documented serum tumor marker results (AFP, Beta-hCG, LDH)",
+      "No documented staging imaging beyond testicular ultrasound (e.g., CT scan of abdomen/pelvis)",
+      "No direct quoted histopathology report text due to source limitations"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.85
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-26T06:01:38.831409+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

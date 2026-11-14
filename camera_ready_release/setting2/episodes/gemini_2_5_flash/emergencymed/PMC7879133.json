@@ -1,0 +1,432 @@
+{
+  "case_id": "PMC7879133",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 11,
+  "termination": "final",
+  "known_final_diagnosis": "a ruptured renal AML two weeks after COVID-19 infection",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E005"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "CT abdomen/pelvis with contrast",
+        "current_trajectory_hypothesis": "Patient presents with acute left flank pain, microhematuria, and CVA tenderness. Given the known diagnosis of ruptured renal AML, imaging is needed to identify renal pathology and potential hemorrhage.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Imaging findings of the kidneys",
+          "Evidence of renal AML",
+          "Evidence of rupture/hemorrhage"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order placed for CT abdomen/pelvis with contrast; no matching source test result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "CT abdomen/pelvis with contrast report",
+        "current_trajectory_hypothesis": "Patient presents with acute left flank pain, microhematuria, and CVA tenderness. Imaging was ordered to identify renal pathology and potential hemorrhage, which is crucial for confirming a ruptured renal AML.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Imaging findings of the kidneys",
+          "Evidence of renal AML",
+          "Evidence of rupture/hemorrhage"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "Non-contrast computed tomography of her abdomen and pelvis demonstrated left peri-renal moderate volume hemorrhage with a fat dense lesion in the left kidney measuring 2.5 × 2.3 × 2.1 cm, consistent with ruptured renal AML.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with acute left flank pain and microhematuria. CT imaging confirmed a ruptured renal AML with peri-renal hemorrhage. The next step in the trajectory would be the immediate clinical management or intervention for this condition.",
+        "confirmed_evidence": [
+          "Acute-onset left flank pain, radiating to left shoulder, with microhematuria and left CVA tenderness.",
+          "CT abdomen/pelvis showed left peri-renal moderate volume hemorrhage with a fat dense lesion in the left kidney (2.5 × 2.3 × 2.1 cm), consistent with ruptured renal AML (E001)."
+        ],
+        "missing_key_evidence": [
+          "Details of clinical management or intervention",
+          "Further clinical course or outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "Laboratory studies revealed: white blood cell count 13.8 cells/mm3, hemoglobin 13.4 g/dl, PT 14 s, APTT 35.4 s, INR 1.1. Urine studies showed microhematuria and a negative pregnancy test.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Clinical course and management of the ruptured renal AML",
+        "current_trajectory_hypothesis": "The patient presented with acute left flank pain and microhematuria. CT imaging confirmed a ruptured renal AML with peri-renal hemorrhage. The next step in the trajectory is to understand the immediate clinical management or intervention for this condition.",
+        "confirmed_evidence": [
+          "Acute-onset left flank pain, radiating to left shoulder, with microhematuria and left CVA tenderness.",
+          "CT abdomen/pelvis showed left peri-renal moderate volume hemorrhage with a fat dense lesion in the left kidney (2.5 × 2.3 × 2.1 cm), consistent with ruptured renal AML (E001).",
+          "Initial lab results included WBC 13.8 cells/mm3, hemoglobin 13.4 g/dl, PT 14 s, APTT 35.4 s, INR 1.1, and microhematuria (E002)."
+        ],
+        "missing_key_evidence": [
+          "Details of clinical management or intervention for the ruptured AML",
+          "Further clinical course or outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Interventional radiology performed embolization 12 h after admission. The intraprocedural evaluation of the renal artery system found no aneurysmal dilatation.",
+        "category": "procedure",
+        "temporal_cue": "12 hours after admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Outcome of the embolization procedure and patient's clinical status post-procedure",
+        "current_trajectory_hypothesis": "The patient presented with acute left flank pain and microhematuria. CT imaging confirmed a ruptured renal AML with peri-renal hemorrhage. Embolization was performed by interventional radiology. I need to understand the effectiveness of the embolization and the patient's subsequent clinical course.",
+        "confirmed_evidence": [
+          "Acute-onset left flank pain, radiating to left shoulder, with microhematuria and left CVA tenderness.",
+          "CT abdomen/pelvis showed left peri-renal moderate volume hemorrhage with a fat dense lesion in the left kidney (2.5 × 2.3 × 2.1 cm), consistent with ruptured renal AML (E001).",
+          "Initial lab results included WBC 13.8 cells/mm3, hemoglobin 13.4 g/dl, PT 14 s, APTT 35.4 s, INR 1.1, and microhematuria (E002).",
+          "Interventional radiology performed embolization 12 hours after admission, finding no aneurysmal dilatation in the renal artery system (E003)."
+        ],
+        "missing_key_evidence": [
+          "Effectiveness of embolization",
+          "Resolution of symptoms",
+          "Further clinical course or outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "The patient's post-procedural course was complicated by continued hemorrhage and retroperitoneal hematoma, with a hemoglobin nadir of 6.8 g/dl requiring transfusion of 2 units packed red blood cells. She also developed diaphragmatic irritation and required supplemental oxygen by nasal canula.",
+        "category": "routine_lab",
+        "temporal_cue": "post-procedural",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Management of continued hemorrhage and retroperitoneal hematoma, and subsequent clinical course",
+        "current_trajectory_hypothesis": "The patient presented with acute left flank pain and microhematuria. CT imaging confirmed a ruptured renal AML with peri-renal hemorrhage. Embolization was performed, but the patient experienced continued hemorrhage and retroperitoneal hematoma, requiring blood transfusion. I need to understand how these complications were managed and the patient's subsequent clinical progression.",
+        "confirmed_evidence": [
+          "Acute-onset left flank pain, radiating to left shoulder, with microhematuria and left CVA tenderness.",
+          "CT abdomen/pelvis showed left peri-renal moderate volume hemorrhage with a fat dense lesion in the left kidney (2.5 × 2.3 × 2.1 cm), consistent with ruptured renal AML (E001).",
+          "Initial lab results included WBC 13.8 cells/mm3, hemoglobin 13.4 g/dl, PT 14 s, APTT 35.4 s, INR 1.1, and microhematuria (E002).",
+          "Interventional radiology performed embolization 12 hours after admission, finding no aneurysmal dilatation in the renal artery system (E003).",
+          "Post-procedural course was complicated by continued hemorrhage and retroperitoneal hematoma, with hemoglobin nadir of 6.8 g/dl requiring 2 units PRBCs, and diaphragmatic irritation requiring supplemental oxygen (E004)."
+        ],
+        "missing_key_evidence": [
+          "Intervention for continued hemorrhage/hematoma",
+          "Resolution of complications",
+          "Overall clinical outcome and discharge status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E004",
+        "source_text": "The patient's post-procedural course was complicated by continued hemorrhage and retroperitoneal hematoma, with a hemoglobin nadir of 6.8 g/dl requiring transfusion of 2 units packed red blood cells. She also developed diaphragmatic irritation and required supplemental oxygen by nasal canula.",
+        "category": "routine_lab",
+        "temporal_cue": "post-procedural",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with acute left flank pain and microhematuria. CT imaging confirmed a ruptured renal AML with peri-renal hemorrhage. Embolization was performed, but the patient experienced continued hemorrhage and retroperitoneal hematoma, requiring blood transfusion and supplemental oxygen. I need to understand how these complications were managed and the patient's subsequent clinical progression and final outcome.",
+        "confirmed_evidence": [
+          "Acute-onset left flank pain, radiating to left shoulder, with microhematuria and left CVA tenderness.",
+          "CT abdomen/pelvis showed left peri-renal moderate volume hemorrhage with a fat dense lesion in the left kidney (2.5 × 2.3 × 2.1 cm), consistent with ruptured renal AML (E001).",
+          "Initial lab results included WBC 13.8 cells/mm3, hemoglobin 13.4 g/dl, PT 14 s, APTT 35.4 s, INR 1.1, and microhematuria (E002).",
+          "Interventional radiology performed embolization 12 hours after admission, finding no aneurysmal dilatation in the renal artery system (E003).",
+          "Post-procedural course was complicated by continued hemorrhage and retroperitoneal hematoma, with hemoglobin nadir of 6.8 g/dl requiring 2 units PRBCs, and diaphragmatic irritation requiring supplemental oxygen (E004)."
+        ],
+        "missing_key_evidence": [
+          "Specific interventions for continued hemorrhage/hematoma beyond initial transfusion",
+          "Resolution of complications",
+          "Overall clinical outcome and discharge status",
+          "Connection to COVID-19 if any further documented"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "On hospital day 6 she developed respiratory COVID-19 symptoms and again tested positive by PCR assay for COVID-19.",
+        "category": "routine_lab",
+        "temporal_cue": "hospital day 6",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Management of the continued hemorrhage and retroperitoneal hematoma, and the patient's overall clinical course and outcome.",
+        "current_trajectory_hypothesis": "The patient presented with acute left flank pain and microhematuria. CT imaging confirmed a ruptured renal AML with peri-renal hemorrhage. Embolization was performed, but the patient experienced continued hemorrhage and retroperitoneal hematoma, requiring blood transfusion and supplemental oxygen. She also developed new COVID-19 symptoms on hospital day 6. I need to understand how the hemorrhage was ultimately managed and the patient's overall clinical progression and final outcome.",
+        "confirmed_evidence": [
+          "Acute-onset left flank pain, radiating to left shoulder, with microhematuria and left CVA tenderness.",
+          "CT abdomen/pelvis showed left peri-renal moderate volume hemorrhage with a fat dense lesion in the left kidney (2.5 × 2.3 × 2.1 cm), consistent with ruptured renal AML (E001).",
+          "Initial lab results included WBC 13.8 cells/mm3, hemoglobin 13.4 g/dl, PT 14 s, APTT 35.4 s, INR 1.1, and microhematuria (E002).",
+          "Interventional radiology performed embolization 12 hours after admission, finding no aneurysmal dilatation in the renal artery system (E003).",
+          "Post-procedural course was complicated by continued hemorrhage and retroperitoneal hematoma, with hemoglobin nadir of 6.8 g/dl requiring 2 units PRBCs, and diaphragmatic irritation requiring supplemental oxygen (E004).",
+          "On hospital day 6, she developed respiratory COVID-19 symptoms and again tested positive by PCR assay for COVID-19 (E005)."
+        ],
+        "missing_key_evidence": [
+          "Specific interventions for continued hemorrhage/hematoma beyond initial transfusion",
+          "Resolution of complications",
+          "Overall clinical outcome and discharge status",
+          "Impact of COVID-19 recurrence on management or outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E004",
+        "source_text": "The patient's post-procedural course was complicated by continued hemorrhage and retroperitoneal hematoma, with a hemoglobin nadir of 6.8 g/dl requiring transfusion of 2 units packed red blood cells. She also developed diaphragmatic irritation and required supplemental oxygen by nasal canula.",
+        "category": "routine_lab",
+        "temporal_cue": "post-procedural",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with acute left flank pain and microhematuria. CT imaging confirmed a ruptured renal AML with peri-renal hemorrhage. Embolization was performed, but the patient experienced continued hemorrhage and retroperitoneal hematoma, requiring blood transfusion and supplemental oxygen. She also developed new COVID-19 symptoms on hospital day 6. I need to understand if further interventions were required for the hemorrhage, how the complications resolved, and the patient's overall clinical progression and final outcome.",
+        "confirmed_evidence": [
+          "Acute-onset left flank pain, radiating to left shoulder, with microhematuria and left CVA tenderness.",
+          "CT abdomen/pelvis showed left peri-renal moderate volume hemorrhage with a fat dense lesion in the left kidney (2.5 × 2.3 × 2.1 cm), consistent with ruptured renal AML (E001).",
+          "Initial lab results included WBC 13.8 cells/mm3, hemoglobin 13.4 g/dl, PT 14 s, APTT 35.4 s, INR 1.1, and microhematuria (E002).",
+          "Interventional radiology performed embolization 12 hours after admission, finding no aneurysmal dilatation in the renal artery system (E003).",
+          "Post-procedural course was complicated by continued hemorrhage and retroperitoneal hematoma, with hemoglobin nadir of 6.8 g/dl requiring 2 units PRBCs, and diaphragmatic irritation requiring supplemental oxygen (E004).",
+          "On hospital day 6, she developed respiratory COVID-19 symptoms and again tested positive by PCR assay for COVID-19 (E005)."
+        ],
+        "missing_key_evidence": [
+          "Specific interventions for continued hemorrhage/hematoma beyond initial transfusion",
+          "Resolution of complications",
+          "Overall clinical outcome and discharge status",
+          "Impact of COVID-19 recurrence on management or outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "explanation": "No pending orders with source-backed results. No new undisclosed clinical trajectory updates after current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Overall clinical outcome and discharge status of the patient",
+        "current_trajectory_hypothesis": "The patient presented with acute left flank pain and microhematuria. CT imaging confirmed a ruptured renal AML with peri-renal hemorrhage. Embolization was performed, but the patient experienced continued hemorrhage and retroperitoneal hematoma, requiring blood transfusion and supplemental oxygen. She also developed new COVID-19 symptoms on hospital day 6. I need to understand the patient's overall clinical outcome and discharge status to complete the trajectory.",
+        "confirmed_evidence": [
+          "Acute-onset left flank pain, radiating to left shoulder, with microhematuria and left CVA tenderness.",
+          "CT abdomen/pelvis showed left peri-renal moderate volume hemorrhage with a fat dense lesion in the left kidney (2.5 × 2.3 × 2.1 cm), consistent with ruptured renal AML (E001).",
+          "Initial lab results included WBC 13.8 cells/mm3, hemoglobin 13.4 g/dl, PT 14 s, APTT 35.4 s, INR 1.1, and microhematuria (E002).",
+          "Interventional radiology performed embolization 12 hours after admission, finding no aneurysmal dilatation in the renal artery system (E003).",
+          "Post-procedural course was complicated by continued hemorrhage and retroperitoneal hematoma, with hemoglobin nadir of 6.8 g/dl requiring 2 units PRBCs, and diaphragmatic irritation requiring supplemental oxygen (E004).",
+          "On hospital day 6, she developed respiratory COVID-19 symptoms and again tested positive by PCR assay for COVID-19 (E005)."
+        ],
+        "missing_key_evidence": [
+          "Resolution of complications (continued hemorrhage/hematoma)",
+          "Overall clinical outcome and discharge status",
+          "Impact of COVID-19 recurrence on management or outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "explanation": "No source evidence reports the overall clinical outcome or discharge status.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "a ruptured renal AML two weeks after COVID-19 infection",
+        "trajectory_summary": "A 22-year-old female presented with acute-onset left flank pain, radiating to the left shoulder, and microhematuria, two weeks after a COVID-19 diagnosis. Initial workup showed left CVA tenderness and elevated WBC. CT abdomen/pelvis with contrast revealed a ruptured renal AML with moderate left peri-renal hemorrhage. Interventional radiology performed embolization 12 hours after admission, finding no aneurysmal dilatation. Post-procedural course was complicated by continued hemorrhage and retroperitoneal hematoma, leading to a hemoglobin nadir of 6.8 g/dl requiring 2 units of packed red blood cells, and diaphragmatic irritation necessitating supplemental oxygen. On hospital day 6, she developed respiratory COVID-19 symptoms and tested positive again by PCR.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with acute-onset left flank pain, radiating to left shoulder, and microhematuria.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "CT abdomen/pelvis with contrast demonstrated left peri-renal moderate volume hemorrhage with a fat dense lesion in the left kidney (2.5 × 2.3 × 2.1 cm), consistent with ruptured renal AML.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Interventional radiology performed embolization 12 hours after admission.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Post-procedural course was complicated by continued hemorrhage and retroperitoneal hematoma, with a hemoglobin nadir of 6.8 g/dl requiring transfusion of 2 units packed red blood cells, and diaphragmatic irritation requiring supplemental oxygen.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "On hospital day 6, she developed respiratory COVID-19 symptoms and again tested positive by PCR assay for COVID-19.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Patient had a known history of COVID-19 diagnosed via nasopharyngeal PCR two weeks prior to presentation.",
+            "evidence_ids": []
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [
+          "Specific interventions for continued hemorrhage/hematoma beyond initial transfusion",
+          "Resolution of complications",
+          "Overall clinical outcome and discharge status",
+          "Impact of COVID-19 recurrence on management or outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "a ruptured renal AML two weeks after COVID-19 infection",
+    "trajectory_summary": "A 22-year-old female presented with acute-onset left flank pain, radiating to the left shoulder, and microhematuria, two weeks after a COVID-19 diagnosis. Initial workup showed left CVA tenderness and elevated WBC. CT abdomen/pelvis with contrast revealed a ruptured renal AML with moderate left peri-renal hemorrhage. Interventional radiology performed embolization 12 hours after admission, finding no aneurysmal dilatation. Post-procedural course was complicated by continued hemorrhage and retroperitoneal hematoma, leading to a hemoglobin nadir of 6.8 g/dl requiring 2 units of packed red blood cells, and diaphragmatic irritation necessitating supplemental oxygen. On hospital day 6, she developed respiratory COVID-19 symptoms and tested positive again by PCR.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with acute-onset left flank pain, radiating to left shoulder, and microhematuria.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "CT abdomen/pelvis with contrast demonstrated left peri-renal moderate volume hemorrhage with a fat dense lesion in the left kidney (2.5 × 2.3 × 2.1 cm), consistent with ruptured renal AML.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Interventional radiology performed embolization 12 hours after admission.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Post-procedural course was complicated by continued hemorrhage and retroperitoneal hematoma, with a hemoglobin nadir of 6.8 g/dl requiring transfusion of 2 units packed red blood cells, and diaphragmatic irritation requiring supplemental oxygen.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "On hospital day 6, she developed respiratory COVID-19 symptoms and again tested positive by PCR assay for COVID-19.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Patient had a known history of COVID-19 diagnosed via nasopharyngeal PCR two weeks prior to presentation.",
+        "evidence_ids": []
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [
+      "Specific interventions for continued hemorrhage/hematoma beyond initial transfusion",
+      "Resolution of complications",
+      "Overall clinical outcome and discharge status",
+      "Impact of COVID-19 recurrence on management or outcome"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T20:53:38.486503+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

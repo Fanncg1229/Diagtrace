@@ -1,0 +1,214 @@
+{
+  "case_id": "PMC7845731",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 5,
+  "termination": "final",
+  "known_final_diagnosis": "the patient presented with two biopsy-proven rare skin conditions occurring synchronously; an HIV-negative KS and a primary CTCL consistent with the MF subtype.",
+  "disclosed_evidence_ids": [
+    "E002",
+    "E003"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "Skin biopsy of the violaceous subcutaneous nodules and/or erythematous, pruritic, scaly skin lesions",
+        "current_trajectory_hypothesis": "The patient presented with distinct skin lesions, and a biopsy was performed to establish a diagnosis.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Histopathological findings from skin biopsies",
+          "Immunohistochemistry results",
+          "HIV status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "The procedure order has been recorded but the result is not yet documented in the source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Histopathology report of the skin biopsy, including any immunohistochemistry findings",
+        "current_trajectory_hypothesis": "Skin biopsies were performed to investigate the nature of the patient's skin lesions. The histopathology report is expected to provide diagnostic information.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Histopathological findings from skin biopsies",
+          "Immunohistochemistry results",
+          "HIV status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Histological examination of a skin biopsy from a violaceous nodule on his left palm revealed a malignant vascular proliferation and spindle cells that were positive for HHV8 by immunohistochemistry, consistent with KS (figure 1). Concurrently, a biopsy of a scaly erythematous skin lesion on his right arm (figure 2) revealed an atypical infiltrate of predominantly CD4-positive T-cells with mild epidermotropism and partial loss of CD7 expression assessed by immunohistochemistry (figure 3). Molecular studies performed on the latter biopsy showed clonal TCR gene rearrangement, indicating the presence of a T-cell clonal population, most consistent with CTCL.",
+        "category": "pathology_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "HIV serology test",
+        "current_trajectory_hypothesis": "The patient has been diagnosed with Kaposi Sarcoma and Cutaneous T-cell Lymphoma based on skin biopsies. To fully support the known final diagnosis, the patient's HIV status needs to be confirmed, as the diagnosis specifies 'HIV-negative KS'.",
+        "confirmed_evidence": [
+          "Histopathology of violaceous nodule consistent with Kaposi Sarcoma (KS) with HHV8 positivity",
+          "Histopathology of scaly erythematous lesion consistent with Cutaneous T-cell Lymphoma (CTCL) of MF subtype, showing atypical CD4+ T-cells, CD7 loss, and clonal TCR gene rearrangement"
+        ],
+        "missing_key_evidence": [
+          "HIV status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Order registered for HIV serology test; no direct source result to report yet",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "HIV serology test result",
+        "current_trajectory_hypothesis": "The patient has biopsy-proven Kaposi Sarcoma and Cutaneous T-cell Lymphoma. The final diagnosis specifies 'HIV-negative KS', so confirming the HIV status is crucial to fully support the diagnosis.",
+        "confirmed_evidence": [
+          "Histopathology of violaceous nodule consistent with Kaposi Sarcoma (KS) with HHV8 positivity (E003)",
+          "Histopathology of scaly erythematous lesion consistent with Cutaneous T-cell Lymphoma (CTCL) of MF subtype, showing atypical CD4+ T-cells, CD7 loss, and clonal TCR gene rearrangement (E003)"
+        ],
+        "missing_key_evidence": [
+          "HIV status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "Serologies were negative for viral hepatitis, syphilis, HIV, and human T-lymphotropic virus (HTLV)-I/II and were positive for Epstein-Barr virus (EBV). PCR testing on the peripheral blood was positive for HHV8 (non-quantitative) and EBV (4786 copies /mL), while PCR for HIV and cytomegalovirus (CMV) was negative (below the detection level).",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "the patient presented with two biopsy-proven rare skin conditions occurring synchronously; an HIV-negative KS and a primary CTCL consistent with the MF subtype.",
+        "trajectory_summary": "An 88-year-old Inuit man presented with violaceous subcutaneous nodules and erythematous, scaly skin lesions, along with systemic symptoms. Skin biopsies confirmed two synchronous conditions: Kaposi Sarcoma (HHV8 positive) from a violaceous nodule and Cutaneous T-cell Lymphoma (consistent with Mycosis Fungoides, with atypical CD4+ T-cells, CD7 loss, and clonal TCR gene rearrangement) from a scaly lesion. HIV serology was negative, confirming HIV-negative Kaposi Sarcoma.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with violaceous subcutaneous nodules on palms and lower extremities and rapid onset total body erythematous, pruritic and scaly skin lesions.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Histological examination of a skin biopsy from a violaceous nodule revealed a malignant vascular proliferation and spindle cells positive for HHV8 by immunohistochemistry, consistent with Kaposi Sarcoma (KS).",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "A biopsy of a scaly erythematous skin lesion revealed an atypical infiltrate of predominantly CD4-positive T-cells with mild epidermotropism and partial loss of CD7 expression, and molecular studies showed clonal TCR gene rearrangement, indicating a T-cell clonal population most consistent with Cutaneous T-cell Lymphoma (CTCL), consistent with the Mycosis Fungoides (MF) subtype.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Both conditions were diagnosed concurrently from biopsies taken on admission, indicating synchronous occurrence.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "HIV serology was negative, confirming HIV-negative Kaposi Sarcoma.",
+            "evidence_ids": [
+              "E002"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "HIV-associated Kaposi Sarcoma",
+            "basis": "HIV serology was negative (E002)."
+          }
+        ],
+        "remaining_uncertainties": [],
+        "confidence_that_diagnosis_is_supported": 1.0
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "the patient presented with two biopsy-proven rare skin conditions occurring synchronously; an HIV-negative KS and a primary CTCL consistent with the MF subtype.",
+    "trajectory_summary": "An 88-year-old Inuit man presented with violaceous subcutaneous nodules and erythematous, scaly skin lesions, along with systemic symptoms. Skin biopsies confirmed two synchronous conditions: Kaposi Sarcoma (HHV8 positive) from a violaceous nodule and Cutaneous T-cell Lymphoma (consistent with Mycosis Fungoides, with atypical CD4+ T-cells, CD7 loss, and clonal TCR gene rearrangement) from a scaly lesion. HIV serology was negative, confirming HIV-negative Kaposi Sarcoma.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with violaceous subcutaneous nodules on palms and lower extremities and rapid onset total body erythematous, pruritic and scaly skin lesions.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Histological examination of a skin biopsy from a violaceous nodule revealed a malignant vascular proliferation and spindle cells positive for HHV8 by immunohistochemistry, consistent with Kaposi Sarcoma (KS).",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "A biopsy of a scaly erythematous skin lesion revealed an atypical infiltrate of predominantly CD4-positive T-cells with mild epidermotropism and partial loss of CD7 expression, and molecular studies showed clonal TCR gene rearrangement, indicating a T-cell clonal population most consistent with Cutaneous T-cell Lymphoma (CTCL), consistent with the Mycosis Fungoides (MF) subtype.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Both conditions were diagnosed concurrently from biopsies taken on admission, indicating synchronous occurrence.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "HIV serology was negative, confirming HIV-negative Kaposi Sarcoma.",
+        "evidence_ids": [
+          "E002"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "HIV-associated Kaposi Sarcoma",
+        "basis": "HIV serology was negative (E002)."
+      }
+    ],
+    "remaining_uncertainties": [],
+    "confidence_that_diagnosis_is_supported": 1.0
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T20:34:59.966302+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

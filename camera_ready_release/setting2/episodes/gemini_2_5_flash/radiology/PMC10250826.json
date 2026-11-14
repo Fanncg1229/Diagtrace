@@ -1,0 +1,551 @@
+{
+  "case_id": "PMC10250826",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 12,
+  "termination": "final",
+  "known_final_diagnosis": "the diagnosis of pulmonary nocardiosis was retained on the bacteriological study of the pleural fluid after a direct examination and a positive culture.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E005",
+    "E006",
+    "E007",
+    "E008"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Initial chest X-ray findings",
+        "current_trajectory_hypothesis": "Patient presented with respiratory symptoms and pleural involvement. Initial chest X-ray findings are needed to understand the extent of lung pathology.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Initial imaging findings",
+          "Pleural fluid analysis results",
+          "Bacteriological study results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.0
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "A chest X-ray was performed showing a hydro-pneumothorax appearance (Fig. 1).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Pleural fluid analysis results (biochemical, cytological, and microbiological if available)",
+        "current_trajectory_hypothesis": "Patient presented with respiratory symptoms and a hydro-pneumothorax. Pleural fluid analysis is crucial for investigating the cause, especially given the final diagnosis of pulmonary nocardiosis from pleural fluid.",
+        "confirmed_evidence": [
+          "Patient presented with productive cough, hemoptysis, altered general condition, and feverish feelings.",
+          "Clinical exam showed polypnea, hypoxemia, dullness of left hemithorax, poor oral condition, and bilateral axillary adenopathies.",
+          "Initial chest X-ray showed a hydro-pneumothorax appearance."
+        ],
+        "missing_key_evidence": [
+          "Pleural fluid analysis results",
+          "Bacteriological study results (direct examination and culture)",
+          "Clinical course/treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "The pleural puncture brought back a chocolate-colored purulent fluid and the direct examination showed numerous filamentous gram-positive bacilli evoking in the first place actinomyces (Fig. 2).",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Pleural fluid culture results",
+        "current_trajectory_hypothesis": "Patient presented with respiratory symptoms, hydro-pneumothorax, and purulent pleural fluid with gram-positive bacilli on direct exam. The final diagnosis states pulmonary nocardiosis was confirmed by bacteriological study of pleural fluid, including culture.",
+        "confirmed_evidence": [
+          "Patient presented with productive cough, hemoptysis, altered general condition, and feverish feelings.",
+          "Clinical exam showed polypnea, hypoxemia, dullness of left hemithorax, poor oral condition, and bilateral axillary adenopathies.",
+          "Initial chest X-ray showed a hydro-pneumothorax appearance.",
+          "Pleural puncture yielded chocolate-colored purulent fluid.",
+          "Direct examination of pleural fluid showed numerous filamentous gram-positive bacilli, evoking actinomyces."
+        ],
+        "missing_key_evidence": [
+          "Pleural fluid culture results (specifically for Nocardia)",
+          "Clinical course/treatment/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Identification of organism from pleural fluid culture",
+        "current_trajectory_hypothesis": "Patient presented with respiratory symptoms, hydro-pneumothorax, and purulent pleural fluid with gram-positive bacilli on direct exam. The final diagnosis states pulmonary nocardiosis was confirmed by bacteriological study of pleural fluid, including a positive culture. I need to confirm the specific organism identified.",
+        "confirmed_evidence": [
+          "Patient presented with productive cough, hemoptysis, altered general condition, and feverish feelings.",
+          "Clinical exam showed polypnea, hypoxemia, dullness of left hemithorax, poor oral condition, and bilateral axillary adenopathies.",
+          "Initial chest X-ray showed a hydro-pneumothorax appearance.",
+          "Pleural puncture yielded chocolate-colored purulent fluid.",
+          "Direct examination of pleural fluid showed numerous filamentous gram-positive bacilli, evoking actinomyces."
+        ],
+        "missing_key_evidence": [
+          "Specific identification of Nocardia from pleural fluid culture",
+          "Clinical course/treatment/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "The laboratory, after the suspicion of actinomycosis, put in culture the pleural liquid in prolonged incubation, after 15 days of incubation in strict aerobic atmosphere (Fig. 4), the culture on agar with cooked blood and on Columbia agar with 5% blood, were positive and allowed the isolation of bacterial strains in favor of Nocardia (Fig. 5): the appearance of the colonies (color of the young colonies in white, presence of hyphae in periphery, slightly raised, tendency to become embedded in the agar with time)",
+        "category": "routine_lab",
+        "temporal_cue": "after 15 days incubation",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Further characterization or specific identification of the Nocardia strain from pleural fluid culture, including any specific staining results (e.g., modified acid-fast stain)",
+        "current_trajectory_hypothesis": "The patient presented with respiratory symptoms and hydro-pneumothorax. Pleural fluid analysis showed purulent fluid with gram-positive bacilli, and culture isolated bacterial strains 'in favor of Nocardia'. I need to confirm if there was further specific identification or characteristic staining to definitively confirm Nocardia.",
+        "confirmed_evidence": [
+          "Patient presented with productive cough, hemoptysis, altered general condition, and feverish feelings.",
+          "Clinical exam showed polypnea, hypoxemia, dullness of left hemithorax, poor oral condition, and bilateral axillary adenopathies.",
+          "Initial chest X-ray showed a hydro-pneumothorax appearance.",
+          "Pleural puncture yielded chocolate-colored purulent fluid.",
+          "Direct examination of pleural fluid showed numerous filamentous gram-positive bacilli, evoking actinomyces.",
+          "Pleural fluid culture, after prolonged incubation, isolated bacterial strains with colony morphology 'in favor of Nocardia'."
+        ],
+        "missing_key_evidence": [
+          "Specific identification of Nocardia species",
+          "Modified acid-fast stain results",
+          "Clinical course/treatment/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E006",
+        "source_text": "The realization of Gram staining (variable aspect: bacilli, filaments, coccobacilli) and of modified kinyoun (presence of a partial acido-alcohol resistance), allowed to make a presumptive identification of genus Nocardia and to rule out the genus Actinomyces.",
+        "category": "routine_lab",
+        "temporal_cue": "after 15 days incubation",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Specific identification of the Nocardia species from the pleural fluid culture, if performed.",
+        "current_trajectory_hypothesis": "The patient presented with respiratory symptoms and hydro-pneumothorax. Pleural fluid analysis showed purulent fluid with gram-positive bacilli, and culture isolated bacterial strains identified as Nocardia genus based on colony morphology, Gram stain, and modified Kinyoun stain. I need to confirm if a specific Nocardia species was identified.",
+        "confirmed_evidence": [
+          "Patient presented with productive cough, hemoptysis, altered general condition, and feverish feelings.",
+          "Clinical exam showed polypnea, hypoxemia, dullness of left hemithorax, poor oral condition, and bilateral axillary adenopathies.",
+          "Initial chest X-ray showed a hydro-pneumothorax appearance.",
+          "Pleural puncture yielded chocolate-colored purulent fluid.",
+          "Direct examination of pleural fluid showed numerous filamentous gram-positive bacilli, evoking actinomyces.",
+          "Pleural fluid culture, after prolonged incubation, isolated bacterial strains with colony morphology 'in favor of Nocardia'.",
+          "Gram staining and modified Kinyoun staining confirmed presumptive identification of Nocardia genus and ruled out Actinomyces."
+        ],
+        "missing_key_evidence": [
+          "Specific identification of Nocardia species",
+          "Clinical course/treatment/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "Identification at species level was not made by molecular biology PCR 16 S due to the nonavailability of this technique and the antibiotic sensitivity test was not performed due to technical difficulties in isolating the strain.",
+        "category": "routine_lab",
+        "temporal_cue": "after 15 days incubation",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with respiratory symptoms, hydro-pneumothorax, and purulent pleural fluid. Nocardia genus was identified from pleural fluid culture. I need to understand the subsequent clinical course and treatment.",
+        "confirmed_evidence": [
+          "Patient presented with productive cough, hemoptysis, altered general condition, and feverish feelings.",
+          "Clinical exam showed polypnea, hypoxemia, dullness of left hemithorax, poor oral condition, and bilateral axillary adenopathies.",
+          "Initial chest X-ray showed a hydro-pneumothorax appearance.",
+          "Pleural puncture yielded chocolate-colored purulent fluid.",
+          "Direct examination of pleural fluid showed numerous filamentous gram-positive bacilli, evoking actinomyces.",
+          "Pleural fluid culture, after prolonged incubation, isolated bacterial strains with colony morphology 'in favor of Nocardia'.",
+          "Gram staining and modified Kinyoun staining confirmed presumptive identification of Nocardia genus and ruled out Actinomyces.",
+          "Specific Nocardia species identification and antibiotic sensitivity testing were not performed due to technical limitations."
+        ],
+        "missing_key_evidence": [
+          "Clinical course/treatment/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "The search for BK and GeneXpert MTB /RIF in the pleural fluid and in the sputum was negative.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with respiratory symptoms, hydro-pneumothorax, and purulent pleural fluid. Nocardia genus was identified from pleural fluid culture, and TB was ruled out. I need to understand the subsequent clinical course, treatment, and outcome to complete the trajectory.",
+        "confirmed_evidence": [
+          "Patient presented with productive cough, hemoptysis, altered general condition, and feverish feelings.",
+          "Clinical exam showed polypnea, hypoxemia, dullness of left hemithorax, poor oral condition, and bilateral axillary adenopathies.",
+          "Initial chest X-ray showed a hydro-pneumothorax appearance.",
+          "Pleural puncture yielded chocolate-colored purulent fluid.",
+          "Direct examination of pleural fluid showed numerous filamentous gram-positive bacilli, evoking actinomyces.",
+          "Pleural fluid culture, after prolonged incubation, isolated bacterial strains with colony morphology 'in favor of Nocardia'.",
+          "Gram staining and modified Kinyoun staining confirmed presumptive identification of Nocardia genus and ruled out Actinomyces.",
+          "Specific Nocardia species identification and antibiotic sensitivity testing were not performed due to technical limitations.",
+          "Search for BK and GeneXpert MTB/RIF in pleural fluid and sputum was negative, ruling out tuberculosis."
+        ],
+        "missing_key_evidence": [
+          "Clinical course/treatment/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "The biological work-up revealed a biological inflammatory syndrome (CRP = 180 mg/L), microcytic hypochromic anemia at 8.1 g/dL, hyperleukocytosis at 16,000/mm3 with a predominance of neutrophils, fasting hyperglycemia at 2.1 g/L. HIV serology was negative.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with respiratory symptoms, hydro-pneumothorax, and purulent pleural fluid. Nocardia genus was identified from pleural fluid culture, and TB was ruled out. I need to understand the subsequent clinical course, treatment, and outcome to complete the trajectory.",
+        "confirmed_evidence": [
+          "Patient presented with productive cough, hemoptysis, altered general condition, and feverish feelings.",
+          "Clinical exam showed polypnea, hypoxemia, dullness of left hemithorax, poor oral condition, and bilateral axillary adenopathies.",
+          "Initial chest X-ray showed a hydro-pneumothorax appearance.",
+          "Pleural puncture yielded chocolate-colored purulent fluid.",
+          "Direct examination of pleural fluid showed numerous filamentous gram-positive bacilli, evoking actinomyces.",
+          "Pleural fluid culture, after prolonged incubation, isolated bacterial strains with colony morphology 'in favor of Nocardia'.",
+          "Gram staining and modified Kinyoun staining confirmed presumptive identification of Nocardia genus and ruled out Actinomyces.",
+          "Specific Nocardia species identification and antibiotic sensitivity testing were not performed due to technical limitations.",
+          "Search for BK and GeneXpert MTB/RIF in pleural fluid and sputum was negative, ruling out tuberculosis.",
+          "Biological work-up revealed inflammatory syndrome (high CRP, leukocytosis), microcytic hypochromic anemia, fasting hyperglycemia, and negative HIV serology."
+        ],
+        "missing_key_evidence": [
+          "Clinical course/treatment/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Chest CT scan showed a left lung abscess communicating with the lobar bronchi of the left stem bronchus, left pyopneumothorax appearing to communicate with the lung abscess and right peribronchovascular micronodules with infectious appearance (Fig. 3).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with respiratory symptoms, hydro-pneumothorax, and purulent pleural fluid. Nocardia genus was identified from pleural fluid culture, and TB was ruled out. Imaging showed a left lung abscess and pyopneumothorax. I need to understand the subsequent clinical course, treatment, and outcome to complete the trajectory.",
+        "confirmed_evidence": [
+          "Patient presented with productive cough, hemoptysis, altered general condition, and feverish feelings.",
+          "Clinical exam showed polypnea, hypoxemia, dullness of left hemithorax, poor oral condition, and bilateral axillary adenopathies.",
+          "Initial chest X-ray showed a hydro-pneumothorax appearance.",
+          "Pleural puncture yielded chocolate-colored purulent fluid.",
+          "Direct examination of pleural fluid showed numerous filamentous gram-positive bacilli, evoking actinomyces.",
+          "Pleural fluid culture, after prolonged incubation, isolated bacterial strains with colony morphology 'in favor of Nocardia'.",
+          "Gram staining and modified Kinyoun staining confirmed presumptive identification of Nocardia genus and ruled out Actinomyces.",
+          "Specific Nocardia species identification and antibiotic sensitivity testing were not performed due to technical limitations.",
+          "Search for BK and GeneXpert MTB/RIF in pleural fluid and sputum was negative, ruling out tuberculosis.",
+          "Biological work-up revealed inflammatory syndrome (high CRP, leukocytosis), microcytic hypochromic anemia, fasting hyperglycemia, and negative HIV serology.",
+          "Chest CT scan showed a left lung abscess communicating with the lobar bronchi of the left stem bronchus, left pyopneumothorax appearing to communicate with the lung abscess and right peribronchovascular micronodules with infectious appearance."
+        ],
+        "missing_key_evidence": [
+          "Clinical course/treatment/outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "The patient was put on Amoxicillin + clavulanic acid injection at a rate of 3 g per day, the evolution was marked after 2 weeks of treatment by a clear clinical improvement (reduction of sputum, apyrexia and stop of hemoptysis) biological (CRP control at 56 mg/L and white blood cells at 12,000) and radiological (Fig. 6).",
+        "category": "treatment_response",
+        "temporal_cue": "after 2 weeks treatment",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with respiratory symptoms, hydro-pneumothorax, and purulent pleural fluid. Nocardia genus was identified from pleural fluid culture, and TB was ruled out. Imaging showed a left lung abscess and pyopneumothorax. Initial treatment with Amoxicillin + clavulanic acid led to clinical, biological, and radiological improvement after 2 weeks. I need to understand the full treatment course and long-term outcome.",
+        "confirmed_evidence": [
+          "Patient presented with productive cough, hemoptysis, altered general condition, and feverish feelings.",
+          "Clinical exam showed polypnea, hypoxemia, dullness of left hemithorax, poor oral condition, and bilateral axillary adenopathies.",
+          "Initial chest X-ray showed a hydro-pneumothorax appearance.",
+          "Pleural puncture yielded chocolate-colored purulent fluid.",
+          "Direct examination of pleural fluid showed numerous filamentous gram-positive bacilli, evoking actinomyces.",
+          "Pleural fluid culture, after prolonged incubation, isolated bacterial strains with colony morphology 'in favor of Nocardia'.",
+          "Gram staining and modified Kinyoun staining confirmed presumptive identification of Nocardia genus and ruled out Actinomyces.",
+          "Specific Nocardia species identification and antibiotic sensitivity testing were not performed due to technical limitations.",
+          "Search for BK and GeneXpert MTB/RIF in pleural fluid and sputum was negative, ruling out tuberculosis.",
+          "Biological work-up revealed inflammatory syndrome (high CRP, leukocytosis), microcytic hypochromic anemia, fasting hyperglycemia, and negative HIV serology.",
+          "Chest CT scan showed a left lung abscess communicating with the lobar bronchi of the left stem bronchus, left pyopneumothorax appearing to communicate with the lung abscess and right peribronchovascular micronodules with infectious appearance.",
+          "Initial treatment with Amoxicillin + clavulanic acid led to clinical, biological, and radiological improvement after 2 weeks."
+        ],
+        "missing_key_evidence": [
+          "Full treatment duration and regimen",
+          "Long-term outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No pending orders and no new undisclosed clinical course update at or after the current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "pulmonary nocardiosis was retained on the bacteriological study of the pleural fluid after a direct examination and a positive culture.",
+        "trajectory_summary": "A 54-year-old farmer with a 46 pack-year smoking history presented with productive cough, hemoptysis, altered general condition, and feverish feelings. Clinical exam showed polypnea, hypoxemia, and dullness of the left hemithorax. Initial chest X-ray revealed a hydro-pneumothorax, and a CT scan showed a left lung abscess communicating with bronchi, left pyopneumothorax, and right peribronchovascular micronodules. Pleural puncture yielded chocolate-colored purulent fluid. Direct examination of the pleural fluid showed numerous filamentous gram-positive bacilli, initially evoking actinomyces. Culture of the pleural fluid, after prolonged incubation, isolated bacterial strains with colony morphology 'in favor of Nocardia'. Gram staining and modified Kinyoun staining confirmed the presumptive identification of Nocardia genus and ruled out Actinomyces. Specific Nocardia species identification and antibiotic sensitivity testing were not performed due to technical limitations. Tuberculosis was ruled out by negative BK and GeneXpert MTB/RIF in pleural fluid and sputum. Initial treatment with Amoxicillin + clavulanic acid led to clinical, biological, and radiological improvement after 2 weeks.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with productive cough, hemoptysis, altered general condition, and feverish feelings, with clinical signs of respiratory distress and left hemithorax involvement.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Initial chest X-ray showed a hydro-pneumothorax appearance.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Chest CT scan showed a left lung abscess, left pyopneumothorax, and right peribronchovascular micronodules.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Pleural puncture yielded chocolate-colored purulent fluid.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Direct examination of pleural fluid showed numerous filamentous gram-positive bacilli, evoking actinomyces.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Pleural fluid culture, after prolonged incubation, isolated bacterial strains with colony morphology 'in favor of Nocardia'.",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Gram staining and modified Kinyoun staining confirmed presumptive identification of Nocardia genus and ruled out Actinomyces.",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Initial treatment with Amoxicillin + clavulanic acid resulted in clinical, biological, and radiological improvement after 2 weeks.",
+            "evidence_ids": [
+              "E008"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Actinomycosis",
+            "basis": "Modified Kinyoun staining ruled out Actinomyces, despite initial evocation by direct examination of filamentous gram-positive bacilli. (E006)"
+          },
+          {
+            "alternative": "Pulmonary Tuberculosis",
+            "basis": "Search for BK and GeneXpert MTB/RIF in pleural fluid and sputum was negative. (E003)"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Specific Nocardia species identification was not performed.",
+          "Antibiotic sensitivity testing was not performed.",
+          "Full treatment duration and long-term outcome are not documented."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "pulmonary nocardiosis was retained on the bacteriological study of the pleural fluid after a direct examination and a positive culture.",
+    "trajectory_summary": "A 54-year-old farmer with a 46 pack-year smoking history presented with productive cough, hemoptysis, altered general condition, and feverish feelings. Clinical exam showed polypnea, hypoxemia, and dullness of the left hemithorax. Initial chest X-ray revealed a hydro-pneumothorax, and a CT scan showed a left lung abscess communicating with bronchi, left pyopneumothorax, and right peribronchovascular micronodules. Pleural puncture yielded chocolate-colored purulent fluid. Direct examination of the pleural fluid showed numerous filamentous gram-positive bacilli, initially evoking actinomyces. Culture of the pleural fluid, after prolonged incubation, isolated bacterial strains with colony morphology 'in favor of Nocardia'. Gram staining and modified Kinyoun staining confirmed the presumptive identification of Nocardia genus and ruled out Actinomyces. Specific Nocardia species identification and antibiotic sensitivity testing were not performed due to technical limitations. Tuberculosis was ruled out by negative BK and GeneXpert MTB/RIF in pleural fluid and sputum. Initial treatment with Amoxicillin + clavulanic acid led to clinical, biological, and radiological improvement after 2 weeks.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with productive cough, hemoptysis, altered general condition, and feverish feelings, with clinical signs of respiratory distress and left hemithorax involvement.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Initial chest X-ray showed a hydro-pneumothorax appearance.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Chest CT scan showed a left lung abscess, left pyopneumothorax, and right peribronchovascular micronodules.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Pleural puncture yielded chocolate-colored purulent fluid.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Direct examination of pleural fluid showed numerous filamentous gram-positive bacilli, evoking actinomyces.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Pleural fluid culture, after prolonged incubation, isolated bacterial strains with colony morphology 'in favor of Nocardia'.",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Gram staining and modified Kinyoun staining confirmed presumptive identification of Nocardia genus and ruled out Actinomyces.",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Initial treatment with Amoxicillin + clavulanic acid resulted in clinical, biological, and radiological improvement after 2 weeks.",
+        "evidence_ids": [
+          "E008"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Actinomycosis",
+        "basis": "Modified Kinyoun staining ruled out Actinomyces, despite initial evocation by direct examination of filamentous gram-positive bacilli. (E006)"
+      },
+      {
+        "alternative": "Pulmonary Tuberculosis",
+        "basis": "Search for BK and GeneXpert MTB/RIF in pleural fluid and sputum was negative. (E003)"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Specific Nocardia species identification was not performed.",
+      "Antibiotic sensitivity testing was not performed.",
+      "Full treatment duration and long-term outcome are not documented."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T00:21:41.566762+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

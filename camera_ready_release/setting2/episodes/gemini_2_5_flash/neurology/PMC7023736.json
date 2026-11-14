@@ -1,0 +1,705 @@
+{
+  "case_id": "PMC7023736",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "Because of a lack of an etiological factor for bacterial or viral meningitis, the patient was diagnosed with aseptic (chemical) meningitis.",
+  "disclosed_evidence_ids": [
+    "E003",
+    "E004",
+    "E005",
+    "E006",
+    "E007",
+    "E008",
+    "E010",
+    "E011"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "CSF analysis",
+        "current_trajectory_hypothesis": "The patient presented with symptoms of increased intracranial pressure and a brain tumor. The final diagnosis is aseptic meningitis, which suggests an inflammatory process in the CSF. CSF analysis is crucial to confirm meningitis and rule out bacterial/viral causes.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "CSF findings (cell count, protein, glucose, microbiology)",
+          "Details of the tumor and its management",
+          "Evidence for chemical irritation causing meningitis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for CSF analysis placed; no prior documentation of order result exists.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "results of the CSF analysis",
+        "current_trajectory_hypothesis": "The patient presented with symptoms of increased intracranial pressure and a brain tumor. CSF analysis is crucial to confirm meningitis and rule out bacterial/viral causes, which is central to the aseptic meningitis diagnosis.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "CSF findings (cell count, protein, glucose, microbiology)",
+          "Details of the tumor and its management",
+          "Evidence for chemical irritation causing meningitis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "A lumbar puncture was performed. CSF was fully transparent with 18 cells per μl (normal range: 0–5), 60% of neutrophils and 38% of lymphocytes, a positive Pandy’s reaction, a negative Nonne-Apelt reaction, 154.0 mg/dl of protein (normal range: 15–45), a normal concentration of glucose (79 mg%, normal range: 50–80), 2.7 mmol/l of lactic acid (normal range: 0.5–2.2). A latex test and aerobic and anaerobic cultures of CSF yielded negative results. The patient tested negatively for anti-CMV, anti-EBV, anti-HSV, anti-poxvirus and anti-Borrelia burgdorferi IgM antibodies. The results of other tests, including aerobic and anaerobic cultures of the blood (collected at peak fever) and urine, were also negative.",
+        "category": "routine_lab",
+        "temporal_cue": "postoperative day 7",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "pathology report of the resected tumor",
+        "current_trajectory_hypothesis": "The patient presented with symptoms of increased intracranial pressure and a brain tumor. CSF analysis confirmed aseptic meningitis (pleocytosis, elevated protein, negative cultures). The initial presentation mentioned a 'preoperative CT' and the CSF analysis was 'postoperative day 7', suggesting tumor resection. The pathology report is crucial to identify the tumor type and link it to the 'chemical' meningitis.",
+        "confirmed_evidence": [
+          "Initial presentation with severe headache, vomiting, muscle weakness, balance disorders, and concentration problems (initial_presentation)",
+          "Preoperative CT revealed a large cystic tumor with peripheral calcifications expanding from the sella to the third ventricle area and acute hydrocephalus (initial_presentation)",
+          "CSF analysis showed pleocytosis (18 cells/µl, 60% neutrophils, 38% lymphocytes), elevated protein (154 mg/dl), normal glucose, and elevated lactic acid (2.7 mmol/l) (E007)",
+          "CSF, blood, and urine cultures were negative for bacteria and viruses (E007)",
+          "Negative IgM antibodies for CMV, EBV, HSV, poxvirus, and Borrelia burgdorferi (E007)"
+        ],
+        "missing_key_evidence": [
+          "Details of the tumor pathology",
+          "Details of the surgical procedure",
+          "Direct evidence linking the tumor/surgery to chemical meningitis",
+          "Clinical course post-surgery"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Pathomorphological examination of the surgical specimen revealed a craniopharyngioma G1-WHO testing positively for AE1/AE2 (stratified epithelium), GFAP (reactive gliosis), MIB-1 (with a few epithelial and inflammatory cells) and CD 68 (multiple macrophages, including polynuclear ones).",
+        "category": "pathology_report",
+        "temporal_cue": "postoperative",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "details of the surgical procedure for tumor resection, including any intraoperative events or complications",
+        "current_trajectory_hypothesis": "The patient presented with symptoms of increased intracranial pressure and a brain tumor (craniopharyngioma). CSF analysis confirmed aseptic meningitis (pleocytosis, elevated protein, negative cultures). The meningitis occurred post-operatively. I need to determine if there was a surgical event, such as cyst content leakage, that could have caused the chemical meningitis.",
+        "confirmed_evidence": [
+          "Initial presentation with severe headache, vomiting, muscle weakness, balance disorders, and concentration problems (initial_presentation)",
+          "Preoperative CT revealed a large cystic tumor with peripheral calcifications expanding from the sella to the third ventricle area and acute hydrocephalus (initial_presentation)",
+          "CSF analysis showed pleocytosis (18 cells/µl, 60% neutrophils, 38% lymphocytes), elevated protein (154 mg/dl), normal glucose, and elevated lactic acid (2.7 mmol/l) (E007)",
+          "CSF, blood, and urine cultures were negative for bacteria and viruses (E007)",
+          "Negative IgM antibodies for CMV, EBV, HSV, poxvirus, and Borrelia burgdorferi (E007)",
+          "Pathomorphological examination of the surgical specimen revealed a craniopharyngioma G1-WHO (E004)"
+        ],
+        "missing_key_evidence": [
+          "Details of the surgical procedure",
+          "Evidence of cyst content leakage or other intraoperative events causing chemical meningitis",
+          "Clinical course post-surgery beyond CSF analysis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "A pterional craniotomy was performed on the right side under general anaesthesia with the patient in a supine position. After reaching the base of the brain and evacuation of fluid from basal cisterns, the tumour’s wall was cut, and a thick yellowish fluid was drained. The tumour was separated from the right optic nerve, right ICA, optic chiasm and left optic nerve. Instead of the pituitary stalk, two thin bands were found, extending from the third ventricle and running towards the sella turcica on both sides of the tumour. After separating the tumour from those bands, it was incised slightly above the sellar diaphragm, dissected from the third ventricle wall, along the lamina terminalis, and removed. After achieving haemostasis, the dura mater was sutured and fixed to the bone and a cranioplasty was performed. A suction drain was then placed, soft tissues were closed in layers and protected with a dressing.",
+        "category": "other",
+        "temporal_cue": "operative day",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with symptoms of increased intracranial pressure and a craniopharyngioma, which was resected. Post-operatively, CSF analysis showed aseptic meningitis. The surgical report noted drainage of 'thick yellowish fluid' from the tumor. I need to establish the temporal link between the surgical event (potential leakage of cyst contents) and the development of meningitis symptoms or diagnosis.",
+        "confirmed_evidence": [
+          "Initial presentation with severe headache, vomiting, muscle weakness, balance disorders, and concentration problems (initial_presentation)",
+          "Preoperative CT revealed a large cystic tumor with peripheral calcifications expanding from the sella to the third ventricle area and acute hydrocephalus (initial_presentation)",
+          "CSF analysis showed pleocytosis (18 cells/µl, 60% neutrophils, 38% lymphocytes), elevated protein (154 mg/dl), normal glucose, and elevated lactic acid (2.7 mmol/l) (E007)",
+          "CSF, blood, and urine cultures were negative for bacteria and viruses (E007)",
+          "Negative IgM antibodies for CMV, EBV, HSV, poxvirus, and Borrelia burgdorferi (E007)",
+          "Pathomorphological examination of the surgical specimen revealed a craniopharyngioma G1-WHO (E004)",
+          "Surgical procedure involved cutting the tumor wall and draining 'thick yellowish fluid' (E003)"
+        ],
+        "missing_key_evidence": [
+          "Clinical course immediately post-surgery, including onset of meningitis symptoms",
+          "Explicit confirmation that the drained fluid caused chemical meningitis",
+          "Treatment for meningitis and response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "The first 6 days after the surgery were without complications. Neurological examination showed no signs of focal damage to the central nervous system. Due to multi-hormonal pituitary insufficiency, substitution therapy was introduced with L-thyroxine, hydrocortisone and desmopressin, adjusting the doses to serum endogenous hormones.",
+        "category": "other",
+        "temporal_cue": "postoperative day 1-6",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with symptoms of increased intracranial pressure due to a craniopharyngioma, which was resected. The surgical procedure involved draining 'thick yellowish fluid' from the tumor. Post-operatively, CSF analysis on day 7 confirmed aseptic meningitis. However, the clinical course for days 1-6 was reported as 'without complications'. I need to understand the clinical events and symptom onset that prompted the CSF analysis on day 7, to establish the temporal link between the surgery/tumor fluid and the development of meningitis.",
+        "confirmed_evidence": [
+          "Initial presentation with severe headache, vomiting, muscle weakness, balance disorders, and concentration problems (initial_presentation)",
+          "Preoperative CT revealed a large cystic tumor with peripheral calcifications expanding from the sella to the third ventricle area and acute hydrocephalus (initial_presentation)",
+          "Pathomorphological examination of the surgical specimen revealed a craniopharyngioma G1-WHO (E004)",
+          "Surgical procedure involved cutting the tumor wall and draining 'thick yellowish fluid' (E003)",
+          "Postoperative days 1-6 were without complications, and neurological examination showed no signs of focal damage (E005)",
+          "CSF analysis on postoperative day 7 showed pleocytosis (18 cells/µl, 60% neutrophils, 38% lymphocytes), elevated protein (154 mg/dl), normal glucose, and elevated lactic acid (2.7 mmol/l) (E007)",
+          "CSF, blood, and urine cultures were negative for bacteria and viruses (E007)",
+          "Negative IgM antibodies for CMV, EBV, HSV, poxvirus, and Borrelia burgdorferi (E007)"
+        ],
+        "missing_key_evidence": [
+          "Onset of meningitis symptoms or clinical deterioration leading to CSF analysis",
+          "Explicit confirmation that the drained fluid caused chemical meningitis",
+          "Treatment for meningitis and response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "On the seventh day after surgery, the patient’s status rapidly deteriorated. She reported a severe headache and had a fever. The patient became sleepy and apathetic. She periodically loss consciousness and had recurrent seizures lasting approximately 15 s. A neurological examination revealed stiffening of the neck, positive Kernig’s and Babinski signs on the right side, and convergent strabismus in the left eye.",
+        "category": "other",
+        "temporal_cue": "postoperative day 7",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with symptoms of increased intracranial pressure due to a craniopharyngioma, which was resected. The surgical procedure involved draining 'thick yellowish fluid' from the tumor. Postoperative days 1-6 were without complications. On postoperative day 7, the patient rapidly deteriorated with symptoms consistent with meningitis, and CSF analysis confirmed aseptic meningitis. I need to understand the treatment administered for the meningitis and the patient's clinical response to complete the trajectory.",
+        "confirmed_evidence": [
+          "Initial presentation with severe headache, vomiting, muscle weakness, balance disorders, and concentration problems (initial_presentation)",
+          "Preoperative CT revealed a large cystic tumor with peripheral calcifications expanding from the sella to the third ventricle area and acute hydrocephalus (initial_presentation)",
+          "Pathomorphological examination of the surgical specimen revealed a craniopharyngioma G1-WHO (E004)",
+          "Surgical procedure involved cutting the tumor wall and draining 'thick yellowish fluid' (E003)",
+          "Postoperative days 1-6 were without complications, and neurological examination showed no signs of focal damage (E005)",
+          "On postoperative day 7, the patient's status rapidly deteriorated with severe headache, fever, sleepiness, apathy, loss of consciousness, recurrent seizures, stiff neck, positive Kernig’s and Babinski signs, and convergent strabismus (E006)",
+          "CSF analysis on postoperative day 7 showed pleocytosis (18 cells/µl, 60% neutrophils, 38% lymphocytes), elevated protein (154 mg/dl), normal glucose, and elevated lactic acid (2.7 mmol/l) (E007)",
+          "CSF, blood, and urine cultures were negative for bacteria and viruses (E007)",
+          "Negative IgM antibodies for CMV, EBV, HSV, poxvirus, and Borrelia burgdorferi (E007)"
+        ],
+        "missing_key_evidence": [
+          "Treatment for meningitis and patient's response/outcome",
+          "Explicit statement linking the drained fluid to chemical meningitis (though strongly implied)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "A microbiological examination of throat and nasal swabs revealed a presence of physiological microflora: Neisseria spp. and Streptococcus viridans.",
+        "category": "microbiology",
+        "temporal_cue": "postoperative day 7",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with symptoms of increased intracranial pressure due to a craniopharyngioma, which was resected. The surgical procedure involved draining 'thick yellowish fluid' from the tumor. Postoperative days 1-6 were without complications. On postoperative day 7, the patient rapidly deteriorated with symptoms consistent with meningitis, and CSF analysis confirmed aseptic meningitis (pleocytosis, elevated protein, negative cultures). Throat and nasal swabs also showed physiological microflora, further supporting the aseptic nature. I need to understand the treatment administered for the meningitis and the patient's clinical response to complete the trajectory.",
+        "confirmed_evidence": [
+          "Initial presentation with severe headache, vomiting, muscle weakness, balance disorders, and concentration problems (initial_presentation)",
+          "Preoperative CT revealed a large cystic tumor with peripheral calcifications expanding from the sella to the third ventricle area and acute hydrocephalus (initial_presentation)",
+          "Pathomorphological examination of the surgical specimen revealed a craniopharyngioma G1-WHO (E004)",
+          "Surgical procedure involved cutting the tumor wall and draining 'thick yellowish fluid' (E003)",
+          "Postoperative days 1-6 were without complications, and neurological examination showed no signs of focal damage (E005)",
+          "On postoperative day 7, the patient's status rapidly deteriorated with severe headache, fever, sleepiness, apathy, loss of consciousness, recurrent seizures, stiff neck, positive Kernig’s and Babinski signs, and convergent strabismus (E006)",
+          "CSF analysis on postoperative day 7 showed pleocytosis (18 cells/µl, 60% neutrophils, 38% lymphocytes), elevated protein (154 mg/dl), normal glucose, and elevated lactic acid (2.7 mmol/l) (E007)",
+          "CSF, blood, and urine cultures were negative for bacteria and viruses (E007)",
+          "Negative IgM antibodies for CMV, EBV, HSV, poxvirus, and Borrelia burgdorferi (E007)",
+          "Microbiological examination of throat and nasal swabs revealed physiological microflora (Neisseria spp. and Streptococcus viridans) (E008)"
+        ],
+        "missing_key_evidence": [
+          "Treatment for meningitis and patient's response/outcome",
+          "Explicit statement linking the drained fluid to chemical meningitis (though strongly implied)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with symptoms of increased intracranial pressure due to a craniopharyngioma, which was resected. The surgical procedure involved draining 'thick yellowish fluid' from the tumor. Postoperative days 1-6 were without complications. On postoperative day 7, the patient rapidly deteriorated with symptoms consistent with meningitis, and CSF analysis confirmed aseptic meningitis (pleocytosis, elevated protein, negative cultures). Microbiological tests further supported the aseptic nature. I need to understand the treatment administered for the meningitis and the patient's clinical response to complete the trajectory.",
+        "confirmed_evidence": [
+          "Initial presentation with severe headache, vomiting, muscle weakness, balance disorders, and concentration problems (initial_presentation)",
+          "Preoperative CT revealed a large cystic tumor with peripheral calcifications expanding from the sella to the third ventricle area and acute hydrocephalus (initial_presentation)",
+          "Pathomorphological examination of the surgical specimen revealed a craniopharyngioma G1-WHO (E004)",
+          "Surgical procedure involved cutting the tumor wall and draining 'thick yellowish fluid' (E003)",
+          "Postoperative days 1-6 were without complications, and neurological examination showed no signs of focal damage (E005)",
+          "On postoperative day 7, the patient's status rapidly deteriorated with severe headache, fever, sleepiness, apathy, loss of consciousness, recurrent seizures, stiff neck, positive Kernig’s and Babinski signs, and convergent strabismus (E006)",
+          "CSF analysis on postoperative day 7 showed pleocytosis (18 cells/µl, 60% neutrophils, 38% lymphocytes), elevated protein (154 mg/dl), normal glucose, and elevated lactic acid (2.7 mmol/l) (E007)",
+          "CSF, blood, and urine cultures were negative for bacteria and viruses (E007)",
+          "Negative IgM antibodies for CMV, EBV, HSV, poxvirus, and Borrelia burgdorferi (E007)",
+          "Microbiological examination of throat and nasal swabs revealed physiological microflora (Neisseria spp. and Streptococcus viridans) (E008)"
+        ],
+        "missing_key_evidence": [
+          "Treatment for meningitis and patient's response/outcome",
+          "Explicit statement linking the drained fluid to chemical meningitis (though strongly implied)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with symptoms of increased intracranial pressure due to a craniopharyngioma, which was resected. The surgical procedure involved draining 'thick yellowish fluid' from the tumor. Postoperative days 1-6 were without complications. On postoperative day 7, the patient rapidly deteriorated with symptoms consistent with meningitis, and CSF analysis confirmed aseptic meningitis (pleocytosis, elevated protein, negative cultures). Microbiological tests further supported the aseptic nature. I need to understand the treatment administered for the meningitis and the patient's clinical response to complete the trajectory.",
+        "confirmed_evidence": [
+          "Initial presentation with severe headache, vomiting, muscle weakness, balance disorders, and concentration problems (initial_presentation)",
+          "Preoperative CT revealed a large cystic tumor with peripheral calcifications expanding from the sella to the third ventricle area and acute hydrocephalus (initial_presentation)",
+          "Pathomorphological examination of the surgical specimen revealed a craniopharyngioma G1-WHO (E004)",
+          "Surgical procedure involved cutting the tumor wall and draining 'thick yellowish fluid' (E003)",
+          "Postoperative days 1-6 were without complications, and neurological examination showed no signs of focal damage (E005)",
+          "On postoperative day 7, the patient's status rapidly deteriorated with severe headache, fever, sleepiness, apathy, loss of consciousness, recurrent seizures, stiff neck, positive Kernig’s and Babinski signs, and convergent strabismus (E006)",
+          "CSF analysis on postoperative day 7 showed pleocytosis (18 cells/µl, 60% neutrophils, 38% lymphocytes), elevated protein (154 mg/dl), normal glucose, and elevated lactic acid (2.7 mmol/l) (E007)",
+          "CSF, blood, and urine cultures were negative for bacteria and viruses (E007)",
+          "Negative IgM antibodies for CMV, EBV, HSV, poxvirus, and Borrelia burgdorferi (E007)",
+          "Microbiological examination of throat and nasal swabs revealed physiological microflora (Neisseria spp. and Streptococcus viridans) (E008)"
+        ],
+        "missing_key_evidence": [
+          "Treatment for meningitis and patient's response/outcome",
+          "Explicit statement linking the drained fluid to chemical meningitis (though strongly implied)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with symptoms of increased intracranial pressure due to a craniopharyngioma, which was resected. The surgical procedure involved draining 'thick yellowish fluid' from the tumor. Postoperative days 1-6 were without complications. On postoperative day 7, the patient rapidly deteriorated with symptoms consistent with meningitis, and CSF analysis confirmed aseptic meningitis (pleocytosis, elevated protein, negative cultures). Microbiological tests further supported the aseptic nature. I need to understand the treatment administered for the meningitis and the patient's clinical response to complete the trajectory.",
+        "confirmed_evidence": [
+          "Initial presentation with severe headache, vomiting, muscle weakness, balance disorders, and concentration problems (initial_presentation)",
+          "Preoperative CT revealed a large cystic tumor with peripheral calcifications expanding from the sella to the third ventricle area and acute hydrocephalus (initial_presentation)",
+          "Pathomorphological examination of the surgical specimen revealed a craniopharyngioma G1-WHO (E004)",
+          "Surgical procedure involved cutting the tumor wall and draining 'thick yellowish fluid' (E003)",
+          "Postoperative days 1-6 were without complications, and neurological examination showed no signs of focal damage (E005)",
+          "On postoperative day 7, the patient's status rapidly deteriorated with severe headache, fever, sleepiness, apathy, loss of consciousness, recurrent seizures, stiff neck, positive Kernig’s and Babinski signs, and convergent strabismus (E006)",
+          "CSF analysis on postoperative day 7 showed pleocytosis (18 cells/µl, 60% neutrophils, 38% lymphocytes), elevated protein (154 mg/dl), normal glucose, and elevated lactic acid (2.7 mmol/l) (E007)",
+          "CSF, blood, and urine cultures were negative for bacteria and viruses (E007)",
+          "Negative IgM antibodies for CMV, EBV, HSV, poxvirus, and Borrelia burgdorferi (E007)",
+          "Microbiological examination of throat and nasal swabs revealed physiological microflora (Neisseria spp. and Streptococcus viridans) (E008)"
+        ],
+        "missing_key_evidence": [
+          "Treatment for meningitis and patient's response/outcome",
+          "Explicit statement linking the drained fluid to chemical meningitis (though strongly implied)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "treatment and clinical course for the meningitis",
+        "current_trajectory_hypothesis": "The patient presented with symptoms of increased intracranial pressure due to a craniopharyngioma, which was resected. The surgical procedure involved draining 'thick yellowish fluid' from the tumor. Postoperative days 1-6 were without complications. On postoperative day 7, the patient rapidly deteriorated with symptoms consistent with meningitis, and CSF analysis confirmed aseptic meningitis (pleocytosis, elevated protein, negative cultures). Microbiological tests further supported the aseptic nature. I need to understand the treatment administered for the meningitis and the patient's clinical response to complete the trajectory.",
+        "confirmed_evidence": [
+          "Initial presentation with severe headache, vomiting, muscle weakness, balance disorders, and concentration problems (initial_presentation)",
+          "Preoperative CT revealed a large cystic tumor with peripheral calcifications expanding from the sella to the third ventricle area and acute hydrocephalus (initial_presentation)",
+          "Pathomorphological examination of the surgical specimen revealed a craniopharyngioma G1-WHO (E004)",
+          "Surgical procedure involved cutting the tumor wall and draining 'thick yellowish fluid' (E003)",
+          "Postoperative days 1-6 were without complications, and neurological examination showed no signs of focal damage (E005)",
+          "On postoperative day 7, the patient's status rapidly deteriorated with severe headache, fever, sleepiness, apathy, loss of consciousness, recurrent seizures, stiff neck, positive Kernig’s and Babinski signs, and convergent strabismus (E006)",
+          "CSF analysis on postoperative day 7 showed pleocytosis (18 cells/µl, 60% neutrophils, 38% lymphocytes), elevated protein (154 mg/dl), normal glucose, and elevated lactic acid (2.7 mmol/l) (E007)",
+          "CSF, blood, and urine cultures were negative for bacteria and viruses (E007)",
+          "Negative IgM antibodies for CMV, EBV, HSV, poxvirus, and Borrelia burgdorferi (E007)",
+          "Microbiological examination of throat and nasal swabs revealed physiological microflora (Neisseria spp. and Streptococcus viridans) (E008)"
+        ],
+        "missing_key_evidence": [
+          "Treatment for meningitis and patient's response/outcome",
+          "Explicit statement linking the drained fluid to chemical meningitis (though strongly implied)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E010",
+        "source_text": "Antibiotic therapy treatment included vancomycin, ceftriaxone, fluconazole, acyclovir, and nystatin and was maintained for 14 days. An antiepileptic agent, valproic acid, was administered since both clinical presentation and ictal electroencephalographic findings suggested epilepsy. Hormonal treatment was continued. The patient was fed enterally via a catheter with a semiliquid low-sodium diet.",
+        "category": "treatment_response",
+        "temporal_cue": "postoperative day 7 onward",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with symptoms of increased intracranial pressure due to a craniopharyngioma, which was resected. The surgical procedure involved draining 'thick yellowish fluid' from the tumor. Postoperative days 1-6 were without complications. On postoperative day 7, the patient rapidly deteriorated with symptoms consistent with meningitis, and CSF analysis confirmed aseptic meningitis (pleocytosis, elevated protein, negative cultures). Microbiological tests further supported the aseptic nature. Treatment with broad-spectrum antibiotics, antivirals, antifungals, and antiepileptics was initiated. I need to understand the patient's response to this treatment and the overall outcome of the meningitis.",
+        "confirmed_evidence": [
+          "Initial presentation with severe headache, vomiting, muscle weakness, balance disorders, and concentration problems (initial_presentation)",
+          "Preoperative CT revealed a large cystic tumor with peripheral calcifications expanding from the sella to the third ventricle area and acute hydrocephalus (initial_presentation)",
+          "Pathomorphological examination of the surgical specimen revealed a craniopharyngioma G1-WHO (E004)",
+          "Surgical procedure involved cutting the tumor wall and draining 'thick yellowish fluid' (E003)",
+          "Postoperative days 1-6 were without complications, and neurological examination showed no signs of focal damage (E005)",
+          "On postoperative day 7, the patient's status rapidly deteriorated with severe headache, fever, sleepiness, apathy, loss of consciousness, recurrent seizures, stiff neck, positive Kernig’s and Babinski signs, and convergent strabismus (E006)",
+          "CSF analysis on postoperative day 7 showed pleocytosis (18 cells/µl, 60% neutrophils, 38% lymphocytes), elevated protein (154 mg/dl), normal glucose, and elevated lactic acid (2.7 mmol/l) (E007)",
+          "CSF, blood, and urine cultures were negative for bacteria and viruses (E007)",
+          "Negative IgM antibodies for CMV, EBV, HSV, poxvirus, and Borrelia burgdorferi (E007)",
+          "Microbiological examination of throat and nasal swabs revealed physiological microflora (Neisseria spp. and Streptococcus viridans) (E008)",
+          "Antibiotic therapy (vancomycin, ceftriaxone, fluconazole, acyclovir, nystatin) was maintained for 14 days, and valproic acid was administered for seizures (E010)"
+        ],
+        "missing_key_evidence": [
+          "Patient's response to meningitis treatment and clinical outcome",
+          "Explicit statement linking the drained fluid to chemical meningitis (though strongly implied)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E011",
+        "source_text": "Increasing intracranial pressure required the placement of external drainage on day 11 after tumour resection. On day 14 post-surgery, the external drainage was removed following a CT scan of the head which showed the ventricular system without features of hydrocephalus. After removal of the drain, the patient was in good general status and was verbally responsive. Neurological examination showed the presence of meningeal symptoms and slight strabismus in the left eye, decreased muscle tone and diminished asymmetrical tendineae reflexes in the upper extremities, with a predominance of the left side, and a decrease in muscle tone with areflexia and a positive Babinski sign on the right side in the lower extremities.",
+        "category": "imaging_report",
+        "temporal_cue": "postoperative day 11-14",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with symptoms of increased intracranial pressure due to a craniopharyngioma, which was resected. The surgical procedure involved draining 'thick yellowish fluid' from the tumor. Postoperative days 1-6 were without complications. On postoperative day 7, the patient rapidly deteriorated with symptoms consistent with meningitis, and CSF analysis confirmed aseptic meningitis (pleocytosis, elevated protein, negative cultures). Microbiological tests further supported the aseptic nature. Treatment with broad-spectrum antibiotics, antivirals, antifungals, and antiepileptics was initiated. Increased intracranial pressure required external drainage on day 11, which was removed on day 14. On day 14, meningeal symptoms were still present, along with other neurological deficits. I need to understand the full resolution of the meningitis and the patient's long-term outcome to complete the trajectory.",
+        "confirmed_evidence": [
+          "Initial presentation with severe headache, vomiting, muscle weakness, balance disorders, and concentration problems (initial_presentation)",
+          "Preoperative CT revealed a large cystic tumor with peripheral calcifications expanding from the sella to the third ventricle area and acute hydrocephalus (initial_presentation)",
+          "Pathomorphological examination of the surgical specimen revealed a craniopharyngioma G1-WHO (E004)",
+          "Surgical procedure involved cutting the tumor wall and draining 'thick yellowish fluid' (E003)",
+          "Postoperative days 1-6 were without complications, and neurological examination showed no signs of focal damage (E005)",
+          "On postoperative day 7, the patient's status rapidly deteriorated with severe headache, fever, sleepiness, apathy, loss of consciousness, recurrent seizures, stiff neck, positive Kernig’s and Babinski signs, and convergent strabismus (E006)",
+          "CSF analysis on postoperative day 7 showed pleocytosis (18 cells/µl, 60% neutrophils, 38% lymphocytes), elevated protein (154 mg/dl), normal glucose, and elevated lactic acid (2.7 mmol/l) (E007)",
+          "CSF, blood, and urine cultures were negative for bacteria and viruses (E007)",
+          "Negative IgM antibodies for CMV, EBV, HSV, poxvirus, and Borrelia burgdorferi (E007)",
+          "Microbiological examination of throat and nasal swabs revealed physiological microflora (Neisseria spp. and Streptococcus viridans) (E008)",
+          "Antibiotic therapy (vancomycin, ceftriaxone, fluconazole, acyclovir, nystatin) was maintained for 14 days, and valproic acid was administered for seizures (E010)",
+          "Increased intracranial pressure required external drainage on day 11 after tumor resection, which was removed on day 14 after a CT showed no hydrocephalus (E011)",
+          "On day 14 post-surgery, the patient was in good general status and verbally responsive, but neurological examination still showed meningeal symptoms, slight strabismus, decreased muscle tone, diminished asymmetrical tendineae reflexes, and a positive Babinski sign on the right side (E011)"
+        ],
+        "missing_key_evidence": [
+          "Resolution of meningitis symptoms and overall long-term neurological outcome",
+          "Explicit statement linking the drained fluid to chemical meningitis (though strongly implied)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "aseptic (chemical) meningitis",
+        "trajectory_summary": "A 7-year-old girl presented with severe headache, vomiting, muscle weakness, balance disorders, and concentration problems. Preoperative CT revealed a large cystic craniopharyngioma with acute hydrocephalus. She underwent pterional craniotomy for tumor resection, during which a thick yellowish fluid was drained from the tumor. The first 6 postoperative days were without complications. On postoperative day 7, her status rapidly deteriorated with severe headache, fever, altered consciousness, seizures, and meningeal signs. CSF analysis on day 7 showed pleocytosis (18 cells/µl, 60% neutrophils), elevated protein (154 mg/dl), elevated lactic acid (2.7 mmol/l), and negative bacterial/viral cultures. Blood, urine, and viral IgM tests were also negative for infection. She received broad-spectrum antimicrobial therapy and antiepileptics. Due to increasing intracranial pressure, external drainage was placed on day 11 and removed on day 14. On day 14, meningeal symptoms and other neurological deficits persisted.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial presentation with symptoms of increased intracranial pressure and a brain tumor.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Preoperative CT revealed a large cystic tumor (craniopharyngioma) with acute hydrocephalus.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Surgical resection of the craniopharyngioma involved draining 'thick yellowish fluid' from the tumor.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Rapid clinical deterioration on postoperative day 7 with symptoms consistent with meningitis (severe headache, fever, altered consciousness, seizures, meningeal signs).",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "CSF analysis on postoperative day 7 showed pleocytosis (18 cells/µl with 60% neutrophils), elevated protein (154 mg/dl), and elevated lactic acid (2.7 mmol/l).",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "CSF, blood, and urine cultures were negative for bacterial and viral pathogens.",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Negative IgM antibodies for common viral causes of meningitis (CMV, EBV, HSV, poxvirus, Borrelia burgdorferi).",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Microbiological examination of throat and nasal swabs revealed physiological microflora.",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "Meningeal symptoms persisted on postoperative day 14 despite broad-spectrum antimicrobial therapy.",
+            "evidence_ids": [
+              "E010",
+              "E011"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Bacterial meningitis",
+            "basis": "Negative CSF, blood, and urine cultures (E007); physiological microflora in throat/nasal swabs (E008)."
+          },
+          {
+            "alternative": "Viral meningitis",
+            "basis": "Negative IgM antibodies for common viral pathogens (E007); negative CSF cultures (E007)."
+          },
+          {
+            "alternative": "Fungal meningitis",
+            "basis": "Negative CSF cultures (E007)."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Explicit statement directly linking the drained craniopharyngioma fluid to the development of chemical meningitis.",
+          "Full resolution of meningitis symptoms and long-term neurological outcome beyond postoperative day 14."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "aseptic (chemical) meningitis",
+    "trajectory_summary": "A 7-year-old girl presented with severe headache, vomiting, muscle weakness, balance disorders, and concentration problems. Preoperative CT revealed a large cystic craniopharyngioma with acute hydrocephalus. She underwent pterional craniotomy for tumor resection, during which a thick yellowish fluid was drained from the tumor. The first 6 postoperative days were without complications. On postoperative day 7, her status rapidly deteriorated with severe headache, fever, altered consciousness, seizures, and meningeal signs. CSF analysis on day 7 showed pleocytosis (18 cells/µl, 60% neutrophils), elevated protein (154 mg/dl), elevated lactic acid (2.7 mmol/l), and negative bacterial/viral cultures. Blood, urine, and viral IgM tests were also negative for infection. She received broad-spectrum antimicrobial therapy and antiepileptics. Due to increasing intracranial pressure, external drainage was placed on day 11 and removed on day 14. On day 14, meningeal symptoms and other neurological deficits persisted.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial presentation with symptoms of increased intracranial pressure and a brain tumor.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Preoperative CT revealed a large cystic tumor (craniopharyngioma) with acute hydrocephalus.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Surgical resection of the craniopharyngioma involved draining 'thick yellowish fluid' from the tumor.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Rapid clinical deterioration on postoperative day 7 with symptoms consistent with meningitis (severe headache, fever, altered consciousness, seizures, meningeal signs).",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "CSF analysis on postoperative day 7 showed pleocytosis (18 cells/µl with 60% neutrophils), elevated protein (154 mg/dl), and elevated lactic acid (2.7 mmol/l).",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "CSF, blood, and urine cultures were negative for bacterial and viral pathogens.",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Negative IgM antibodies for common viral causes of meningitis (CMV, EBV, HSV, poxvirus, Borrelia burgdorferi).",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Microbiological examination of throat and nasal swabs revealed physiological microflora.",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "Meningeal symptoms persisted on postoperative day 14 despite broad-spectrum antimicrobial therapy.",
+        "evidence_ids": [
+          "E010",
+          "E011"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Bacterial meningitis",
+        "basis": "Negative CSF, blood, and urine cultures (E007); physiological microflora in throat/nasal swabs (E008)."
+      },
+      {
+        "alternative": "Viral meningitis",
+        "basis": "Negative IgM antibodies for common viral pathogens (E007); negative CSF cultures (E007)."
+      },
+      {
+        "alternative": "Fungal meningitis",
+        "basis": "Negative CSF cultures (E007)."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Explicit statement directly linking the drained craniopharyngioma fluid to the development of chemical meningitis.",
+      "Full resolution of meningitis symptoms and long-term neurological outcome beyond postoperative day 14."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T22:29:13.993814+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

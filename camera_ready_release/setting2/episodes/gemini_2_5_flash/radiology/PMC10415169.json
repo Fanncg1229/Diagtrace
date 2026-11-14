@@ -1,0 +1,362 @@
+{
+  "case_id": "PMC10415169",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 7,
+  "termination": "final",
+  "known_final_diagnosis": "These findings gave the impression of a ruptured angiomyolipoma (Figure 2).",
+  "disclosed_evidence_ids": [
+    "E002",
+    "E003",
+    "E004"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "CT abdomen/pelvis with contrast",
+        "current_trajectory_hypothesis": "Patient presented with acute left flank pain. Given the final diagnosis of ruptured angiomyolipoma, imaging of the abdomen/pelvis is needed to identify a renal mass and signs of rupture.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Imaging findings of the abdomen/pelvis",
+          "Confirmation of angiomyolipoma",
+          "Evidence of rupture"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order placed for CT abdomen/pelvis with contrast; result not yet disclosed",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "CT abdomen/pelvis with contrast report",
+        "current_trajectory_hypothesis": "Patient presented with acute left flank pain. A CT abdomen/pelvis with contrast was ordered to investigate the cause of pain and look for signs of ruptured angiomyolipoma.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Imaging findings of the abdomen/pelvis",
+          "Confirmation of angiomyolipoma",
+          "Evidence of rupture"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "An abdominal CT scan with contrast was done to further evaluate the lesion, which showed a sizable left perinephric hematoma extending inferiorly in the retroperitoneum, reaching the left iliac fossa. The hematoma was displacing the left kidney anteriorly and compressing the renal parenchyma, suggesting a page kidney. An ill-defined, partially exophytic, heterogeneously enhancing lesion was noted at the interpolar region of the left kidney, approximately 45 mm × 45 mm × 40 mm. Multiple prominent vessels were seen at the periphery of the lesion, raising suspicion of minimal contrast extravasation at the site of the lesion. A prominent vessel was seen adjacent to the inferior pole of the left kidney, with active IV contrast extravasation noted in the delayed study. No sizable radio-dense urinary calculi or hydronephrosis were seen. No pneumoperitoneum or other obvious acute abnormalities were noted in the abdomen and pelvis.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with acute left flank pain. CT abdomen/pelvis with contrast revealed a ruptured renal lesion, highly suggestive of angiomyolipoma, with active extravasation and perinephric hematoma. The next step in the trajectory would likely involve management of the rupture.",
+        "confirmed_evidence": [
+          "Acute left flank pain (initial presentation)",
+          "CT findings of sizable left perinephric hematoma (E002)",
+          "CT findings of an ill-defined, heterogeneously enhancing lesion in the left kidney (E002)",
+          "CT findings of multiple prominent vessels at the periphery of the lesion (E002)",
+          "CT findings of active IV contrast extravasation (E002)"
+        ],
+        "missing_key_evidence": [
+          "Clinical course or intervention for the ruptured lesion",
+          "Definitive histological confirmation of angiomyolipoma (if performed)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "The patient was posted for left renal angioembolization by the interventional radiology (IR) team. Selective digital subtraction angiography (DSA) showed highly abnormal vascular structures in the mid-pole of the left kidney with no extravasation. The feeding vessel was closed with a vortex coil, and gel foam was used to close the remaining feeding vessels. At the end of the procedure, DSA showed complete occlusion of the feeding vessels (Figures 3-4).",
+        "category": "image_finding",
+        "temporal_cue": "after admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with acute left flank pain. CT abdomen/pelvis with contrast revealed a ruptured renal lesion, highly suggestive of angiomyolipoma, with active extravasation and perinephric hematoma. This was followed by left renal angioembolization. I need to understand the patient's post-procedure course and any further diagnostic confirmation or outcome.",
+        "confirmed_evidence": [
+          "Acute left flank pain (initial presentation)",
+          "CT findings of sizable left perinephric hematoma (E002)",
+          "CT findings of an ill-defined, heterogeneously enhancing lesion in the left kidney (E002)",
+          "CT findings of multiple prominent vessels at the periphery of the lesion (E002)",
+          "CT findings of active IV contrast extravasation (E002)",
+          "Left renal angioembolization performed (E003)",
+          "DSA showing abnormal vascular structures and occlusion of feeding vessels (E003)"
+        ],
+        "missing_key_evidence": [
+          "Patient's clinical course and recovery post-embolization",
+          "Any further diagnostic confirmation of angiomyolipoma (e.g., histology, follow-up imaging characteristics)",
+          "Outcome of the COVID infection"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "An ultrasound of the urinary tract was done, which showed an ill-defined left renal outline with a 7 cm × 5 cm heterogenous cortical lesion at the interpolar region. A perinephric hematoma measuring 116 mL was also noted (Figures 5-6).",
+        "category": "imaging_report",
+        "temporal_cue": "post-procedural days",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Radiological impression or conclusion from the CT abdomen/pelvis with contrast report",
+        "current_trajectory_hypothesis": "Patient presented with acute left flank pain. CT abdomen/pelvis with contrast revealed a ruptured renal lesion, highly suggestive of angiomyolipoma, with active extravasation and perinephric hematoma. Angioembolization was performed. I need to confirm the specific diagnosis of angiomyolipoma, which is often made radiologically, and understand the patient's clinical course.",
+        "confirmed_evidence": [
+          "Acute left flank pain (initial presentation)",
+          "CT findings of sizable left perinephric hematoma (E002)",
+          "CT findings of an ill-defined, heterogeneously enhancing lesion in the left kidney (E002)",
+          "CT findings of multiple prominent vessels at the periphery of the lesion (E002)",
+          "CT findings of active IV contrast extravasation (E002)",
+          "Left renal angioembolization performed (E003)",
+          "DSA showing abnormal vascular structures and occlusion of feeding vessels (E003)",
+          "Post-embolization ultrasound showing renal lesion and perinephric hematoma (E004)"
+        ],
+        "missing_key_evidence": [
+          "Radiological impression/conclusion from the CT scan regarding the nature of the renal lesion",
+          "Patient's clinical course and recovery post-embolization",
+          "Outcome of the COVID infection"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E002",
+        "source_text": "These findings gave the impression of a ruptured angiomyolipoma (Figure 2).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with acute left flank pain. CT abdomen/pelvis with contrast revealed a ruptured renal lesion with active extravasation and perinephric hematoma, radiologically diagnosed as a ruptured angiomyolipoma. Left renal angioembolization was performed. I need to understand the patient's post-procedure clinical course and recovery.",
+        "confirmed_evidence": [
+          "Acute left flank pain (initial presentation)",
+          "CT findings of sizable left perinephric hematoma (E002)",
+          "CT findings of an ill-defined, heterogeneously enhancing lesion in the left kidney (E002)",
+          "CT findings of multiple prominent vessels at the periphery of the lesion (E002)",
+          "CT findings of active IV contrast extravasation (E002)",
+          "Radiological impression of ruptured angiomyolipoma from CT (E002)",
+          "Left renal angioembolization performed (E003)",
+          "DSA showing abnormal vascular structures and occlusion of feeding vessels (E003)",
+          "Post-embolization ultrasound showing renal lesion and perinephric hematoma (E004)"
+        ],
+        "missing_key_evidence": [
+          "Patient's clinical course and recovery post-embolization",
+          "Outcome of the COVID infection"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No pending orders and no new undisclosed clinical course update available after current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "ruptured angiomyolipoma",
+        "trajectory_summary": "A 44-year-old gentleman presented to the emergency department with sudden onset of severe left flank pain, vomiting, coughing, and upper respiratory tract infection symptoms, along with a positive COVID PCR. An abdominal CT scan with contrast revealed a sizable left perinephric hematoma, an ill-defined, heterogeneously enhancing lesion in the interpolar region of the left kidney with multiple prominent vessels, and active IV contrast extravasation. These findings led to a radiological impression of a ruptured angiomyolipoma. The patient subsequently underwent left renal angioembolization, where selective digital subtraction angiography showed abnormal vascular structures in the mid-pole of the left kidney, and feeding vessels were occluded with a vortex coil and gel foam. A post-procedural ultrasound showed an ill-defined left renal outline with a cortical lesion and a perinephric hematoma.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with sudden onset of left flank pain, vomiting, coughing, and URI symptoms.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Initial lab examination revealed a positive COVID PCR.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "CT abdomen/pelvis with contrast showed a sizable left perinephric hematoma extending inferiorly.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "CT showed an ill-defined, partially exophytic, heterogeneously enhancing lesion in the interpolar region of the left kidney.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "CT noted multiple prominent vessels at the periphery of the lesion and active IV contrast extravasation.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "The CT findings gave the impression of a ruptured angiomyolipoma.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Patient underwent left renal angioembolization.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "DSA during angioembolization showed highly abnormal vascular structures in the mid-pole of the left kidney and complete occlusion of feeding vessels after embolization.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Post-procedural ultrasound showed an ill-defined left renal outline with a cortical lesion and a perinephric hematoma.",
+            "evidence_ids": [
+              "E004"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Urinary tract infection or stones",
+            "basis": "No history of dysuria, hematuria, irritative or obstructive urinary symptoms; no radio-dense urinary calculi or hydronephrosis on CT (E002)."
+          },
+          {
+            "alternative": "Other acute abdominal abnormalities",
+            "basis": "No pneumoperitoneum or other obvious acute abnormalities noted in the abdomen and pelvis on CT (E002)."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Detailed patient's clinical course and recovery post-embolization",
+          "Outcome of the COVID infection"
+        ],
+        "confidence_that_diagnosis_is_supported": 1.0
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "ruptured angiomyolipoma",
+    "trajectory_summary": "A 44-year-old gentleman presented to the emergency department with sudden onset of severe left flank pain, vomiting, coughing, and upper respiratory tract infection symptoms, along with a positive COVID PCR. An abdominal CT scan with contrast revealed a sizable left perinephric hematoma, an ill-defined, heterogeneously enhancing lesion in the interpolar region of the left kidney with multiple prominent vessels, and active IV contrast extravasation. These findings led to a radiological impression of a ruptured angiomyolipoma. The patient subsequently underwent left renal angioembolization, where selective digital subtraction angiography showed abnormal vascular structures in the mid-pole of the left kidney, and feeding vessels were occluded with a vortex coil and gel foam. A post-procedural ultrasound showed an ill-defined left renal outline with a cortical lesion and a perinephric hematoma.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with sudden onset of left flank pain, vomiting, coughing, and URI symptoms.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Initial lab examination revealed a positive COVID PCR.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "CT abdomen/pelvis with contrast showed a sizable left perinephric hematoma extending inferiorly.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "CT showed an ill-defined, partially exophytic, heterogeneously enhancing lesion in the interpolar region of the left kidney.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "CT noted multiple prominent vessels at the periphery of the lesion and active IV contrast extravasation.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "The CT findings gave the impression of a ruptured angiomyolipoma.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Patient underwent left renal angioembolization.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "DSA during angioembolization showed highly abnormal vascular structures in the mid-pole of the left kidney and complete occlusion of feeding vessels after embolization.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Post-procedural ultrasound showed an ill-defined left renal outline with a cortical lesion and a perinephric hematoma.",
+        "evidence_ids": [
+          "E004"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Urinary tract infection or stones",
+        "basis": "No history of dysuria, hematuria, irritative or obstructive urinary symptoms; no radio-dense urinary calculi or hydronephrosis on CT (E002)."
+      },
+      {
+        "alternative": "Other acute abdominal abnormalities",
+        "basis": "No pneumoperitoneum or other obvious acute abnormalities noted in the abdomen and pelvis on CT (E002)."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Detailed patient's clinical course and recovery post-embolization",
+      "Outcome of the COVID infection"
+    ],
+    "confidence_that_diagnosis_is_supported": 1.0
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T00:33:09.943727+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

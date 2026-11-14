@@ -1,0 +1,513 @@
+{
+  "case_id": "PMC11751601",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 9,
+  "termination": "final",
+  "known_final_diagnosis": "Histopathology demonstrated a 75 mm grade 2 jejunal leiomyosarcoma with negative margins and one of four lymph nodes demonstrating metastatic disease.",
+  "disclosed_evidence_ids": [
+    "E002",
+    "E004",
+    "E005",
+    "E007",
+    "E008",
+    "E009"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "What were the specific physical examination findings on abdominal examination at presentation? Please describe distension, tenderness, bowel sounds, and any palpable masses.",
+        "current_trajectory_hypothesis": "An 80-year-old man with lymphoplasmacytic lymphoma and a known incidental small bowel mass presents with classic small bowel obstruction symptoms (colicky pain, obstipation, nausea, vomiting). The final diagnosis is jejunal leiomyosarcoma, suggesting the incidental mass identified 4 months prior was this malignancy, which has now progressed to cause mechanical obstruction.",
+        "confirmed_evidence": [
+          "Patient is in his 80s",
+          "Presented to ED with colicky abdominal pain, obstipation, nausea, vomiting",
+          "Vital signs unremarkable",
+          "Abdomen distended but non-tender",
+          "Known prior incidental small bowel mass 4 months prior",
+          "History of lymphoplasmacytic lymphoma on zanubrutinib",
+          "History of collagenous colitis and rheumatoid arthritis"
+        ],
+        "missing_key_evidence": [
+          "Imaging findings (CT or plain films) confirming small bowel obstruction",
+          "Characterization of the small bowel mass on prior imaging",
+          "Operative findings and specimen description",
+          "Pathology report details confirming leiomyosarcoma grade and margins",
+          "Lymph node involvement details",
+          "Treatment course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "What imaging studies were performed at presentation (CT abdomen/pelvis, plain abdominal radiographs)? Please provide the imaging reports describing the small bowel obstruction findings, bowel caliber, transition point, and any description of the small bowel mass.",
+        "current_trajectory_hypothesis": "An 80-year-old man with known incidental small bowel mass (4 months prior) and lymphoplasmacytic lymphoma presents with classic SBO symptoms. The mass is now confirmed histologically as a 75 mm grade 2 jejunal leiomyosarcoma. Imaging at presentation should document the obstruction and potentially characterize the mass.",
+        "confirmed_evidence": [
+          "Patient is in his 80s",
+          "Presented to ED with colicky abdominal pain, obstipation, nausea, vomiting",
+          "Vital signs unremarkable",
+          "Abdomen distended but non-tender",
+          "Known prior incidental small bowel mass 4 months prior",
+          "Final diagnosis: 75 mm grade 2 jejunal leiomyosarcoma with negative margins and metastatic disease in 1 of 4 lymph nodes"
+        ],
+        "missing_key_evidence": [
+          "Imaging findings confirming small bowel obstruction at presentation",
+          "Characterization of the small bowel mass on imaging (size, location, enhancement pattern)",
+          "Operative findings and specimen description",
+          "Pathology report details (grade, margins, lymph node involvement specifics)",
+          "Treatment course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.35
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for CT abdomen-pelvis imaging test recorded; evidence of result exists in source but order just placed.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the CT abdomen/pelvis imaging report from the ED presentation. Describe the findings regarding small bowel obstruction, bowel caliber changes, transition point, and any characterization of the small bowel mass including size, location, and imaging features.",
+        "current_trajectory_hypothesis": "An 80-year-old man with a known incidental small bowel mass (identified 4 months prior during febrile neutropenia admission) presents with classic small bowel obstruction symptoms. The mass is histologically confirmed as a 75 mm grade 2 jejunal leiomyosarcoma. The obstruction was likely caused by progression of this malignancy. CT imaging at presentation should document the mechanical obstruction and characterize the mass.",
+        "confirmed_evidence": [
+          "Patient is in his 80s",
+          "Presented to ED with colicky abdominal pain, obstipation, nausea, vomiting",
+          "Vital signs unremarkable",
+          "Abdomen distended but non-tender",
+          "Known prior incidental small bowel mass 4 months prior",
+          "Final diagnosis: 75 mm grade 2 jejunal leiomyosarcoma with negative margins and metastatic disease in 1 of 4 lymph nodes"
+        ],
+        "missing_key_evidence": [
+          "CT imaging report confirming small bowel obstruction and characterizing the mass",
+          "Operative findings and specimen description",
+          "Detailed pathology report (grade confirmation, margin status, lymph node involvement)",
+          "Treatment course and clinical outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "CT of his abdomen-pelvis with portal venous contrast demonstrated a large obstructing distal SB mass (figure 1), which increased in size compared with a CT performed during his admission for febrile neutropenia 4 months prior (figure 2).",
+        "category": "image_finding",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the operative findings and description of the surgical specimen from the small bowel resection. Include details about the location, size, gross appearance, and any intraoperative observations about the mass and surrounding bowel.",
+        "current_trajectory_hypothesis": "An 80-year-old man with a known incidental small bowel mass (identified 4 months prior) presented with small bowel obstruction symptoms. CT imaging confirmed an obstructing distal small bowel mass that had increased in size compared to 4 months prior. The patient underwent surgical resection, and histopathology confirmed a 75 mm grade 2 jejunal leiomyosarcoma with negative margins and metastatic disease in 1 of 4 lymph nodes. Operative findings should document the surgical approach and specimen characteristics.",
+        "confirmed_evidence": [
+          "Patient is in his 80s",
+          "Presented to ED with colicky abdominal pain, obstipation, nausea, vomiting",
+          "Vital signs unremarkable",
+          "Abdomen distended but non-tender",
+          "CT abdomen-pelvis showed large obstructing distal small bowel mass",
+          "Mass increased in size compared to CT 4 months prior during febrile neutropenia admission",
+          "Final diagnosis: 75 mm grade 2 jejunal leiomyosarcoma with negative margins and metastatic disease in 1 of 4 lymph nodes"
+        ],
+        "missing_key_evidence": [
+          "Operative findings and surgical approach details",
+          "Gross specimen description (location confirmation as jejunal, size, appearance, relationship to bowel)",
+          "Detailed pathology report confirming grade 2, margin status, and lymph node involvement specifics",
+          "Treatment course and clinical outcome after surgery"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.55
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "Laparoscopy demonstrated an SB mass adherent within the pelvis. Adhesiolysis was performed through a lower midline laparotomy to allow an oncological, stapled, side-to-side, antiperistaltic SB resection. The SB lumen was significantly narrowed by the mass, and multiple enlarged, firm mesenteric lymph nodes were palpable. There was no evidence of metastatic disease.",
+        "category": "other",
+        "temporal_cue": "during admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the complete pathology report from the small bowel resection specimen. Include the histologic diagnosis, tumor grade, size measurements, margin status (proximal, distal, radial), depth of invasion, mitotic rate, and detailed description of lymph node involvement (number examined, number with metastatic disease, location of involved nodes).",
+        "current_trajectory_hypothesis": "An 80-year-old man with a known incidental small bowel mass (identified 4 months prior) presented with small bowel obstruction. CT imaging confirmed an obstructing distal small bowel mass that had increased in size. Surgical resection via laparotomy with adhesiolysis and stapled side-to-side antiperistaltic anastomosis was performed. Histopathology confirmed a 75 mm grade 2 jejunal leiomyosarcoma with negative margins and metastatic disease in 1 of 4 lymph nodes. The pathology report should provide detailed confirmation of these findings and support the final diagnosis.",
+        "confirmed_evidence": [
+          "Patient is in his 80s",
+          "Presented to ED with colicky abdominal pain, obstipation, nausea, vomiting",
+          "Vital signs unremarkable",
+          "Abdomen distended but non-tender",
+          "CT abdomen-pelvis showed large obstructing distal small bowel mass",
+          "Mass increased in size compared to CT 4 months prior",
+          "Laparoscopy demonstrated small bowel mass adherent within pelvis",
+          "Surgical resection performed via lower midline laparotomy with adhesiolysis",
+          "Stapled side-to-side antiperistaltic small bowel resection performed",
+          "Small bowel lumen significantly narrowed by mass",
+          "Multiple enlarged, firm mesenteric lymph nodes palpable intraoperatively",
+          "No evidence of metastatic disease noted intraoperatively"
+        ],
+        "missing_key_evidence": [
+          "Detailed pathology report confirming grade 2 leiomyosarcoma",
+          "Confirmation of 75 mm size measurement",
+          "Detailed margin status (proximal, distal, radial margins negative)",
+          "Specific lymph node involvement details (which node was positive, number examined)",
+          "Histologic features supporting leiomyosarcoma diagnosis (smooth muscle differentiation, mitotic rate)",
+          "Clinical outcome and follow-up after surgery"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "Histopathology demonstrated a 75 mm grade 2 jejunal leiomyosarcoma with negative margins and one of four lymph nodes demonstrating metastatic disease. The remaining three lymph nodes showed features consistent with known lymphoplasmacytic lymphoma. Epstein-Barr virus (EBV)-encoded RNA was negative, and the possibility of an EBV-associated leiomyosarcoma was excluded.",
+        "category": "pathology_report",
+        "temporal_cue": "postoperative day 7",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide the imaging report from the CT abdomen-pelvis performed 4 months prior during the febrile neutropenia admission. Describe the initial characterization of the small bowel mass including size, location, imaging features, and any assessment of obstruction at that time.",
+        "current_trajectory_hypothesis": "An 80-year-old man with lymphoplasmacytic lymphoma on zanubrutinib presented with febrile neutropenia 4 months prior, during which an incidental non-obstructing small bowel mass was identified on CT. This mass was subsequently confirmed to be a jejunal leiomyosarcoma that progressed over 4 months, eventually causing mechanical small bowel obstruction requiring surgical resection. The prior imaging comparison is critical to establishing the temporal progression of the malignancy.",
+        "confirmed_evidence": [
+          "Patient is in his 80s",
+          "Presented to ED with colicky abdominal pain, obstipation, nausea, vomiting",
+          "Vital signs unremarkable; abdomen distended but non-tender",
+          "Known incidental small bowel mass identified 4 months prior during febrile neutropenia admission",
+          "CT abdomen-pelvis on admission showed large obstructing distal small bowel mass",
+          "Mass increased in size compared to CT 4 months prior",
+          "Laparoscopy and surgical resection via lower midline laparotomy with adhesiolysis performed",
+          "Stapled side-to-side antiperistaltic small bowel resection completed",
+          "Histopathology: 75 mm grade 2 jejunal leiomyosarcoma with negative margins",
+          "One of four lymph nodes demonstrated metastatic disease",
+          "Remaining three lymph nodes showed features consistent with lymphoplasmacytic lymphoma",
+          "EBV-encoded RNA negative; EBV-associated leiomyosarcoma excluded"
+        ],
+        "missing_key_evidence": [
+          "Prior CT imaging report from 4 months ago characterizing the initial small bowel mass (size, location, imaging features)",
+          "Clinical course and outcome after surgical resection (complications, adjuvant therapy, follow-up)",
+          "Confirmation that the mass was truly non-obstructing 4 months prior"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "an incidental, non-obstructing SB mass was identified",
+        "category": "other",
+        "temporal_cue": "before admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "An 80-year-old man with lymphoplasmacytic lymphoma on zanubrutinib presented with small bowel obstruction symptoms. An incidental non-obstructing small bowel mass had been identified 4 months prior during a febrile neutropenia admission. CT imaging at presentation confirmed an obstructing distal small bowel mass that had increased in size. Surgical resection via laparotomy with adhesiolysis and stapled side-to-side antiperistaltic anastomosis was performed. Histopathology confirmed a 75 mm grade 2 jejunal leiomyosarcoma with negative margins and metastatic disease in 1 of 4 lymph nodes. The remaining three lymph nodes showed lymphoplasmacytic lymphoma features. EBV-associated leiomyosarcoma was excluded.",
+        "confirmed_evidence": [
+          "Patient is in his 80s",
+          "Presented to ED with colicky abdominal pain, obstipation, nausea, vomiting",
+          "Vital signs unremarkable; abdomen distended but non-tender",
+          "Incidental non-obstructing small bowel mass identified 4 months prior",
+          "CT abdomen-pelvis on admission showed large obstructing distal small bowel mass",
+          "Mass increased in size compared to CT 4 months prior",
+          "Laparoscopy demonstrated small bowel mass adherent within pelvis",
+          "Surgical resection via lower midline laparotomy with adhesiolysis performed",
+          "Stapled side-to-side antiperistaltic small bowel resection completed",
+          "Small bowel lumen significantly narrowed by mass",
+          "Multiple enlarged, firm mesenteric lymph nodes palpable intraoperatively",
+          "No evidence of metastatic disease noted intraoperatively",
+          "Histopathology: 75 mm grade 2 jejunal leiomyosarcoma with negative margins",
+          "One of four lymph nodes demonstrated metastatic disease",
+          "Remaining three lymph nodes showed lymphoplasmacytic lymphoma features",
+          "EBV-encoded RNA negative; EBV-associated leiomyosarcoma excluded"
+        ],
+        "missing_key_evidence": [
+          "Postoperative course and complications",
+          "Adjuvant oncologic treatment decisions and rationale",
+          "Follow-up imaging or clinical status",
+          "Long-term outcome and survival data"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Initial management involved nasogastric tube decompression and intravenous fluid resuscitation. Gastrografin was administered on the second day of admission with clinical and radiological resolution of the obstruction.",
+        "category": "treatment_response",
+        "temporal_cue": "ICU day 2",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Please provide information about the postoperative course following surgical resection, including any complications, length of hospital stay, discharge status, and any adjuvant oncologic treatment or follow-up recommendations documented.",
+        "current_trajectory_hypothesis": "An 80-year-old man with lymphoplasmacytic lymphoma presented with small bowel obstruction caused by a jejunal leiomyosarcoma that had progressed from a non-obstructing incidental mass identified 4 months prior. Initial conservative management with nasogastric decompression and Gastrografin achieved radiological resolution, but the patient ultimately underwent surgical resection via laparotomy with adhesiolysis and stapled side-to-side antiperistaltic anastomosis. Histopathology confirmed a 75 mm grade 2 jejunal leiomyosarcoma with negative margins and metastatic disease in 1 of 4 lymph nodes. The postoperative course and any adjuvant treatment decisions would complete the clinical trajectory.",
+        "confirmed_evidence": [
+          "Patient is in his 80s",
+          "Presented to ED with colicky abdominal pain, obstipation, nausea, vomiting",
+          "Vital signs unremarkable; abdomen distended but non-tender",
+          "Incidental non-obstructing small bowel mass identified 4 months prior during febrile neutropenia admission",
+          "CT abdomen-pelvis on admission showed large obstructing distal small bowel mass that increased in size compared to 4 months prior",
+          "Initial conservative management: nasogastric tube decompression, IV fluid resuscitation, and Gastrografin on day 2 with clinical and radiological resolution",
+          "Laparoscopy demonstrated small bowel mass adherent within pelvis",
+          "Surgical resection via lower midline laparotomy with adhesiolysis and stapled side-to-side antiperistaltic small bowel resection",
+          "Small bowel lumen significantly narrowed by mass; multiple enlarged firm mesenteric lymph nodes palpable",
+          "No evidence of metastatic disease noted intraoperatively",
+          "Histopathology: 75 mm grade 2 jejunal leiomyosarcoma with negative margins",
+          "One of four lymph nodes demonstrated metastatic disease; remaining three showed lymphoplasmacytic lymphoma features",
+          "EBV-encoded RNA negative; EBV-associated leiomyosarcoma excluded"
+        ],
+        "missing_key_evidence": [
+          "Postoperative complications or clinical course",
+          "Length of hospital stay and discharge status",
+          "Adjuvant oncologic treatment decisions and rationale",
+          "Follow-up imaging or surveillance plan",
+          "Long-term outcome and survival data"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.92
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E009",
+        "source_text": "The patient progressed well and was discharged from the hospital on postoperative day 7.",
+        "category": "clinical_course",
+        "temporal_cue": "postoperative day 7",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Jejunal leiomyosarcoma, grade 2, 75 mm, with negative margins and metastatic disease in 1 of 4 lymph nodes",
+        "trajectory_summary": "An 80-year-old man with lymphoplasmacytic lymphoma on zanubrutinib presented to the ED with classic small bowel obstruction symptoms (colicky abdominal pain, obstipation, nausea, vomiting). An incidental non-obstructing small bowel mass had been identified 4 months prior during a febrile neutropenia admission. CT abdomen-pelvis on the current admission demonstrated a large obstructing distal small bowel mass that had increased in size compared to the prior study. Initial conservative management with nasogastric decompression, IV fluid resuscitation, and Gastrografin on day 2 achieved radiological resolution of the obstruction. However, the patient underwent surgical resection via laparotomy with adhesiolysis and stapled side-to-side antiperistaltic small bowel resection. Intraoperative findings included a mass adherent within the pelvis with significant luminal narrowing and multiple enlarged firm mesenteric lymph nodes; no metastatic disease was noted. Histopathology confirmed a 75 mm grade 2 jejunal leiomyosarcoma with negative margins and metastatic disease in 1 of 4 lymph nodes. The remaining three lymph nodes demonstrated features consistent with the patient's known lymphoplasmacytic lymphoma. EBV-encoded RNA was negative, excluding EBV-associated leiomyosarcoma. The patient progressed well postoperatively and was discharged on postoperative day 7.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with small bowel obstruction symptoms",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Known incidental non-obstructing small bowel mass identified 4 months prior",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "CT imaging confirmed obstructing distal small bowel mass that increased in size",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Initial conservative management achieved radiological resolution",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Surgical resection performed via laparotomy with adhesiolysis and stapled side-to-side antiperistaltic anastomosis",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Intraoperative findings: mass adherent in pelvis with luminal narrowing and enlarged mesenteric lymph nodes",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Histopathology confirmed 75 mm grade 2 jejunal leiomyosarcoma with negative margins",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "One of four lymph nodes demonstrated metastatic disease",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "Remaining lymph nodes showed lymphoplasmacytic lymphoma features; EBV-associated leiomyosarcoma excluded",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "Uneventful postoperative course with discharge on postoperative day 7",
+            "evidence_ids": [
+              "E009"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "EBV-associated leiomyosarcoma",
+            "basis": "EBV-encoded RNA was negative (E008)"
+          },
+          {
+            "alternative": "Small bowel obstruction from adhesions alone",
+            "basis": "Imaging and operative findings demonstrated a mass causing obstruction, not adhesions alone"
+          },
+          {
+            "alternative": "Lymphoplasmacytic lymphoma causing obstruction",
+            "basis": "Histopathology identified the obstructing lesion as leiomyosarcoma; lymphoplasmacytic lymphoma was present only in non-involved lymph nodes"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Specific adjuvant oncologic treatment decisions and rationale for a grade 2 leiomyosarcoma with nodal metastasis",
+          "Long-term follow-up imaging surveillance plan",
+          "Overall survival and disease recurrence status"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Jejunal leiomyosarcoma, grade 2, 75 mm, with negative margins and metastatic disease in 1 of 4 lymph nodes",
+    "trajectory_summary": "An 80-year-old man with lymphoplasmacytic lymphoma on zanubrutinib presented to the ED with classic small bowel obstruction symptoms (colicky abdominal pain, obstipation, nausea, vomiting). An incidental non-obstructing small bowel mass had been identified 4 months prior during a febrile neutropenia admission. CT abdomen-pelvis on the current admission demonstrated a large obstructing distal small bowel mass that had increased in size compared to the prior study. Initial conservative management with nasogastric decompression, IV fluid resuscitation, and Gastrografin on day 2 achieved radiological resolution of the obstruction. However, the patient underwent surgical resection via laparotomy with adhesiolysis and stapled side-to-side antiperistaltic small bowel resection. Intraoperative findings included a mass adherent within the pelvis with significant luminal narrowing and multiple enlarged firm mesenteric lymph nodes; no metastatic disease was noted. Histopathology confirmed a 75 mm grade 2 jejunal leiomyosarcoma with negative margins and metastatic disease in 1 of 4 lymph nodes. The remaining three lymph nodes demonstrated features consistent with the patient's known lymphoplasmacytic lymphoma. EBV-encoded RNA was negative, excluding EBV-associated leiomyosarcoma. The patient progressed well postoperatively and was discharged on postoperative day 7.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with small bowel obstruction symptoms",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Known incidental non-obstructing small bowel mass identified 4 months prior",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "CT imaging confirmed obstructing distal small bowel mass that increased in size",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Initial conservative management achieved radiological resolution",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Surgical resection performed via laparotomy with adhesiolysis and stapled side-to-side antiperistaltic anastomosis",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Intraoperative findings: mass adherent in pelvis with luminal narrowing and enlarged mesenteric lymph nodes",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Histopathology confirmed 75 mm grade 2 jejunal leiomyosarcoma with negative margins",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "One of four lymph nodes demonstrated metastatic disease",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "Remaining lymph nodes showed lymphoplasmacytic lymphoma features; EBV-associated leiomyosarcoma excluded",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "Uneventful postoperative course with discharge on postoperative day 7",
+        "evidence_ids": [
+          "E009"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "EBV-associated leiomyosarcoma",
+        "basis": "EBV-encoded RNA was negative (E008)"
+      },
+      {
+        "alternative": "Small bowel obstruction from adhesions alone",
+        "basis": "Imaging and operative findings demonstrated a mass causing obstruction, not adhesions alone"
+      },
+      {
+        "alternative": "Lymphoplasmacytic lymphoma causing obstruction",
+        "basis": "Histopathology identified the obstructing lesion as leiomyosarcoma; lymphoplasmacytic lymphoma was present only in non-involved lymph nodes"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Specific adjuvant oncologic treatment decisions and rationale for a grade 2 leiomyosarcoma with nodal metastasis",
+      "Long-term follow-up imaging surveillance plan",
+      "Overall survival and disease recurrence status"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T08:46:11.826078+00:00",
+  "clinician_model": "claude-haiku-4-5",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

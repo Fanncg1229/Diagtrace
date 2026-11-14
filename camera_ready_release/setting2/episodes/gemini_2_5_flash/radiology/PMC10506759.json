@@ -1,0 +1,354 @@
+{
+  "case_id": "PMC10506759",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 9,
+  "termination": "final",
+  "known_final_diagnosis": "confirming the diagnosis of pheochromocytoma [5].",
+  "disclosed_evidence_ids": [
+    "E002",
+    "E003",
+    "E006",
+    "E007",
+    "E008"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "24-hour urine fractionated metanephrines and catecholamines",
+        "current_trajectory_hypothesis": "Patient presented with symptoms suggestive of pheochromocytoma. Initial workup would likely involve biochemical testing for catecholamines/metabolites.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Biochemical confirmation of catecholamine excess",
+          "Localization of tumor (if present)",
+          "Histopathological confirmation (if surgical resection occurs)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for 24-hour urine fractionated metanephrines and catecholamines placed; no result documented yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Result of 24-hour urine fractionated metanephrines and catecholamines",
+        "current_trajectory_hypothesis": "Patient presented with symptoms suggestive of pheochromocytoma. Initial workup involves biochemical testing for catecholamine excess. Awaiting results of the ordered 24-hour urine test.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Biochemical confirmation of catecholamine excess",
+          "Localization of tumor (if present)",
+          "Histopathological confirmation (if surgical resection occurs)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "Laboratory investigations revealed elevated levels of plasma catecholamines (epinephrine: 550 pg/mL (normal < 100 pg/mL), norepinephrine: 700 pg/mL (normal 100-450 pg/mL), and metanephrines (metanephrine: 1800 pg/mL (normal <165 pg/mL), and normetanephrine: 1200 pg/mL (normal 0-900 pg/mL))",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Abdominal CT scan or MRI to localize adrenal mass",
+        "current_trajectory_hypothesis": "Patient presented with symptoms and elevated blood pressure. Biochemical tests confirmed catecholamine excess. The next step is to localize the source of catecholamine production, typically an adrenal tumor.",
+        "confirmed_evidence": [
+          "Patient presented with episodic headaches, palpitations, sweating, anxiety, irritability, and elevated blood pressure (170/100 mmHg)",
+          "Laboratory investigations revealed elevated levels of plasma catecholamines (epinephrine: 550 pg/mL, norepinephrine: 700 pg/mL) and metanephrines (metanephrine: 1800 pg/mL, normetanephrine: 1200 pg/mL)"
+        ],
+        "missing_key_evidence": [
+          "Localization of tumor (if present)",
+          "Histopathological confirmation (if surgical resection occurs)",
+          "Treatment and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Order for abdominal CT or MRI scan to localize adrenal mass recorded, not yet disclosed.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Result of abdominal CT scan or MRI",
+        "current_trajectory_hypothesis": "Patient presented with symptoms and elevated blood pressure. Biochemical tests confirmed catecholamine excess. Imaging is needed to localize the source of catecholamine production, likely an adrenal tumor.",
+        "confirmed_evidence": [
+          "Patient presented with episodic headaches, palpitations, sweating, anxiety, irritability, and elevated blood pressure (170/100 mmHg)",
+          "Laboratory investigations revealed elevated levels of plasma catecholamines (epinephrine: 550 pg/mL, norepinephrine: 700 pg/mL) and metanephrines (metanephrine: 1800 pg/mL, normetanephrine: 1200 pg/mL)"
+        ],
+        "missing_key_evidence": [
+          "Localization of tumor (if present)",
+          "Histopathological confirmation (if surgical resection occurs)",
+          "Treatment and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Magnetic resonance imaging (MRI) and computed tomography (CT) imaging studies were performed to determine the location of the tumor. Figure 1 and Figure 2 demonstrate a 3 cm mass discovered in the left adrenal gland with evidence of local invasion into the surrounding tissues [6].",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "Surgical resection of the adrenal mass",
+        "current_trajectory_hypothesis": "Patient presented with symptoms and elevated blood pressure. Biochemical tests confirmed catecholamine excess. Imaging localized a left adrenal mass with local invasion. The next step is likely surgical removal of the tumor.",
+        "confirmed_evidence": [
+          "Patient presented with episodic headaches, palpitations, sweating, anxiety, irritability, and elevated blood pressure (170/100 mmHg)",
+          "Laboratory investigations revealed elevated levels of plasma catecholamines (epinephrine: 550 pg/mL, norepinephrine: 700 pg/mL) and metanephrines (metanephrine: 1800 pg/mL, normetanephrine: 1200 pg/mL)",
+          "MRI and CT imaging studies revealed a 3 cm mass in the left adrenal gland with evidence of local invasion into the surrounding tissues"
+        ],
+        "missing_key_evidence": [
+          "Details of surgical intervention",
+          "Histopathological confirmation of pheochromocytoma",
+          "Treatment response and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Procedure ordered without documented result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Pathology report from surgical resection of the adrenal mass",
+        "current_trajectory_hypothesis": "Patient presented with symptoms and elevated blood pressure. Biochemical tests confirmed catecholamine excess. Imaging localized a left adrenal mass with local invasion. Surgical removal of the tumor was performed. Now seeking histopathological confirmation of pheochromocytoma.",
+        "confirmed_evidence": [
+          "Patient presented with episodic headaches, palpitations, sweating, anxiety, irritability, and elevated blood pressure (170/100 mmHg)",
+          "Laboratory investigations revealed elevated levels of plasma catecholamines (epinephrine: 550 pg/mL, norepinephrine: 700 pg/mL) and metanephrines (metanephrine: 1800 pg/mL, normetanephrine: 1200 pg/mL)",
+          "MRI and CT imaging studies revealed a 3 cm mass in the left adrenal gland with evidence of local invasion into the surrounding tissues"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of pheochromocytoma",
+          "Treatment response and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "Histopathological examination confirmed the diagnosis of pheochromocytoma. The tumor measured 3.5 cm in diameter and showed evidence of capsular and vascular invasion. The mitotic rate was low, and the Ki-67 index was 5%. The tumor was negative for malignancy markers.",
+        "category": "other",
+        "temporal_cue": "postoperative day 3",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Details of the surgical intervention for the adrenal mass",
+        "current_trajectory_hypothesis": "Patient presented with symptoms and elevated blood pressure. Biochemical tests confirmed catecholamine excess. Imaging localized a left adrenal mass with local invasion. Histopathology confirmed pheochromocytoma. Now seeking details about the surgical removal of the tumor.",
+        "confirmed_evidence": [
+          "Patient presented with episodic headaches, palpitations, sweating, anxiety, irritability, and elevated blood pressure (170/100 mmHg)",
+          "Laboratory investigations revealed elevated levels of plasma catecholamines (epinephrine: 550 pg/mL, norepinephrine: 700 pg/mL) and metanephrines (metanephrine: 1800 pg/mL, normetanephrine: 1200 pg/mL)",
+          "MRI and CT imaging studies revealed a 3 cm mass in the left adrenal gland with evidence of local invasion into the surrounding tissues",
+          "Histopathological examination confirmed the diagnosis of pheochromocytoma, with the tumor measuring 3.5 cm in diameter and showing evidence of capsular and vascular invasion"
+        ],
+        "missing_key_evidence": [
+          "Details of surgical intervention",
+          "Treatment response and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "He underwent a laparoscopic left adrenalectomy following 10 d of phenoxybenzamine. Intraoperative findings confirmed the presence of left pheochromocytoma with local invasion into the adjacent tissues. The tumor was removed completely, and the postoperative period was uneventful.",
+        "category": "treatment_response",
+        "temporal_cue": "after 10 days of medical preparation and surgery",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Postoperative clinical course, including blood pressure and symptom resolution",
+        "current_trajectory_hypothesis": "Patient presented with symptoms and elevated blood pressure. Biochemical tests confirmed catecholamine excess. Imaging localized a left adrenal mass with local invasion. Histopathology confirmed pheochromocytoma, which was completely removed via laparoscopic adrenalectomy. The immediate postoperative period was uneventful. Now seeking details on long-term treatment response and resolution of symptoms/hypertension.",
+        "confirmed_evidence": [
+          "Patient presented with episodic headaches, palpitations, sweating, anxiety, irritability, and elevated blood pressure (170/100 mmHg)",
+          "Laboratory investigations revealed elevated levels of plasma catecholamines (epinephrine: 550 pg/mL, norepinephrine: 700 pg/mL) and metanephrines (metanephrine: 1800 pg/mL, normetanephrine: 1200 pg/mL)",
+          "MRI and CT imaging studies revealed a 3 cm mass in the left adrenal gland with evidence of local invasion into the surrounding tissues",
+          "Histopathological examination confirmed the diagnosis of pheochromocytoma, with the tumor measuring 3.5 cm in diameter and showing evidence of capsular and vascular invasion",
+          "Patient underwent a laparoscopic left adrenalectomy following 10 days of phenoxybenzamine. Intraoperative findings confirmed the presence of left pheochromocytoma with local invasion into the adjacent tissues. The tumor was removed completely, and the postoperative period was uneventful."
+        ],
+        "missing_key_evidence": [
+          "Resolution of symptoms and normalization of blood pressure post-surgery",
+          "Long-term outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "The patient was followed up in the clinic for six months postoperatively. He reported the resolution of his symptoms, and his blood pressure was normal on follow-up visits. Repeat imaging did not show any evidence of tumor recurrence.",
+        "category": "other",
+        "temporal_cue": "six months postoperatively",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "pheochromocytoma",
+        "trajectory_summary": "A 45-year-old man presented with episodic headaches, palpitations, sweating, anxiety, and irritability, along with elevated blood pressure (170/100 mmHg). Laboratory investigations revealed elevated plasma catecholamines and metanephrines. Imaging (MRI/CT) localized a 3 cm mass in the left adrenal gland with local invasion. Following 10 days of phenoxybenzamine, he underwent a laparoscopic left adrenalectomy. Histopathological examination confirmed pheochromocytoma, measuring 3.5 cm, with capsular and vascular invasion. The postoperative period was uneventful, and at six months follow-up, his symptoms had resolved, blood pressure was normal, and repeat imaging showed no tumor recurrence.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with classic symptoms of pheochromocytoma including episodic headaches, palpitations, sweating, anxiety, irritability, and elevated blood pressure.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Biochemical testing showed significantly elevated plasma catecholamines (epinephrine: 550 pg/mL, norepinephrine: 700 pg/mL) and metanephrines (metanephrine: 1800 pg/mL, normetanephrine: 1200 pg/mL), confirming catecholamine excess.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Imaging studies (MRI and CT) localized a 3 cm mass in the left adrenal gland with evidence of local invasion.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Patient underwent laparoscopic left adrenalectomy after medical preparation.",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Histopathological examination of the resected mass confirmed the diagnosis of pheochromocytoma, measuring 3.5 cm, with capsular and vascular invasion.",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Postoperatively, the patient experienced resolution of symptoms and normalization of blood pressure, with no evidence of recurrence at six months.",
+            "evidence_ids": [
+              "E008"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [
+          "Specific details regarding the 'malignancy markers' mentioned in the pathology report and their clinical significance in this case, given the local invasion but negative malignancy markers."
+        ],
+        "confidence_that_diagnosis_is_supported": 1.0
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "pheochromocytoma",
+    "trajectory_summary": "A 45-year-old man presented with episodic headaches, palpitations, sweating, anxiety, and irritability, along with elevated blood pressure (170/100 mmHg). Laboratory investigations revealed elevated plasma catecholamines and metanephrines. Imaging (MRI/CT) localized a 3 cm mass in the left adrenal gland with local invasion. Following 10 days of phenoxybenzamine, he underwent a laparoscopic left adrenalectomy. Histopathological examination confirmed pheochromocytoma, measuring 3.5 cm, with capsular and vascular invasion. The postoperative period was uneventful, and at six months follow-up, his symptoms had resolved, blood pressure was normal, and repeat imaging showed no tumor recurrence.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with classic symptoms of pheochromocytoma including episodic headaches, palpitations, sweating, anxiety, irritability, and elevated blood pressure.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Biochemical testing showed significantly elevated plasma catecholamines (epinephrine: 550 pg/mL, norepinephrine: 700 pg/mL) and metanephrines (metanephrine: 1800 pg/mL, normetanephrine: 1200 pg/mL), confirming catecholamine excess.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Imaging studies (MRI and CT) localized a 3 cm mass in the left adrenal gland with evidence of local invasion.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Patient underwent laparoscopic left adrenalectomy after medical preparation.",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Histopathological examination of the resected mass confirmed the diagnosis of pheochromocytoma, measuring 3.5 cm, with capsular and vascular invasion.",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Postoperatively, the patient experienced resolution of symptoms and normalization of blood pressure, with no evidence of recurrence at six months.",
+        "evidence_ids": [
+          "E008"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [
+      "Specific details regarding the 'malignancy markers' mentioned in the pathology report and their clinical significance in this case, given the local invasion but negative malignancy markers."
+    ],
+    "confidence_that_diagnosis_is_supported": 1.0
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T00:42:46.256761+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

@@ -1,0 +1,644 @@
+{
+  "case_id": "PMC8294942",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "The diagnosis was considered as “pheochromocytoma, diffuse alveolar hemorrhage”.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E006"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with hemoptysis and related symptoms, initially treated for suspected pneumonia. The known final diagnosis is pheochromocytoma and diffuse alveolar hemorrhage. I need to understand the clinical progression from initial presentation to this diagnosis.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Recurrence of symptoms",
+          "New symptoms",
+          "Subsequent investigations",
+          "Evidence for pheochromocytoma",
+          "Evidence for diffuse alveolar hemorrhage"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "At admission, the pulmonary CT scan showed patchy high-density shadow and ground-glass opacity, compatible with diffuse alveolar hemorrhage (DAH) (see Figure 1 ).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "Order bronchoalveolar lavage (BAL) to confirm diffuse alveolar hemorrhage and investigate its etiology.",
+        "current_trajectory_hypothesis": "Patient presented with hemoptysis and related symptoms, initially treated for suspected pneumonia. A subsequent admission showed pulmonary CT findings compatible with diffuse alveolar hemorrhage (DAH). I need to confirm DAH and investigate its cause, and also find evidence for pheochromocytoma.",
+        "confirmed_evidence": [
+          "Initial presentation with hemoptysis, chest distress, shortness of breath, and palpitation, initially suspected as pneumonia.",
+          "Pulmonary CT on a subsequent admission showed patchy high-density shadow and ground-glass opacity, compatible with diffuse alveolar hemorrhage (DAH)."
+        ],
+        "missing_key_evidence": [
+          "Confirmation of DAH (e.g., BAL findings)",
+          "Etiology of DAH",
+          "Evidence for pheochromocytoma (e.g., biochemical tests, imaging)",
+          "Temporal context of the 'admission' where E001 was obtained",
+          "Clinical course leading to the 'admission'"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "The procedure bronchoalveolar lavage (BAL) has been ordered without a corresponding source evidence record of the order confirmation yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with hemoptysis and related symptoms, initially treated for suspected pneumonia. A subsequent admission showed pulmonary CT findings compatible with diffuse alveolar hemorrhage (DAH). I need to understand the clinical progression, the context of this admission, and find evidence for both DAH and pheochromocytoma.",
+        "confirmed_evidence": [
+          "Initial presentation with hemoptysis, chest distress, shortness of breath, and palpitation, initially suspected as pneumonia.",
+          "Pulmonary CT on a subsequent admission showed patchy high-density shadow and ground-glass opacity, compatible with diffuse alveolar hemorrhage (DAH) (E001)."
+        ],
+        "missing_key_evidence": [
+          "Temporal context of the 'admission' where E001 was obtained",
+          "Clinical course leading to the 'admission' and subsequent events",
+          "Confirmation of DAH (e.g., BAL findings)",
+          "Etiology of DAH",
+          "Evidence for pheochromocytoma (e.g., biochemical tests, imaging)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "A complete blood count revealed the following: white blood cell 23,720/mm3, hemoglobin 18.1 g/dl, hematocrit 52%, and platelets 275,000/mm3. Liver function test results were ALT 62 IU/L, AST 58 IU/L, and LDH 326 IU/L. His blood glucose was 297 mg/dl, and serum creatinine was 114 ummol/L. Prothrombin time and activated partial thromboplastin time were 10.7 and 29.2 s, respectively. The examination of the urine showed proteinuria and glucosuria.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order biochemical tests for pheochromocytoma, such as plasma or 24-hour urine metanephrines and catecholamines.",
+        "current_trajectory_hypothesis": "Patient presented with hemoptysis and related symptoms, initially treated for suspected pneumonia. A subsequent admission showed pulmonary CT findings compatible with diffuse alveolar hemorrhage (DAH) and abnormal lab results including hyperglycemia, proteinuria, and glucosuria. Given the known diagnosis of pheochromocytoma, I need to investigate this further.",
+        "confirmed_evidence": [
+          "Initial presentation with hemoptysis, chest distress, shortness of breath, and palpitation, initially suspected as pneumonia.",
+          "Pulmonary CT on a subsequent admission showed patchy high-density shadow and ground-glass opacity, compatible with diffuse alveolar hemorrhage (DAH) (E001).",
+          "On admission, complete blood count showed leukocytosis, elevated hemoglobin/hematocrit. Liver function tests showed elevated ALT/AST/LDH. Blood glucose was elevated, and serum creatinine was elevated. Urine showed proteinuria and glucosuria (E002)."
+        ],
+        "missing_key_evidence": [
+          "Temporal context of the 'admission' where E001 and E002 were obtained",
+          "Clinical course leading to the 'admission' and subsequent events",
+          "Confirmation of DAH (e.g., BAL findings)",
+          "Etiology of DAH",
+          "Biochemical evidence for pheochromocytoma",
+          "Imaging evidence for pheochromocytoma"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Biochemical tests for pheochromocytoma ordered; no direct source result for order yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request results of biochemical tests for pheochromocytoma (plasma or 24-hour urine metanephrines and catecholamines).",
+        "current_trajectory_hypothesis": "Patient presented with hemoptysis and related symptoms, initially treated for suspected pneumonia. A subsequent admission showed pulmonary CT findings compatible with diffuse alveolar hemorrhage (DAH) and abnormal lab results including hyperglycemia, proteinuria, and glucosuria. Given the known diagnosis of pheochromocytoma, I am seeking biochemical confirmation.",
+        "confirmed_evidence": [
+          "Initial presentation with hemoptysis, chest distress, shortness of breath, and palpitation, initially suspected as pneumonia.",
+          "Pulmonary CT on a subsequent admission showed patchy high-density shadow and ground-glass opacity, compatible with diffuse alveolar hemorrhage (DAH) (E001).",
+          "On admission, complete blood count showed leukocytosis, elevated hemoglobin/hematocrit. Liver function tests showed elevated ALT/AST/LDH. Blood glucose was elevated, and serum creatinine was elevated. Urine showed proteinuria and glucosuria (E002)."
+        ],
+        "missing_key_evidence": [
+          "Temporal context of the 'admission' where E001 and E002 were obtained",
+          "Clinical course leading to the 'admission' and subsequent events",
+          "Confirmation of DAH (e.g., BAL findings)",
+          "Etiology of DAH",
+          "Biochemical evidence for pheochromocytoma",
+          "Imaging evidence for pheochromocytoma"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with hemoptysis and related symptoms, initially treated for suspected pneumonia. A subsequent admission showed pulmonary CT findings compatible with diffuse alveolar hemorrhage (DAH) and abnormal lab results including hyperglycemia, proteinuria, and glucosuria. I am seeking further evidence for both DAH and pheochromocytoma, and the overall clinical progression.",
+        "confirmed_evidence": [
+          "Initial presentation with hemoptysis, chest distress, shortness of breath, and palpitation, initially suspected as pneumonia.",
+          "Pulmonary CT on a subsequent admission showed patchy high-density shadow and ground-glass opacity, compatible with diffuse alveolar hemorrhage (DAH) (E001).",
+          "On admission, complete blood count showed leukocytosis, elevated hemoglobin/hematocrit. Liver function tests showed elevated ALT/AST/LDH. Blood glucose was elevated, and serum creatinine was elevated. Urine showed proteinuria and glucosuria (E002)."
+        ],
+        "missing_key_evidence": [
+          "Temporal context of the 'admission' where E001 and E002 were obtained",
+          "Clinical course leading to the 'admission' and subsequent events",
+          "Confirmation of DAH (e.g., BAL findings)",
+          "Etiology of DAH",
+          "Biochemical evidence for pheochromocytoma",
+          "Imaging evidence for pheochromocytoma"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "The bronchoalveolar lavage reported macrophage (86%), lymphocyte (1.5%), neutrophil (12.5%). Autoimmune diseases were suspected at first. Further laboratory tests showed anti-DNA (anti-double stranded DNA), c-ANCA (c-anti-neutrophil cytoplasmic antibodies), anti-MPO (anti-myeloperoxidase antibody), ANA (anti-nuclear antibody), and anti-GBM (anti-glomerular basement membrane) antibodies were negative. Blood and sputum cultures were negative as well.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request results of biochemical tests for pheochromocytoma (plasma or 24-hour urine metanephrines and catecholamines).",
+        "current_trajectory_hypothesis": "Patient presented with hemoptysis and related symptoms, initially treated for suspected pneumonia. A subsequent admission showed pulmonary CT findings compatible with diffuse alveolar hemorrhage (DAH) (E001) and abnormal lab results (E002). BAL results showed macrophage predominance with some neutrophils, and autoimmune/infectious causes for DAH were ruled out (E003). Given the known diagnosis of pheochromocytoma, I am seeking biochemical confirmation.",
+        "confirmed_evidence": [
+          "Initial presentation with hemoptysis, chest distress, shortness of breath, and palpitation, initially suspected as pneumonia.",
+          "Pulmonary CT on a subsequent admission showed patchy high-density shadow and ground-glass opacity, compatible with diffuse alveolar hemorrhage (DAH) (E001).",
+          "On admission, complete blood count showed leukocytosis, elevated hemoglobin/hematocrit. Liver function tests showed elevated ALT/AST/LDH. Blood glucose was elevated, and serum creatinine was elevated. Urine showed proteinuria and glucosuria (E002).",
+          "Bronchoalveolar lavage (BAL) reported macrophage (86%), lymphocyte (1.5%), neutrophil (12.5%). Autoimmune diseases (anti-DNA, c-ANCA, anti-MPO, ANA, anti-GBM) and infectious causes (blood and sputum cultures) were negative (E003)."
+        ],
+        "missing_key_evidence": [
+          "Temporal context of the 'admission' where E001, E002, E003 were obtained",
+          "Clinical course leading to the 'admission' and subsequent events",
+          "More definitive confirmation of DAH (e.g., hemosiderin-laden macrophages, serial BAL red cell counts)",
+          "Biochemical evidence for pheochromocytoma",
+          "Imaging evidence for pheochromocytoma"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order an abdominal CT scan to investigate potential adrenal pathology given the patient's symptoms and lab findings.",
+        "current_trajectory_hypothesis": "Patient presented with hemoptysis and related symptoms, initially treated for suspected pneumonia. A subsequent admission showed pulmonary CT findings compatible with diffuse alveolar hemorrhage (DAH) (E001) and abnormal lab results (E002) including hyperglycemia, proteinuria, and elevated Hgb/Hct. BAL results showed macrophage predominance with some neutrophils, and autoimmune/infectious causes for DAH were ruled out (E003). Given the known final diagnosis of pheochromocytoma, I am now seeking imaging evidence for it.",
+        "confirmed_evidence": [
+          "Initial presentation with hemoptysis, chest distress, shortness of breath, and palpitation, initially suspected as pneumonia.",
+          "Pulmonary CT on a subsequent admission showed patchy high-density shadow and ground-glass opacity, compatible with diffuse alveolar hemorrhage (DAH) (E001).",
+          "On admission, complete blood count showed leukocytosis, elevated hemoglobin/hematocrit. Liver function tests showed elevated ALT/AST/LDH. Blood glucose was elevated, and serum creatinine was elevated. Urine showed proteinuria and glucosuria (E002).",
+          "Bronchoalveolar lavage (BAL) reported macrophage (86%), lymphocyte (1.5%), neutrophil (12.5%). Autoimmune diseases (anti-DNA, c-ANCA, anti-MPO, ANA, anti-GBM) and infectious causes (blood and sputum cultures) were negative (E003)."
+        ],
+        "missing_key_evidence": [
+          "Temporal context of the 'admission' where E001, E002, E003 were obtained",
+          "Clinical course leading to the 'admission' and subsequent events",
+          "More definitive confirmation of DAH (e.g., hemosiderin-laden macrophages, serial BAL red cell counts)",
+          "Biochemical evidence for pheochromocytoma",
+          "Imaging evidence for pheochromocytoma"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Abdominal CT scan ordered to investigate potential adrenal pathology; no matching source record yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request results of biochemical tests for pheochromocytoma (plasma or 24-hour urine metanephrines and catecholamines).",
+        "current_trajectory_hypothesis": "Patient presented with hemoptysis and related symptoms, initially treated for suspected pneumonia. A subsequent admission showed pulmonary CT findings compatible with diffuse alveolar hemorrhage (DAH) (E001) and abnormal lab results (E002). BAL results showed macrophage predominance with some neutrophils, and autoimmune/infectious causes for DAH were ruled out (E003). Given the known diagnosis of pheochromocytoma, I am seeking biochemical confirmation.",
+        "confirmed_evidence": [
+          "Initial presentation with hemoptysis, chest distress, shortness of breath, and palpitation, initially suspected as pneumonia.",
+          "Pulmonary CT on a subsequent admission showed patchy high-density shadow and ground-glass opacity, compatible with diffuse alveolar hemorrhage (DAH) (E001).",
+          "On admission, complete blood count showed leukocytosis, elevated hemoglobin/hematocrit. Liver function tests showed elevated ALT/AST/LDH. Blood glucose was elevated, and serum creatinine was elevated. Urine showed proteinuria and glucosuria (E002).",
+          "Bronchoalveolar lavage (BAL) reported macrophage (86%), lymphocyte (1.5%), neutrophil (12.5%). Autoimmune diseases (anti-DNA, c-ANCA, anti-MPO, ANA, anti-GBM) and infectious causes (blood and sputum cultures) were negative (E003)."
+        ],
+        "missing_key_evidence": [
+          "Temporal context of the 'admission' where E001, E002, E003 were obtained",
+          "Clinical course leading to the 'admission' and subsequent events",
+          "More definitive confirmation of DAH (e.g., hemosiderin-laden macrophages, serial BAL red cell counts)",
+          "Biochemical evidence for pheochromocytoma",
+          "Imaging evidence for pheochromocytoma"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request the report of the abdominal CT scan.",
+        "current_trajectory_hypothesis": "Patient presented with hemoptysis and related symptoms, initially treated for suspected pneumonia. A subsequent admission showed pulmonary CT findings compatible with diffuse alveolar hemorrhage (DAH) (E001) and abnormal lab results (E002). BAL results showed macrophage predominance with some neutrophils, and autoimmune/infectious causes for DAH were ruled out (E003). I am now seeking imaging evidence for pheochromocytoma, having previously ordered an abdominal CT.",
+        "confirmed_evidence": [
+          "Initial presentation with hemoptysis, chest distress, shortness of breath, and palpitation, initially suspected as pneumonia.",
+          "Pulmonary CT on a subsequent admission showed patchy high-density shadow and ground-glass opacity, compatible with diffuse alveolar hemorrhage (DAH) (E001).",
+          "On admission, complete blood count showed leukocytosis, elevated hemoglobin/hematocrit. Liver function tests showed elevated ALT/AST/LDH. Blood glucose was elevated, and serum creatinine was elevated. Urine showed proteinuria and glucosuria (E002).",
+          "Bronchoalveolar lavage (BAL) reported macrophage (86%), lymphocyte (1.5%), neutrophil (12.5%). Autoimmune diseases (anti-DNA, c-ANCA, anti-MPO, ANA, anti-GBM) and infectious causes (blood and sputum cultures) were negative (E003)."
+        ],
+        "missing_key_evidence": [
+          "Temporal context of the 'admission' where E001, E002, E003 were obtained",
+          "Clinical course leading to the 'admission' and subsequent events",
+          "More definitive confirmation of DAH (e.g., hemosiderin-laden macrophages, serial BAL red cell counts)",
+          "Biochemical evidence for pheochromocytoma",
+          "Imaging evidence for pheochromocytoma"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "The abdominal CT scan discovered left adrenal mass with intravenous contrast (69 * 61 * 62 mm) (see Figure 2 ).",
+        "category": "imaging_report",
+        "temporal_cue": "after admission",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request results of biochemical tests for pheochromocytoma (plasma or 24-hour urine metanephrines and catecholamines).",
+        "current_trajectory_hypothesis": "Patient presented with hemoptysis and related symptoms, initially treated for suspected pneumonia. A subsequent admission showed pulmonary CT findings compatible with diffuse alveolar hemorrhage (DAH) (E001) and abnormal lab results (E002). BAL results showed macrophage predominance with some neutrophils, and autoimmune/infectious causes for DAH were ruled out (E003). An abdominal CT scan revealed a left adrenal mass (E006). I am now seeking biochemical confirmation for pheochromocytoma.",
+        "confirmed_evidence": [
+          "Initial presentation with hemoptysis, chest distress, shortness of breath, and palpitation, initially suspected as pneumonia.",
+          "Pulmonary CT on a subsequent admission showed patchy high-density shadow and ground-glass opacity, compatible with diffuse alveolar hemorrhage (DAH) (E001).",
+          "On admission, complete blood count showed leukocytosis, elevated hemoglobin/hematocrit. Liver function tests showed elevated ALT/AST/LDH. Blood glucose was elevated, and serum creatinine was elevated. Urine showed proteinuria and glucosuria (E002).",
+          "Bronchoalveolar lavage (BAL) reported macrophage (86%), lymphocyte (1.5%), neutrophil (12.5%). Autoimmune diseases (anti-DNA, c-ANCA, anti-MPO, ANA, anti-GBM) and infectious causes (blood and sputum cultures) were negative (E003).",
+          "An abdominal CT scan discovered a left adrenal mass (69 * 61 * 62 mm) (E006)."
+        ],
+        "missing_key_evidence": [
+          "Temporal context of the 'admission' where E001, E002, E003 were obtained",
+          "Clinical course leading to the 'admission' and subsequent events",
+          "More definitive confirmation of DAH (e.g., hemosiderin-laden macrophages, serial BAL red cell counts)",
+          "Biochemical evidence for pheochromocytoma"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request results of plasma or 24-hour urine catecholamine and metanephrine levels.",
+        "current_trajectory_hypothesis": "Patient presented with hemoptysis and related symptoms, initially treated for suspected pneumonia. A subsequent admission showed pulmonary CT findings compatible with diffuse alveolar hemorrhage (DAH) (E001) and abnormal lab results (E002). BAL results showed macrophage predominance with some neutrophils, and autoimmune/infectious causes for DAH were ruled out (E003). An abdominal CT scan revealed a left adrenal mass (E006). I am now seeking biochemical confirmation for pheochromocytoma.",
+        "confirmed_evidence": [
+          "Initial presentation with hemoptysis, chest distress, shortness of breath, and palpitation, initially suspected as pneumonia.",
+          "Pulmonary CT on a subsequent admission showed patchy high-density shadow and ground-glass opacity, compatible with diffuse alveolar hemorrhage (DAH) (E001).",
+          "On admission, complete blood count showed leukocytosis, elevated hemoglobin/hematocrit. Liver function tests showed elevated ALT/AST/LDH. Blood glucose was elevated, and serum creatinine was elevated. Urine showed proteinuria and glucosuria (E002).",
+          "Bronchoalveolar lavage (BAL) reported macrophage (86%), lymphocyte (1.5%), neutrophil (12.5%). Autoimmune diseases (anti-DNA, c-ANCA, anti-MPO, ANA, anti-GBM) and infectious causes (blood and sputum cultures) were negative (E003).",
+          "An abdominal CT scan discovered a left adrenal mass (69 * 61 * 62 mm) (E006)."
+        ],
+        "missing_key_evidence": [
+          "Temporal context of the 'admission' where E001, E002, E003 were obtained",
+          "Clinical course leading to the 'admission' and subsequent events",
+          "More definitive confirmation of DAH (e.g., hemosiderin-laden macrophages, serial BAL red cell counts)",
+          "Biochemical evidence for pheochromocytoma"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with hemoptysis and related symptoms, initially treated for suspected pneumonia. A subsequent admission showed pulmonary CT findings compatible with diffuse alveolar hemorrhage (DAH) (E001) and abnormal lab results (E002). BAL results showed macrophage predominance with some neutrophils, and autoimmune/infectious causes for DAH were ruled out (E003). An abdominal CT scan revealed a left adrenal mass (E006). I am now seeking biochemical confirmation for pheochromocytoma and further clinical progression.",
+        "confirmed_evidence": [
+          "Initial presentation with hemoptysis, chest distress, shortness of breath, and palpitation, initially suspected as pneumonia.",
+          "Pulmonary CT on a subsequent admission showed patchy high-density shadow and ground-glass opacity, compatible with diffuse alveolar hemorrhage (DAH) (E001).",
+          "On admission, complete blood count showed leukocytosis, elevated hemoglobin/hematocrit. Liver function tests showed elevated ALT/AST/LDH. Blood glucose was elevated, and serum creatinine was elevated. Urine showed proteinuria and glucosuria (E002).",
+          "Bronchoalveolar lavage (BAL) reported macrophage (86%), lymphocyte (1.5%), neutrophil (12.5%). Autoimmune diseases (anti-DNA, c-ANCA, anti-MPO, ANA, anti-GBM) and infectious causes (blood and sputum cultures) were negative (E003).",
+          "An abdominal CT scan discovered a left adrenal mass (69 * 61 * 62 mm) (E006)."
+        ],
+        "missing_key_evidence": [
+          "Temporal context of the 'admission' where E001, E002, E003 were obtained",
+          "Clinical course leading to the 'admission' and subsequent events",
+          "More definitive confirmation of DAH (e.g., hemosiderin-laden macrophages, serial BAL red cell counts)",
+          "Biochemical evidence for pheochromocytoma"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with hemoptysis and related symptoms, initially treated for suspected pneumonia. A subsequent admission showed pulmonary CT findings compatible with diffuse alveolar hemorrhage (DAH) (E001) and abnormal lab results (E002). BAL results showed macrophage predominance with some neutrophils, and autoimmune/infectious causes for DAH were ruled out (E003). An abdominal CT scan revealed a left adrenal mass (E006). I am still seeking biochemical confirmation for pheochromocytoma and further clinical progression.",
+        "confirmed_evidence": [
+          "Initial presentation with hemoptysis, chest distress, shortness of breath, and palpitation, initially suspected as pneumonia.",
+          "Pulmonary CT on a subsequent admission showed patchy high-density shadow and ground-glass opacity, compatible with diffuse alveolar hemorrhage (DAH) (E001).",
+          "On admission, complete blood count showed leukocytosis, elevated hemoglobin/hematocrit. Liver function tests showed elevated ALT/AST/LDH. Blood glucose was elevated, and serum creatinine was elevated. Urine showed proteinuria and glucosuria (E002).",
+          "Bronchoalveolar lavage (BAL) reported macrophage (86%), lymphocyte (1.5%), neutrophil (12.5%). Autoimmune diseases (anti-DNA, c-ANCA, anti-MPO, ANA, anti-GBM) and infectious causes (blood and sputum cultures) were negative (E003).",
+          "An abdominal CT scan discovered a left adrenal mass (69 * 61 * 62 mm) (E006)."
+        ],
+        "missing_key_evidence": [
+          "Temporal context of the 'admission' where E001, E002, E003 were obtained",
+          "Clinical course leading to the 'admission' and subsequent events",
+          "More definitive confirmation of DAH (e.g., hemosiderin-laden macrophages, serial BAL red cell counts)",
+          "Biochemical evidence for pheochromocytoma"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "pheochromocytoma, diffuse alveolar hemorrhage",
+        "trajectory_summary": "A 30-year-old male initially presented with hemoptysis, chest distress, shortness of breath, and palpitation, which was initially suspected as pneumonia and treated symptomatically. A year later, during a subsequent admission, pulmonary CT showed findings compatible with diffuse alveolar hemorrhage (DAH). Concurrent lab findings included leukocytosis, elevated hemoglobin/hematocrit, elevated liver enzymes, hyperglycemia, elevated creatinine, proteinuria, and glucosuria. Bronchoalveolar lavage (BAL) showed macrophage predominance and ruled out common autoimmune and infectious causes for DAH. An abdominal CT scan subsequently revealed a large left adrenal mass.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial presentation included hemoptysis, paroxysmal chest distress, shortness of breath, and palpitation.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Pulmonary CT on a subsequent admission showed patchy high-density shadow and ground-glass opacity, compatible with diffuse alveolar hemorrhage (DAH).",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "On admission, lab results showed leukocytosis (WBC 23,720/mm3), elevated hemoglobin (18.1 g/dl) and hematocrit (52%), elevated ALT (62 IU/L), AST (58 IU/L), LDH (326 IU/L), hyperglycemia (blood glucose 297 mg/dl), elevated serum creatinine (114 ummol/L), proteinuria, and glucosuria.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Bronchoalveolar lavage (BAL) reported macrophage (86%), lymphocyte (1.5%), and neutrophil (12.5%).",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "An abdominal CT scan discovered a left adrenal mass measuring 69 x 61 x 62 mm.",
+            "evidence_ids": [
+              "E006"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Pneumonia",
+            "basis": "Initial diagnosis was suspected pneumonia, but patient was discharged without further evaluation after symptom relief. Subsequent workup revealed DAH and an adrenal mass, pointing to a different underlying etiology."
+          },
+          {
+            "alternative": "Autoimmune diseases causing DAH",
+            "basis": "Further laboratory tests showed anti-DNA, c-ANCA, anti-MPO, ANA, and anti-GBM antibodies were negative (E003)."
+          },
+          {
+            "alternative": "Infectious causes of DAH",
+            "basis": "Blood and sputum cultures were negative (E003)."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Biochemical confirmation of pheochromocytoma (e.g., plasma or 24-hour urine metanephrines and catecholamines levels).",
+          "More definitive confirmation of diffuse alveolar hemorrhage (e.g., presence of hemosiderin-laden macrophages in BAL or serial BAL red cell counts).",
+          "Explicit documentation of the pathophysiological link between pheochromocytoma and diffuse alveolar hemorrhage in this case.",
+          "Details regarding the treatment administered for pheochromocytoma and DAH, and the patient's subsequent clinical course or outcome."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "pheochromocytoma, diffuse alveolar hemorrhage",
+    "trajectory_summary": "A 30-year-old male initially presented with hemoptysis, chest distress, shortness of breath, and palpitation, which was initially suspected as pneumonia and treated symptomatically. A year later, during a subsequent admission, pulmonary CT showed findings compatible with diffuse alveolar hemorrhage (DAH). Concurrent lab findings included leukocytosis, elevated hemoglobin/hematocrit, elevated liver enzymes, hyperglycemia, elevated creatinine, proteinuria, and glucosuria. Bronchoalveolar lavage (BAL) showed macrophage predominance and ruled out common autoimmune and infectious causes for DAH. An abdominal CT scan subsequently revealed a large left adrenal mass.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial presentation included hemoptysis, paroxysmal chest distress, shortness of breath, and palpitation.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Pulmonary CT on a subsequent admission showed patchy high-density shadow and ground-glass opacity, compatible with diffuse alveolar hemorrhage (DAH).",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "On admission, lab results showed leukocytosis (WBC 23,720/mm3), elevated hemoglobin (18.1 g/dl) and hematocrit (52%), elevated ALT (62 IU/L), AST (58 IU/L), LDH (326 IU/L), hyperglycemia (blood glucose 297 mg/dl), elevated serum creatinine (114 ummol/L), proteinuria, and glucosuria.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Bronchoalveolar lavage (BAL) reported macrophage (86%), lymphocyte (1.5%), and neutrophil (12.5%).",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "An abdominal CT scan discovered a left adrenal mass measuring 69 x 61 x 62 mm.",
+        "evidence_ids": [
+          "E006"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Pneumonia",
+        "basis": "Initial diagnosis was suspected pneumonia, but patient was discharged without further evaluation after symptom relief. Subsequent workup revealed DAH and an adrenal mass, pointing to a different underlying etiology."
+      },
+      {
+        "alternative": "Autoimmune diseases causing DAH",
+        "basis": "Further laboratory tests showed anti-DNA, c-ANCA, anti-MPO, ANA, and anti-GBM antibodies were negative (E003)."
+      },
+      {
+        "alternative": "Infectious causes of DAH",
+        "basis": "Blood and sputum cultures were negative (E003)."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Biochemical confirmation of pheochromocytoma (e.g., plasma or 24-hour urine metanephrines and catecholamines levels).",
+      "More definitive confirmation of diffuse alveolar hemorrhage (e.g., presence of hemosiderin-laden macrophages in BAL or serial BAL red cell counts).",
+      "Explicit documentation of the pathophysiological link between pheochromocytoma and diffuse alveolar hemorrhage in this case.",
+      "Details regarding the treatment administered for pheochromocytoma and DAH, and the patient's subsequent clinical course or outcome."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.6
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T20:56:54.071874+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

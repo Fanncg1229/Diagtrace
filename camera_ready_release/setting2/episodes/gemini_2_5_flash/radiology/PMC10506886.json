@@ -1,0 +1,557 @@
+{
+  "case_id": "PMC10506886",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "Histopathological analysis confirmed the presence of a glioneuronal tumor, leading to a diagnosis of DIG.",
+  "disclosed_evidence_ids": [
+    "E003",
+    "E004",
+    "E005"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "brain MRI with contrast",
+        "current_trajectory_hypothesis": "Patient presented with neurological symptoms (headaches, vomiting, vision loss) suggestive of an intracranial process. Brain imaging is needed to identify a potential lesion.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "details of neurological examination",
+          "initial imaging findings",
+          "pathology confirmation of tumor type"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for brain MRI with contrast is registered; no corresponding report yet to disclose.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "report of the brain MRI with contrast",
+        "current_trajectory_hypothesis": "Patient presented with neurological symptoms (headaches, vomiting, vision loss) suggestive of an intracranial process. Brain imaging is crucial to identify a potential lesion and characterize it.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "details of neurological examination",
+          "initial imaging findings",
+          "pathology confirmation of tumor type"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Axial (A) and coronal (B) T2-weighted images showing the solid-cystic component of the lesion with hyperintensity, centered in the parietal lobe, causing compression on the right lateral ventricle and midline deviation. Axial T2/FLAIR (C) reveals a decrease in signal intensity of the cystic component, which appears hyperintense compared to cerebrospinal fluid. Coronal T1 (D) demonstrates hypointense signal intensity on T1-weighted imaging. Axial post-contrast T1 (E) shows heterogeneous enhancement of the solid component (red arrow). DWI/ADC sequences (F) demonstrate iso-intensity of the ADC within the solid component, compared to the normal brain parenchyma (yellow arrow).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "brain biopsy or surgical resection to obtain tissue for histopathological analysis",
+        "current_trajectory_hypothesis": "Initial neurological symptoms and subsequent MRI findings indicate an intracranial mass. To confirm the diagnosis of a glioneuronal tumor, tissue acquisition for histopathological analysis is necessary.",
+        "confirmed_evidence": [
+          "recurring headaches and vomiting",
+          "rapidly developed amaurosis",
+          "brain MRI showed a solid-cystic lesion in the parietal lobe with hyperintensity on T2, hypointensity on T1, heterogeneous enhancement, and compression of the right lateral ventricle with midline deviation"
+        ],
+        "missing_key_evidence": [
+          "details of neurological examination",
+          "histopathological findings confirming tumor type"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "The source records contain no documentation of brain biopsy or surgical resection ordered at this phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with neurological symptoms and MRI confirmed an intracranial mass. Histopathological analysis is crucial for definitive diagnosis, but a direct biopsy order was not documented. I need to understand the subsequent clinical course, especially if any surgical intervention or procedure was performed to obtain tissue for diagnosis.",
+        "confirmed_evidence": [
+          "recurring headaches and vomiting",
+          "rapidly developed amaurosis",
+          "brain MRI showed a solid-cystic lesion in the parietal lobe with hyperintensity on T2, hypointensity on T1, heterogeneous enhancement, and compression of the right lateral ventricle with midline deviation (E005)"
+        ],
+        "missing_key_evidence": [
+          "details of neurological examination",
+          "histopathological findings confirming tumor type",
+          "details of surgical intervention or tissue acquisition"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Fortunately, the patient's recovery was uncomplicated, and upon leaving the hospital, he was scheduled for follow-up imaging. Over the course of the first two years, he remained asymptomatic, with no evidence of new lesions observed in the MRI scans.",
+        "category": "clinical_course",
+        "temporal_cue": "postoperative follow-up over two years",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "histopathological findings from tissue analysis",
+        "current_trajectory_hypothesis": "After initial neurological symptoms and MRI findings of an intracranial mass, tissue acquisition and subsequent histopathological analysis are necessary to confirm the diagnosis of a glioneuronal tumor. I need to find the report of this analysis.",
+        "confirmed_evidence": [
+          "recurring headaches and vomiting",
+          "rapidly developed amaurosis",
+          "brain MRI showed a solid-cystic lesion in the parietal lobe with hyperintensity on T2, hypointensity on T1, heterogeneous enhancement, and compression of the right lateral ventricle with midline deviation (E005)",
+          "uncomplicated recovery and no new lesions on follow-up MRI over two years (E004)"
+        ],
+        "missing_key_evidence": [
+          "details of neurological examination",
+          "details of surgical intervention or tissue acquisition",
+          "histopathological findings confirming tumor type"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Histopathological analysis confirmed the presence of a glioneuronal tumor",
+        "category": "other",
+        "temporal_cue": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "details of the surgical intervention or procedure that obtained tissue for histopathological analysis",
+        "current_trajectory_hypothesis": "Patient presented with neurological symptoms, MRI showed a parietal lobe lesion. Histopathology confirmed a glioneuronal tumor. I need to understand how the tissue was obtained for this analysis, as a direct biopsy order was not documented.",
+        "confirmed_evidence": [
+          "recurring headaches and vomiting",
+          "rapidly developed amaurosis",
+          "brain MRI showed a solid-cystic lesion in the parietal lobe with hyperintensity on T2, hypointensity on T1, heterogeneous enhancement, and compression of the right lateral ventricle with midline deviation (E005)",
+          "histopathological analysis confirmed the presence of a glioneuronal tumor (E003)",
+          "uncomplicated recovery and no new lesions on follow-up MRI over two years (E004)"
+        ],
+        "missing_key_evidence": [
+          "details of neurological examination",
+          "details of surgical intervention or tissue acquisition",
+          "reconciliation of parietal lobe lesion with DIG diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "The source records do not provide details of the surgical intervention or procedure that obtained tissue for histopathological analysis.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "detailed histopathological report, specifically regarding tumor location or features that led to the diagnosis of DIG",
+        "current_trajectory_hypothesis": "The patient presented with neurological symptoms and MRI showed a parietal lobe lesion. Histopathological analysis confirmed a glioneuronal tumor, leading to a diagnosis of DIG. There is a discrepancy between the parietal lobe location on MRI and the typical pontine location of DIG, which needs clarification from the detailed pathology report.",
+        "confirmed_evidence": [
+          "recurring headaches and vomiting",
+          "rapidly developed amaurosis",
+          "brain MRI showed a solid-cystic lesion in the parietal lobe with hyperintensity on T2, hypointensity on T1, heterogeneous enhancement, and compression of the right lateral ventricle with midline deviation (E005)",
+          "histopathological analysis confirmed the presence of a glioneuronal tumor (E003)",
+          "uncomplicated recovery and no new lesions on follow-up MRI over two years (E004)"
+        ],
+        "missing_key_evidence": [
+          "details of neurological examination",
+          "details of surgical intervention or tissue acquisition",
+          "reconciliation of parietal lobe lesion with DIG diagnosis based on pathology"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E003",
+        "source_text": "Histopathological analysis confirmed the presence of a glioneuronal tumor",
+        "category": "other",
+        "temporal_cue": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "details of the neurological examination, especially regarding the amaurosis and other deficits",
+        "current_trajectory_hypothesis": "The patient presented with neurological symptoms (headaches, vomiting, amaurosis) and MRI showed a parietal lobe lesion. Histopathology confirmed a glioneuronal tumor. I need to understand the full extent of the neurological deficits to better contextualize the initial presentation and the impact of the lesion.",
+        "confirmed_evidence": [
+          "recurring headaches and vomiting",
+          "rapidly developed amaurosis",
+          "brain MRI showed a solid-cystic lesion in the parietal lobe with hyperintensity on T2, hypointensity on T1, heterogeneous enhancement, and compression of the right lateral ventricle with midline deviation (E005)",
+          "histopathological analysis confirmed the presence of a glioneuronal tumor (E003)",
+          "uncomplicated recovery and no new lesions on follow-up MRI over two years (E004)"
+        ],
+        "missing_key_evidence": [
+          "details of neurological examination",
+          "details of surgical intervention or tissue acquisition",
+          "reconciliation of parietal lobe lesion with DIG diagnosis based on pathology or other features"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No source record contains details of the neurological examination or exam findings about amaurosis or other deficits.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "The patient presented with neurological symptoms and MRI showed a parietal lobe lesion. Histopathology confirmed a glioneuronal tumor, leading to a diagnosis of DIG. There is a discrepancy between the parietal lobe location on MRI and the typical pontine location of DIG, and the 'uncomplicated recovery' seems atypical for DIG. I need to understand the treatment administered to reconcile these points.",
+        "confirmed_evidence": [
+          "recurring headaches and vomiting",
+          "rapidly developed amaurosis",
+          "brain MRI showed a solid-cystic lesion in the parietal lobe with hyperintensity on T2, hypointensity on T1, heterogeneous enhancement, and compression of the right lateral ventricle with midline deviation (E005)",
+          "histopathological analysis confirmed the presence of a glioneuronal tumor (E003)",
+          "uncomplicated recovery and no new lesions on follow-up MRI over two years (E004)"
+        ],
+        "missing_key_evidence": [
+          "details of neurological examination",
+          "details of surgical intervention or tissue acquisition",
+          "reconciliation of parietal lobe lesion with DIG diagnosis based on pathology or other features",
+          "details of treatment administered"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No pending orders exist and no further undisclosed clinical trajectory update is available after the current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "details of the treatment administered for the glioneuronal tumor",
+        "current_trajectory_hypothesis": "The patient presented with neurological symptoms and MRI showed a parietal lobe lesion. Histopathology confirmed a glioneuronal tumor, leading to a diagnosis of DIG. The 'uncomplicated recovery' and lack of new lesions over two years (E004) are atypical for DIG, suggesting either effective treatment or a different clinical course. I need to understand the treatment administered to reconcile these points.",
+        "confirmed_evidence": [
+          "recurring headaches and vomiting",
+          "rapidly developed amaurosis",
+          "brain MRI showed a solid-cystic lesion in the parietal lobe with hyperintensity on T2, hypointensity on T1, heterogeneous enhancement, and compression of the right lateral ventricle with midline deviation (E005)",
+          "histopathological analysis confirmed the presence of a glioneuronal tumor (E003)",
+          "uncomplicated recovery and no new lesions on follow-up MRI over two years (E004)"
+        ],
+        "missing_key_evidence": [
+          "details of neurological examination",
+          "details of surgical intervention or tissue acquisition",
+          "reconciliation of parietal lobe lesion with DIG diagnosis based on pathology or other features",
+          "details of treatment administered"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "The source records do not report details of the treatment administered for the glioneuronal tumor.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "molecular or genetic testing results related to the tumor, such as H3 K27M mutation status",
+        "current_trajectory_hypothesis": "The patient presented with neurological symptoms and MRI showed a parietal lobe lesion. Histopathology confirmed a glioneuronal tumor, leading to a diagnosis of DIG. There is a significant discrepancy between the parietal lobe location and the typical pontine location of DIG, and the 'uncomplicated recovery' is atypical. Molecular or genetic testing could provide further characterization of the tumor and potentially reconcile the DIG diagnosis.",
+        "confirmed_evidence": [
+          "recurring headaches and vomiting",
+          "rapidly developed amaurosis",
+          "brain MRI showed a solid-cystic lesion in the parietal lobe with hyperintensity on T2, hypointensity on T1, heterogeneous enhancement, and compression of the right lateral ventricle with midline deviation (E005)",
+          "histopathological analysis confirmed the presence of a glioneuronal tumor (E003)",
+          "uncomplicated recovery and no new lesions on follow-up MRI over two years (E004)"
+        ],
+        "missing_key_evidence": [
+          "details of neurological examination",
+          "details of surgical intervention or tissue acquisition",
+          "reconciliation of parietal lobe lesion with DIG diagnosis based on pathology or other features",
+          "details of treatment administered",
+          "molecular or genetic characteristics of the tumor"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "Order for molecular or genetic testing was placed, but no source documentation of results is available",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "report of the molecular or genetic testing results, such as H3 K27M mutation status",
+        "current_trajectory_hypothesis": "The patient presented with neurological symptoms and MRI showed a parietal lobe lesion. Histopathology confirmed a glioneuronal tumor, leading to a diagnosis of DIG. There is a significant discrepancy between the parietal lobe location and the typical pontine location of DIG, and the 'uncomplicated recovery' is atypical. Molecular or genetic testing could provide further characterization of the tumor and potentially reconcile the DIG diagnosis.",
+        "confirmed_evidence": [
+          "recurring headaches and vomiting",
+          "rapidly developed amaurosis",
+          "brain MRI showed a solid-cystic lesion in the parietal lobe with hyperintensity on T2, hypointensity on T1, heterogeneous enhancement, and compression of the right lateral ventricle with midline deviation (E005)",
+          "histopathological analysis confirmed the presence of a glioneuronal tumor (E003)",
+          "uncomplicated recovery and no new lesions on follow-up MRI over two years (E004)"
+        ],
+        "missing_key_evidence": [
+          "details of neurological examination",
+          "details of surgical intervention or tissue acquisition",
+          "reconciliation of parietal lobe lesion with DIG diagnosis based on pathology or other features",
+          "details of treatment administered",
+          "molecular or genetic characteristics of the tumor"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No source record reports molecular or genetic testing results including H3 K27M mutation status.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "specific classification or grade of the glioneuronal tumor from the histopathological analysis",
+        "current_trajectory_hypothesis": "The patient presented with neurological symptoms and MRI showed a parietal lobe lesion. Histopathology confirmed a glioneuronal tumor. The final diagnosis is DIG, but there's a discrepancy with the parietal location and the 'uncomplicated recovery'. I need more specific details from the histopathology report to understand how the glioneuronal tumor was classified as DIG.",
+        "confirmed_evidence": [
+          "recurring headaches and vomiting",
+          "rapidly developed amaurosis",
+          "brain MRI showed a solid-cystic lesion in the parietal lobe with hyperintensity on T2, hypointensity on T1, heterogeneous enhancement, and compression of the right lateral ventricle with midline deviation (E005)",
+          "histopathological analysis confirmed the presence of a glioneuronal tumor (E003)",
+          "uncomplicated recovery and no new lesions on follow-up MRI over two years (E004)"
+        ],
+        "missing_key_evidence": [
+          "reconciliation of parietal lobe lesion with DIG diagnosis based on pathology or other features",
+          "details of surgical intervention or tissue acquisition",
+          "details of neurological examination",
+          "details of treatment administered",
+          "molecular or genetic characteristics of the tumor"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No specific classification or grade of the glioneuronal tumor from histopathological analysis is reported in the available evidence.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "any further details from the histopathological analysis or subsequent diagnostic review that specifically classified the glioneuronal tumor as DIG, especially considering the parietal lobe location",
+        "current_trajectory_hypothesis": "The patient presented with neurological symptoms and MRI showed a parietal lobe lesion. Histopathology confirmed a glioneuronal tumor. The final diagnosis is DIG, but there's a discrepancy between the parietal location on MRI and the typical pontine location of DIG. I need to understand how the glioneuronal tumor was specifically classified as DIG.",
+        "confirmed_evidence": [
+          "recurring headaches and vomiting",
+          "rapidly developed amaurosis",
+          "brain MRI showed a solid-cystic lesion in the parietal lobe with hyperintensity on T2, hypointensity on T1, heterogeneous enhancement, and compression of the right lateral ventricle with midline deviation (E005)",
+          "histopathological analysis confirmed the presence of a glioneuronal tumor (E003)",
+          "uncomplicated recovery and no new lesions on follow-up MRI over two years (E004)"
+        ],
+        "missing_key_evidence": [
+          "reconciliation of parietal lobe lesion with DIG diagnosis based on pathology or other features",
+          "details of surgical intervention or tissue acquisition",
+          "details of neurological examination",
+          "details of treatment administered",
+          "molecular or genetic characteristics of the tumor"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No additional source evidence provides further histopathological or diagnostic review details specifically classifying the tumor as DIG.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Histopathological analysis confirmed the presence of a glioneuronal tumor, leading to a diagnosis of DIG",
+        "trajectory_summary": "A seven-year-old boy presented with recurring headaches, vomiting, and rapidly developed amaurosis. Brain MRI revealed a solid-cystic lesion in the parietal lobe with features suggestive of a tumor, including heterogeneous enhancement and mass effect. Histopathological analysis of tissue confirmed the presence of a glioneuronal tumor, which led to the diagnosis of DIG. The patient experienced an uncomplicated recovery and showed no evidence of new lesions on follow-up MRI over two years.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with recurring headaches, vomiting, and rapidly developed amaurosis, indicating an intracranial process.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Brain MRI with contrast showed a solid-cystic lesion in the parietal lobe with hyperintensity on T2, hypointensity on T1, heterogeneous enhancement, compression of the right lateral ventricle, and midline deviation.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Histopathological analysis confirmed the presence of a glioneuronal tumor, leading to the diagnosis of DIG.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "The patient had an uncomplicated recovery and remained asymptomatic with no new lesions on follow-up MRI over two years.",
+            "evidence_ids": [
+              "E004"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [
+          "Details of the neurological examination at presentation.",
+          "Specific details of the surgical intervention or procedure that obtained tissue for histopathological analysis.",
+          "Reconciliation of the parietal lobe location of the tumor on MRI with the typical pontine location of Diffuse Intrinsic Pontine Glioma (DIG).",
+          "Specific classification or grade of the glioneuronal tumor from the histopathological analysis beyond 'glioneuronal tumor'.",
+          "Details of the treatment administered for the glioneuronal tumor.",
+          "Molecular or genetic characteristics of the tumor (e.g., H3 K27M mutation status)."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Histopathological analysis confirmed the presence of a glioneuronal tumor, leading to a diagnosis of DIG",
+    "trajectory_summary": "A seven-year-old boy presented with recurring headaches, vomiting, and rapidly developed amaurosis. Brain MRI revealed a solid-cystic lesion in the parietal lobe with features suggestive of a tumor, including heterogeneous enhancement and mass effect. Histopathological analysis of tissue confirmed the presence of a glioneuronal tumor, which led to the diagnosis of DIG. The patient experienced an uncomplicated recovery and showed no evidence of new lesions on follow-up MRI over two years.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with recurring headaches, vomiting, and rapidly developed amaurosis, indicating an intracranial process.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Brain MRI with contrast showed a solid-cystic lesion in the parietal lobe with hyperintensity on T2, hypointensity on T1, heterogeneous enhancement, compression of the right lateral ventricle, and midline deviation.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Histopathological analysis confirmed the presence of a glioneuronal tumor, leading to the diagnosis of DIG.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "The patient had an uncomplicated recovery and remained asymptomatic with no new lesions on follow-up MRI over two years.",
+        "evidence_ids": [
+          "E004"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [
+      "Details of the neurological examination at presentation.",
+      "Specific details of the surgical intervention or procedure that obtained tissue for histopathological analysis.",
+      "Reconciliation of the parietal lobe location of the tumor on MRI with the typical pontine location of Diffuse Intrinsic Pontine Glioma (DIG).",
+      "Specific classification or grade of the glioneuronal tumor from the histopathological analysis beyond 'glioneuronal tumor'.",
+      "Details of the treatment administered for the glioneuronal tumor.",
+      "Molecular or genetic characteristics of the tumor (e.g., H3 K27M mutation status)."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.8
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T00:44:43.402884+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

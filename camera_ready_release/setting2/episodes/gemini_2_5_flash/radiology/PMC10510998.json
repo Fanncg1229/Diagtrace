@@ -1,0 +1,330 @@
+{
+  "case_id": "PMC10510998",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 8,
+  "termination": "final",
+  "known_final_diagnosis": "The association of recurrent nasal bleeds, cutaneous telangiectasias and visceral vascular malformations allowed us to diagnose HHT (see below).",
+  "disclosed_evidence_ids": [
+    "E002",
+    "E003",
+    "E004"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Brain imaging (e.g., MRI or CT) to investigate the cause of seizures and transient left hemiparesis.",
+        "current_trajectory_hypothesis": "Patient presents with neurological symptoms, respiratory symptoms, and mucocutaneous findings suggestive of HHT. Initial focus is on investigating the acute neurological event.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Cause of neurological symptoms",
+          "Presence of vascular malformations in brain, lungs, or other organs",
+          "Confirmation of HHT diagnostic criteria"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Brain imaging test ordered; no result yet documented in the source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Chest imaging (e.g., CT scan of the chest) to investigate the cause of severe hypoxemia and exertional dyspnea, and to look for pulmonary arteriovenous malformations (PAVMs).",
+        "current_trajectory_hypothesis": "Patient presents with neurological symptoms, severe hypoxemia, and mucocutaneous findings suggestive of HHT. Investigating potential pulmonary involvement, a common manifestation of HHT, is crucial given the low oxygen saturation.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Cause of neurological symptoms (pending brain imaging)",
+          "Presence of pulmonary vascular malformations",
+          "Confirmation of HHT diagnostic criteria beyond initial presentation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Chest imaging test has been ordered; awaiting results.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Results of the brain imaging (e.g., MRI or CT) ordered previously.",
+        "current_trajectory_hypothesis": "Patient presented with neurological symptoms, severe hypoxemia, and mucocutaneous findings suggestive of HHT. I am now seeking results for the brain imaging to investigate the cause of the neurological event and potential cerebral vascular malformations.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Specific findings from brain imaging",
+          "Specific findings from chest imaging",
+          "Presence of pulmonary vascular malformations",
+          "Confirmation of HHT diagnostic criteria beyond initial presentation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "Magnetic resonance imaging (MRI) of the head, performed after the administration of intravenous contrast material, revealed increased signal intensity on diffusion weighted imaging in the cerebellum without associated contrast enhancement, as for ischemic stroke.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Results of the chest imaging (e.g., CT scan of the chest) ordered previously, to investigate the cause of severe hypoxemia and look for pulmonary arteriovenous malformations (PAVMs).",
+        "current_trajectory_hypothesis": "Patient presented with neurological symptoms (now identified as ischemic stroke), severe hypoxemia, and mucocutaneous findings suggestive of HHT. The stroke could be related to paradoxical emboli from PAVMs. I am now seeking results for the chest imaging to confirm the presence of PAVMs, which would support the HHT diagnosis and explain the hypoxemia and potentially the stroke.",
+        "confirmed_evidence": [
+          "Patient experienced seizures and transient left hemiparesis.",
+          "MRI of the head revealed ischemic stroke in the cerebellum."
+        ],
+        "missing_key_evidence": [
+          "Specific findings from chest imaging regarding PAVMs or other pulmonary pathology",
+          "Confirmation of HHT diagnostic criteria beyond initial presentation and potential PAVMs"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "To investigate the hypoxia a chest and abdomen computed tomography (CT) with administration of intravenous contrast material was ordered. The exam showed a group of dilated vessels in right upper and lower pulmonary lobes. These lesions were reported as likely arteriovenous malformations (PAVM) (Figure 1 and 2). The CT of the abdomen was unremarkable.",
+        "category": "imaging_report",
+        "temporal_cue": "during hospital stay",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Abdominal imaging (e.g., CT or MRI of the abdomen) to investigate for other visceral vascular malformations, particularly hepatic, which are common in HHT.",
+        "current_trajectory_hypothesis": "Patient presented with neurological symptoms (ischemic stroke), severe hypoxemia, epistaxis, and cutaneous telangiectasias. Pulmonary AVMs have been identified, explaining the hypoxemia and potential source of paradoxical emboli. Given the known final diagnosis of HHT, I am now seeking evidence for other visceral vascular malformations, as mentioned in the final diagnosis.",
+        "confirmed_evidence": [
+          "Patient experienced seizures and transient left hemiparesis.",
+          "MRI of the head revealed ischemic stroke in the cerebellum.",
+          "Chest CT showed a group of dilated vessels in right upper and lower pulmonary lobes, reported as likely pulmonary arteriovenous malformations (PAVMs).",
+          "Initial presentation included repeated episodes of epistaxis and small cutaneous telangiectases on the face."
+        ],
+        "missing_key_evidence": [
+          "Presence of other visceral vascular malformations (e.g., hepatic, cerebral AVMs beyond the ischemic stroke)",
+          "Formal confirmation of HHT diagnostic criteria (e.g., Curacao criteria)",
+          "Family history of HHT",
+          "Clinical course or treatment post-diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "The abdominal imaging test order is acknowledged but the source does not document a result.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "Was there any family history of HHT or similar conditions documented?",
+        "current_trajectory_hypothesis": "Patient presented with neurological symptoms (ischemic stroke), severe hypoxemia, epistaxis, and cutaneous telangiectasias. Pulmonary AVMs have been identified, explaining the hypoxemia and potential source of paradoxical emboli. The final diagnosis mentions 'visceral vascular malformations' (plural), but only PAVMs have been confirmed and abdominal CT was unremarkable. I am now seeking evidence for family history, which is a key diagnostic criterion for HHT.",
+        "confirmed_evidence": [
+          "Patient experienced seizures and transient left hemiparesis.",
+          "MRI of the head revealed ischemic stroke in the cerebellum.",
+          "Chest CT showed a group of dilated vessels in right upper and lower pulmonary lobes, reported as likely pulmonary arteriovenous malformations (PAVMs).",
+          "Initial presentation included repeated episodes of epistaxis and small cutaneous telangiectases on the face.",
+          "Abdominal CT was unremarkable."
+        ],
+        "missing_key_evidence": [
+          "Presence of other visceral vascular malformations (beyond PAVMs, given the final diagnosis uses plural)",
+          "Formal confirmation of HHT diagnostic criteria (e.g., Curacao criteria)",
+          "Clinical course or treatment post-diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "No source record documents family history of HHT or similar conditions.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Results of any further imaging or diagnostic procedures performed to investigate for other visceral vascular malformations, particularly hepatic or gastrointestinal, given the final diagnosis mentions 'visceral vascular malformations' (plural) and the prior abdominal CT was unremarkable.",
+        "current_trajectory_hypothesis": "Patient presented with neurological symptoms (ischemic stroke), severe hypoxemia, epistaxis, and cutaneous telangiectasias. Pulmonary AVMs have been identified. The final diagnosis explicitly mentions 'visceral vascular malformations' (plural), but only PAVMs have been confirmed and a general abdominal CT was unremarkable. I am seeking evidence for other visceral vascular malformations to fully support the final diagnosis.",
+        "confirmed_evidence": [
+          "Patient experienced seizures and transient left hemiparesis.",
+          "MRI of the head revealed ischemic stroke in the cerebellum.",
+          "Chest CT showed a group of dilated vessels in right upper and lower pulmonary lobes, reported as likely pulmonary arteriovenous malformations (PAVMs).",
+          "Initial presentation included repeated episodes of epistaxis and small cutaneous telangiectases on the face.",
+          "Abdominal CT was unremarkable."
+        ],
+        "missing_key_evidence": [
+          "Presence of other specific visceral vascular malformations (e.g., hepatic, GI)",
+          "Formal confirmation of HHT diagnostic criteria (e.g., Curacao criteria)",
+          "Clinical course or treatment post-diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Gastroduodenoscopy and colonoscopy were normal, while a capsule endoscopy documented multiple telangiectasias in the jejunum, and oral iron supplements were started after a blood trasfusion.",
+        "category": "routine_lab",
+        "temporal_cue": "during hospital stay",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "The association of recurrent nasal bleeds, cutaneous telangiectasias and visceral vascular malformations allowed us to diagnose HHT (see below).",
+        "trajectory_summary": "A 64-year-old woman presented with seizures, transient left hemiparesis, severe hypoxemia, epistaxis, exertional dyspnea, and cutaneous telangiectasias. Workup revealed an ischemic stroke in the cerebellum, pulmonary arteriovenous malformations (PAVMs) in the right lung, and multiple telangiectasias in the jejunum. These findings, including recurrent nasal bleeds, cutaneous telangiectasias, and visceral vascular malformations (PAVMs and jejunal telangiectasias), supported the diagnosis of Hereditary Hemorrhagic Telangiectasia (HHT). She received a blood transfusion and oral iron supplements.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with recurrent nasal bleeds (epistaxis).",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Patient presented with cutaneous telangiectasias on the face.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Patient had pulmonary arteriovenous malformations (PAVMs) in the right upper and lower pulmonary lobes.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Patient had multiple telangiectasias in the jejunum.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Patient experienced an ischemic stroke in the cerebellum.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Patient presented with severe hypoxemia (oxygen saturation 82% on ambient air).",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Patient presented with severe iron deficiency anemia.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Patient received a blood transfusion and oral iron supplements.",
+            "evidence_ids": [
+              "E003"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [
+          "Family history of HHT was not documented.",
+          "Specific imaging for hepatic arteriovenous malformations was not explicitly reported, although a general abdominal CT was unremarkable."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "The association of recurrent nasal bleeds, cutaneous telangiectasias and visceral vascular malformations allowed us to diagnose HHT (see below).",
+    "trajectory_summary": "A 64-year-old woman presented with seizures, transient left hemiparesis, severe hypoxemia, epistaxis, exertional dyspnea, and cutaneous telangiectasias. Workup revealed an ischemic stroke in the cerebellum, pulmonary arteriovenous malformations (PAVMs) in the right lung, and multiple telangiectasias in the jejunum. These findings, including recurrent nasal bleeds, cutaneous telangiectasias, and visceral vascular malformations (PAVMs and jejunal telangiectasias), supported the diagnosis of Hereditary Hemorrhagic Telangiectasia (HHT). She received a blood transfusion and oral iron supplements.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with recurrent nasal bleeds (epistaxis).",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Patient presented with cutaneous telangiectasias on the face.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Patient had pulmonary arteriovenous malformations (PAVMs) in the right upper and lower pulmonary lobes.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Patient had multiple telangiectasias in the jejunum.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Patient experienced an ischemic stroke in the cerebellum.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Patient presented with severe hypoxemia (oxygen saturation 82% on ambient air).",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Patient presented with severe iron deficiency anemia.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Patient received a blood transfusion and oral iron supplements.",
+        "evidence_ids": [
+          "E003"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [
+      "Family history of HHT was not documented.",
+      "Specific imaging for hepatic arteriovenous malformations was not explicitly reported, although a general abdominal CT was unremarkable."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T18:35:01.442102+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

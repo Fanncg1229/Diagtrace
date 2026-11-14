@@ -1,0 +1,580 @@
+{
+  "case_id": "PMC11493782",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 14,
+  "termination": "final",
+  "known_final_diagnosis": "open biopsy with frozen section diagnosis, which was consistent with endometriosis",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E005"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order an MRI of the right forearm to characterize the mass",
+        "current_trajectory_hypothesis": "A tender, intermittently painful mass in the medial right forearm, fluctuating with menses, suspicious for endometriosis; imaging needed to characterize lesion and location",
+        "confirmed_evidence": [
+          "Intermittently painful mass in the medial aspect of right forearm",
+          "Mass increasingly tender and firm in days before and during menstruation"
+        ],
+        "missing_key_evidence": [
+          "Detailed imaging characterization of the mass in the right forearm",
+          "Histopathological diagnosis to confirm endometriosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order acknowledged, MRI of the right forearm recorded as pending",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request the MRI report of the right forearm to evaluate the characteristics of the mass",
+        "current_trajectory_hypothesis": "MRI of right forearm pending to characterize a tender, intermittently painful mass fluctuating with menses, suggesting endometriosis",
+        "confirmed_evidence": [
+          "Intermittently painful mass in the medial aspect of right forearm",
+          "Mass increasingly tender and firm in days before and during menstruation"
+        ],
+        "missing_key_evidence": [
+          "MRI imaging findings describing the size, extent, and characteristics of the right forearm mass",
+          "Histopathological confirmation of endometriosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "Magnetic resonance imaging (MRI) without intravenous contrast showed an oval intramuscular mass in the anterior compartment of the proximal forearm, measuring approximately 2.2 × 2.1 × 3.0 cm. The mass demonstrated heterogenous T2 signal and cystic changes (Figs. 2, 3). There was no invasion of deeper musculature or fascia.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order an open biopsy of the right forearm mass to obtain histopathological diagnosis",
+        "current_trajectory_hypothesis": "MRI shows an intramuscular mass with cystic changes in the proximal right forearm; biopsy needed to confirm diagnosis, suspected endometriosis",
+        "confirmed_evidence": [
+          "Intermittently painful mass in the medial aspect of right forearm",
+          "Mass increasingly tender and firm in days before and during menstruation",
+          "MRI reveals oval intramuscular mass 2.2 x 2.1 x 3.0 cm in anterior proximal forearm with heterogenous T2 and cystic changes"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of endometriosis from biopsy",
+          "Clinical course and treatment outcomes post biopsy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Order placed for open biopsy; no direct source result yet",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request the pathology report and frozen section diagnosis of the open biopsy of the right forearm mass",
+        "current_trajectory_hypothesis": "Open biopsy performed on the intramuscular right forearm mass detected by MRI; awaiting histopathological and frozen section diagnosis to confirm endometriosis",
+        "confirmed_evidence": [
+          "Intermittently painful mass in the medial aspect of right forearm",
+          "Mass increasingly tender and firm in days before and during menstruation",
+          "MRI reveals oval intramuscular mass 2.2 x 2.1 x 3.0 cm in anterior proximal forearm with heterogenous T2 and cystic changes",
+          "Open biopsy of right forearm mass ordered"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of endometriosis from biopsy and frozen section diagnosis",
+          "Clinical course and treatment outcomes post biopsy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient with intermittent painful right forearm mass with cyclical tenderness and MRI-demonstrated intramuscular lesion; open biopsy performed but histopathological report not yet documented; awaiting biopsy results or clinical update",
+        "confirmed_evidence": [
+          "Intermittently painful mass in the medial aspect of right forearm",
+          "Mass increasingly tender and firm in days before and during menstruation",
+          "MRI reveals oval intramuscular mass 2.2 x 2.1 x 3.0 cm in anterior proximal forearm with heterogenous T2 and cystic changes",
+          "Open biopsy of right forearm mass ordered"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of endometriosis from open biopsy",
+          "Biopsy frozen section diagnosis documentation",
+          "Clinical course and treatment outcomes relevant to definitive diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "Previous imaging, including radiographs of the right forearm demonstrated no acute osseous or soft tissue abnormality (Fig. 1).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Open biopsy was performed on the forearm mass shown on MRI; pathology and frozen section diagnosis results pending to confirm endometriosis.",
+        "confirmed_evidence": [
+          "Intermittently painful mass in the medial aspect of right forearm",
+          "Mass increasingly tender and firm in days before and during menstruation",
+          "MRI reveals oval intramuscular mass 2.2 x 2.1 x 3.0 cm in anterior proximal forearm with heterogenous T2 and cystic changes",
+          "Open biopsy of right forearm mass ordered",
+          "Radiographs showed no acute osseous or soft tissue abnormality"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of endometriosis from open biopsy",
+          "Frozen section diagnosis documentation",
+          "Clinical course or treatment outcomes following biopsy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "On ultrasound imaging, the mass was circumscribed and hypoechoic. The mass also demonstrated internal doppler flow (Fig. 4).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "After MRI and ultrasound characterization of an intramuscular forearm mass, an open biopsy was performed; pathology and frozen section diagnosis are awaited to confirm diagnosis consistent with endometriosis",
+        "confirmed_evidence": [
+          "Intermittently painful mass in the medial aspect of right forearm",
+          "Mass increasingly tender and firm in days before and during menstruation",
+          "MRI reveals oval intramuscular mass 2.2 x 2.1 x 3.0 cm in anterior proximal forearm with heterogenous T2 and cystic changes",
+          "Open biopsy of right forearm mass ordered",
+          "Radiographs showed no acute osseous or soft tissue abnormality",
+          "Ultrasound imaging showed a circumscribed hypoechoic mass with internal doppler flow"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of endometriosis from open biopsy",
+          "Frozen section diagnosis documentation",
+          "Clinical course or treatment outcomes following biopsy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "The decision was made to proceed with ultrasound-guided core needle biopsy of the lesion.",
+        "category": "pathology_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request the pathology report of the ultrasound-guided core needle biopsy of the right forearm mass to confirm diagnosis",
+        "current_trajectory_hypothesis": "After imaging and ultrasound-guided core needle biopsy of an intramuscular right forearm mass, pathology results are needed to confirm endometriosis diagnosis",
+        "confirmed_evidence": [
+          "Intermittently painful mass in the medial aspect of right forearm",
+          "Mass increasingly tender and firm in days before and during menstruation",
+          "MRI reveals oval intramuscular mass 2.2 x 2.1 x 3.0 cm in anterior proximal forearm with heterogeneous T2 and cystic changes",
+          "Radiographs showed no acute osseous or soft tissue abnormality",
+          "Ultrasound imaging showed a circumscribed hypoechoic mass with internal doppler flow",
+          "Ultrasound-guided core needle biopsy of the lesion performed"
+        ],
+        "missing_key_evidence": [
+          "Pathology diagnosis or frozen section results confirming endometriosis",
+          "Clinical course or treatment outcomes after biopsy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "The pathology report of the ultrasound-guided core needle biopsy is not documented in the source.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient with a tender, intermittently painful right forearm mass fluctuating with menstruation characterized by MRI and ultrasound; ultrasound-guided core needle biopsy performed but pathology report not yet documented; awaiting final pathology or clinical update confirming endometriosis",
+        "confirmed_evidence": [
+          "Intermittently painful mass in the medial aspect of right forearm",
+          "Mass increasingly tender and firm in days before and during menstruation",
+          "MRI shows oval intramuscular mass 2.2 x 2.1 x 3.0 cm with heterogeneous T2 and cystic changes",
+          "Radiographs showed no acute osseous or soft tissue abnormality",
+          "Ultrasound showed circumscribed hypoechoic mass with internal doppler flow",
+          "Ultrasound-guided core needle biopsy of the lesion performed"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of endometriosis via biopsy or frozen section",
+          "Documented clinical course or treatment outcomes post biopsy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient with cyclically tender intramuscular forearm mass has undergone MRI, ultrasound, and ultrasound-guided core needle biopsy; waiting for histopathological confirmation of endometriosis or clinical course updates to confirm diagnosis",
+        "confirmed_evidence": [
+          "Intermittently painful mass in medial right forearm with cyclical tenderness",
+          "MRI shows oval intramuscular mass 2.2 x 2.1 x 3.0 cm with heterogeneous T2 signal and cystic changes",
+          "Radiographs showed no acute osseous or soft tissue abnormality",
+          "Ultrasound shows circumscribed hypoechoic mass with internal doppler flow",
+          "Ultrasound-guided core needle biopsy performed"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of endometriosis from biopsy or frozen section diagnosis",
+          "Documentation of clinical course or treatment outcomes after biopsy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient with a right forearm mass showing cyclical symptoms and characterized by imaging; biopsies including ultrasound-guided core needle and open biopsy performed; pathology report confirming endometriosis pending",
+        "confirmed_evidence": [
+          "Intermittently painful mass in the medial aspect of right forearm",
+          "Mass increasingly tender and firm in days before and during menstruation",
+          "MRI reveals intramuscular oval mass 2.2 x 2.1 x 3.0 cm with heterogeneous T2 and cystic changes",
+          "Radiographs showed no acute osseous or soft tissue abnormality",
+          "Ultrasound shows circumscribed hypoechoic mass with internal doppler flow",
+          "Ultrasound-guided core needle biopsy performed",
+          "Open biopsy of right forearm mass ordered"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation from biopsy (open or core needle) of endometriosis",
+          "Frozen section diagnosis documentation",
+          "Clinical course or treatment outcomes following biopsy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "verbatim_excerpt is not a contiguous source subspan.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Cyclically tender intramuscular right forearm mass with MRI and ultrasound characterization; biopsies including ultrasound-guided core needle and open biopsy performed; histopathological confirmation of endometriosis awaited in clinical update or pathology report",
+        "confirmed_evidence": [
+          "40-year-old female with a right forearm mass intermittently painful and tender cyclically related to menses",
+          "MRI reveals 2.2 x 2.1 x 3.0 cm oval intramuscular mass with cystic changes and heterogeneous T2 signal",
+          "Radiographs show no bone or soft tissue abnormalities",
+          "Ultrasound shows circumscribed hypoechoic mass with internal doppler flow",
+          "Ultrasound-guided core needle biopsy performed",
+          "Open biopsy of the right forearm mass performed"
+        ],
+        "missing_key_evidence": [
+          "Histopathological or frozen section diagnosis from biopsy confirming endometriosis",
+          "Clinical course or treatment outcomes post biopsy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "After thorough imaging including MRI, ultrasound, radiographs and biopsies including ultrasound-guided core needle and open biopsy of a cyclically tender right forearm mass, histopathological confirmation of endometriosis is awaited in clinical course update or pathology report.",
+        "confirmed_evidence": [
+          "40-year-old female presented with an intermittently painful mass in the medial right forearm, tender and firm in days before and during menstruation",
+          "MRI identified an intramuscular oval mass 2.2 x 2.1 x 3.0 cm with cystic changes and heterogeneous T2 signal",
+          "Radiographs showed no osseous or soft tissue abnormality",
+          "Ultrasound showed circumscribed hypoechoic mass with internal doppler flow",
+          "Ultrasound-guided core needle biopsy was performed",
+          "Open biopsy of the right forearm mass was performed"
+        ],
+        "missing_key_evidence": [
+          "Histopathological or frozen section pathology report confirming endometriosis",
+          "Documentation of clinical course or treatment response to biopsy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Therefore, the patient elected to undergo open biopsy with frozen section diagnosis, which was consistent with endometriosis",
+        "category": "pathology_report",
+        "temporal_cue": "after nondiagnostic core needle biopsy",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "open biopsy with frozen section diagnosis, which was consistent with endometriosis",
+        "trajectory_summary": "A 40-year-old female presented with an 18-month history of an intermittently painful medial right forearm mass, notably tender and firm in relation to menstruation. Initial radiographs were normal. MRI revealed a 2.2 x 2.1 x 3.0 cm oval intramuscular mass in the anterior proximal forearm with heterogeneous T2 signal and cystic changes. Ultrasound showed a circumscribed hypoechoic mass with internal doppler flow. An ultrasound-guided core needle biopsy was performed but was nondiagnostic. Subsequently, an open biopsy with frozen section diagnosis was performed, confirming endometriosis.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Intermittently painful mass in the medial right forearm, tender and firm cyclically related to menstruation",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Radiographs of right forearm showed no acute osseous or soft tissue abnormality",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "MRI revealed oval intramuscular mass 2.2 x 2.1 x 3.0 cm with heterogeneous T2 signal and cystic changes",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Ultrasound showed circumscribed hypoechoic mass with internal doppler flow",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Ultrasound-guided core needle biopsy was performed",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Open biopsy with frozen section diagnosis consistent with endometriosis",
+            "evidence_ids": [
+              "E005"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "open biopsy with frozen section diagnosis, which was consistent with endometriosis",
+    "trajectory_summary": "A 40-year-old female presented with an 18-month history of an intermittently painful medial right forearm mass, notably tender and firm in relation to menstruation. Initial radiographs were normal. MRI revealed a 2.2 x 2.1 x 3.0 cm oval intramuscular mass in the anterior proximal forearm with heterogeneous T2 signal and cystic changes. Ultrasound showed a circumscribed hypoechoic mass with internal doppler flow. An ultrasound-guided core needle biopsy was performed but was nondiagnostic. Subsequently, an open biopsy with frozen section diagnosis was performed, confirming endometriosis.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Intermittently painful mass in the medial right forearm, tender and firm cyclically related to menstruation",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Radiographs of right forearm showed no acute osseous or soft tissue abnormality",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "MRI revealed oval intramuscular mass 2.2 x 2.1 x 3.0 cm with heterogeneous T2 signal and cystic changes",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Ultrasound showed circumscribed hypoechoic mass with internal doppler flow",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Ultrasound-guided core needle biopsy was performed",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Open biopsy with frozen section diagnosis consistent with endometriosis",
+        "evidence_ids": [
+          "E005"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T23:01:36.185801+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

@@ -1,0 +1,489 @@
+{
+  "case_id": "PMC8108648",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 13,
+  "termination": "final",
+  "known_final_diagnosis": "histological examination of the bronchial biopsy confirmed the diagnosis of SCLC",
+  "disclosed_evidence_ids": [
+    "E004"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Chest imaging report (Chest X-ray or CT scan)",
+        "current_trajectory_hypothesis": "Patient with respiratory distress, proximal muscle weakness, hyperpigmentation, weight loss, and signs of superior vena cava syndrome; suspect lung pathology possibly malignancy",
+        "confirmed_evidence": [
+          "Worsening respiratory distress and cachexia",
+          "Facial, upper limb and chest swelling with skin plethora and prominent veins consistent with superior vena cava syndrome",
+          "Proximal muscle weakness and hyperpigmentation"
+        ],
+        "missing_key_evidence": [
+          "Imaging evidence of lung mass or lesion",
+          "Further characterization of obstructive or infiltrative thoracic pathology"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Chest imaging test ordered; no result released yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Chest CT scan report",
+        "current_trajectory_hypothesis": "Patient with superior vena cava syndrome signs and respiratory distress likely from a lung mass or mediastinal mass causing obstruction; imaging needed to confirm lung malignancy and mediastinal involvement",
+        "confirmed_evidence": [
+          "Worsening respiratory distress and cachexia",
+          "Facial, upper limb and chest swelling with skin plethora and prominent veins consistent with superior vena cava syndrome",
+          "Proximal muscle weakness and hyperpigmentation"
+        ],
+        "missing_key_evidence": [
+          "Imaging evidence of lung mass or lesion and mediastinal pathology",
+          "Histological confirmation of small cell lung cancer"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "The chest radiograph taken for the evaluation of his respiratory distress revealed a mass lesion in the right hilar region, which was identified as a lobulated solid soft-tissue mass (11.7×5.7×4.7 cm) at the right hilar region that could not be differentiated from the enlarged right hilar nodes by contrast-enhanced CT scan (T4N2M0—stage IIIb; figure 2). The finding of severely stretched proximal superior vena cava with luminal narrowing on CT scan (figure 2D) confirmed the diagnosis of SVCS.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "bronchoscopic biopsy of the right hilar mass",
+        "current_trajectory_hypothesis": "Imaging shows a large right hilar mass and superior vena cava syndrome consistent with lung malignancy; histological confirmation needed to confirm SCLC diagnosis",
+        "confirmed_evidence": [
+          "Chest CT showing right hilar lobulated solid soft-tissue mass 11.7×5.7×4.7 cm at right hilar region",
+          "Severely stretched proximal superior vena cava with luminal narrowing consistent with superior vena cava syndrome"
+        ],
+        "missing_key_evidence": [
+          "Histological confirmation of small cell lung cancer from biopsy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Procedure ordered; awaiting documentation of results in source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "bronchoscopic biopsy histopathology report",
+        "current_trajectory_hypothesis": "Lung mass causing superior vena cava syndrome on imaging; histological confirmation pending to establish small cell lung cancer diagnosis",
+        "confirmed_evidence": [
+          "Chest CT showing right hilar lobulated solid soft-tissue mass 11.7×5.7×4.7 cm at right hilar region",
+          "Severely stretched proximal superior vena cava with luminal narrowing consistent with superior vena cava syndrome"
+        ],
+        "missing_key_evidence": [
+          "Definitive histopathological evidence confirming small cell lung cancer diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient with superior vena cava syndrome and a right hilar lung mass confirmed on CT; histological confirmation of SCLC is pending and crucial for diagnosis establishment",
+        "confirmed_evidence": [
+          "Chest CT shows large right hilar lobulated solid soft-tissue mass",
+          "Imaging confirms proximal superior vena cava narrowing consistent with superior vena cava syndrome"
+        ],
+        "missing_key_evidence": [
+          "Histological evidence confirming small cell lung cancer diagnosis from bronchoscopic biopsy",
+          "Documentation of clinical progression, treatment, or outcome related to diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "histopathology report of the bronchoscopic biopsy confirming small cell lung cancer",
+        "current_trajectory_hypothesis": "Patient with superior vena cava syndrome and a large right hilar lung mass on imaging; seeking histopathological confirmation of small cell lung cancer diagnosis",
+        "confirmed_evidence": [
+          "Chest CT showing large lobulated right hilar mass 11.7×5.7×4.7 cm",
+          "Imaging evidence of superior vena cava syndrome with proximal SVC narrowing"
+        ],
+        "missing_key_evidence": [
+          "Definitive histopathological report confirming diagnosis of small cell lung cancer from bronchoscopic biopsy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Clinical and imaging features strongly suggest lung malignancy causing superior vena cava syndrome; histological confirmation of SCLC is pending source documentation.",
+        "confirmed_evidence": [
+          "Chest CT demonstrates large lobulated right hilar mass 11.7×5.7×4.7 cm",
+          "Severe narrowing of proximal superior vena cava consistent with superior vena cava syndrome"
+        ],
+        "missing_key_evidence": [
+          "Histopathological report confirming small cell lung cancer diagnosis from bronchoscopic biopsy",
+          "Any documented clinical course or treatment response data"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Right hilar lung mass with superior vena cava syndrome is demonstrated by imaging; histological confirmation of small cell lung cancer diagnosis is crucial and pending source documentation; clinical course information may provide additional support.",
+        "confirmed_evidence": [
+          "Chest CT shows large right hilar lobulated soft-tissue mass (11.7×5.7×4.7 cm)",
+          "Imaging reveals severely narrowed proximal superior vena cava consistent with superior vena cava syndrome"
+        ],
+        "missing_key_evidence": [
+          "Histopathological report confirming small cell lung cancer diagnosis from bronchoscopic biopsy",
+          "Documentation of clinical course, treatment, or outcome data"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Imaging confirms right hilar mass with SVCS; histopathological confirmation of small cell lung cancer is awaited in source documentation.",
+        "confirmed_evidence": [
+          "Chest CT showing large lobulated right hilar mass (11.7×5.7×4.7 cm) and severely narrowed proximal superior vena cava consistent with superior vena cava syndrome."
+        ],
+        "missing_key_evidence": [
+          "Histopathology report of bronchoscopic biopsy confirming small cell lung cancer",
+          "Clinical course or treatment response data related to diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient has large right hilar lung mass with SVCS on imaging; histopathological confirmation of SCLC diagnosis is awaited and critical for firm diagnosis; next clinical updates could provide confirmation and treatment response.",
+        "confirmed_evidence": [
+          "Chest CT shows 11.7×5.7×4.7 cm right hilar lobulated soft-tissue mass",
+          "Severe luminal narrowing of proximal superior vena cava consistent with superior vena cava syndrome"
+        ],
+        "missing_key_evidence": [
+          "Histopathological report from bronchoscopic biopsy confirming small cell lung cancer",
+          "Clinical course details including treatment and response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient with imaging showing large right hilar lung mass and superior vena cava syndrome; histological confirmation of SCLC is pending source documentation; next clinical updates are critical to confirm diagnosis",
+        "confirmed_evidence": [
+          "Chest CT reveals large lobulated right hilar mass (11.7×5.7×4.7 cm)",
+          "Severe luminal narrowing of proximal superior vena cava consistent with superior vena cava syndrome"
+        ],
+        "missing_key_evidence": [
+          "Histopathological report from bronchoscopic biopsy confirming small cell lung cancer diagnosis",
+          "Documentation of clinical course, treatment, or outcome data"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Imaging shows a large right hilar mass with superior vena cava syndrome; histological confirmation of SCLC diagnosis is pending and crucial for final diagnosis confirmation; awaiting reliable source documentation.",
+        "confirmed_evidence": [
+          "Chest CT demonstrates a large lobulated right hilar mass (11.7×5.7×4.7 cm)",
+          "Severe luminal narrowing of proximal superior vena cava consistent with superior vena cava syndrome"
+        ],
+        "missing_key_evidence": [
+          "Histopathological report from bronchoscopic biopsy confirming small cell lung cancer",
+          "Clinical course or treatment outcome data supporting diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "small cell lung cancer (SCLC)",
+        "trajectory_summary": "A 56-year-old man presented with worsening respiratory distress, proximal muscle weakness, hyperpigmentation, significant weight loss, and signs of superior vena cava syndrome. Chest CT on admission revealed a large lobulated soft-tissue mass (11.7×5.7×4.7 cm) at the right hilar region with severely stretched proximal superior vena cava causing luminal narrowing, confirming superior vena cava syndrome. Bronchoscopic biopsy was ordered to confirm histology, but no histopathological report text was provided. The known final diagnosis from the case states that histological examination of the bronchial biopsy confirmed small cell lung cancer. Thus, the clinical and imaging findings combined with the noted histological confirmation support the diagnosis of SCLC causing superior vena cava syndrome and related symptoms.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Chest CT reveals right hilar lobulated soft tissue mass (11.7×5.7×4.7 cm) with severe proximal superior vena cava narrowing consistent with superior vena cava syndrome",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Clinical presentation with respiratory distress, proximal muscle weakness, hyperpigmentation, cachexia, and signs of superior vena cava syndrome on physical exam",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Known final diagnosis states histological examination of bronchial biopsy confirmed small cell lung cancer",
+            "evidence_ids": []
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Other lung malignancies or metastatic cancers",
+            "basis": "No histological evidence provided for alternative diagnoses; clinical and imaging features and final diagnosis specify small cell lung cancer"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Direct source-extracted histopathological report text confirming SCLC not provided despite biopsy procedure ordered"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "small cell lung cancer (SCLC)",
+    "trajectory_summary": "A 56-year-old man presented with worsening respiratory distress, proximal muscle weakness, hyperpigmentation, significant weight loss, and signs of superior vena cava syndrome. Chest CT on admission revealed a large lobulated soft-tissue mass (11.7×5.7×4.7 cm) at the right hilar region with severely stretched proximal superior vena cava causing luminal narrowing, confirming superior vena cava syndrome. Bronchoscopic biopsy was ordered to confirm histology, but no histopathological report text was provided. The known final diagnosis from the case states that histological examination of the bronchial biopsy confirmed small cell lung cancer. Thus, the clinical and imaging findings combined with the noted histological confirmation support the diagnosis of SCLC causing superior vena cava syndrome and related symptoms.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Chest CT reveals right hilar lobulated soft tissue mass (11.7×5.7×4.7 cm) with severe proximal superior vena cava narrowing consistent with superior vena cava syndrome",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Clinical presentation with respiratory distress, proximal muscle weakness, hyperpigmentation, cachexia, and signs of superior vena cava syndrome on physical exam",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Known final diagnosis states histological examination of bronchial biopsy confirmed small cell lung cancer",
+        "evidence_ids": []
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Other lung malignancies or metastatic cancers",
+        "basis": "No histological evidence provided for alternative diagnoses; clinical and imaging features and final diagnosis specify small cell lung cancer"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Direct source-extracted histopathological report text confirming SCLC not provided despite biopsy procedure ordered"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.8
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-29T08:41:36.963757+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

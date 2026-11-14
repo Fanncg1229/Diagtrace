@@ -1,0 +1,291 @@
+{
+  "case_id": "PMC8607963",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 7,
+  "termination": "final",
+  "known_final_diagnosis": "With a diagnosis of ischemic stroke, the patient received aspirin and continued to receive statin and antihypertensives.",
+  "disclosed_evidence_ids": [
+    "E004",
+    "E005",
+    "E006"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order brain imaging (CT or MRI) to evaluate for ischemic stroke",
+        "current_trajectory_hypothesis": "Patient initially presented with COVID-19 pneumonia and hypoxia; ischemic stroke diagnosis likely based on subsequent neurological evaluation and imaging",
+        "confirmed_evidence": [
+          "Initial presentation with fever, cough, shortness of breath, low oxygen saturation",
+          "Chest X-ray showing bilateral infiltrates",
+          "Positive SARS-CoV-2 PCR confirming COVID-19"
+        ],
+        "missing_key_evidence": [
+          "Neurological signs or symptoms suggesting stroke",
+          "Brain imaging confirming ischemic stroke",
+          "Temporal evolution of neurological deficits",
+          "Treatment initiation details for stroke"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Brain imaging ordered; no source result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request brain imaging report (CT or MRI) results for evidence of ischemic stroke",
+        "current_trajectory_hypothesis": "Brain imaging will confirm ischemic stroke as complication following initial COVID-19 pneumonia presentation",
+        "confirmed_evidence": [
+          "Initial presentation with fever, cough, shortness of breath, low oxygen saturation",
+          "Chest X-ray showing bilateral infiltrates",
+          "Positive SARS-CoV-2 PCR confirming COVID-19",
+          "Brain imaging ordered for stroke evaluation"
+        ],
+        "missing_key_evidence": [
+          "Brain imaging findings confirming ischemic stroke",
+          "Details of neurological deficits correlating with stroke",
+          "Documentation of stroke treatment initiation like aspirin use",
+          "Clinical response or subsequent course after stroke diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "An urgent non-contrast computed tomography (NCCT) of the brain (Fig. 1) revealed accentuated hypodensities in the left basal ganglia (involving caudate nucleus, lentiform nucleus, and anterior limb of internal capsule), with mass effect on the ipsilateral frontal horn. Another smaller hypodensity in the right caudate nucleus was also seen.",
+        "category": "imaging_report",
+        "temporal_cue": "day four of hospital stay",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "Ask about the development of any neurological symptoms such as weakness, speech difficulty, facial droop, or sensation changes since hospital admission",
+        "current_trajectory_hypothesis": "Patient initially presented with COVID-19 pneumonia; ischemic stroke diagnosis suggested by brain CT with hypodensities in basal ganglia; neurological symptoms history will support clinical correlation",
+        "confirmed_evidence": [
+          "Initial presentation with fever, cough, shortness of breath, low oxygen saturation",
+          "Chest X-ray showing bilateral infiltrates",
+          "Positive SARS-CoV-2 PCR confirming COVID-19",
+          "Urgent NCCT brain showing hypodensities in left basal ganglia and right caudate nucleus consistent with ischemic stroke"
+        ],
+        "missing_key_evidence": [
+          "Neurological symptoms onset and progression correlating with imaging findings",
+          "Details of stroke treatment initiation (aspirin, statin, antihypertensives)",
+          "Clinical course and response after stroke diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "On day four, the patient was noted to have developed confusion and decreased level of consciousness. The GCS dropped from 15/15 to 10/15.",
+        "category": "other",
+        "temporal_cue": "day four of hospital stay",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "Ask about any observed focal neurological deficits such as unilateral weakness, speech difficulty, or facial droop since the neurological deterioration on day four",
+        "current_trajectory_hypothesis": "Patient with initial COVID-19 pneumonia developed neurological deterioration (confusion, decreased consciousness) on day four; brain CT showed ischemic infarcts in basal ganglia regions; inquiry into focal deficits will support clinical correlation for ischemic stroke",
+        "confirmed_evidence": [
+          "Initial presentation with COVID-19 pneumonia and hypoxia",
+          "Brain CT on day four showing hypodensities in left basal ganglia and right caudate nucleus consistent with ischemic stroke",
+          "Neurological deterioration on day four with confusion and GCS drop to 10/15"
+        ],
+        "missing_key_evidence": [
+          "Presence and specifics of focal neurological deficits to correlate with imaging ischemic lesions",
+          "Details of stroke treatment initiation including aspirin, statin, and antihypertensives",
+          "Clinical course and treatment response after stroke diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.55
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No source record reports focal neurological deficits such as unilateral weakness, speech difficulty, or facial droop after neurological deterioration on day four.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient with COVID-19 pneumonia experienced neurological deterioration on day four; brain CT confirmed ischemic stroke; awaiting further clinical course, treatment initiation details, and response to stroke management",
+        "confirmed_evidence": [
+          "COVID-19 pneumonia presentation with fever, cough, hypoxia",
+          "Brain CT on day four showing ischemic infarcts in left basal ganglia and right caudate nucleus",
+          "Neurological deterioration with confusion and decreased GCS from 15 to 10 on day four"
+        ],
+        "missing_key_evidence": [
+          "Documentation of focal neurological deficits after deterioration",
+          "Stroke treatment initiation details (aspirin, statin, antihypertensive continuation)",
+          "Subsequent clinical course and response to treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "Over the next few days, the patient received care in the intensive care unit, but his general condition deteriorated, with increasing oxygen requirements. On day 27 of the hospital stay, the patient developed cardiac arrest. Cardiopulmonary resuscitation was unsuccessful, and he passed away. Autopsy was declined by the family and, hence, could not be done.",
+        "category": "other",
+        "temporal_cue": "day 27 of hospital stay",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request documentation on stroke treatment including aspirin administration, statin, and antihypertensive continuation",
+        "current_trajectory_hypothesis": "Stroke treatment with aspirin was initiated after ischemic stroke diagnosis by brain CT; statin and antihypertensives continued for vascular risk management in a diabetic hypertensive patient with COVID-19; treatment details support clinical management trajectory",
+        "confirmed_evidence": [
+          "Initial presentation with COVID-19 pneumonia and hypoxia",
+          "Brain CT on day four showing ischemic infarcts in left basal ganglia and right caudate nucleus",
+          "Neurological deterioration on day four with confusion and reduced GCS",
+          "Patient deteriorated further over hospital stay and died on day 27"
+        ],
+        "missing_key_evidence": [
+          "Documentation of aspirin initiation and continued statin and antihypertensive therapy for stroke management",
+          "Clinical course details specifically related to stroke treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.65
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E005",
+        "source_text": "With a diagnosis of ischemic stroke, the patient received aspirin and continued to receive statin and antihypertensives.",
+        "category": "imaging_report",
+        "temporal_cue": "day four of hospital stay",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "ischemic stroke",
+        "trajectory_summary": "A 64-year-old diabetic and hypertensive man presented with COVID-19 pneumonia confirmed by SARS-CoV-2 PCR and bilateral lung infiltrates, with initial hypoxia. On day four, neurological deterioration with confusion and decreased GCS was noted. Brain CT on day four revealed hypodensities in the left basal ganglia and right caudate nucleus compatible with ischemic stroke. The patient was treated with aspirin and continued statin and antihypertensives. Despite ICU care, his condition worsened and he died on day 27.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial COVID-19 pneumonia with fever, cough, hypoxia, and bilateral infiltrates confirmed by PCR and chest X-ray",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Neurological deterioration on day four with confusion and GCS drop to 10/15",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Brain CT on day four showing hypodense lesions in left basal ganglia and right caudate nucleus consistent with ischemic stroke",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Patient received aspirin and continued statin and antihypertensives after ischemic stroke diagnosis",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Patient deteriorated over hospital stay and died on day 27 despite care",
+            "evidence_ids": [
+              "E006"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [
+          "No source evidence documenting focal neurological deficits such as unilateral weakness or speech deficits",
+          "No detailed clinical response or improvement after stroke treatment",
+          "No autopsy to confirm stroke pathology"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "ischemic stroke",
+    "trajectory_summary": "A 64-year-old diabetic and hypertensive man presented with COVID-19 pneumonia confirmed by SARS-CoV-2 PCR and bilateral lung infiltrates, with initial hypoxia. On day four, neurological deterioration with confusion and decreased GCS was noted. Brain CT on day four revealed hypodensities in the left basal ganglia and right caudate nucleus compatible with ischemic stroke. The patient was treated with aspirin and continued statin and antihypertensives. Despite ICU care, his condition worsened and he died on day 27.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial COVID-19 pneumonia with fever, cough, hypoxia, and bilateral infiltrates confirmed by PCR and chest X-ray",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Neurological deterioration on day four with confusion and GCS drop to 10/15",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Brain CT on day four showing hypodense lesions in left basal ganglia and right caudate nucleus consistent with ischemic stroke",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Patient received aspirin and continued statin and antihypertensives after ischemic stroke diagnosis",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Patient deteriorated over hospital stay and died on day 27 despite care",
+        "evidence_ids": [
+          "E006"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [
+      "No source evidence documenting focal neurological deficits such as unilateral weakness or speech deficits",
+      "No detailed clinical response or improvement after stroke treatment",
+      "No autopsy to confirm stroke pathology"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.8
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-29T06:24:45.684797+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

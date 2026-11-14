@@ -1,0 +1,386 @@
+{
+  "case_id": "PMC7342472",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 9,
+  "termination": "final",
+  "known_final_diagnosis": "Reverse transcriptase PCR test on combined nasopharyngeal/oropharyngeal swabs was positive for SARS-CoV-2, 2 days after first presenting to the emergency doctor.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E005"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order a reverse transcriptase PCR test on combined nasopharyngeal/oropharyngeal swabs for SARS-CoV-2",
+        "current_trajectory_hypothesis": "Patient presented with urticarial rash and upper respiratory symptoms possibly related to COVID-19. Confirmatory RT-PCR test on respiratory swabs needed for diagnosis.",
+        "confirmed_evidence": [
+          "initial presentation with urticarial rash and nasal congestion",
+          "no fever or cough reported initially",
+          "history of allergic conditions"
+        ],
+        "missing_key_evidence": [
+          "SARS-CoV-2 RT-PCR test result",
+          "any progression of symptoms or further examinations",
+          "correlation of skin rash with coronavirus infection confirmed by testing"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order acknowledged without reported result yet",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Pending confirmation of SARS-CoV-2 infection by RT-PCR to support diagnosis explaining urticarial rash and nasal congestion.",
+        "confirmed_evidence": [
+          "initial presentation with widespread urticarial rash and nasal congestion",
+          "no fever or continuous cough reported",
+          "RT-PCR test ordered for SARS-CoV-2"
+        ],
+        "missing_key_evidence": [
+          "SARS-CoV-2 RT-PCR test result",
+          "clinical progression or resolution of rash or symptoms",
+          "any other diagnostic testing or physical exam findings linking rash to COVID-19"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "A 46-year-old staff nurse presented to an emergency doctor on 12 April 2020 with a 24-hour history of a widespread red-raised blanching and itchy rash.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request the result of the reverse transcriptase PCR test on combined nasopharyngeal/oropharyngeal swabs for SARS-CoV-2",
+        "current_trajectory_hypothesis": "Pending SARS-CoV-2 RT-PCR result to confirm COVID-19 infection associated with urticarial rash and nasal symptoms.",
+        "confirmed_evidence": [
+          "initial presentation with widespread red-raised blanching and itchy rash and nasal congestion",
+          "RT-PCR test ordered for SARS-CoV-2"
+        ],
+        "missing_key_evidence": [
+          "SARS-CoV-2 RT-PCR test result confirming infection",
+          "any clinical progression or further examination findings linking rash to COVID-19"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request the documented result of the SARS-CoV-2 reverse transcriptase PCR test on combined nasopharyngeal/oropharyngeal swabs",
+        "current_trajectory_hypothesis": "Awaiting SARS-CoV-2 RT-PCR result to confirm COVID-19 infection as cause of urticarial rash and nasal symptoms.",
+        "confirmed_evidence": [
+          "initial presentation with widespread urticarial rash and nasal congestion",
+          "SARS-CoV-2 RT-PCR test ordered"
+        ],
+        "missing_key_evidence": [
+          "SARS-CoV-2 RT-PCR test result confirming the infection",
+          "any follow-up clinical findings or course details linking rash to COVID-19"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Reverse transcriptase PCR test on combined nasopharyngeal/oropharyngeal swabs was positive for SARS-CoV-2",
+        "category": "other",
+        "temporal_cue": "2 days after first presenting",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "Ask if there was any development of fever, cough, shortness of breath, or other systemic symptoms after the initial presentation",
+        "current_trajectory_hypothesis": "Initial presentation involved urticarial rash and nasal congestion followed by a positive SARS-CoV-2 RT-PCR test 2 days later, suggesting COVID-19 infection presenting with rash. Additional symptom evolution could support the diagnosis.",
+        "confirmed_evidence": [
+          "Widespread red-raised blanching and itchy rash and nasal congestion at initial presentation",
+          "RT-PCR test positive for SARS-CoV-2 on combined nasopharyngeal/oropharyngeal swabs obtained 2 days after first presentation"
+        ],
+        "missing_key_evidence": [
+          "Any progression or development of typical COVID-19 symptoms such as fever, cough, or respiratory distress",
+          "Other clinical findings or physical exam results linking the rash temporally or clinically to COVID-19 course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "The following day the rash worsened and was now associated with swelling of her lips (figure 1) and hands; she now felt feverish and had developed a dry cough. She had a slight wheeze but no tongue or throat swelling.",
+        "category": "image_finding",
+        "temporal_cue": "the following day",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "Request a physical examination report focusing on respiratory findings and mucocutaneous status after the rash worsened with lip and hand swelling",
+        "current_trajectory_hypothesis": "Initial urticarial rash and nasal congestion progressed with worsening rash, lip and hand swelling, feverish feeling, dry cough, and slight wheeze consistent with developing COVID-19 infection along with hypersensitivity features.",
+        "confirmed_evidence": [
+          "Initial widespread urticarial rash and nasal congestion",
+          "Positive SARS-CoV-2 RT-PCR test from combined nasopharyngeal/oropharyngeal swabs 2 days post presentation",
+          "Progression of rash with lip and hand swelling, feverish feeling, dry cough, and slight wheeze without tongue or throat swelling"
+        ],
+        "missing_key_evidence": [
+          "Detailed physical examination findings after symptom progression to clarify severity and involvement",
+          "Supporting findings that link rash and swelling directly to COVID-19 infection course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E002",
+        "source_text": "The following day the rash worsened and was now associated with swelling of her lips (figure 1) and hands; she now felt feverish and had developed a dry cough. She had a slight wheeze but no tongue or throat swelling. She was subsequently assessed by another general practitioner, her temperature was 36°C, her pulse was 98 beats/min and her oxygen saturation was 98% on room air. She had a widespread urticarial eruption affecting her face, arms, torso, legs and loins. The general practitioner who examined her diagnosed urticaria, but also documented the possibility of an allergic reaction or a viral illness.",
+        "category": "image_finding",
+        "temporal_cue": "the following day",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Presentation with urticarial rash and upper respiratory symptoms progressed with worsening rash, lip and hand swelling, feverish feeling, dry cough, and slight wheeze. SARS-CoV-2 RT-PCR was positive confirming COVID-19 infection. Further clinical course and treatment response details required.",
+        "confirmed_evidence": [
+          "Initial presentation with widespread urticarial rash and nasal congestion",
+          "Positive RT-PCR test for SARS-CoV-2 from combined nasopharyngeal/oropharyngeal swabs obtained 2 days after first presentation",
+          "Worsened rash with lip and hand swelling, developed feverish feeling, dry cough, and slight wheeze without tongue or throat swelling",
+          "Physical exam documented normal temperature, pulse 98 bpm, oxygen saturation 98% on room air, widespread urticarial eruption"
+        ],
+        "missing_key_evidence": [
+          "Details on treatment administered following diagnosis",
+          "Clinical response or progression after treatment",
+          "Any further diagnostic tests or imaging to exclude alternative causes"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "She was advised to continue taking fexofenadine hydrochloride 180 mg four times per day and she was commenced on prednisolone 40 mg once daily for 3 days. The GP advised self-isolation for 7 days and suggested testing for infection with SARS-CoV-2. Prednisolone helped her lip and hand swelling, but her rash was still itchy and chlorphenamine maleate 4 mg four times per day was subsequently added.",
+        "category": "treatment_response",
+        "temporal_cue": "after worsening rash and swelling",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Confirmed COVID-19 infection by positive RT-PCR following presentation with urticarial rash and nasal congestion, with progression to lip and hand swelling, feverish feeling, cough, and wheeze; treated with antihistamines and short course prednisolone with some improvement in swelling but persistent itch.",
+        "confirmed_evidence": [
+          "Initial presentation with widespread urticarial rash and nasal congestion",
+          "RT-PCR positive for SARS-CoV-2 on combined nasopharyngeal/oropharyngeal swabs 2 days after first presentation",
+          "Progression of rash with lip and hand swelling, feverish feeling, dry cough and slight wheeze",
+          "Physical exam showed pulse 98 bpm, oxygen saturation 98%, widespread urticarial eruption and no tongue or throat swelling",
+          "Treatment with fexofenadine, prednisolone improved swelling, persistent itch, chlorphenamine added, advised self-isolation"
+        ],
+        "missing_key_evidence": [
+          "Details on clinical course after adding chlorphenamine",
+          "Overall outcome and resolution of rash and systemic symptoms",
+          "Any additional tests or hospital admissions if occurred"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "The rash resolved completely over the next few days. The patient made a full clinical recovery and did not undergo further PCR testing before resuming her duties.",
+        "category": "other",
+        "temporal_cue": "over the next few days",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "COVID-19 infection confirmed by positive SARS-CoV-2 RT-PCR test",
+        "trajectory_summary": "A 46-year-old staff nurse presented with a 24-hour history of widespread red-raised blanching and itchy rash along with nasal congestion. Initially diagnosed as probable idiopathic urticaria, a SARS-CoV-2 RT-PCR test was ordered. Two days later, the test was positive for SARS-CoV-2. The rash worsened with swelling of lips and hands, development of feverish feeling, dry cough, and slight wheeze, but no tongue or throat swelling. Physical examination showed pulse 98 bpm, oxygen saturation 98%, and widespread urticarial eruption. Treatment included fexofenadine and prednisolone, which improved swelling; chlorphenamine was added due to persistent itch. The rash resolved completely over the following days and the patient made a full recovery without further PCR testing.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Initial presentation with widespread red-raised blanching and itchy rash and nasal congestion",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "SARS-CoV-2 RT-PCR test on combined nasopharyngeal/oropharyngeal swabs positive 2 days after first presentation",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Progression of symptoms with worsening rash, swelling of lips and hands, feverish feeling, dry cough, slight wheeze, and no tongue/throat swelling",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Physical exam showing pulse 98 bpm, oxygen saturation 98%, widespread urticarial eruption; prescribed fexofenadine, prednisolone, and chlorphenamine with improvement in swelling but persistent itch",
+            "evidence_ids": [
+              "E002",
+              "E004"
+            ]
+          },
+          {
+            "claim": "Complete resolution of rash and full clinical recovery over the next few days without further PCR testing",
+            "evidence_ids": [
+              "E005"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Idiopathic urticaria without viral infection",
+            "basis": "Positive SARS-CoV-2 RT-PCR and symptom progression consistent with COVID-19 infection"
+          },
+          {
+            "alternative": "Allergic reaction solely causing rash and swelling",
+            "basis": "Symptom progression with typical COVID-19 respiratory symptoms and positive viral test"
+          }
+        ],
+        "remaining_uncertainties": [],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "COVID-19 infection confirmed by positive SARS-CoV-2 RT-PCR test",
+    "trajectory_summary": "A 46-year-old staff nurse presented with a 24-hour history of widespread red-raised blanching and itchy rash along with nasal congestion. Initially diagnosed as probable idiopathic urticaria, a SARS-CoV-2 RT-PCR test was ordered. Two days later, the test was positive for SARS-CoV-2. The rash worsened with swelling of lips and hands, development of feverish feeling, dry cough, and slight wheeze, but no tongue or throat swelling. Physical examination showed pulse 98 bpm, oxygen saturation 98%, and widespread urticarial eruption. Treatment included fexofenadine and prednisolone, which improved swelling; chlorphenamine was added due to persistent itch. The rash resolved completely over the following days and the patient made a full recovery without further PCR testing.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Initial presentation with widespread red-raised blanching and itchy rash and nasal congestion",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "SARS-CoV-2 RT-PCR test on combined nasopharyngeal/oropharyngeal swabs positive 2 days after first presentation",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Progression of symptoms with worsening rash, swelling of lips and hands, feverish feeling, dry cough, slight wheeze, and no tongue/throat swelling",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Physical exam showing pulse 98 bpm, oxygen saturation 98%, widespread urticarial eruption; prescribed fexofenadine, prednisolone, and chlorphenamine with improvement in swelling but persistent itch",
+        "evidence_ids": [
+          "E002",
+          "E004"
+        ]
+      },
+      {
+        "claim": "Complete resolution of rash and full clinical recovery over the next few days without further PCR testing",
+        "evidence_ids": [
+          "E005"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Idiopathic urticaria without viral infection",
+        "basis": "Positive SARS-CoV-2 RT-PCR and symptom progression consistent with COVID-19 infection"
+      },
+      {
+        "alternative": "Allergic reaction solely causing rash and swelling",
+        "basis": "Symptom progression with typical COVID-19 respiratory symptoms and positive viral test"
+      }
+    ],
+    "remaining_uncertainties": [],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-25T16:22:16.631627+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

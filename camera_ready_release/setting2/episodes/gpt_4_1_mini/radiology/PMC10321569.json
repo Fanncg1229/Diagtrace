@@ -1,0 +1,262 @@
+{
+  "case_id": "PMC10321569",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 7,
+  "termination": "final",
+  "known_final_diagnosis": "AUF can be seen in Figure 2.",
+  "disclosed_evidence_ids": [
+    "E003",
+    "E004",
+    "E005"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "order imaging for the abdomen and pelvis to evaluate the source of haematuria and assess for arterioureteral fistula (e.g., CT angiography or conventional angiography)",
+        "current_trajectory_hypothesis": "73F with history of cervical cancer radiotherapy and ureteric strictures presenting with severe haematuria and hemodynamic instability possibly due to an arterioureteral fistula (AUF)",
+        "confirmed_evidence": [
+          "History of pelvic radiotherapy and ureteric strictures",
+          "Severe haematuria with hypotension and anemia"
+        ],
+        "missing_key_evidence": [
+          "Imaging evidence of AUF such as CT angiography or catheter angiography",
+          "Physical exam findings noting flank or abdominal tenderness or masses",
+          "Confirmation of the bleeding source"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Imaging for abdomen and pelvis ordered as requested; no evidence result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request the imaging report of the abdomen and pelvis CT angiography or conventional angiography to evaluate for arterioureteral fistula",
+        "current_trajectory_hypothesis": "Imaging was ordered to identify an arterioureteral fistula as the source of bleeding in a patient with history of pelvic radiotherapy and ureteric strictures",
+        "confirmed_evidence": [
+          "History of pelvic radiotherapy and ureteric strictures",
+          "Severe haematuria with hypotension and anemia",
+          "Imaging for abdomen and pelvis ordered to evaluate bleeding source"
+        ],
+        "missing_key_evidence": [
+          "Imaging evidence of AUF such as arterial contrast extravasation",
+          "Physical exam findings",
+          "Further diagnostic confirmation and clinical course details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Axial CT angiogram. The ureter (white arrow) is inseparable from the external iliac artery (black asterisk) and ectatic internal iliac artery (white asterisk). No active extravasation of contrast seen at the time of the scan.",
+        "category": "imaging_report",
+        "temporal_cue": "after admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "order conventional catheter angiography focusing on the iliac arteries to detect intermittent contrast extravasation or fistula in the context of negative CT angiogram",
+        "current_trajectory_hypothesis": "Initial CT angiogram showed no active contrast extravasation but close proximity of ureter and iliac arteries suggests possible arterioureteral fistula; definitive angiography needed",
+        "confirmed_evidence": [
+          "CT angiogram shows ureter inseparable from external and internal iliac arteries but no active extravasation"
+        ],
+        "missing_key_evidence": [
+          "Definitive angiographic evidence of arterioureteral fistula",
+          "Physical examination findings",
+          "Clinical course after imaging and treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.65
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "The order for conventional catheter angiography focusing on the iliac arteries is acknowledged and documented, but source results for this test have not yet been disclosed.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request the report of the conventional catheter angiography focused on the iliac arteries for evidence of arterioureteral fistula or contrast extravasation",
+        "current_trajectory_hypothesis": "Conventional angiography may reveal intermittent contrast extravasation or fistula between iliac artery and ureter not seen on CT angiogram, confirming diagnosis of arterioureteral fistula",
+        "confirmed_evidence": [
+          "CT angiogram shows ureter inseparable from external and internal iliac arteries but no active extravasation"
+        ],
+        "missing_key_evidence": [
+          "Angiographic evidence of arterioureteral fistula",
+          "Physical exam findings relevant to bleeding focus",
+          "Clinical progression and response to therapy"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.65
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Cather angiogram from the internal iliac artery origin demonstrates active bleeding from the right internal iliac artery into the distal ureter (black arrows). A linear filling defect is seen within the ureter consistent with non-occlusive thrombus. Contrast is seen filling the urinary bladder (white asterisk).",
+        "category": "imaging_report",
+        "temporal_cue": "after admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Confirmed diagnosis of arterioureteral fistula by conventional angiography following negative CT angiogram in the setting of severe haematuria and prior pelvic radiotherapy",
+        "confirmed_evidence": [
+          "History of pelvic radiotherapy and ureteric strictures",
+          "Severe haematuria with hemodynamic instability",
+          "CT angiogram showing close relationship of ureter and iliac arteries without active extravasation",
+          "Conventional angiography demonstrating active bleeding from right internal iliac artery into distal ureter"
+        ],
+        "missing_key_evidence": [
+          "Physical examination findings post-diagnosis",
+          "Details of therapeutic intervention or clinical outcome",
+          "Further confirmation or exclusion of other bleeding sources if relevant"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "A decision to perform emergency computerized tomography angiography (CTA) of the renal and abdominal vessels was undertaken. Figures 1-2 show the diagnostic imaging. AUF can be seen in Figure 2.",
+        "category": "imaging_report",
+        "temporal_cue": "after admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Confirmed diagnosis of arterioureteral fistula by catheter angiography following CT angiogram in patient with history of pelvic radiotherapy and bilateral ureteric strictures presenting with severe haematuria and shock.",
+        "confirmed_evidence": [
+          "Severe haematuria and hemodynamic instability on presentation",
+          "History of pelvic radiotherapy and ureteric strictures with bilateral nephrostomies and ureteric stents",
+          "CT angiogram shows ureter inseparable from iliac arteries but no active bleeding",
+          "Conventional angiography reveals active bleeding from right internal iliac artery into distal ureter consistent with AUF",
+          "Imaging confirmation documented referencing diagnostic imaging figures including Figure 2 showing AUF"
+        ],
+        "missing_key_evidence": [
+          "Physical examination findings post-diagnosis",
+          "Details of therapeutic intervention to manage AUF",
+          "Clinical course and patient outcome after intervention"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "No pending orders with source-backed results and no new clinical trajectory update after current phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Arterioureteral fistula (AUF)",
+        "trajectory_summary": "A 73-year-old female with history of pelvic radiotherapy for cervical cancer and bilateral ureteric strictures presented with severe haematuria and hemodynamic instability. Initial CT angiography showed the ureter inseparable from the iliac arteries but no active bleeding. Subsequent conventional catheter angiography demonstrated active bleeding from the right internal iliac artery into the distal ureter consistent with arterioureteral fistula. Diagnosis was confirmed by imaging showing contrast extravasation into the ureter and urinary bladder.",
+        "key_supporting_evidence": [
+          {
+            "claim": "CT angiogram showed ureter inseparable from external and internal iliac arteries but no active bleeding",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Conventional catheter angiography demonstrated active bleeding from right internal iliac artery into distal ureter with thrombus and contrast filling the bladder, confirming AUF",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "Diagnostic imaging including Figure 2 explicitly depicts arterioureteral fistula",
+            "evidence_ids": [
+              "E003"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [
+          "Physical examination findings after diagnosis not documented",
+          "Details of therapeutic intervention and patient clinical course/outcome not available"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Arterioureteral fistula (AUF)",
+    "trajectory_summary": "A 73-year-old female with history of pelvic radiotherapy for cervical cancer and bilateral ureteric strictures presented with severe haematuria and hemodynamic instability. Initial CT angiography showed the ureter inseparable from the iliac arteries but no active bleeding. Subsequent conventional catheter angiography demonstrated active bleeding from the right internal iliac artery into the distal ureter consistent with arterioureteral fistula. Diagnosis was confirmed by imaging showing contrast extravasation into the ureter and urinary bladder.",
+    "key_supporting_evidence": [
+      {
+        "claim": "CT angiogram showed ureter inseparable from external and internal iliac arteries but no active bleeding",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Conventional catheter angiography demonstrated active bleeding from right internal iliac artery into distal ureter with thrombus and contrast filling the bladder, confirming AUF",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "Diagnostic imaging including Figure 2 explicitly depicts arterioureteral fistula",
+        "evidence_ids": [
+          "E003"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [
+      "Physical examination findings after diagnosis not documented",
+      "Details of therapeutic intervention and patient clinical course/outcome not available"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-26T07:53:53.792626+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

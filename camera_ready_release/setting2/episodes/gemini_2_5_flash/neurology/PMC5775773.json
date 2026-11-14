@@ -1,0 +1,648 @@
+{
+  "case_id": "PMC5775773",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "Here, we present a case of an adult with Shigella-associated encephalopathy in an MSM.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E005",
+    "E006",
+    "E007",
+    "E008"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Complete blood count (CBC), basic metabolic panel (BMP), C-reactive protein (CRP), and procalcitonin",
+        "current_trajectory_hypothesis": "Patient presents with acute encephalopathy, fever, and diarrhea. Initial workup should include general labs to assess for infection and organ function.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Initial lab results (CBC, BMP, inflammatory markers)",
+          "Stool studies for enteric pathogens",
+          "Lumbar puncture results",
+          "Brain imaging results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order placed for requested laboratory tests; no corresponding source result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Stool culture and PCR for enteric pathogens",
+        "current_trajectory_hypothesis": "Given the patient's diarrhea, fever, and altered mental status, and the known diagnosis of Shigella-associated encephalopathy, stool studies are crucial to identify the causative enteric pathogen.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Initial lab results (CBC, BMP, inflammatory markers)",
+          "Stool studies results for enteric pathogens",
+          "Lumbar puncture results",
+          "Brain imaging results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order acknowledged, no matching source result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Brain CT scan",
+        "current_trajectory_hypothesis": "Patient presents with acute encephalopathy. Brain imaging is necessary to rule out structural causes and assess for signs of inflammation or other abnormalities contributing to the neurological symptoms.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Initial lab results (CBC, BMP, inflammatory markers)",
+          "Stool studies results for enteric pathogens",
+          "Brain imaging results",
+          "Lumbar puncture results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Brain CT scan ordered; no result reported yet in source.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presents with acute encephalopathy, fever, and diarrhea. I've ordered general labs, stool studies, and a brain CT. I need to review these results to guide further investigation into the cause of encephalopathy and identify the infectious agent.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Initial lab results (CBC, BMP, inflammatory markers)",
+          "Stool studies results for enteric pathogens",
+          "Brain imaging results",
+          "Lumbar puncture results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "The CT scan showed no sign of cerebral bleeding or hydrocephalus.",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Results of complete blood count (CBC), basic metabolic panel (BMP), C-reactive protein (CRP), and procalcitonin",
+        "current_trajectory_hypothesis": "Patient presents with acute encephalopathy, fever, and diarrhea. CT scan ruled out cerebral bleeding or hydrocephalus. I need to review initial lab results to assess for infection severity and organ function, and to guide further investigation into the cause of encephalopathy.",
+        "confirmed_evidence": [
+          "CT scan showed no sign of cerebral bleeding or hydrocephalus (E001)"
+        ],
+        "missing_key_evidence": [
+          "Initial lab results (CBC, BMP, inflammatory markers)",
+          "Stool studies results for enteric pathogens",
+          "Lumbar puncture results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.25
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "C reactive protein in serum was 210 mg/L with decreased leucocyte count of 2.4×109 cells/L. Serum creatinine levels were elevated with 136 µmol/L.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Results of stool culture and PCR for enteric pathogens",
+        "current_trajectory_hypothesis": "Patient presents with acute encephalopathy, fever, and diarrhea. Initial labs show inflammation and leukopenia. CT scan ruled out structural brain lesions. Stool studies are crucial to identify the causative enteric pathogen, especially given the known diagnosis of Shigella-associated encephalopathy.",
+        "confirmed_evidence": [
+          "CT scan showed no sign of cerebral bleeding or hydrocephalus (E001)",
+          "C reactive protein in serum was 210 mg/L (E004)",
+          "Decreased leucocyte count of 2.4×10^9 cells/L (E004)",
+          "Serum creatinine levels were elevated with 136 µmol/L (E004)"
+        ],
+        "missing_key_evidence": [
+          "Full CBC and BMP results (other components)",
+          "Procalcitonin result",
+          "Stool studies results for enteric pathogens",
+          "Lumbar puncture results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Stool culture showed S. flexneri, sensitive to ceftriaxone, though resistant to ciprofloxacin and trimethoprim/sulfamethoxazole.",
+        "category": "microbiology",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Lumbar puncture for CSF analysis (cell count, protein, glucose, culture, PCR)",
+        "current_trajectory_hypothesis": "Patient presents with acute encephalopathy, fever, and diarrhea, with confirmed Shigella flexneri in stool. CT scan ruled out structural brain lesions. Lumbar puncture is crucial to investigate the cause of encephalopathy and rule out meningitis/encephalitis, which is often associated with Shigella-associated encephalopathy.",
+        "confirmed_evidence": [
+          "CT scan showed no sign of cerebral bleeding or hydrocephalus (E001)",
+          "C reactive protein in serum was 210 mg/L (E004)",
+          "Decreased leucocyte count of 2.4×10^9 cells/L (E004)",
+          "Serum creatinine levels were elevated with 136 µmol/L (E004)",
+          "Stool culture showed S. flexneri, sensitive to ceftriaxone, though resistant to ciprofloxacin and trimethoprim/sulfamethoxazole (E005)"
+        ],
+        "missing_key_evidence": [
+          "Lumbar puncture results",
+          "Further details on the neurological status or investigation of encephalopathy",
+          "Treatment and clinical course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Order placed for lumbar puncture for CSF analysis at current early_workup phase; no result yet reported.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Results of lumbar puncture for CSF analysis (cell count, protein, glucose, culture, PCR)",
+        "current_trajectory_hypothesis": "Patient presents with acute encephalopathy, fever, and diarrhea, with confirmed Shigella flexneri in stool. CT scan ruled out structural brain lesions. Initial labs show inflammation and leukopenia. Lumbar puncture was ordered to investigate the cause of encephalopathy. I need to review these results to assess for CNS involvement.",
+        "confirmed_evidence": [
+          "CT scan showed no sign of cerebral bleeding or hydrocephalus (E001)",
+          "C reactive protein in serum was 210 mg/L (E004)",
+          "Decreased leucocyte count of 2.4×10^9 cells/L (E004)",
+          "Serum creatinine levels were elevated with 136 µmol/L (E004)",
+          "Stool culture showed S. flexneri, sensitive to ceftriaxone, though resistant to ciprofloxacin and trimethoprim/sulfamethoxazole (E005)"
+        ],
+        "missing_key_evidence": [
+          "Lumbar puncture results",
+          "Further details on the neurological status or investigation of encephalopathy",
+          "Treatment and clinical course"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.45
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "The cerebrospinal fluid (CSF) revealed mild pleiocytosis of 8×106 cells/L with normal glucose and protein levels.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presents with acute encephalopathy, fever, and diarrhea. Shigella flexneri was confirmed in stool, and CSF showed mild pleocytosis. CT scan ruled out structural brain lesions. I need to understand the initial treatment initiated and how the patient's neurological status evolved to further support the diagnosis of Shigella-associated encephalopathy.",
+        "confirmed_evidence": [
+          "CT scan showed no sign of cerebral bleeding or hydrocephalus (E001)",
+          "C reactive protein in serum was 210 mg/L (E004)",
+          "Decreased leucocyte count of 2.4×10^9 cells/L (E004)",
+          "Serum creatinine levels were elevated with 136 µmol/L (E004)",
+          "Stool culture showed S. flexneri, sensitive to ceftriaxone, though resistant to ciprofloxacin and trimethoprim/sulfamethoxazole (E005)",
+          "The cerebrospinal fluid (CSF) revealed mild pleiocytosis of 8×10^6 cells/L with normal glucose and protein levels (E002)"
+        ],
+        "missing_key_evidence": [
+          "Initial treatment regimen",
+          "Clinical course and neurological status progression",
+          "Further details on the encephalopathy investigation (e.g., EEG, specific neurological findings)",
+          "Remaining initial lab results (e.g., procalcitonin, full CBC/BMP)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Bacterial culture and PCR for enterovirus, herpes simplex virus type 1 and 2 and varicella zoster virus were negative.",
+        "category": "microbiology",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presents with acute encephalopathy, fever, and diarrhea. Shigella flexneri was confirmed in stool, and CSF showed mild pleocytosis but negative for common pathogens. CT scan was normal. Initial labs showed inflammation and leukopenia. I need to understand the initial treatment and the patient's clinical response, particularly the resolution of encephalopathy, to fully support the diagnosis of Shigella-associated encephalopathy.",
+        "confirmed_evidence": [
+          "CT scan showed no sign of cerebral bleeding or hydrocephalus (E001)",
+          "C reactive protein in serum was 210 mg/L (E004)",
+          "Decreased leucocyte count of 2.4×10^9 cells/L (E004)",
+          "Serum creatinine levels were elevated with 136 µmol/L (E004)",
+          "Stool culture showed S. flexneri, sensitive to ceftriaxone, though resistant to ciprofloxacin and trimethoprim/sulfamethoxazole (E005)",
+          "The cerebrospinal fluid (CSF) revealed mild pleocytosis of 8×10^6 cells/L with normal glucose and protein levels (E002)",
+          "Bacterial culture and PCR for enterovirus, herpes simplex virus type 1 and 2 and varicella zoster virus were negative in CSF (E003)"
+        ],
+        "missing_key_evidence": [
+          "Initial treatment regimen for Shigella and encephalopathy",
+          "Clinical course and neurological status progression/resolution",
+          "Further details on the encephalopathy investigation (e.g., EEG, specific neurological findings)",
+          "Remaining initial lab results (e.g., procalcitonin, full CBC/BMP)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "The patient tested negative for HIV.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presents with acute encephalopathy, fever, and diarrhea. Shigella flexneri was confirmed in stool, and CSF showed mild pleocytosis but negative for common pathogens. CT scan was normal. Initial labs showed inflammation and leukopenia. HIV was negative. I need to understand the initial treatment and the patient's clinical response, particularly the resolution of encephalopathy, to fully support the diagnosis of Shigella-associated encephalopathy.",
+        "confirmed_evidence": [
+          "CT scan showed no sign of cerebral bleeding or hydrocephalus (E001)",
+          "C reactive protein in serum was 210 mg/L (E004)",
+          "Decreased leucocyte count of 2.4×10^9 cells/L (E004)",
+          "Serum creatinine levels were elevated with 136 µmol/L (E004)",
+          "Stool culture showed S. flexneri, sensitive to ceftriaxone, though resistant to ciprofloxacin and trimethoprim/sulfamethoxazole (E005)",
+          "The cerebrospinal fluid (CSF) revealed mild pleocytosis of 8×10^6 cells/L with normal glucose and protein levels (E002)",
+          "Bacterial culture and PCR for enterovirus, herpes simplex virus type 1 and 2 and varicella zoster virus were negative in CSF (E003)",
+          "The patient tested negative for HIV (E006)"
+        ],
+        "missing_key_evidence": [
+          "Initial treatment regimen for Shigella and encephalopathy",
+          "Clinical course and neurological status progression/resolution",
+          "Further details on the encephalopathy investigation (e.g., EEG, specific neurological findings)",
+          "Remaining initial lab results (e.g., procalcitonin, full CBC/BMP)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.65
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "Although the patient was hypovolaemic, this was considered unlikely as a cause for his confusion. Also, his confusion remained after volume resuscitation. Further blood investigation revealed a normal calcium, thyroid-stimulating hormone and only a slight hyponatraemia and hypokalaemia of respectively 130 mmol/L and 3.4 mmol/L, all of which could not explain his neurological status. Sepsis was considered unlikely, since blood cultures remained negative, blood pressure was within normal limits and serum lactate levels were normal. The patient had no history of substance abuse or intoxications.",
+        "category": "other",
+        "temporal_cue": "early hospital course",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Initial treatment regimen for Shigella infection and encephalopathy",
+        "current_trajectory_hypothesis": "Patient presents with acute encephalopathy, fever, and diarrhea. Shigella flexneri was confirmed in stool, and CSF showed mild pleocytosis but negative for common pathogens. CT scan was normal. Initial labs showed inflammation and leukopenia. HIV was negative, and other causes for confusion were ruled out. I need to understand the initial treatment initiated to see how it aligns with the identified pathogen and its sensitivities, and to anticipate the clinical course.",
+        "confirmed_evidence": [
+          "CT scan showed no sign of cerebral bleeding or hydrocephalus (E001)",
+          "C reactive protein in serum was 210 mg/L (E004)",
+          "Decreased leucocyte count of 2.4×10^9 cells/L (E004)",
+          "Serum creatinine levels were elevated with 136 µmol/L (E004)",
+          "Stool culture showed S. flexneri, sensitive to ceftriaxone, though resistant to ciprofloxacin and trimethoprim/sulfamethoxazole (E005)",
+          "The cerebrospinal fluid (CSF) revealed mild pleocytosis of 8×10^6 cells/L with normal glucose and protein levels (E002)",
+          "Bacterial culture and PCR for enterovirus, herpes simplex virus type 1 and 2 and varicella zoster virus were negative in CSF (E003)",
+          "The patient tested negative for HIV (E006)",
+          "Hypovolemia, electrolyte imbalances (slight hyponatremia and hypokalemia), sepsis (negative blood cultures, normal BP, normal lactate), and substance abuse were considered unlikely causes for confusion (E007)"
+        ],
+        "missing_key_evidence": [
+          "Initial treatment regimen for Shigella and encephalopathy",
+          "Clinical course and neurological status progression/resolution",
+          "Further details on the encephalopathy investigation (e.g., EEG, specific neurological findings)",
+          "Remaining initial lab results (e.g., procalcitonin, full CBC/BMP)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "After the negative PCR results of the CSF acyclovir was stopped. The disturbances in fluid and electrolyte balance were treated with fluid resuscitation and potassium supplementation. Volume repletion was achieved quickly. The patient’s neurological status recovered within 36 hours after the start of ceftriaxone intravenously. Normalisation of sodium levels occurred within 24 hours and potassium levels normalised within 48 hours, after which fluid resuscitation was stopped.",
+        "category": "treatment_response",
+        "temporal_cue": "hospital days 1-2",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Initial antibiotic regimen administered for Shigella infection",
+        "current_trajectory_hypothesis": "Patient presented with acute encephalopathy, fever, and diarrhea. Shigella flexneri was confirmed in stool, and CSF showed mild pleocytosis but negative for common pathogens. CT scan was normal. Initial labs showed inflammation and leukopenia. HIV was negative, and other causes for confusion were ruled out. The patient's neurological status recovered after starting IV ceftriaxone. I need to explicitly confirm the initial antibiotic regimen to fully reconstruct the treatment trajectory.",
+        "confirmed_evidence": [
+          "CT scan showed no sign of cerebral bleeding or hydrocephalus (E001)",
+          "C reactive protein in serum was 210 mg/L (E004)",
+          "Decreased leucocyte count of 2.4×10^9 cells/L (E004)",
+          "Serum creatinine levels were elevated with 136 µmol/L (E004)",
+          "Stool culture showed S. flexneri, sensitive to ceftriaxone, though resistant to ciprofloxacin and trimethoprim/sulfamethoxazole (E005)",
+          "The cerebrospinal fluid (CSF) revealed mild pleocytosis of 8×10^6 cells/L with normal glucose and protein levels (E002)",
+          "Bacterial culture and PCR for enterovirus, herpes simplex virus type 1 and 2 and varicella zoster virus were negative in CSF (E003)",
+          "The patient tested negative for HIV (E006)",
+          "Hypovolemia, electrolyte imbalances (slight hyponatremia and hypokalemia), sepsis (negative blood cultures, normal BP, normal lactate), and substance abuse were considered unlikely causes for confusion (E007)",
+          "Acyclovir was stopped after negative CSF PCR; neurological status recovered within 36 hours after the start of ceftriaxone intravenously (E008)"
+        ],
+        "missing_key_evidence": [
+          "Explicit statement of initial antibiotic regimen for Shigella",
+          "Further details on the encephalopathy investigation (e.g., EEG, specific neurological findings beyond initial description)",
+          "Remaining initial lab results (e.g., procalcitonin, full CBC/BMP)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E008",
+        "source_text": "The patient’s neurological status recovered within 36 hours after the start of ceftriaxone intravenously.",
+        "category": "treatment_response",
+        "temporal_cue": "hospital days 1-2",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "Further details on the neurological examination or investigation of encephalopathy (e.g., EEG findings, specific neurological deficits)",
+        "current_trajectory_hypothesis": "Patient presented with acute encephalopathy, fever, and diarrhea. Shigella flexneri was confirmed in stool, and CSF showed mild pleocytosis but negative for common pathogens. CT scan was normal. Initial labs showed inflammation and leukopenia. HIV was negative, and other causes for confusion were ruled out. The patient's neurological status recovered after starting IV ceftriaxone. I need to gather more specific details about the encephalopathy itself to fully characterize its presentation and resolution.",
+        "confirmed_evidence": [
+          "CT scan showed no sign of cerebral bleeding or hydrocephalus (E001)",
+          "C reactive protein in serum was 210 mg/L (E004)",
+          "Decreased leucocyte count of 2.4×10^9 cells/L (E004)",
+          "Serum creatinine levels were elevated with 136 µmol/L (E004)",
+          "Stool culture showed S. flexneri, sensitive to ceftriaxone, though resistant to ciprofloxacin and trimethoprim/sulfamethoxazole (E005)",
+          "The cerebrospinal fluid (CSF) revealed mild pleocytosis of 8×10^6 cells/L with normal glucose and protein levels (E002)",
+          "Bacterial culture and PCR for enterovirus, herpes simplex virus type 1 and 2 and varicella zoster virus were negative in CSF (E003)",
+          "The patient tested negative for HIV (E006)",
+          "Hypovolemia, electrolyte imbalances (slight hyponatremia and hypokalemia), sepsis (negative blood cultures, normal BP, normal lactate), and substance abuse were considered unlikely causes for confusion (E007)",
+          "Acyclovir was stopped after negative CSF PCR; neurological status recovered within 36 hours after the start of ceftriaxone intravenously (E008)"
+        ],
+        "missing_key_evidence": [
+          "Further details on the encephalopathy investigation (e.g., EEG, specific neurological findings beyond initial description)",
+          "Remaining initial lab results (e.g., procalcitonin, full CBC/BMP)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No source evidence reports neurological examination details or EEG findings.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Shigella-associated encephalopathy in an MSM",
+        "trajectory_summary": "A 45-year-old man presented with acute encephalopathy (lethargy, confusion, disorientation, diminished speech), fever, and diarrhea. Initial workup revealed elevated CRP, leukopenia, and elevated creatinine. Brain CT was normal, ruling out structural causes. Stool culture confirmed Shigella flexneri, sensitive to ceftriaxone. CSF analysis showed mild pleocytosis but was negative for bacterial culture and common viral pathogens. Other potential causes for encephalopathy, such as hypovolemia, electrolyte imbalances, sepsis, substance abuse, and HIV, were ruled out. The patient's neurological status significantly improved within 36 hours after initiation of intravenous ceftriaxone.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with acute encephalopathy, fever, and diarrhea.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Stool culture confirmed Shigella flexneri, sensitive to ceftriaxone.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "CSF analysis showed mild pleocytosis but was negative for bacterial culture and common viral pathogens (enterovirus, HSV 1/2, VZV).",
+            "evidence_ids": [
+              "E002",
+              "E003"
+            ]
+          },
+          {
+            "claim": "Brain CT scan showed no sign of cerebral bleeding or hydrocephalus.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Other causes for confusion, including hypovolemia, electrolyte imbalances, sepsis, and substance abuse, were considered unlikely.",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Patient tested negative for HIV.",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Neurological status recovered within 36 hours after the start of intravenous ceftriaxone.",
+            "evidence_ids": [
+              "E008"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Cerebral bleeding or hydrocephalus",
+            "basis": "CT scan showed no sign of cerebral bleeding or hydrocephalus (E001)"
+          },
+          {
+            "alternative": "Viral meningitis/encephalitis",
+            "basis": "CSF PCR for enterovirus, herpes simplex virus type 1 and 2 and varicella zoster virus were negative (E003)"
+          },
+          {
+            "alternative": "Bacterial meningitis",
+            "basis": "CSF bacterial culture was negative (E003)"
+          },
+          {
+            "alternative": "Sepsis",
+            "basis": "Blood cultures remained negative, blood pressure was within normal limits and serum lactate levels were normal (E007)"
+          },
+          {
+            "alternative": "Hypovolemia or electrolyte imbalances as primary cause of confusion",
+            "basis": "Confusion remained after volume resuscitation and correction of slight hyponatremia and hypokalemia (E007)"
+          },
+          {
+            "alternative": "Substance abuse or intoxications",
+            "basis": "Patient had no history of substance abuse or intoxications (E007)"
+          },
+          {
+            "alternative": "HIV-related encephalopathy",
+            "basis": "Patient tested negative for HIV (E006)"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Full details of CBC and BMP results (e.g., hemoglobin, platelets, full electrolyte panel beyond sodium/potassium)",
+          "Procalcitonin result",
+          "Specific neurological examination findings or EEG results beyond initial description of confusion and disorientation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Shigella-associated encephalopathy in an MSM",
+    "trajectory_summary": "A 45-year-old man presented with acute encephalopathy (lethargy, confusion, disorientation, diminished speech), fever, and diarrhea. Initial workup revealed elevated CRP, leukopenia, and elevated creatinine. Brain CT was normal, ruling out structural causes. Stool culture confirmed Shigella flexneri, sensitive to ceftriaxone. CSF analysis showed mild pleocytosis but was negative for bacterial culture and common viral pathogens. Other potential causes for encephalopathy, such as hypovolemia, electrolyte imbalances, sepsis, substance abuse, and HIV, were ruled out. The patient's neurological status significantly improved within 36 hours after initiation of intravenous ceftriaxone.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with acute encephalopathy, fever, and diarrhea.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Stool culture confirmed Shigella flexneri, sensitive to ceftriaxone.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "CSF analysis showed mild pleocytosis but was negative for bacterial culture and common viral pathogens (enterovirus, HSV 1/2, VZV).",
+        "evidence_ids": [
+          "E002",
+          "E003"
+        ]
+      },
+      {
+        "claim": "Brain CT scan showed no sign of cerebral bleeding or hydrocephalus.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Other causes for confusion, including hypovolemia, electrolyte imbalances, sepsis, and substance abuse, were considered unlikely.",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Patient tested negative for HIV.",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Neurological status recovered within 36 hours after the start of intravenous ceftriaxone.",
+        "evidence_ids": [
+          "E008"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Cerebral bleeding or hydrocephalus",
+        "basis": "CT scan showed no sign of cerebral bleeding or hydrocephalus (E001)"
+      },
+      {
+        "alternative": "Viral meningitis/encephalitis",
+        "basis": "CSF PCR for enterovirus, herpes simplex virus type 1 and 2 and varicella zoster virus were negative (E003)"
+      },
+      {
+        "alternative": "Bacterial meningitis",
+        "basis": "CSF bacterial culture was negative (E003)"
+      },
+      {
+        "alternative": "Sepsis",
+        "basis": "Blood cultures remained negative, blood pressure was within normal limits and serum lactate levels were normal (E007)"
+      },
+      {
+        "alternative": "Hypovolemia or electrolyte imbalances as primary cause of confusion",
+        "basis": "Confusion remained after volume resuscitation and correction of slight hyponatremia and hypokalemia (E007)"
+      },
+      {
+        "alternative": "Substance abuse or intoxications",
+        "basis": "Patient had no history of substance abuse or intoxications (E007)"
+      },
+      {
+        "alternative": "HIV-related encephalopathy",
+        "basis": "Patient tested negative for HIV (E006)"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Full details of CBC and BMP results (e.g., hemoglobin, platelets, full electrolyte panel beyond sodium/potassium)",
+      "Procalcitonin result",
+      "Specific neurological examination findings or EEG results beyond initial description of confusion and disorientation"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T22:15:19.025289+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

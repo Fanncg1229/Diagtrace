@@ -1,0 +1,460 @@
+{
+  "case_id": "PMC12302444",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 10,
+  "termination": "final",
+  "known_final_diagnosis": "According to the TEE report, which indicated endocarditis, aortic aneurysm, and aortic dissection, the patient was in need of emergent cardiac surgery (Bentall surgery).",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E006",
+    "E007",
+    "E008",
+    "E009"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "initial lab test results, specifically complete blood count (CBC) and inflammatory markers (ESR, CRP)",
+        "current_trajectory_hypothesis": "Patient presented with fever and chills, suggesting an infectious process. Initial lab tests are needed to assess the severity of infection and guide further workup towards endocarditis.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "initial lab results",
+          "blood culture results",
+          "imaging findings related to cardiac structure",
+          "TEE report details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "The patient’s hematology test resultsHematologyResultReference valueWBC11.1 × 103 UL4–10.1 × 103 ULRBC4 × 103 ULMen: 4.5–6.2 × 103 ULHb10 mg/dLMale: 13.5–18 mg/dLHct37.2%Male: 36–47%MCV93 fl78–96 flMCH28.3 pg26–35 pgMCHC30.4 gr/dL30–36 gr/dLRDW14.5%11–13.5%Platelets192 × 103 UL135–410 × 103 ULNeutrophils80%47–76%Lymphocytes17%Adult: 25–45%Monocytes1%–Eosinophils2%–ESR107 mm/hourMale: up to 15 mm/hour",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "blood culture results",
+        "current_trajectory_hypothesis": "Patient presented with fever and chills, elevated WBC, anemia, and markedly elevated ESR, suggesting an infectious process, possibly endocarditis. Blood cultures are crucial to identify the causative organism.",
+        "confirmed_evidence": [
+          "Fever and chills on admission",
+          "Elevated WBC (11.1 x 10^3 UL)",
+          "Anemia (Hb 10 mg/dL, Hct 37.2%)",
+          "Elevated RDW (14.5%)",
+          "Neutrophilia (80%)",
+          "Lymphopenia (17%)",
+          "Markedly elevated ESR (107 mm/hour)"
+        ],
+        "missing_key_evidence": [
+          "Blood culture results",
+          "CRP results",
+          "Echocardiogram findings",
+          "TEE report details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E001",
+        "source_text": "Blood cultureNegative–",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "echocardiogram findings (transthoracic or transesophageal)",
+        "current_trajectory_hypothesis": "Patient presented with fever, chills, elevated inflammatory markers (WBC, ESR), and anemia, suggesting an infectious process like endocarditis. Initial blood cultures were negative. Cardiac imaging is crucial to evaluate for endocarditis, as well as aortic aneurysm and dissection, which are part of the known final diagnosis.",
+        "confirmed_evidence": [
+          "Fever and chills on admission",
+          "Elevated WBC (11.1 x 10^3 UL)",
+          "Anemia (Hb 10 mg/dL, Hct 37.2%)",
+          "Elevated RDW (14.5%)",
+          "Neutrophilia (80%)",
+          "Lymphopenia (17%)",
+          "Markedly elevated ESR (107 mm/hour)",
+          "Negative blood culture"
+        ],
+        "missing_key_evidence": [
+          "CRP results",
+          "Echocardiogram/TEE findings",
+          "Details of cardiac surgery"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "During the TEE, the following findings were reported: ejection fraction (EF) of 40–45%; very severe aortic aneurysm (AI); dilated aortic aneurysm measuring 6.9 cm; mild mitral regurgitation (MR); minimal tricuspid regurgitation (TR); mild pulmonary insufficiency (PI); pulmonary artery pressure (PAP) of 50 mm/Hg; severe left ventricle enlargement measuring 136 cm/m2 with mild systolic dysfunction; a large (1.1 cm) semi-mobile mass on the arterial side of the noncoronary cusp (NCC) mostly resembling vegetation; very severe aortic regurgitation (AR), aneurysmal aortic root (annulus, 3.1 cm; sinus of valsalva (SOV), 4.2 cm; effacement of sinotubular junction (STJ)); aneurysmal dilation of the ascending aorta with the proximal portion measuring 6.8 cm and the distal portion measuring 3.9 cm; a visible linear flap of aortic dissection originating about 1.3 cm after the aortic valve (AV); the dissecting flap appearing thickened and infected; and mild circumferential pericardial effusion (5 mm around all cardiac chambers).",
+        "category": "imaging_report",
+        "temporal_cue": "hospital day 5",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "details of the emergent cardiac surgery (Bentall surgery) and its outcome",
+        "current_trajectory_hypothesis": "Patient presented with fever and chills, elevated inflammatory markers, and anemia. TEE confirmed endocarditis, aortic aneurysm, and aortic dissection, necessitating emergent cardiac surgery. Details of the surgery and its outcome are needed to complete the trajectory.",
+        "confirmed_evidence": [
+          "Fever and chills on admission",
+          "Elevated WBC (11.1 x 10^3 UL)",
+          "Anemia (Hb 10 mg/dL, Hct 37.2%)",
+          "Elevated RDW (14.5%)",
+          "Neutrophilia (80%)",
+          "Lymphopenia (17%)",
+          "Markedly elevated ESR (107 mm/hour)",
+          "Negative blood culture",
+          "TEE findings: EF 40–45%, very severe aortic aneurysm (6.9 cm), severe left ventricle enlargement, large (1.1 cm) semi-mobile mass on NCC resembling vegetation, very severe aortic regurgitation, aneurysmal aortic root and ascending aorta, visible linear flap of aortic dissection originating 1.3 cm after AV, dissecting flap appearing thickened and infected, mild circumferential pericardial effusion."
+        ],
+        "missing_key_evidence": [
+          "CRP results",
+          "Details of cardiac surgery and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "Subsequently, 2 days later, the patient underwent the Bentall procedure. During the surgery, the aortic valve, ascending aorta, and its root were replaced with a mechanical composite graft (Carbomedics), size 27.",
+        "category": "treatment_response",
+        "temporal_cue": "hospital day 8",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with fever and chills, elevated inflammatory markers, and anemia. TEE confirmed endocarditis, aortic aneurysm, and aortic dissection. The patient underwent a Bentall procedure. The post-operative course and outcome are needed to complete the clinical trajectory.",
+        "confirmed_evidence": [
+          "Fever and chills on admission",
+          "Elevated WBC (11.1 x 10^3 UL)",
+          "Anemia (Hb 10 mg/dL, Hct 37.2%)",
+          "Elevated RDW (14.5%)",
+          "Neutrophilia (80%)",
+          "Lymphopenia (17%)",
+          "Markedly elevated ESR (107 mm/hour)",
+          "Negative blood culture",
+          "TEE findings: EF 40–45%, very severe aortic aneurysm (6.9 cm), severe left ventricle enlargement, large (1.1 cm) semi-mobile mass on NCC resembling vegetation, very severe aortic regurgitation, aneurysmal aortic root and ascending aorta, visible linear flap of aortic dissection originating 1.3 cm after AV, dissecting flap appearing thickened and infected, mild circumferential pericardial effusion.",
+          "Bentall procedure performed 2 days after TEE, replacing aortic valve, ascending aorta, and root with a mechanical composite graft."
+        ],
+        "missing_key_evidence": [
+          "CRP results",
+          "Post-operative clinical course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "After the surgery, the patient was admitted to the cardiac intensive care unit (ICU) and started on warfarin. Once the chest drainage tubes were removed, the patient was transferred to the infectious ward where he continued antibiotic therapy with ciprofloxacin, ampicillin/sulbactam, and vancomycin.",
+        "category": "other",
+        "temporal_cue": "postoperative days 8-10",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "microbiology results from surgical specimen or vegetation culture",
+        "current_trajectory_hypothesis": "Patient presented with fever and chills, elevated inflammatory markers, and anemia. TEE confirmed endocarditis, aortic aneurysm, and aortic dissection. The patient underwent a Bentall procedure and is receiving post-operative antibiotics. Microbiology results from the surgical specimen would confirm the infectious etiology of the endocarditis and infected dissection.",
+        "confirmed_evidence": [
+          "Fever and chills on admission",
+          "Elevated WBC (11.1 x 10^3 UL)",
+          "Anemia (Hb 10 mg/dL, Hct 37.2%)",
+          "Elevated RDW (14.5%)",
+          "Neutrophilia (80%)",
+          "Lymphopenia (17%)",
+          "Markedly elevated ESR (107 mm/hour)",
+          "Negative blood culture",
+          "TEE findings: EF 40–45%, very severe aortic aneurysm (6.9 cm), severe left ventricle enlargement, large (1.1 cm) semi-mobile mass on NCC resembling vegetation, very severe aortic regurgitation, aneurysmal aortic root and ascending aorta, visible linear flap of aortic dissection originating 1.3 cm after AV, dissecting flap appearing thickened and infected, mild circumferential pericardial effusion.",
+          "Bentall procedure performed 2 days after TEE, replacing aortic valve, ascending aorta, and root with a mechanical composite graft.",
+          "Post-operative admission to cardiac ICU, initiation of warfarin, transfer to infectious ward, and continuation of ciprofloxacin, ampicillin/sulbactam, and vancomycin."
+        ],
+        "missing_key_evidence": [
+          "CRP results",
+          "Microbiology results from surgical specimen",
+          "Post-operative clinical course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No microbiology results from surgical specimen or vegetation culture are reported in the supplied evidence records.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "pathology report of the resected aortic valve, ascending aorta, or vegetation",
+        "current_trajectory_hypothesis": "Patient presented with fever and chills, elevated inflammatory markers, and anemia. TEE confirmed endocarditis, aortic aneurysm, and aortic dissection. The patient underwent a Bentall procedure and is receiving post-operative antibiotics. A pathology report of the resected tissues would provide definitive histological confirmation of endocarditis and the nature of the aortic pathology.",
+        "confirmed_evidence": [
+          "Fever and chills on admission",
+          "Elevated WBC (11.1 x 10^3 UL)",
+          "Anemia (Hb 10 mg/dL, Hct 37.2%)",
+          "Elevated RDW (14.5%)",
+          "Neutrophilia (80%)",
+          "Lymphopenia (17%)",
+          "Markedly elevated ESR (107 mm/hour)",
+          "Negative blood culture",
+          "TEE findings: EF 40–45%, very severe aortic aneurysm (6.9 cm), severe left ventricle enlargement, large (1.1 cm) semi-mobile mass on NCC resembling vegetation, very severe aortic regurgitation, aneurysmal aortic root and ascending aorta, visible linear flap of aortic dissection originating 1.3 cm after AV, dissecting flap appearing thickened and infected, mild circumferential pericardial effusion.",
+          "Bentall procedure performed 2 days after TEE, replacing aortic valve, ascending aorta, and root with a mechanical composite graft.",
+          "Post-operative admission to cardiac ICU, initiation of warfarin, transfer to infectious ward, and continuation of ciprofloxacin, ampicillin/sulbactam, and vancomycin."
+        ],
+        "missing_key_evidence": [
+          "CRP results",
+          "Pathology report of resected tissues",
+          "Post-operative clinical course and outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No source evidence contains pathology report results of the resected aortic valve, ascending aorta, or vegetation.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with fever and chills, elevated inflammatory markers, and anemia. TEE confirmed endocarditis, aortic aneurysm, and aortic dissection. The patient underwent a Bentall procedure and received post-operative antibiotics. The immediate post-operative course is known, but further clinical course and outcome are needed to complete the trajectory.",
+        "confirmed_evidence": [
+          "Fever and chills on admission",
+          "Elevated WBC (11.1 x 10^3 UL)",
+          "Anemia (Hb 10 mg/dL, Hct 37.2%)",
+          "Elevated RDW (14.5%)",
+          "Neutrophilia (80%)",
+          "Lymphopenia (17%)",
+          "Markedly elevated ESR (107 mm/hour)",
+          "Negative blood culture",
+          "TEE findings: EF 40–45%, very severe aortic aneurysm (6.9 cm), severe left ventricle enlargement, large (1.1 cm) semi-mobile mass on NCC resembling vegetation, very severe aortic regurgitation, aneurysmal aortic root and ascending aorta, visible linear flap of aortic dissection originating 1.3 cm after AV, dissecting flap appearing thickened and infected, mild circumferential pericardial effusion.",
+          "Bentall procedure performed 2 days after TEE, replacing aortic valve, ascending aorta, and root with a mechanical composite graft.",
+          "Post-operative admission to cardiac ICU, initiation of warfarin, transfer to infectious ward, and continuation of ciprofloxacin, ampicillin/sulbactam, and vancomycin."
+        ],
+        "missing_key_evidence": [
+          "CRP results",
+          "Post-operative clinical course and outcome beyond immediate post-op"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E009",
+        "source_text": "The lab tests conducted during discharge showed the following results: white blood cells (WBCs), 4000 × 103 UL; platelets (PLTs), 327,000 × 103 UL; International Normalized Ratio (INR), 2.6; sodium (Na), 145 mEq/L; creatinine (Cr), 0.8 mg/dL; hemoglobin (HB), 9.10mg/dL; and potassium (K), 3.7 mEq/L.",
+        "category": "routine_lab",
+        "temporal_cue": "around hospital day 30 (discharge)",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "CRP results from admission or early workup",
+        "current_trajectory_hypothesis": "Patient presented with fever and chills, elevated inflammatory markers (WBC, ESR), and anemia. TEE confirmed endocarditis, aortic aneurysm, and aortic dissection. The patient underwent a Bentall procedure and received post-operative antibiotics. Discharge labs show improvement. CRP results would further support the inflammatory/infectious process.",
+        "confirmed_evidence": [
+          "Fever and chills on admission",
+          "Elevated WBC (11.1 x 10^3 UL)",
+          "Anemia (Hb 10 mg/dL, Hct 37.2%)",
+          "Elevated RDW (14.5%)",
+          "Neutrophilia (80%)",
+          "Lymphopenia (17%)",
+          "Markedly elevated ESR (107 mm/hour)",
+          "Negative blood culture",
+          "TEE findings: EF 40–45%, very severe aortic aneurysm (6.9 cm), severe left ventricle enlargement, large (1.1 cm) semi-mobile mass on NCC resembling vegetation, very severe aortic regurgitation, aneurysmal aortic root and ascending aorta, visible linear flap of aortic dissection originating 1.3 cm after AV, dissecting flap appearing thickened and infected, mild circumferential pericardial effusion.",
+          "Bentall procedure performed 2 days after TEE, replacing aortic valve, ascending aorta, and root with a mechanical composite graft.",
+          "Post-operative admission to cardiac ICU, initiation of warfarin, transfer to infectious ward, and continuation of ciprofloxacin, ampicillin/sulbactam, and vancomycin.",
+          "Discharge lab results: WBC 4000 × 10^3 UL, PLT 327,000 × 10^3 UL, INR 2.6, Na 145 mEq/L, Cr 0.8 mg/dL, Hb 9.10 mg/dL, K 3.7 mEq/L."
+        ],
+        "missing_key_evidence": [
+          "CRP results",
+          "Post-operative clinical course and outcome beyond discharge labs"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E001",
+        "source_text": "CPK112 U/LMale: 24–195 U/LLDH789 U/LUp to 500 U/LBlood sugar, random101 mg/dLNormal: < 140 mg/dLCK-MB30 IU/LUp to 24 IU/LSodium (Na)133 mEq/L135–150 mEq/LPotassium (K)4.5 mEq/L16–59 years: 3.6–5.3 mEq/LAST47 IU/LMale: up to 37 IU/LALT48 IU/LMale: up to 41 IU/LALP217 IU/LMale: 80–136 IU/L up to 15 Calcium7.9 mg/dL8.2–11 mg/dLPhosphorus2.7 mg/dLAdult: 2.7–4.5 mg/dLBilirubin total1.4 mg/dLUp to 1.5 mg/dLBilirubin direct0.4 mg/dLLess than 0.4 mg/dLMagnesium2 mg/dLMale: 1.8–2.6 mg/dL",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "According to the TEE report, which indicated endocarditis, aortic aneurysm, and aortic dissection, the patient was in need of emergent cardiac surgery (Bentall surgery).",
+        "trajectory_summary": "A 31-year-old male presented with fever and chills. Initial lab tests showed elevated WBC, neutrophilia, lymphopenia, anemia, and markedly elevated ESR, while blood cultures were negative. A transesophageal echocardiogram (TEE) revealed severe aortic aneurysm (6.9 cm), aortic dissection with an infected linear flap, a large (1.1 cm) semi-mobile mass resembling vegetation on the noncoronary cusp, and very severe aortic regurgitation. Due to these critical findings, the patient underwent an emergent Bentall procedure, involving the replacement of the aortic valve, ascending aorta, and aortic root with a mechanical composite graft. Post-operatively, the patient was managed in the cardiac ICU, initiated on warfarin, and continued on broad-spectrum antibiotics. Discharge lab results showed improved WBC and stable hemoglobin.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with fever and chills, suggesting an infectious process.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Initial lab tests showed elevated WBC (11.1 x 10^3 UL), neutrophilia (80%), lymphopenia (17%), anemia (Hb 10 mg/dL), and markedly elevated ESR (107 mm/hour).",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Transesophageal echocardiogram (TEE) revealed a large (1.1 cm) semi-mobile mass on the noncoronary cusp mostly resembling vegetation, very severe aortic aneurysm (6.9 cm), aneurysmal dilation of the ascending aorta, a visible linear flap of aortic dissection originating 1.3 cm after the aortic valve, and the dissecting flap appearing thickened and infected.",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "The patient underwent an emergent Bentall procedure, replacing the aortic valve, ascending aorta, and root with a mechanical composite graft.",
+            "evidence_ids": [
+              "E007"
+            ]
+          },
+          {
+            "claim": "Post-operatively, the patient was admitted to the cardiac ICU, started on warfarin, and continued antibiotic therapy.",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "Discharge lab results showed improved WBC (4000 × 10^3 UL) and stable hemoglobin (9.10 mg/dL).",
+            "evidence_ids": [
+              "E009"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Typical bacterial endocarditis with positive blood cultures",
+            "basis": "Initial blood cultures were negative (E001)."
+          }
+        ],
+        "remaining_uncertainties": [
+          "CRP results were not reported.",
+          "Microbiology results from surgical specimen or vegetation culture were not reported.",
+          "Pathology report of the resected aortic valve, ascending aorta, or vegetation was not reported.",
+          "Long-term post-operative clinical course and outcome beyond discharge labs."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "According to the TEE report, which indicated endocarditis, aortic aneurysm, and aortic dissection, the patient was in need of emergent cardiac surgery (Bentall surgery).",
+    "trajectory_summary": "A 31-year-old male presented with fever and chills. Initial lab tests showed elevated WBC, neutrophilia, lymphopenia, anemia, and markedly elevated ESR, while blood cultures were negative. A transesophageal echocardiogram (TEE) revealed severe aortic aneurysm (6.9 cm), aortic dissection with an infected linear flap, a large (1.1 cm) semi-mobile mass resembling vegetation on the noncoronary cusp, and very severe aortic regurgitation. Due to these critical findings, the patient underwent an emergent Bentall procedure, involving the replacement of the aortic valve, ascending aorta, and aortic root with a mechanical composite graft. Post-operatively, the patient was managed in the cardiac ICU, initiated on warfarin, and continued on broad-spectrum antibiotics. Discharge lab results showed improved WBC and stable hemoglobin.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with fever and chills, suggesting an infectious process.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Initial lab tests showed elevated WBC (11.1 x 10^3 UL), neutrophilia (80%), lymphopenia (17%), anemia (Hb 10 mg/dL), and markedly elevated ESR (107 mm/hour).",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Transesophageal echocardiogram (TEE) revealed a large (1.1 cm) semi-mobile mass on the noncoronary cusp mostly resembling vegetation, very severe aortic aneurysm (6.9 cm), aneurysmal dilation of the ascending aorta, a visible linear flap of aortic dissection originating 1.3 cm after the aortic valve, and the dissecting flap appearing thickened and infected.",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "The patient underwent an emergent Bentall procedure, replacing the aortic valve, ascending aorta, and root with a mechanical composite graft.",
+        "evidence_ids": [
+          "E007"
+        ]
+      },
+      {
+        "claim": "Post-operatively, the patient was admitted to the cardiac ICU, started on warfarin, and continued antibiotic therapy.",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "Discharge lab results showed improved WBC (4000 × 10^3 UL) and stable hemoglobin (9.10 mg/dL).",
+        "evidence_ids": [
+          "E009"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Typical bacterial endocarditis with positive blood cultures",
+        "basis": "Initial blood cultures were negative (E001)."
+      }
+    ],
+    "remaining_uncertainties": [
+      "CRP results were not reported.",
+      "Microbiology results from surgical specimen or vegetation culture were not reported.",
+      "Pathology report of the resected aortic valve, ascending aorta, or vegetation was not reported.",
+      "Long-term post-operative clinical course and outcome beyond discharge labs."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T22:10:02.494089+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

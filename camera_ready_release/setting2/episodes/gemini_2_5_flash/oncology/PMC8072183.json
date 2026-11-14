@@ -1,0 +1,569 @@
+{
+  "case_id": "PMC8072183",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 14,
+  "termination": "final",
+  "known_final_diagnosis": "The patient was initially diagnosed with TTS and was qualified for the conservative treatment of the coronary disease. ... which confirmed the diagnosis of TTS.",
+  "disclosed_evidence_ids": [
+    "E002",
+    "E003",
+    "E004",
+    "E005",
+    "E006"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Initial ECG findings and cardiac enzyme levels (e.g., troponin, CK-MB) on admission.",
+        "current_trajectory_hypothesis": "Patient presented with chest pain, suspected acute coronary syndrome. Initial workup likely included ECG and cardiac enzymes to assess for myocardial injury.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Initial cardiac workup results (ECG, enzymes)",
+          "Coronary angiography findings",
+          "Echocardiography findings",
+          "Clinical course and treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "The ECG record demonstrated a normal sinus rhythm of 96/min with singular ventricular and supraventricular beats, as well as inverted T waves in the leads from above the anterior and lateral wall.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Initial cardiac enzyme levels (e.g., troponin, CK-MB) on admission.",
+        "current_trajectory_hypothesis": "Patient presented with chest pain and ECG changes suggestive of ACS. Cardiac enzymes are needed to assess for myocardial injury, which is common in TTS but without significant obstructive CAD.",
+        "confirmed_evidence": [
+          "62-year-old obese female presented with retrosternal chest pain at rest for 1 hour, suspected acute coronary event.",
+          "Initial ECG showed normal sinus rhythm, 96/min, singular ventricular and supraventricular beats, and inverted T waves in anterior and lateral leads."
+        ],
+        "missing_key_evidence": [
+          "Initial cardiac enzyme levels",
+          "Echocardiography findings",
+          "Coronary angiography findings",
+          "Clinical course and treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "Laboratory testing revealed decreased red blood cells with a hemoglobin level of 9.3 g/dl and a markedly elevated concentration of cardiac markers such as troponin I hs – 9552 ng/l (lab standard: 0.00–15.60 ng/l), B-type natriuretic peptide (BNP – 175 pg/ml; lab standard: 0.00–100.00 pg/ml), and N-terminal pro-B-type natriuretic peptide (NT-proBNP – 2691 pg/ml; lab standard: 0.00–125.00 pg/ml).",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Coronary angiography to assess for obstructive coronary artery disease.",
+        "current_trajectory_hypothesis": "Patient presented with chest pain, ECG changes, and elevated cardiac enzymes, mimicking ACS. Coronary angiography is needed to rule out obstructive CAD, which is a key differentiator for Takotsubo Syndrome.",
+        "confirmed_evidence": [
+          "62-year-old obese female presented with retrosternal chest pain at rest for 1 hour, suspected acute coronary event.",
+          "Initial ECG showed normal sinus rhythm, 96/min, singular ventricular and supraventricular beats, and inverted T waves in anterior and lateral leads.",
+          "Initial lab testing revealed markedly elevated troponin I hs (9552 ng/l), BNP (175 pg/ml), and NT-proBNP (2691 pg/ml), along with decreased hemoglobin (9.3 g/dl)."
+        ],
+        "missing_key_evidence": [
+          "Coronary angiography findings",
+          "Echocardiography findings",
+          "Clinical course and treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Order for coronary angiography has been acknowledged; source evidence for results not yet documented.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "Status found is not valid for clinician action ORDER_TEST.",
+        "validation_errors": [
+          "Status found is not valid for clinician action ORDER_TEST."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Results of the coronary angiography.",
+        "current_trajectory_hypothesis": "Patient presented with chest pain, ECG changes, and elevated cardiac enzymes, mimicking ACS. Coronary angiography is crucial to rule out obstructive CAD, which is a key differentiator for Takotsubo Syndrome. Echocardiography findings will also be important to confirm the characteristic wall motion abnormalities.",
+        "confirmed_evidence": [
+          "62-year-old obese female presented with retrosternal chest pain at rest for 1 hour, suspected acute coronary event.",
+          "Initial ECG showed normal sinus rhythm, 96/min, singular ventricular and supraventricular beats, and inverted T waves in anterior and lateral leads.",
+          "Initial lab testing revealed markedly elevated troponin I hs (9552 ng/l), BNP (175 pg/ml), and NT-proBNP (2691 pg/ml), along with decreased hemoglobin (9.3 g/dl)."
+        ],
+        "missing_key_evidence": [
+          "Coronary angiography findings",
+          "Echocardiography findings",
+          "Clinical course and treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "The patient was subject to cardiac catheterization, which demonstrated minor atherosclerotic changes in the coronary arteries (Figures 1, 2). The left ventriculography conducted at the same time presented akinesis of the apex and the apical and mid-segment of the anterior wall, and the ejection fraction was 38% (Figures 3, 4).",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Echocardiography findings, especially regarding left ventricular function and wall motion abnormalities.",
+        "current_trajectory_hypothesis": "Patient presented with chest pain, ECG changes, and elevated cardiac enzymes, mimicking ACS. Coronary angiography ruled out obstructive CAD, and left ventriculography showed characteristic apical and mid-ventricular akinesis with reduced EF, strongly suggesting Takotsubo Syndrome. Echocardiography findings would further support or confirm the diagnosis.",
+        "confirmed_evidence": [
+          "62-year-old obese female presented with retrosternal chest pain at rest for 1 hour, suspected acute coronary event.",
+          "Initial ECG showed normal sinus rhythm, 96/min, singular ventricular and supraventricular beats, and inverted T waves in anterior and lateral leads.",
+          "Initial lab testing revealed markedly elevated troponin I hs (9552 ng/l), BNP (175 pg/ml), and NT-proBNP (2691 pg/ml), along with decreased hemoglobin (9.3 g/dl).",
+          "Coronary angiography demonstrated minor atherosclerotic changes in the coronary arteries, ruling out obstructive CAD.",
+          "Left ventriculography showed akinesis of the apex and the apical and mid-segment of the anterior wall, with an ejection fraction of 38%."
+        ],
+        "missing_key_evidence": [
+          "Echocardiography findings",
+          "Clinical course and treatment response",
+          "Confirmation of TTS diagnosis (e.g., follow-up imaging)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "In the echocardiographic examination, apart from the normal function of all valves, an improved left ventricular contractive function with 47% ejection fraction was observed, which confirmed the diagnosis of TTS.",
+        "category": "clinical_course",
+        "temporal_cue": "during hospitalization",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Timing of the echocardiographic examination that showed improved left ventricular function (EF 47%) relative to the initial presentation and ventriculography.",
+        "current_trajectory_hypothesis": "Patient presented with ACS-like symptoms, ECG changes, and elevated cardiac markers. Obstructive CAD was ruled out by angiography. Left ventriculography showed characteristic apical and mid-ventricular akinesis with reduced EF. A subsequent echocardiogram showed improved EF, confirming the transient nature of the dysfunction and thus the diagnosis of TTS. Clarifying the timing of this echocardiogram will further solidify the evidence for transient LV dysfunction.",
+        "confirmed_evidence": [
+          "62-year-old obese female presented with retrosternal chest pain at rest for 1 hour, suspected acute coronary event.",
+          "Initial ECG showed normal sinus rhythm, 96/min, singular ventricular and supraventricular beats, and inverted T waves in anterior and lateral leads.",
+          "Initial lab testing revealed markedly elevated troponin I hs (9552 ng/l), BNP (175 pg/ml), and NT-proBNP (2691 pg/ml), along with decreased hemoglobin (9.3 g/dl).",
+          "Coronary angiography demonstrated minor atherosclerotic changes in the coronary arteries, ruling out obstructive CAD.",
+          "Left ventriculography showed akinesis of the apex and the apical and mid-segment of the anterior wall, with an ejection fraction of 38%.",
+          "An echocardiographic examination showed improved left ventricular contractive function with 47% ejection fraction, which confirmed the diagnosis of TTS."
+        ],
+        "missing_key_evidence": [
+          "Explicit timing of the echocardiogram showing improved EF",
+          "Any specific trigger for TTS",
+          "Treatment initiated and clinical course/outcome beyond the improved EF"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E005",
+        "source_text": "In the echocardiographic examination, apart from the normal function of all valves, an improved left ventricular contractive function with 47% ejection fraction was observed",
+        "category": "clinical_course",
+        "temporal_cue": "during hospitalization",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "Were there any identifiable emotional or physical stressors preceding the onset of chest pain, especially considering the patient's history of cancer and chemotherapy?",
+        "current_trajectory_hypothesis": "Patient presented with ACS-like symptoms, ECG changes, and elevated cardiac markers. Obstructive CAD was ruled out by angiography. Left ventriculography showed characteristic apical and mid-ventricular akinesis with reduced EF. A subsequent echocardiogram showed improved EF during hospitalization, confirming the transient nature of the dysfunction and thus the diagnosis of TTS. Identifying a stressor would further support the diagnosis.",
+        "confirmed_evidence": [
+          "62-year-old obese female presented with retrosternal chest pain at rest for 1 hour, suspected acute coronary event.",
+          "Initial ECG showed normal sinus rhythm, 96/min, singular ventricular and supraventricular beats, and inverted T waves in anterior and lateral leads.",
+          "Initial lab testing revealed markedly elevated troponin I hs (9552 ng/l), BNP (175 pg/ml), and NT-proBNP (2691 pg/ml), along with decreased hemoglobin (9.3 g/dl).",
+          "Coronary angiography demonstrated minor atherosclerotic changes in the coronary arteries, ruling out obstructive CAD.",
+          "Left ventriculography showed akinesis of the apex and the apical and mid-segment of the anterior wall, with an ejection fraction of 38%.",
+          "An echocardiographic examination showed improved left ventricular contractive function with 47% ejection fraction during hospitalization, which confirmed the diagnosis of TTS."
+        ],
+        "missing_key_evidence": [
+          "Any specific trigger for TTS",
+          "Treatment initiated and clinical course/outcome beyond the improved EF"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "explanation": "The source evidence does not report identifiable emotional or physical stressors preceding chest pain.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Details of the treatment initiated for Takotsubo Syndrome and the patient's subsequent clinical course during hospitalization.",
+        "current_trajectory_hypothesis": "Patient presented with ACS-like symptoms, ECG changes, and elevated cardiac markers. Obstructive CAD was ruled out by angiography. Left ventriculography showed characteristic apical and mid-ventricular akinesis with reduced EF. A subsequent echocardiogram showed improved EF during hospitalization, confirming the transient nature of the dysfunction and thus the diagnosis of TTS. Now, I need to understand the treatment and overall clinical course.",
+        "confirmed_evidence": [
+          "62-year-old obese female presented with retrosternal chest pain at rest for 1 hour, suspected acute coronary event.",
+          "Initial ECG showed normal sinus rhythm, 96/min, singular ventricular and supraventricular beats, and inverted T waves in anterior and lateral leads.",
+          "Initial lab testing revealed markedly elevated troponin I hs (9552 ng/l), BNP (175 pg/ml), and NT-proBNP (2691 pg/ml), along with decreased hemoglobin (9.3 g/dl).",
+          "Coronary angiography demonstrated minor atherosclerotic changes in the coronary arteries, ruling out obstructive CAD.",
+          "Left ventriculography showed akinesis of the apex and the apical and mid-segment of the anterior wall, with an ejection fraction of 38%.",
+          "An echocardiographic examination showed improved left ventricular contractive function with 47% ejection fraction during hospitalization, which confirmed the diagnosis of TTS."
+        ],
+        "missing_key_evidence": [
+          "Treatment initiated for TTS",
+          "Overall clinical course and outcome during hospitalization",
+          "Any specific trigger for TTS (not reported yet)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "On the 4th day of hospitalization, the patient was discharged and referred for further surgical and oncological treatment. On discharge, the following were recommended: acetylsalicylic acid 75 mg/day, bisoprolol 2.5 mg/day, ramipril 1.25 mg/ day, atorvastatin 20 mg/day, pantoprazole 20 mg/day, supplementation with iron and thyroid hormones, and continuation of the ongoing analgesic chronic therapy.",
+        "category": "other",
+        "temporal_cue": "4th day of hospitalization and 4 months later",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Details of the acute medical management and clinical course during the initial hospitalization for Takotsubo Syndrome, prior to discharge.",
+        "current_trajectory_hypothesis": "Patient presented with ACS-like symptoms, ECG changes, and elevated cardiac markers. Obstructive CAD was ruled out by angiography. Left ventriculography showed characteristic apical and mid-ventricular akinesis with reduced EF. A subsequent echocardiogram showed improved EF during hospitalization, confirming the transient nature of the dysfunction and thus the diagnosis of TTS. I need to understand the acute treatment provided and the clinical progression that led to discharge on day 4.",
+        "confirmed_evidence": [
+          "62-year-old obese female presented with retrosternal chest pain at rest for 1 hour, suspected acute coronary event.",
+          "Initial ECG showed normal sinus rhythm, 96/min, singular ventricular and supraventricular beats, and inverted T waves in anterior and lateral leads.",
+          "Initial lab testing revealed markedly elevated troponin I hs (9552 ng/l), BNP (175 pg/ml), and NT-proBNP (2691 pg/ml), along with decreased hemoglobin (9.3 g/dl).",
+          "Coronary angiography demonstrated minor atherosclerotic changes in the coronary arteries, ruling out obstructive CAD.",
+          "Left ventriculography showed akinesis of the apex and the apical and mid-segment of the anterior wall, with an ejection fraction of 38%.",
+          "An echocardiographic examination showed improved left ventricular contractive function with 47% ejection fraction during hospitalization, which confirmed the diagnosis of TTS.",
+          "Patient was discharged on the 4th day of hospitalization with recommendations for acetylsalicylic acid, bisoprolol, ramipril, atorvastatin, pantoprazole, iron, and thyroid hormones."
+        ],
+        "missing_key_evidence": [
+          "Acute treatment initiated for TTS during hospitalization",
+          "Detailed clinical course/symptom resolution during hospitalization",
+          "Any specific trigger for TTS (not reported yet)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No source record details the acute medical management and clinical course during the initial hospitalization prior to discharge.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Clinical course regarding resolution of chest pain and other symptoms during hospitalization.",
+        "current_trajectory_hypothesis": "Patient presented with ACS-like symptoms, ECG changes, and elevated cardiac markers. Obstructive CAD was ruled out by angiography. Left ventriculography showed characteristic apical and mid-ventricular akinesis with reduced EF. A subsequent echocardiogram showed improved EF during hospitalization, confirming the transient nature of the dysfunction and thus the diagnosis of TTS. I need to understand if the patient's symptoms resolved during this period, which would further support the diagnosis and successful conservative management.",
+        "confirmed_evidence": [
+          "62-year-old obese female presented with retrosternal chest pain at rest for 1 hour, suspected acute coronary event.",
+          "Initial ECG showed normal sinus rhythm, 96/min, singular ventricular and supraventricular beats, and inverted T waves in anterior and lateral leads.",
+          "Initial lab testing revealed markedly elevated troponin I hs (9552 ng/l), BNP (175 pg/ml), and NT-proBNP (2691 pg/ml), along with decreased hemoglobin (9.3 g/dl).",
+          "Coronary angiography demonstrated minor atherosclerotic changes in the coronary arteries, ruling out obstructive CAD.",
+          "Left ventriculography showed akinesis of the apex and the apical and mid-segment of the anterior wall, with an ejection fraction of 38%.",
+          "An echocardiographic examination showed improved left ventricular contractive function with 47% ejection fraction during hospitalization, which confirmed the diagnosis of TTS.",
+          "Patient was discharged on the 4th day of hospitalization with recommendations for acetylsalicylic acid, bisoprolol, ramipril, atorvastatin, pantoprazole, iron, and thyroid hormones."
+        ],
+        "missing_key_evidence": [
+          "Resolution of symptoms during hospitalization",
+          "Acute treatment initiated for TTS during hospitalization (not reported yet)",
+          "Any specific trigger for TTS (not reported yet)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E005",
+        "source_text": "The hospitalization period was devoid of complications. The retrosternal pain did not reoccur.",
+        "category": "clinical_course",
+        "temporal_cue": "during hospitalization",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Any follow-up echocardiography or imaging results after discharge to confirm complete resolution of left ventricular dysfunction.",
+        "current_trajectory_hypothesis": "Patient presented with ACS-like symptoms, ECG changes, and elevated cardiac markers. Obstructive CAD was ruled out by angiography. Left ventriculography showed characteristic apical and mid-ventricular akinesis with reduced EF. An echocardiogram during hospitalization showed improved EF, confirming the transient nature of the dysfunction and thus the diagnosis of TTS. To fully confirm TTS, complete resolution of LV dysfunction is expected, so follow-up imaging is crucial.",
+        "confirmed_evidence": [
+          "62-year-old obese female presented with retrosternal chest pain at rest for 1 hour, suspected acute coronary event.",
+          "Initial ECG showed normal sinus rhythm, 96/min, singular ventricular and supraventricular beats, and inverted T waves in anterior and lateral leads.",
+          "Initial lab testing revealed markedly elevated troponin I hs (9552 ng/l), BNP (175 pg/ml), and NT-proBNP (2691 pg/ml), along with decreased hemoglobin (9.3 g/dl).",
+          "Coronary angiography demonstrated minor atherosclerotic changes in the coronary arteries, ruling out obstructive CAD.",
+          "Left ventriculography showed akinesis of the apex and the apical and mid-segment of the anterior wall, with an ejection fraction of 38%.",
+          "An echocardiographic examination during hospitalization showed improved left ventricular contractive function with 47% ejection fraction, which confirmed the diagnosis of TTS.",
+          "Patient was discharged on the 4th day of hospitalization with recommendations for acetylsalicylic acid, bisoprolol, ramipril, atorvastatin, pantoprazole, iron, and thyroid hormones.",
+          "The hospitalization period was devoid of complications, and retrosternal pain did not reoccur."
+        ],
+        "missing_key_evidence": [
+          "Complete resolution of LV dysfunction on follow-up imaging",
+          "Acute treatment initiated for TTS during hospitalization (not reported yet)",
+          "Any specific trigger for TTS (not reported yet)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No source record documents follow-up echocardiography or imaging results after discharge confirming complete resolution of left ventricular dysfunction.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Details regarding the patient's clinical stability and resolution of acute symptoms that allowed for discharge on the 4th day of hospitalization.",
+        "current_trajectory_hypothesis": "Patient presented with ACS-like symptoms, ECG changes, and elevated cardiac markers. Obstructive CAD was ruled out by angiography. Left ventriculography showed characteristic apical and mid-ventricular akinesis with reduced EF. An echocardiogram during hospitalization showed improved EF, confirming the transient nature of the dysfunction and thus the diagnosis of TTS. The patient was discharged on day 4, suggesting clinical stability and resolution of acute issues.",
+        "confirmed_evidence": [
+          "62-year-old obese female presented with retrosternal chest pain at rest for 1 hour, suspected acute coronary event.",
+          "Initial ECG showed normal sinus rhythm, 96/min, singular ventricular and supraventricular beats, and inverted T waves in anterior and lateral leads.",
+          "Initial lab testing revealed markedly elevated troponin I hs (9552 ng/l), BNP (175 pg/ml), and NT-proBNP (2691 pg/ml), along with decreased hemoglobin (9.3 g/dl).",
+          "Coronary angiography demonstrated minor atherosclerotic changes in the coronary arteries, ruling out obstructive CAD.",
+          "Left ventriculography showed akinesis of the apex and the apical and mid-segment of the anterior wall, with an ejection fraction of 38%.",
+          "An echocardiographic examination during hospitalization showed improved left ventricular contractive function with 47% ejection fraction, which confirmed the diagnosis of TTS.",
+          "Patient was discharged on the 4th day of hospitalization with recommendations for acetylsalicylic acid, bisoprolol, ramipril, atorvastatin, pantoprazole, iron, and thyroid hormones.",
+          "The hospitalization period was devoid of complications, and retrosternal pain did not reoccur."
+        ],
+        "missing_key_evidence": [
+          "Specific details on clinical stability leading to early discharge (beyond lack of complications/pain recurrence)",
+          "Acute treatment initiated for TTS during hospitalization (not reported yet)",
+          "Any specific trigger for TTS (not reported yet)",
+          "Complete resolution of LV dysfunction on follow-up imaging (not reported yet)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "Status no_new_update is not valid for clinician action REQUEST_RESULT.",
+        "validation_errors": [
+          "Status no_new_update is not valid for clinician action REQUEST_RESULT.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Details of the acute medical management and treatment provided for Takotsubo Syndrome during the initial hospitalization, prior to discharge.",
+        "current_trajectory_hypothesis": "Patient presented with ACS-like symptoms, ECG changes, and elevated cardiac markers. Obstructive CAD was ruled out by angiography. Left ventriculography showed characteristic apical and mid-ventricular akinesis with reduced EF. An echocardiogram during hospitalization showed improved EF, confirming the transient nature of the dysfunction and thus the diagnosis of TTS. The patient was discharged on day 4, with no complications and no recurrence of chest pain. I need to understand the acute treatment provided during hospitalization.",
+        "confirmed_evidence": [
+          "62-year-old obese female presented with retrosternal chest pain at rest for 1 hour, suspected acute coronary event.",
+          "Initial ECG showed normal sinus rhythm, 96/min, singular ventricular and supraventricular beats, and inverted T waves in anterior and lateral leads.",
+          "Initial lab testing revealed markedly elevated troponin I hs (9552 ng/l), BNP (175 pg/ml), and NT-proBNP (2691 pg/ml), along with decreased hemoglobin (9.3 g/dl).",
+          "Coronary angiography demonstrated minor atherosclerotic changes in the coronary arteries, ruling out obstructive CAD.",
+          "Left ventriculography showed akinesis of the apex and the apical and mid-segment of the anterior wall, with an ejection fraction of 38%.",
+          "An echocardiographic examination during hospitalization showed improved left ventricular contractive function with 47% ejection fraction, which confirmed the diagnosis of TTS.",
+          "Patient was discharged on the 4th day of hospitalization with recommendations for acetylsalicylic acid, bisoprolol, ramipril, atorvastatin, pantoprazole, iron, and thyroid hormones.",
+          "The hospitalization period was devoid of complications, and retrosternal pain did not reoccur."
+        ],
+        "missing_key_evidence": [
+          "Acute treatment initiated for TTS during hospitalization",
+          "Any specific trigger for TTS (not reported yet)",
+          "Complete resolution of LV dysfunction on follow-up imaging (not reported yet)"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "No source evidence specifically details the acute medical management or treatment for Takotsubo Syndrome during initial hospitalization prior to discharge.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Takotsubo Syndrome (TTS)",
+        "trajectory_summary": "An obese 62-year-old female with a history of cancer and chemotherapy presented with retrosternal chest pain, suspected acute coronary event. Initial ECG showed inverted T waves in anterior and lateral leads, and cardiac markers (troponin I hs, BNP, NT-proBNP) were markedly elevated. Coronary angiography revealed only minor atherosclerotic changes, ruling out obstructive coronary artery disease. Left ventriculography demonstrated akinesis of the apex and apical/mid-segment of the anterior wall with an ejection fraction of 38%. During hospitalization, an echocardiographic examination showed improved left ventricular contractive function with an ejection fraction of 47%, which confirmed the diagnosis of TTS. The patient's hospitalization was devoid of complications, and retrosternal pain did not reoccur. She was discharged on the 4th day with medications including acetylsalicylic acid, bisoprolol, ramipril, atorvastatin, pantoprazole, iron, and thyroid hormones, and referred for further surgical and oncological treatment.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with chest pain, ECG changes (inverted T waves), and elevated cardiac markers (troponin I hs 9552 ng/l, BNP 175 pg/ml, NT-proBNP 2691 pg/ml), mimicking acute coronary syndrome.",
+            "evidence_ids": [
+              "E002",
+              "E004"
+            ]
+          },
+          {
+            "claim": "Coronary angiography ruled out obstructive coronary artery disease, showing only minor atherosclerotic changes.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Left ventriculography demonstrated characteristic transient left ventricular systolic dysfunction with akinesis of the apex and apical/mid-segment of the anterior wall, and an ejection fraction of 38%.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Echocardiography during hospitalization showed improved left ventricular contractive function with an ejection fraction of 47%, confirming the transient nature of the dysfunction and the diagnosis of TTS.",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "The patient's clinical course was stable, with no complications and no recurrence of chest pain, leading to discharge on day 4.",
+            "evidence_ids": [
+              "E005",
+              "E006"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Acute Coronary Syndrome (ACS) due to obstructive coronary artery disease",
+            "basis": "Coronary angiography demonstrated only minor atherosclerotic changes, ruling out obstructive CAD (E003)."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Specific emotional or physical stressor preceding the event",
+          "Detailed acute medical management/treatment provided for TTS during hospitalization",
+          "Results of follow-up echocardiography or imaging to confirm complete resolution of left ventricular dysfunction"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Takotsubo Syndrome (TTS)",
+    "trajectory_summary": "An obese 62-year-old female with a history of cancer and chemotherapy presented with retrosternal chest pain, suspected acute coronary event. Initial ECG showed inverted T waves in anterior and lateral leads, and cardiac markers (troponin I hs, BNP, NT-proBNP) were markedly elevated. Coronary angiography revealed only minor atherosclerotic changes, ruling out obstructive coronary artery disease. Left ventriculography demonstrated akinesis of the apex and apical/mid-segment of the anterior wall with an ejection fraction of 38%. During hospitalization, an echocardiographic examination showed improved left ventricular contractive function with an ejection fraction of 47%, which confirmed the diagnosis of TTS. The patient's hospitalization was devoid of complications, and retrosternal pain did not reoccur. She was discharged on the 4th day with medications including acetylsalicylic acid, bisoprolol, ramipril, atorvastatin, pantoprazole, iron, and thyroid hormones, and referred for further surgical and oncological treatment.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with chest pain, ECG changes (inverted T waves), and elevated cardiac markers (troponin I hs 9552 ng/l, BNP 175 pg/ml, NT-proBNP 2691 pg/ml), mimicking acute coronary syndrome.",
+        "evidence_ids": [
+          "E002",
+          "E004"
+        ]
+      },
+      {
+        "claim": "Coronary angiography ruled out obstructive coronary artery disease, showing only minor atherosclerotic changes.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Left ventriculography demonstrated characteristic transient left ventricular systolic dysfunction with akinesis of the apex and apical/mid-segment of the anterior wall, and an ejection fraction of 38%.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Echocardiography during hospitalization showed improved left ventricular contractive function with an ejection fraction of 47%, confirming the transient nature of the dysfunction and the diagnosis of TTS.",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "The patient's clinical course was stable, with no complications and no recurrence of chest pain, leading to discharge on day 4.",
+        "evidence_ids": [
+          "E005",
+          "E006"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Acute Coronary Syndrome (ACS) due to obstructive coronary artery disease",
+        "basis": "Coronary angiography demonstrated only minor atherosclerotic changes, ruling out obstructive CAD (E003)."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Specific emotional or physical stressor preceding the event",
+      "Detailed acute medical management/treatment provided for TTS during hospitalization",
+      "Results of follow-up echocardiography or imaging to confirm complete resolution of left ventricular dysfunction"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T18:02:25.268802+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

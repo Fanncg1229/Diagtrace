@@ -1,0 +1,423 @@
+{
+  "case_id": "PMC7342472",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 10,
+  "termination": "final",
+  "known_final_diagnosis": "Reverse transcriptase PCR test on combined nasopharyngeal/oropharyngeal swabs was positive for SARS-CoV-2, 2 days after first presenting to the emergency doctor.",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E005"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "SARS-CoV-2 PCR test on nasopharyngeal/oropharyngeal swabs",
+        "current_trajectory_hypothesis": "Patient presented with urticaria and nasal congestion. The known final diagnosis is SARS-CoV-2 infection. I need to establish when and why the SARS-CoV-2 PCR test was ordered.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Reason for ordering SARS-CoV-2 PCR test",
+          "Date of SARS-CoV-2 PCR test order",
+          "Result of SARS-CoV-2 PCR test"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Order for SARS-CoV-2 PCR test is noted; corresponding result not yet requested.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "SARS-CoV-2 PCR test result on nasopharyngeal/oropharyngeal swabs",
+        "current_trajectory_hypothesis": "Patient presented with urticaria and nasal congestion. A SARS-CoV-2 PCR test was ordered. I need to confirm the result and the date it was performed/reported to align with the known final diagnosis.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Date of SARS-CoV-2 PCR test",
+          "Result of SARS-CoV-2 PCR test",
+          "Reason for ordering SARS-CoV-2 PCR test"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "Reverse transcriptase PCR test on combined nasopharyngeal/oropharyngeal swabs was positive for SARS-CoV-2",
+        "category": "other",
+        "temporal_cue": "2 days after first presenting",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with urticaria and nasal congestion, initially diagnosed as idiopathic urticaria. A SARS-CoV-2 PCR test was positive 2 days later. I need to understand the clinical progression or decision-making that prompted the SARS-CoV-2 testing.",
+        "confirmed_evidence": [
+          "Patient presented with widespread red-raised blanching and itchy rash and nasal congestion (E001)",
+          "Initial diagnosis was probable idiopathic urticaria (E001)",
+          "SARS-CoV-2 PCR test on nasopharyngeal/oropharyngeal swabs was positive for SARS-CoV-2 (E003)",
+          "The positive SARS-CoV-2 PCR test occurred 2 days after first presenting (E003)"
+        ],
+        "missing_key_evidence": [
+          "Reason for ordering SARS-CoV-2 PCR test",
+          "Any change in symptoms or clinical status between initial presentation and SARS-CoV-2 testing"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "She was advised to continue taking fexofenadine hydrochloride 180 mg four times per day and she was commenced on prednisolone 40 mg once daily for 3 days. The GP advised self-isolation for 7 days and suggested testing for infection with SARS-CoV-2. Prednisolone helped her lip and hand swelling, but her rash was still itchy and chlorphenamine maleate 4 mg four times per day was subsequently added.",
+        "category": "treatment_response",
+        "temporal_cue": "after worsening rash and swelling",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "What were the patient's symptoms or clinical course between the initial presentation to the emergency doctor and the GP consultation where SARS-CoV-2 testing was suggested?",
+        "current_trajectory_hypothesis": "Patient presented with urticaria and nasal congestion, initially diagnosed as idiopathic urticaria. A SARS-CoV-2 PCR test was positive 2 days later. The GP suggested SARS-CoV-2 testing and prescribed prednisolone and chlorphenamine due to worsening rash and swelling. I need to understand the specific clinical changes that prompted the GP's decision to test for SARS-CoV-2.",
+        "confirmed_evidence": [
+          "Patient presented with widespread red-raised blanching and itchy rash and nasal congestion (E001)",
+          "Initial diagnosis was probable idiopathic urticaria (E001)",
+          "SARS-CoV-2 PCR test on nasopharyngeal/oropharyngeal swabs was positive for SARS-CoV-2 (E003)",
+          "The positive SARS-CoV-2 PCR test occurred 2 days after first presenting (E003)",
+          "Patient was advised to continue fexofenadine, commenced on prednisolone, and advised self-isolation (E004)",
+          "The GP advised self-isolation for 7 days and suggested testing for infection with SARS-CoV-2 (E004)",
+          "Prednisolone helped lip and hand swelling, but rash was still itchy and chlorphenamine maleate was added (E004)",
+          "The prednisolone and chlorphenamine were given after worsening rash and swelling (E004)"
+        ],
+        "missing_key_evidence": [
+          "Specific symptoms or clinical changes that led to the GP consultation and the decision to test for SARS-CoV-2",
+          "Date of GP consultation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "A 46-year-old staff nurse presented to an emergency doctor on 12 April 2020 with a 24-hour history of a widespread red-raised blanching and itchy rash. Her partner had just recovered from presumed COVID-19 infection; having only had mild symptoms, she was not tested and was back at work. Our patient was on day 13 of self-isolation and was hoping to return to work the following day. She had no fever or continuous cough but did have some nasal congestion. The patient had a history of hay fever, a possible nut allergy and mild asthma. She had not been prescribed any regular medications and had not taken any over-the-counter medications; she had no known allergies to medications. The general practitioner described a classical urticarial rash affecting her upper and lower limbs in addition to her trunk. A diagnosis of probable idiopathic urticaria was suggested and the patient was prescribed fexofenadine hydrochloride 180 mg, to be taken two to four times per day.",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "What was the patient's clinical course or any new symptoms that developed between the initial presentation to the emergency doctor on April 12th and the GP consultation where SARS-CoV-2 testing was suggested?",
+        "current_trajectory_hypothesis": "Patient presented with urticaria and nasal congestion, initially diagnosed as idiopathic urticaria. A SARS-CoV-2 PCR test was positive 2 days later. The GP suggested SARS-CoV-2 testing and prescribed prednisolone and chlorphenamine due to worsening rash and swelling. I need to understand the specific clinical changes that prompted the GP's decision to test for SARS-CoV-2 and the timing of these changes.",
+        "confirmed_evidence": [
+          "Patient presented with widespread red-raised blanching and itchy rash and nasal congestion on April 12, 2020 (E001)",
+          "Initial diagnosis was probable idiopathic urticaria (E001)",
+          "SARS-CoV-2 PCR test on nasopharyngeal/oropharyngeal swabs was positive for SARS-CoV-2 (E003)",
+          "The positive SARS-CoV-2 PCR test occurred 2 days after first presenting (E003)",
+          "Patient was advised to continue fexofenadine, commenced on prednisolone, and advised self-isolation by GP (E004)",
+          "The GP advised self-isolation for 7 days and suggested testing for infection with SARS-CoV-2 (E004)",
+          "Prednisolone helped lip and hand swelling, but rash was still itchy and chlorphenamine maleate was added (E004)",
+          "The prednisolone and chlorphenamine were given after worsening rash and swelling (E004)"
+        ],
+        "missing_key_evidence": [
+          "Specific symptoms or clinical changes that led to the GP consultation and the decision to test for SARS-CoV-2",
+          "Date of GP consultation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "The following day the rash worsened and was now associated with swelling of her lips (figure 1) and hands; she now felt feverish and had developed a dry cough. She had a slight wheeze but no tongue or throat swelling.",
+        "category": "image_finding",
+        "temporal_cue": "the following day",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "What was the specific reason or clinical indication that led the GP to suggest testing for SARS-CoV-2?",
+        "current_trajectory_hypothesis": "Patient presented with urticaria and nasal congestion. The rash worsened the next day, with new symptoms including fever, dry cough, and swelling of lips and hands. A GP then suggested SARS-CoV-2 testing, which was positive 2 days after initial presentation. I need to explicitly confirm the reason for the GP's decision to test.",
+        "confirmed_evidence": [
+          "Patient presented with widespread red-raised blanching and itchy rash and nasal congestion on April 12, 2020 (E001)",
+          "Initial diagnosis was probable idiopathic urticaria (E001)",
+          "The day after initial presentation (April 13, 2020), the rash worsened, and new symptoms included swelling of lips and hands, feeling feverish, and a dry cough (E002)",
+          "SARS-CoV-2 PCR test on nasopharyngeal/oropharyngeal swabs was positive for SARS-CoV-2 (E003)",
+          "The positive SARS-CoV-2 PCR test occurred 2 days after first presenting (April 14, 2020) (E003)",
+          "The GP advised self-isolation for 7 days and suggested testing for infection with SARS-CoV-2 (E004)",
+          "Patient was advised to continue fexofenadine, commenced on prednisolone, and chlorphenamine maleate was added due to persistent itch (E004)",
+          "Prednisolone helped lip and hand swelling (E004)"
+        ],
+        "missing_key_evidence": [
+          "Explicit reason for ordering SARS-CoV-2 PCR test by the GP",
+          "Date of GP consultation",
+          "Any further clinical course or outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E004",
+        "source_text": "The GP advised self-isolation for 7 days and suggested testing for infection with SARS-CoV-2.",
+        "category": "treatment_response",
+        "temporal_cue": "after worsening rash and swelling",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "What was the date of the GP consultation where SARS-CoV-2 testing was suggested?",
+        "current_trajectory_hypothesis": "Patient presented with urticaria and nasal congestion on April 12th. The rash worsened the next day (April 13th), with new symptoms including fever, dry cough, and swelling of lips and hands. A GP then suggested SARS-CoV-2 testing, which was positive 2 days after initial presentation (April 14th). I need to confirm the date of the GP consultation to solidify the timeline of symptom progression leading to the decision to test.",
+        "confirmed_evidence": [
+          "Patient presented with widespread red-raised blanching and itchy rash and nasal congestion on April 12, 2020 (E001)",
+          "Initial diagnosis was probable idiopathic urticaria (E001)",
+          "The day after initial presentation (April 13, 2020), the rash worsened, and new symptoms included swelling of lips and hands, feeling feverish, and a dry cough (E002)",
+          "SARS-CoV-2 PCR test on nasopharyngeal/oropharyngeal swabs was positive for SARS-CoV-2 (E003)",
+          "The positive SARS-CoV-2 PCR test occurred 2 days after first presenting (April 14, 2020) (E003)",
+          "The GP advised self-isolation for 7 days and suggested testing for infection with SARS-CoV-2 (E004)",
+          "Patient was advised to continue fexofenadine, commenced on prednisolone, and chlorphenamine maleate was added due to persistent itch (E004)",
+          "Prednisolone helped lip and hand swelling (E004)"
+        ],
+        "missing_key_evidence": [
+          "Date of GP consultation",
+          "Any further clinical course or outcome"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E004",
+        "source_text": "The GP advised self-isolation for 7 days and suggested testing for infection with SARS-CoV-2.",
+        "category": "treatment_response",
+        "temporal_cue": "after worsening rash and swelling",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient presented with urticaria and nasal congestion on April 12th. The rash worsened the next day (April 13th), with new symptoms including fever, dry cough, and swelling of lips and hands. A GP then suggested SARS-CoV-2 testing, which was positive 2 days after initial presentation (April 14th). I need to confirm the exact date of the GP consultation and any further clinical course or outcome.",
+        "confirmed_evidence": [
+          "Patient presented with widespread red-raised blanching and itchy rash and nasal congestion on April 12, 2020 (E001)",
+          "Initial diagnosis was probable idiopathic urticaria (E001)",
+          "The day after initial presentation (April 13, 2020), the rash worsened, and new symptoms included swelling of lips and hands, feeling feverish, and a dry cough (E002)",
+          "SARS-CoV-2 PCR test on nasopharyngeal/oropharyngeal swabs was positive for SARS-CoV-2 (E003)",
+          "The positive SARS-CoV-2 PCR test occurred 2 days after first presenting (April 14, 2020) (E003)",
+          "The GP advised self-isolation for 7 days and suggested testing for infection with SARS-CoV-2 (E004)",
+          "Patient was advised to continue fexofenadine, commenced on prednisolone, and chlorphenamine maleate was added due to persistent itch (E004)",
+          "Prednisolone helped lip and hand swelling (E004)"
+        ],
+        "missing_key_evidence": [
+          "Exact date of GP consultation",
+          "Any further clinical course or outcome after the positive SARS-CoV-2 test"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "The rash resolved completely over the next few days. The patient made a full clinical recovery and did not undergo further PCR testing before resuming her duties.",
+        "category": "other",
+        "temporal_cue": "over the next few days",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "On what date did the GP advise self-isolation and suggest SARS-CoV-2 testing, following the worsening of symptoms described in E002?",
+        "current_trajectory_hypothesis": "Patient presented with urticaria and nasal congestion on April 12th. The rash worsened the next day (April 13th), with new symptoms including fever, dry cough, and swelling of lips and hands. A GP then suggested SARS-CoV-2 testing, which was positive 2 days after initial presentation (April 14th). The patient subsequently recovered. I need to confirm the exact date of the GP consultation to solidify the timeline.",
+        "confirmed_evidence": [
+          "Patient presented with widespread red-raised blanching and itchy rash and nasal congestion on April 12, 2020 (E001)",
+          "Initial diagnosis was probable idiopathic urticaria (E001)",
+          "The day after initial presentation (April 13, 2020), the rash worsened, and new symptoms included swelling of lips and hands, feeling feverish, and a dry cough (E002)",
+          "SARS-CoV-2 PCR test on nasopharyngeal/oropharyngeal swabs was positive for SARS-CoV-2 (E003)",
+          "The positive SARS-CoV-2 PCR test occurred 2 days after first presenting (April 14, 2020) (E003)",
+          "The GP advised self-isolation for 7 days and suggested testing for infection with SARS-CoV-2 (E004)",
+          "Patient was advised to continue fexofenadine, commenced on prednisolone, and chlorphenamine maleate was added due to persistent itch (E004)",
+          "Prednisolone helped lip and hand swelling (E004)",
+          "The rash resolved completely over the next few days, and the patient made a full clinical recovery (E005)"
+        ],
+        "missing_key_evidence": [
+          "Exact date of GP consultation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E004",
+        "source_text": "The GP advised self-isolation for 7 days and suggested testing for infection with SARS-CoV-2.",
+        "category": "treatment_response",
+        "temporal_cue": "after worsening rash and swelling",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Reverse transcriptase PCR test on combined nasopharyngeal/oropharyngeal swabs was positive for SARS-CoV-2, 2 days after first presenting to the emergency doctor.",
+        "trajectory_summary": "A 46-year-old staff nurse presented on April 12, 2020, with a widespread red-raised blanching and itchy rash and nasal congestion, initially diagnosed as probable idiopathic urticaria. The following day, April 13, 2020, her rash worsened, and she developed new symptoms including swelling of lips and hands, feverishness, and a dry cough. A GP advised self-isolation and suggested SARS-CoV-2 testing. Two days after initial presentation, on April 14, 2020, a reverse transcriptase PCR test on combined nasopharyngeal/oropharyngeal swabs was positive for SARS-CoV-2. The patient was treated with fexofenadine, prednisolone, and chlorphenamine, and the rash resolved completely over the next few days, leading to a full clinical recovery.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with widespread red-raised blanching and itchy rash and nasal congestion on April 12, 2020.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "The day after initial presentation (April 13, 2020), the rash worsened, and new symptoms included swelling of lips and hands, feeling feverish, and a dry cough.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "A GP advised self-isolation and suggested testing for SARS-CoV-2 after the worsening of symptoms.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Reverse transcriptase PCR test on combined nasopharyngeal/oropharyngeal swabs was positive for SARS-CoV-2, 2 days after first presenting (April 14, 2020).",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "The rash resolved completely over the next few days, and the patient made a full clinical recovery.",
+            "evidence_ids": [
+              "E005"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Idiopathic urticaria",
+            "basis": "The development of systemic symptoms (fever, dry cough) and a positive SARS-CoV-2 PCR test after initial presentation suggests the urticaria was a manifestation of SARS-CoV-2 infection rather than idiopathic."
+          }
+        ],
+        "remaining_uncertainties": [
+          "The exact date of the GP consultation is not explicitly stated, though it is inferred to be April 13, 2020, based on the temporal sequence of symptom worsening and the positive PCR test result."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Reverse transcriptase PCR test on combined nasopharyngeal/oropharyngeal swabs was positive for SARS-CoV-2, 2 days after first presenting to the emergency doctor.",
+    "trajectory_summary": "A 46-year-old staff nurse presented on April 12, 2020, with a widespread red-raised blanching and itchy rash and nasal congestion, initially diagnosed as probable idiopathic urticaria. The following day, April 13, 2020, her rash worsened, and she developed new symptoms including swelling of lips and hands, feverishness, and a dry cough. A GP advised self-isolation and suggested SARS-CoV-2 testing. Two days after initial presentation, on April 14, 2020, a reverse transcriptase PCR test on combined nasopharyngeal/oropharyngeal swabs was positive for SARS-CoV-2. The patient was treated with fexofenadine, prednisolone, and chlorphenamine, and the rash resolved completely over the next few days, leading to a full clinical recovery.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with widespread red-raised blanching and itchy rash and nasal congestion on April 12, 2020.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "The day after initial presentation (April 13, 2020), the rash worsened, and new symptoms included swelling of lips and hands, feeling feverish, and a dry cough.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "A GP advised self-isolation and suggested testing for SARS-CoV-2 after the worsening of symptoms.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Reverse transcriptase PCR test on combined nasopharyngeal/oropharyngeal swabs was positive for SARS-CoV-2, 2 days after first presenting (April 14, 2020).",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "The rash resolved completely over the next few days, and the patient made a full clinical recovery.",
+        "evidence_ids": [
+          "E005"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Idiopathic urticaria",
+        "basis": "The development of systemic symptoms (fever, dry cough) and a positive SARS-CoV-2 PCR test after initial presentation suggests the urticaria was a manifestation of SARS-CoV-2 infection rather than idiopathic."
+      }
+    ],
+    "remaining_uncertainties": [
+      "The exact date of the GP consultation is not explicitly stated, though it is inferred to be April 13, 2020, based on the temporal sequence of symptom worsening and the positive PCR test result."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T20:31:41.210684+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

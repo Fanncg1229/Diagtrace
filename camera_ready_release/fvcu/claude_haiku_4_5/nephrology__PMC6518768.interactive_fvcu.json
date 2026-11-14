@@ -1,0 +1,50 @@
+{
+  "prompt_version": "2026-07-31-interactive-fvcu-v1",
+  "judge_deployment": "gpt-4.1-mini-test",
+  "judge_input_file": "eacl_benchmark/results/interactive_fvcu_quality/matched225_100case_claude_haiku45/judge_inputs/nephrology__PMC6518768.json",
+  "judge_output": {
+    "case_id": "PMC6518768",
+    "judge_status": "completed",
+    "interactive_fvcu": {
+      "factuality": {
+        "score": 4,
+        "major_issues": [],
+        "rationale": "The clinician agent's claims and final reconstruction are well grounded in the released report-agent responses and disclosed evidence IDs. No fabricated or unsupported claims were made. The agent correctly noted the absence of serum PTH and phosphate levels at admission, avoiding unsupported assertions. All cited evidence corresponds to released source events."
+      },
+      "validity": {
+        "score": 4,
+        "major_issues": [],
+        "rationale": "The clinician agent's requests were clinically reasonable and focused on acquiring key biochemical, imaging, treatment, pathology, and outcome data relevant to tertiary hyperparathyroidism diagnosis and trajectory. The agent avoided overly diagnostic or irrelevant requests, and interpretations of returned evidence were appropriate and consistent with the known diagnosis."
+      },
+      "coherence": {
+        "score": 4,
+        "major_issues": [],
+        "rationale": "The working reconstruction evolved logically and consistently across turns, integrating newly acquired evidence without contradictions. Missing evidence was clearly identified and remained consistent. The final reconstruction aligns well with the interaction trace and disclosed evidence, with no unexplained shifts or contradictions."
+      },
+      "utility": {
+        "score": 3,
+        "major_issues": [
+          "Repeated requests for unavailable serum PTH and phosphate levels at admission despite multiple negative findings reduced efficiency.",
+          "Operative report details (which glands removed, intraoperative findings) were not found despite multiple requests, indicating some inefficiency in evidence acquisition."
+        ],
+        "rationale": "The clinician agent prioritized high-yield evidence categories such as labs, imaging, treatment response, pathology, and clinical outcomes. However, persistence in requesting unavailable data and inability to obtain operative details slightly reduced utility. The final reconstruction is well supported by the evidence acquired."
+      },
+      "overall_quality": {
+        "score": 4,
+        "rationale": "The clinician agent demonstrated strong factual grounding, clinical validity, and coherent reasoning throughout the episode. The final reconstruction is well supported by released evidence and consistent with the known diagnosis. Minor inefficiencies in request strategy and incomplete acquisition of some operative details slightly lowered the utility and overall score."
+      }
+    },
+    "trajectory_flags": {
+      "unsupported_or_unreleased_claims": false,
+      "request_strategy_problem": true,
+      "final_reconstruction_grounded": true
+    },
+    "episode_notes": "The clinician agent effectively reconstructed the diagnostic trajectory of tertiary hyperparathyroidism with persistent hypercalcemia and elevated PTH despite medical therapy, supported by key lab, imaging, treatment, pathology, and outcome evidence. The main limitation was repeated requests for unavailable admission PTH and phosphate levels and operative details, which were not present in the source documents, indicating some inefficiency in the request strategy."
+  },
+  "usage": {
+    "prompt_tokens": 13955,
+    "completion_tokens": 610,
+    "total_tokens": 14565
+  },
+  "created_at": "2026-08-01T03:06:48.321003+00:00"
+}

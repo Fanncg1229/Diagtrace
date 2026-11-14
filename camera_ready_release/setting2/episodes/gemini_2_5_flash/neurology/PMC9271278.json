@@ -1,0 +1,455 @@
+{
+  "case_id": "PMC9271278",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 10,
+  "termination": "final",
+  "known_final_diagnosis": "simultaneous spontaneous bilateral ganglia hemorrhage secondary to uncontrolled hypertension",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E006"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "CT scan of the brain",
+        "current_trajectory_hypothesis": "Patient presenting with acute neurological deficits and history of hypertension likely has an intracranial hemorrhage. A CT scan will confirm this and localize the bleeding.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Confirmation of intracranial hemorrhage",
+          "Location and extent of hemorrhage (especially bilateral ganglia)",
+          "Evidence of spontaneous nature",
+          "Evidence linking to hypertension"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.2
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "The order for a CT scan of the brain is recorded; matching source results will be disclosed when requested.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "CT scan of the brain report",
+        "current_trajectory_hypothesis": "Patient's acute neurological symptoms and hypertension history suggest intracranial hemorrhage. The CT scan should confirm this and provide details on the location and extent of bleeding, particularly looking for bilateral ganglia involvement.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Confirmation of intracranial hemorrhage",
+          "Location and extent of hemorrhage (specifically bilateral basal ganglia)",
+          "Evidence of spontaneous nature",
+          "Evidence linking to hypertension"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "A non-contrast brain CT was obtained, which demonstrated bilateral basal ganglia hemorrhage (BBGH). Hematoma measured 5x3cm in the left basal ganglia and 3x1cm in the right basal ganglia (see Figures 1 and 2).",
+        "category": "imaging_report",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_EXAM",
+        "request": "blood pressure readings on admission",
+        "current_trajectory_hypothesis": "Bilateral basal ganglia hemorrhage has been confirmed. Now, I need to verify if uncontrolled hypertension, as suggested by the initial presentation, is the likely cause. Blood pressure readings on admission would provide direct evidence.",
+        "confirmed_evidence": [
+          "Bilateral basal ganglia hemorrhage confirmed by non-contrast brain CT (E001)",
+          "Hematoma measured 5x3cm in the left basal ganglia and 3x1cm in the right basal ganglia (E001)"
+        ],
+        "missing_key_evidence": [
+          "Evidence of uncontrolled hypertension (e.g., admission BP)",
+          "Evidence ruling out other causes of hemorrhage (e.g., coagulopathy, aneurysm)",
+          "Clinical course/management details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "On admission, blood pressure was 220/120.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "coagulation panel (PT/INR, PTT)",
+        "current_trajectory_hypothesis": "Bilateral basal ganglia hemorrhage and severe hypertension are confirmed. To support the 'spontaneous' nature and rule out other causes, I need to check for coagulopathy, as the patient has no history of anticoagulation or trauma.",
+        "confirmed_evidence": [
+          "Bilateral basal ganglia hemorrhage confirmed by non-contrast brain CT (E001)",
+          "Hematoma measured 5x3cm in the left basal ganglia and 3x1cm in the right basal ganglia (E001)",
+          "Blood pressure on admission was 220/120 mmHg (E003)",
+          "Patient has a history of poorly controlled hypertension (initial presentation)",
+          "No history of drug abuse, anticoagulation or trauma (initial presentation)"
+        ],
+        "missing_key_evidence": [
+          "Coagulation status to rule out coagulopathy as a cause of hemorrhage",
+          "Further evidence to definitively support 'spontaneous' nature",
+          "Clinical course/management details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "The source contains no specific coagulation panel test (PT/INR, PTT) results to return, but ordering is acknowledged.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "CT angiography (CTA) of the brain",
+        "current_trajectory_hypothesis": "Bilateral basal ganglia hemorrhage and severe hypertension are confirmed. To further support the 'spontaneous' nature and rule out other causes of hemorrhage, such as aneurysms or vascular malformations, a CTA of the brain would be beneficial.",
+        "confirmed_evidence": [
+          "Bilateral basal ganglia hemorrhage confirmed by non-contrast brain CT (E001)",
+          "Hematoma measured 5x3cm in the left basal ganglia and 3x1cm in the right basal ganglia (E001)",
+          "Blood pressure on admission was 220/120 mmHg (E003)",
+          "Patient has a history of poorly controlled hypertension (initial presentation)",
+          "No history of drug abuse, anticoagulation or trauma (initial presentation)"
+        ],
+        "missing_key_evidence": [
+          "Evidence ruling out other structural causes of hemorrhage (e.g., aneurysm, AVM)",
+          "Clinical course/management details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.65
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "The CT angiography (CTA) order is acknowledged but no source evidence documents its result.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "details of the etiology workup for the hemorrhage",
+        "current_trajectory_hypothesis": "Bilateral basal ganglia hemorrhage and severe hypertension are confirmed. I need to verify if other causes of hemorrhage were investigated or ruled out to fully support the 'spontaneous' nature and the attribution to hypertension.",
+        "confirmed_evidence": [
+          "Bilateral basal ganglia hemorrhage confirmed by non-contrast brain CT (E001)",
+          "Hematoma measured 5x3cm in the left basal ganglia and 3x1cm in the right basal ganglia (E001)",
+          "Blood pressure on admission was 220/120 mmHg (E003)",
+          "Patient has a history of poorly controlled hypertension (initial presentation)",
+          "No history of drug abuse, anticoagulation or trauma (initial presentation)"
+        ],
+        "missing_key_evidence": [
+          "Explicit evidence ruling out other structural or hematological causes of hemorrhage (e.g., aneurysm, AVM, coagulopathy)",
+          "Clinical course/management details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "The patient’s history was significant only for uncontrolled hypertension in which he had poor compliance with the medication. There was no history of trauma, coagulopathy, diabetes, or infections.",
+        "category": "other",
+        "temporal_cue": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "details of the diagnostic workup to rule out other causes of intracranial hemorrhage, such as vascular malformations or tumors",
+        "current_trajectory_hypothesis": "Bilateral basal ganglia hemorrhage and severe hypertension are confirmed. The patient's history also points to uncontrolled hypertension and absence of trauma, coagulopathy, diabetes, or infections. I need to verify how other potential causes of hemorrhage, like vascular malformations or tumors, were ruled out to fully support the 'spontaneous' nature of the hemorrhage.",
+        "confirmed_evidence": [
+          "Bilateral basal ganglia hemorrhage confirmed by non-contrast brain CT (E001)",
+          "Hematoma measured 5x3cm in the left basal ganglia and 3x1cm in the right basal ganglia (E001)",
+          "Blood pressure on admission was 220/120 mmHg (E003)",
+          "Patient has a history of poorly controlled hypertension (initial presentation)",
+          "No history of drug abuse, anticoagulation or trauma (initial presentation)",
+          "No history of trauma, coagulopathy, diabetes, or infections (E006)"
+        ],
+        "missing_key_evidence": [
+          "Explicit evidence ruling out other structural causes of hemorrhage (e.g., aneurysm, AVM, tumor)",
+          "Clinical course/management details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "A subsequent brain MRI later revealed a bilateral basal ganglia hematoma with minimal edema (3.5 cm in the left and 2 cm in the right basal ganglia) (Figures 3 and 4).",
+        "category": "imaging_report",
+        "temporal_cue": "after admission",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "results of any imaging or diagnostic procedures performed to rule out vascular malformations or aneurysms",
+        "current_trajectory_hypothesis": "Bilateral basal ganglia hemorrhage and severe hypertension are confirmed. To fully support the 'spontaneous' nature of the hemorrhage and rule out other potential causes, I need explicit evidence that vascular malformations, aneurysms, or tumors were investigated and ruled out.",
+        "confirmed_evidence": [
+          "Bilateral basal ganglia hemorrhage confirmed by non-contrast brain CT (E001)",
+          "Hematoma measured 5x3cm in the left basal ganglia and 3x1cm in the right basal ganglia (E001)",
+          "Subsequent brain MRI revealed bilateral basal ganglia hematoma (3.5 cm in left, 2 cm in right) (E002)",
+          "Blood pressure on admission was 220/120 mmHg (E003)",
+          "Patient has a history of poorly controlled hypertension (initial presentation)",
+          "No history of drug abuse, anticoagulation or trauma (initial presentation)",
+          "No history of trauma, coagulopathy, diabetes, or infections (E006)"
+        ],
+        "missing_key_evidence": [
+          "Explicit evidence ruling out structural causes of hemorrhage (e.g., aneurysm, AVM, tumor)",
+          "Clinical course/management details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "not_reported",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "explanation": "No imaging or diagnostic procedure results specifically addressing vascular malformations or aneurysms are reported in the available evidence.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "ASK_HISTORY",
+        "request": "final diagnostic conclusion regarding the cause of the bilateral basal ganglia hemorrhage",
+        "current_trajectory_hypothesis": "Bilateral basal ganglia hemorrhage and severe hypertension are confirmed. I have evidence ruling out some causes (trauma, anticoagulation, coagulopathy, diabetes, infections). I need to verify the final diagnostic conclusion to fully support the 'spontaneous' nature and the attribution to uncontrolled hypertension, especially since specific imaging to rule out vascular malformations/aneurysms was not reported.",
+        "confirmed_evidence": [
+          "Bilateral basal ganglia hemorrhage confirmed by non-contrast brain CT (E001)",
+          "Hematoma measured 5x3cm in the left basal ganglia and 3x1cm in the right basal ganglia (E001)",
+          "Subsequent brain MRI revealed bilateral basal ganglia hematoma (3.5 cm in left, 2 cm in right) (E002)",
+          "Blood pressure on admission was 220/120 mmHg (E003)",
+          "Patient has a history of poorly controlled hypertension (initial presentation)",
+          "No history of drug abuse, anticoagulation or trauma (initial presentation)",
+          "No history of trauma, coagulopathy, diabetes, or infections (E006)"
+        ],
+        "missing_key_evidence": [
+          "Explicit final diagnostic conclusion attributing the hemorrhage to hypertension and confirming its spontaneous nature",
+          "Clinical course/management details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E006",
+        "source_text": "The patient’s history was significant only for uncontrolled hypertension in which he had poor compliance with the medication. There was no history of trauma, coagulopathy, diabetes, or infections.",
+        "category": "other",
+        "temporal_cue": "",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "simultaneous spontaneous bilateral ganglia hemorrhage secondary to uncontrolled hypertension",
+        "trajectory_summary": "A 37-year-old man with a history of poorly controlled hypertension presented with acute neurological deficits including severe headache, worsening confusion, and right-side weakness. Initial non-contrast brain CT demonstrated bilateral basal ganglia hemorrhage (E001). On admission, his blood pressure was severely elevated at 220/120 mmHg (E003). A subsequent brain MRI confirmed bilateral basal ganglia hematoma (E002). The patient's history was significant only for uncontrolled hypertension with poor compliance, and there was no history of trauma, coagulopathy, diabetes, infections, drug abuse, or anticoagulation (initial presentation, E006). This clinical picture, combined with the exclusion of other common causes, supports the diagnosis of simultaneous spontaneous bilateral ganglia hemorrhage secondary to uncontrolled hypertension.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with acute neurological deficits including severe headache, worsening confusion, and right-side weakness, stuporous condition, and mixed aphasia.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Patient had a known history of poorly controlled hypertension.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Non-contrast brain CT demonstrated bilateral basal ganglia hemorrhage, measuring 5x3cm in the left and 3x1cm in the right basal ganglia.",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "On admission, blood pressure was 220/120 mmHg.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Subsequent brain MRI revealed bilateral basal ganglia hematoma (3.5 cm in the left and 2 cm in the right basal ganglia).",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Patient's history was significant only for uncontrolled hypertension with poor compliance.",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "There was no history of trauma, coagulopathy, diabetes, infections, drug abuse, or anticoagulation.",
+            "evidence_ids": [
+              "E006"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Traumatic intracranial hemorrhage",
+            "basis": "No history of trauma (initial presentation, E006)"
+          },
+          {
+            "alternative": "Hemorrhage due to coagulopathy or anticoagulation",
+            "basis": "No history of anticoagulation (initial presentation) or coagulopathy (E006)"
+          },
+          {
+            "alternative": "Hemorrhage due to diabetes or infections",
+            "basis": "No history of diabetes or infections (E006)"
+          },
+          {
+            "alternative": "Hemorrhage due to drug abuse",
+            "basis": "No history of drug abuse (initial presentation)"
+          },
+          {
+            "alternative": "Hemorrhage due to vascular malformation or aneurysm",
+            "basis": "No imaging or diagnostic procedure results specifically addressing vascular malformations or aneurysms were reported (Turn 8 report), and the patient's history was noted as 'significant only for uncontrolled hypertension' (E006), implying other causes were not found to be significant."
+          }
+        ],
+        "remaining_uncertainties": [
+          "Explicit imaging results (e.g., CTA, DSA) to definitively rule out vascular malformations or aneurysms were not reported in the available evidence."
+        ],
+        "confidence_that_diagnosis_is_supported": 0.9
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "simultaneous spontaneous bilateral ganglia hemorrhage secondary to uncontrolled hypertension",
+    "trajectory_summary": "A 37-year-old man with a history of poorly controlled hypertension presented with acute neurological deficits including severe headache, worsening confusion, and right-side weakness. Initial non-contrast brain CT demonstrated bilateral basal ganglia hemorrhage (E001). On admission, his blood pressure was severely elevated at 220/120 mmHg (E003). A subsequent brain MRI confirmed bilateral basal ganglia hematoma (E002). The patient's history was significant only for uncontrolled hypertension with poor compliance, and there was no history of trauma, coagulopathy, diabetes, infections, drug abuse, or anticoagulation (initial presentation, E006). This clinical picture, combined with the exclusion of other common causes, supports the diagnosis of simultaneous spontaneous bilateral ganglia hemorrhage secondary to uncontrolled hypertension.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with acute neurological deficits including severe headache, worsening confusion, and right-side weakness, stuporous condition, and mixed aphasia.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Patient had a known history of poorly controlled hypertension.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Non-contrast brain CT demonstrated bilateral basal ganglia hemorrhage, measuring 5x3cm in the left and 3x1cm in the right basal ganglia.",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "On admission, blood pressure was 220/120 mmHg.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Subsequent brain MRI revealed bilateral basal ganglia hematoma (3.5 cm in the left and 2 cm in the right basal ganglia).",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Patient's history was significant only for uncontrolled hypertension with poor compliance.",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "There was no history of trauma, coagulopathy, diabetes, infections, drug abuse, or anticoagulation.",
+        "evidence_ids": [
+          "E006"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Traumatic intracranial hemorrhage",
+        "basis": "No history of trauma (initial presentation, E006)"
+      },
+      {
+        "alternative": "Hemorrhage due to coagulopathy or anticoagulation",
+        "basis": "No history of anticoagulation (initial presentation) or coagulopathy (E006)"
+      },
+      {
+        "alternative": "Hemorrhage due to diabetes or infections",
+        "basis": "No history of diabetes or infections (E006)"
+      },
+      {
+        "alternative": "Hemorrhage due to drug abuse",
+        "basis": "No history of drug abuse (initial presentation)"
+      },
+      {
+        "alternative": "Hemorrhage due to vascular malformation or aneurysm",
+        "basis": "No imaging or diagnostic procedure results specifically addressing vascular malformations or aneurysms were reported (Turn 8 report), and the patient's history was noted as 'significant only for uncontrolled hypertension' (E006), implying other causes were not found to be significant."
+      }
+    ],
+    "remaining_uncertainties": [
+      "Explicit imaging results (e.g., CTA, DSA) to definitively rule out vascular malformations or aneurysms were not reported in the available evidence."
+    ],
+    "confidence_that_diagnosis_is_supported": 0.9
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-30T17:33:02.308670+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

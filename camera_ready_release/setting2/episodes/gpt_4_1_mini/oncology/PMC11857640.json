@@ -1,0 +1,661 @@
+{
+  "case_id": "PMC11857640",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 15,
+  "termination": "final",
+  "known_final_diagnosis": "Histopathological evaluation of the excision material revealed gastric adenocarcinoma metastasis.",
+  "disclosed_evidence_ids": [
+    "E005",
+    "E006",
+    "E007",
+    "E008"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "order upper gastrointestinal endoscopy to investigate possible primary gastric malignancy correlating with elevated CEA and CA 19-9 and right atrial lesion",
+        "current_trajectory_hypothesis": "Patient presented with signs of right heart involvement and ascites with elevated tumor markers suggestive of malignancy; suspicion for gastric cancer as primary site to explain adenocarcinoma metastasis",
+        "confirmed_evidence": [
+          "patient with fatigue, abdominal distension, leg edema",
+          "physical exam findings consistent with right heart failure and ascites",
+          "ECG sinus tachycardia",
+          "elevated tumor markers CEA 43 and CA 19-9 361",
+          "ascitic fluid serum-ascites albumin gradient >1.1 (presumably portal hypertension etiology)",
+          "benign ascitic cytology",
+          "TTE showing 6.2x3.3 cm right atrial lesion near tricuspid valve, IVC dilation, severe tricuspid insufficiency"
+        ],
+        "missing_key_evidence": [
+          "upper GI endoscopy findings confirming gastric adenocarcinoma",
+          "histopathological confirmation of excision material",
+          "further workup for systemic spread and tissue diagnosis",
+          "clarification on clinical course and management after identification of atrial mass"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Upper gastrointestinal endoscopy ordered as requested; no direct source record documents the order itself.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "upper gastrointestinal endoscopy report with biopsy results",
+        "current_trajectory_hypothesis": "Gastric adenocarcinoma is suspected as primary malignancy source given elevated tumor markers and clinical presentation; endoscopy with biopsy required to confirm diagnosis",
+        "confirmed_evidence": [
+          "patient presenting with fatigue, abdominal distension, leg edema",
+          "physical exam findings suggesting right heart failure and ascites",
+          "TTE showing right atrial mass with severe tricuspid insufficiency",
+          "elevated tumor markers CEA and CA 19-9",
+          "ascitic fluid analysis"
+        ],
+        "missing_key_evidence": [
+          "histopathological confirmation from biopsy of gastric lesion",
+          "confirmation of metastasis status including excision material histopathology",
+          "clinical course and management after diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "An ulcerovegetating mass was detected in the upper-GI endoscopic evaluation. Histopathological evaluation of the biopsy specimen was consistent with gastric adenocarcinoma.",
+        "category": "pathology_report",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "order histopathological evaluation of the excision material from the right atrial lesion",
+        "current_trajectory_hypothesis": "Initial presentation with right atrial lesion and ascites, upper GI endoscopy confirmed gastric adenocarcinoma; need to confirm metastatic involvement in right atrial mass via excision histopathology.",
+        "confirmed_evidence": [
+          "ulcerovegetating upper GI mass with biopsy consistent with gastric adenocarcinoma",
+          "right atrial lesion seen on TTE",
+          "clinical presentation with fatigue, abdominal distension, and leg edema consistent with possible metastasis"
+        ],
+        "missing_key_evidence": [
+          "histopathological confirmation of metastatic gastric adenocarcinoma from right atrial lesion excision",
+          "clinical course and management details following excision",
+          "further systemic metastatic assessment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Histopathological evaluation order is acknowledged; no source result yet for this order.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "histopathological report of the excision material from the right atrial lesion",
+        "current_trajectory_hypothesis": "Upper GI endoscopy biopsy confirmed gastric adenocarcinoma; excision histopathology of right atrial mass needed to confirm metastatic gastric adenocarcinoma.",
+        "confirmed_evidence": [
+          "ulcerovegetating upper GI mass with biopsy confirming gastric adenocarcinoma",
+          "right atrial lesion on TTE",
+          "clinical presentation with fatigue, abdominal distension, leg edema, ascites",
+          "elevated tumor markers CEA and CA 19-9"
+        ],
+        "missing_key_evidence": [
+          "histopathological confirmation of metastatic gastric adenocarcinoma from right atrial lesion excision",
+          "clinical course and management after excision",
+          "systemic metastatic workup details"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Upper GI endoscopy confirmed gastric adenocarcinoma; confirmation needed by histopathology of excised right atrial mass and further clinical course data",
+        "confirmed_evidence": [
+          "patient presenting with fatigue, abdominal distension, leg edema",
+          "physical exam findings suggestive of right heart failure and ascites",
+          "elevated tumor markers CEA and CA 19-9",
+          "ascitic fluid serum-ascites albumin gradient >1.1",
+          "TTE with right atrial mass near tricuspid valve",
+          "upper GI endoscopy with biopsy confirming gastric adenocarcinoma"
+        ],
+        "missing_key_evidence": [
+          "histopathological confirmation of right atrial mass excision material showing gastric adenocarcinoma metastasis",
+          "clinical course and management details after excision",
+          "further systemic metastatic workup results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "PD-L1 protein expression was assessed using the CPS and found to be positive, with a value of 15. HER-2 status was evaluated by both IHC and silver in situ hybridization (SISH).",
+        "category": "other",
+        "temporal_cue": "on admission",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "histopathological report of the excision material from the right atrial lesion",
+        "current_trajectory_hypothesis": "Upper GI endoscopy confirmed gastric adenocarcinoma; to confirm diagnosis of metastatic gastric adenocarcinoma in right atrium, histopathology of excised right atrial lesion needed.",
+        "confirmed_evidence": [
+          "fatigue, abdominal distension, leg edema",
+          "physical exam: abdominal dullness, decreased breath sounds, tachycardia, pretibial edema",
+          "sinus tachycardia on ECG",
+          "elevated tumor markers CEA 43 and CA 19-9 361",
+          "ascitic fluid with serum-to-ascites albumin gradient >1.1 and benign cytology",
+          "TTE showing 6.2 x 3.3 cm right atrial lesion near tricuspid valve, IVC dilation, severe tricuspid insufficiency",
+          "upper GI endoscopy showing ulcerovegetating mass with biopsy confirming gastric adenocarcinoma",
+          "PD-L1 protein expression positive (CPS 15), HER2 status evaluated"
+        ],
+        "missing_key_evidence": [
+          "histopathological confirmation of metastatic gastric adenocarcinoma from right atrial lesion excision",
+          "clinical course and management after excision",
+          "systemic metastatic workup results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Upper GI endoscopy confirmed gastric adenocarcinoma; histopathological confirmation of metastatic gastric adenocarcinoma in right atrial excision material is pending; awaiting further clinical course details",
+        "confirmed_evidence": [
+          "patient presented with fatigue, abdominal distension, and leg edema",
+          "physical exam findings consistent with right heart failure and ascites",
+          "ECG showed sinus tachycardia",
+          "elevated tumor markers CEA 43 and CA 19-9 361",
+          "ascitic fluid serum-to-ascites albumin gradient >1.1 and benign cytology",
+          "TTE revealed a 6.2 x 3.3 cm right atrial lesion near tricuspid valve with IVC dilation and severe tricuspid insufficiency",
+          "upper GI endoscopy showed ulcerovegetating mass with biopsy consistent with gastric adenocarcinoma",
+          "PD-L1 protein expression positive (CPS 15), HER2 status evaluated"
+        ],
+        "missing_key_evidence": [
+          "histopathological confirmation of metastatic gastric adenocarcinoma in right atrial lesion excision material",
+          "clinical course and management after excision",
+          "systemic metastatic workup results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "A combination regimen of pembrolizumab (200 mg IV every 3 weeks), trastuzumab (6 mg/kg IV every 3 weeks after an 8 mg/kg loading dose), and FOLFOX chemotherapy was initiated. The FOLFOX regimen comprised oxaliplatin (85 mg/m2), leucovorin (400 mg/m2 over 120 min), bolus 5-FU (400 mg/m2), and a continuous infusion of 5-FU (2400 mg/m2 over 46 h) every 2 weeks. However, trastuzumab could not be given due to cardiac pathology in the first cycle. Twelve cycles of chemotherapy were administered. Treatment with trastuzumab and pembrolizumab continued every 3 weeks until disease progression.",
+        "category": "treatment_response",
+        "temporal_cue": "after diagnosis",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "histopathological report specifically detailing the excision material from the right atrial lesion",
+        "current_trajectory_hypothesis": "Upper GI endoscopy biopsy confirmed gastric adenocarcinoma; confirmation of metastatic gastric adenocarcinoma in right atrial lesion excision material is critical to solidify diagnosis and guide treatment.",
+        "confirmed_evidence": [
+          "initial presentation with fatigue, abdominal distension, leg edema, and right heart failure signs",
+          "elevated tumor markers CEA and CA 19-9",
+          "ascitic fluid analysis showing serum-to-ascites albumin gradient >1.1 and benign cytology",
+          "TTE showing right atrial lesion near tricuspid valve, IVC dilation, and severe tricuspid insufficiency",
+          "upper GI endoscopy showing ulcerovegetating mass with biopsy confirming gastric adenocarcinoma",
+          "PD-L1 expression positive and HER2 status evaluated",
+          "treatment initiation with chemotherapy and immunotherapy after diagnosis"
+        ],
+        "missing_key_evidence": [
+          "histopathological confirmation of metastatic gastric adenocarcinoma from excision of right atrial lesion",
+          "clinical course and management details after excision",
+          "systemic metastatic workup results"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Gastric adenocarcinoma confirmed by upper GI biopsy with clinical presentation supporting metastatic spread; histopathological confirmation of right atrial lesion metastasis is pending; treatment was initiated based on these findings",
+        "confirmed_evidence": [
+          "Initial clinical presentation with fatigue, abdominal distension, leg edema, and right heart failure features",
+          "Elevated tumor markers CEA and CA 19-9",
+          "Ascitic fluid analysis showing high serum-ascites albumin gradient and benign cytology",
+          "TTE showing a sizeable right atrial mass near tricuspid valve with associated cardiac dysfunction",
+          "Upper GI endoscopy finding ulcerovegetating mass with biopsy confirming gastric adenocarcinoma",
+          "PD-L1 protein expression positive, HER2 evaluated",
+          "Initiation of combination chemotherapy and immunotherapy treatment post-diagnosis"
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of the excision material from the right atrial lesion confirming metastatic gastric adenocarcinoma",
+          "Systemic metastatic workup detailing extent of disease",
+          "Detailed clinical course and management after lesion excision"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "Request histopathology report excerpt confirming that excision material from the right atrial lesion shows gastric adenocarcinoma metastasis",
+        "current_trajectory_hypothesis": "Upper GI endoscopy biopsy confirmed gastric adenocarcinoma; confirming metastatic gastric adenocarcinoma in the right atrial lesion excision histopathology is needed to support final diagnosis",
+        "confirmed_evidence": [
+          "patient presented with fatigue, abdominal distension, and leg edema",
+          "physical exam showed signs of right heart failure and ascites",
+          "sinus tachycardia on ECG",
+          "elevated tumor markers CEA 43 and CA 19-9 361",
+          "ascitic fluid serum-to-ascites albumin gradient >1.1 and benign cytology",
+          "TTE showed a 6.2 × 3.3 cm right atrial lesion near tricuspid valve with IVC dilation and severe tricuspid insufficiency",
+          "upper GI endoscopy detected ulcerovegetating mass with biopsy consistent with gastric adenocarcinoma",
+          "PD-L1 expression positive and HER2 status evaluated",
+          "treatment initiated with chemotherapy and immunotherapy after diagnosis"
+        ],
+        "missing_key_evidence": [
+          "histopathological confirmation from the excision material of right atrial lesion confirming gastric adenocarcinoma metastasis",
+          "clinical course and systemic metastatic workup details post excision"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient had initial presentation with signs of right heart failure and ascites; elevated tumor markers, ascitic fluid analysis, and TTE identified a right atrial mass; upper GI endoscopy confirmed gastric adenocarcinoma; histopathologic confirmation of metastatic gastric adenocarcinoma from the excised right atrial lesion remains pending; treatment started with chemotherapy and immunotherapy.",
+        "confirmed_evidence": [
+          "Initial presentation with fatigue, abdominal distension, leg edema, and signs of right heart failure",
+          "Elevated tumor markers CEA 43 and CA 19-9 361",
+          "Ascitic fluid analysis showing serum-to-ascites albumin gradient >1.1 and benign cytology",
+          "TTE reporting 6.2 × 3.3 cm right atrial lesion near tricuspid valve causing severe tricuspid insufficiency and IVC dilation",
+          "Upper GI endoscopy detecting ulcerovegetating mass with biopsy confirming gastric adenocarcinoma",
+          "PD-L1 expression positive and HER2 status evaluated",
+          "Initiation of combination chemotherapy and immunotherapy regimen after diagnosis"
+        ],
+        "missing_key_evidence": [
+          "Definitive histopathological report confirming that right atrial lesion excision material shows gastric adenocarcinoma metastasis",
+          "Details on systemic metastatic workup and extent of disease",
+          "Comprehensive clinical course and treatment outcomes post excision"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Upper GI biopsy confirmed gastric adenocarcinoma as the primary tumor; clinical findings and imaging support metastatic involvement of the right atrium; awaiting explicit histopathological report of the right atrial lesion excision material to confirm metastasis and provide stronger diagnostic confirmation.",
+        "confirmed_evidence": [
+          "Symptomatic presentation of fatigue, abdominal distension, leg edema with signs of right heart failure",
+          "Elevated tumor markers CEA and CA 19-9",
+          "Ascitic fluid analysis with serum-to-ascites albumin gradient >1.1 and benign cytology",
+          "TTE detection of right atrial lesion near tricuspid valve with severe tricuspid insufficiency and IVC dilation",
+          "Upper GI endoscopy showing ulcerovegetating mass with biopsy confirming gastric adenocarcinoma",
+          "PD-L1 expression positive (CPS 15) and HER2 status evaluated",
+          "Initiation of systemic treatment with pembrolizumab, trastuzumab (initially withheld due to cardiac pathology), and FOLFOX chemotherapy"
+        ],
+        "missing_key_evidence": [
+          "Definitive histopathological confirmation from excision material of the right atrial lesion showing metastatic gastric adenocarcinoma",
+          "Detailed systemic metastatic workup and clinical course information post-excision"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.75
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "A 10 × 7 cm mass, which completely filled the right atrium and extended to the tricuspid valve, adhering to the inferior vena cava, was resected during a surgical procedure performed in January 2024 (Figure 3).",
+        "category": "image_finding",
+        "temporal_cue": "January 2024",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "histopathological report of the surgically resected 10 × 7 cm right atrial mass confirming metastatic gastric adenocarcinoma",
+        "current_trajectory_hypothesis": "Surgically resected large right atrial mass is the lesion seen on TTE; histopathology of this excision material needed to definitively confirm metastatic gastric adenocarcinoma, solidifying the diagnosis trajectory",
+        "confirmed_evidence": [
+          "patient presented with fatigue, abdominal distension, leg edema, right heart failure signs",
+          "elevated tumor markers CEA 43 and CA 19-9 361",
+          "ascitic fluid analysis serum-to-ascites albumin gradient >1.1, benign cytology",
+          "TTE showed large right atrial lesion near tricuspid valve with IVC dilation and severe tricuspid insufficiency",
+          "upper GI endoscopy biopsy confirmed gastric adenocarcinoma",
+          "PD-L1 positive, HER2 status evaluated",
+          "treatment initiated including chemotherapy and immunotherapy",
+          "surgical resection of 10 × 7 cm right atrial mass in January 2024"
+        ],
+        "missing_key_evidence": [
+          "definitive histopathological confirmation from resected right atrial mass confirming metastatic gastric adenocarcinoma",
+          "clinical course and response after surgery"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 14,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Gastric adenocarcinoma confirmed by upper GI biopsy; right atrial mass visualized and surgically resected; histopathological confirmation of metastatic gastric adenocarcinoma in the atrial mass is pending and essential to complete the diagnostic trajectory.",
+        "confirmed_evidence": [
+          "Initial presentation with fatigue, abdominal distension, leg edema, signs of right heart failure",
+          "Elevated tumor markers CEA 43 ng/mL and CA 19-9 361 U/mL",
+          "Ascitic fluid analysis shows serum-to-ascites albumin gradient >1.1 and benign cytology",
+          "TTE shows large right atrial lesion near tricuspid valve causing severe tricuspid insufficiency and IVC dilation",
+          "Upper GI endoscopy detecting ulcerovegetating mass, biopsy consistent with gastric adenocarcinoma",
+          "PD-L1 positive CPS 15, HER2 status evaluated",
+          "Patient initiated treatment with pembrolizumab, trastuzumab (initially withheld), and FOLFOX chemotherapy",
+          "Surgical resection in January 2024 of 10 × 7 cm right atrial mass consistent with lesion seen on TTE"
+        ],
+        "missing_key_evidence": [
+          "Definitive histopathological report confirming the excision material from the right atrial lesion shows metastatic gastric adenocarcinoma",
+          "Further clinical course including response to treatment and systemic metastatic workup details post surgery"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 15,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "Gastric adenocarcinoma metastasis (to right atrial lesion)",
+        "trajectory_summary": "A 51-year-old male presented with fatigue, abdominal distension, and leg edema indicating right heart failure. Initial workup revealed elevated tumor markers (CEA 43 ng/mL, CA 19-9 361 U/mL), ascitic fluid with high serum-ascites albumin gradient and benign cytology, and a large 6.2×3.3 cm right atrial mass near the tricuspid valve on TTE. Upper gastrointestinal endoscopy showed an ulcerovegetating gastric mass, with biopsy confirming gastric adenocarcinoma. PD-L1 expression was positive and HER2 status was evaluated. The right atrial mass was surgically resected (10×7 cm) in January 2024. Although a direct histopathological report confirming metastasis from the excision material was not obtainable from the source, the clinical context and the diagnosis of gastric adenocarcinoma at a primary site with a large metastatic cardiac lesion and initiation of systemic chemotherapy and immunotherapy support the diagnosis of metastatic gastric adenocarcinoma.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with fatigue, abdominal distension, leg edema, and right heart failure signs",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Elevated tumor markers CEA 43 ng/mL and CA 19-9 361 U/mL",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Ascitic fluid analysis showing serum-to-ascites albumin gradient >1.1 and benign cytology",
+            "evidence_ids": []
+          },
+          {
+            "claim": "TTE showing 6.2 × 3.3 cm right atrial lesion near tricuspid valve with IVC dilation and severe tricuspid insufficiency",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Upper GI endoscopy detected ulcerovegetating mass with biopsy confirming gastric adenocarcinoma",
+            "evidence_ids": [
+              "E005"
+            ]
+          },
+          {
+            "claim": "PD-L1 protein expression positive (CPS 15) and HER2 status evaluated",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Surgical resection of a 10 × 7 cm right atrial mass in January 2024 matching the imaging lesion",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "claim": "Initiation of combination chemotherapy and immunotherapy after diagnosis",
+            "evidence_ids": [
+              "E007"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [
+          "Direct histopathological confirmation of the metastatic gastric adenocarcinoma from the resected right atrial lesion was not documented in the source excerpts"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.8
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "Gastric adenocarcinoma metastasis (to right atrial lesion)",
+    "trajectory_summary": "A 51-year-old male presented with fatigue, abdominal distension, and leg edema indicating right heart failure. Initial workup revealed elevated tumor markers (CEA 43 ng/mL, CA 19-9 361 U/mL), ascitic fluid with high serum-ascites albumin gradient and benign cytology, and a large 6.2×3.3 cm right atrial mass near the tricuspid valve on TTE. Upper gastrointestinal endoscopy showed an ulcerovegetating gastric mass, with biopsy confirming gastric adenocarcinoma. PD-L1 expression was positive and HER2 status was evaluated. The right atrial mass was surgically resected (10×7 cm) in January 2024. Although a direct histopathological report confirming metastasis from the excision material was not obtainable from the source, the clinical context and the diagnosis of gastric adenocarcinoma at a primary site with a large metastatic cardiac lesion and initiation of systemic chemotherapy and immunotherapy support the diagnosis of metastatic gastric adenocarcinoma.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with fatigue, abdominal distension, leg edema, and right heart failure signs",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Elevated tumor markers CEA 43 ng/mL and CA 19-9 361 U/mL",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Ascitic fluid analysis showing serum-to-ascites albumin gradient >1.1 and benign cytology",
+        "evidence_ids": []
+      },
+      {
+        "claim": "TTE showing 6.2 × 3.3 cm right atrial lesion near tricuspid valve with IVC dilation and severe tricuspid insufficiency",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Upper GI endoscopy detected ulcerovegetating mass with biopsy confirming gastric adenocarcinoma",
+        "evidence_ids": [
+          "E005"
+        ]
+      },
+      {
+        "claim": "PD-L1 protein expression positive (CPS 15) and HER2 status evaluated",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Surgical resection of a 10 × 7 cm right atrial mass in January 2024 matching the imaging lesion",
+        "evidence_ids": [
+          "E008"
+        ]
+      },
+      {
+        "claim": "Initiation of combination chemotherapy and immunotherapy after diagnosis",
+        "evidence_ids": [
+          "E007"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [
+      "Direct histopathological confirmation of the metastatic gastric adenocarcinoma from the resected right atrial lesion was not documented in the source excerpts"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.8
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-26T05:51:12.441019+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

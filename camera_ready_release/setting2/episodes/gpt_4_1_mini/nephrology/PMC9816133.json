@@ -1,0 +1,302 @@
+{
+  "case_id": "PMC9816133",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 7,
+  "termination": "final",
+  "known_final_diagnosis": "These results were consistent with mild to moderate mesangial proliferative IgAN (Type IIa), as shown in Figure 2 .",
+  "disclosed_evidence_ids": [
+    "E001",
+    "E011",
+    "E012",
+    "E014",
+    "E015"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "order renal biopsy to evaluate the cause of proteinuria and edema",
+        "current_trajectory_hypothesis": "Patient with long-standing diabetes, hypertension and coronary disease presents with intermittent facial and bilateral lower extremity edema, proteinuria, and increased nocturia, likely indicating kidney disease; renal biopsy will help clarify diagnosis.",
+        "confirmed_evidence": [
+          "Presentation with intermittent facial and bilateral lower extremity edema",
+          "Proteinuria noted repeatedly",
+          "Known diabetes mellitus, hypertension, and coronary heart disease"
+        ],
+        "missing_key_evidence": [
+          "Histopathological evidence from renal biopsy confirming IgAN diagnosis"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Renal biopsy test ordered by clinician; no immediate source result yet",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Renal biopsy pending to evaluate cause of proteinuria and edema in patient with diabetes, hypertension, and coronary disease; clinical progression and biopsy result will confirm IgAN diagnosis.",
+        "confirmed_evidence": [
+          "Presentation with intermittent facial and bilateral lower extremity edema",
+          "Proteinuria noted repeatedly",
+          "Known diabetes mellitus, hypertension, and coronary heart disease",
+          "Renal biopsy test ordered"
+        ],
+        "missing_key_evidence": [
+          "Histopathological results of renal biopsy confirming mesangial proliferative IgAN"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E001",
+        "source_text": "The outpatient examination results were as follows (2021-10-13): urine protein quantification 5.54 g/24 h/2300 ml, blood glucose (BG) 7.5 mmol/L, glycosylated albumin 21.3%.",
+        "category": "routine_lab",
+        "temporal_cue": "on admission",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request renal biopsy histopathology report",
+        "current_trajectory_hypothesis": "Patient has nephrotic range proteinuria and known diabetes and hypertension; awaiting renal biopsy histopathology to confirm IgAN diagnosis.",
+        "confirmed_evidence": [
+          "Proteinuria 5.54 g/24 h",
+          "Blood glucose 7.5 mmol/L",
+          "Renal biopsy ordered"
+        ],
+        "missing_key_evidence": [
+          "Histopathological description from renal biopsy confirming mesangial proliferative IgAN"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E012",
+        "source_text": "Light microscopy showed moderate to severe diffuse proliferation of mesangial cells and stroma. The periodic acid-Schiff staining showed moderate to diffuse proliferation of mesangial cells and stroma ( Figure 1A ), and the periodic acid silver methenamine staining and Masson’s staining showed severe diffuse proliferation of mesangial cells and stroma ( Figure 1B ). It was accompanied by diffuse thickening of the basement membrane, small eosinophilic deposits in the subendothelial segment, and microangioma-like expansion of segmental capillary loops.",
+        "category": "pathology_report",
+        "temporal_cue": "post renal biopsy",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request immunofluorescence and classification results of the renal biopsy to confirm IgA nephropathy type and subtype",
+        "current_trajectory_hypothesis": "Renal biopsy shows mesangial proliferation and basement membrane changes supporting a glomerulopathy, likely IgAN; immunofluorescence and formal classification are needed to confirm diagnosis and type IIa subtype.",
+        "confirmed_evidence": [
+          "Nephrotic range proteinuria 5.54 g/24 h",
+          "Renal biopsy light microscopy shows moderate to severe diffuse mesangial cell and stroma proliferation",
+          "Basement membrane thickening and subendothelial eosinophilic deposits noted in biopsy"
+        ],
+        "missing_key_evidence": [
+          "Immunofluorescence findings confirming IgA deposits",
+          "IgAN classification detail to confirm Type IIa subtype"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E011",
+        "source_text": "Immunofluorescence (IF): IgA+ IgG± IgM- C3+ C1q- FRA- Alb± κ± λ± IgG1- IgG2- IgG3- IgG4-;",
+        "category": "other",
+        "temporal_cue": "post renal biopsy",
+        "phase_index": 4,
+        "phase_label": "advanced_workup",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "verbatim_excerpt is not a contiguous source subspan.",
+        "validation_errors": [
+          "verbatim_excerpt is not a contiguous source subspan."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request classification or confirmation statement indicating mild to moderate mesangial proliferative IgAN (Type IIa) from renal biopsy report",
+        "current_trajectory_hypothesis": "Renal biopsy findings including light microscopy showing mesangial proliferation and immunofluorescence pattern IgA+ C3+ support diagnosis of IgA nephropathy; awaiting formal classification or concluding pathology statement confirming mild to moderate mesangial proliferative IgAN Type IIa.",
+        "confirmed_evidence": [
+          "Nephrotic range proteinuria 5.54 g/24 h",
+          "Renal biopsy light microscopy shows moderate to severe diffuse mesangial proliferation and basement membrane changes",
+          "Immunofluorescence shows IgA and C3 positive deposits confirming IgAN pattern"
+        ],
+        "missing_key_evidence": [
+          "Formal classification or concluding diagnosis from pathology report stating mild to moderate mesangial proliferative IgAN Type IIa"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E014",
+        "source_text": "These results were consistent with mild to moderate mesangial proliferative IgAN (Type IIa)",
+        "category": "other",
+        "temporal_cue": "post renal biopsy",
+        "phase_index": 5,
+        "phase_label": "confirmatory_testing",
+        "pending_orders": [],
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": true,
+        "repair_failed": false
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Diagnosis of mild to moderate mesangial proliferative IgAN (Type IIa) is supported by renal biopsy histopathology and immunofluorescence; awaiting further clinical course and treatment response documentation to complete trajectory.",
+        "confirmed_evidence": [
+          "Nephrotic range proteinuria 5.54 g/24 h",
+          "Renal biopsy light microscopy showing moderate to severe diffuse mesangial proliferation and basement membrane changes",
+          "Immunofluorescence showing IgA+ and C3+ deposits consistent with IgAN",
+          "Formal pathology diagnosis stating mild to moderate mesangial proliferative IgAN (Type IIa)"
+        ],
+        "missing_key_evidence": [
+          "Clinical course, treatment details, and response to therapy",
+          "Rule-out evidence or other relevant clinical findings to fully complete trajectory"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E015",
+        "source_text": "Hormones (methylprednisolone: 32 mg, q.d.) and prophylactic (isoniazide: 0.3 g, q.d.) anti-tuberculosis therapy were conducted for three months, after which NS was found to be partially relieved.",
+        "category": "treatment_response",
+        "temporal_cue": "months after renal biopsy",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "mild to moderate mesangial proliferative IgAN (Type IIa)",
+        "trajectory_summary": "Initial presentation with intermittent facial and bilateral lower extremity edema and nephrotic range proteinuria (5.54 g/24 h) in a patient with long-standing diabetes, hypertension, and coronary heart disease. Renal biopsy revealed moderate to severe diffuse mesangial cell and stroma proliferation with basement membrane thickening and eosinophilic deposits. Immunofluorescence showed IgA and C3 positivity. Formal pathology classification confirmed mild to moderate mesangial proliferative IgAN (Type IIa). Treatment with methylprednisolone and prophylactic isoniazid for three months partially relieved nephrotic syndrome.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Nephrotic range proteinuria (5.54 g/24 h) in initial labs",
+            "evidence_ids": [
+              "E001"
+            ]
+          },
+          {
+            "claim": "Renal biopsy light microscopy showed moderate to severe diffuse proliferation of mesangial cells and stroma with basement membrane thickening and deposits",
+            "evidence_ids": [
+              "E012"
+            ]
+          },
+          {
+            "claim": "Immunofluorescence showed IgA+ and C3+ deposits consistent with IgAN",
+            "evidence_ids": [
+              "E011"
+            ]
+          },
+          {
+            "claim": "Formal pathology diagnosis consistent with mild to moderate mesangial proliferative IgAN (Type IIa)",
+            "evidence_ids": [
+              "E014"
+            ]
+          },
+          {
+            "claim": "Partial relief of nephrotic syndrome after treatment with methylprednisolone and anti-TB prophylaxis",
+            "evidence_ids": [
+              "E015"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [],
+        "remaining_uncertainties": [],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "mild to moderate mesangial proliferative IgAN (Type IIa)",
+    "trajectory_summary": "Initial presentation with intermittent facial and bilateral lower extremity edema and nephrotic range proteinuria (5.54 g/24 h) in a patient with long-standing diabetes, hypertension, and coronary heart disease. Renal biopsy revealed moderate to severe diffuse mesangial cell and stroma proliferation with basement membrane thickening and eosinophilic deposits. Immunofluorescence showed IgA and C3 positivity. Formal pathology classification confirmed mild to moderate mesangial proliferative IgAN (Type IIa). Treatment with methylprednisolone and prophylactic isoniazid for three months partially relieved nephrotic syndrome.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Nephrotic range proteinuria (5.54 g/24 h) in initial labs",
+        "evidence_ids": [
+          "E001"
+        ]
+      },
+      {
+        "claim": "Renal biopsy light microscopy showed moderate to severe diffuse proliferation of mesangial cells and stroma with basement membrane thickening and deposits",
+        "evidence_ids": [
+          "E012"
+        ]
+      },
+      {
+        "claim": "Immunofluorescence showed IgA+ and C3+ deposits consistent with IgAN",
+        "evidence_ids": [
+          "E011"
+        ]
+      },
+      {
+        "claim": "Formal pathology diagnosis consistent with mild to moderate mesangial proliferative IgAN (Type IIa)",
+        "evidence_ids": [
+          "E014"
+        ]
+      },
+      {
+        "claim": "Partial relief of nephrotic syndrome after treatment with methylprednisolone and anti-TB prophylaxis",
+        "evidence_ids": [
+          "E015"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [],
+    "remaining_uncertainties": [],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-25T18:34:26.866911+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

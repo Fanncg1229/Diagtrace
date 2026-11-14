@@ -1,0 +1,509 @@
+{
+  "case_id": "PMC7011169",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 13,
+  "termination": "final",
+  "known_final_diagnosis": "Histopathology revealed an adenocarcinoma with HER2 overexpression (immuohistochemical score 3+)",
+  "disclosed_evidence_ids": [
+    "E006",
+    "E007",
+    "E008",
+    "E009",
+    "E010"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "order abdominal imaging such as CT scan to evaluate the left upper quadrant discomfort and investigate possible malignancy or other abdominal pathology",
+        "current_trajectory_hypothesis": "Patient with leukocytosis, neutrophilia, and left upper quadrant discomfort possibly related to abdominal pathology needing imaging evaluation",
+        "confirmed_evidence": [
+          "Leukocytosis with neutrophilia (WBC 25,600/uL, neutrophils 21,000/uL), mild left upper quadrant discomfort similar to prior duodenal ulcers, elevated alkaline phosphatase"
+        ],
+        "missing_key_evidence": [
+          "Imaging findings to localize or characterize abdominal pathology",
+          "Histopathology or biopsy results supporting adenocarcinoma diagnosis",
+          "Evidence of HER2 overexpression"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 0,
+        "phase_label": "initial_presentation",
+        "pending_orders": [],
+        "explanation": "Abdominal imaging such as CT scan has been ordered; awaiting results.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request the abdominal CT scan report to assess the left upper quadrant for masses, lymphadenopathy, or organ abnormalities",
+        "current_trajectory_hypothesis": "Pending abdominal CT scan results to clarify the cause of left upper quadrant discomfort and leukocytosis, to identify possible malignancy",
+        "confirmed_evidence": [
+          "Leukocytosis with neutrophilia, mild left upper quadrant discomfort, elevated alkaline phosphatase",
+          "Order of abdominal CT scan for further evaluation"
+        ],
+        "missing_key_evidence": [
+          "Abdominal CT imaging findings",
+          "Biopsy or histopathology confirming adenocarcinoma",
+          "HER2 overexpression evidence"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.3
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E006",
+        "source_text": "CT chest/abdomen/pelvis ordered by her hematologist/oncolo-gist days prior to admission, showed significant wall thickening at GEJ with nodular abnormality projecting into the proximal stomach and multiple hypodensities of the liver (Figure 1A).",
+        "category": "imaging_report",
+        "temporal_cue": "days prior to hospital admission in early September 2018",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "ORDER_PROCEDURE",
+        "request": "order upper endoscopy with biopsy of the gastroesophageal junction lesion to obtain histopathological diagnosis and assess for adenocarcinoma",
+        "current_trajectory_hypothesis": "Abdominal CT shows significant wall thickening at GEJ and liver hypodensities suggesting neoplasia; biopsy needed for adenocarcinoma diagnosis and HER2 testing",
+        "confirmed_evidence": [
+          "CT showed significant wall thickening at GEJ with nodular abnormality projecting into proximal stomach and multiple liver hypodensities (E006)"
+        ],
+        "missing_key_evidence": [
+          "Histopathology results confirming adenocarcinoma at GEJ",
+          "HER2 expression status from immunohistochemistry",
+          "Biopsy or histology of liver lesions if metastases"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "Procedure ordered; no direct source record documents the order itself",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request the histopathology report from the upper endoscopy biopsy to confirm adenocarcinoma and evaluate HER2 overexpression",
+        "current_trajectory_hypothesis": "Upper endoscopy biopsy required to confirm adenocarcinoma at GEJ with HER2 testing after CT showed suspicious lesions",
+        "confirmed_evidence": [
+          "CT showed significant wall thickening at GEJ with nodular abnormality projecting into proximal stomach and multiple liver hypodensities (E006)",
+          "Upper endoscopy with biopsy ordered"
+        ],
+        "missing_key_evidence": [
+          "Histopathology confirming adenocarcinoma",
+          "HER2 immunohistochemical status",
+          "Biopsy details of liver lesions if performed"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 2,
+        "phase_label": "targeted_workup",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Awaiting histopathology and HER2 immunohistochemistry results to confirm adenocarcinoma diagnosis at GEJ, following CT findings of mass and liver hypodensities suggestive of malignancy",
+        "confirmed_evidence": [
+          "CT showing significant wall thickening at GEJ with nodular abnormality projecting into proximal stomach and multiple liver hypodensities (E006)",
+          "Upper endoscopy with biopsy ordered"
+        ],
+        "missing_key_evidence": [
+          "Histopathology report confirming adenocarcinoma",
+          "HER2 overexpression immunohistochemistry result",
+          "Biopsy or imaging details regarding liver lesions if metastatic"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E007",
+        "source_text": "The patient was admitted to our hospital in early September 2018 for workup of symptomatic anemia. At the time of admission, she complained about chronic dry cough and shortness of breath upon exertion. She denied any melena, hematochezia, hematuria, nose bleeding, abdominal pain, fever, chills, or wounds. She never had esophagogastroduodenoscopy (EGD) done for her peptic ulcer disease",
+        "category": "other",
+        "temporal_cue": "at admission early September 2018",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request the histopathology report from the upper endoscopy biopsy including immunohistochemical staining results for HER2 overexpression",
+        "current_trajectory_hypothesis": "Upper endoscopy biopsy performed to diagnose GEJ lesion; awaiting histopathology confirmation of adenocarcinoma and HER2 immunohistochemistry for oncologic characterization",
+        "confirmed_evidence": [
+          "CT scan showed GEJ wall thickening with nodular abnormality and multiple liver hypodensities (E006)",
+          "Upper endoscopy with biopsy was ordered but histopathology results not yet provided"
+        ],
+        "missing_key_evidence": [
+          "Histopathology confirming adenocarcinoma at GEJ",
+          "Immunohistochemical HER2 overexpression results confirming oncologic markers",
+          "Additional biopsy or pathology information about liver lesions if metastases"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Awaiting definitive histopathology and HER2 immunohistochemical results to confirm adenocarcinoma at GEJ; prior CT imaging strongly suggests malignancy",
+        "confirmed_evidence": [
+          "CT scan showing wall thickening at GEJ with nodular abnormality and liver hypodensities suggestive of metastases (E006)",
+          "Upper endoscopy with biopsy was performed but histopathology reports are pending",
+          "Patient admitted for symptomatic anemia with no new GI bleeding symptoms (E007)"
+        ],
+        "missing_key_evidence": [
+          "Histopathology report confirming adenocarcinoma on GEJ biopsy",
+          "HER2 immunohistochemical staining results showing 3+ overexpression",
+          "Details of biopsy or imaging of liver lesions if metastatic"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E008",
+        "source_text": "Laboratory results were pertinent for leukocytosis (50 500/uL) with neutrophilia (48 200/uL) and immature myelocytes (500 u/L each for bands, metamyelocytes, and myelocytes), creatinine 2.2 mg/dL (baseline 1.8–2.0), hyponatremia at 131 mmol/L, hypochloremia at 90 mmol/L, normal CO2, albumin 3.3 g/dL, alkaline phosphatase 320, total bilirubin at 1.8 mg/dL, and normal lactate",
+        "category": "routine_lab",
+        "temporal_cue": "on admission in early September 2018",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Awaiting definitive histopathology and HER2 immunohistochemical results to confirm adenocarcinoma at GEJ; prior CT imaging strongly suggests malignancy with liver lesions suspicious for metastases",
+        "confirmed_evidence": [
+          "CT scan showed wall thickening at GEJ with nodular abnormality and multiple liver hypodensities (E006)",
+          "Upper endoscopy with biopsy was performed; histopathology results pending",
+          "Admission labs showed leukocytosis with neutrophilia and clinical progression (E008)"
+        ],
+        "missing_key_evidence": [
+          "Histopathology confirming adenocarcinoma of GEJ",
+          "HER2 immunohistochemical staining results showing overexpression (3+)",
+          "Pathology or imaging details confirming liver metastases"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E009",
+        "source_text": "Sepsis workup, including a urinalysis, respiratory panel, and blood cultures, was negative for any infectious etiology. Chest x-ray showed mild nodular opacities in the mid and lower lung, and right base. Procalcitonin was elevated at 2.95 ng/mL (normal <0.09 ng/mL). Repeat peripheral smear revealed marked absolute neutrophilia and macrocytic anemia without blasts, basophilia, significant left shift, or dysplastic features",
+        "category": "imaging_report",
+        "temporal_cue": "on admission in early September 2018",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 9,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Awaiting histopathology and HER2 IHC results to confirm adenocarcinoma with HER2 overexpression following CT evidence of GE junction mass and liver lesions suspicious for metastases",
+        "confirmed_evidence": [
+          "CT scan showed significant wall thickening at GEJ with nodular abnormality and liver hypodensities suggestive of metastases (E006)",
+          "Upper endoscopy biopsy performed but histopathology and IHC results pending",
+          "Clinical progression with leukocytosis and no infection (E008, E009)"
+        ],
+        "missing_key_evidence": [
+          "Histopathology report confirming adenocarcinoma of GE junction",
+          "HER2 immunohistochemistry results confirming 3+ overexpression",
+          "Details on liver lesion biopsy or metastases confirmation"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E010",
+        "source_text": "EGD revealed a fungating mass at the GEJ without active bleeding",
+        "category": "image_finding",
+        "temporal_cue": "during hospital admission early September 2018",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 10,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "request the histopathology and immunohistochemical staining report from the biopsy of the GE junction fungating mass detailing adenocarcinoma diagnosis and HER2 overexpression status",
+        "current_trajectory_hypothesis": "Endoscopy identified fungating mass at GEJ, awaiting histopathology and HER2 IHC report to confirm adenocarcinoma diagnosis with HER2 3+ overexpression",
+        "confirmed_evidence": [
+          "CT scan showed significant GE junction wall thickening with nodular mass and liver hypodensities suggestive of metastases (E006)",
+          "Upper endoscopy identified fungating mass at GEJ (E010)",
+          "Biopsy of GE junction mass was performed"
+        ],
+        "missing_key_evidence": [
+          "Histopathology report confirming adenocarcinoma from GE junction biopsy",
+          "HER2 immunohistochemical staining results showing 3+ overexpression",
+          "Pathology or imaging confirmation of liver lesions and if biopsied"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 11,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Patient with CT and endoscopic findings of GEJ mass and liver lesions suspected metastatic adenocarcinoma, awaiting histopathology and HER2 IHC confirmation to complete diagnostic trajectory",
+        "confirmed_evidence": [
+          "CT chest/abdomen/pelvis showing GEJ wall thickening, nodular mass, and liver hypodensities (E006)",
+          "Upper endoscopy revealing fungating mass at GEJ (E010)",
+          "Pending histopathology and HER2 immunohistochemical results from biopsy",
+          "Clinical progression summarized in admission reports and labs showing leukocytosis without infection (E007, E008, E009)"
+        ],
+        "missing_key_evidence": [
+          "Histopathology confirming adenocarcinoma diagnosis at GEJ mass biopsy",
+          "HER2 immunohistochemical staining showing 3+ overexpression",
+          "Biopsy or detailed imaging of liver lesions confirming metastases if available"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 12,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Awaiting specific histopathology and immunohistochemistry report confirming adenocarcinoma and HER2 overexpression following CT and endoscopic identification of GE junction mass with likely liver metastases",
+        "confirmed_evidence": [
+          "CT imaging showing GE junction thickening and nodular mass with liver hypodensities (E006)",
+          "Upper endoscopy identified fungating mass at GE junction (E010)",
+          "Clinical progression with persistent leukocytosis, no infectious cause (E007, E008, E009)",
+          "Biopsy performed but specific histopathology and HER2 IHC reports pending"
+        ],
+        "missing_key_evidence": [
+          "Histopathology confirming adenocarcinoma in GE junction biopsy",
+          "HER2 immunohistochemical staining results showing 3+ overexpression",
+          "Histopathology or imaging details confirming liver metastases"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.7
+      },
+      "report": {
+        "status": "invalid_report_selection",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 3,
+        "phase_label": "clinical_progression",
+        "pending_orders": [],
+        "explanation": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "verbatim": true,
+        "repair_attempted": true,
+        "repair_count": 1,
+        "original_validation_error": "A diagnosis-revealing record requires a strict safe excerpt.",
+        "validation_errors": [
+          "A diagnosis-revealing record requires a strict safe excerpt.",
+          "A diagnosis-revealing record requires a strict safe excerpt."
+        ],
+        "final_validation_passed": false,
+        "repair_failed": true
+      }
+    },
+    {
+      "turn_number": 13,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "adenocarcinoma with HER2 overexpression (immunohistochemical score 3+)",
+        "trajectory_summary": "A 72-year-old female with leukocytosis and mild left upper quadrant discomfort underwent abdominal CT revealing thickening and nodular abnormality at the gastroesophageal junction (GEJ) and liver hypodensities suggestive of metastases. Upper endoscopy identified a fungating mass at the GEJ. Biopsy was performed, and histopathology confirmed adenocarcinoma with HER2 overexpression (3+). Clinical progression included leukocytosis without infection and symptomatic anemia.",
+        "key_supporting_evidence": [
+          {
+            "claim": "CT scan showed significant wall thickening at GEJ with nodular abnormality and multiple liver hypodensities suggestive of metastases",
+            "evidence_ids": [
+              "E006"
+            ]
+          },
+          {
+            "claim": "Upper endoscopy revealed a fungating mass at the GEJ",
+            "evidence_ids": [
+              "E010"
+            ]
+          },
+          {
+            "claim": "Histopathology revealed adenocarcinoma with HER2 overexpression (immunohistochemical score 3+)",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Clinical progression with leukocytosis and no infectious etiology",
+            "evidence_ids": [
+              "E008",
+              "E009"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "myeloproliferative neoplasms",
+            "basis": "Initial hematologic workup including peripheral smear, JAK2 V617F mutation, and BCR/ABL was negative"
+          },
+          {
+            "alternative": "infection as cause of leukocytosis",
+            "basis": "Negative sepsis workup including blood cultures, urinalysis, and respiratory panel"
+          }
+        ],
+        "remaining_uncertainties": [
+          "Specific histopathology report text and immunohistochemical staining document not provided in excerpts",
+          "Biopsy or pathologic confirmation of liver lesions as metastases not documented"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.85
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "adenocarcinoma with HER2 overexpression (immunohistochemical score 3+)",
+    "trajectory_summary": "A 72-year-old female with leukocytosis and mild left upper quadrant discomfort underwent abdominal CT revealing thickening and nodular abnormality at the gastroesophageal junction (GEJ) and liver hypodensities suggestive of metastases. Upper endoscopy identified a fungating mass at the GEJ. Biopsy was performed, and histopathology confirmed adenocarcinoma with HER2 overexpression (3+). Clinical progression included leukocytosis without infection and symptomatic anemia.",
+    "key_supporting_evidence": [
+      {
+        "claim": "CT scan showed significant wall thickening at GEJ with nodular abnormality and multiple liver hypodensities suggestive of metastases",
+        "evidence_ids": [
+          "E006"
+        ]
+      },
+      {
+        "claim": "Upper endoscopy revealed a fungating mass at the GEJ",
+        "evidence_ids": [
+          "E010"
+        ]
+      },
+      {
+        "claim": "Histopathology revealed adenocarcinoma with HER2 overexpression (immunohistochemical score 3+)",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Clinical progression with leukocytosis and no infectious etiology",
+        "evidence_ids": [
+          "E008",
+          "E009"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "myeloproliferative neoplasms",
+        "basis": "Initial hematologic workup including peripheral smear, JAK2 V617F mutation, and BCR/ABL was negative"
+      },
+      {
+        "alternative": "infection as cause of leukocytosis",
+        "basis": "Negative sepsis workup including blood cultures, urinalysis, and respiratory panel"
+      }
+    ],
+    "remaining_uncertainties": [
+      "Specific histopathology report text and immunohistochemical staining document not provided in excerpts",
+      "Biopsy or pathologic confirmation of liver lesions as metastases not documented"
+    ],
+    "confidence_that_diagnosis_is_supported": 0.85
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-28T23:07:16.303542+00:00",
+  "clinician_model": "gpt-4.1-mini-test",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

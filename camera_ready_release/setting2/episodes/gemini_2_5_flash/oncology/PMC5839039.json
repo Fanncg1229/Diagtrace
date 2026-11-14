@@ -1,0 +1,338 @@
+{
+  "case_id": "PMC5839039",
+  "setting": "trajectory_reconstruction",
+  "max_turns": 15,
+  "turns_used": 8,
+  "termination": "final",
+  "known_final_diagnosis": "We encountered a case of concomitant lymphnode tuberculosis in a 4-year-old German boy with relapsed ganglioneuroblastoma.",
+  "disclosed_evidence_ids": [
+    "E002",
+    "E003",
+    "E004",
+    "E005"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the histopathological findings from the lymph node resection?",
+        "current_trajectory_hypothesis": "The patient presented with suspicious lesions, and a lymph node resection was performed. The histopathology of this lymph node is expected to show evidence of tuberculosis.",
+        "confirmed_evidence": [],
+        "missing_key_evidence": [
+          "Histopathological findings of lymph node",
+          "Microbiological findings for tuberculosis",
+          "Imaging findings details",
+          "Clinical course related to tuberculosis treatment"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.1
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E002",
+        "source_text": "pathologic examination revealed granulomatous lymphadenitis with epithelioid appearance and Langhans-type multinucleated giant cells suspicious of flourishing lymphnode tuberculosis instead of metastases of the ganglioneuroblastoma. The captured granulomatous lymphadenitis was noncaseating (Fig. G-H).",
+        "category": "pathology_report",
+        "temporal_cue": "at relapse workup",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 2,
+      "clinician": {
+        "action": "ORDER_TEST",
+        "request": "Order microbiological tests (e.g., culture, PCR) on the lymph node tissue for Mycobacterium tuberculosis.",
+        "current_trajectory_hypothesis": "The patient presented with suspicious lesions, and lymph node histopathology showed granulomatous lymphadenitis suggestive of tuberculosis. Microbiological confirmation is needed to establish the diagnosis of lymph node tuberculosis.",
+        "confirmed_evidence": [
+          "Lymph node histopathology showed granulomatous lymphadenitis with epithelioid cells and Langhans-type giant cells, suspicious for tuberculosis (E002)."
+        ],
+        "missing_key_evidence": [
+          "Microbiological confirmation of Mycobacterium tuberculosis from lymph node tissue",
+          "Imaging findings details for lung/lymph node lesions",
+          "Clinical course related to tuberculosis treatment",
+          "Biopsy findings from paravertebral lesions"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "ordered_but_not_documented",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "Microbiological tests ordered per clinician request; no direct source evidence documents the order result yet.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 3,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the results of the microbiological tests (culture, PCR) for Mycobacterium tuberculosis on the lymph node tissue?",
+        "current_trajectory_hypothesis": "Lymph node histopathology showed granulomatous lymphadenitis. Microbiological tests were ordered to confirm Mycobacterium tuberculosis, which is essential for diagnosing lymph node tuberculosis.",
+        "confirmed_evidence": [
+          "Lymph node histopathology showed granulomatous lymphadenitis with epithelioid cells and Langhans-type giant cells, suspicious for tuberculosis (E002)."
+        ],
+        "missing_key_evidence": [
+          "Microbiological confirmation of Mycobacterium tuberculosis from lymph node tissue",
+          "Imaging findings details for lung/lymph node lesions",
+          "Clinical course related to tuberculosis treatment",
+          "Biopsy findings from paravertebral lesions"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.4
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E003",
+        "source_text": "In addition, an interferon-gamma release assay (IGRA) yielded positive, whereas polymerase chain reaction (PCR) and cultures could not detect any mycobacteria.",
+        "category": "routine_lab",
+        "temporal_cue": "at relapse workup",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 4,
+      "clinician": {
+        "action": "WAIT_REASSESS",
+        "request": "Wait and reassess for pending results or the next clinical trajectory update.",
+        "current_trajectory_hypothesis": "Lymph node histopathology showed granulomatous lymphadenitis, and IGRA was positive, but PCR and culture were negative for Mycobacterium tuberculosis. To confirm the diagnosis of lymph node tuberculosis despite negative microbiological tests, information on the clinical course and response to anti-tuberculosis treatment is crucial.",
+        "confirmed_evidence": [
+          "Lymph node histopathology showed granulomatous lymphadenitis with epithelioid cells and Langhans-type giant cells, suspicious for tuberculosis (E002).",
+          "Microbiological tests (PCR and culture) on lymph node tissue were negative for mycobacteria, but an interferon-gamma release assay (IGRA) was positive (E003)."
+        ],
+        "missing_key_evidence": [
+          "Clinical course and response to anti-tuberculosis treatment",
+          "Further investigation or biopsy results from paravertebral or lung lesions",
+          "Differentiation from ganglioneuroblastoma relapse in other sites"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "no_new_update",
+        "evidence_id": "",
+        "source_text": "",
+        "phase_index": 1,
+        "phase_label": "early_workup",
+        "pending_orders": [],
+        "explanation": "No pending results and no new clinical trajectory update available after early_workup phase.",
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 5,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the clinical course and response to anti-tuberculosis treatment, if initiated?",
+        "current_trajectory_hypothesis": "Lymph node histopathology showed granulomatous lymphadenitis, and IGRA was positive, but PCR and culture were negative for Mycobacterium tuberculosis. Given these findings, the initiation of anti-tuberculosis treatment and the patient's response would be crucial to confirm the diagnosis of lymph node tuberculosis.",
+        "confirmed_evidence": [
+          "Lymph node histopathology showed granulomatous lymphadenitis with epithelioid cells and Langhans-type giant cells, suspicious for tuberculosis (E002).",
+          "Microbiological tests (PCR and culture) on lymph node tissue were negative for mycobacteria, but an interferon-gamma release assay (IGRA) was positive (E003)."
+        ],
+        "missing_key_evidence": [
+          "Initiation and response to anti-tuberculosis treatment",
+          "Further investigation or biopsy results from paravertebral or lung lesions (to rule out ganglioneuroblastoma relapse in these sites)",
+          "Confirmation of the final diagnosis based on clinical course/treatment response"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.5
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E004",
+        "source_text": "The patient underwent 2 months of triple therapy with pyrazinamide, rifampin and isoniazid and 3 months of rifampin and isoniazid treatment. For neuroblastoma relapse, chemotherapeutical treatment according to the RIST-relapsed Neuroblastoma-2011 protocol was administered.",
+        "category": "treatment_response",
+        "temporal_cue": "after diagnosis",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 6,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What was the patient's clinical and radiological response to the anti-tuberculosis treatment?",
+        "current_trajectory_hypothesis": "Lymph node histopathology showed granulomatous lymphadenitis, and IGRA was positive, but PCR and culture were negative for Mycobacterium tuberculosis. Anti-tuberculosis treatment was initiated. The patient's response to this treatment is crucial for confirming the diagnosis of lymph node tuberculosis, especially in the absence of microbiological confirmation.",
+        "confirmed_evidence": [
+          "Lymph node histopathology showed granulomatous lymphadenitis with epithelioid cells and Langhans-type giant cells, suspicious for tuberculosis (E002).",
+          "Microbiological tests (PCR and culture) on lymph node tissue were negative for mycobacteria, but an interferon-gamma release assay (IGRA) was positive (E003).",
+          "Anti-tuberculosis treatment (triple therapy followed by dual therapy) was initiated (E004)."
+        ],
+        "missing_key_evidence": [
+          "Clinical and radiological response to anti-tuberculosis treatment",
+          "Further investigation or biopsy results from paravertebral or lung lesions to differentiate between TB and neuroblastoma relapse",
+          "Long-term outcome related to both conditions"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "found",
+        "evidence_id": "E005",
+        "source_text": "Three months after initiating the antituberculostatic treatment and relapse chemotherapy, MRI showed a partial remission of the paravertebral lesions and a nearly complete remission of the lesions in the lung and lymphnodes.",
+        "category": "imaging_report",
+        "temporal_cue": "3 months after treatment initiation",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 7,
+      "clinician": {
+        "action": "REQUEST_RESULT",
+        "request": "What were the histopathological findings from the biopsy of the paravertebral lesions?",
+        "current_trajectory_hypothesis": "The patient presented with suspicious paravertebral lesions, lung lesions, and lymph node lesions. Lymph node histopathology and IGRA supported tuberculosis, and these lesions responded to anti-tuberculosis treatment. To fully support the known final diagnosis of 'concomitant lymphnode tuberculosis in a 4-year-old German boy with relapsed ganglioneuroblastoma', evidence for the ganglioneuroblastoma relapse, specifically from the paravertebral lesions, is needed.",
+        "confirmed_evidence": [
+          "Lymph node histopathology showed granulomatous lymphadenitis with epithelioid cells and Langhans-type giant cells, suspicious for tuberculosis (E002).",
+          "Microbiological tests (PCR and culture) on lymph node tissue were negative for mycobacteria, but an interferon-gamma release assay (IGRA) was positive (E003).",
+          "Anti-tuberculosis treatment (triple therapy followed by dual therapy) was initiated (E004).",
+          "Three months after initiating antituberculostatic treatment and relapse chemotherapy, MRI showed partial remission of paravertebral lesions and nearly complete remission of lung and lymph node lesions (E005)."
+        ],
+        "missing_key_evidence": [
+          "Histopathological confirmation of ganglioneuroblastoma relapse from paravertebral lesions",
+          "Specific details on the initial MRI and MIBG findings for neuroblastoma relapse",
+          "Long-term outcome of tuberculosis and neuroblastoma"
+        ],
+        "confidence_that_diagnosis_is_supported": 0.6
+      },
+      "report": {
+        "status": "already_disclosed",
+        "evidence_id": "E002",
+        "source_text": "Biopsy of the paravertebral tumor was performed and the suspicious perihilar lymphnodes were resected. While relapse in the tumor was confirmed, surprisingly, pathologic examination revealed granulomatous lymphadenitis with epithelioid appearance and Langhans-type multinucleated giant cells suspicious of flourishing lymphnode tuberculosis instead of metastases of the ganglioneuroblastoma. The captured granulomatous lymphadenitis was noncaseating (Fig. G-H).",
+        "category": "pathology_report",
+        "temporal_cue": "at relapse workup",
+        "phase_index": 6,
+        "phase_label": "treatment_or_outcome",
+        "pending_orders": [],
+        "verbatim": true
+      }
+    },
+    {
+      "turn_number": 8,
+      "clinician": {
+        "action": "FINAL_TRAJECTORY",
+        "final_diagnosis": "concomitant lymphnode tuberculosis in a 4-year-old German boy with relapsed ganglioneuroblastoma",
+        "trajectory_summary": "A 4-year-old boy with a history of high-risk ganglioneuroblastoma presented with relapse, showing new paravertebral lesions and suspicious lung and lymph node lesions on MRI and MIBG scintigraphy. Biopsy of the paravertebral tumor confirmed ganglioneuroblastoma relapse. Resection of perihilar lymph nodes revealed granulomatous lymphadenitis with epithelioid and Langhans-type giant cells, suspicious for tuberculosis. An interferon-gamma release assay (IGRA) was positive, but PCR and cultures for mycobacteria were negative. The patient received anti-tuberculosis triple therapy followed by dual therapy, alongside chemotherapy for neuroblastoma relapse. Three months after initiating treatment, MRI showed partial remission of paravertebral lesions and nearly complete remission of lung and lymph node lesions.",
+        "key_supporting_evidence": [
+          {
+            "claim": "Patient presented with relapsed ganglioneuroblastoma, indicated by new paravertebral, lung, and lymph node lesions.",
+            "evidence_ids": []
+          },
+          {
+            "claim": "Biopsy of the paravertebral tumor confirmed relapse of ganglioneuroblastoma.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "Pathologic examination of resected lymph nodes revealed granulomatous lymphadenitis with epithelioid and Langhans-type giant cells, suspicious for tuberculosis.",
+            "evidence_ids": [
+              "E002"
+            ]
+          },
+          {
+            "claim": "An interferon-gamma release assay (IGRA) was positive, supporting tuberculosis, despite negative PCR and cultures for mycobacteria from lymph node tissue.",
+            "evidence_ids": [
+              "E003"
+            ]
+          },
+          {
+            "claim": "Anti-tuberculosis treatment (triple therapy followed by dual therapy) was initiated.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Chemotherapy for neuroblastoma relapse was administered.",
+            "evidence_ids": [
+              "E004"
+            ]
+          },
+          {
+            "claim": "Three months after treatment initiation, MRI showed partial remission of paravertebral lesions and nearly complete remission of lung and lymph node lesions, indicating response to treatment for both conditions.",
+            "evidence_ids": [
+              "E005"
+            ]
+          }
+        ],
+        "ruled_out_or_less_likely_alternatives": [
+          {
+            "alternative": "Lymph node metastases of ganglioneuroblastoma",
+            "basis": "Pathologic examination of lymph nodes revealed granulomatous lymphadenitis suspicious for tuberculosis instead of metastases (E002)."
+          }
+        ],
+        "remaining_uncertainties": [],
+        "confidence_that_diagnosis_is_supported": 0.95
+      },
+      "report": null
+    }
+  ],
+  "final": {
+    "action": "FINAL_TRAJECTORY",
+    "final_diagnosis": "concomitant lymphnode tuberculosis in a 4-year-old German boy with relapsed ganglioneuroblastoma",
+    "trajectory_summary": "A 4-year-old boy with a history of high-risk ganglioneuroblastoma presented with relapse, showing new paravertebral lesions and suspicious lung and lymph node lesions on MRI and MIBG scintigraphy. Biopsy of the paravertebral tumor confirmed ganglioneuroblastoma relapse. Resection of perihilar lymph nodes revealed granulomatous lymphadenitis with epithelioid and Langhans-type giant cells, suspicious for tuberculosis. An interferon-gamma release assay (IGRA) was positive, but PCR and cultures for mycobacteria were negative. The patient received anti-tuberculosis triple therapy followed by dual therapy, alongside chemotherapy for neuroblastoma relapse. Three months after initiating treatment, MRI showed partial remission of paravertebral lesions and nearly complete remission of lung and lymph node lesions.",
+    "key_supporting_evidence": [
+      {
+        "claim": "Patient presented with relapsed ganglioneuroblastoma, indicated by new paravertebral, lung, and lymph node lesions.",
+        "evidence_ids": []
+      },
+      {
+        "claim": "Biopsy of the paravertebral tumor confirmed relapse of ganglioneuroblastoma.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "Pathologic examination of resected lymph nodes revealed granulomatous lymphadenitis with epithelioid and Langhans-type giant cells, suspicious for tuberculosis.",
+        "evidence_ids": [
+          "E002"
+        ]
+      },
+      {
+        "claim": "An interferon-gamma release assay (IGRA) was positive, supporting tuberculosis, despite negative PCR and cultures for mycobacteria from lymph node tissue.",
+        "evidence_ids": [
+          "E003"
+        ]
+      },
+      {
+        "claim": "Anti-tuberculosis treatment (triple therapy followed by dual therapy) was initiated.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Chemotherapy for neuroblastoma relapse was administered.",
+        "evidence_ids": [
+          "E004"
+        ]
+      },
+      {
+        "claim": "Three months after treatment initiation, MRI showed partial remission of paravertebral lesions and nearly complete remission of lung and lymph node lesions, indicating response to treatment for both conditions.",
+        "evidence_ids": [
+          "E005"
+        ]
+      }
+    ],
+    "ruled_out_or_less_likely_alternatives": [
+      {
+        "alternative": "Lymph node metastases of ganglioneuroblastoma",
+        "basis": "Pathologic examination of lymph nodes revealed granulomatous lymphadenitis suspicious for tuberculosis instead of metastases (E002)."
+      }
+    ],
+    "remaining_uncertainties": [],
+    "confidence_that_diagnosis_is_supported": 0.95
+  },
+  "protocol_version": "2026-07-trajectory-workflow-setting2-v1",
+  "created_at": "2026-07-27T23:10:01.866374+00:00",
+  "clinician_model": "gemini-2.5-flash",
+  "report_model": "gpt-4.1-mini-test",
+  "extraction_model": "gpt-4.1-mini-test",
+  "role_contexts_separate": true
+}

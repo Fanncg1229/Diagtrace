@@ -1,6 +1,6 @@
-# Proposed DiagTrace camera-ready data addendum
+# DiagTrace Camera-Ready Data Release
 
-This directory is a local review artifact. It has **not** been pushed to the public data repository.
+This directory contains the publicly released canonical artifacts for reproducing the corrected EACL 2027 Findings camera-ready results.
 
 It contains the canonical Setting 2 resources needed to reproduce the corrected camera-ready analyses:
 
